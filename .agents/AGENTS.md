@@ -33,3 +33,8 @@
 
 ## 8. 100% Free and Open-Source Constraint (Zero Paid External Services)
 - **Strict FOSS Compliance**: NEVER propose, require, or integrate paid commercial cloud APIs (OpenAI, Claude API, Pinecone, etc.). All tools, models, OCR pipelines, and dependencies must be 100% Free and Open-Source (FOSS) and capable of running locally or on-premise.
+
+
+## 9. Dynamic Market & Ecosystem Grounding Rule (Mandatory Live Search)
+- **Mandatory Web Search for Fast-Moving Technical Facts**: Whenever dealing with model releases, open-weights (SLMs/LLMs/VLMs), benchmarks, GPU/hardware specs and pricing, library/framework versions, or external tooling ecosystems, **NEVER** rely on pre-training cutoff memory or stale static knowledge.
+- **Mandatory Real-Time Verification**: ALWAYS perform web searches before listing, recommending, or making architectural decisions regarding AI models, active benchmarks (e.g., Open Persian LLM Leaderboard, LMSYS, Hugging Face leaderboards), or dependencies. Stale recommendations are considered an engineering defect.
