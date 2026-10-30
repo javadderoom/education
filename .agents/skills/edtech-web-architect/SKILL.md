@@ -1,11 +1,11 @@
 ---
 name: edtech-web-architect
-description: Master Next.js 15+ App Router, React 19, TypeScript, TailwindCSS v4, Vercel Serverless, Neon PostgreSQL (Drizzle ORM), KaTeX math rendering, PWA offline sync, and the 5 React/SVG parametric visual templates. Use PROACTIVELY when designing or implementing web components for the Diagnostic EdTech platform.
+description: Master Next.js 16+ App Router, React 19.3+ (with React Compiler), TypeScript, TailwindCSS v4.3+, Vercel Serverless, Neon PostgreSQL 18 (Drizzle ORM v0.45+), KaTeX math rendering, PWA offline sync, and the 5 React/SVG parametric visual templates. Use PROACTIVELY when designing or implementing web components for the Diagnostic EdTech platform.
 ---
 
-# EdTech Web Architecture & Engineering Guide (Next.js 15 + Vercel + Neon)
+# EdTech Web Architecture & Engineering Guide (Next.js 16.4+ & Vercel)
 
-This skill guides the design, implementation, and optimization of the **Diagnostic EdTech Web Platform** using Next.js 15 (App Router), React 19, TypeScript, TailwindCSS v4, and Vercel Serverless deployment.
+This skill guides the design, implementation, and optimization of the **Diagnostic EdTech Web Platform** using Next.js 16.4+, React 19.3+ (with the React Compiler), TypeScript, TailwindCSS v4.3+, Neon PostgreSQL 18, and Vercel Serverless deployment.
 
 ---
 
