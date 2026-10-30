@@ -1,11 +1,11 @@
 ---
 name: edtech-web-architect
-description: Master Next.js 16+ App Router, React 19.3+ (with React Compiler), TypeScript, TailwindCSS v4.3+, Vercel Serverless, Neon PostgreSQL 18 (Drizzle ORM v0.45+), KaTeX math rendering, PWA offline sync, and the 5 React/SVG parametric visual templates. Use PROACTIVELY when designing or implementing web components for the Diagnostic EdTech platform.
+description: Master Next.js 16+ App Router, React 19.3+ (with React Compiler), TypeScript, TailwindCSS v4.3+, Vercel Serverless, Neon PostgreSQL 18 (Prisma 7+), Gemini 3.5 Flash Lite API integration, KaTeX math rendering, PWA offline sync, and the 5 React/SVG parametric visual templates. Use PROACTIVELY when designing or implementing web components for the Diagnostic EdTech platform.
 ---
 
 # EdTech Web Architecture & Engineering Guide (Next.js 16.4+ & Vercel)
 
-This skill guides the design, implementation, and optimization of the **Diagnostic EdTech Web Platform** using Next.js 16.4+, React 19.3+ (with the React Compiler), TypeScript, TailwindCSS v4.3+, Neon PostgreSQL 18, and Vercel Serverless deployment.
+This skill guides the design, implementation, and optimization of the **Diagnostic EdTech Web Platform** using Next.js 16.4+, React 19.3+ (with the React Compiler), TypeScript, TailwindCSS v4.3+, Neon PostgreSQL 18 (Prisma 7+), Gemini 3.5 Flash Lite, and Vercel Serverless deployment.
 
 ---
 
@@ -31,11 +31,15 @@ web/
 │   ├── feedback/               # Empathetic feedback modal, counter-example capsules
 │   └── ui/                     # Accessible primitives (Radix UI / Tailwind)
 ├── lib/
+│   ├── ai/                     # Gemini 3.5 Flash Lite client with Cloudflare Worker proxy
 │   ├── bkt/                    # Pure TypeScript Bayesian Knowledge Tracing engine
 │   ├── cas/                    # JavaScript symbolic math / fraction validator (mathjs)
-│   ├── db/                     # Drizzle ORM schema & Neon serverless pool client
+│   ├── db/                     # Prisma 7+ singleton client with connection pooling
 │   ├── math/                   # KaTeX RTL configuration & bidirectional sanitizer
 │   └── offline/                # Dexie.js (IndexedDB) client for offline PWA storage
+├── prisma/
+│   ├── schema.prisma           # Declarative Prisma schema for Educational entities
+│   └── migrations/             # Tracked SQL migrations
 └── public/
     ├── audio/                  # Audio pronunciation assets
     └── manifest.json           # PWA manifest for add-to-homescreen
@@ -129,3 +133,56 @@ Never write bespoke UI code for each math exercise. Always instantiate one of th
   - Do NOT interrupt the student.
   - Store responses in local offline queue.
   - Background-sync with Neon PostgreSQL as soon as `navigator.onLine` fires.
+
+
+---
+
+## 7. Gemini 3.5 Flash Lite API Integration (`lib/ai/gemini.ts`)
+
+Connect to Google Gemini via the Cloudflare Worker proxy using the `@google/genai` SDK or custom fetch client:
+
+```typescript
+import { GoogleGenAI } from '@google/genai';
+
+const apiKey = process.env.GEMINI_API_KEY!;
+const baseUrl = process.env.GEMINI_PROXY_URL; // e.g. https://tradekav-gemini.deroom24.workers.dev
+const modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+
+export const ai = new GoogleGenAI({
+  apiKey,
+  ...(baseUrl ? { httpOptions: { baseUrl } } : {}),
+});
+
+export async function generateDiagnosticContent(prompt: string, systemInstruction?: string) {
+  const response = await ai.models.generateContent({
+    model: modelName,
+    contents: prompt,
+    config: {
+      systemInstruction,
+      responseMimeType: 'application/json',
+      temperature: 0.2, // Low temperature for high factual & math fidelity
+    },
+  });
+
+  return JSON.parse(response.text || '{}');
+}
+```
+
+---
+
+## 8. Prisma 7+ on Vercel Serverless (`lib/db/prisma.ts`)
+
+- **Connection Pooler Mandatory**: Always use the pooled connection string on port 5432 or `@prisma/adapter-neon` via WebSockets/HTTP to prevent connection exhaustion.
+- **Prisma Singleton Pattern**:
+  ```typescript
+  import { PrismaClient } from '@prisma/client';
+
+  const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
+
+  export const prisma = globalForPrisma.prisma || new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+  });
+
+  if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+  ```
+- **Vercel Build Script**: Always configure `"build": "prisma generate && next build"` in `package.json`.
