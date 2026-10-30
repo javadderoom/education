@@ -1,0 +1,357 @@
+{
+  "cartridge_id": "CART-IR-MATH4-CH02",
+  "title": "ریاضی پایه چهارم ابتدایی - فصل دوم: کسر",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس معلم کد ۴۰.۴",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH4-FRACTIONS",
+    "name": "مفهوم و محاسبات کسرها (پایه چهارم)",
+    "grade_level": 4
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH4-C02-01",
+      "title": "شناخت مفهوم کسر به عنوان رابطه جزء از کل و تفکیک واحد",
+      "bloom_level": "understand",
+      "description": "توانایی درک و بیان کسر به عنوان نسبت بخش‌های برابر رنگ‌شده یا انتخاب‌شده به کل بخش‌های مساوی یک واحد مشخص.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH4-C02-02",
+      "title": "شناخت و تولید کسرهای مساوی با ضرب یا تقسیم صورت و مخرج",
+      "bloom_level": "apply",
+      "description": "توانایی تشخیص اینکه ضرب یا تقسیم صورت و مخرج در یک عدد غیرصفر مقدار کسر را تغییر نمی‌دهد و نشان‌دهنده ریزتر یا درشت‌تر شدن تقسیم‌بندی است.",
+      "prerequisites": ["KC-MATH4-C02-01"]
+    },
+    {
+      "id": "KC-MATH4-C02-03",
+      "title": "مقایسه کسرها با مخرج‌های مساوی یا نامساوی و درک اندازه نسبی",
+      "bloom_level": "analyze",
+      "description": "توانایی مقایسه دو کسر بر اساس واحد یکسان؛ درک اینکه با مخرج‌های برابر صورت بزرگتر کسر بزرگتر است و با صورت‌های برابر مخرج بزرگتر به معنای قطعات کوچکتر و کسر کوچکتر است.",
+      "prerequisites": ["KC-MATH4-C02-01", "KC-MATH4-C02-02"]
+    },
+    {
+      "id": "KC-MATH4-C02-04",
+      "title": "جمع و تفریق کسرهای هم‌مخرج و هم‌مخرج کردن کسرها",
+      "bloom_level": "apply",
+      "description": "توانایی جمع یا تفریق صورت‌ها با حفظ مخرج مشترک و تبدیل کسرهای نامخرج به مخرج مشترک با استفاده از کسرهای مساوی.",
+      "prerequisites": ["KC-MATH4-C02-02", "KC-MATH4-C02-03"]
+    },
+    {
+      "id": "KC-MATH4-C02-05",
+      "title": "نمایش کسرها و اعداد مخلوط روی محور اعداد",
+      "bloom_level": "apply",
+      "description": "توانایی تقسیم‌بندی صحیح فواصل بین اعداد صحیح روی محور به قطعات مساوی و مشخص کردن موقعیت دقیق کسرها یا اعداد مخلوط.",
+      "prerequisites": ["KC-MATH4-C02-01"]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-ADD-NUM-DEN",
+      "title": "جمع همزمان صورت‌ها و مخرج‌ها با یکدیگر",
+      "description": "دانش‌آموز کسر را دو عدد صحیح مجزا فرض کرده و در عمل جمع، صورت‌ها را با هم و مخرج‌ها را با هم جمع می‌زند (مثلاً ۲/۵ + ۱/۵ = ۳/۱۰).",
+      "counter_example_blueprint": {
+        "scenario": "یک پیتزا را به ۵ قسمت مساوی تقسیم کرده‌ایم. اگر ۲ برش بخورید و دوستتان ۱ برش بخورد، آیا پیتزا به ۱۰ قسمت تبدیل شده است؟",
+        "visual_counter_example": "FractionStrip with 5 segments: 2 colored + 1 colored = 3 colored out of 5, not out of 10."
+      }
+    },
+    {
+      "id": "MIS-BIGGER-DEN-BIGGER-VAL",
+      "title": "پنداشت اینکه مخرج بزرگتر به معنای کسر بزرگتر است",
+      "description": "انتقال شهود اعداد طبیعی به کسرها؛ فرض اینکه چون ۸ از ۴ بزرگتر است، پس ۱/۸ از ۱/۴ بزرگتر است.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم یک کیک مساوی بین ۸ نفر در مقایسه با تقسیم همان کیک بین ۴ نفر؛ سهم هر فرد در کدام حالت بزرگتر است؟",
+        "visual_counter_example": "FractionStrip comparison showing 1/4 slice is visibly twice the width of 1/8 slice."
+      }
+    },
+    {
+      "id": "MIS-NUM-AS-SEPARATE-INTS",
+      "title": "تلقی صورت و مخرج به عنوان دو عدد مستقل",
+      "description": "عدم درک پیوند نسبتی صورت و مخرج؛ دانش‌آموز فکر می‌کند افزودن یک عدد ثابت به صورت و مخرج (مثلاً ۲/۳ -> ۳/۴ با افزودن ۱ به هر دو) کسر مساوی تولید می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "اگر ۱ برش از ۲ برش (۱/۲) نصف پیتزاست، آیا اگر ۱ به هر دو اضافه کنیم یعنی ۲ برش از ۳ برش (۲/۳) باز هم نصف پیتزاست؟",
+        "visual_counter_example": "AreaGrid showing 1/2 (50%) is not equal to 2/3 (66.6%)."
+      }
+    },
+    {
+      "id": "MIS-NUMBERLINE-TICK-COUNT",
+      "title": "شمارش خطوط تقسیم (تیک‌ها) به جای فواصل روی محور اعداد",
+      "description": "هنگام تعیین مخرج روی محور اعداد، دانش‌آموز خط‌های عمودی نشانه‌گذاری را می‌شمارد (شامل خط صفر یا خط یک) به جای شمارش تعداد بازه‌های مساوی.",
+      "counter_example_blueprint": {
+        "scenario": "فاصله خانه تا مدرسه ۱ کیلومتر است. اگر وسط راه ۱ تابلوی راهنما بگذاریم، مسیر به ۲ تکه تقسیم شده یا ۳ تکه؟",
+        "visual_counter_example": "NumberLine showing 1 inner tick mark creates 2 distinct intervals."
+      }
+    },
+    {
+      "id": "MIS-UNEQUAL-PARTITIONS",
+      "title": "نادیده گرفتن شرط برابری قطعات در تعریف کسر",
+      "description": "دانش‌آموز هر شکلی که به چند تکه تقسیم شده را بدون توجه به مساوی بودن مساحت یا طول قطعات، به عنوان کسر در نظر می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "یک مستطیل را به دو قسمت نامساوی (یکی خیلی کوچک و یکی خیلی بزرگ) برش می‌زنیم؛ آیا بخش کوچک ۱/۲ کل مستطیل است؟",
+        "visual_counter_example": "AreaGrid displaying visually unequal divisions to highlight definition violation."
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH4-CH02-001",
+      "kc_id": "KC-MATH4-C02-04",
+      "stem": "حاصل عبارت $\\frac{2}{7} + \\frac{3}{7}$ کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.08,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 7,
+          "initialColored": 0,
+          "showSumMode": true,
+          "operandA": 2,
+          "operandB": 3
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-001-A",
+          "label": "الف",
+          "content": "$\\frac{5}{7}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج‌ها برابرند، پس مخرج مشترک (۷) باقی می‌ماند و صورت‌ها جمع می‌شوند (۲ + ۳ = ۵)."
+        },
+        {
+          "id": "DIS-001-B",
+          "label": "ب",
+          "content": "$\\frac{5}{14}$",
+          "is_correct": false,
+          "misconception_id": "MIS-ADD-NUM-DEN",
+          "rationale": "بدفهمی جمع مخرج‌ها: دانش‌آموز علاوه بر صورت‌ها، مخرج‌ها را هم با هم جمع کرده است (۷ + ۷ = ۱۴)."
+        },
+        {
+          "id": "DIS-001-C",
+          "label": "ج",
+          "content": "$\\frac{6}{7}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای محاسباتی در جمع صورت‌ها (ضرب به جای جمع: ۲ × ۳ = ۶)."
+        },
+        {
+          "id": "DIS-001-D",
+          "label": "د",
+          "content": "$\\frac{1}{7}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای تفریق به جای جمع (۳ - ۲ = ۱)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-002",
+      "kc_id": "KC-MATH4-C02-03",
+      "stem": "کدام یک از مقایسه‌های زیر درباره دو کسر $\\frac{1}{4}$ و $\\frac{1}{6}$ درست است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": {
+          "leftValue": 0.25,
+          "rightValue": 0.1666,
+          "leftLabel": "1/4",
+          "rightLabel": "1/6"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-002-A",
+          "label": "الف",
+          "content": "$\\frac{1}{4} > \\frac{1}{6}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: وقتی صورت‌ها برابرند، هرچه مخرج کوچکتر باشد، یعنی واحد به قطعات بزرگتری تقسیم شده، بنابراین ۱/۴ بزرگتر از ۱/۶ است."
+        },
+        {
+          "id": "DIS-002-B",
+          "label": "ب",
+          "content": "$\\frac{1}{6} > \\frac{1}{4}$",
+          "is_correct": false,
+          "misconception_id": "MIS-BIGGER-DEN-BIGGER-VAL",
+          "rationale": "بدفهمی مخرج بزرگتر: چون عدد ۶ از ۴ بزرگتر است، دانش‌آموز فکر کرده کسر با مخرج ۶ باید بزرگتر باشد."
+        },
+        {
+          "id": "DIS-002-C",
+          "label": "ج",
+          "content": "$\\frac{1}{4} = \\frac{1}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "بدفهمی تساوی صورت‌ها: فرض اینکه چون صورت هر دو ۱ است، مقدارشان برابر است."
+        },
+        {
+          "id": "DIS-002-D",
+          "label": "د",
+          "content": "بدون دانستن اندازه کل شکل نمی‌توان مقایسه کرد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "عدم درک مفهوم کسرهای استاندارد روی واحد یکسان."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-003",
+      "kc_id": "KC-MATH4-C02-02",
+      "stem": "کدام کسر با کسر $\\frac{2}{3}$ مساوی است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.09,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 2,
+          "cols": 3,
+          "highlightFractionA": "2/3",
+          "highlightFractionB": "4/6"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-003-A",
+          "label": "الف",
+          "content": "$\\frac{4}{6}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: صورت و مخرج هر دو در ۲ ضرب شده‌اند (۲×۲=۴ و ۳×۲=۶)."
+        },
+        {
+          "id": "DIS-003-B",
+          "label": "ب",
+          "content": "$\\frac{3}{4}$",
+          "is_correct": false,
+          "misconception_id": "MIS-NUM-AS-SEPARATE-INTS",
+          "rationale": "بدفهمی جمع عدد ثابت: دانش‌آموز به صورت و مخرج عدد ۱ را اضافه کرده است (۲+۱=۳ و ۳+۱=۴) به جای ضرب."
+        },
+        {
+          "id": "DIS-003-C",
+          "label": "ج",
+          "content": "$\\frac{4}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب صورت در ۲ بدون تغییر مخرج."
+        },
+        {
+          "id": "DIS-003-D",
+          "label": "د",
+          "content": "$\\frac{2}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب مخرج در ۲ بدون تغییر صورت."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-004",
+      "kc_id": "KC-MATH4-C02-05",
+      "stem": "روی یک محور اعداد، بین عدد صفر و عدد یک به ۴ فاصله مساوی تقسیم شده است. نقطه نشان‌دهنده دومین خط بعد از صفر کدام کسر است؟",
+      "difficulty": 0.42,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": {
+          "min": 0,
+          "max": 1,
+          "partitions": 4,
+          "targetPoint": 0.5,
+          "targetLabel": "نقطه مورد نظر"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-004-A",
+          "label": "الف",
+          "content": "$\\frac{2}{4}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: واحد به ۴ بخش مساوی تقسیم شده و دومین فاصله نشان‌دهنده ۲/۴ (یا ۱/۲) است."
+        },
+        {
+          "id": "DIS-004-B",
+          "label": "ب",
+          "content": "$\\frac{2}{5}$",
+          "is_correct": false,
+          "misconception_id": "MIS-NUMBERLINE-TICK-COUNT",
+          "rationale": "بدفهمی شمارش تیک‌ها: دانش‌آموز خط‌های مدرج (۰، خط۱، خط۲، خط۳ و ۱) را ۵ تا شمرده و مخرج را ۵ گذاشته است."
+        },
+        {
+          "id": "DIS-004-C",
+          "label": "ج",
+          "content": "$\\frac{2}{3}$",
+          "is_correct": false,
+          "misconception_id": "MIS-NUMBERLINE-TICK-COUNT",
+          "rationale": "شمارش فقط تیک‌های داخلی بین ۰ و ۱ (۳ تیک) به عنوان مخرج."
+        },
+        {
+          "id": "DIS-004-D",
+          "label": "د",
+          "content": "$\\frac{1}{4}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "شمارش اشتباه گام‌ها (یک گام به جای دو گام)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-005",
+      "kc_id": "KC-MATH4-C02-01",
+      "stem": "اگر یک نوار کاغذی به ۸ قسمت مساوی تقسیم شده باشد و ۵ قسمت آن رنگ شده باشد، کسر مربوط به بخش‌های رنگ‌نشده کدام است؟",
+      "difficulty": 0.38,
+      "guess_param": 0.20,
+      "slip_param": 0.07,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 8,
+          "initialColored": 5,
+          "showSumMode": false
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-005-A",
+          "label": "الف",
+          "content": "$\\frac{3}{8}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کل واحد ۸ قسمت است؛ ۵ قسمت رنگ شده و ۳ قسمت رنگ‌نشده باقی مانده است (۸ - ۵ = ۳)."
+        },
+        {
+          "id": "DIS-005-B",
+          "label": "ب",
+          "content": "$\\frac{5}{8}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "بی‌دقتی در خواندن صورت سوال: انتخاب کسر بخش‌های رنگ‌شده به جای رنگ‌نشده."
+        },
+        {
+          "id": "DIS-005-C",
+          "label": "ج",
+          "content": "$\\frac{3}{5}$",
+          "is_correct": false,
+          "misconception_id": "MIS-NUM-AS-SEPARATE-INTS",
+          "rationale": "نسبت جزء به جزء: دانش‌آموز تعداد رنگ‌نشده (۳) را به تعداد رنگ‌شده (۵) نسبت داده است به جای نسبت به کل واحد (۸)."
+        },
+        {
+          "id": "DIS-005-D",
+          "label": "د",
+          "content": "$\\frac{5}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نسبت معکوس جزء به جزء."
+        }
+      ]
+    }
+  ]
+}

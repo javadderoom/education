@@ -1,0 +1,189 @@
+// Educational Cognitive Diagnostic Assessment Platform
+// Prisma Schema for Next.js 16.4+ & PostgreSQL 18 (Neon / Supabase Connection Pooler)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Domain {
+  id        String    @id
+  name      String
+  category  String    @default("k12") // "k12", "higher_ed", "vocational"
+  subjects  Subject[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("domains")
+}
+
+model Subject {
+  id                  String               @id
+  domainId            String
+  domain              Domain               @relation(fields: [domainId], references: [id])
+  name                String
+  gradeLevel          Int                  @default(4)
+  knowledgeComponents KnowledgeComponent[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+
+  @@map("subjects")
+}
+
+model KnowledgeComponent {
+  id              String                 @id
+  subjectId       String
+  subject         Subject                @relation(fields: [subjectId], references: [id])
+  title           String
+  bloomLevel      String                 @default("understand") // remember, understand, apply, analyze, evaluate, create
+  description     String?                @db.Text
+  
+  // Prerequisite graph relationships
+  prerequisites   KnowledgePrerequisite[] @relation("Prerequisites")
+  prerequisiteFor KnowledgePrerequisite[] @relation("PrerequisiteFor")
+  
+  misconceptions  Misconception[]
+  diagnosticItems DiagnosticItem[]
+  masteryStates   LatentMasteryState[]
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+
+  @@map("knowledge_components")
+}
+
+model KnowledgePrerequisite {
+  id             String             @id @default(cuid())
+  kcId           String
+  prerequisiteId String
+  kc             KnowledgeComponent @relation("Prerequisites", fields: [kcId], references: [id], onDelete: Cascade)
+  prerequisite   KnowledgeComponent @relation("PrerequisiteFor", fields: [prerequisiteId], references: [id], onDelete: Cascade)
+
+  @@unique([kcId, prerequisiteId])
+  @@map("knowledge_prerequisites")
+}
+
+model Misconception {
+  id                       String             @id
+  kcId                     String
+  kc                       KnowledgeComponent @relation(fields: [kcId], references: [id], onDelete: Cascade)
+  title                    String
+  description              String             @db.Text
+  counterExampleBlueprint  String             @db.Text // JSON or structured blueprint for cognitive conflict
+  distractors              Distractor[]
+  remediationTasks         RemediationTask[]
+  createdAt                DateTime           @default(now())
+  updatedAt                DateTime           @updatedAt
+
+  @@map("misconceptions")
+}
+
+model DiagnosticItem {
+  id                  String             @id
+  kcId                String
+  kc                  KnowledgeComponent @relation(fields: [kcId], references: [id])
+  stem                String             @db.Text
+  difficulty          Float              @default(0.50) // Classical item difficulty p-value
+  guessParam          Float              @default(0.20) // BKT / 3PL Guess parameter g_j
+  slipParam           Float              @default(0.10) // BKT / 3PL Slip parameter s_j
+  visualTemplateType  String?            // "FractionStrip", "NumberLine", "AreaGrid", "BalanceScale", "BucketSort"
+  visualTemplateProps String?            @db.Text // JSON config for parametric visual SVG template
+  distractors         Distractor[]
+  itemResponses       ItemResponse[]
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  @@map("diagnostic_items")
+}
+
+model Distractor {
+  id              String          @id
+  itemId          String
+  item            DiagnosticItem  @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  label           String          // "الف", "ب", "ج", "د"
+  content         String          @db.Text // KaTeX / text
+  isCorrect       Boolean         @default(false)
+  misconceptionId String?
+  misconception   Misconception?  @relation(fields: [misconceptionId], references: [id], onDelete: SetNull)
+  rationale       String?         @db.Text
+  itemResponses   ItemResponse[]
+
+  @@map("distractors")
+}
+
+model Learner {
+  id            String               @id @default(cuid())
+  username      String               @unique
+  displayName   String
+  gradeLevel    Int                  @default(4)
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  sessions      AssessmentSession[]
+  masteryStates LatentMasteryState[]
+  remediations  RemediationTask[]
+
+  @@map("learners")
+}
+
+model AssessmentSession {
+  id          String         @id @default(cuid())
+  learnerId   String
+  learner     Learner        @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  subjectId   String
+  startedAt   DateTime       @default(now())
+  completedAt DateTime?
+  responses   ItemResponse[]
+
+  @@map("assessment_sessions")
+}
+
+model ItemResponse {
+  id                      String            @id @default(cuid())
+  sessionId               String
+  session                 AssessmentSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  itemId                  String
+  item                    DiagnosticItem    @relation(fields: [itemId], references: [id])
+  selectedDistractorId    String?
+  selectedDistractor      Distractor?       @relation(fields: [selectedDistractorId], references: [id], onDelete: SetNull)
+  isNotSure               Boolean           @default(false) // "هنوز مطمئن نیستم" honesty button
+  isCorrect               Boolean
+  responseTimeMs          Int               @default(0)
+  priorMastery            Float             @default(0.15) // P(L_{t-1})
+  posteriorMastery        Float             @default(0.15) // P(L_t | Obs)
+  diagnosedMisconceptionId String?
+  createdAt               DateTime          @default(now())
+
+  @@map("item_responses")
+}
+
+model LatentMasteryState {
+  id                 String             @id @default(cuid())
+  learnerId          String
+  learner            Learner            @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  kcId               String
+  kc                 KnowledgeComponent @relation(fields: [kcId], references: [id])
+  masteryProbability Float              @default(0.15) // BKT P(L_t)
+  opportunityCount   Int                @default(0)
+  stabilityScore     Float              @default(1.0)  // FSRS memory stability
+  difficultyScore    Float              @default(5.0)  // FSRS memory difficulty
+  lastAssessedAt     DateTime           @default(now())
+  nextReviewDue      DateTime?
+
+  @@unique([learnerId, kcId])
+  @@map("latent_mastery_states")
+}
+
+model RemediationTask {
+  id               String        @id @default(cuid())
+  learnerId        String
+  learner          Learner       @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  misconceptionId  String
+  misconception    Misconception @relation(fields: [misconceptionId], references: [id])
+  status           String        @default("pending") // "pending", "in_progress", "resolved"
+  prescribedAt     DateTime      @default(now())
+  resolvedAt       DateTime?
+
+  @@map("remediation_tasks")
+}
