@@ -34,36 +34,27 @@ C4Container
 
     Person(user, "کاربران سامانه", "دانش‌آموز، دانشجو، والد، معلم")
 
-    Container(frontend, "اپلیکیشن چندسکویی (Client App)", "Flutter / Web & Android", "ارائه آزمون با فرکانس ۶۰ فریم، ۵ قالب پارامتریک، پشتیبانی آفلاین و رندرینگ KaTeX")
+    Container(frontend, "اپلیکیشن وب PWA (Next.js 15)", "React 19 / TypeScript / Vercel", "ارائه آزمون با لود آنی، ۵ کامپوننت پارامتریک React/SVG، پشتیبانی PWA و رندرینگ KaTeX")
     
-    Container(apiGateway, "دروازه وب و API Gateway", "FastAPI / Nginx", "مسیریابی درخواست‌ها، احراز هویت بدون اصطکاک و مدیریت سشن‌ها")
+    Container(apiGateway, "سرورلس و Server Actions", "Next.js App Router (روی Vercel)", "مدیریت احراز هویت، پاسخ به درخواست‌های آزمون و محاسبه آنی وضعیت تسلط")
     
-    Container(ingestEngine, "موتور خزش و استخراج سند", "Python (Docling, Surya, Hazm)", "دریافت PDF، رفع انکودینگ فارسی، استخراج جداول و فرمول‌ها")
+    Container(psychoEngine, "موتور ردیابی شناختی BKT", "TypeScript (درون Next.js Server Actions)", "محاسبه آنی بردار تسلط بیزی در کمتر از ۵ میلی‌ثانیه بدون نیاز به پایتون")
     
-    Container(aiRouter, "مسیریاب هوش مصنوعی ابری", "LiteLLM / Python", "ارتباط فوق سریع با API ارائه‌دهندگان (DeepSeek-R1, Groq, OpenRouter) جهت تولید سوال")
+    ContainerDb(relDb, "پایگاه داده سرورلس ابری", "Neon / Supabase (PostgreSQL 16)", "نگهداری پروفایل‌ها، سوالات نهایی و لاگ‌های آزمون متصل مستقیم به Vercel")
     
-    Container(casEngine, "موتور محاسبات نمادین ریاضی", "SymPy (Python)", "اعتبارسنجی قطعی بدون توهم برای پاسخ‌های ریاضی و گزینه‌ها")
-    
-    Container(hitlStudio, "استودیوی نظارت انسانی (HITL)", "React / Tailwind / Web", "پنل بازبینی و تأیید سریع سوالات و بدفهمی‌ها با یک کلیک")
-    
-    Container(psychoEngine, "موتور روان‌سنجی و ردیابی دانش", "Python (pyBKT, EduCDM, py-fsrs)", "ردیابی تسلط بیزی روز اول، کالیبراسیون داده‌محور DINA و زمان‌بندی مرور هوشمند")
-    
-    ContainerDb(relDb, "پایگاه داده اصلی و وکتوری", "PostgreSQL 16 + pgvector", "نگهداری پروفایل‌ها، بانک سوالات نهایی، لاگ‌های خام و امبدینگ‌های مفاهیم")
-    
-    ContainerDb(graphDb, "موتور گراف دانش", "NetworkX / Neo4j Community", "درخت پیش‌نیازهای دروس و روابط هستان‌شناسی مفاهیم")
-    
-    ContainerDb(localDb, "پایگاه داده آفلاین کاربر", "SQLite / Hive (روی گوشی کاربر)", "ذخیره پکیج‌های آزمون برای مناطق بدون اینترنت")
+    ContainerDb(localDb, "پایگاه داده آفلاین مرورگر", "IndexedDB / PWA Cache", "ذخیره پکیج‌های آزمون در حافظه مرورگر جهت تاب‌آوری در زمان قطعی اینترنت")
 
-    Rel(user, frontend, "استفاده از نرم‌افزار", "Touch / GUI")
-    Rel(frontend, localDb, "خواندن و نوشتن در حالت آفلاین", "Native IPC")
-    Rel(frontend, apiGateway, "همگام‌سازی و فراخوانی سرویس‌ها", "HTTPS / REST")
-    Rel(apiGateway, psychoEngine, "ارسال بردار پاسخ‌ها جهت تحلیل", "gRPC / Internal REST")
-    Rel(apiGateway, relDb, "خواندن و نوشتن داده‌ها", "SQL / asyncpg")
-    Rel(ingestEngine, aiRouter, "ارسال متن درس جهت تجزیه مفهومی و تولید سوال", "Internal API")
-    Rel(aiRouter, casEngine, "ارسال معادله سوال جهت اثبات قطعی ریاضی", "Python IPC")
-    Rel(casEngine, hitlStudio, "ارسال سوالات معتبر به صف بازبینی انسانی", "Internal API")
-    Rel(hitlStudio, relDb, "ذخیره دائمی سوالات تأیید شده در بانک سوالات", "SQL")
-    Rel(psychoEngine, graphDb, "پیمایش معکوس پیش‌نیازها در زمان خطا", "Cypher / Python API")
+    Container(ingestCLI, "خط تولید آفلاین محتوا (Local CLI)", "Python (Docling, Surya, SymPy)", "ابزار محلی توسعه‌دهنده جهت استخراج کتب از chap.sch.ir، اعتبارسنجی ریاضی و بارگذاری داده در دیتابیس")
+    
+    Container(aiRouter, "مسیریاب APIهای ابری هوش مصنوعی", "DeepSeek API / Groq", "تولید سناریوها و بدفهمی‌های تشخیصی در فاز آفلاین آماده‌سازی")
+
+    Rel(user, frontend, "استفاده از طریق مرورگر موبایل/دسکتاپ", "Web GUI")
+    Rel(frontend, localDb, "کش کردن سوالات و پاسخ‌ها در حالت آفلاین", "Browser Storage API")
+    Rel(frontend, apiGateway, "ارسال پاسخ‌های آزمون", "HTTPS / Server Actions")
+    Rel(apiGateway, psychoEngine, "به‌روزرسانی شناختی تسلط", "In-Memory Function Call")
+    Rel(apiGateway, relDb, "خواندن سوالات و ذخیره لاگ‌ها", "SQL / Drizzle or Prisma")
+    Rel(ingestCLI, aiRouter, "ارسال متون درسی جهت تولید سوال", "HTTPS API")
+    Rel(ingestCLI, relDb, "بارگذاری سوالات اعتبارسنجی‌شده در پایگاه داده", "SQL Pool")
     Rel(ingestEngine, graphDb, "ثبت گره‌های جدید دروس و پیوندها", "Graph API")
 ```
 
@@ -193,5 +184,5 @@ erDiagram
 * **فاز ۱ (استخراج سرفصل‌ها و بدفهمی‌های کارتریج ریاضی دبستان):** دریافت کتاب‌های راهنمای معلم ریاضی پایه‌های چهارم و پنجم دبستان از `chap.sch.ir`، پارس ساختار با `Docling` و استخراج شناسنامه بدفهمی‌ها و اهداف رفتاری.
 * **فاز ۲ (موتور تولید سوال از طریق Cloud AI Providers و اعتبارسنجی SymPy):** اتصال به APIهای ارزان و پرسرعت (DeepSeek-R1 و Groq)، پیاده‌سازی گیت محاسباتی `SymPy`، و توسعه وب‌پنل سریع نظارت انسانی (HITL Curation Studio).
 * **فاز ۳ (موتور روان‌سنجی هیبرید و گراف پیش‌نیازها):** پیاده‌سازی ردیابی دانش بیزی (BKT با کتابخانه `pyBKT`) برای روز اول شروع سرد و ساخت زنجیره پیش‌نیازها با `NetworkX`.
-* **فاز ۴ (کلاینت فلاتر و کتابخانه ۵ ویجت پارامتریک):** توسعه فرانت‌اند فلاتر با ۵ قالب تعاملی بصری، رندرینگ KaTeX، فایل‌های صوتی خودکار و کش آفلاین کامل روی SQLite.
+* **فاز ۴ (توسعه وب‌اپلیکیشن Next.js 15 روی Vercel و ۵ کامپوننت پارامتریک):** توسعه فرانت‌اند و بک‌اند یکپارچه بر بستر Next.js 15 و استقرار خودکار روی Vercel، پیاده‌سازی ۵ کامپوننت پارامتریک با React + SVG، رندرینگ فرمول‌های ریاضی KaTeX و ذخیره‌سازی ابری روی Neon PostgreSQL.
 * **فاز ۵ (پایلوت میدانی و آماده‌سازی کالیبراسیون DINA):** اجرای آزمایشی روی ۱۰۰ تا ۲۰۰ دانش‌آموز پایه چهارم و پنجم، تحلیل بازخورد والدین، و فعال‌سازی کالیبراسیون جمعیتی DINA پس از رسیدن نمونه آماری.
