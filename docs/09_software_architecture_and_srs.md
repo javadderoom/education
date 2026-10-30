@@ -52,7 +52,7 @@ C4Container
     Rel(frontend, localDb, "کش کردن سوالات و پاسخ‌ها در حالت آفلاین", "Browser Storage API")
     Rel(frontend, apiGateway, "ارسال پاسخ‌های آزمون", "HTTPS / Server Actions")
     Rel(apiGateway, psychoEngine, "به‌روزرسانی شناختی تسلط", "In-Memory Function Call")
-    Rel(apiGateway, relDb, "خواندن سوالات و ذخیره لاگ‌ها", "SQL / Drizzle or Prisma")
+    Rel(apiGateway, relDb, "خواندن سوالات و ذخیره لاگ‌ها", "SQL / Prisma 7+ Client")
     Rel(ingestCLI, aiRouter, "ارسال متون درسی جهت تولید سوال", "HTTPS API")
     Rel(ingestCLI, relDb, "بارگذاری سوالات اعتبارسنجی‌شده در پایگاه داده", "SQL Pool")
     Rel(ingestEngine, graphDb, "ثبت گره‌های جدید دروس و پیوندها", "Graph API")
