@@ -14,7 +14,7 @@ flowchart TD
     subgraph OfflinePipeline ["۱. خط لوله آفلاین پایتون (روی سیستم شما / Local CLI)"]
         direction TB
         PDF["PDFهای کتاب و راهنمای معلم (chap.sch.ir)"] --> Docling["Docling + Surya OCR (استخراج ساختار)"]
-        Docling --> API["فراخوانی Gemini 3.5 Flash Lite (از طریق پروکسی اختصاصی)"]
+        Docling --> API["فراخوانی Gemini 3.5 Flash Lite (پروکسی محلی پورت 10808 در توسعه / مستقیم در ورسل)"]
         API --> SymPy["اعتبارسنجی قطعی ریاضی با SymPy"]
         SymPy --> Seed["تولید داده‌های نهایی و بارگذاری در دیتابیس (DB Seeder)"]
     end
@@ -25,7 +25,7 @@ flowchart TD
 
     subgraph ProductionWeb ["۳. سامانه وب زنده روی Vercel (تایپ‌اسکریپت خالص)"]
         direction TB
-        Neon <--> NextApp["اپلیکیشن Next.js 15 (App Router + React 19)"]
+        Neon <--> NextApp["اپلیکیشن Next.js 16.4+ (App Router + React 19.3+)"]
         NextApp --> BKT["موتور BKT بیزی در تایپ‌اسکریپت (۱۵ خط کد بدون نیاز به پایتون)"]
         NextApp --> Widgets["۵ قالب تعاملی پارامتریک با React + SVG"]
         NextApp --> PWA["پشتیبانی PWA و کش آفلاین مرورگر (IndexedDB)"]
@@ -48,7 +48,7 @@ flowchart TD
 | **پایگاه داده سرورلس** | **Neon / Supabase (PostgreSQL 18)** | متن‌باز / سرورلس | $۰$ رایگان (Free Tier) | نسخه پایدار PostgreSQL 18 با پشتیبانی pgvector و اتصال به Vercel |
 | **نگاشت شیء-رابطه‌ای (ORM)** | **Prisma 7+ (با آداپتور Connection Pooler)** | متن‌باز (Apache 2.0) | $۰$ اجرا روی Vercel | تعریف اسکیما در schema.prisma، مایگریشن خودکار و رابط کاربری Prisma Studio |
 | **موتور ردیابی شناختی در لحظه** | **Pure TypeScript BKT Engine** | کدبیس پروژه | $۰$ اجرا روی Vercel | پیاده‌سازی ۴ فرمول بیزی در حد ۱۵ خط کد در Server Actions بدون نیاز به هیچ سرور پایتون |
-| **سرویس‌دهنده هوش مصنوعی ابری** | **Google Gemini (gemini-3.5-flash-lite)** | سرویس ابری اختصاصی | کلید و پروکسی Cloudflare | مدل سبک و پرسرعت جهت حل مسائل، استخراج ساختار و سناریونویسی با پروتکل امن |
+| **سرویس‌دهنده هوش مصنوعی ابری** | **Google Gemini (gemini-3.5-flash-lite)** | سرویس ابری رسمی گوگل | اتصال مستقیم در ورسل / پروکسی محلی ۱۰۸۰۸ در لوکال | مدل سبک و پرسرعت جهت حل مسائل، استخراج ساختار و سناریونویسی |
 | **ابزار استخراج آفلاین (Local)** | **Python 3.15+ (Docling + Surya + SymPy)** | ابزار داخلی توسعه | اجرا روی سیستم خودتان | دانلود و پارس کتب درسی و راهنمای معلم و تولید فایل‌های Seed دیتابیس (کاملاً جدا از هاست ورسل) |
 
 ---

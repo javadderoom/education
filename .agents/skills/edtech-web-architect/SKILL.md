@@ -31,7 +31,7 @@ web/
 │   ├── feedback/               # Empathetic feedback modal, counter-example capsules
 │   └── ui/                     # Accessible primitives (Radix UI / Tailwind)
 ├── lib/
-│   ├── ai/                     # Gemini 3.5 Flash Lite client with Cloudflare Worker proxy
+│   ├── ai/                     # Gemini 3.5 Flash Lite client (direct on Vercel, local proxy on :10808)
 │   ├── bkt/                    # Pure TypeScript Bayesian Knowledge Tracing engine
 │   ├── cas/                    # JavaScript symbolic math / fraction validator (mathjs)
 │   ├── db/                     # Prisma 7+ singleton client with connection pooling
@@ -139,18 +139,23 @@ Never write bespoke UI code for each math exercise. Always instantiate one of th
 
 ## 7. Gemini 3.5 Flash Lite API Integration (`lib/ai/gemini.ts`)
 
-Connect to Google Gemini via the Cloudflare Worker proxy using the `@google/genai` SDK or custom fetch client:
+Connect to Google Gemini API directly on Vercel (zero proxy overhead in serverless production), and route through the local proxy (`http://127.0.0.1:10808`) during local development:
 
 ```typescript
 import { GoogleGenAI } from '@google/genai';
+import { ProxyAgent, setGlobalDispatcher } from 'undici';
+
+// In local development, route requests through local proxy on port 10808.
+// On Vercel serverless (production), Vercel has direct unblocked internet access to Google API.
+if (process.env.NODE_ENV === 'development' && process.env.HTTPS_PROXY) {
+  setGlobalDispatcher(new ProxyAgent(process.env.HTTPS_PROXY));
+}
 
 const apiKey = process.env.GEMINI_API_KEY!;
-const baseUrl = process.env.GEMINI_PROXY_URL; // e.g. https://tradekav-gemini.deroom24.workers.dev
 const modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 
 export const ai = new GoogleGenAI({
   apiKey,
-  ...(baseUrl ? { httpOptions: { baseUrl } } : {}),
 });
 
 export async function generateDiagnosticContent(prompt: string, systemInstruction?: string) {

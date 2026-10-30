@@ -46,7 +46,7 @@ C4Container
 
     Container(ingestCLI, "خط تولید آفلاین محتوا (Local CLI)", "Python 3.15+ (Docling, Surya, SymPy)", "ابزار محلی توسعه‌دهنده جهت استخراج کتب از chap.sch.ir، اعتبارسنجی ریاضی و بارگذاری داده در دیتابیس")
     
-    Container(aiRouter, "سرویس هوش مصنوعی", "Google Gemini 3.5 Flash Lite", "تولید سناریوها و بدفهمی‌های تشخیصی با اتصال امن از طریق پروکسی اختصاصی Cloudflare")
+    Container(aiRouter, "سرویس هوش مصنوعی", "Google Gemini 3.5 Flash Lite", "تولید سناریوها و بدفهمی‌های تشخیصی با اتصال مستقیم در ورسل و پروکسی محلی ۱۰۸۰۸ در محیط لوکال")
 
     Rel(user, frontend, "استفاده از طریق مرورگر موبایل/دسکتاپ", "Web GUI")
     Rel(frontend, localDb, "کش کردن سوالات و پاسخ‌ها در حالت آفلاین", "Browser Storage API")
