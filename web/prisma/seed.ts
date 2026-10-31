@@ -2,20 +2,17 @@ import { prisma } from "../lib/db/prisma";
 import * as fs from "fs";
 import * as path from "path";
 
-async function main() {
-  console.log("--- Starting Seeder: Grade 4 Math Chapter 2 (Fractions) ---");
-
-  // Read canonical JSON cartridge
-  const jsonPath = path.resolve(__dirname, "../../data/canonical/grade4_math_ch2.json");
-  if (!fs.existsSync(jsonPath)) {
-    throw new Error(`Canonical data file not found at: ${jsonPath}`);
-  }
-
-  const raw = fs.readFileSync(jsonPath, "utf-8");
+async function seedCartridge(cartridgePath: string) {
+  const raw = fs.readFileSync(cartridgePath, "utf-8");
   const cartridge = JSON.parse(raw);
 
+  console.log(`\n======================================================`);
+  console.log(`Processing Cartridge: ${cartridge.title}`);
+  console.log(`Cartridge ID: ${cartridge.cartridge_id} | Grade Level: ${cartridge.subject.grade_level}`);
+  console.log(`======================================================`);
+
   // 1. Upsert Domain
-  console.log(`Upserting Domain: ${cartridge.domain.name}`);
+  console.log(`Upserting Domain: ${cartridge.domain.name} (${cartridge.domain.id})`);
   await prisma.domain.upsert({
     where: { id: cartridge.domain.id },
     update: {
@@ -30,7 +27,7 @@ async function main() {
   });
 
   // 2. Upsert Subject
-  console.log(`Upserting Subject: ${cartridge.subject.name}`);
+  console.log(`Upserting Subject: ${cartridge.subject.name} (${cartridge.subject.id})`);
   await prisma.subject.upsert({
     where: { id: cartridge.subject.id },
     update: {
@@ -89,7 +86,6 @@ async function main() {
   // 5. Upsert Misconceptions
   console.log(`Upserting ${cartridge.misconceptions.length} Misconceptions...`);
   for (const mis of cartridge.misconceptions) {
-    // Determine mapped KC from items or default to first KC
     const mappedKc = cartridge.knowledge_components[0].id;
     await prisma.misconception.upsert({
       where: { id: mis.id },
@@ -158,27 +154,58 @@ async function main() {
     }
   }
 
-  // 7. Seed Demo Learner
-  console.log("Seeding Demo Learner...");
+  console.log(`Cartridge [${cartridge.cartridge_id}] seeded successfully!`);
+}
+
+async function main() {
+  console.log("--- Starting Universal Diagnostic Seeder ---");
+
+  const candidates = [
+    path.resolve(__dirname, "../../data/canonical"),
+    path.resolve(process.cwd(), "data/canonical"),
+    path.resolve(process.cwd(), "../data/canonical"),
+  ];
+
+  let canonicalDir = "";
+  for (const dir of candidates) {
+    if (fs.existsSync(dir)) {
+      canonicalDir = dir;
+      break;
+    }
+  }
+
+  if (!canonicalDir) {
+    throw new Error("Canonical directory data/canonical not found!");
+  }
+
+  const files = fs.readdirSync(canonicalDir).filter((f) => f.endsWith(".json"));
+  console.log(`Found ${files.length} canonical cartridge(s): ${files.join(", ")}`);
+
+  for (const file of files) {
+    await seedCartridge(path.join(canonicalDir, file));
+  }
+
+  // Seed Grade 5 Sample Learner as well
+  console.log("\nSeeding Grade 5 Demo Learner...");
   await prisma.learner.upsert({
-    where: { username: "student_demo" },
+    where: { username: "student_grade5_demo" },
     update: {
-      displayName: "علی رضایی (دانش‌آموز پایه چهارم)",
-      gradeLevel: 4,
+      displayName: "محمدحسین مرادی (دانش‌آموز پایه پنجم)",
+      gradeLevel: 5,
     },
     create: {
-      username: "student_demo",
-      displayName: "علی رضایی (دانش‌آموز پایه چهارم)",
-      gradeLevel: 4,
+      username: "student_grade5_demo",
+      displayName: "محمدحسین مرادی (دانش‌آموز پایه پنجم)",
+      gradeLevel: 5,
     },
   });
 
-  console.log("--- Seeding Completed Successfully! ---");
+  console.log("\n--- All Cartridges Seeded Successfully to PostgreSQL! ---");
 }
 
 main()
   .catch((e) => {
-    console.error("Seeding failed:", e);
+    console.error("Universal Seeding failed:", e);
     process.exit(1);
   })
   .finally(async () => {

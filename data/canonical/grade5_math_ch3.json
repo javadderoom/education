@@ -1,0 +1,782 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH03",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل سوم: نسبت، تناسب و درصد",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس معلم کد ۵۰.۴",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-RATIO",
+    "name": "نسبت، تناسب و درصد (پایه پنجم)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C03-01",
+      "title": "درک مفهوم نسبت به عنوان مقایسه دو کمیت و تفکیک آن از کسر ساده",
+      "bloom_level": "understand",
+      "description": "توانایی بیان و نمایش رابطه بین دو کمیت (جزء به جزء یا جزء به کل) با رعایت ترتیب بیان و بدون وابستگی به واحد در صورت یکسان بودن جنس کمیت‌ها.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C03-02",
+      "title": "شناخت و تولید نسبت‌های مساوی و مفهوم تناسب",
+      "bloom_level": "apply",
+      "description": "درک اینکه تساوی دو نسبت یک تناسب می‌سازد و ضرب یا تقسیم هر دو کمیت در یک عدد غیرصفر تساوی نسبت را حفظ می‌کند.",
+      "prerequisites": ["KC-MATH5-C03-01"]
+    },
+    {
+      "id": "KC-MATH5-C03-03",
+      "title": "جدول تناسب، ضریب تناسب و روش‌های حل (ضرب متقاطع)",
+      "bloom_level": "apply",
+      "description": "توانایی تشکیل جدول تناسب، پیدا کردن رابطه ضربی بین سطرها یا ستون‌ها و محاسبه کمیت مجهول با طرفین-وسطین یا ضریب تناسب.",
+      "prerequisites": ["KC-MATH5-C03-02"]
+    },
+    {
+      "id": "KC-MATH5-C03-04",
+      "title": "نسبت‌های چندتایی و حل مسایل تسهیم به نسبت",
+      "bloom_level": "analyze",
+      "description": "تقسیم یک مقدار کل (مانند پول، محیط، زاویه یا جرم) بین چند جزء بر اساس نسبت‌های معین و استفاده از سطر مجموع در جدول تناسب.",
+      "prerequisites": ["KC-MATH5-C03-03"]
+    },
+    {
+      "id": "KC-MATH5-C03-05",
+      "title": "مفهوم درصد به عنوان نسبت با مخرج ۱۰۰ و تبدیل کسر به درصد",
+      "bloom_level": "apply",
+      "description": "درک مفهوم درصد به عنوان نسبتی که مخرج یا کل آن ۱۰۰ فرض شده و توانایی تبدیل کسرها و اعداد اعشاری به درصد و محاسبه تخفیف یا سود.",
+      "prerequisites": ["KC-MATH5-C03-03"]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-RATIO-ADDITIVE",
+      "title": "پنداشت تفکر جمعی به جای رابطه‌ی ضربی در تناسب",
+      "description": "دانش‌آموز به جای ضرب یا تقسیم کمیت‌ها در یک عدد مشترک، مقداری ثابت را به هر دو جزء نسبت اضافه یا کم می‌کند (مثلاً اگر نسبت ۲ به ۳ باشد و اولی ۴ شود، دومی را ۵ می‌داند چون ۲ واحد اضافه شده است).",
+      "counter_example_blueprint": {
+        "scenario": "دستور پخت کیک: برای ۲ پیمانه آرد، ۳ قاشق شکر نیاز است. اگر آرد را دو برابر (۴ پیمانه) کنیم، آیا شکر با افزودن ۲ قاشق (۵ قاشق) طعم اصلی را حفظ می‌کند؟",
+        "visual_counter_example": "BalanceScale showing that multiplying both sides by 2 maintains balance, while adding 2 to both unbalances the proportion."
+      }
+    },
+    {
+      "id": "MIS-RATIO-ORDER-INVERT",
+      "title": "معکوس کردن ترتیب کمیت‌ها در صورت و مخرج نسبت",
+      "description": "عدم توجه به تقدم و تاخر کمیت‌ها در متن مسئله؛ مثلاً اگر نسبت تعداد مدادها به دفترها خواسته شده باشد، تعداد دفترها را در صورت و مدادها را در مخرج می‌نویسد.",
+      "counter_example_blueprint": {
+        "scenario": "نسبت تعداد چرخ‌های دوچرخه (۲) به چرخ‌های خودرو (۴). آیا نسبت دوچرخه به خودرو با نسبت خودرو به دوچرخه یکسان است؟",
+        "visual_counter_example": "FractionStrip showing 2/4 compared to 4/2."
+      }
+    },
+    {
+      "id": "MIS-UNIT-INCOMPATIBILITY",
+      "title": "مقایسه و محاسبه نسبت بدون یکسان‌سازی واحدها",
+      "description": "نوشتن اعداد بدون توجه به واحدهای سنجش مختلف (مثلاً نسبت ۳۰ سانتی‌متر به ۲ متر را ۳۰ به ۲ می‌نویسد به جای ۳۰ به ۲۰۰).",
+      "counter_example_blueprint": {
+        "scenario": "مقایسه قد: ۵۰ سانتی‌متر در برابر ۱ متر. آیا ۵۰ برابر ۱ است یا نیمی از آن؟",
+        "visual_counter_example": "NumberLine showing 50 cm and 100 cm on the exact same metric scale."
+      }
+    },
+    {
+      "id": "MIS-PERCENT-ABSOLUTE",
+      "title": "تلقی درصد به عنوان یک عدد مطلق یا ثابت",
+      "description": "تصور اینکه ۲۰ درصد همیشه یک مقدار عددی ۲۰ است، بدون در نظر گرفتن مقدار کل پایه (مثلاً تخفیف ۲۰٪ روی کالای ۲۰۰ هزار تومانی را ۲۰ هزار تومان در نظر می‌گیرد).",
+      "counter_example_blueprint": {
+        "scenario": "۲۰ درصد از ۱۰۰ دانش‌آموز می‌شود ۲۰ نفر؛ اما ۲۰ درصد از ۵۰۰ دانش‌آموز چقدر است؟ آیا همان ۲۰ نفر است یا ۱۰۰ نفر؟",
+        "visual_counter_example": "AreaGrid showing a 100-cell grid vs multiple grids."
+      }
+    },
+    {
+      "id": "MIS-PART-WHOLE-CONFUSION",
+      "title": "اشتباه گرفتن نسبت جزء به جزء با نسبت جزء به کل",
+      "description": "در کیسه‌ای با ۳ مهره آبی و ۵ مهره قرمز، نسبت مهره‌های آبی به کل مهره‌ها ۳ به ۸ است اما دانش‌آموز آن را ۳ به ۵ می‌نویسد.",
+      "counter_example_blueprint": {
+        "scenario": "در یک تیم ۳ دختر و ۵ پسر حضور دارند. چند درصد اعضای تیم دختر هستند؟ آیا ۳ از ۵ نفر دخترند یا ۳ از ۸ نفر؟",
+        "visual_counter_example": "BucketSort sorting parts into groups."
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C03-01",
+      "kc_id": "KC-MATH5-C03-01",
+      "stem": "در یک گلدان، ۳ شاخه گل رز قرمز و ۵ شاخه گل رز سفید وجود دارد. نسبت تعداد گل‌های قرمز به **کل گل‌ها** کدام است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": { "totalSegments": 8, "initialColored": 3, "color": "rose" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-A",
+          "label": "الف",
+          "content": "\\frac{3}{8}",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کل گل‌ها ۳ + ۵ = ۸ شاخه است، پس نسبت قرمز به کل ۳ به ۸ است."
+        },
+        {
+          "id": "DIS-M5-01-B",
+          "label": "ب",
+          "content": "\\frac{3}{5}",
+          "is_correct": false,
+          "misconception_id": "MIS-PART-WHOLE-CONFUSION",
+          "rationale": "خطای جزء به جزء به جای جزء به کل: نسبت گل‌های قرمز به سفید را به جای نسبت به کل گل‌ها نوشته است."
+        },
+        {
+          "id": "DIS-M5-01-C",
+          "label": "ج",
+          "content": "\\frac{5}{3}",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "خطای معکوس کردن نسبت: تعداد گل‌های سفید را در صورت و قرمز را در مخرج قرار داده است."
+        },
+        {
+          "id": "DIS-M5-01-D",
+          "label": "د",
+          "content": "\\frac{5}{8}",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه نسبت گل‌های سفید به کل به جای گل‌های قرمز به کل."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-02",
+      "kc_id": "KC-MATH5-C03-01",
+      "stem": "طول یک مداد ۱۵ سانتی‌متر و طول یک خط‌کش نیم متر است. نسبت طول مداد به طول خط‌کش کدام است؟",
+      "difficulty": 0.55,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": { "divisions": 10, "targetPoint": 3, "unitLength": 1 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-A",
+          "label": "الف",
+          "content": "\\frac{15}{50}",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: نیم متر برابر ۵۰ سانتی‌متر است، پس نسبت ۱۵ به ۵۰ یا ۳ به ۱۰ است."
+        },
+        {
+          "id": "DIS-M5-02-B",
+          "label": "ب",
+          "content": "\\frac{15}{0.5}",
+          "is_correct": false,
+          "misconception_id": "MIS-UNIT-INCOMPATIBILITY",
+          "rationale": "خطای عدم یکسان‌سازی واحدها: سانتی‌متر را مستقیماً با متر مقایسه کرده است."
+        },
+        {
+          "id": "DIS-M5-02-C",
+          "label": "ج",
+          "content": "\\frac{50}{15}",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "خطای معکوس کردن ترتیب: نسبت خط‌کش به مداد را به جای مداد به خط‌کش نوشته است."
+        },
+        {
+          "id": "DIS-M5-02-D",
+          "label": "د",
+          "content": "\\frac{15}{2}",
+          "is_correct": false,
+          "misconception_id": "MIS-UNIT-INCOMPATIBILITY",
+          "rationale": "اشتباه در تبدیل واحد و عدم تطابق کمیت‌ها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-03",
+      "kc_id": "KC-MATH5-C03-01",
+      "stem": "کدام گزینه بیان درستی از مفهوم «نسبت» است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-M5-03-A",
+          "label": "الف",
+          "content": "مقایسه اندازه‌ی دو کمیت از یک جنس با یکدیگر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: تعریف دقیق نسبت در ریاضی پنجم، مقایسه اندازه دو کمیت هم‌جنس است."
+        },
+        {
+          "id": "DIS-M5-03-B",
+          "label": "ب",
+          "content": "همیشه نشان‌دهنده یک مقدار اعشاری کمتر از یک است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نسبت می‌تواند بزرگتر از ۱، مساوی با ۱ یا هر عدد دیگری باشد."
+        },
+        {
+          "id": "DIS-M5-03-C",
+          "label": "ج",
+          "content": "افزودن مقداری ثابت به هر دو عدد همواره نسبت را ثابت نگه می‌دارد",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: افزودن مقدار ثابت نسبت را تغییر می‌دهد و تناسب را بر هم می‌زند."
+        },
+        {
+          "id": "DIS-M5-03-D",
+          "label": "د",
+          "content": "ترتیب بیان کمیت‌ها در نوشتن نسبت تاثیری ندارد",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "ترتیب بیان کمیت‌ها در نسبت بسیار تعیین‌کننده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-04",
+      "kc_id": "KC-MATH5-C03-02",
+      "stem": "اگر نسبت ۲ به ۳ با نسبت ۶ به عدد مجهول برابر باشد (تناسب)، عدد مجهول کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": { "leftValue": 6, "rightValue": 9, "targetValue": 9 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-A",
+          "label": "الف",
+          "content": "9",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: صورت در ۳ ضرب شده (۲ × ۳ = ۶)، پس مخرج هم باید در ۳ ضرب شود (۳ × ۳ = ۹)."
+        },
+        {
+          "id": "DIS-M5-04-B",
+          "label": "ب",
+          "content": "7",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: صورت ۴ واحد اضافه شده (۲ + ۴ = ۶)، پس به مخرج هم ۴ واحد اضافه کرده است (۳ + ۴ = ۷)."
+        },
+        {
+          "id": "DIS-M5-04-C",
+          "label": "ج",
+          "content": "4",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه اشتباه در ضرب."
+        },
+        {
+          "id": "DIS-M5-04-D",
+          "label": "د",
+          "content": "12",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب مخرج در ۴ به جای ۳."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-05",
+      "kc_id": "KC-MATH5-C03-02",
+      "stem": "کدام جفت نسبت، یک **تناسب** تشکیل می‌دهند؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BucketSort",
+        "props": { "totalItems": 4, "categories": ["متناسب", "غیر متناسب"] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-A",
+          "label": "الف",
+          "content": "\\frac{4}{6} = \\frac{10}{15}",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: هر دو کسر پس از ساده شدن برابر ۲/۳ هستند (۴ × ۱۵ = ۶۰ و ۶ × ۱۰ = ۶۰)."
+        },
+        {
+          "id": "DIS-M5-05-B",
+          "label": "ب",
+          "content": "\\frac{3}{5} = \\frac{6}{8}",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: به صورت و مخرج ۳ واحد اضافه شده است به جای ضرب در عدد یکسان."
+        },
+        {
+          "id": "DIS-M5-05-C",
+          "label": "ج",
+          "content": "\\frac{2}{7} = \\frac{4}{9}",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: صورت ۲ برابر شده اما به مخرج ۲ واحد اضافه شده است."
+        },
+        {
+          "id": "DIS-M5-05-D",
+          "label": "د",
+          "content": "\\frac{1}{3} = \\frac{3}{6}",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "عدم برابری نسبت‌ها (۱/۳ با ۱/۲ برابر نیست)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-06",
+      "kc_id": "KC-MATH5-C03-02",
+      "stem": "اگر در یک نسبت هر دو عدد را بر ۴ تقسیم کنیم، نسبت حاصل چه تغییری می‌کند؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-M5-06-A",
+          "label": "الف",
+          "content": "تغییری نمی‌کند و مساوی نسبت اولیه باقی می‌ماند",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: تقسیم یا ضرب هر دو جزء نسبت در عددی غیرصفر، نسبت‌های مساوی پدید می‌آورد."
+        },
+        {
+          "id": "DIS-M5-06-B",
+          "label": "ب",
+          "content": "۴ برابر کوچک‌تر می‌شود",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن مقدار اجزا با مقدار کلی نسبت."
+        },
+        {
+          "id": "DIS-M5-06-C",
+          "label": "ج",
+          "content": "۴ واحد کاهش می‌یابد",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای خلط عمل تقسیم با تفریق."
+        },
+        {
+          "id": "DIS-M5-06-D",
+          "label": "د",
+          "content": "تناسب از بین می‌رود",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تصور نادرست از اثر ساده کردن بر تناسب."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-07",
+      "kc_id": "KC-MATH5-C03-03",
+      "stem": "در یک کارگاه با ۳ لیتر رنگ می‌توان ۱۲ مترمربع دیوار را رنگ‌آمیزی کرد. با ۷ لیتر رنگ چند مترمربع دیوار رنگ می‌شود؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": { "leftValue": 12, "rightValue": 28, "targetValue": 28 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-A",
+          "label": "الف",
+          "content": "28",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ضریب تناسب ۴ است (۱۲ ÷ ۳ = ۴). با ۷ لیتر: ۷ × ۴ = ۲۸ مترمربع."
+        },
+        {
+          "id": "DIS-M5-07-B",
+          "label": "ب",
+          "content": "16",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: چون رنگ ۴ لیتر زیاد شده (۷ - ۳ = ۴)، متراژ را هم ۴ متر اضافه کرده (۱۲ + ۴ = ۱۶)."
+        },
+        {
+          "id": "DIS-M5-07-C",
+          "label": "ج",
+          "content": "21",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب ۳ در ۷ به جای ضرب ضریب تناسب."
+        },
+        {
+          "id": "DIS-M5-07-D",
+          "label": "د",
+          "content": "36",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه نادرست در طرفین-وسطین."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-08",
+      "kc_id": "KC-MATH5-C03-03",
+      "stem": "قیمت ۵ کیلوگرم پرتقال ۱۰۰ هزار تومان است. قیمت ۸ کیلوگرم از همان پرتقال چقدر است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": { "divisions": 10, "targetPoint": 8, "unitLength": 20 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-08-A",
+          "label": "الف",
+          "content": "160 هزار تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: هر کیلوگرم ۲۰ هزار تومان است (۱۰۰ ÷ ۵ = ۲۰). قیمت ۸ کیلوگرم: ۸ × ۲۰ = ۱۶۰ هزار تومان."
+        },
+        {
+          "id": "DIS-M5-08-B",
+          "label": "ب",
+          "content": "103 هزار تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: چون وزن ۳ کیلوگرم زیاد شده، ۳ هزار تومان به قیمت اضافه کرده است."
+        },
+        {
+          "id": "DIS-M5-08-C",
+          "label": "ج",
+          "content": "120 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه قیمت ۶ کیلوگرم به جای ۸ کیلوگرم."
+        },
+        {
+          "id": "DIS-M5-08-D",
+          "label": "د",
+          "content": "140 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در ضرب عددی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-09",
+      "kc_id": "KC-MATH5-C03-03",
+      "stem": "در جدول تناسب زیر، مقدار $\\square$ کدام است؟ \n\n$$\\frac{4}{\\square} = \\frac{12}{21}$$",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-M5-09-A",
+          "label": "الف",
+          "content": "7",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۲ تقسیم بر ۳ شده تا ۴ به دست آید؛ ۲۱ تقسیم بر ۳ برابر ۷ است."
+        },
+        {
+          "id": "DIS-M5-09-B",
+          "label": "ب",
+          "content": "13",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: چون ۱۲ منهای ۸ شده تا ۴ شود، از ۲۱ هم ۸ واحد کم کرده است (۲۱ - ۸ = ۱۳)."
+        },
+        {
+          "id": "DIS-M5-09-C",
+          "label": "ج",
+          "content": "9",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه در تقسیم ۲۱ بر ۳."
+        },
+        {
+          "id": "DIS-M5-09-D",
+          "label": "د",
+          "content": "6",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه تقریبی نادرست."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-10",
+      "kc_id": "KC-MATH5-C03-04",
+      "stem": "پول یک کتاب ۵۰ هزار تومانی را علی و رضا به نسبت ۲ به ۳ پرداخت کردند. سهم علی چقدر است؟",
+      "difficulty": 0.50,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": { "totalSegments": 5, "initialColored": 2, "color": "emerald" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-10-A",
+          "label": "الف",
+          "content": "20 هزار تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مجموع نسبت‌ها ۲ + ۳ = ۵ است. ارزش هر سهم ۵۰ ÷ ۵ = ۱۰ هزار تومان. سهم علی: ۲ × ۱۰ = ۲۰ هزار تومان."
+        },
+        {
+          "id": "DIS-M5-10-B",
+          "label": "ب",
+          "content": "25 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم مساوی پول بین دو نفر بدون توجه به نسبت‌ها."
+        },
+        {
+          "id": "DIS-M5-10-C",
+          "label": "ج",
+          "content": "30 هزار تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "محاسبه سهم رضا به جای علی بر اثر جابجایی ترتیب کمیت‌ها."
+        },
+        {
+          "id": "DIS-M5-10-D",
+          "label": "د",
+          "content": "15 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در تقسیم کل پول بر مجموع نسبت‌ها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-11",
+      "kc_id": "KC-MATH5-C03-04",
+      "stem": "زاویه‌های یک مثلث به نسبت ۱، ۲ و ۳ هستند. بزرگترین زاویه این مثلث چند درجه است؟ (مجموع زوایای مثلث ۱۸۰ درجه است)",
+      "difficulty": 0.60,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BucketSort",
+        "props": { "totalItems": 3, "categories": ["کوچکترین", "بزرگترین"] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-11-A",
+          "label": "الف",
+          "content": "90 درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مجموع نسبت‌ها ۱ + ۲ + ۳ = ۶. ارزش هر سهم ۱۸۰ ÷ ۶ = ۳۰ درجه. بزرگترین زاویه: ۳ × ۳۰ = ۹۰ درجه."
+        },
+        {
+          "id": "DIS-M5-11-B",
+          "label": "ب",
+          "content": "60 درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه زاویه متوسط (۲ × ۳۰ = ۶۰) یا تقسیم مساوی ۱۸۰ بر ۳."
+        },
+        {
+          "id": "DIS-M5-11-C",
+          "label": "ج",
+          "content": "30 درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "محاسبه کوچکترین زاویه به جای بزرگترین زاویه."
+        },
+        {
+          "id": "DIS-M5-11-D",
+          "label": "د",
+          "content": "100 درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تخمین نامربوط بدون محاسبه جدول تناسب."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-12",
+      "kc_id": "KC-MATH5-C03-04",
+      "stem": "نسبت سن مریم به مادرش ۲ به ۵ است. اگر اختلاف سن آن‌ها ۲۴ سال باشد، سن مریم چند سال است؟",
+      "difficulty": 0.65,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": { "divisions": 6, "targetPoint": 2, "unitLength": 8 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-12-A",
+          "label": "الف",
+          "content": "16 سال",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: اختلاف نسبت‌ها ۵ - ۲ = ۳ است. ارزش هر سهم ۲۴ ÷ ۳ = ۸ سال. سن مریم: ۲ × ۸ = ۱۶ سال."
+        },
+        {
+          "id": "DIS-M5-12-B",
+          "label": "ب",
+          "content": "12 سال",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم ۲۴ بر ۲ به جای ۳ سهم اختلاف."
+        },
+        {
+          "id": "DIS-M5-12-C",
+          "label": "ج",
+          "content": "40 سال",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ORDER-INVERT",
+          "rationale": "محاسبه سن مادر (۵ × ۸ = ۴۰) به جای سن مریم."
+        },
+        {
+          "id": "DIS-M5-12-D",
+          "label": "د",
+          "content": "22 سال",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "کم کردن ۲ سال از اختلاف ۲۴ به عنوان تفکر جمعی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-13",
+      "kc_id": "KC-MATH5-C03-05",
+      "stem": "کسر $\\frac{7}{20}$ برابر با چند درصد است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": { "rows": 10, "cols": 10, "coloredCount": 35, "color": "indigo" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-13-A",
+          "label": "الف",
+          "content": "35٪",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج ۲۰ در ۵ ضرب می‌شود تا ۱۰۰ شود؛ صورت هم در ۵ ضرب می‌شود (۷ × ۵ = ۳۵)."
+        },
+        {
+          "id": "DIS-M5-13-B",
+          "label": "ب",
+          "content": "7٪",
+          "is_correct": false,
+          "misconception_id": "MIS-PERCENT-ABSOLUTE",
+          "rationale": "خطای تلقی صورت کسر به عنوان درصد مستقیم بدون تبدیل مخرج به ۱۰۰."
+        },
+        {
+          "id": "DIS-M5-13-C",
+          "label": "ج",
+          "content": "27٪",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: چون به ۲۰ مقدار ۸۰ اضافه شده تا ۱۰۰ شود، به ۷ هم ۲۰ یا عدد ثابت افزوده است."
+        },
+        {
+          "id": "DIS-M5-13-D",
+          "label": "د",
+          "content": "70٪",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب صورت در ۱۰ به جای ۵."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-14",
+      "kc_id": "KC-MATH5-C03-05",
+      "stem": "کالایی با قیمت ۲۰۰ هزار تومان، ۲۰ درصد تخفیف خورده است. خریدار چه مبلغی بابت کالا می‌پردازد؟",
+      "difficulty": 0.55,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": { "leftValue": 40, "rightValue": 160, "targetValue": 160 }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-14-A",
+          "label": "الف",
+          "content": "160 هزار تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مقدار تخفیف ۲۰٪ از ۲۰۰ = ۴۰ هزار تومان است. قیمت نهایی: ۲۰۰ - ۴۰ = ۱۶۰ هزار تومان."
+        },
+        {
+          "id": "DIS-M5-14-B",
+          "label": "ب",
+          "content": "180 هزار تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-PERCENT-ABSOLUTE",
+          "rationale": "خطای تلقی درصد به عنوان عدد ثابت: ۲۰ هزار تومان را مستقیماً از ۲۰۰ کم کرده است (۲۰۰ - ۲۰ = ۱۸۰)."
+        },
+        {
+          "id": "DIS-M5-14-C",
+          "label": "ج",
+          "content": "40 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "بیان مبلغ تخفیف به جای مبلغ پرداختی نهایی خریدار."
+        },
+        {
+          "id": "DIS-M5-14-D",
+          "label": "د",
+          "content": "150 هزار تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تخمین نادرست تخفیف ۲۵٪ به جای ۲۰٪."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C03-15",
+      "kc_id": "KC-MATH5-C03-05",
+      "stem": "در یک آزمون با ۵۰ سوال، دانش‌آموزی به ۴۰ سوال پاسخ صحیح داده است. او به چند درصد سوالات پاسخ صحیح داده است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": { "rows": 10, "cols": 10, "coloredCount": 80, "color": "emerald" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-15-A",
+          "label": "الف",
+          "content": "80٪",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کسر ۴۰ از ۵۰ است. با دو برابر کردن صورت و مخرج به مخرج ۱۰۰ می‌رسیم (۴۰ × ۲ = ۸۰٪)."
+        },
+        {
+          "id": "DIS-M5-15-B",
+          "label": "ب",
+          "content": "40٪",
+          "is_correct": false,
+          "misconception_id": "MIS-PERCENT-ABSOLUTE",
+          "rationale": "خطای تلقی مستقیم تعداد پاسخ‌های درست به عنوان درصد (۴۰ سوال را معادل ۴۰ درصد فرض کرده است)."
+        },
+        {
+          "id": "DIS-M5-15-C",
+          "label": "ج",
+          "content": "90٪",
+          "is_correct": false,
+          "misconception_id": "MIS-RATIO-ADDITIVE",
+          "rationale": "خطای تفکر جمعی: افزودن ۵۰ واحد به صورت و مخرج برای رسیدن به ۱۰۰."
+        },
+        {
+          "id": "DIS-M5-15-D",
+          "label": "د",
+          "content": "70٪",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه نادرست در ضرب."
+        }
+      ]
+    }
+  ]
+}

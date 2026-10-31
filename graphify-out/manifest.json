@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/cartridge.ts": {
-    "mtime": 1793377935.6593034,
-    "ast_hash": "91113f3aede2b3156a6435275f6ca89a",
+    "mtime": 1793451582.8659298,
+    "ast_hash": "a3d8be11b8cec16ff838167750d3cec4",
     "semantic_hash": ""
   },
   "web/lib/db/prisma.ts": {
@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "web/prisma/seed.ts": {
-    "mtime": 1793449549.99062,
-    "ast_hash": "ad069b3aefd5766259475808380ef2c4",
+    "mtime": 1793451450.7863338,
+    "ast_hash": "1be53596974cbdfacd27c2a4108c5348",
     "semantic_hash": ""
   },
   "web/scripts/test-bkt.ts": {
@@ -877,6 +877,21 @@
   "web/lib/bkt/fsrs.ts": {
     "mtime": 1793450616.478278,
     "ast_hash": "a078c0290161f443acce141353b139a3",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade5_math_ch3.json": {
+    "mtime": 1793451407.371958,
+    "ast_hash": "dd485873c7b0506229989790644955d0",
+    "semantic_hash": ""
+  },
+  "web/__tests__/pipeline-grade5.test.ts": {
+    "mtime": 1793451540.9797854,
+    "ast_hash": "056fe9fede9c77ea39cf76f01d6f9723",
+    "semantic_hash": ""
+  },
+  "web/scripts/test-full-pipeline.ts": {
+    "mtime": 1793451502.32952,
+    "ast_hash": "2537aa3dd62d7faf45f41869ab0f95dd",
     "semantic_hash": ""
   }
 }
