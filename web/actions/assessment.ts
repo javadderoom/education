@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/db/prisma";
+import { updateFSRS, getPedagogicalReviewStatus, FSRSRecord } from "@/lib/bkt/fsrs";
 
 export interface SessionSubmissionPayload {
   sessionId?: string;
@@ -23,7 +24,8 @@ export interface SessionSubmissionPayload {
 }
 
 /**
- * Persists an assessment session and student latent mastery states to PostgreSQL.
+ * Persists an assessment session, item responses, and updates latent mastery states
+ * with both Bayesian Knowledge Tracing (BKT) and FSRS memory stability scheduling.
  * Gracefully handles offline / disconnected DB state so UI continues uninterrupted.
  */
 export async function saveAssessmentSession(payload: SessionSubmissionPayload) {
@@ -71,8 +73,38 @@ export async function saveAssessmentSession(payload: SessionSubmissionPayload) {
       });
     }
 
-    // 4. Update Latent Mastery States for each assessed Knowledge Component
+    // 4. Update Latent Mastery States & FSRS scheduling for each assessed Knowledge Component
     for (const [kcId, masteryProb] of Object.entries(payload.masteries)) {
+      // Find existing state to pass to FSRS
+      const existing = await prisma.latentMasteryState.findUnique({
+        where: {
+          learnerId_kcId: {
+            learnerId: learner.id,
+            kcId,
+          },
+        },
+      });
+
+      const fsrsRecord: FSRSRecord = {
+        stabilityScore: existing?.stabilityScore ?? 1.0,
+        difficultyScore: existing?.difficultyScore ?? 5.0,
+        lastAssessedAt: existing?.lastAssessedAt ?? new Date(),
+        opportunityCount: existing?.opportunityCount ?? 0,
+      };
+
+      // Determine outcome for this KC
+      const kcResponses = (payload.responses || []).filter((r) => r.kcId === kcId);
+      let outcome: "correct" | "incorrect" | "not_sure" = "correct";
+      if (kcResponses.some((r) => !r.isCorrect && !r.isNotSure)) {
+        outcome = "incorrect";
+      } else if (kcResponses.some((r) => r.isNotSure)) {
+        outcome = "not_sure";
+      } else if (kcResponses.length > 0 && kcResponses.every((r) => r.isCorrect)) {
+        outcome = "correct";
+      }
+
+      const fsrsResult = updateFSRS(fsrsRecord, outcome);
+
       await prisma.latentMasteryState.upsert({
         where: {
           learnerId_kcId: {
@@ -83,21 +115,27 @@ export async function saveAssessmentSession(payload: SessionSubmissionPayload) {
         update: {
           masteryProbability: masteryProb,
           opportunityCount: { increment: 1 },
+          stabilityScore: fsrsResult.stabilityScore,
+          difficultyScore: fsrsResult.difficultyScore,
           lastAssessedAt: new Date(),
+          nextReviewDue: fsrsResult.nextReviewDue,
         },
         create: {
           learnerId: learner.id,
           kcId,
           masteryProbability: masteryProb,
           opportunityCount: 1,
+          stabilityScore: fsrsResult.stabilityScore,
+          difficultyScore: fsrsResult.difficultyScore,
           lastAssessedAt: new Date(),
+          nextReviewDue: fsrsResult.nextReviewDue,
         },
       });
     }
 
     return { success: true, sessionId: session.id };
   } catch (error: any) {
-    // If DB is unreachable (e.g. offline or pending cloud URL), return safe fallback flag
+    // If DB is unreachable (e.g. offline), return safe fallback flag
     return {
       success: false,
       offline: true,
@@ -107,8 +145,8 @@ export async function saveAssessmentSession(payload: SessionSubmissionPayload) {
 }
 
 /**
- * Retrieves the latest latent mastery state of a student from PostgreSQL.
- * Conforms to Rule 7: returns empty array if no data exists; no in-code mock fallbacks.
+ * Retrieves the latest latent mastery state and FSRS review schedule of a student from PostgreSQL.
+ * Conforms strictly to Rule 7: returns empty array if no data exists; no in-code mock fallbacks.
  */
 export async function getStudentMasteryStates(username: string = "student_ali") {
   try {
@@ -123,19 +161,32 @@ export async function getStudentMasteryStates(username: string = "student_ali") 
       },
     });
 
-    if (!learner || !learner.masteryStates) {
+    if (!learner || !learner.masteryStates || learner.masteryStates.length === 0) {
       return { success: true, masteries: [] };
     }
 
+    const now = new Date();
+
     return {
       success: true,
-      masteries: learner.masteryStates.map((state) => ({
-        kcId: state.kcId,
-        title: state.kc.title,
-        masteryProbability: state.masteryProbability,
-        isMastered: state.masteryProbability >= 0.85,
-        opportunityCount: state.opportunityCount,
-      })),
+      learner: {
+        id: learner.id,
+        username: learner.username,
+        displayName: learner.displayName,
+      },
+      masteries: learner.masteryStates.map((state) => {
+        const reviewStatus = getPedagogicalReviewStatus(state.nextReviewDue, now);
+        return {
+          kcId: state.kcId,
+          title: state.kc.title,
+          masteryProbability: state.masteryProbability,
+          isMastered: state.masteryProbability >= 0.85,
+          opportunityCount: state.opportunityCount,
+          stabilityScore: state.stabilityScore,
+          nextReviewDue: state.nextReviewDue,
+          reviewStatus,
+        };
+      }),
     };
   } catch (error: any) {
     return {

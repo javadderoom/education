@@ -1,5 +1,6 @@
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { CurationStudio } from "@/components/curation/CurationStudio";
+import { getClassDiagnosticStats } from "@/actions/analytics";
 
 export const dynamic = "force-dynamic";
 
@@ -10,6 +11,7 @@ export const metadata = {
 
 export default async function TeacherPage() {
   const cartridge = getCanonicalCartridge();
+  const diagnosticSummary = await getClassDiagnosticStats(cartridge.subject.id);
 
   return (
     <div className="w-full">
@@ -17,6 +19,11 @@ export default async function TeacherPage() {
         initialItems={cartridge.diagnostic_items}
         misconceptions={cartridge.misconceptions}
         subjectTitle={cartridge.title}
+        kcStats={diagnosticSummary.kcStats}
+        misconceptionStats={diagnosticSummary.misconceptionStats}
+        totalStudents={diagnosticSummary.totalStudents}
+        classAverageMastery={diagnosticSummary.classAverageMastery}
+        mostPrevalentMisconception={diagnosticSummary.mostPrevalentMisconception}
       />
     </div>
   );

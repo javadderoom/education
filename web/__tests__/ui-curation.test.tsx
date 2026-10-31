@@ -78,6 +78,25 @@ describe("Teacher Curation Studio Component", () => {
         initialItems={mockItems}
         misconceptions={mockMisconceptions}
         subjectTitle="فصل دوم: کسرها"
+        totalStudents={15}
+        kcStats={[
+          {
+            id: "KC-01",
+            title: "مهارت اول: شناخت کسر",
+            averageMastery: 75,
+            masteredCount: 10,
+            totalStudents: 15,
+          },
+        ]}
+        misconceptionStats={[
+          {
+            id: "MIS-01",
+            title: "جمع عدد ثابت به صورت و مخرج",
+            prevalencePercent: 25,
+            detectedCount: 4,
+            recommendedAction: "تمرین دست‌ورزی با شبکه مستطیلی",
+          },
+        ]}
       />
     );
 
@@ -86,5 +105,21 @@ describe("Teacher Curation Studio Component", () => {
 
     expect(screen.getByText("میزان تسلط کلاسی به تفکیک مهارت‌های پنج‌گانه")).toBeInTheDocument();
     expect(screen.getByText("نقشه شیوع بدفهمی‌ها و خطاهای مفهومی در کلاس")).toBeInTheDocument();
+  });
+
+  it("displays pedagogical empty state in heatmap when no student data exists", () => {
+    render(
+      <CurationStudio
+        initialItems={mockItems}
+        misconceptions={mockMisconceptions}
+        subjectTitle="فصل دوم: کسرها"
+        totalStudents={0}
+      />
+    );
+
+    const heatmapTab = screen.getByText(/نقشه حرارتی کلاس/i);
+    fireEvent.click(heatmapTab);
+
+    expect(screen.getByText("هنوز اطلاعاتی برای این کلاس ثبت نشده است")).toBeInTheDocument();
   });
 });

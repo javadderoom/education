@@ -1,5 +1,6 @@
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { AssessmentCarousel } from "@/components/assessment/AssessmentCarousel";
+import { getLearnersList } from "@/actions/analytics";
 
 export const dynamic = "force-dynamic";
 
@@ -9,7 +10,10 @@ export const metadata = {
 };
 
 export default async function StudentPage() {
-  const cartridge = getCanonicalCartridge();
+  const [cartridge, learnersData] = await Promise.all([
+    getCanonicalCartridge(),
+    getLearnersList(),
+  ]);
 
   return (
     <div className="w-full">
@@ -17,7 +21,9 @@ export default async function StudentPage() {
         items={cartridge.diagnostic_items}
         knowledgeComponents={cartridge.knowledge_components}
         misconceptions={cartridge.misconceptions}
+        learners={learnersData.learners}
         studentName="علی رضایی"
+        studentUsername="student_ali"
       />
     </div>
   );

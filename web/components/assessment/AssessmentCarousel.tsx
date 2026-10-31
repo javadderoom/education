@@ -17,6 +17,8 @@ import { selectNextAdaptiveItem } from "../../lib/bkt/adaptive";
 import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
+import { StudentProfileSwitcher } from "../navigation/StudentProfileSwitcher";
+import { LearnerProfileSummary } from "../../actions/analytics";
 
 export interface DistractorItem {
   id: string;
@@ -46,6 +48,8 @@ export interface AssessmentCarouselProps {
   knowledgeComponents: Array<{ id: string; title: string }>;
   misconceptions: Array<{ id: string; title: string; counter_example_blueprint: any }>;
   studentName?: string;
+  studentUsername?: string;
+  learners?: LearnerProfileSummary[];
 }
 
 export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
@@ -53,7 +57,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   knowledgeComponents,
   misconceptions,
   studentName = "علی رضایی",
+  studentUsername = "student_ali",
+  learners = [],
 }) => {
+  const [activeName, setActiveName] = useState(studentName);
+  const [activeUsername, setActiveUsername] = useState(studentUsername);
   const [sessionId] = useState(() => `sess_${Date.now()}`);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDistractorId, setSelectedDistractorId] = useState<string | null>(null);
@@ -101,7 +109,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const persistToOfflineDB = (newHistory: typeof history, isFinished: boolean = false) => {
     saveOfflineSession({
       sessionId,
-      learnerName: studentName,
+      learnerName: activeName,
       subjectTitle: "فصل دوم: کسرها",
       startedAt: Date.now(),
       completedAt: isFinished ? Date.now() : undefined,
@@ -112,7 +120,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     if (isFinished) {
       saveAssessmentSession({
         sessionId,
-        learnerDisplayName: studentName,
+        learnerUsername: activeUsername,
+        learnerDisplayName: activeName,
         responses: newHistory.map((h) => ({
           itemId: h.itemId,
           kcId: h.kcId,
@@ -311,7 +320,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
           <p className="text-xs sm:text-sm text-slate-600 mb-5">
-            آفرین {studentName} عزیز، نتیجه میزان تسلط شما بر کسرها:
+            آفرین {activeName} عزیز، نتیجه میزان تسلط شما بر کسرها:
           </p>
 
           <div className="mb-5 text-right">
@@ -375,8 +384,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   return (
     <div className="w-full flex flex-col flex-1 justify-between select-none">
       {/* Top Tablet/Mobile Progress & Header Bar */}
-      <div className="flex items-center justify-between gap-3 mb-3">
-        <div className="flex-1">
+      <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap">
+        <div className="flex-1 min-w-[140px]">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
             <span>سوال {toPersianDigits(history.length + 1)}</span>
             <span className="font-mono text-indigo-600" dir="ltr">
@@ -391,16 +400,29 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           </div>
         </div>
 
-        {/* Quick Drawer Button to View Mastery */}
-        <button
-          type="button"
-          onClick={() => setShowMasterySheet(true)}
-          className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer"
-          title="مشاهده میزان تسلط"
-        >
-          <BarChart2 className="w-4 h-4 text-indigo-600" />
-          <span className="hidden sm:inline">میزان تسلط</span>
-        </button>
+        <div className="flex items-center gap-2">
+          {learners.length > 0 && (
+            <StudentProfileSwitcher
+              learners={learners}
+              activeUsername={activeUsername}
+              onSelectStudent={(l) => {
+                setActiveUsername(l.username);
+                setActiveName(l.displayName);
+              }}
+            />
+          )}
+
+          {/* Quick Drawer Button to View Mastery */}
+          <button
+            type="button"
+            onClick={() => setShowMasterySheet(true)}
+            className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer"
+            title="مشاهده میزان تسلط"
+          >
+            <BarChart2 className="w-4 h-4 text-indigo-600" />
+            <span className="hidden sm:inline">میزان تسلط</span>
+          </button>
+        </div>
       </div>
 
       {/* Main Diagnostic Question Card */}

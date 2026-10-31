@@ -10,18 +10,28 @@ import { BalanceScale } from "../parametric/BalanceScale";
 import { BucketSort } from "../parametric/BucketSort";
 import { DiagnosticItemData } from "../assessment/AssessmentCarousel";
 import { toPersianDigits } from "../../lib/math/persian-digits";
-import { DiagnosticHeatmap } from "./DiagnosticHeatmap";
+import { DiagnosticHeatmap, KCMasteryStat, MisconceptionStat } from "./DiagnosticHeatmap";
 
 export interface CurationStudioProps {
   initialItems: DiagnosticItemData[];
   misconceptions: Array<{ id: string; title: string; counter_example_blueprint: any }>;
   subjectTitle?: string;
+  kcStats?: KCMasteryStat[];
+  misconceptionStats?: MisconceptionStat[];
+  totalStudents?: number;
+  classAverageMastery?: number;
+  mostPrevalentMisconception?: string | null;
 }
 
 export const CurationStudio: React.FC<CurationStudioProps> = ({
   initialItems,
   misconceptions,
   subjectTitle = "فصل ۲: کسرها (پایه چهارم دبستان)",
+  kcStats = [],
+  misconceptionStats = [],
+  totalStudents = 0,
+  classAverageMastery = 0,
+  mostPrevalentMisconception = null,
 }) => {
   const [items, setItems] = useState<DiagnosticItemData[]>(initialItems);
   const [viewMode, setViewMode] = useState<"questions" | "heatmap">("questions");
@@ -134,7 +144,13 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
       </div>
 
       {viewMode === "heatmap" ? (
-        <DiagnosticHeatmap />
+        <DiagnosticHeatmap
+          kcStats={kcStats}
+          misconceptionStats={misconceptionStats}
+          totalStudents={totalStudents}
+          classAverageMastery={classAverageMastery}
+          mostPrevalentMisconception={mostPrevalentMisconception}
+        />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
         {/* Left Column: Questions List (Mobile horizontal scroll / Tablet list) */}
