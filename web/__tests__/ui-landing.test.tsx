@@ -4,26 +4,28 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import LandingPage from "../app/page";
 
-describe("Landing Page Component", () => {
-  it("renders role selection cards for both student and teacher", () => {
+describe("Landing Page Component (Multi-Course Hub)", () => {
+  it("renders multi-course cards and role portals for student, teacher and admin", () => {
     render(<LandingPage />);
 
     // Title and Hero
-    expect(screen.getByText("یادگیری مفهومی و سنجش هوشمند کسرها")).toBeInTheDocument();
+    expect(screen.getByText("یادگیری مفهومی و سنجش هوشمند ریاضی")).toBeInTheDocument();
     
-    // Student portal card
-    expect(screen.getByText("ویژه دانش‌آموزان")).toBeInTheDocument();
-    expect(screen.getByText("ورود به بخش دانش‌آموز")).toBeInTheDocument();
+    // Grade 4 Course Card
+    expect(screen.getByText("ریاضی چهارم: مفهوم و محاسبات کسرها")).toBeInTheDocument();
     
-    // Teacher portal card
-    expect(screen.getByText("ویژه آموزگاران")).toBeInTheDocument();
-    expect(screen.getByText("ورود به میز آموزگار")).toBeInTheDocument();
+    // Grade 5 Course Card
+    expect(screen.getByText("ریاضی پنجم: نسبت، تناسب و درصد")).toBeInTheDocument();
+
+    // Teacher and Admin Portals
+    expect(screen.getByText("میز کار و تایید آموزگار")).toBeInTheDocument();
+    expect(screen.getByText("میز مدیریت کلان سامانه")).toBeInTheDocument();
 
     // Verify links
-    const studentLink = screen.getByRole("link", { name: /ورود به بخش دانش‌آموز/i });
-    expect(studentLink).toHaveAttribute("href", "/student");
-
-    const teacherLink = screen.getByRole("link", { name: /ورود به میز آموزگار/i });
+    const teacherLink = screen.getByRole("link", { name: /میز کار و تایید آموزگار/i });
     expect(teacherLink).toHaveAttribute("href", "/teacher");
+
+    const adminLink = screen.getByRole("link", { name: /میز مدیریت کلان سامانه/i });
+    expect(adminLink).toHaveAttribute("href", "/admin");
   });
 });

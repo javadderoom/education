@@ -9,17 +9,19 @@ import { StudentProfileSwitcher } from "@/components/navigation/StudentProfileSw
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "کارنامه و وضعیت تسلط بر مفاهیم | پایه چهارم",
-  description: "مشاهده میزان تسلط، پایداری حافظه و زمان‌بندی مرور مفاهیم کسرها",
+  title: "کارنامه و وضعیت تسلط بر مفاهیم | ریاضی دبستان",
+  description: "مشاهده میزان تسلط، پایداری حافظه و زمان‌بندی مرور مفاهیم",
 };
 
 interface PageProps {
-  searchParams: Promise<{ student?: string }>;
+  searchParams: Promise<{ student?: string; subject?: string }>;
 }
 
 export default async function MasteryPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const username = params.student || "student_ali";
+  const subjectId = params.subject || "SUBJ-MATH4-FRACTIONS";
+  const querySuffix = `?subject=${encodeURIComponent(subjectId)}`;
 
   const [masteryData, learnersData] = await Promise.all([
     getStudentMasteryStates(username),
@@ -213,7 +215,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
       {/* Action Buttons to Continue Learning */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
         <Link
-          href="/student"
+          href={`/student${querySuffix}`}
           className="min-h-[48px] flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-98 text-white text-xs sm:text-sm font-bold py-3 px-4 rounded-2xl shadow-sm transition-all cursor-pointer"
         >
           <BookOpenCheck className="w-4 h-4" />
@@ -221,7 +223,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
         </Link>
 
         <Link
-          href="/student/workshop"
+          href={`/student/workshop${querySuffix}`}
           className="min-h-[48px] flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 active:scale-98 text-slate-800 text-xs sm:text-sm font-bold py-3 px-4 rounded-2xl transition-all cursor-pointer"
         >
           <Sparkles className="w-4 h-4 text-indigo-600" />

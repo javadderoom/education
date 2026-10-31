@@ -1,4 +1,5 @@
 import { prisma } from "../lib/db/prisma";
+import { hashPassword } from "../lib/auth/password";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -185,22 +186,92 @@ async function main() {
     await seedCartridge(path.join(canonicalDir, file));
   }
 
-  // Seed Grade 5 Sample Learner as well
-  console.log("\nSeeding Grade 5 Demo Learner...");
+  // Seed Admin Account
+  console.log("\nSeeding Administrator Account...");
   await prisma.learner.upsert({
-    where: { username: "student_grade5_demo" },
+    where: { username: "admin" },
     update: {
-      displayName: "محمدحسین مرادی (دانش‌آموز پایه پنجم)",
-      gradeLevel: 5,
+      displayName: "مدیر ارشد سامانه",
+      role: "admin",
+      passwordHash: hashPassword("admin123456"),
     },
     create: {
-      username: "student_grade5_demo",
-      displayName: "محمدحسین مرادی (دانش‌آموز پایه پنجم)",
-      gradeLevel: 5,
+      username: "admin",
+      displayName: "مدیر ارشد سامانه",
+      role: "admin",
+      passwordHash: hashPassword("admin123456"),
     },
   });
 
-  console.log("\n--- All Cartridges Seeded Successfully to PostgreSQL! ---");
+  // Seed Teacher Account
+  console.log("Seeding Demo Teacher Account...");
+  const teacher = await prisma.learner.upsert({
+    where: { username: "teacher_maryam" },
+    update: {
+      displayName: "خانم مریم محمدی (آموزگار ریاضی)",
+      role: "teacher",
+      passwordHash: hashPassword("teacher123456"),
+      phone: "09123456789",
+      schoolName: "دبستان هوشمند شهید بهشتی",
+    },
+    create: {
+      username: "teacher_maryam",
+      displayName: "خانم مریم محمدی (آموزگار ریاضی)",
+      role: "teacher",
+      passwordHash: hashPassword("teacher123456"),
+      phone: "09123456789",
+      schoolName: "دبستان هوشمند شهید بهشتی",
+    },
+  });
+
+  // Seed Classrooms
+  console.log("Seeding Classrooms...");
+  const class4 = await prisma.classroom.upsert({
+    where: { id: "CLASS-GRADE4-A" },
+    update: {
+      name: "کلاس چهارم الف",
+      gradeLevel: 4,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+    create: {
+      id: "CLASS-GRADE4-A",
+      name: "کلاس چهارم الف",
+      gradeLevel: 4,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+  });
+
+  const class5 = await prisma.classroom.upsert({
+    where: { id: "CLASS-GRADE5-B" },
+    update: {
+      name: "کلاس پنجم ب",
+      gradeLevel: 5,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+    create: {
+      id: "CLASS-GRADE5-B",
+      name: "کلاس پنجم ب",
+      gradeLevel: 5,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+  });
+
+  // Link Demo Learners to classrooms
+  await prisma.learner.updateMany({
+    where: { username: "student_demo" },
+    data: { classroomId: class4.id, pinCode: "1234" },
+  });
+
+  await prisma.learner.updateMany({
+    where: { username: "student_grade5_demo" },
+    data: { classroomId: class5.id, pinCode: "1234" },
+  });
+
+  console.log("\n--- All Cartridges, Users & Classrooms Seeded Successfully! ---");
 }
 
 main()

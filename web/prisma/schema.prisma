@@ -1,5 +1,5 @@
 // Educational Cognitive Diagnostic Assessment Platform
-// Prisma Schema for Next.js 16.4+ & PostgreSQL 18 (Neon / Supabase Connection Pooler)
+// Prisma Schema for Next.js 16.4+ & PostgreSQL 18 (Neon / Local Docker)
 
 generator client {
   provider = "prisma-client-js"
@@ -113,11 +113,37 @@ model Distractor {
   @@map("distractors")
 }
 
+model Classroom {
+  id          String    @id @default(cuid())
+  name        String    // e.g. "کلاس چهارم الف", "کلاس پنجم شهید چمران"
+  gradeLevel  Int       @default(4)
+  schoolName  String?   // e.g. "دبستان شهید بهشتی"
+  teacherId   String?
+  teacher     Learner?  @relation("TeacherClassrooms", fields: [teacherId], references: [id], onDelete: SetNull)
+  students    Learner[] @relation("ClassroomStudents")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("classrooms")
+}
+
 model Learner {
   id            String               @id @default(cuid())
   username      String               @unique
   displayName   String
+  role          String               @default("student") // "student", "teacher", "admin"
+  passwordHash  String?              // Hashed password for teachers/admins/students
+  pinCode       String?              // Simple 4-digit PIN for elementary students
+  phone         String?
   gradeLevel    Int                  @default(4)
+  avatar        String?              // Avatar identifier (e.g. "star", "fox", "owl", "robot")
+  
+  // School & Class relations
+  schoolName    String?
+  classroomId   String?
+  classroom     Classroom?           @relation("ClassroomStudents", fields: [classroomId], references: [id], onDelete: SetNull)
+  taughtClasses Classroom[]          @relation("TeacherClassrooms")
+
   createdAt     DateTime             @default(now())
   updatedAt     DateTime             @updatedAt
   sessions      AssessmentSession[]

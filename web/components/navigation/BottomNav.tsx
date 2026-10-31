@@ -2,14 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { Home, BookOpenCheck, Sparkles, TrendingUp } from "lucide-react";
 
 export const BottomNav: React.FC = () => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const subject = searchParams.get("subject");
+  const querySuffix = subject ? `?subject=${encodeURIComponent(subject)}` : "";
 
-  // If on teacher curation desk, hide the student bottom navigation bar
-  if (pathname.startsWith("/teacher")) {
+  // If on teacher curation desk or admin dashboard, hide the student bottom navigation bar
+  if (pathname.startsWith("/teacher") || pathname.startsWith("/admin")) {
     return null;
   }
 
@@ -21,20 +24,20 @@ export const BottomNav: React.FC = () => {
       isActive: pathname === "/",
     },
     {
-      label: "آزمون کسرها",
-      href: "/student",
+      label: "سنجش و تمرین",
+      href: `/student${querySuffix}`,
       icon: BookOpenCheck,
       isActive: pathname === "/student",
     },
     {
       label: "کارگاه دست‌ورزی",
-      href: "/student/workshop",
+      href: `/student/workshop${querySuffix}`,
       icon: Sparkles,
       isActive: pathname === "/student/workshop",
     },
     {
       label: "کارنامه تسلط",
-      href: "/student/mastery",
+      href: `/student/mastery${querySuffix}`,
       icon: TrendingUp,
       isActive: pathname === "/student/mastery",
     },
