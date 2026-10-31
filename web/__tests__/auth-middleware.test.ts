@@ -127,4 +127,20 @@ describe("Authentication & RBAC Route Protection Engine", () => {
     const res = await middleware(req);
     expect(res.status).toBe(200);
   });
+
+  it("strictly ignores client-side localStorage injections and blocks unauthenticated requests", async () => {
+    // Simulate an attacker setting localStorage keys in browser
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("role", "admin");
+      window.localStorage.setItem("user", JSON.stringify({ role: "admin", username: "admin" }));
+      window.localStorage.setItem("isAdmin", "true");
+    }
+
+    // A request without the cryptographically signed HttpOnly cookie MUST be blocked
+    const req = new NextRequest("http://localhost:3000/admin");
+    const res = await middleware(req);
+
+    expect(res.status).toBe(307);
+    expect(res.headers.get("location")).toContain("/login");
+  });
 });

@@ -24,18 +24,6 @@ export const StudentProfileSwitcher: React.FC<StudentProfileSwitcherProps> = ({
   const [profiles, setProfiles] = useState<LearnerProfileSummary[]>(learners);
 
   useEffect(() => {
-    // Check localStorage for saved active student
-    if (typeof window !== "undefined") {
-      const savedUser = localStorage.getItem("edu_active_student_user");
-      const savedName = localStorage.getItem("edu_active_student_name");
-      if (savedUser && savedName) {
-        setCurrentUsername(savedUser);
-        setCurrentDisplayName(savedName);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
     if (learners.length > 0) {
       setProfiles(learners);
       const matched = learners.find((l) => l.username === currentUsername);
@@ -48,10 +36,6 @@ export const StudentProfileSwitcher: React.FC<StudentProfileSwitcherProps> = ({
   const handleSelect = (learner: { username: string; displayName: string }) => {
     setCurrentUsername(learner.username);
     setCurrentDisplayName(learner.displayName);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("edu_active_student_user", learner.username);
-      localStorage.setItem("edu_active_student_name", learner.displayName);
-    }
     setIsOpen(false);
     if (onSelectStudent) {
       onSelectStudent(learner);

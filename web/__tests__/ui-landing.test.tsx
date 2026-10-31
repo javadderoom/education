@@ -17,15 +17,9 @@ describe("Landing Page Component (Multi-Course Hub)", () => {
     // Grade 5 Course Card
     expect(screen.getByText("ریاضی پنجم: نسبت، تناسب و درصد")).toBeInTheDocument();
 
-    // Teacher and Admin Portals
-    expect(screen.getByText("میز کار و تایید آموزگار")).toBeInTheDocument();
-    expect(screen.getByText("میز مدیریت کلان سامانه")).toBeInTheDocument();
-
-    // Verify links
-    const teacherLink = screen.getByRole("link", { name: /میز کار و تایید آموزگار/i });
-    expect(teacherLink).toHaveAttribute("href", "/teacher");
-
-    const adminLink = screen.getByRole("link", { name: /میز مدیریت کلان سامانه/i });
-    expect(adminLink).toHaveAttribute("href", "/admin");
+    // Educational Standards & Staff Portal Access
+    expect(screen.getByText("ورود همکاران")).toBeInTheDocument();
+    const staffLink = screen.getByRole("link", { name: /ورود همکاران/i });
+    expect(staffLink).toHaveAttribute("href", "/login?role=staff");
   });
 });

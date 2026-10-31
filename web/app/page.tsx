@@ -119,46 +119,18 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Main Role Portals (Teacher & Admin) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-        {/* Teacher Desk Card */}
-        <Link
-          href="/teacher"
-          className="group flex items-center gap-3.5 bg-white border-2 border-slate-200 hover:border-slate-400 rounded-2xl p-4 shadow-xs transition-all active:scale-98 cursor-pointer"
-        >
-          <div className="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 shrink-0 group-hover:bg-slate-800 group-hover:text-white transition-colors">
-            <GraduationCap className="w-5 h-5" />
-          </div>
-          <div className="flex-1">
-            <span className="text-[10px] font-bold text-slate-400 block leading-tight">ورود اختصاصی:</span>
-            <span className="text-sm font-bold text-slate-900 block group-hover:text-indigo-600 transition-colors">
-              میز کار و تایید آموزگار
-            </span>
-          </div>
-          <ArrowLeft className="w-4 h-4 text-slate-400 group-hover:-translate-x-1 transition-transform" />
-        </Link>
-
-        {/* Management Portal Card */}
-        <Link
-          href="/admin"
-          className="group flex items-center gap-3.5 bg-white border-2 border-slate-200 hover:border-amber-400 rounded-2xl p-4 shadow-xs transition-all active:scale-98 cursor-pointer"
-        >
-          <div className="w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700 shrink-0 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-            <ShieldCheck className="w-5 h-5" />
-          </div>
-          <div className="flex-1">
-            <span className="text-[10px] font-bold text-amber-800 block leading-tight">بخش اداری:</span>
-            <span className="text-sm font-bold text-slate-900 block group-hover:text-amber-800 transition-colors">
-              میز مدیریت کلان سامانه
-            </span>
-          </div>
-          <ArrowLeft className="w-4 h-4 text-slate-400 group-hover:-translate-x-1 transition-transform" />
-        </Link>
-      </div>
-
-      {/* Encouraging Footer Note */}
-      <div className="text-center text-[11px] text-slate-400 font-medium pb-2">
-        بر اساس استاندارد رسمی کتاب‌های درسی ریاضی دوره دوم ابتدایی (پایگاه کتاب‌های درسی ایران)
+      {/* Educational Standards & Staff Access */}
+      <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-400 font-medium pb-2">
+        <span>بر اساس استاندارد رسمی کتاب‌های درسی ریاضی دوره دوم ابتدایی (پایگاه کتاب‌های درسی ایران)</span>
+        <div className="flex items-center gap-1.5">
+          <span>کادر آموزشی و مدارس:</span>
+          <Link
+            href="/login?role=staff"
+            className="font-bold text-indigo-600 hover:text-indigo-800 transition-colors"
+          >
+            ورود همکاران
+          </Link>
+        </div>
       </div>
     </div>
   );

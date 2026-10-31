@@ -133,12 +133,12 @@ export const Header: React.FC = () => {
                 </Link>
               )}
 
-              {/* User Identity Chip */}
+              {/* User Identity Chip (Without Technical Role Labels) */}
               <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-xl text-xs font-bold text-slate-700">
-                <span className="text-[10px] text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded-md">
-                  {user.role === "admin" ? "مدیر" : user.role === "teacher" ? "آموزگار" : "دانش‌آموز"}
-                </span>
-                <span className="max-w-[90px] sm:max-w-none truncate">{user.displayName}</span>
+                <div className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-[10px]">
+                  <User className="w-3 h-3" />
+                </div>
+                <span className="max-w-[120px] sm:max-w-none truncate">{user.displayName}</span>
               </div>
 
               {/* Logout Button */}

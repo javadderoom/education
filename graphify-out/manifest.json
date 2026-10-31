@@ -355,8 +355,8 @@
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
-    "mtime": 1793455943.5633419,
-    "ast_hash": "69e10ef1a78654fa8ef5b215f6cb727e",
+    "mtime": 1793475670.8791714,
+    "ast_hash": "692af46566ecd93a5f6437cd5d69ce1c",
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-landing.test.tsx": {
-    "mtime": 1793456152.473471,
-    "ast_hash": "925b7ede0e2b0524e324f9bad7fb35ed",
+    "mtime": 1793475681.4891963,
+    "ast_hash": "3cb75b209091f83ab49bc7f89e1c3bf7",
     "semantic_hash": ""
   },
   "web/app/student/page.tsx": {
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "web/components/navigation/StudentProfileSwitcher.tsx": {
-    "mtime": 1793450813.1600623,
-    "ast_hash": "f2f22511483f50b40e6641fc97125d0e",
+    "mtime": 1793475617.9868047,
+    "ast_hash": "625a2c4951313bf0bdd708f3af98bfe2",
     "semantic_hash": ""
   },
   "web/lib/bkt/fsrs.ts": {
@@ -920,8 +920,8 @@
     "semantic_hash": ""
   },
   "web/components/navigation/Header.tsx": {
-    "mtime": 1793455879.8278975,
-    "ast_hash": "aeb6a7086c359f63c2ad6a3787add5af",
+    "mtime": 1793475648.9841735,
+    "ast_hash": "36799a1ecabd4d67a277d2af48d86c08",
     "semantic_hash": ""
   },
   "web/lib/auth/session.ts": {
@@ -930,8 +930,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/auth-middleware.test.ts": {
-    "mtime": 1793460001.0037103,
-    "ast_hash": "6b5878016ca9c59bc87b3b703c860a55",
+    "mtime": 1793475694.7847934,
+    "ast_hash": "7552462fa6b24fb5d82897996d5ed8ad",
     "semantic_hash": ""
   },
   "web/middleware.ts": {
