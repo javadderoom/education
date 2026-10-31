@@ -350,13 +350,13 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793442733.5761974,
-    "ast_hash": "55e4aab768c7eabde391061e86ca7c11",
+    "mtime": 1793444797.2010405,
+    "ast_hash": "5c6d72c62db9e9baa1e80cd5f9914fec",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
-    "mtime": 1793377723.7297826,
-    "ast_hash": "2fdd52b489c039f82197ba1b59d700ac",
+    "mtime": 1793444785.7809844,
+    "ast_hash": "1c00a50b48b8d812d75f4eafe048e77e",
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
@@ -745,8 +745,8 @@
     "semantic_hash": ""
   },
   "web/app/curation/page.tsx": {
-    "mtime": 1793431072.5575304,
-    "ast_hash": "609f23609ae2d741db0854b353f08a0c",
+    "mtime": 1793444768.5804474,
+    "ast_hash": "7bd84cf137e169945e46e0e3fe930705",
     "semantic_hash": ""
   },
   "web/components/curation/CurationStudio.tsx": {
@@ -782,6 +782,21 @@
   "web/vercel.json": {
     "mtime": 1793438065.0049787,
     "ast_hash": "024182d9aca240447ff214f38a46c7c6",
+    "semantic_hash": ""
+  },
+  "web/__tests__/ui-landing.test.tsx": {
+    "mtime": 1793444803.5824933,
+    "ast_hash": "e821053e0d94c4fb37d7620cc0dd3287",
+    "semantic_hash": ""
+  },
+  "web/app/student/page.tsx": {
+    "mtime": 1793444756.5545802,
+    "ast_hash": "fb8b639945462b40d8c21c2b46941df9",
+    "semantic_hash": ""
+  },
+  "web/app/teacher/page.tsx": {
+    "mtime": 1793444762.7196884,
+    "ast_hash": "ee62f869ae0a8af32a8a2d159cbff12f",
     "semantic_hash": ""
   }
 }
