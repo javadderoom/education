@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -7,13 +7,22 @@ export const metadata: Metadata = {
   description: "سامانه ارزیابی تشخیصی و یادگیری مفهومی ریاضی دبستان",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: "#4f46e5",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" className="h-full">
       <head>
         <link
           rel="stylesheet"
@@ -22,33 +31,36 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
-        <header className="bg-white border-b border-slate-200 sticky top-0 z-40">
-          <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-sm">
-                ک
+      <body className="h-full flex flex-col justify-between">
+        {/* Mobile & Tablet App Shell (Responsive Centered Tablet Frame on Desktop) */}
+        <div className="w-full max-w-xl md:max-w-2xl mx-auto min-h-screen bg-white shadow-2xl flex flex-col border-x border-slate-200">
+          <header className="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 px-4 py-3 shrink-0">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-base shadow-sm">
+                  ک
+                </div>
+                <div>
+                  <h1 className="font-bold text-sm text-slate-900 leading-tight">ریاضی پایه چهارم</h1>
+                  <p className="text-[11px] text-slate-500">فصل ۲: شناخت کسرها</p>
+                </div>
               </div>
-              <div>
-                <h1 className="font-bold text-sm text-slate-900">سامانه تشخیصی ریاضی دبستان</h1>
-                <p className="text-[11px] text-slate-500">پایه چهارم • فصل دوم: کسرها</p>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  آماده آزمون
+                </span>
               </div>
             </div>
+          </header>
 
-            <div className="flex items-center gap-2">
-              <span className="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                آزمون هوشمند فعال
-              </span>
-            </div>
-          </div>
-        </header>
+          <main className="flex-1 flex flex-col overflow-y-auto px-4 py-4">{children}</main>
 
-        <main className="py-6">{children}</main>
-
-        <footer className="mt-auto py-6 border-t border-slate-200 text-center text-xs text-slate-400">
-          سامانه ارزیابی تشخیصی و یادگیری ریاضی • بر پایه کتاب و راهنمای تدریس مصوب آموزش و پرورش
-        </footer>
+          <footer className="py-3 px-4 border-t border-slate-100 text-center text-[11px] text-slate-400 bg-slate-50/50 shrink-0">
+            آموزش و پرورش • کتاب و راهنمای تدریس ریاضی چهارم دبستان
+          </footer>
+        </div>
       </body>
     </html>
   );

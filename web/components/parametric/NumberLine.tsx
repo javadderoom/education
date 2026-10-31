@@ -40,7 +40,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
   return (
     <div className="w-full flex flex-col items-center my-4 select-none">
       <div className="w-full max-w-md bg-white border-2 border-slate-200 rounded-xl p-4 shadow-sm">
-        <svg viewBox="0 0 460 120" className="w-full h-24 overflow-visible">
+        <svg viewBox="0 0 460 120" preserveAspectRatio="xMidYMid meet" className="w-full h-24 sm:h-28 overflow-visible">
           {/* Main Axis Line */}
           <line
             x1={paddingX}

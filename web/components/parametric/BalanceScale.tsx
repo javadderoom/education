@@ -27,7 +27,7 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
   return (
     <div className="w-full flex flex-col items-center my-4 select-none">
       <div className="w-full max-w-sm bg-white border-2 border-slate-200 rounded-xl p-4 shadow-sm flex flex-col items-center">
-        <svg viewBox="0 0 400 170" className="w-full h-36 overflow-visible">
+        <svg viewBox="0 0 400 170" preserveAspectRatio="xMidYMid meet" className="w-full h-32 sm:h-36 overflow-visible">
           {/* Base Stand */}
           <polygon points="175,150 225,150 210,90 190,90" fill="#64748b" />
           <rect x="150" y="145" width="100" height="10" rx="4" fill="#334155" />

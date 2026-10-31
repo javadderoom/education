@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793420527.6901708,
-    "ast_hash": "2180b61152235d8a480e4da2e0eca823",
+    "mtime": 1793421698.440946,
+    "ast_hash": "a183006e8458337cc4bc85ce2b78a22f",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793420577.8368874,
-    "ast_hash": "378bbe2cc822cdc5b5bab86ee1acd4e3",
+    "mtime": 1793421744.3474479,
+    "ast_hash": "52d87ac8a18faff6d79736d5489ab9dd",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -370,13 +370,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
-    "mtime": 1793377599.7921243,
-    "ast_hash": "d32b4dab48943eaee9b2312ead42d8b4",
+    "mtime": 1793421772.4617367,
+    "ast_hash": "308a4fa8af47fb315d0746ce2ebe5e07",
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
-    "mtime": 1793377891.089034,
-    "ast_hash": "f1bb81241504daaa8c148548c6b4dfd8",
+    "mtime": 1793421777.856944,
+    "ast_hash": "2f76881aebaeeea8e862cd6a9b18ceda",
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
@@ -390,13 +390,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
-    "mtime": 1793377896.1146297,
-    "ast_hash": "c59feee38926bb59066d33a0a27c2e9f",
+    "mtime": 1793421783.425145,
+    "ast_hash": "c1b6ba0afc83ca072ca2dfb0401140f0",
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
-    "mtime": 1793377641.7896576,
-    "ast_hash": "6232e070d23568185625f5d325e388d6",
+    "mtime": 1793421755.6025598,
+    "ast_hash": "2a61cb150af1fe6bdb0fa4af9933b363",
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1793377434.0003312,
-    "ast_hash": "23c4aaac11faf460e9a512bb3daf6d17",
+    "mtime": 1793421861.000289,
+    "ast_hash": "3cb3d848cf96ba11be9ffaab243e5fdb",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "web/tsconfig.json": {
-    "mtime": 1793377917.4468732,
-    "ast_hash": "019a463259b09a858f8be6877cefc718",
+    "mtime": 1793421965.9563825,
+    "ast_hash": "c951d6755f931d8ac2bd0b97d23310a6",
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
@@ -665,8 +665,8 @@
     "semantic_hash": ""
   },
   "MVP_GUIDE.md": {
-    "mtime": 1793377790.7940128,
-    "ast_hash": "ae29b95f985703aba72a91f598f021f5",
+    "mtime": 1793422008.5494664,
+    "ast_hash": "1c22c3364b94b5d87d062a96db223f7c",
     "semantic_hash": ""
   },
   "README.md": {
@@ -727,6 +727,16 @@
   "scripts/ingestion/requirements.txt": {
     "mtime": 1793377378.4008863,
     "ast_hash": "8e78e9ff40e29b0c947c2cc9097c7143",
+    "semantic_hash": ""
+  },
+  "web/__tests__/ui-assessment.test.tsx": {
+    "mtime": 1793421954.455823,
+    "ast_hash": "18eb809f296a8307dc5d8f11be1e68d3",
+    "semantic_hash": ""
+  },
+  "web/vitest.setup.ts": {
+    "mtime": 1793421946.7157643,
+    "ast_hash": "3709e3aa95abf0544678f0f2d9b46702",
     "semantic_hash": ""
   }
 }

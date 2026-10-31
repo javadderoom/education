@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { HelpCircle, CheckCircle, Award, RotateCcw, ArrowRight } from "lucide-react";
+import { HelpCircle, Award, RotateCcw, BarChart2, X } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -51,6 +51,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDistractorId, setSelectedDistractorId] = useState<string | null>(null);
+  const [showMasterySheet, setShowMasterySheet] = useState(false);
   const [activeRemediation, setActiveRemediation] = useState<{
     isOpen: boolean;
     title?: string;
@@ -62,7 +63,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const [masteries, setMasteries] = useState<Record<string, number>>(() => {
     const initial: Record<string, number> = {};
     for (const kc of knowledgeComponents) {
-      initial[kc.id] = 0.15; // default BKT prior P(L0)
+      initial[kc.id] = 0.15; // default initial prior
     }
     return initial;
   });
@@ -90,7 +91,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   }, [misconceptions]);
 
   const handleSelectOption = (distractor: DistractorItem) => {
-    if (selectedDistractorId) return; // Prevent double-clicks
+    if (selectedDistractorId) return; // Prevent double taps
     setSelectedDistractorId(distractor.id);
 
     const diagnosis = evaluateDiagnosticResponse(
@@ -106,10 +107,10 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       misconceptionsMap
     );
 
-    // Update BKT Mastery for this item's KC
+    // Update Mastery for this item's KC
     const prior = masteries[currentItem.kc_id] ?? 0.15;
     const bktResult = updateMastery(prior, distractor.is_correct, false);
-    
+
     setMasteries((prev) => ({
       ...prev,
       [currentItem.kc_id]: bktResult.posteriorMastery,
@@ -134,7 +135,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         rationale: distractor.rationale,
       });
     } else {
-      setTimeout(() => advanceToNext(), 600);
+      setTimeout(() => advanceToNext(), 500);
     }
   };
 
@@ -160,7 +161,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ]);
 
-    setTimeout(() => advanceToNext(), 500);
+    setTimeout(() => advanceToNext(), 400);
   };
 
   const advanceToNext = () => {
@@ -214,144 +215,181 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   if (sessionCompleted) {
     const correctCount = history.filter((h) => h.isCorrect).length;
+    const averageMastery = Math.round(
+      (Object.values(masteries).reduce((a, b) => a + b, 0) /
+        Object.values(masteries).length) *
+        100
+    );
+
     return (
-      <div className="max-w-2xl mx-auto my-8 p-6 bg-white border border-slate-200 rounded-3xl shadow-xl text-center">
-        <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Award className="w-10 h-10" />
-        </div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
-        <p className="text-sm text-slate-600 mb-6">
-          آفرین {studentName} عزیز، نتایج تحلیل میزان تسلط شما بر مفاهیم آماده است:
-        </p>
-
-        <div className="mb-6">
-          <MasteryRadar masteryList={masteryRadarList} />
-        </div>
-
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 flex justify-around text-center">
-          <div>
-            <span className="text-xs text-slate-500 block">پاسخ‌های صحیح</span>
-            <span className="text-xl font-bold text-emerald-600 font-mono" dir="ltr">
-              {correctCount} / {items.length}
-            </span>
+      <div className="w-full max-w-lg mx-auto py-4 px-2 text-center animate-in fade-in duration-300">
+        <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-lg">
+          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-inner">
+            <Award className="w-9 h-9" />
           </div>
-          <div>
-            <span className="text-xs text-slate-500 block">سوالات بدون اطمینان</span>
-            <span className="text-xl font-bold text-amber-600 font-mono" dir="ltr">
-              {history.filter((h) => h.isNotSure).length}
-            </span>
-          </div>
-          <div>
-            <span className="text-xs text-slate-500 block">میانگین تسلط بر مفاهیم</span>
-            <span className="text-xl font-bold text-indigo-600 font-mono" dir="ltr">
-              {Math.round(
-                (Object.values(masteries).reduce((a, b) => a + b, 0) /
-                  Object.values(masteries).length) *
-                  100
-              )}
-              %
-            </span>
-          </div>
-        </div>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
+          <p className="text-xs sm:text-sm text-slate-600 mb-5">
+            آفرین {studentName} عزیز، نتیجه میزان تسلط شما بر کسرها:
+          </p>
 
-        <button
-          type="button"
-          onClick={handleRestart}
-          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all cursor-pointer"
-        >
-          <RotateCcw className="w-5 h-5" />
-          <span>تکرار مجدد آزمون</span>
-        </button>
+          <div className="mb-5 text-right">
+            <MasteryRadar masteryList={masteryRadarList} />
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-6 text-center">
+            <div className="p-1">
+              <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
+              <span className="text-lg font-black text-emerald-600 font-mono" dir="ltr">
+                {correctCount} / {items.length}
+              </span>
+            </div>
+            <div className="p-1 border-x border-slate-200">
+              <span className="text-[11px] text-slate-500 block mb-1">بدون اطمینان</span>
+              <span className="text-lg font-black text-amber-600 font-mono" dir="ltr">
+                {history.filter((h) => h.isNotSure).length}
+              </span>
+            </div>
+            <div className="p-1">
+              <span className="text-[11px] text-slate-500 block mb-1">میانگین تسلط</span>
+              <span className="text-lg font-black text-indigo-600 font-mono" dir="ltr">
+                {averageMastery}%
+              </span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleRestart}
+            className="w-full min-h-[52px] inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-bold text-base px-6 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer select-none"
+          >
+            <RotateCcw className="w-5 h-5" />
+            <span>تکرار مجدد آزمون</span>
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto my-6 px-4">
-      {/* Top Header Progress */}
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <span className="text-xs font-semibold text-slate-500 block">
-            آزمون تشخیصی ریاضی چهارم • فصل دوم: کسرها
-          </span>
-          <h2 className="text-lg font-bold text-slate-800">
-            سوال {currentIndex + 1} از {items.length}
-          </h2>
-        </div>
-        <div className="w-32 h-2.5 bg-slate-200 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-indigo-600 rounded-full transition-all duration-300"
-            style={{ width: `${((currentIndex + 1) / items.length) * 100}%` }}
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Main Diagnostic Card (2 columns) */}
-        <div className="md:col-span-2 bg-white border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
-          <div>
-            {/* Question Stem */}
-            <div className="text-base md:text-lg font-bold text-slate-900 mb-4 leading-relaxed">
-              <MathRenderer content={currentItem.stem} />
-            </div>
-
-            {/* Parametric Visual Template */}
-            {renderVisualTemplate()}
-
-            {/* Distractor Options Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
-              {currentItem.distractors.map((dis) => {
-                const isSelected = selectedDistractorId === dis.id;
-                let btnStyle = "border-slate-200 bg-white hover:border-indigo-400 hover:bg-indigo-50/30 text-slate-800";
-                
-                if (isSelected) {
-                  btnStyle = dis.is_correct
-                    ? "border-emerald-500 bg-emerald-50 text-emerald-900 shadow-sm"
-                    : "border-rose-400 bg-rose-50 text-rose-900 shadow-sm";
-                }
-
-                return (
-                  <button
-                    key={dis.id}
-                    type="button"
-                    disabled={selectedDistractorId !== null}
-                    onClick={() => handleSelectOption(dis)}
-                    className={`flex items-center gap-3 p-4 rounded-2xl border-2 font-medium text-sm transition-all duration-150 cursor-pointer text-right active:scale-98 ${btnStyle}`}
-                  >
-                    <span className="w-8 h-8 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-slate-700 shrink-0 text-xs">
-                      {dis.label}
-                    </span>
-                    <span className="flex-1 font-semibold">
-                      <MathRenderer content={dis.content} />
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Honest Uncertainty Button */}
-          <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
-            <button
-              type="button"
-              disabled={selectedDistractorId !== null}
-              onClick={handleNotSure}
-              className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-indigo-600 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl font-medium transition-colors cursor-pointer"
-            >
-              <HelpCircle className="w-4 h-4" />
-              <span>هنوز مطمئن نیستم (بدون کسر نمره)</span>
-            </button>
-            <span className="text-xs text-slate-400">
-              سوال {currentIndex + 1}
+    <div className="w-full flex flex-col flex-1 justify-between select-none">
+      {/* Top Tablet/Mobile Progress & Header Bar */}
+      <div className="flex items-center justify-between gap-3 mb-3">
+        <div className="flex-1">
+          <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
+            <span>سوال {currentIndex + 1} از {items.length}</span>
+            <span className="font-mono text-indigo-600" dir="ltr">
+              {Math.round(((currentIndex + 1) / items.length) * 100)}%
             </span>
           </div>
+          <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-indigo-600 rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${((currentIndex + 1) / items.length) * 100}%` }}
+            />
+          </div>
         </div>
 
-        {/* Live Mastery Radar Sidebar (1 column) */}
-        <div className="md:col-span-1">
-          <MasteryRadar masteryList={masteryRadarList} />
+        {/* Quick Drawer Button to View Mastery */}
+        <button
+          type="button"
+          onClick={() => setShowMasterySheet(true)}
+          className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer"
+          title="مشاهده میزان تسلط"
+        >
+          <BarChart2 className="w-4 h-4 text-indigo-600" />
+          <span className="hidden sm:inline">میزان تسلط</span>
+        </button>
+      </div>
+
+      {/* Main Diagnostic Question Card */}
+      <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 sm:p-6 shadow-sm flex flex-col flex-1 justify-between mb-3">
+        <div>
+          {/* Question Stem */}
+          <div className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-relaxed">
+            <MathRenderer content={currentItem.stem} />
+          </div>
+
+          {/* Parametric Visual Template */}
+          <div className="my-2 flex justify-center">
+            {renderVisualTemplate()}
+          </div>
+
+          {/* Distractor Options Grid (Touch-First Large Buttons) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-3">
+            {currentItem.distractors.map((dis) => {
+              const isSelected = selectedDistractorId === dis.id;
+              let btnStyle =
+                "border-slate-200 bg-slate-50/70 hover:border-indigo-400 hover:bg-indigo-50/40 text-slate-800";
+
+              if (isSelected) {
+                btnStyle = dis.is_correct
+                  ? "border-emerald-500 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-300 shadow-sm"
+                  : "border-rose-400 bg-rose-50 text-rose-950 ring-2 ring-rose-200 shadow-sm";
+              }
+
+              return (
+                <button
+                  key={dis.id}
+                  type="button"
+                  disabled={selectedDistractorId !== null}
+                  onClick={() => handleSelectOption(dis)}
+                  className={`min-h-[58px] flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl border-2 font-medium text-base transition-all duration-150 cursor-pointer text-right active:scale-[0.98] ${btnStyle}`}
+                >
+                  <span className="w-8 h-8 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-700 shrink-0 text-xs shadow-xs">
+                    {dis.label}
+                  </span>
+                  <span className="flex-1 font-semibold text-sm sm:text-base">
+                    <MathRenderer content={dis.content} />
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Honest Uncertainty Button (Bottom Thumb-Friendly Area) */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-center mt-2">
+          <button
+            type="button"
+            disabled={selectedDistractorId !== null}
+            onClick={handleNotSure}
+            className="w-full sm:w-auto min-h-[46px] flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-indigo-700 bg-slate-100 hover:bg-slate-200 active:scale-98 px-5 py-2.5 rounded-xl transition-all cursor-pointer shadow-xs"
+          >
+            <HelpCircle className="w-4 h-4 text-slate-500" />
+            <span>هنوز مطمئن نیستم (بدون جریمه)</span>
+          </button>
         </div>
       </div>
+
+      {/* Slide-over Sheet / Modal for Mastery View on Mobile/Tablet */}
+      {showMasterySheet && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-xs p-0 sm:p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-t-3xl sm:rounded-3xl max-w-md w-full p-5 shadow-2xl overflow-hidden max-h-[85vh] flex flex-col animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+              <h3 className="font-bold text-sm text-slate-800">وضعیت تسلط بر مفاهیم</h3>
+              <button
+                type="button"
+                onClick={() => setShowMasterySheet(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-slate-800 cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto flex-1">
+              <MasteryRadar masteryList={masteryRadarList} />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowMasterySheet(false)}
+              className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl cursor-pointer text-sm"
+            >
+              بازگشت به آزمون
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Remediation Modal */}
       <RemediationModal
