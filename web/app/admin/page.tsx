@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Users, GraduationCap, School, BookOpen, Layers, ShieldCheck, Plus, CheckCircle, BarChart3, Trash2 } from "lucide-react";
 import { getAdminOverviewStats, getAdminUsersList } from "@/actions/admin";
+import { getAuthSession } from "@/lib/auth/session";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { AdminDashboardClient } from "@/components/admin/AdminDashboardClient";
 
@@ -13,6 +15,11 @@ export const metadata = {
 };
 
 export default async function AdminPage() {
+  const user = await getAuthSession();
+  if (!user || user.role !== "admin") {
+    redirect("/login?role=staff&redirect=/admin");
+  }
+
   const [overviewRes, usersRes] = await Promise.all([
     getAdminOverviewStats(),
     getAdminUsersList(),

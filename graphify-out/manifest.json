@@ -790,13 +790,13 @@
     "semantic_hash": ""
   },
   "web/app/student/page.tsx": {
-    "mtime": 1793455959.296994,
-    "ast_hash": "471e0f5d410cddb98eacf263dcee1050",
+    "mtime": 1793459916.2670171,
+    "ast_hash": "186dd2d01ab80a7fbd546bd3a3710ec9",
     "semantic_hash": ""
   },
   "web/app/teacher/page.tsx": {
-    "mtime": 1793455972.6337447,
-    "ast_hash": "3d690108bbefa1bbca50b552d0db0eda",
+    "mtime": 1793459903.840029,
+    "ast_hash": "345174737e9ee8d52cae3a1f31f57647",
     "semantic_hash": ""
   },
   "web/__tests__/ui-bottom-nav.test.tsx": {
@@ -805,8 +805,8 @@
     "semantic_hash": ""
   },
   "web/app/student/mastery/page.tsx": {
-    "mtime": 1793456000.9654388,
-    "ast_hash": "3d1c1fecafd91b87f40030fd9586cb15",
+    "mtime": 1793459931.1526392,
+    "ast_hash": "207f8f7308933a183eef954dc36bc83b",
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
@@ -905,13 +905,13 @@
     "semantic_hash": ""
   },
   "web/app/admin/page.tsx": {
-    "mtime": 1793455817.3936894,
-    "ast_hash": "e96de79c01d632e2fa7f0f391d89f007",
+    "mtime": 1793459892.1671999,
+    "ast_hash": "2a5251361859b307e355946103dd0855",
     "semantic_hash": ""
   },
   "web/app/login/page.tsx": {
-    "mtime": 1793455798.6570663,
-    "ast_hash": "d73fc692df47a01c8028d8927c3f5ec4",
+    "mtime": 1793459988.0710752,
+    "ast_hash": "a333cd11aa2e563131b8e96ff35921ba",
     "semantic_hash": ""
   },
   "web/components/admin/AdminDashboardClient.tsx": {
@@ -925,8 +925,23 @@
     "semantic_hash": ""
   },
   "web/lib/auth/session.ts": {
-    "mtime": 1793455673.779512,
-    "ast_hash": "193679522fa56ae4fdb1d73d1186474b",
+    "mtime": 1793459867.862931,
+    "ast_hash": "789b8c2e3010a4e26fcc0fd7ee8630ea",
+    "semantic_hash": ""
+  },
+  "web/__tests__/auth-middleware.test.ts": {
+    "mtime": 1793460001.0037103,
+    "ast_hash": "6b5878016ca9c59bc87b3b703c860a55",
+    "semantic_hash": ""
+  },
+  "web/middleware.ts": {
+    "mtime": 1793459884.3714135,
+    "ast_hash": "a7f57f4528b84a44362f57e2dc0ff037",
+    "semantic_hash": ""
+  },
+  "web/AGENTS.md": {
+    "mtime": 1793456284.544149,
+    "ast_hash": "c98dbebb744eadc1acc4b9f58bfe0f42",
     "semantic_hash": ""
   }
 }

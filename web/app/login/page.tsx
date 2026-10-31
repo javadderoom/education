@@ -1,16 +1,36 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { User, Lock, Phone, School, Sparkles, GraduationCap, Shield, ArrowRight, CheckCircle2 } from "lucide-react";
 import { loginStudentAction, loginStaffAction, registerStudentAction, registerTeacherAction } from "@/actions/auth";
 
-export default function LoginPage() {
+function LoginFormContent() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<"student_login" | "staff_login" | "register">("student_login");
+  const searchParams = useSearchParams();
+
+  const roleParam = searchParams.get("role");
+  const redirectParam = searchParams.get("redirect");
+  const forbiddenParam = searchParams.get("forbidden");
+
+  const [activeTab, setActiveTab] = useState<"student_login" | "staff_login" | "register">(
+    roleParam === "staff" ? "staff_login" : "student_login"
+  );
   const [registerRole, setRegisterRole] = useState<"student" | "teacher">("student");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(
+    forbiddenParam === "admin_only"
+      ? "برای دسترسی به این بخش، نیاز به ورود با حساب مدیر سیستم دارید."
+      : forbiddenParam === "teacher_only"
+      ? "برای دسترسی به این بخش، نیاز به ورود با حساب آموزگار یا مدیر دارید."
+      : null
+  );
+
+  useEffect(() => {
+    if (roleParam === "staff") {
+      setActiveTab("staff_login");
+    }
+  }, [roleParam]);
 
   // Student Login Form State
   const [studentUsername, setStudentUsername] = useState("student_demo");
@@ -38,7 +58,7 @@ export default function LoginPage() {
     setLoading(false);
 
     if (res.success) {
-      router.push("/student");
+      router.push(redirectParam || "/student");
       router.refresh();
     } else {
       setError(res.error || "ورود ناموفق بود");
@@ -54,7 +74,9 @@ export default function LoginPage() {
     setLoading(false);
 
     if (res.success && res.user) {
-      if (res.user.role === "admin") {
+      if (redirectParam) {
+        router.push(redirectParam);
+      } else if (res.user.role === "admin") {
         router.push("/admin");
       } else {
         router.push("/teacher");
@@ -79,7 +101,7 @@ export default function LoginPage() {
       });
       setLoading(false);
       if (res.success) {
-        router.push("/student");
+        router.push(redirectParam || "/student");
         router.refresh();
       } else {
         setError(res.error || "خطا در ثبت نام دانش‌آموز");
@@ -94,7 +116,7 @@ export default function LoginPage() {
       });
       setLoading(false);
       if (res.success) {
-        router.push("/teacher");
+        router.push(redirectParam || "/teacher");
         router.refresh();
       } else {
         setError(res.error || "خطا در ثبت نام آموزگار");
@@ -413,5 +435,13 @@ export default function LoginPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">در حال بارگذاری...</div>}>
+      <LoginFormContent />
+    </Suspense>
   );
 }

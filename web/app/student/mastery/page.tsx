@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Award, BookOpenCheck, Sparkles, TrendingUp, CheckCircle2, Clock, Calendar, RefreshCw } from "lucide-react";
 import { getStudentMasteryStates } from "@/actions/assessment";
 import { getLearnersList } from "@/actions/analytics";
+import { getAuthSession } from "@/lib/auth/session";
 import { MasteryRadar, KCMasteryInfo } from "@/components/assessment/MasteryRadar";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { StudentProfileSwitcher } from "@/components/navigation/StudentProfileSwitcher";
@@ -18,9 +20,15 @@ interface PageProps {
 }
 
 export default async function MasteryPage({ searchParams }: PageProps) {
+  const user = await getAuthSession();
   const params = await searchParams;
-  const username = params.student || "student_ali";
   const subjectId = params.subject || "SUBJ-MATH4-FRACTIONS";
+
+  if (!user) {
+    redirect(`/login?role=student&redirect=${encodeURIComponent(`/student/mastery?subject=${subjectId}`)}`);
+  }
+
+  const username = params.student || user.username;
   const querySuffix = `?subject=${encodeURIComponent(subjectId)}`;
 
   const [masteryData, learnersData] = await Promise.all([
@@ -30,8 +38,8 @@ export default async function MasteryPage({ searchParams }: PageProps) {
 
   const masteries = masteryData.masteries || [];
   const currentLearner = masteryData.learner || {
-    displayName: "علی رضایی",
-    username: "student_ali",
+    displayName: user.displayName,
+    username: user.username,
   };
 
   const masteryRadarList: KCMasteryInfo[] = masteries.map((m) => ({

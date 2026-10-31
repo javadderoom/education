@@ -1,6 +1,8 @@
+import { redirect } from "next/navigation";
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { CurationStudio } from "@/components/curation/CurationStudio";
 import { getClassDiagnosticStats } from "@/actions/analytics";
+import { getAuthSession } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
 
@@ -14,8 +16,13 @@ interface TeacherPageProps {
 }
 
 export default async function TeacherPage({ searchParams }: TeacherPageProps) {
+  const user = await getAuthSession();
   const params = searchParams ? await searchParams : {};
   const subjectId = params?.subject || "SUBJ-MATH4-FRACTIONS";
+
+  if (!user || (user.role !== "teacher" && user.role !== "admin")) {
+    redirect(`/login?role=staff&redirect=${encodeURIComponent(`/teacher?subject=${subjectId}`)}`);
+  }
 
   const cartridgeFile =
     subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5")
