@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface NumberLineProps {
   min?: number;
@@ -104,7 +105,11 @@ export const NumberLine: React.FC<NumberLineProps> = ({
                   fill={isSelected ? "#4f46e5" : isEndpoint ? "#0f172a" : "#64748b"}
                   style={{ direction: "ltr" }}
                 >
-                  {isEndpoint ? (i === 0 ? "0" : "1") : `${i}/${partitions}`}
+                  {isEndpoint
+                    ? i === 0
+                      ? toPersianDigits(0)
+                      : toPersianDigits(1)
+                    : `${toPersianDigits(i)}/${toPersianDigits(partitions)}`}
                 </text>
 
                 {/* Target highlight dot */}
@@ -126,7 +131,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
 
         {targetLabel && (
           <p className="text-center text-xs text-indigo-700 font-semibold mt-1">
-            {targetLabel}
+            {toPersianDigits(targetLabel)}
           </p>
         )}
       </div>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CheckCircle2, TrendingUp, AlertTriangle } from "lucide-react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface KCMasteryInfo {
   id: string;
@@ -51,7 +52,7 @@ export const MasteryRadar: React.FC<MasteryRadarProps> = ({ masteryList }) => {
                   {kc.title}
                 </span>
                 <span className={`font-mono font-bold px-1.5 py-0.5 rounded text-[11px] ${badgeColor}`} dir="ltr">
-                  {percent}%
+                  {toPersianDigits(percent)}٪
                 </span>
               </div>
               <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">

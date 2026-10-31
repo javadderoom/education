@@ -9,6 +9,7 @@ import { AreaGrid } from "../parametric/AreaGrid";
 import { BalanceScale } from "../parametric/BalanceScale";
 import { BucketSort } from "../parametric/BucketSort";
 import { DiagnosticItemData } from "../assessment/AssessmentCarousel";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface CurationStudioProps {
   initialItems: DiagnosticItemData[];
@@ -96,7 +97,7 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
 
         <div className="flex items-center gap-2">
           <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl">
-            {approvedIds.size} از {items.length} سوال تایید شده
+            {toPersianDigits(approvedIds.size)} از {toPersianDigits(items.length)} سوال تایید شده
           </span>
         </div>
       </div>
@@ -122,10 +123,10 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
               >
                 <div className="flex items-center gap-2 min-w-[120px]">
                   <span className="w-7 h-7 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-700">
-                    {idx + 1}
+                    {toPersianDigits(idx + 1)}
                   </span>
                   <span className="text-xs font-bold text-slate-800 truncate max-w-[130px]">
-                    سوال شماره {idx + 1}
+                    سوال شماره {toPersianDigits(idx + 1)}
                   </span>
                 </div>
 
@@ -142,7 +143,7 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
             {/* Header of Item */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
               <span className="text-xs font-bold text-slate-500">
-                پیش‌نمایش زنده در دستگاه دانش‌آموز (سوال {selectedIndex + 1})
+                پیش‌نمایش زنده در دستگاه دانش‌آموز (سوال {toPersianDigits(selectedIndex + 1)})
               </span>
               <div className="flex gap-2">
                 {isApproved && (

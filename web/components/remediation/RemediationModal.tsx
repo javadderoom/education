@@ -39,7 +39,9 @@ export const RemediationModal: React.FC<RemediationModalProps> = ({
           <div>
             <h3 className="font-bold text-sm">نکته آموزشی و تفکر بیشتر</h3>
             {misconceptionTitle && (
-              <p className="text-xs text-amber-900/80 mt-0.5 font-medium">{misconceptionTitle}</p>
+              <p className="text-xs text-amber-900/80 mt-0.5 font-medium">
+                <MathRenderer content={misconceptionTitle} />
+              </p>
             )}
           </div>
         </div>
@@ -59,9 +61,9 @@ export const RemediationModal: React.FC<RemediationModalProps> = ({
                 <AlertCircle className="w-4 h-4 text-indigo-600 shrink-0" />
                 مثال نقض برای درک بهتر:
               </span>
-              <p className="text-sm text-indigo-950 font-medium leading-relaxed">
-                {parsedBlueprint.scenario}
-              </p>
+              <div className="text-sm text-indigo-950 font-medium leading-relaxed">
+                <MathRenderer content={parsedBlueprint.scenario} />
+              </div>
             </div>
           )}
         </div>

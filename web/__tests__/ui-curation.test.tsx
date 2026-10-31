@@ -68,7 +68,7 @@ describe("Teacher Curation Studio Component", () => {
 
     // After approval of item 1, it automatically advances to item 2
     expect(screen.getByText("مقایسه دو کسر را انجام دهید")).toBeInTheDocument();
-    // 1 item approved badge
-    expect(screen.getByText(/1 از 2 سوال تایید شده/)).toBeInTheDocument();
+    // 1 item approved badge with Persian digits
+    expect(screen.getByText(/۱ از ۲ سوال تایید شده/)).toBeInTheDocument();
   });
 });

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Sparkles, ArrowRight, RotateCcw, CheckCircle2 } from "lucide-react";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { MathRenderer } from "../ui/MathRenderer";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface RemediationPathwayProps {
   kcTitle: string;
@@ -90,7 +91,7 @@ export const RemediationPathway: React.FC<RemediationPathwayProps> = ({
           </div>
         ) : (
           <p className="text-xs text-center text-slate-500 mb-4">
-            تعداد تکه‌های رنگ‌شده فعلی: <b className="text-indigo-600 font-mono text-sm">{coloredCount}</b> از ۵
+            تعداد تکه‌های رنگ‌شده فعلی: <b className="text-indigo-600 font-mono text-sm">{toPersianDigits(coloredCount)}</b> از {toPersianDigits(5)}
           </p>
         )}
 

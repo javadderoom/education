@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface AreaGridProps {
   rows?: number;
@@ -64,11 +65,11 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
 
         <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600">
           <span dir="ltr" className="font-mono bg-slate-200 px-2 py-1 rounded">
-            {coloredCount} / {totalCells}
+            {toPersianDigits(coloredCount)} / {toPersianDigits(totalCells)}
           </span>
           {highlightFractionA && highlightFractionB && (
             <span className="text-indigo-700">
-              نمایش تساوی: <b dir="ltr">{highlightFractionA} = {highlightFractionB}</b>
+              نمایش تساوی: <b dir="ltr">{toPersianDigits(highlightFractionA)} = {toPersianDigits(highlightFractionB)}</b>
             </span>
           )}
         </div>

@@ -162,7 +162,7 @@ describe("5 Parametric Visual Templates Rendering", () => {
       <BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" />
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
-    expect(container.textContent).toContain("1/2");
-    expect(container.textContent).toContain("1/4");
+    expect(container.textContent).toContain("۱/۲");
+    expect(container.textContent).toContain("۱/۴");
   });
 });

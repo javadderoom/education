@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface FractionStripProps {
   totalSegments: number;
@@ -85,7 +86,7 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
                       : "#64748b"
                   }
                 >
-                  {`1/${totalSegments}`}
+                  {`${toPersianDigits(1)}/${toPersianDigits(totalSegments)}`}
                 </text>
               </g>
             );
@@ -93,13 +94,13 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
         </svg>
 
         <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-500 font-mono" dir="ltr">
-          <span>0</span>
+          <span>{toPersianDigits(0)}</span>
           <span>
             {showSumMode
-              ? `${operandA + operandB} / ${totalSegments}`
-              : `${coloredCount} / ${totalSegments}`}
+              ? `${toPersianDigits(operandA + operandB)} / ${toPersianDigits(totalSegments)}`
+              : `${toPersianDigits(coloredCount)} / ${toPersianDigits(totalSegments)}`}
           </span>
-          <span>1</span>
+          <span>{toPersianDigits(1)}</span>
         </div>
       </div>
     </div>

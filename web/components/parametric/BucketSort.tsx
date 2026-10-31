@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface BucketItem {
   id: string;
@@ -59,7 +60,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
                   className="flex items-center gap-1.5 bg-indigo-50 border border-indigo-200 text-indigo-700 px-3 py-1.5 rounded-lg text-sm font-bold font-mono"
                   dir="ltr"
                 >
-                  <span>{item.label}</span>
+                  <span>{toPersianDigits(item.label)}</span>
                   <div className="flex gap-1 ml-2">
                     <button
                       type="button"
@@ -88,7 +89,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
         <div className="grid grid-cols-2 gap-3">
           <div className="border-2 border-dashed border-blue-300 bg-blue-50/50 rounded-xl p-3 flex flex-col min-h-28">
             <h4 className="text-xs font-bold text-blue-900 text-center mb-2 pb-1 border-b border-blue-200">
-              {bucketALabel}
+              {toPersianDigits(bucketALabel)}
             </h4>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {bucketA.map((item) => (
@@ -97,7 +98,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
                   className="text-xs font-mono font-bold bg-white text-blue-700 border border-blue-200 px-2 py-1 rounded shadow-sm"
                   dir="ltr"
                 >
-                  {item.label}
+                  {toPersianDigits(item.label)}
                 </span>
               ))}
             </div>
@@ -105,7 +106,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
 
           <div className="border-2 border-dashed border-emerald-300 bg-emerald-50/50 rounded-xl p-3 flex flex-col min-h-28">
             <h4 className="text-xs font-bold text-emerald-900 text-center mb-2 pb-1 border-b border-emerald-200">
-              {bucketBLabel}
+              {toPersianDigits(bucketBLabel)}
             </h4>
             <div className="flex flex-wrap gap-1.5 flex-1">
               {bucketB.map((item) => (
@@ -114,7 +115,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
                   className="text-xs font-mono font-bold bg-white text-emerald-700 border border-emerald-200 px-2 py-1 rounded shadow-sm"
                   dir="ltr"
                 >
-                  {item.label}
+                  {toPersianDigits(item.label)}
                 </span>
               ))}
             </div>

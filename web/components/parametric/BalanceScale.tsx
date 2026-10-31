@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface BalanceScaleProps {
   leftValue: number; // e.g. 0.25 (1/4)
@@ -60,7 +61,7 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                 fill="#1e3a8a"
                 style={{ direction: "ltr" }}
               >
-                {leftLabel}
+                {toPersianDigits(leftLabel)}
               </text>
             </g>
 
@@ -78,7 +79,7 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                 fill="#064e3b"
                 style={{ direction: "ltr" }}
               >
-                {rightLabel}
+                {toPersianDigits(rightLabel)}
               </text>
             </g>
           </g>
@@ -86,10 +87,10 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
 
         <div className="flex gap-4 mt-2 text-xs font-semibold text-slate-600">
           <span className="text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200" dir="ltr">
-            کفه چپ: {leftLabel}
+            کفه چپ: {toPersianDigits(leftLabel)}
           </span>
           <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200" dir="ltr">
-            کفه راست: {rightLabel}
+            کفه راست: {toPersianDigits(rightLabel)}
           </span>
         </div>
       </div>

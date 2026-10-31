@@ -14,6 +14,7 @@ import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
 import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
 import { saveOfflineSession } from "../../lib/offline/storage";
+import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface DistractorItem {
   id: string;
@@ -288,19 +289,19 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
               <span className="text-lg font-black text-emerald-600 font-mono" dir="ltr">
-                {correctCount} / {items.length}
+                {toPersianDigits(correctCount)} / {toPersianDigits(items.length)}
               </span>
             </div>
             <div className="p-1 border-x border-slate-200">
               <span className="text-[11px] text-slate-500 block mb-1">بدون اطمینان</span>
               <span className="text-lg font-black text-amber-600 font-mono" dir="ltr">
-                {history.filter((h) => h.isNotSure).length}
+                {toPersianDigits(history.filter((h) => h.isNotSure).length)}
               </span>
             </div>
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">میانگین تسلط</span>
               <span className="text-lg font-black text-indigo-600 font-mono" dir="ltr">
-                {averageMastery}%
+                {toPersianDigits(averageMastery)}٪
               </span>
             </div>
           </div>
@@ -344,9 +345,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       <div className="flex items-center justify-between gap-3 mb-3">
         <div className="flex-1">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
-            <span>سوال {currentIndex + 1} از {items.length}</span>
+            <span>سوال {toPersianDigits(currentIndex + 1)} از {toPersianDigits(items.length)}</span>
             <span className="font-mono text-indigo-600" dir="ltr">
-              {Math.round(((currentIndex + 1) / items.length) * 100)}%
+              {toPersianDigits(Math.round(((currentIndex + 1) / items.length) * 100))}٪
             </span>
           </div>
           <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">

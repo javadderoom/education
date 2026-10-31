@@ -360,48 +360,48 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793435185.7892234,
-    "ast_hash": "923656ca34258b5b68e98189f88bb137",
+    "mtime": 1793438715.2619772,
+    "ast_hash": "82cf61670bc139ad0dc9c4e2f77d21ab",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
-    "mtime": 1793420540.2993836,
-    "ast_hash": "33f634a7f38370fb855911cf5b5669ec",
+    "mtime": 1793438736.4480715,
+    "ast_hash": "823f2fdef57234f30725f7e3db627730",
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
-    "mtime": 1793421772.4617367,
-    "ast_hash": "308a4fa8af47fb315d0746ce2ebe5e07",
+    "mtime": 1793438599.4341116,
+    "ast_hash": "576fb3b048bfa348040915fd6befc8fc",
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
-    "mtime": 1793421777.856944,
-    "ast_hash": "2f76881aebaeeea8e862cd6a9b18ceda",
+    "mtime": 1793438641.7968373,
+    "ast_hash": "27d1004b410ddd6969bfc4238785e8ea",
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
-    "mtime": 1793377627.0031302,
-    "ast_hash": "4267c3210b6ca47f75276304208c3aa7",
+    "mtime": 1793438923.3753335,
+    "ast_hash": "e796b612884f2a93744b941b7da7d264",
     "semantic_hash": ""
   },
   "web/components/parametric/FractionStrip.tsx": {
-    "mtime": 1793377571.9087212,
-    "ast_hash": "92a8935c6b331004cc3201fb854b9b8d",
+    "mtime": 1793438564.8052292,
+    "ast_hash": "96116c9ecb398d0958d061463bf26a0f",
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
-    "mtime": 1793421783.425145,
-    "ast_hash": "c1b6ba0afc83ca072ca2dfb0401140f0",
+    "mtime": 1793438902.5889373,
+    "ast_hash": "886b81bedfffd2cfe087e8f41ed1f79b",
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
-    "mtime": 1793421755.6025598,
-    "ast_hash": "2a61cb150af1fe6bdb0fa4af9933b363",
+    "mtime": 1793438879.2443964,
+    "ast_hash": "151c849579d07afd0d78bd3c46cd1fd5",
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
-    "mtime": 1793377561.0820878,
-    "ast_hash": "717978bf83943ca6050a3326142eb59d",
+    "mtime": 1793438538.438623,
+    "ast_hash": "eec835fec2af09eece8676afec2d56e4",
     "semantic_hash": ""
   },
   "web/lib/bkt/diagnostics.ts": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-assessment.test.tsx": {
-    "mtime": 1793421954.455823,
-    "ast_hash": "18eb809f296a8307dc5d8f11be1e68d3",
+    "mtime": 1793438989.6656692,
+    "ast_hash": "4d9e3202cd728b70eab8c6797a2f4ea4",
     "semantic_hash": ""
   },
   "web/vitest.setup.ts": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-curation.test.tsx": {
-    "mtime": 1793431109.3776076,
-    "ast_hash": "25a1ce1d566ccc94521f6aa2c3fcafab",
+    "mtime": 1793438993.8281293,
+    "ast_hash": "80eda024ca6f64d08c2ade358e6b9224",
     "semantic_hash": ""
   },
   "web/app/curation/page.tsx": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "web/components/curation/CurationStudio.tsx": {
-    "mtime": 1793431065.6457877,
-    "ast_hash": "7cba80665fecb5b3c831c6c1a3770d60",
+    "mtime": 1793438821.6958425,
+    "ast_hash": "c8c5e4797db7912127c71221ec653508",
     "semantic_hash": ""
   },
   "web/lib/offline/storage.ts": {
@@ -765,8 +765,23 @@
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationPathway.tsx": {
-    "mtime": 1793435135.8863993,
-    "ast_hash": "ab4fd321a7626b86bce705dbfc0062ed",
+    "mtime": 1793438756.3726914,
+    "ast_hash": "a006891c61814041ddfe3c4ae9fe720a",
+    "semantic_hash": ""
+  },
+  "web/__tests__/persian-math.test.tsx": {
+    "mtime": 1793439002.9222715,
+    "ast_hash": "4a85a3b7fce398c5b0ea178c2889574b",
+    "semantic_hash": ""
+  },
+  "web/lib/math/persian-digits.ts": {
+    "mtime": 1793438505.5642362,
+    "ast_hash": "2f064e3363c5781a90e402662cc70474",
+    "semantic_hash": ""
+  },
+  "web/vercel.json": {
+    "mtime": 1793438065.0049787,
+    "ast_hash": "024182d9aca240447ff214f38a46c7c6",
     "semantic_hash": ""
   }
 }
