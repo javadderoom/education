@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793431099.248943,
-    "ast_hash": "e9748bb2665a7ce14db1b56fd38ac3c3",
+    "mtime": 1793442733.5761974,
+    "ast_hash": "55e4aab768c7eabde391061e86ca7c11",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793438715.2619772,
-    "ast_hash": "82cf61670bc139ad0dc9c4e2f77d21ab",
+    "mtime": 1793442840.3343122,
+    "ast_hash": "74dff1cca0b2449985311f855bc8d1a7",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
-    "mtime": 1793438599.4341116,
-    "ast_hash": "576fb3b048bfa348040915fd6befc8fc",
+    "mtime": 1793442800.3066988,
+    "ast_hash": "306318e6201a16d8ada89c3a76a6524a",
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
@@ -385,13 +385,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/FractionStrip.tsx": {
-    "mtime": 1793438564.8052292,
-    "ast_hash": "96116c9ecb398d0958d061463bf26a0f",
+    "mtime": 1793442784.4919052,
+    "ast_hash": "b2a83cc4bde5a2451b152a48529557e8",
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
-    "mtime": 1793438902.5889373,
-    "ast_hash": "886b81bedfffd2cfe087e8f41ed1f79b",
+    "mtime": 1793442822.6249096,
+    "ast_hash": "64a6add41c397d684aa818fe0eb40c42",
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-assessment.test.tsx": {
-    "mtime": 1793438989.6656692,
-    "ast_hash": "4d9e3202cd728b70eab8c6797a2f4ea4",
+    "mtime": 1793442883.5788088,
+    "ast_hash": "d5963f37c3f7eff805701b772cf75cdb",
     "semantic_hash": ""
   },
   "web/vitest.setup.ts": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "web/components/curation/CurationStudio.tsx": {
-    "mtime": 1793438821.6958425,
-    "ast_hash": "c8c5e4797db7912127c71221ec653508",
+    "mtime": 1793442853.8494911,
+    "ast_hash": "c58e7ffbdea74d292d080b2314a9b9c0",
     "semantic_hash": ""
   },
   "web/lib/offline/storage.ts": {

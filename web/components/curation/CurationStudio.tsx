@@ -64,11 +64,11 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
 
     switch (type) {
       case "FractionStrip":
-        return <FractionStrip {...props} />;
+        return <FractionStrip {...props} hideCounter={true} />;
       case "NumberLine":
-        return <NumberLine {...props} />;
+        return <NumberLine {...props} hideFractions={true} />;
       case "AreaGrid":
-        return <AreaGrid {...props} />;
+        return <AreaGrid {...props} hideBadge={true} />;
       case "BalanceScale":
         return <BalanceScale {...props} />;
       case "BucketSort":

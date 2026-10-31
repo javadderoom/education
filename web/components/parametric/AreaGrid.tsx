@@ -10,6 +10,7 @@ export interface AreaGridProps {
   interactive?: boolean;
   highlightFractionA?: string;
   highlightFractionB?: string;
+  hideBadge?: boolean;
   onChange?: (coloredCells: number) => void;
 }
 
@@ -20,6 +21,7 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
   interactive = false,
   highlightFractionA,
   highlightFractionB,
+  hideBadge = false,
   onChange,
 }) => {
   const totalCells = rows * cols;
@@ -63,16 +65,18 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
           ))}
         </div>
 
-        <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600">
-          <span dir="ltr" className="font-mono bg-slate-200 px-2 py-1 rounded">
-            {toPersianDigits(coloredCount)} / {toPersianDigits(totalCells)}
-          </span>
-          {highlightFractionA && highlightFractionB && (
-            <span className="text-indigo-700">
-              نمایش تساوی: <b dir="ltr">{toPersianDigits(highlightFractionA)} = {toPersianDigits(highlightFractionB)}</b>
+        {!hideBadge && (
+          <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600">
+            <span dir="ltr" className="font-mono bg-slate-200 px-2 py-1 rounded">
+              {toPersianDigits(coloredCount)} / {toPersianDigits(totalCells)}
             </span>
-          )}
-        </div>
+            {highlightFractionA && highlightFractionB && (
+              <span className="text-indigo-700">
+                نمایش تساوی: <b dir="ltr">{toPersianDigits(highlightFractionA)} = {toPersianDigits(highlightFractionB)}</b>
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

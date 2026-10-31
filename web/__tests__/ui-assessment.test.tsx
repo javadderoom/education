@@ -135,26 +135,35 @@ describe("5 Parametric Visual Templates Rendering", () => {
     expect(handleChange).toHaveBeenCalledWith(4);
   });
 
-  it("renders NumberLine with partition ticks", () => {
+  it("hides answer counters when hideCounter is true in assessment mode", () => {
     const { container } = render(
-      <NumberLine min={0} max={1} partitions={5} targetPoint={0.6} />
+      <FractionStrip totalSegments={7} showSumMode={true} operandA={2} operandB={3} hideCounter={true} />
+    );
+    expect(container.textContent).not.toContain("۵ / ۷");
+  });
+
+  it("renders NumberLine with partition ticks and hides intermediate fractions in assessment mode", () => {
+    const { container } = render(
+      <NumberLine min={0} max={1} partitions={4} targetPoint={0.5} hideFractions={true} />
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
     expect(container.querySelectorAll("line").length).toBeGreaterThan(5);
+    // Should not reveal intermediate fraction 2/4
+    expect(container.textContent).not.toContain("۲/۴");
+    // Should show question mark for target point
+    expect(container.textContent).toContain("؟");
   });
 
-  it("renders AreaGrid and toggles cells on touch", () => {
+  it("renders AreaGrid and hides answer equality badge in assessment mode", () => {
     const handleChange = vi.fn();
     const { container } = render(
-      <AreaGrid rows={2} cols={3} initialColored={2} interactive={true} onChange={handleChange} />
+      <AreaGrid rows={2} cols={3} initialColored={4} highlightFractionA="2/3" highlightFractionB="4/6" hideBadge={true} onChange={handleChange} />
     );
 
     const buttons = container.querySelectorAll("button");
     expect(buttons.length).toBe(6);
-
-    // Toggle 3rd button
-    fireEvent.click(buttons[2]);
-    expect(handleChange).toHaveBeenCalled();
+    expect(container.textContent).not.toContain("نمایش تساوی");
+    expect(container.textContent).not.toContain("۴ / ۶");
   });
 
   it("renders BalanceScale with tilt angle", () => {

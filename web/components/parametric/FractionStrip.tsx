@@ -11,6 +11,7 @@ export interface FractionStripProps {
   operandA?: number;
   operandB?: number;
   label?: string;
+  hideCounter?: boolean;
   onChange?: (coloredCount: number) => void;
 }
 
@@ -22,6 +23,7 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
   operandA = 0,
   operandB = 0,
   label,
+  hideCounter = false,
   onChange,
 }) => {
   const [coloredCount, setColoredCount] = useState(initialColored);
@@ -93,13 +95,15 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
           })}
         </svg>
 
-        <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-500 font-mono" dir="ltr">
+        <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-400 font-mono" dir="ltr">
           <span>{toPersianDigits(0)}</span>
-          <span>
-            {showSumMode
-              ? `${toPersianDigits(operandA + operandB)} / ${toPersianDigits(totalSegments)}`
-              : `${toPersianDigits(coloredCount)} / ${toPersianDigits(totalSegments)}`}
-          </span>
+          {!hideCounter && (
+            <span className="text-slate-600 font-semibold">
+              {showSumMode
+                ? `${toPersianDigits(operandA + operandB)} / ${toPersianDigits(totalSegments)}`
+                : `${toPersianDigits(coloredCount)} / ${toPersianDigits(totalSegments)}`}
+            </span>
+          )}
           <span>{toPersianDigits(1)}</span>
         </div>
       </div>

@@ -9,6 +9,7 @@ export interface NumberLineProps {
   partitions?: number;
   targetPoint?: number; // e.g. 0.5 for 2/4
   targetLabel?: string;
+  hideFractions?: boolean;
   interactive?: boolean;
   onPositionSelect?: (fraction: string, numericValue: number) => void;
 }
@@ -19,6 +20,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
   partitions = 4,
   targetPoint = 0.5,
   targetLabel,
+  hideFractions = false,
   interactive = false,
   onPositionSelect,
 }) => {
@@ -100,7 +102,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
                   x={x}
                   y={lineY + 30}
                   textAnchor="middle"
-                  fontSize="14"
+                  fontSize={hideFractions && isSelected ? "16" : "14"}
                   fontWeight={isEndpoint || isSelected ? "700" : "500"}
                   fill={isSelected ? "#4f46e5" : isEndpoint ? "#0f172a" : "#64748b"}
                   style={{ direction: "ltr" }}
@@ -109,6 +111,10 @@ export const NumberLine: React.FC<NumberLineProps> = ({
                     ? i === 0
                       ? toPersianDigits(0)
                       : toPersianDigits(1)
+                    : hideFractions
+                    ? isSelected
+                      ? "؟"
+                      : ""
                     : `${toPersianDigits(i)}/${toPersianDigits(partitions)}`}
                 </text>
 

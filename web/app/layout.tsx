@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import "katex/dist/katex.min.css";
+
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
+  display: "swap",
+  variable: "--font-vazirmatn",
+});
 
 export const metadata: Metadata = {
   title: "سامانه ارزیابی تشخیصی کسرها | پایه چهارم",
@@ -23,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className="h-full">
+    <html lang="fa" dir="rtl" className={`h-full ${vazirmatn.className} ${vazirmatn.variable}`}>
       <head>
         <link
           rel="stylesheet"
