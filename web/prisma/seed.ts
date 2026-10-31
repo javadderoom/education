@@ -282,6 +282,25 @@ async function main() {
   });
 
   await prisma.learner.upsert({
+    where: { username: "student_ali" },
+    update: {
+      displayName: "علی رضایی",
+      gradeLevel: 4,
+      role: "student",
+      classroomId: class4.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_ali",
+      displayName: "علی رضایی",
+      gradeLevel: 4,
+      role: "student",
+      classroomId: class4.id,
+      pinCode: "1234",
+    },
+  });
+
+  await prisma.learner.upsert({
     where: { username: "student_grade5_demo" },
     update: {
       displayName: "محمدحسین مرادی",
