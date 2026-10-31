@@ -38,3 +38,8 @@
 ## 9. Dynamic Market & Ecosystem Grounding Rule (Mandatory Live Search)
 - **Mandatory Web Search for Fast-Moving Technical Facts**: Whenever dealing with model releases, open-weights (SLMs/LLMs/VLMs), benchmarks, GPU/hardware specs and pricing, library/framework versions, or external tooling ecosystems, **NEVER** rely on pre-training cutoff memory or stale static knowledge.
 - **Mandatory Real-Time Verification**: ALWAYS perform web searches before listing, recommending, or making architectural decisions regarding AI models, active benchmarks (e.g., Open Persian LLM Leaderboard, LMSYS, Hugging Face leaderboards), or dependencies. Stale recommendations are considered an engineering defect.
+
+## 10. Zero Tech Stack Leaks in UI (Purely Pedagogical Language)
+- **No Technical Jargon in User-Facing UI**: NEVER expose, mention, or display technical stack details, software names, libraries, internal engine acronyms, or model identifiers in the user interface (e.g. BKT, Next.js, React, Prisma, PostgreSQL, Vercel, Python, SymPy, Gemini, AI, LLM, KaTeX, open-source/FOSS, or internal database IDs like `ITEM-001`).
+- **Student- & Teacher-Centric Pedagogical Language**: All UI labels, badges, page titles, cards, tooltips, footers, and feedback messages must speak strictly in age-appropriate, encouraging, and pedagogically clear language (e.g., "میزان تسلط بر مفاهیم" instead of "ردیابی شناختی بیزی (BKT)", "ارزیابی هوشمند" instead of "موتور BKT فعال", etc.).
+

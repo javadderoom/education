@@ -3,8 +3,8 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
-  title: "سامانه ارزیابی شناختی و تشخیصی کسرها | پایه چهارم",
-  description: "سامانه ارزیابی تشخیصی مبتنی بر ردیابی شناختی بیزی (BKT) و بدفهمی‌شناسی",
+  title: "سامانه ارزیابی تشخیصی کسرها | پایه چهارم",
+  description: "سامانه ارزیابی تشخیصی و یادگیری مفهومی ریاضی دبستان",
 };
 
 export default function RootLayout({
@@ -38,7 +38,7 @@ export default function RootLayout({
             <div className="flex items-center gap-2">
               <span className="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                موتور BKT فعال
+                آزمون هوشمند فعال
               </span>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function RootLayout({
         <main className="py-6">{children}</main>
 
         <footer className="mt-auto py-6 border-t border-slate-200 text-center text-xs text-slate-400">
-          سامانه متن‌باز ارزیابی تشخیصی شناختی • بر پایه راهنمای تدریس مصوب پایگاه کتاب‌های درسی ایران
+          سامانه ارزیابی تشخیصی و یادگیری ریاضی • بر پایه کتاب و راهنمای تدریس مصوب آموزش و پرورش
         </footer>
       </body>
     </html>

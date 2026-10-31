@@ -219,9 +219,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
           <Award className="w-10 h-10" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-1">ارزیابی شناختی به پایان رسید!</h2>
+        <h2 className="text-2xl font-bold text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
         <p className="text-sm text-slate-600 mb-6">
-          آفرین {studentName} عزیز، نتایج تحلیل دقیق وضعیت تسلط شناختی شما آماده است:
+          آفرین {studentName} عزیز، نتایج تحلیل میزان تسلط شما بر مفاهیم آماده است:
         </p>
 
         <div className="mb-6">
@@ -242,7 +242,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             </span>
           </div>
           <div>
-            <span className="text-xs text-slate-500 block">میانگین تسلط شناختی</span>
+            <span className="text-xs text-slate-500 block">میانگین تسلط بر مفاهیم</span>
             <span className="text-xl font-bold text-indigo-600 font-mono" dir="ltr">
               {Math.round(
                 (Object.values(masteries).reduce((a, b) => a + b, 0) /
@@ -260,7 +260,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all cursor-pointer"
         >
           <RotateCcw className="w-5 h-5" />
-          <span>تکرار مجدد آزمون تشخیصی</span>
+          <span>تکرار مجدد آزمون</span>
         </button>
       </div>
     );
@@ -272,7 +272,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       <div className="flex items-center justify-between mb-4">
         <div>
           <span className="text-xs font-semibold text-slate-500 block">
-            آزمون تشخیصی شناختی • ریاضی چهارم
+            آزمون تشخیصی ریاضی چهارم • فصل دوم: کسرها
           </span>
           <h2 className="text-lg font-bold text-slate-800">
             سوال {currentIndex + 1} از {items.length}
@@ -341,8 +341,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
               <HelpCircle className="w-4 h-4" />
               <span>هنوز مطمئن نیستم (بدون کسر نمره)</span>
             </button>
-            <span className="text-xs text-slate-400 font-mono">
-              Item: {currentItem.id}
+            <span className="text-xs text-slate-400">
+              سوال {currentIndex + 1}
             </span>
           </div>
         </div>
