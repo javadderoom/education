@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../lib/db/prisma";
 import * as fs from "fs";
 import * as path from "path";
-
-const prisma = new PrismaClient();
 
 async function main() {
   console.log("--- Starting Seeder: Grade 4 Math Chapter 2 (Fractions) ---");
