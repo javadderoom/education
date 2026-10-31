@@ -4,9 +4,11 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 
-// Ensure environment variables are loaded in standalone scripts
-dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+// Ensure environment variables are loaded in standalone scripts if not already set
+if (!process.env.DATABASE_URL) {
+  dotenv.config({ path: path.resolve(process.cwd(), "../.env") });
+  dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+}
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined };
 

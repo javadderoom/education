@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: education-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: education
+    ports:
+      - "5434:5432"
+    volumes:
+      - education_pgdata:/var/lib/postgresql/data
+
+volumes:
+  education_pgdata:

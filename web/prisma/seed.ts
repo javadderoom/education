@@ -260,15 +260,63 @@ async function main() {
     },
   });
 
-  // Link Demo Learners to classrooms
-  await prisma.learner.updateMany({
+  // Seed Demo Students
+  console.log("Seeding Demo Students...");
+  await prisma.learner.upsert({
     where: { username: "student_demo" },
-    data: { classroomId: class4.id, pinCode: "1234" },
+    update: {
+      displayName: "علی رضایی",
+      gradeLevel: 4,
+      role: "student",
+      classroomId: class4.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_demo",
+      displayName: "علی رضایی",
+      gradeLevel: 4,
+      role: "student",
+      classroomId: class4.id,
+      pinCode: "1234",
+    },
   });
 
-  await prisma.learner.updateMany({
+  await prisma.learner.upsert({
     where: { username: "student_grade5_demo" },
-    data: { classroomId: class5.id, pinCode: "1234" },
+    update: {
+      displayName: "محمدحسین مرادی",
+      gradeLevel: 5,
+      role: "student",
+      classroomId: class5.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_grade5_demo",
+      displayName: "محمدحسین مرادی",
+      gradeLevel: 5,
+      role: "student",
+      classroomId: class5.id,
+      pinCode: "1234",
+    },
+  });
+
+  await prisma.learner.upsert({
+    where: { username: "student_sara_grade5" },
+    update: {
+      displayName: "سارا محمدی",
+      gradeLevel: 5,
+      role: "student",
+      classroomId: class5.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_sara_grade5",
+      displayName: "سارا محمدی",
+      gradeLevel: 5,
+      role: "student",
+      classroomId: class5.id,
+      pinCode: "1234",
+    },
   });
 
   console.log("\n--- All Cartridges, Users & Classrooms Seeded Successfully! ---");
