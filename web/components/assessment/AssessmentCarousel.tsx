@@ -18,6 +18,7 @@ import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
 import { LearnerProfileSummary } from "../../actions/analytics";
+import { ListChecks } from "lucide-react";
 
 export interface DistractorItem {
   id: string;
@@ -49,6 +50,8 @@ export interface AssessmentCarouselProps {
   studentName?: string;
   studentUsername?: string;
   learners?: LearnerProfileSummary[];
+  selectedTopicIds?: string[];
+  onConfigureTopics?: () => void;
 }
 
 export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
@@ -58,6 +61,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   studentName = "علی رضایی",
   studentUsername = "student_ali",
   learners = [],
+  selectedTopicIds,
+  onConfigureTopics,
 }) => {
   const [activeName, setActiveName] = useState(studentName);
   const [activeUsername, setActiveUsername] = useState(studentUsername);
@@ -72,6 +77,15 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     blueprint?: any;
     rationale?: string | null;
   }>({ isOpen: false });
+
+  // Filter items by selected topics if specified
+  const activeItems = React.useMemo(() => {
+    if (selectedTopicIds && selectedTopicIds.length > 0) {
+      const filtered = items.filter((item) => selectedTopicIds.includes(item.kc_id));
+      return filtered.length > 0 ? filtered : items;
+    }
+    return items;
+  }, [items, selectedTopicIds]);
 
   // Map of KC Masteries
   const [masteries, setMasteries] = useState<Record<string, number>>(() => {
@@ -91,7 +105,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     timestamp: number;
   }>>([]);
 
-  const currentItem = items[currentIndex];
+  const currentItem = activeItems[currentIndex] || activeItems[0];
 
   // Helper map for misconceptions
   const misconceptionsMap = React.useMemo(() => {
@@ -172,7 +186,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, currentIndex + 1 >= items.length);
+    persistToOfflineDB(newHistory, currentIndex + 1 >= activeItems.length);
 
     // Check if misconception modal should appear
     if (!distractor.is_correct && distractor.misconception_id) {
@@ -210,7 +224,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, currentIndex + 1 >= items.length);
+    persistToOfflineDB(newHistory, currentIndex + 1 >= activeItems.length);
 
     setTimeout(() => advanceToNext(), 400);
   };
@@ -218,17 +232,20 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const advanceToNext = () => {
     setSelectedDistractorId(null);
     const answeredIds = new Set(history.map((h) => h.itemId));
-    answeredIds.add(currentItem.id);
+    if (currentItem) {
+      answeredIds.add(currentItem.id);
+    }
 
-    const nextAdaptiveItem = selectNextAdaptiveItem(items, {
+    const sessionLimit = Math.min(activeItems.length, 6);
+    const nextAdaptiveItem = selectNextAdaptiveItem(activeItems, {
       answeredItemIds: answeredIds,
       masteries,
       knowledgeComponents,
-      maxItemsPerSession: 6, // 6 targeted diagnostic items per adaptive session
+      maxItemsPerSession: sessionLimit,
     });
 
     if (nextAdaptiveItem) {
-      const nextIdx = items.findIndex((i) => i.id === nextAdaptiveItem.id);
+      const nextIdx = activeItems.findIndex((i) => i.id === nextAdaptiveItem.id);
       if (nextIdx !== -1) {
         setCurrentIndex(nextIdx);
         return;
@@ -330,7 +347,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
               <span className="text-lg font-black text-emerald-600 font-mono" dir="ltr">
-                {toPersianDigits(correctCount)} / {toPersianDigits(items.length)}
+                {toPersianDigits(correctCount)} / {toPersianDigits(history.length || activeItems.length)}
               </span>
             </div>
             <div className="p-1 border-x border-slate-200">
@@ -367,14 +384,27 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             </div>
           )}
 
-          <button
-            type="button"
-            onClick={handleRestart}
-            className="w-full min-h-[50px] inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white font-bold text-sm px-6 py-3 rounded-2xl shadow-md transition-all cursor-pointer select-none"
-          >
-            <RotateCcw className="w-4 h-4" />
-            <span>تکرار مجدد آزمون</span>
-          </button>
+          <div className="flex flex-col sm:flex-row gap-2 mt-4">
+            <button
+              type="button"
+              onClick={handleRestart}
+              className="flex-1 min-h-[48px] inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-2xl shadow-md transition-all cursor-pointer select-none"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span>تکرار همین آزمون</span>
+            </button>
+
+            {onConfigureTopics && (
+              <button
+                type="button"
+                onClick={onConfigureTopics}
+                className="flex-1 min-h-[48px] inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-2xl shadow-md transition-all cursor-pointer select-none"
+              >
+                <ListChecks className="w-4 h-4" />
+                <span>انتخاب سرفصل‌های جدید</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
@@ -386,20 +416,32 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap">
         <div className="flex-1 min-w-[140px]">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
-            <span>سوال {toPersianDigits(history.length + 1)}</span>
+            <span>سوال {toPersianDigits(history.length + 1)} از {toPersianDigits(activeItems.length)}</span>
             <span className="font-mono text-indigo-600" dir="ltr">
-              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / 6) * 100)))}٪
+              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, activeItems.length)) * 100)))}٪
             </span>
           </div>
           <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-600 rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${Math.min(100, ((history.length + 1) / 6) * 100)}%` }}
+              style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, activeItems.length)) * 100)}%` }}
             />
           </div>
         </div>
 
         <div className="flex items-center gap-2">
+          {onConfigureTopics && (
+            <button
+              type="button"
+              onClick={onConfigureTopics}
+              className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
+              title="تغییر سرفصل‌های آزمون"
+            >
+              <ListChecks className="w-4 h-4 text-indigo-600" />
+              <span className="hidden sm:inline">سرفصل‌ها</span>
+            </button>
+          )}
+
           {/* Quick Drawer Button to View Mastery */}
           <button
             type="button"
