@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { AssessmentCarousel } from "@/components/assessment/AssessmentCarousel";
-import { getLearnersList } from "@/actions/analytics";
 import { getAuthSession } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
@@ -29,10 +28,7 @@ export default async function StudentPage({ searchParams }: StudentPageProps) {
       ? "grade5_math_ch3.json"
       : "grade4_math_ch2.json";
 
-  const [cartridge, learnersData] = await Promise.all([
-    getCanonicalCartridge(cartridgeFile),
-    getLearnersList(),
-  ]);
+  const cartridge = await getCanonicalCartridge(cartridgeFile);
 
   const defaultStudentName = user.displayName;
   const defaultStudentUsername = user.username;
@@ -43,7 +39,6 @@ export default async function StudentPage({ searchParams }: StudentPageProps) {
         items={cartridge.diagnostic_items}
         knowledgeComponents={cartridge.knowledge_components}
         misconceptions={cartridge.misconceptions}
-        learners={learnersData.learners}
         studentName={defaultStudentName}
         studentUsername={defaultStudentUsername}
       />

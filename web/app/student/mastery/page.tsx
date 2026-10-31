@@ -2,11 +2,9 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Award, BookOpenCheck, Sparkles, TrendingUp, CheckCircle2, Clock, Calendar, RefreshCw } from "lucide-react";
 import { getStudentMasteryStates } from "@/actions/assessment";
-import { getLearnersList } from "@/actions/analytics";
 import { getAuthSession } from "@/lib/auth/session";
 import { MasteryRadar, KCMasteryInfo } from "@/components/assessment/MasteryRadar";
 import { toPersianDigits } from "@/lib/math/persian-digits";
-import { StudentProfileSwitcher } from "@/components/navigation/StudentProfileSwitcher";
 
 export const dynamic = "force-dynamic";
 
@@ -28,13 +26,11 @@ export default async function MasteryPage({ searchParams }: PageProps) {
     redirect(`/login?role=student&redirect=${encodeURIComponent(`/student/mastery?subject=${subjectId}`)}`);
   }
 
-  const username = params.student || user.username;
+  // Students only view their own mastery; staff may inspect requested student
+  const username = user.role === "student" ? user.username : (params.student || user.username);
   const querySuffix = `?subject=${encodeURIComponent(subjectId)}`;
 
-  const [masteryData, learnersData] = await Promise.all([
-    getStudentMasteryStates(username),
-    getLearnersList(),
-  ]);
+  const masteryData = await getStudentMasteryStates(username);
 
   const masteries = masteryData.masteries || [];
   const currentLearner = masteryData.learner || {
@@ -59,7 +55,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
 
   return (
     <div className="w-full max-w-2xl mx-auto py-2 select-none animate-in fade-in duration-300">
-      {/* Top Header Card with Profile Switcher */}
+      {/* Top Header Card */}
       <div className="bg-white border-2 border-indigo-100 rounded-3xl p-5 sm:p-6 shadow-xs mb-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-100">
           <div className="flex items-center gap-3">
@@ -76,10 +72,14 @@ export default async function MasteryPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          <StudentProfileSwitcher
-            learners={learnersData.learners}
-            activeUsername={username}
-          />
+          <div className="flex items-center gap-2">
+            <Link
+              href={`/student${querySuffix}`}
+              className="px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 active:scale-95 cursor-pointer shadow-2xs"
+            >
+              <span>بازگشت به ارزیابی</span>
+            </Link>
+          </div>
         </div>
 
         {/* Quick Overall Stats */}

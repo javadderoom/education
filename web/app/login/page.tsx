@@ -33,12 +33,12 @@ function LoginFormContent() {
   }, [roleParam]);
 
   // Student Login Form State
-  const [studentUsername, setStudentUsername] = useState("student_demo");
-  const [studentPin, setStudentPin] = useState("1234");
+  const [studentUsername, setStudentUsername] = useState("");
+  const [studentPin, setStudentPin] = useState("");
 
   // Staff Login Form State
-  const [staffUsername, setStaffUsername] = useState("teacher_maryam");
-  const [staffPassword, setStaffPassword] = useState("teacher123456");
+  const [staffUsername, setStaffUsername] = useState("");
+  const [staffPassword, setStaffPassword] = useState("");
 
   // Register Form State
   const [regName, setRegName] = useState("");
@@ -195,15 +195,12 @@ function LoginFormContent() {
                   required
                   value={studentUsername}
                   onChange={(e) => setStudentUsername(e.target.value)}
-                  placeholder="مثال: student_demo"
+                  placeholder="نام کاربری"
                   className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white rounded-xl py-2.5 px-3.5 text-xs font-medium text-slate-800 outline-hidden transition-all text-left font-mono"
                   dir="ltr"
                 />
                 <User className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                حساب‌های دمو فعال: student_demo (پایه ۴) یا student_grade5_demo (پایه ۵)
-              </span>
             </div>
 
             <div>
@@ -216,15 +213,12 @@ function LoginFormContent() {
                   maxLength={4}
                   value={studentPin}
                   onChange={(e) => setStudentPin(e.target.value)}
-                  placeholder="۱۲۳۴"
+                  placeholder="••••"
                   className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white rounded-xl py-2.5 px-3.5 text-xs font-medium text-slate-800 outline-hidden transition-all text-center tracking-widest font-mono"
                   dir="ltr"
                 />
                 <Lock className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                پین پیش‌فرض دمو: ۱۲۳۴
-              </span>
             </div>
 
             <button
@@ -251,15 +245,12 @@ function LoginFormContent() {
                   required
                   value={staffUsername}
                   onChange={(e) => setStaffUsername(e.target.value)}
-                  placeholder="teacher_maryam یا admin"
+                  placeholder="نام کاربری"
                   className="w-full bg-slate-50 border border-slate-200 focus:border-indigo-500 focus:bg-white rounded-xl py-2.5 px-3.5 text-xs font-medium text-slate-800 outline-hidden transition-all text-left font-mono"
                   dir="ltr"
                 />
                 <GraduationCap className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                برای آموزگار: teacher_maryam | برای مدیریت: admin
-              </span>
             </div>
 
             <div>
@@ -278,9 +269,6 @@ function LoginFormContent() {
                 />
                 <Lock className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                رمز معلم: teacher123456 | رمز مدیر: admin123456
-              </span>
             </div>
 
             <button

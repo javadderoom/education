@@ -17,7 +17,6 @@ import { selectNextAdaptiveItem } from "../../lib/bkt/adaptive";
 import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
-import { StudentProfileSwitcher } from "../navigation/StudentProfileSwitcher";
 import { LearnerProfileSummary } from "../../actions/analytics";
 
 export interface DistractorItem {
@@ -401,17 +400,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          {learners.length > 0 && (
-            <StudentProfileSwitcher
-              learners={learners}
-              activeUsername={activeUsername}
-              onSelectStudent={(l) => {
-                setActiveUsername(l.username);
-                setActiveName(l.displayName);
-              }}
-            />
-          )}
-
           {/* Quick Drawer Button to View Mastery */}
           <button
             type="button"
