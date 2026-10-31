@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793444797.2010405,
-    "ast_hash": "5c6d72c62db9e9baa1e80cd5f9914fec",
+    "mtime": 1793447586.6191788,
+    "ast_hash": "1f445686927fb23bfcacd925f01b685a",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
@@ -797,6 +797,26 @@
   "web/app/teacher/page.tsx": {
     "mtime": 1793444762.7196884,
     "ast_hash": "ee62f869ae0a8af32a8a2d159cbff12f",
+    "semantic_hash": ""
+  },
+  "web/__tests__/ui-bottom-nav.test.tsx": {
+    "mtime": 1793447598.1505792,
+    "ast_hash": "7b5377f848173e2cac2ab0c1b87a8b1d",
+    "semantic_hash": ""
+  },
+  "web/app/student/mastery/page.tsx": {
+    "mtime": 1793447552.3080254,
+    "ast_hash": "849a95a08b10cbe77d1247847e5a27b8",
+    "semantic_hash": ""
+  },
+  "web/app/student/workshop/page.tsx": {
+    "mtime": 1793447538.7680607,
+    "ast_hash": "109ace8bed3c0c45fd4419a6e7fb3d46",
+    "semantic_hash": ""
+  },
+  "web/components/navigation/BottomNav.tsx": {
+    "mtime": 1793447513.8643937,
+    "ast_hash": "29492a39058c2372d7d10082e0e9a02a",
     "semantic_hash": ""
   }
 }

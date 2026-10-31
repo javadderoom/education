@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { Vazirmatn } from "next/font/google";
+import { GraduationCap } from "lucide-react";
+import { BottomNav } from "@/components/navigation/BottomNav";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -56,32 +58,20 @@ export default function RootLayout({
 
               <div className="flex items-center gap-2">
                 <Link
-                  href="/"
-                  className="text-xs font-bold text-slate-600 hover:text-slate-900 px-2.5 py-1.5 rounded-xl hover:bg-slate-100 transition-all cursor-pointer"
-                >
-                  خانه
-                </Link>
-                <Link
-                  href="/student"
-                  className="text-xs font-bold text-slate-700 hover:text-indigo-600 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-xl transition-all cursor-pointer"
-                >
-                  بخش دانش‌آموز
-                </Link>
-                <Link
                   href="/teacher"
-                  className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 hover:bg-indigo-100 px-3 py-1.5 rounded-xl transition-all cursor-pointer"
+                  className="text-xs font-bold text-slate-700 hover:text-indigo-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                  title="ورود به میز کار آموزگار"
                 >
-                  میز آموزگار
+                  <GraduationCap className="w-4 h-4 text-slate-600" />
+                  <span className="hidden sm:inline">میز آموزگار</span>
                 </Link>
               </div>
             </div>
           </header>
 
-          <main className="flex-1 flex flex-col overflow-y-auto px-4 py-4">{children}</main>
+          <main className="flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-24 sm:pb-28">{children}</main>
 
-          <footer className="py-3 px-4 border-t border-slate-100 text-center text-[11px] text-slate-400 bg-slate-50/50 shrink-0">
-            آموزش و پرورش • کتاب و راهنمای تدریس ریاضی چهارم دبستان
-          </footer>
+          <BottomNav />
         </div>
       </body>
     </html>
