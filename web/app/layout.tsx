@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Link from "next/link";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -33,10 +34,10 @@ export default function RootLayout({
       </head>
       <body className="h-full flex flex-col justify-between">
         {/* Mobile & Tablet App Shell (Responsive Centered Tablet Frame on Desktop) */}
-        <div className="w-full max-w-xl md:max-w-2xl mx-auto min-h-screen bg-white shadow-2xl flex flex-col border-x border-slate-200">
+        <div className="w-full max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto min-h-screen bg-white shadow-2xl flex flex-col border-x border-slate-200">
           <header className="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 px-4 py-3 shrink-0">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
+              <Link href="/" className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-base shadow-sm">
                   ک
                 </div>
@@ -44,13 +45,21 @@ export default function RootLayout({
                   <h1 className="font-bold text-sm text-slate-900 leading-tight">ریاضی پایه چهارم</h1>
                   <p className="text-[11px] text-slate-500">فصل ۲: شناخت کسرها</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="flex items-center gap-1.5">
-                <span className="text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  آماده آزمون
-                </span>
+              <div className="flex items-center gap-2">
+                <Link
+                  href="/"
+                  className="text-xs font-bold text-slate-700 hover:text-indigo-600 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-xl transition-all cursor-pointer"
+                >
+                  آزمون دانش‌آموز
+                </Link>
+                <Link
+                  href="/curation"
+                  className="text-xs font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 hover:bg-indigo-100 px-3 py-1.5 rounded-xl transition-all cursor-pointer"
+                >
+                  میز آموزگار
+                </Link>
               </div>
             </div>
           </header>
