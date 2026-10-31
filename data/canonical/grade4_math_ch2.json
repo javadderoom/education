@@ -352,6 +352,507 @@
           "rationale": "نسبت معکوس جزء به جزء."
         }
       ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-006",
+      "kc_id": "KC-MATH4-C02-01",
+      "stem": "یک شکل به ۳ قسمت تقسیم شده ولی اندازه قسمت‌ها با هم برابر نیست و ۱ قسمت آن رنگ شده است. آیا قسمت رنگ‌شده کسر $\\frac{1}{3}$ را نشان می‌دهد؟",
+      "difficulty": 0.40,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 1,
+          "cols": 3,
+          "initialColored": 1
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-006-A",
+          "label": "الف",
+          "content": "خیر، زیرا شرط اصلی کسر این است که تمام قسمت‌ها با یکدیگر مساوی باشند.",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مفهوم کسر تنها زمانی معتبر است که کل به قسمت‌های کاملاً مساوی تقسیم شده باشد."
+        },
+        {
+          "id": "DIS-006-B",
+          "label": "ب",
+          "content": "بله، چون ۱ قسمت از مجموع ۳ قسمت شکل رنگ شده است.",
+          "is_correct": false,
+          "misconception_id": "MIS-UNEQUAL-PARTITIONS",
+          "rationale": "بدفهمی نادیده گرفتن شرط برابری: دانش‌آموز صرفاً تعداد برش‌ها را می‌شمارد بدون بررسی مساحت قطعات."
+        },
+        {
+          "id": "DIS-006-C",
+          "label": "ج",
+          "content": "بله، در کسر نیازی به مساوی بودن قسمت‌ها نیست.",
+          "is_correct": false,
+          "misconception_id": "MIS-UNEQUAL-PARTITIONS",
+          "rationale": "خطای اساسی در تعریف ریاضی کسر."
+        },
+        {
+          "id": "DIS-006-D",
+          "label": "د",
+          "content": "خیر، چون باید ۲ قسمت رنگ می‌شد.",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه در مفهوم کسر یک‌سوم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-007",
+      "kc_id": "KC-MATH4-C02-01",
+      "stem": "در یک جعبه ۱۲ عدد مداد رنگی وجود دارد. اگر $\\frac{1}{4}$ مدادها قرمز باشند، چند مداد قرمز در جعبه هست؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-007-A",
+          "label": "الف",
+          "content": "۳ مداد",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: یک‌چهارم از ۱۲ مداد برابر است با ۳ = ۴ ÷ ۱۲."
+        },
+        {
+          "id": "DIS-007-B",
+          "label": "ب",
+          "content": "۴ مداد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن عدد مخرج با پاسخ نهایی."
+        },
+        {
+          "id": "DIS-007-C",
+          "label": "ج",
+          "content": "۱ مداد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن عدد صورت با تعداد اشیاء."
+        },
+        {
+          "id": "DIS-007-D",
+          "label": "د",
+          "content": "۸ مداد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تفریق ۴ از ۱۲ به جای تقسیم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-008",
+      "kc_id": "KC-MATH4-C02-02",
+      "stem": "اگر به صورت و مخرج کسر $\\frac{2}{5}$ عدد ۳ را اضافه کنیم تا کسر $\\frac{5}{8}$ حاصل شود، آیا این دو کسر مساوی هستند؟",
+      "difficulty": 0.50,
+      "guess_param": 0.25,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 2,
+          "cols": 4,
+          "initialColored": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-008-A",
+          "label": "الف",
+          "content": "خیر، افزودن یک عدد ثابت به صورت و مخرج کسر مساوی تولید نمی‌کند.",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کسرهای مساوی فقط از طریق ضرب یا تقسیم صورت و مخرج در یک عدد غیرصفر به دست می‌آیند."
+        },
+        {
+          "id": "DIS-008-B",
+          "label": "ب",
+          "content": "بله، چون به هر دو عدد یکسان (۳) اضافه کردیم مساوی هستند.",
+          "is_correct": false,
+          "misconception_id": "MIS-NUM-AS-SEPARATE-INTS",
+          "rationale": "بدفهمی تلقی صورت و مخرج به عنوان دو عدد مستقل و تعمیم ویژگی جمع."
+        },
+        {
+          "id": "DIS-008-C",
+          "label": "ج",
+          "content": "بله، هر تغییری در صورت و مخرج کسر مساوی می‌سازد.",
+          "is_correct": false,
+          "misconception_id": "MIS-NUM-AS-SEPARATE-INTS",
+          "rationale": "عدم درک رابطه نسبتی بین صورت و مخرج."
+        },
+        {
+          "id": "DIS-008-D",
+          "label": "د",
+          "content": "خیر، فقط اگر عدد ۲ اضافه می‌کردیم مساوی می‌شد.",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "استدلال نادرست درباره جمع در کسرها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-009",
+      "kc_id": "KC-MATH4-C02-02",
+      "stem": "صورت و مخرج کسر $\\frac{6}{9}$ را اگر بر ۳ تقسیم کنیم، کدام کسر مساوی با آن به دست می‌آید؟",
+      "difficulty": 0.32,
+      "guess_param": 0.20,
+      "slip_param": 0.08,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 9,
+          "initialColored": 6,
+          "showSumMode": false
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-009-A",
+          "label": "الف",
+          "content": "$\\frac{2}{3}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۶ تقسیم بر ۳ می‌شود ۲، و ۹ تقسیم بر ۳ می‌شود ۳."
+        },
+        {
+          "id": "DIS-009-B",
+          "label": "ب",
+          "content": "$\\frac{3}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "معکوس کردن ارقام حاصل تقسیم."
+        },
+        {
+          "id": "DIS-009-C",
+          "label": "ج",
+          "content": "$\\frac{2}{9}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم صورت بدون تقسیم مخرج."
+        },
+        {
+          "id": "DIS-009-D",
+          "label": "د",
+          "content": "$\\frac{3}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در تقسیم ۶ بر ۳."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-010",
+      "kc_id": "KC-MATH4-C02-03",
+      "stem": "کدام رابطه مقایسه بین کسرها با مخرج‌های مساوی درست است؟",
+      "difficulty": 0.30,
+      "guess_param": 0.20,
+      "slip_param": 0.07,
+      "visual_template": {
+        "type": "BucketSort",
+        "props": {
+          "items": [
+            { "id": "1", "label": "3/7", "value": 0.428 },
+            { "id": "2", "label": "5/7", "value": 0.714 }
+          ],
+          "bucketALabel": "کوچک‌تر",
+          "bucketBLabel": "بزرگ‌تر"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-010-A",
+          "label": "الف",
+          "content": "$\\frac{3}{7} < \\frac{5}{7}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: وقتی مخرج‌ها برابرند، کسری بزرگتر است که صورت بزرگتری داشته باشد (۵ از ۳ بزرگتر است)."
+        },
+        {
+          "id": "DIS-010-B",
+          "label": "ب",
+          "content": "$\\frac{3}{7} > \\frac{5}{7}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "معکوس در نظر گرفتن علامت نامساوی."
+        },
+        {
+          "id": "DIS-010-C",
+          "label": "ج",
+          "content": "$\\frac{1}{9} > \\frac{1}{5}$",
+          "is_correct": false,
+          "misconception_id": "MIS-BIGGER-DEN-BIGGER-VAL",
+          "rationale": "بدفهمی مخرج بزرگتر: دانش‌آموز فکر کرده چون ۹ بزرگتر از ۵ است، پس ۱/۹ بزرگتر از ۱/۵ است."
+        },
+        {
+          "id": "DIS-010-D",
+          "label": "د",
+          "content": "$\\frac{2}{8} > \\frac{6}{8}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در مقایسه صورت‌ها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-011",
+      "kc_id": "KC-MATH4-C02-03",
+      "stem": "علی $\\frac{1}{3}$ یک کیک و سامان $\\frac{1}{5}$ همان کیک را خورده است. چه کسی سهم بیشتری خورده است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.25,
+      "slip_param": 0.09,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": {
+          "leftValue": 0.333,
+          "rightValue": 0.2,
+          "leftLabel": "1/3",
+          "rightLabel": "1/5"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-011-A",
+          "label": "الف",
+          "content": "علی سهم بیشتری خورده است (چون کیک به ۳ قسمت تقسیم شده و قطعاتش بزرگترند).",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: تقسیم به قطعات کمتر، اندازه قطعات را بزرگتر می‌کند (۱/۳ > ۱/۵)."
+        },
+        {
+          "id": "DIS-011-B",
+          "label": "ب",
+          "content": "سامان سهم بیشتری خورده است (چون عدد ۵ از ۳ بزرگتر است).",
+          "is_correct": false,
+          "misconception_id": "MIS-BIGGER-DEN-BIGGER-VAL",
+          "rationale": "بدفهمی مخرج بزرگتر: تعمیم شهود اعداد طبیعی که در آن ۵ > ۳ است به مخرج کسرها."
+        },
+        {
+          "id": "DIS-011-C",
+          "label": "ج",
+          "content": "هر دو برابر خورده‌اند چون صورت هر دو ۱ است.",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تمرکز تک‌بعدی روی صورت‌ها و نادیده گرفتن مخرج."
+        },
+        {
+          "id": "DIS-011-D",
+          "label": "د",
+          "content": "پاسخ به شکل کیک بستگی دارد.",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "شک کاذب بدون توجه به یکسان بودن واحد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-012",
+      "kc_id": "KC-MATH4-C02-04",
+      "stem": "حاصل عبارت تفریق $\\frac{6}{10} - \\frac{2}{10}$ کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.08,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 10,
+          "initialColored": 4,
+          "showSumMode": false
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-012-A",
+          "label": "الف",
+          "content": "$\\frac{4}{10}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج ۱۰ ثابت می‌ماند و صورت‌ها تفریق می‌شوند (۶ - ۲ = ۴)."
+        },
+        {
+          "id": "DIS-012-B",
+          "label": "ب",
+          "content": "$\\frac{4}{0}$",
+          "is_correct": false,
+          "misconception_id": "MIS-ADD-NUM-DEN",
+          "rationale": "بدفهمی تفریق مخرج‌ها: دانش‌آموز مخرج‌ها را از هم کم کرده است (۱۰ - ۱۰ = ۰)."
+        },
+        {
+          "id": "DIS-012-C",
+          "label": "ج",
+          "content": "$\\frac{8}{10}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع کردن صورت‌ها به جای تفریق (۶ + ۲ = ۸)."
+        },
+        {
+          "id": "DIS-012-D",
+          "label": "د",
+          "content": "$\\frac{4}{20}$",
+          "is_correct": false,
+          "misconception_id": "MIS-ADD-NUM-DEN",
+          "rationale": "جمع مخرج‌ها در تفریق کسرها (۱۰ + ۱۰ = ۲۰)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-013",
+      "kc_id": "KC-MATH4-C02-04",
+      "stem": "حاصل عبارت $\\frac{1}{6} + \\frac{2}{6} + \\frac{1}{6}$ برابر با کدام کسر است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.08,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 6,
+          "initialColored": 4,
+          "showSumMode": false
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-013-A",
+          "label": "الف",
+          "content": "$\\frac{4}{6}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج ۶ ثابت می‌ماند و صورت‌ها با هم جمع می‌شوند (۱ + ۲ + ۱ = ۴)."
+        },
+        {
+          "id": "DIS-013-B",
+          "label": "ب",
+          "content": "$\\frac{4}{18}$",
+          "is_correct": false,
+          "misconception_id": "MIS-ADD-NUM-DEN",
+          "rationale": "بدفهمی جمع مخرج‌ها: دانش‌آموز مخرج‌ها را با هم جمع زده است (۶ + ۶ + ۶ = ۱۸)."
+        },
+        {
+          "id": "DIS-013-C",
+          "label": "ج",
+          "content": "$\\frac{2}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در شمارش کسرها."
+        },
+        {
+          "id": "DIS-013-D",
+          "label": "د",
+          "content": "$\\frac{5}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای محاسباتی در جمع صورت‌ها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-014",
+      "kc_id": "KC-MATH4-C02-05",
+      "stem": "روی محور اعداد، فاصله بین عدد صفر تا یک با ۲ خط نشانه‌گذاری در وسط به چند بخش مساوی تقسیم شده است؟",
+      "difficulty": 0.48,
+      "guess_param": 0.25,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": {
+          "min": 0,
+          "max": 1,
+          "partitions": 3,
+          "targetPoint": 0.333,
+          "targetLabel": "محور با ۲ خط میانی"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-014-A",
+          "label": "الف",
+          "content": "۳ بخش مساوی",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲ خط نشانه‌گذاری در وسط، فاصله را به ۳ بازه مساوی تقسیم می‌کند."
+        },
+        {
+          "id": "DIS-014-B",
+          "label": "ب",
+          "content": "۲ بخش مساوی",
+          "is_correct": false,
+          "misconception_id": "MIS-NUMBERLINE-TICK-COUNT",
+          "rationale": "بدفهمی شمارش تیک‌ها: شمارش خطوط نشانه‌گذاری به جای شمارش فواصل و قطعات بین خطوط."
+        },
+        {
+          "id": "DIS-014-C",
+          "label": "ج",
+          "content": "۴ بخش مساوی",
+          "is_correct": false,
+          "misconception_id": "MIS-NUMBERLINE-TICK-COUNT",
+          "rationale": "شمارش تمام خطوط شامل خط صفر و یک (۰، ۱/۳، ۲/۳، ۱)."
+        },
+        {
+          "id": "DIS-014-D",
+          "label": "د",
+          "content": "۱ بخش",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "عدم توجه به خطوط تقسیم‌بندی محور."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH02-015",
+      "kc_id": "KC-MATH4-C02-05",
+      "stem": "روی یک محور، فاصله بین ۰ و ۱ به ۶ قسمت مساوی تقسیم شده و نقطه مورد نظر روی پنجمین خط بعد از صفر قرار دارد. این نقطه چه کسری را نشان می‌دهد؟",
+      "difficulty": 0.42,
+      "guess_param": 0.20,
+      "slip_param": 0.09,
+      "visual_template": {
+        "type": "NumberLine",
+        "props": {
+          "min": 0,
+          "max": 1,
+          "partitions": 6,
+          "targetPoint": 0.833,
+          "targetLabel": "نقطه مورد نظر"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-015-A",
+          "label": "الف",
+          "content": "$\\frac{5}{6}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کل فاصله به ۶ قسمت مساوی تقسیم شده و نقطه روی گام پنجم نشسته است."
+        },
+        {
+          "id": "DIS-015-B",
+          "label": "ب",
+          "content": "$\\frac{5}{7}$",
+          "is_correct": false,
+          "misconception_id": "MIS-NUMBERLINE-TICK-COUNT",
+          "rationale": "بدفهمی شمارش تیک‌ها: شمارش خطوط تقسیم با احتساب خط صفر (۷ خط)، قرار دادن مخرج ۷ به جای ۶."
+        },
+        {
+          "id": "DIS-015-C",
+          "label": "ج",
+          "content": "$\\frac{6}{5}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "معکوس کردن صورت و مخرج (کسر بزرگتر از واحد در بازه صفر تا یک)."
+        },
+        {
+          "id": "DIS-015-D",
+          "label": "د",
+          "content": "$\\frac{1}{6}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "شمارش از انتهای محور (از ۱ به عقب) به جای شروع از صفر."
+        }
+      ]
     }
   ]
 }

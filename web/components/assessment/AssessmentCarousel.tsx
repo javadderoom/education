@@ -13,6 +13,7 @@ import { RemediationPathway } from "../remediation/RemediationPathway";
 import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
 import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
+import { selectNextAdaptiveItem } from "../../lib/bkt/adaptive";
 import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
@@ -208,11 +209,25 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   const advanceToNext = () => {
     setSelectedDistractorId(null);
-    if (currentIndex + 1 < items.length) {
-      setCurrentIndex((prev) => prev + 1);
-    } else {
-      setSessionCompleted(true);
+    const answeredIds = new Set(history.map((h) => h.itemId));
+    answeredIds.add(currentItem.id);
+
+    const nextAdaptiveItem = selectNextAdaptiveItem(items, {
+      answeredItemIds: answeredIds,
+      masteries,
+      knowledgeComponents,
+      maxItemsPerSession: 6, // 6 targeted diagnostic items per adaptive session
+    });
+
+    if (nextAdaptiveItem) {
+      const nextIdx = items.findIndex((i) => i.id === nextAdaptiveItem.id);
+      if (nextIdx !== -1) {
+        setCurrentIndex(nextIdx);
+        return;
+      }
     }
+
+    setSessionCompleted(true);
   };
 
   const handleRestart = () => {
@@ -363,15 +378,15 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       <div className="flex items-center justify-between gap-3 mb-3">
         <div className="flex-1">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
-            <span>سوال {toPersianDigits(currentIndex + 1)} از {toPersianDigits(items.length)}</span>
+            <span>سوال {toPersianDigits(history.length + 1)}</span>
             <span className="font-mono text-indigo-600" dir="ltr">
-              {toPersianDigits(Math.round(((currentIndex + 1) / items.length) * 100))}٪
+              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / 6) * 100)))}٪
             </span>
           </div>
           <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-600 rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${((currentIndex + 1) / items.length) * 100}%` }}
+              style={{ width: `${Math.min(100, ((history.length + 1) / 6) * 100)}%` }}
             />
           </div>
         </div>

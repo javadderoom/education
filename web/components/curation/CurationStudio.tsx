@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle2, AlertCircle, Edit3, ArrowRight, Eye, ShieldCheck, Check } from "lucide-react";
+import { CheckCircle2, AlertCircle, Edit3, ArrowRight, Eye, ShieldCheck, Check, BarChart3, ListFilter } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -10,6 +10,7 @@ import { BalanceScale } from "../parametric/BalanceScale";
 import { BucketSort } from "../parametric/BucketSort";
 import { DiagnosticItemData } from "../assessment/AssessmentCarousel";
 import { toPersianDigits } from "../../lib/math/persian-digits";
+import { DiagnosticHeatmap } from "./DiagnosticHeatmap";
 
 export interface CurationStudioProps {
   initialItems: DiagnosticItemData[];
@@ -23,6 +24,7 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
   subjectTitle = "فصل ۲: کسرها (پایه چهارم دبستان)",
 }) => {
   const [items, setItems] = useState<DiagnosticItemData[]>(initialItems);
+  const [viewMode, setViewMode] = useState<"questions" | "heatmap">("questions");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [revisionIds, setRevisionIds] = useState<Set<string>>(new Set());
@@ -91,18 +93,50 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
           </span>
           <h2 className="text-lg font-bold text-slate-900 mt-2">{subjectTitle}</h2>
           <p className="text-xs text-slate-500">
-            تایید نهایی سوالات و بدفهمی‌های تشخیصی پیش از انتشار برای دانش‌آموزان
+            تایید نهایی سوالات، تحلیل بدفهمی‌ها و رصد میزان تسلط دانش‌آموزان
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        {/* View Switcher: Questions vs Heatmap */}
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl">
             {toPersianDigits(approvedIds.size)} از {toPersianDigits(items.length)} سوال تایید شده
           </span>
+
+          <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-2xl">
+            <button
+              type="button"
+              onClick={() => setViewMode("questions")}
+              className={`min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                viewMode === "questions"
+                  ? "bg-white text-indigo-700 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <ListFilter className="w-4 h-4" />
+              <span>سوالات ({toPersianDigits(items.length)})</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setViewMode("heatmap")}
+              className={`min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                viewMode === "heatmap"
+                  ? "bg-white text-indigo-700 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <BarChart3 className="w-4 h-4 text-amber-600" />
+              <span>نقشه حرارتی کلاس</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+      {viewMode === "heatmap" ? (
+        <DiagnosticHeatmap />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
         {/* Left Column: Questions List (Mobile horizontal scroll / Tablet list) */}
         <div className="md:col-span-4 bg-white border-2 border-slate-200 rounded-3xl p-3 shadow-xs flex md:flex-col gap-2 overflow-x-auto md:overflow-y-auto max-h-[500px]">
           {items.map((item, idx) => {
@@ -225,6 +259,7 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };

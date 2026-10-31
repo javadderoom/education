@@ -71,4 +71,20 @@ describe("Teacher Curation Studio Component", () => {
     // 1 item approved badge with Persian digits
     expect(screen.getByText(/۱ از ۲ سوال تایید شده/)).toBeInTheDocument();
   });
+
+  it("switches to class diagnostic heatmap view on tab click", () => {
+    render(
+      <CurationStudio
+        initialItems={mockItems}
+        misconceptions={mockMisconceptions}
+        subjectTitle="فصل دوم: کسرها"
+      />
+    );
+
+    const heatmapTab = screen.getByText(/نقشه حرارتی کلاس/i);
+    fireEvent.click(heatmapTab);
+
+    expect(screen.getByText("میزان تسلط کلاسی به تفکیک مهارت‌های پنج‌گانه")).toBeInTheDocument();
+    expect(screen.getByText("نقشه شیوع بدفهمی‌ها و خطاهای مفهومی در کلاس")).toBeInTheDocument();
+  });
 });

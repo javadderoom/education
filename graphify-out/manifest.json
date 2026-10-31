@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch2.json": {
-    "mtime": 1793377289.3686576,
-    "ast_hash": "38a88d145bc4864aa3af8ce5d6ad292b",
+    "mtime": 1793450066.8291807,
+    "ast_hash": "4d27735921261192960ef569b77ea4d0",
     "semantic_hash": ""
   },
   "scripts/ingestion/gemini_authoring.py": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793448865.8133886,
-    "ast_hash": "8888ad8b9139d6bb04d4bc94982eb0c1",
+    "mtime": 1793450201.5669541,
+    "ast_hash": "4311b98523cb69d40eb437c5a30085ba",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-curation.test.tsx": {
-    "mtime": 1793438993.8281293,
-    "ast_hash": "80eda024ca6f64d08c2ade358e6b9224",
+    "mtime": 1793450364.6320212,
+    "ast_hash": "775278499843a2b89cf3881766851f39",
     "semantic_hash": ""
   },
   "web/app/curation/page.tsx": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "web/components/curation/CurationStudio.tsx": {
-    "mtime": 1793442853.8494911,
-    "ast_hash": "c58e7ffbdea74d292d080b2314a9b9c0",
+    "mtime": 1793450349.7129095,
+    "ast_hash": "9b877d983c900d3b4e2f8b79497c7789",
     "semantic_hash": ""
   },
   "web/lib/offline/storage.ts": {
@@ -827,6 +827,26 @@
   "web/actions/assessment.ts": {
     "mtime": 1793448823.3409042,
     "ast_hash": "d156ef6080151f38ebc618fd1a319539",
+    "semantic_hash": ""
+  },
+  "web/__tests__/adaptive.test.ts": {
+    "mtime": 1793450137.3267357,
+    "ast_hash": "ef54d087dbd574682615c2c0e1578b0d",
+    "semantic_hash": ""
+  },
+  "web/__tests__/e2e-session.test.ts": {
+    "mtime": 1793449950.6415226,
+    "ast_hash": "9291f3a2a90bacc5db63a1783e460a05",
+    "semantic_hash": ""
+  },
+  "web/components/curation/DiagnosticHeatmap.tsx": {
+    "mtime": 1793450257.518704,
+    "ast_hash": "e6fa78b54b97227ee755760ca3b9fe2a",
+    "semantic_hash": ""
+  },
+  "web/lib/bkt/adaptive.ts": {
+    "mtime": 1793450126.0922465,
+    "ast_hash": "7f7191fe1af3e1a87aeb321e94d8be38",
     "semantic_hash": ""
   }
 }
