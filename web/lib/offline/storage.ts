@@ -44,6 +44,9 @@ export function openOfflineDatabase(): Promise<IDBDatabase> {
 }
 
 export async function saveOfflineSession(session: OfflineSessionRecord): Promise<void> {
+  if (typeof window === "undefined" || !window.indexedDB) {
+    return; // Environment without IndexedDB (e.g. server-side or test mock)
+  }
   try {
     const db = await openOfflineDatabase();
     return new Promise((resolve, reject) => {

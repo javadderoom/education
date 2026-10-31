@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { HelpCircle, Award, RotateCcw, BarChart2, X } from "lucide-react";
+import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -9,9 +9,11 @@ import { AreaGrid } from "../parametric/AreaGrid";
 import { BalanceScale } from "../parametric/BalanceScale";
 import { BucketSort } from "../parametric/BucketSort";
 import { RemediationModal } from "../remediation/RemediationModal";
+import { RemediationPathway } from "../remediation/RemediationPathway";
 import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
 import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
+import { saveOfflineSession } from "../../lib/offline/storage";
 
 export interface DistractorItem {
   id: string;
@@ -49,9 +51,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   misconceptions,
   studentName = "علی رضایی",
 }) => {
+  const [sessionId] = useState(() => `sess_${Date.now()}`);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDistractorId, setSelectedDistractorId] = useState<string | null>(null);
   const [showMasterySheet, setShowMasterySheet] = useState(false);
+  const [activeWorkshopKC, setActiveWorkshopKC] = useState<{ id: string; title: string } | null>(null);
   const [activeRemediation, setActiveRemediation] = useState<{
     isOpen: boolean;
     title?: string;
@@ -74,6 +78,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     kcId: string;
     isCorrect: boolean;
     isNotSure: boolean;
+    timestamp: number;
   }>>([]);
 
   const currentItem = items[currentIndex];
@@ -89,6 +94,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }
     return map;
   }, [misconceptions]);
+
+  const persistToOfflineDB = (newHistory: typeof history, isFinished: boolean = false) => {
+    saveOfflineSession({
+      sessionId,
+      learnerName: studentName,
+      subjectTitle: "فصل دوم: کسرها",
+      startedAt: Date.now(),
+      completedAt: isFinished ? Date.now() : undefined,
+      responses: newHistory,
+      synced: false,
+    });
+  };
 
   const handleSelectOption = (distractor: DistractorItem) => {
     if (selectedDistractorId) return; // Prevent double taps
@@ -116,15 +133,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       [currentItem.kc_id]: bktResult.posteriorMastery,
     }));
 
-    setHistory((prev) => [
-      ...prev,
+    const newHistory = [
+      ...history,
       {
         itemId: currentItem.id,
         kcId: currentItem.kc_id,
         isCorrect: distractor.is_correct,
         isNotSure: false,
+        timestamp: Date.now(),
       },
-    ]);
+    ];
+    setHistory(newHistory);
+    persistToOfflineDB(newHistory, currentIndex + 1 >= items.length);
 
     // Check if misconception modal should appear
     if (!distractor.is_correct && distractor.misconception_id) {
@@ -151,15 +171,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       [currentItem.kc_id]: bktResult.posteriorMastery,
     }));
 
-    setHistory((prev) => [
-      ...prev,
+    const newHistory = [
+      ...history,
       {
         itemId: currentItem.id,
         kcId: currentItem.kc_id,
         isCorrect: false,
         isNotSure: true,
+        timestamp: Date.now(),
       },
-    ]);
+    ];
+    setHistory(newHistory);
+    persistToOfflineDB(newHistory, currentIndex + 1 >= items.length);
 
     setTimeout(() => advanceToNext(), 400);
   };
@@ -177,6 +200,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setCurrentIndex(0);
     setSelectedDistractorId(null);
     setSessionCompleted(false);
+    setActiveWorkshopKC(null);
     setHistory([]);
     const resetMasteries: Record<string, number> = {};
     for (const kc of knowledgeComponents) {
@@ -185,12 +209,25 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setMasteries(resetMasteries);
   };
 
+  const handleCompleteWorkshop = (kcId: string) => {
+    setMasteries((prev) => ({
+      ...prev,
+      [kcId]: Math.max(0.78, (prev[kcId] || 0.15) + 0.40),
+    }));
+    setActiveWorkshopKC(null);
+  };
+
   const masteryRadarList: KCMasteryInfo[] = knowledgeComponents.map((kc) => ({
     id: kc.id,
     title: kc.title,
     masteryProbability: masteries[kc.id] ?? 0.15,
     isMastered: (masteries[kc.id] ?? 0.15) >= 0.85,
   }));
+
+  // Identify KC needing reinforcement
+  const needsPracticeKC = knowledgeComponents.find(
+    (kc) => (masteries[kc.id] ?? 0.15) < 0.70
+  );
 
   // Render Visual Template dynamically
   const renderVisualTemplate = () => {
@@ -212,6 +249,17 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         return null;
     }
   };
+
+  // If in interactive workshop mode
+  if (activeWorkshopKC) {
+    return (
+      <RemediationPathway
+        kcTitle={activeWorkshopKC.title}
+        onComplete={() => handleCompleteWorkshop(activeWorkshopKC.id)}
+        onBack={() => setActiveWorkshopKC(null)}
+      />
+    );
+  }
 
   if (sessionCompleted) {
     const correctCount = history.filter((h) => h.isCorrect).length;
@@ -236,7 +284,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <MasteryRadar masteryList={masteryRadarList} />
           </div>
 
-          <div className="grid grid-cols-3 gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-6 text-center">
+          <div className="grid grid-cols-3 gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-5 text-center">
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
               <span className="text-lg font-black text-emerald-600 font-mono" dir="ltr">
@@ -257,12 +305,32 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             </div>
           </div>
 
+          {/* Interactive Workshop Recommendation */}
+          {needsPracticeKC && (
+            <div className="bg-indigo-50/80 border-2 border-indigo-200 rounded-2xl p-4 mb-5 text-right">
+              <div className="flex items-center gap-2 text-indigo-900 font-bold text-xs mb-1">
+                <Sparkles className="w-4 h-4 text-indigo-600 shrink-0" />
+                <span>فرصت طلایی تقویت یادگیری:</span>
+              </div>
+              <p className="text-xs text-indigo-950 mb-3 font-medium">
+                مبحث «{needsPracticeKC.title}» نیاز به تمرین دارد. با دست‌ورزی تعاملی تسلط خود را ارتقا دهید.
+              </p>
+              <button
+                type="button"
+                onClick={() => setActiveWorkshopKC(needsPracticeKC)}
+                className="w-full min-h-[46px] flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-98 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xs transition-all cursor-pointer"
+              >
+                <span>شروع کارگاه دست‌ورزی تعاملی</span>
+              </button>
+            </div>
+          )}
+
           <button
             type="button"
             onClick={handleRestart}
-            className="w-full min-h-[52px] inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-bold text-base px-6 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer select-none"
+            className="w-full min-h-[50px] inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white font-bold text-sm px-6 py-3 rounded-2xl shadow-md transition-all cursor-pointer select-none"
           >
-            <RotateCcw className="w-5 h-5" />
+            <RotateCcw className="w-4 h-4" />
             <span>تکرار مجدد آزمون</span>
           </button>
         </div>
@@ -347,17 +415,22 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           </div>
         </div>
 
-        {/* Honest Uncertainty Button (Bottom Thumb-Friendly Area) */}
-        <div className="pt-3 border-t border-slate-100 flex items-center justify-center mt-2">
+        {/* Bottom Thumb-Friendly Area: Not Sure Button + Offline Sync Badge */}
+        <div className="pt-3 border-t border-slate-100 flex items-center justify-between mt-2">
           <button
             type="button"
             disabled={selectedDistractorId !== null}
             onClick={handleNotSure}
-            className="w-full sm:w-auto min-h-[46px] flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-indigo-700 bg-slate-100 hover:bg-slate-200 active:scale-98 px-5 py-2.5 rounded-xl transition-all cursor-pointer shadow-xs"
+            className="min-h-[46px] flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-indigo-700 bg-slate-100 hover:bg-slate-200 active:scale-98 px-5 py-2.5 rounded-xl transition-all cursor-pointer shadow-xs"
           >
             <HelpCircle className="w-4 h-4 text-slate-500" />
             <span>هنوز مطمئن نیستم (بدون جریمه)</span>
           </button>
+
+          <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
+            <Check className="w-3.5 h-3.5 text-emerald-500" />
+            <span>ذخیره در دستگاه</span>
+          </span>
         </div>
       </div>
 
