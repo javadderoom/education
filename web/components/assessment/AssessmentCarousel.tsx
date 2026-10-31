@@ -15,6 +15,7 @@ import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
 import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
+import { saveAssessmentSession } from "../../actions/assessment";
 
 export interface DistractorItem {
   id: string;
@@ -106,6 +107,23 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       responses: newHistory,
       synced: false,
     });
+
+    if (isFinished) {
+      saveAssessmentSession({
+        sessionId,
+        learnerDisplayName: studentName,
+        responses: newHistory.map((h) => ({
+          itemId: h.itemId,
+          kcId: h.kcId,
+          isCorrect: h.isCorrect,
+          isNotSure: h.isNotSure,
+        })),
+        masteries,
+        isCompleted: true,
+      }).catch(() => {
+        // Offline resilience: session remains safely stored in IndexedDB for subsequent background sync
+      });
+    }
   };
 
   const handleSelectOption = (distractor: DistractorItem) => {

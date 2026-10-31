@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793442840.3343122,
-    "ast_hash": "74dff1cca0b2449985311f855bc8d1a7",
+    "mtime": 1793448865.8133886,
+    "ast_hash": "8888ad8b9139d6bb04d4bc94982eb0c1",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -425,8 +425,8 @@
     "semantic_hash": ""
   },
   "web/lib/db/prisma.ts": {
-    "mtime": 1793377490.7549,
-    "ast_hash": "62af91a7e887314cbf713fd88dc0f56e",
+    "mtime": 1793448935.2342987,
+    "ast_hash": "6dbdc459292cb80ee31cab72c834d4fd",
     "semantic_hash": ""
   },
   "web/next.config.ts": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1793421861.000289,
-    "ast_hash": "3cb3d848cf96ba11be9ffaab243e5fdb",
+    "mtime": 1793448926.5809524,
+    "ast_hash": "4eeca4888930e10284a357d0da05d1ad",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "web/lib/offline/storage.ts": {
-    "mtime": 1793435221.1906092,
-    "ast_hash": "7221cd100d9d42cdabbc00c5933fa806",
+    "mtime": 1793448843.4371324,
+    "ast_hash": "8dd288ed54834b84a29ae9a7497a2093",
     "semantic_hash": ""
   },
   "web/__tests__/ui-remediation.test.tsx": {
@@ -817,6 +817,16 @@
   "web/components/navigation/BottomNav.tsx": {
     "mtime": 1793447513.8643937,
     "ast_hash": "29492a39058c2372d7d10082e0e9a02a",
+    "semantic_hash": ""
+  },
+  "web/__tests__/db-sync.test.ts": {
+    "mtime": 1793448970.9437053,
+    "ast_hash": "cbfafbd175c2a466862687ab4e421eca",
+    "semantic_hash": ""
+  },
+  "web/actions/assessment.ts": {
+    "mtime": 1793448823.3409042,
+    "ast_hash": "d156ef6080151f38ebc618fd1a319539",
     "semantic_hash": ""
   }
 }

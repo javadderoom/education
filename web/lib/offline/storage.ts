@@ -78,3 +78,44 @@ export async function getOfflineSessions(): Promise<OfflineSessionRecord[]> {
     return [];
   }
 }
+
+/**
+ * Synchronizes un-synced offline sessions to PostgreSQL via Server Action when back online.
+ */
+export async function syncOfflineSessionsToCloud(
+  saveAction: (payload: any) => Promise<{ success: boolean }>
+): Promise<number> {
+  if (typeof window === "undefined" || (typeof navigator !== "undefined" && !navigator.onLine)) {
+    return 0;
+  }
+  const sessions = await getOfflineSessions();
+  const unsynced = sessions.filter((s) => !s.synced && s.completedAt);
+  let syncedCount = 0;
+
+  for (const session of unsynced) {
+    try {
+      const res = await saveAction({
+        sessionId: session.sessionId,
+        learnerDisplayName: session.learnerName,
+        responses: session.responses.map((r) => ({
+          itemId: r.itemId,
+          kcId: r.kcId,
+          isCorrect: r.isCorrect,
+          isNotSure: r.isNotSure,
+        })),
+        masteries: {},
+        isCompleted: true,
+      });
+
+      if (res.success) {
+        session.synced = true;
+        await saveOfflineSession(session);
+        syncedCount++;
+      }
+    } catch {
+      // Keep unsynced for next online retry
+    }
+  }
+
+  return syncedCount;
+}
