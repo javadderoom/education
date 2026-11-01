@@ -16,10 +16,10 @@ describe("ExamTopicSelector Component", () => {
 
     // Header & title
     expect(screen.getByText("تنظیم هوشمند سرفصل‌های آزمون تشخیصی")).toBeInTheDocument();
-    expect(screen.getByText("ریاضی چهارم ابتدایی")).toBeInTheDocument();
+    expect(screen.getAllByText("ریاضی چهارم ابتدایی")).toHaveLength(2);
     expect(screen.getByText("ریاضی پنجم ابتدایی")).toBeInTheDocument();
 
-    // Check categories for Grade 4
+    // Check categories for Grade 4 Chapter 2
     expect(screen.getByText("بخش ۱: مبانی و شناخت کسر")).toBeInTheDocument();
     expect(screen.getByText("بخش ۲: مقایسه و محاسبات کسرها")).toBeInTheDocument();
     expect(screen.getByText("بخش ۳: تجسم و محور اعداد")).toBeInTheDocument();
@@ -28,6 +28,25 @@ describe("ExamTopicSelector Component", () => {
     expect(
       screen.getByText("شناخت مفهوم کسر به عنوان رابطه جزء از کل و تفکیک واحد")
     ).toBeInTheDocument();
+  });
+
+  it("switches course to Grade 4 Chapter 3 (Multiplication & Division)", () => {
+    const handleStart = vi.fn();
+    render(
+      <ExamTopicSelector
+        initialSubjectId="SUBJ-MATH4-FRACTIONS"
+        onStartExam={handleStart}
+      />
+    );
+
+    const multDivCard = screen.getByText("فصل سوم: ضرب و تقسیم").closest("button");
+    expect(multDivCard).toBeInTheDocument();
+    fireEvent.click(multDivCard!);
+
+    // Grade 4 Chapter 3 categories should now be visible
+    expect(screen.getByText("بخش ۱: الگوها و الگوریتم‌های ضرب")).toBeInTheDocument();
+    expect(screen.getByText("بخش ۲: مفهوم و الگوریتم‌های تقسیم")).toBeInTheDocument();
+    expect(screen.getByText("بخش ۳: تخمین و محاسبات تقریبی")).toBeInTheDocument();
   });
 
   it("switches course to Grade 5 and loads Ratio/Percentage syllabus", () => {

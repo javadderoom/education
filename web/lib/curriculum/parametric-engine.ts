@@ -703,15 +703,360 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
 }
 
 // -------------------------------------------------------------
+// Grade 4 Chapter 3 (Multiplication & Division) Generators
+// -------------------------------------------------------------
+
+/**
+ * KC-MATH4-C03-01: ضرب مساحتی و الگوی مستطیلی
+ */
+export function generateAreaMultiplicationItem(index: number = 0): DiagnosticItemData {
+  const name = randomChoice(PERSIAN_NAMES);
+  const L = randomChoice([24, 25, 32, 34, 35, 42, 45]);
+  const W = randomChoice([14, 15, 23, 24, 25]);
+
+  const L10 = Math.floor(L / 10) * 10;
+  const L1 = L % 10;
+  const W10 = Math.floor(W / 10) * 10;
+  const W1 = W % 10;
+
+  const totalArea = L * W;
+  const componentArea = L10 * W10 + L1 * W1; // Misconception: omitting cross terms
+  const missingOneCross = totalArea - L1 * W10;
+  const calculationSlip = totalArea - 20;
+
+  const stem = `${name} می‌خواهد مساحت یک فرش مستطیل‌شکل به طول $${L}$ و عرض $${W}$ سانتی‌متر را با روش ضرب مساحتی (۴ بخش: $(${L10} \\times ${W10})$، $(${L10} \\times ${W1})$، $(${L1} \\times ${W10})$ و $(${L1} \\times ${W1})$) محاسبه کند. مساحت کل فرش کدام است؟`;
+
+  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+    {
+      content: `$${totalArea}$ سانتی‌متر مربع`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `مجموع هر ۴ بخش مساحت برابر با $${L10 * W10} + ${L10 * W1} + ${L1 * W10} + ${L1 * W1} = ${totalArea}$ است.`,
+    },
+    {
+      content: `$${componentArea}$ سانتی‌متر مربع`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C03-02",
+      rationale: `خطای ضرب مؤلفه به مؤلفه: محاسبه تنها دهگان در دهگان و یکان در یکان و حذف مستطیل‌های میانی مساحت.`,
+    },
+    {
+      content: `$${missingOneCross}$ سانتی‌متر مربع`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `فراموش کردن یکی از بخش‌های مساحت در جمع نهایی.`,
+    },
+    {
+      content: `$${calculationSlip}$ سانتی‌متر مربع`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطا در جمع ستونی بخش‌های مساحت مستطیل.`,
+    },
+  ];
+
+  const shuffled = shuffle(rawDistractors);
+  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
+    id: `DIS-DYN-G4-C03-01-${Date.now()}-${i}`,
+    label: LABELS[i],
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+
+  return {
+    id: `ITEM-DYN-G4-C03-01-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C03-01",
+    stem,
+    difficulty: 0.35,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C03-02: ضرب تکنیکی و ستونی دو رقمی با حفظ ارزش مکانی
+ */
+export function generateVerticalMultiplicationItem(index: number = 0): DiagnosticItemData {
+  const A = randomChoice([26, 34, 43, 46, 52]);
+  const B = randomChoice([16, 24, 27, 32, 35]);
+
+  const B10 = Math.floor(B / 10);
+  const B1 = B % 10;
+
+  const total = A * B;
+  const row1 = A * B1;
+  const row2Correct = A * (B10 * 10);
+  const row2NoZero = A * B10;
+  const totalNoZero = row1 + row2NoZero; // Misconception: omitting place-value zero
+
+  const stem = `در محاسبه‌ی ضرب ستونی رو‌به‌رو حاصل نهایی کدام است؟\n$$\\begin{array}{r} ${A} \\\\ \\times \\ ${B} \\\\ \\hline \\end{array}$$`;
+
+  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+    {
+      content: `$${total}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `حاصل سطر اول $${A} \\times ${B1} = ${row1}$ و سطر دوم $${A} \\times ${B10 * 10} = ${row2Correct}$ بوده و جمع آن‌ها $${total}$ است.`,
+    },
+    {
+      content: `$${totalNoZero}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C03-01",
+      rationale: `فراموش کردن درج صفر ارزش مکانی دهگان در سطر دوم و جمع بستن $${row1} + ${row2NoZero} = ${totalNoZero}$.`,
+    },
+    {
+      content: `$${total - 100}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطا در رقم انتقالی (نقلی) دهگان یا صدگان.`,
+    },
+    {
+      content: `$${total + 20}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطای محاسباتی در جمع ستونی دو سطر.`,
+    },
+  ];
+
+  const shuffled = shuffle(rawDistractors);
+  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
+    id: `DIS-DYN-G4-C03-02-${Date.now()}-${i}`,
+    label: LABELS[i],
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+
+  return {
+    id: `ITEM-DYN-G4-C03-02-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C03-02",
+    stem,
+    difficulty: 0.45,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C03-03: تخمین و محاسبه‌ی تقریبی در ضرب و تقسیم
+ */
+export function generateEstimationMultiplicationItem(index: number = 0): DiagnosticItemData {
+  const name = randomChoice(PERSIAN_NAMES);
+  const baseA = randomChoice([38, 49, 58, 69, 78]);
+  const baseB = randomChoice([19, 28, 29, 39]);
+
+  const roundA = Math.round(baseA / 10) * 10;
+  const roundB = Math.round(baseB / 10) * 10;
+  const correctEst = roundA * roundB;
+  const missingZeroEst = correctEst / 10;
+  const truncationEst = Math.floor(baseA / 10) * 10 * Math.floor(baseB / 10) * 10;
+  const roundingErrorEst = (roundA - 10) * roundB;
+
+  const stem = `${name} می‌خواهد برای $${baseA}$ بسته دفتر، قیمت تقریبی را با در نظر گرفتن قیمت هر بسته $${baseB}$ هزار تومان محاسبه کند. اگر او هر دو عدد را به «نزدیک‌ترین ده‌گان» گرد کند، حاصل تقریبی کدام گزینه است؟`;
+
+  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+    {
+      content: `$${correctEst}$ هزار تومان`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `گرد شده $${baseA}$ برابر با $${roundA}$ و گرد شده $${baseB}$ برابر با $${roundB}$ است و $${roundA} \\times ${roundB} = ${correctEst}$.`,
+    },
+    {
+      content: `$${missingZeroEst}$ هزار تومان`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C03-04",
+      rationale: `حذف یکی از صفرهای ارزش مکانی در ضرب دو عدد ده‌گانی.`,
+    },
+    {
+      content: `$${truncationEst}$ هزار تومان`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `استفاده از روش قطع کردن به جای گرد کردن به نزدیک‌ترین دهگان.`,
+    },
+    {
+      content: `$${roundingErrorEst}$ هزار تومان`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `اشتباه در تشخیص نزدیک‌ترین دهگان برای عامل اول.`,
+    },
+  ];
+
+  const shuffled = shuffle(rawDistractors);
+  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
+    id: `DIS-DYN-G4-C03-03-${Date.now()}-${i}`,
+    label: LABELS[i],
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+
+  return {
+    id: `ITEM-DYN-G4-C03-03-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C03-03",
+    stem,
+    difficulty: 0.4,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C03-04: درک رابطه‌های درستی تقسیم و شرط باقی‌مانده
+ */
+export function generateDivisionVerificationItem(index: number = 0): DiagnosticItemData {
+  const d = randomChoice([6, 7, 8, 9]);
+  const q = randomInt(6, 11);
+  const r = randomInt(1, d - 1);
+  const D = d * q + r;
+
+  // Misconception case: r' >= d while d * q' + r' = D algebraically
+  const qMis = q - 1;
+  const rMis = r + d; // strictly >= d
+
+  const stem = `در یک تقسیم بر $${d}$، مقسوم برابر با $${D}$ است. کدام‌یک از تساوی‌های زیر یک تقسیم «درست و کامل» را نشان می‌دهد؟`;
+
+  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+    {
+      content: `$${D} = (${d} \\times ${q}) + ${r}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `تساوی حسابی برقرار است و باقی‌مانده ($${r}$) از مقسوم‌علیه ($${d}$) کوچک‌تر است ($${r} < ${d}$).`,
+    },
+    {
+      content: `$${D} = (${d} \\times ${qMis}) + ${rMis}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C03-03",
+      rationale: `تساوی برقرار است اما شرط اساسی تقسیم نقض شده؛ باقی‌مانده ($${rMis}$) از مقسوم‌علیه ($${d}$) بزرگ‌تر است و تقسیم ادامه دارد.`,
+    },
+    {
+      content: `$${D} = (${d} \\times ${q}) + ${d}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `باقی‌مانده برابر با مقسوم‌علیه شده و حاصل نیز با مقسوم برابر نیست.`,
+    },
+    {
+      content: `$${D} = (${d} \\times ${q + 1}) + ${r}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `تساوی جبری نادرست است و حاصل سمت راست از مقسوم بزرگ‌تر می‌شود.`,
+    },
+  ];
+
+  const shuffled = shuffle(rawDistractors);
+  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
+    id: `DIS-DYN-G4-C03-04-${Date.now()}-${i}`,
+    label: LABELS[i],
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+
+  return {
+    id: `ITEM-DYN-G4-C03-04-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C03-04",
+    stem,
+    difficulty: 0.5,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C03-05: اجرای الگوریتم تقسیم چندرقمی و مدیریت رقم صفر در خارج‌قسمت
+ */
+export function generateMultiDigitDivisionItem(index: number = 0): DiagnosticItemData {
+  const d = randomChoice([3, 4, 5, 6]);
+  const c = randomChoice([2, 3, 4]); // hundreds
+  const u = randomChoice([4, 6, 8]); // units
+  const q = c * 100 + u; // e.g. 206
+  const D = d * q;
+
+  const qNoZero = c * 10 + u; // e.g. 26 (omitted zero in tens)
+  const qZeroEnd = c * 100 + u * 10; // e.g. 260
+  const qSlip = q + 10; // e.g. 216
+
+  const stem = `حاصل تقسیم $${D} \\div ${d}$ کدام است؟`;
+
+  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+    {
+      content: `$${q}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: چون رقم ده‌گان بر مقسوم‌علیه بخش‌پذیر نیست، رقم صفر در خارج‌قسمت قرار می‌گیرد و خارج‌قسمت $${q}$ می‌شود.`,
+    },
+    {
+      content: `$${qNoZero}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C03-05",
+      rationale: `فراموش کردن ثبت رقم صفر در مرتبه ده‌گان خارج‌قسمت هنگام عدم امکان تقسیم رقم ده‌گان فرودآمده.`,
+    },
+    {
+      content: `$${qZeroEnd}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطای ارزش مکانی و قرار دادن صفر در انتهای خارج‌قسمت به جای مرتبه میانی.`,
+    },
+    {
+      content: `$${qSlip}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطای محاسباتی در روند گام‌به‌گام تقسیم.`,
+    },
+  ];
+
+  const shuffled = shuffle(rawDistractors);
+  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
+    id: `DIS-DYN-G4-C03-05-${Date.now()}-${i}`,
+    label: LABELS[i],
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+
+  return {
+    id: `ITEM-DYN-G4-C03-05-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C03-05",
+    stem,
+    difficulty: 0.48,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
+// -------------------------------------------------------------
 // Master Dynamic Generator Registry
 // -------------------------------------------------------------
 
 export const DYNAMIC_GENERATORS: Record<string, (index?: number) => DiagnosticItemData> = {
+  // Grade 4 Chapter 2: Fractions
   "KC-MATH4-C02-01": generateFractionConceptItem,
   "KC-MATH4-C02-02": generateEquivalentFractionItem,
   "KC-MATH4-C02-03": generateFractionComparisonItem,
   "KC-MATH4-C02-04": generateFractionAdditionItem,
   "KC-MATH4-C02-05": generateFractionNumberLineItem,
+
+  // Grade 4 Chapter 3: Multiplication & Division
+  "KC-MATH4-C03-01": generateAreaMultiplicationItem,
+  "KC-MATH4-C03-02": generateVerticalMultiplicationItem,
+  "KC-MATH4-C03-03": generateEstimationMultiplicationItem,
+  "KC-MATH4-C03-04": generateDivisionVerificationItem,
+  "KC-MATH4-C03-05": generateMultiDigitDivisionItem,
+
+  // Grade 5 Chapter 3: Ratio, Proportion & Percentage
   "KC-MATH5-C03-01": generateRatioConceptItem,
   "KC-MATH5-C03-02": generateRatioEquivalenceItem,
   "KC-MATH5-C03-03": generateProportionTableItem,

@@ -53,6 +53,9 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
     if (currentSubjectId.includes("5") || currentSubjectId.includes("RATIO")) {
       return cartridges["SUBJ-MATH5-RATIO"] || Object.values(cartridges)[0];
     }
+    if (currentSubjectId.includes("CH03") || currentSubjectId.includes("CH3") || currentSubjectId.toLowerCase().includes("mult")) {
+      return cartridges["SUBJ-MATH4-CH03"] || Object.values(cartridges)[0];
+    }
     return cartridges["SUBJ-MATH4-FRACTIONS"] || Object.values(cartridges)[0];
   }, [cartridges, currentSubjectId]);
 

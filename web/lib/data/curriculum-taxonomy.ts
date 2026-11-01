@@ -135,6 +135,103 @@ export const CANONICAL_TAXONOMIES: Record<string, SubjectTaxonomy> = {
     ],
   },
 
+  "SUBJ-MATH4-CH03": {
+    id: "SUBJ-MATH4-CH03",
+    gradeLevel: 4,
+    title: "ریاضی چهارم ابتدایی",
+    chapterTitle: "فصل سوم: ضرب و تقسیم",
+    description: "مفهوم ضرب مساحتی، الگوریتم تکنیکی، تخمین و محاسبات تقریبی، شرط باقی‌مانده و تقسیم چندرقمی",
+    themeColor: "indigo",
+    cartridgeFile: "grade4_math_ch3.json",
+    chapters: [
+      {
+        id: "CH-MATH4-03",
+        chapterNumber: 3,
+        title: "فصل سوم: ضرب و تقسیم",
+        categories: [
+          {
+            id: "CAT-G4-CH3-MULTIPLICATION",
+            title: "بخش ۱: الگوها و الگوریتم‌های ضرب",
+            subtitle: "مساحت مستطیل‌ها، گسترده‌نویسی و ضرب ستونی تکنیکی",
+            description: "یادگیری ضرب مساحتی و رعایت ارزش مکانی در ضرب ستونی",
+            topicIds: ["KC-MATH4-C03-01", "KC-MATH4-C03-02"],
+          },
+          {
+            id: "CAT-G4-CH3-DIVISION",
+            title: "بخش ۲: مفهوم و الگوریتم‌های تقسیم",
+            subtitle: "روابط درستی تقسیم، شرط باقی‌مانده و صفر در خارج‌قسمت",
+            description: "تسلط بر آزمون‌های درستی تقسیم و ثبت صحیح صفر خارج‌قسمت",
+            topicIds: ["KC-MATH4-C03-04", "KC-MATH4-C03-05"],
+          },
+          {
+            id: "CAT-G4-CH3-ESTIMATION",
+            title: "بخش ۳: تخمین و محاسبات تقریبی",
+            subtitle: "گرد کردن عامل‌ها و برآورد سریع پاسخ در زندگی روزمره",
+            description: "برآورد سریع حاصل ضرب و تقسیم با حفظ مرتبه‌ها",
+            topicIds: ["KC-MATH4-C03-03"],
+          },
+        ],
+      },
+    ],
+    topics: [
+      {
+        id: "KC-MATH4-C03-01",
+        title: "درک مفهوم ضرب دو عدد دو رقمی با الگوی مساحت و گسترده‌نویسی",
+        shortTitle: "ضرب مساحتی و الگوی مستطیلی",
+        description: "توانایی تقطیع دو عامل ضرب به دهگان و یکان و محاسبه مساحت مستطیل‌های فرعی",
+        bloomLevel: "understand",
+        pedagogicalLevel: "درک مفهومی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G4-CH3-MULTIPLICATION",
+      },
+      {
+        id: "KC-MATH4-C03-02",
+        title: "اجرای الگوریتم ستونی و تکنیکی ضرب با حفظ ارزش مکانی",
+        shortTitle: "ضرب تکنیکی و ستونی دو رقمی",
+        description: "تسلط بر اجرای مرحله‌به‌مرحله ضرب عمودی و درج صفر ارزش مکانی دهگان",
+        bloomLevel: "apply",
+        pedagogicalLevel: "کاربردی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G4-CH3-MULTIPLICATION",
+      },
+      {
+        id: "KC-MATH4-C03-03",
+        title: "تخمین و محاسبه‌ی تقریبی در ضرب و تقسیم",
+        shortTitle: "تخمین و محاسبه تقریبی",
+        description: "مهارت گرد کردن عامل‌ها به نزدیک‌ترین دهگان و برآورد ذهنی حاصل‌ضرب",
+        bloomLevel: "apply",
+        pedagogicalLevel: "محاسباتی و کاربردی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G4-CH3-ESTIMATION",
+      },
+      {
+        id: "KC-MATH4-C03-04",
+        title: "درک رابطه‌های درستی تقسیم و شرط باقی‌مانده",
+        shortTitle: "روابط درستی تقسیم و شرط باقی‌مانده",
+        description: "برابری مقسوم با حاصل‌ضرب مقسوم‌علیه در خارج‌قسمت به علاوه باقی‌مانده و شرط باقی‌مانده",
+        bloomLevel: "understand",
+        pedagogicalLevel: "درک مفهومی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G4-CH3-DIVISION",
+      },
+      {
+        id: "KC-MATH4-C03-05",
+        title: "اجرای الگوریتم تقسیم چندرقمی و مدیریت رقم صفر در خارج‌قسمت",
+        shortTitle: "الگوریتم تقسیم و صفر در خارج‌قسمت",
+        description: "تقسیم مرحله‌ای و ثبت صفر در خارج‌قسمت هنگام عدم بخش‌پذیری رقم فرودآمده",
+        bloomLevel: "apply",
+        pedagogicalLevel: "محاسباتی و کاربردی",
+        itemCount: 3,
+        estimatedMinutes: 5,
+        categoryId: "CAT-G4-CH3-DIVISION",
+      },
+    ],
+  },
+
   "SUBJ-MATH5-RATIO": {
     id: "SUBJ-MATH5-RATIO",
     gradeLevel: 5,
@@ -242,6 +339,9 @@ export function getSubjectTaxonomy(subjectId: string): SubjectTaxonomy {
   }
   if (subjectId.includes("5") || subjectId.toLowerCase().includes("ratio")) {
     return CANONICAL_TAXONOMIES["SUBJ-MATH5-RATIO"];
+  }
+  if (subjectId.includes("CH03") || subjectId.includes("CH3") || subjectId.toLowerCase().includes("mult") || subjectId.toLowerCase().includes("div")) {
+    return CANONICAL_TAXONOMIES["SUBJ-MATH4-CH03"];
   }
   return CANONICAL_TAXONOMIES["SUBJ-MATH4-FRACTIONS"];
 }

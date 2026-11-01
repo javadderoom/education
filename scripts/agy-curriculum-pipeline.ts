@@ -90,7 +90,7 @@ Cartridge Schema:
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-001-A",
+          "id": "DIS-G${options.gradeLevel}C0${options.chapterNumber}-001-A",
           "label": "الف",
           "content": "پاسخ صحیح",
           "is_correct": true,
@@ -98,7 +98,7 @@ Cartridge Schema:
           "rationale": "دلیل درستی"
         },
         {
-          "id": "DIS-001-B",
+          "id": "DIS-G${options.gradeLevel}C0${options.chapterNumber}-001-B",
           "label": "ب",
           "content": "گزینه غلط ریشه‌دار",
           "is_correct": false,
@@ -106,7 +106,7 @@ Cartridge Schema:
           "rationale": "دلیل این پاسخ غلط بر اساس بدفهمی"
         },
         {
-          "id": "DIS-001-C",
+          "id": "DIS-G${options.gradeLevel}C0${options.chapterNumber}-001-C",
           "label": "ج",
           "content": "گزینه غلط دوم",
           "is_correct": false,
@@ -114,7 +114,7 @@ Cartridge Schema:
           "rationale": "خطای محاسباتی"
         },
         {
-          "id": "DIS-001-D",
+          "id": "DIS-G${options.gradeLevel}C0${options.chapterNumber}-001-D",
           "label": "د",
           "content": "گزینه غلط سوم",
           "is_correct": false,

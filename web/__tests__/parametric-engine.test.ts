@@ -3,7 +3,10 @@ import {
   generateDynamicItemsForKCs, 
   generateFractionAdditionItem, 
   generatePercentageItem,
-  generateRatioEquivalenceItem
+  generateRatioEquivalenceItem,
+  generateAreaMultiplicationItem,
+  generateMultiDigitDivisionItem,
+  DYNAMIC_GENERATORS
 } from "../lib/curriculum/parametric-engine";
 
 describe("Dynamic Parametric Question Engine", () => {
@@ -33,6 +36,26 @@ describe("Dynamic Parametric Question Engine", () => {
     const contents = item.distractors.map((d) => d.content);
     const unique = new Set(contents);
     expect(unique.size).toBe(4);
+  });
+
+  it("generates valid Grade 4 Chapter 3 Multiplication & Division items", () => {
+    const areaItem = generateAreaMultiplicationItem(1);
+    expect(areaItem.kc_id).toBe("KC-MATH4-C03-01");
+    expect(areaItem.distractors).toHaveLength(4);
+    expect(areaItem.distractors.filter((d) => d.is_correct)).toHaveLength(1);
+    const areaMis = areaItem.distractors.find((d) => d.misconception_id === "MIS-MATH4-C03-02");
+    expect(areaMis).toBeDefined();
+
+    const divItem = generateMultiDigitDivisionItem(1);
+    expect(divItem.kc_id).toBe("KC-MATH4-C03-05");
+    expect(divItem.distractors).toHaveLength(4);
+    expect(divItem.distractors.filter((d) => d.is_correct)).toHaveLength(1);
+    const divMis = divItem.distractors.find((d) => d.misconception_id === "MIS-MATH4-C03-05");
+    expect(divMis).toBeDefined();
+  });
+
+  it("registers all 15 Knowledge Components across 3 chapters in master registry", () => {
+    expect(Object.keys(DYNAMIC_GENERATORS)).toHaveLength(15);
   });
 
   it("generates varied items across consecutive calls (non-repetition)", () => {

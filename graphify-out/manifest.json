@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "web/app/student/page.tsx": {
-    "mtime": 1793478534.9673061,
-    "ast_hash": "398694a4758fe135eda55cd28bfaae98",
+    "mtime": 1793518125.9773772,
+    "ast_hash": "1df552fe4b09605d3b93194e1dac40f8",
     "semantic_hash": ""
   },
   "web/app/teacher/page.tsx": {
@@ -940,43 +940,43 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch3.json": {
-    "mtime": 1793516001.3433042,
-    "ast_hash": "3b342266d51e7fdd6b152b4e25f17bd5",
+    "mtime": 1793518325.1915276,
+    "ast_hash": "beb9b68db42fb125d23ac15e76ff627a",
     "semantic_hash": ""
   },
   "scripts/agy-curriculum-pipeline.ts": {
-    "mtime": 1793515913.3746212,
-    "ast_hash": "97bd6bc6a49b9116d6776ec00cc2bed0",
+    "mtime": 1793518334.1092126,
+    "ast_hash": "830f88fd99adced195bd3a3f48a1a207",
     "semantic_hash": ""
   },
   "web/__tests__/parametric-engine.test.ts": {
-    "mtime": 1793514455.707259,
-    "ast_hash": "3c9ea050c38f4478ecc70bdd5b6a53d0",
+    "mtime": 1793518218.074559,
+    "ast_hash": "b43382c8bb8550e8de8931a613497685",
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
-    "mtime": 1793478559.5676725,
-    "ast_hash": "9521233db7abc9f1da6f75ca5b2ce27d",
+    "mtime": 1793518359.0377152,
+    "ast_hash": "e9440333d4b465b165ddcca0a531aa44",
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1793514408.042165,
-    "ast_hash": "8ab9fd0784763b3260d040bdbe5915cc",
+    "mtime": 1793518132.3877277,
+    "ast_hash": "c46933bed3ed19a27865967a7263ee15",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1793478396.726545,
-    "ast_hash": "12b671f2538c01c04a14a4988b5e052b",
+    "mtime": 1793518153.468421,
+    "ast_hash": "e9836a7f0852c6b839f0295b55b900ba",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1793514497.9919343,
-    "ast_hash": "aef13d7f651c6d29e23e9a382f9533fb",
+    "mtime": 1793518201.7900605,
+    "ast_hash": "883068072e0b16cb677892c7df97ca08",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1793478347.1961114,
-    "ast_hash": "01f73839401f9002633d89682d11fc20",
+    "mtime": 1793518120.7433274,
+    "ast_hash": "b02e4e93d0f440d2115c7436b9580b16",
     "semantic_hash": ""
   }
 }

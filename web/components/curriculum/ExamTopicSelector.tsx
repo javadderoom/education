@@ -152,30 +152,35 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
           <span>انتخاب کتاب و فصل درسی:</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {Object.values(CANONICAL_TAXONOMIES).map((sub) => {
             const isSelected = sub.id === selectedSubjectId;
             const isG5 = sub.gradeLevel === 5;
-            const Icon = isG5 ? Scale : SplitSquareVertical;
+            const isCh3 = sub.id === "SUBJ-MATH4-CH03";
+            const Icon = isCh3 ? Calculator : isG5 ? Scale : SplitSquareVertical;
 
             return (
               <button
                 key={sub.id}
                 type="button"
                 onClick={() => handleSelectSubject(sub.id)}
-                className={`text-right p-4 rounded-3xl border-2 transition-all cursor-pointer flex items-center justify-between ${
+                className={`text-right p-3.5 sm:p-4 rounded-3xl border-2 transition-all cursor-pointer flex items-center justify-between ${
                   isSelected
-                    ? isG5
+                    ? isCh3
+                      ? "border-amber-500 bg-amber-50/40 shadow-xs"
+                      : isG5
                       ? "border-emerald-500 bg-emerald-50/40 shadow-xs"
                       : "border-indigo-500 bg-indigo-50/40 shadow-xs"
                     : "border-slate-200 hover:border-slate-300 bg-white"
                 }`}
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5 sm:gap-3">
                   <div
-                    className={`w-11 h-11 rounded-2xl flex items-center justify-center font-black text-base shadow-2xs ${
+                    className={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center font-black text-base shadow-2xs shrink-0 ${
                       isSelected
-                        ? isG5
+                        ? isCh3
+                          ? "bg-amber-600 text-white"
+                          : isG5
                           ? "bg-emerald-600 text-white"
                           : "bg-indigo-600 text-white"
                         : "bg-slate-100 text-slate-600 border border-slate-200"
@@ -184,26 +189,25 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-black text-sm text-slate-900">{sub.title}</span>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        isG5 ? "bg-emerald-100 text-emerald-800" : "bg-indigo-100 text-indigo-800"
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <span className="font-black text-xs sm:text-sm text-slate-900">{sub.title}</span>
+                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                        isCh3 ? "bg-amber-100 text-amber-800" : isG5 ? "bg-emerald-100 text-emerald-800" : "bg-indigo-100 text-indigo-800"
                       }`}>
                         پایه {toPersianDigits(sub.gradeLevel)}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 font-semibold mt-0.5">{sub.chapterTitle}</p>
+                    <p className="text-[11px] sm:text-xs text-slate-500 font-semibold mt-0.5 line-clamp-1">{sub.chapterTitle}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <span className="text-[11px] font-bold text-slate-400 font-mono" dir="ltr">
-                    {toPersianDigits(sub.topics.length)} سرفصل
-                  </span>
+                <div className="flex items-center gap-1.5 shrink-0 mr-1">
                   <div
                     className={`w-5 h-5 rounded-full flex items-center justify-center border ${
                       isSelected
-                        ? isG5
+                        ? isCh3
+                          ? "bg-amber-600 border-amber-600 text-white"
+                          : isG5
                           ? "bg-emerald-600 border-emerald-600 text-white"
                           : "bg-indigo-600 border-indigo-600 text-white"
                         : "border-slate-300 bg-white"
