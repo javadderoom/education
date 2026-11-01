@@ -276,15 +276,23 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setActiveWorkshopKC(null);
   };
 
-  const masteryRadarList: KCMasteryInfo[] = knowledgeComponents.map((kc) => ({
+  // Filter evaluated KCs to only those selected in the current exam
+  const evaluatedKCs = React.useMemo(() => {
+    if (selectedTopicIds && selectedTopicIds.length > 0) {
+      return knowledgeComponents.filter((kc) => selectedTopicIds.includes(kc.id));
+    }
+    return knowledgeComponents;
+  }, [knowledgeComponents, selectedTopicIds]);
+
+  const masteryRadarList: KCMasteryInfo[] = evaluatedKCs.map((kc) => ({
     id: kc.id,
     title: kc.title,
     masteryProbability: masteries[kc.id] ?? 0.15,
     isMastered: (masteries[kc.id] ?? 0.15) >= 0.85,
   }));
 
-  // Identify KC needing reinforcement
-  const needsPracticeKC = knowledgeComponents.find(
+  // Identify KC needing reinforcement from the evaluated topics
+  const needsPracticeKC = evaluatedKCs.find(
     (kc) => (masteries[kc.id] ?? 0.15) < 0.70
   );
 

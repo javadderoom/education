@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { CanonicalCartridge } from "@/lib/data/cartridge";
 import { ExamTopicSelector } from "@/components/curriculum/ExamTopicSelector";
 import { AssessmentCarousel } from "@/components/assessment/AssessmentCarousel";
+import { generateDynamicItemsForKCs } from "@/lib/curriculum/parametric-engine";
 
 export interface StudentAssessmentViewProps {
   initialSubjectId: string;
@@ -55,6 +56,23 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
     return cartridges["SUBJ-MATH4-FRACTIONS"] || Object.values(cartridges)[0];
   }, [cartridges, currentSubjectId]);
 
+  // Combine static canonical questions with newly randomized dynamic items
+  const activeQuestions = useMemo(() => {
+    const targetKCs =
+      selectedTopicIds.length > 0
+        ? selectedTopicIds
+        : activeCartridge.knowledge_components.map((k) => k.id);
+
+    const staticItems = activeCartridge.diagnostic_items.filter((item) =>
+      targetKCs.includes(item.kc_id)
+    );
+
+    // Generate 2 fresh dynamic questions per selected topic on each exam session
+    const dynamicItems = generateDynamicItemsForKCs(targetKCs, 2);
+
+    return [...dynamicItems, ...staticItems];
+  }, [activeCartridge, selectedTopicIds, isConfiguring]);
+
   // Handler when student starts exam from TopicSelector
   const handleStartExam = (subjectId: string, topicIds: string[]) => {
     setCurrentSubjectId(subjectId);
@@ -92,8 +110,8 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
   return (
     <div className="w-full">
       <AssessmentCarousel
-        key={`${currentSubjectId}_${selectedTopicIds.join("_")}`}
-        items={activeCartridge.diagnostic_items}
+        key={`${currentSubjectId}_${selectedTopicIds.join("_")}_${activeQuestions.length}`}
+        items={activeQuestions}
         knowledgeComponents={activeCartridge.knowledge_components}
         misconceptions={activeCartridge.misconceptions}
         studentName={studentName}
