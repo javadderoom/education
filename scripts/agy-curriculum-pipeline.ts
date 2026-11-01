@@ -9,6 +9,7 @@ export interface AgyGenerationOptions {
   curriculumTopic: string;
   sourceText?: string;
   outputFile?: string;
+  model?: "gemini-3.8-flash-high" | "claude-sonnet-4-6" | "claude-opus-4-6-thinking" | string;
 }
 
 /**
@@ -122,7 +123,9 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
 }
 `;
 
-    const agyProcess = spawn(agyPath, ["-p", prompt, "--output-format", "text"], {
+    const modelToUse = options.model || "gemini-3.8-flash-high";
+    const agyArgs = ["-p", prompt, "--model", modelToUse, "--output-format", "text"];
+    const agyProcess = spawn(agyPath, agyArgs, {
       shell: true,
       env: process.env,
     });
@@ -198,13 +201,15 @@ if (require.main === module) {
   const grade = Number(args[0]) || 4;
   const chapter = Number(args[1]) || 3;
   const title = args[2] || "ضرب و تقسیم";
+  const model = args[3] || "gemini-3.8-flash-high";
 
-  console.log(`Starting Antigravity (AGY.exe) Curriculum Ingestion Pipeline for Grade ${grade}, Chapter ${chapter}: ${title}...`);
+  console.log(`Starting Antigravity (AGY.exe) Curriculum Ingestion Pipeline using model [${model}] for Grade ${grade}, Chapter ${chapter}: ${title}...`);
   runAgyCurriculumGenerator({
     gradeLevel: grade,
     chapterNumber: chapter,
     chapterTitle: title,
     curriculumTopic: title,
+    model: model,
   }).then((res) => {
     if (res.success) {
       console.log(`\nSuccessfully generated curriculum cartridge with AGY.exe!`);
