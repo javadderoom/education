@@ -124,9 +124,19 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
 `;
 
     const modelToUse = options.model || "gemini-3.8-flash-high";
-    const agyArgs = ["-p", prompt, "--model", modelToUse, "--output-format", "text"];
+    const agyArgs = [
+      "--project",
+      "education",
+      "-p",
+      prompt,
+      "--model",
+      modelToUse,
+      "--output-format",
+      "text",
+    ];
     const agyProcess = spawn(agyPath, agyArgs, {
       shell: true,
+      cwd: path.resolve(__dirname, ".."),
       env: process.env,
     });
 
