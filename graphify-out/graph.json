@@ -280,7 +280,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "scripts_context_ispathinside",
-      "community": 115,
+      "community": 28,
       "norm_label": "ispathinside()"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "scripts_context_findmonoreporoot",
-      "community": 28,
+      "community": 115,
       "norm_label": "findmonoreporoot()"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "scripts_context_hasgitboundary",
-      "community": 28,
+      "community": 115,
       "norm_label": "hasgitboundary()"
     },
     {
@@ -370,7 +370,7 @@
       "source_location": "L300",
       "_origin": "ast",
       "id": "scripts_context_resolvecandidatecontextsummary",
-      "community": 115,
+      "community": 28,
       "norm_label": "resolvecandidatecontextsummary()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L316",
       "_origin": "ast",
       "id": "scripts_context_contextsourcestatus",
-      "community": 115,
+      "community": 28,
       "norm_label": "contextsourcestatus()"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L330",
       "_origin": "ast",
       "id": "scripts_context_contextsourcepath",
-      "community": 115,
+      "community": 28,
       "norm_label": "contextsourcepath()"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L501",
       "_origin": "ast",
       "id": "scripts_context_ispathinsideorequal",
-      "community": 115,
+      "community": 28,
       "norm_label": "ispathinsideorequal()"
     },
     {
@@ -1890,7 +1890,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "cli_main_confirm",
-      "community": 26,
+      "community": 19,
       "norm_label": "confirm()"
     },
     {
@@ -1980,7 +1980,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "detector_design_system_resolvedesignsidecarpath",
-      "community": 19,
+      "community": 7,
       "norm_label": "resolvedesignsidecarpath()"
     },
     {
@@ -1990,7 +1990,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "detector_design_system_parsefrontmatter",
-      "community": 19,
+      "community": 7,
       "norm_label": "parsefrontmatter()"
     },
     {
@@ -2050,7 +2050,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "detector_design_system_safereadjson",
-      "community": 19,
+      "community": 7,
       "norm_label": "safereadjson()"
     },
     {
@@ -2230,7 +2230,7 @@
       "source_location": "L358",
       "_origin": "ast",
       "id": "detector_design_system_loaddesignsystemforcwd",
-      "community": 19,
+      "community": 7,
       "norm_label": "loaddesignsystemforcwd()"
     },
     {
@@ -2420,7 +2420,7 @@
       "source_location": "L704",
       "_origin": "ast",
       "id": "detector_design_system_mergedesignsystemfindings",
-      "community": 7,
+      "community": 8,
       "norm_label": "mergedesignsystemfindings()"
     },
     {
@@ -2490,7 +2490,7 @@
       "source_location": "L573",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_contrastratio",
-      "community": 60,
+      "community": 36,
       "norm_label": "contrastratio()"
     },
     {
@@ -3690,7 +3690,7 @@
       "source_location": "L3936",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_pickworstcontrastcolor",
-      "community": 60,
+      "community": 36,
       "norm_label": "pickworstcontrastcolor()"
     },
     {
@@ -3870,7 +3870,7 @@
       "source_location": "L4404",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_iselementhidden",
-      "community": 48,
+      "community": 13,
       "norm_label": "iselementhidden()"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L4411",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_serializefindings",
-      "community": 13,
+      "community": 160,
       "norm_label": "serializefindings()"
     },
     {
@@ -3910,7 +3910,7 @@
       "source_location": "L4467",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_normalizebrowserfontname",
-      "community": 64,
+      "community": 13,
       "norm_label": "normalizebrowserfontname()"
     },
     {
@@ -4010,7 +4010,7 @@
       "source_location": "L4561",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_shouldskipdesignelement",
-      "community": 48,
+      "community": 13,
       "norm_label": "shouldskipdesignelement()"
     },
     {
@@ -4030,7 +4030,7 @@
       "source_location": "L4625",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_decodebrowsergooglefamily",
-      "community": 64,
+      "community": 13,
       "norm_label": "decodebrowsergooglefamily()"
     },
     {
@@ -4040,7 +4040,7 @@
       "source_location": "L4634",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_checkbrowserdesignsystemsources",
-      "community": 64,
+      "community": 13,
       "norm_label": "checkbrowserdesignsystemsources()"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L4843",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_scanresultmeta",
-      "community": 13,
+      "community": 160,
       "norm_label": "scanresultmeta()"
     },
     {
@@ -4120,7 +4120,7 @@
       "source_location": "L4849",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_postserializedfindings",
-      "community": 13,
+      "community": 160,
       "norm_label": "postserializedfindings()"
     },
     {
@@ -4190,7 +4190,7 @@
       "source_location": "L4978",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_renderbrowserfindings",
-      "community": 13,
+      "community": 160,
       "norm_label": "renderbrowserfindings()"
     },
     {
@@ -4340,7 +4340,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "regex_detect_text_isneutralbordercolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -4710,7 +4710,7 @@
       "source_location": "L721",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement",
-      "community": 9,
+      "community": 141,
       "norm_label": "staticelement"
     },
     {
@@ -4720,7 +4720,7 @@
       "source_location": "L722",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_constructor",
-      "community": 9,
+      "community": 141,
       "norm_label": ".constructor()"
     },
     {
@@ -4730,7 +4730,7 @@
       "source_location": "L729",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_parentelement",
-      "community": 9,
+      "community": 141,
       "norm_label": ".parentelement()"
     },
     {
@@ -4740,7 +4740,7 @@
       "source_location": "L734",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_previouselementsibling",
-      "community": 9,
+      "community": 141,
       "norm_label": ".previouselementsibling()"
     },
     {
@@ -4750,7 +4750,7 @@
       "source_location": "L739",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_children",
-      "community": 9,
+      "community": 141,
       "norm_label": ".children()"
     },
     {
@@ -4760,7 +4760,7 @@
       "source_location": "L742",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_childnodes",
-      "community": 9,
+      "community": 141,
       "norm_label": ".childnodes()"
     },
     {
@@ -4770,7 +4770,7 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_textcontent",
-      "community": 9,
+      "community": 141,
       "norm_label": ".textcontent()"
     },
     {
@@ -4780,7 +4780,7 @@
       "source_location": "L752",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_classname",
-      "community": 9,
+      "community": 141,
       "norm_label": ".classname()"
     },
     {
@@ -4790,7 +4790,7 @@
       "source_location": "L755",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_id",
-      "community": 9,
+      "community": 141,
       "norm_label": ".id()"
     },
     {
@@ -4800,7 +4800,7 @@
       "source_location": "L758",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_getattribute",
-      "community": 9,
+      "community": 141,
       "norm_label": ".getattribute()"
     },
     {
@@ -4810,7 +4810,7 @@
       "source_location": "L761",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_queryselector",
-      "community": 9,
+      "community": 141,
       "norm_label": ".queryselector()"
     },
     {
@@ -4820,7 +4820,7 @@
       "source_location": "L769",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_queryselectorall",
-      "community": 9,
+      "community": 141,
       "norm_label": ".queryselectorall()"
     },
     {
@@ -4830,7 +4830,7 @@
       "source_location": "L776",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_closest",
-      "community": 9,
+      "community": 141,
       "norm_label": ".closest()"
     },
     {
@@ -4840,7 +4840,7 @@
       "source_location": "L789",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticelement_contains",
-      "community": 9,
+      "community": 141,
       "norm_label": ".contains()"
     },
     {
@@ -4870,7 +4870,7 @@
       "source_location": "L809",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticdocument_wrap",
-      "community": 9,
+      "community": 141,
       "norm_label": ".wrap()"
     },
     {
@@ -4930,7 +4930,7 @@
       "source_location": "L841",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticdocument_getstyle",
-      "community": 1,
+      "community": 9,
       "norm_label": ".getstyle()"
     },
     {
@@ -4940,7 +4940,7 @@
       "source_location": "L846",
       "_origin": "ast",
       "id": "static_html_css_cascade_makestaticstyle",
-      "community": 1,
+      "community": 9,
       "norm_label": "makestaticstyle()"
     },
     {
@@ -5310,7 +5310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_antipatterns",
-      "community": 19,
+      "community": 8,
       "norm_label": "antipatterns.mjs"
     },
     {
@@ -5320,7 +5320,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "registry_antipatterns_antipatterns",
-      "community": 19,
+      "community": 8,
       "norm_label": "antipatterns"
     },
     {
@@ -5330,7 +5330,7 @@
       "source_location": "L403",
       "_origin": "ast",
       "id": "registry_antipatterns_rule_engine_support",
-      "community": 19,
+      "community": 8,
       "norm_label": "rule_engine_support"
     },
     {
@@ -5350,7 +5350,7 @@
       "source_location": "L414",
       "_origin": "ast",
       "id": "registry_antipatterns_getrulesforcategory",
-      "community": 19,
+      "community": 8,
       "norm_label": "getrulesforcategory()"
     },
     {
@@ -5360,7 +5360,7 @@
       "source_location": "L418",
       "_origin": "ast",
       "id": "registry_antipatterns_getruleenginesupport",
-      "community": 19,
+      "community": 8,
       "norm_label": "getruleenginesupport()"
     },
     {
@@ -5370,7 +5370,7 @@
       "source_location": "L423",
       "_origin": "ast",
       "id": "registry_antipatterns_gated_providers",
-      "community": 19,
+      "community": 8,
       "norm_label": "gated_providers"
     },
     {
@@ -5660,7 +5660,7 @@
       "source_location": "L909",
       "_origin": "ast",
       "id": "rules_checks_resolvevarrefs",
-      "community": 1,
+      "community": 9,
       "norm_label": "resolvevarrefs()"
     },
     {
@@ -5990,7 +5990,7 @@
       "source_location": "L1850",
       "_origin": "ast",
       "id": "rules_checks_checkelementheroeyebrow",
-      "community": 1,
+      "community": 9,
       "norm_label": "checkelementheroeyebrow()"
     },
     {
@@ -6060,7 +6060,7 @@
       "source_location": "L2014",
       "_origin": "ast",
       "id": "rules_checks_checkpagetypography",
-      "community": 1,
+      "community": 19,
       "norm_label": "checkpagetypography()"
     },
     {
@@ -6450,7 +6450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_color_isneutralcolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -6620,7 +6620,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "shared_constants_generic_fonts",
-      "community": 8,
+      "community": 19,
       "norm_label": "generic_fonts"
     },
     {
@@ -9170,7 +9170,7 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "lib_impeccable_config_filterdetectionfindings",
-      "community": 11,
+      "community": 19,
       "norm_label": "filterdetectionfindings()"
     },
     {
@@ -9990,7 +9990,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "scripts_live_browser_writescrolly",
-      "community": 3,
+      "community": 35,
       "norm_label": "writescrolly()"
     },
     {
@@ -10000,7 +10000,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "scripts_live_browser_readscrolly",
-      "community": 0,
+      "community": 35,
       "norm_label": "readscrolly()"
     },
     {
@@ -10110,7 +10110,7 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "scripts_live_browser_positionannotoverlay",
-      "community": 45,
+      "community": 3,
       "norm_label": "positionannotoverlay()"
     },
     {
@@ -10360,7 +10360,7 @@
       "source_location": "L1046",
       "_origin": "ast",
       "id": "scripts_live_browser_positionbar",
-      "community": 3,
+      "community": 35,
       "norm_label": "positionbar()"
     },
     {
@@ -10370,7 +10370,7 @@
       "source_location": "L1091",
       "_origin": "ast",
       "id": "scripts_live_browser_showbar",
-      "community": 3,
+      "community": 35,
       "norm_label": "showbar()"
     },
     {
@@ -10810,7 +10810,7 @@
       "source_location": "L1807",
       "_origin": "ast",
       "id": "scripts_live_browser_cancreateinsert",
-      "community": 17,
+      "community": 45,
       "norm_label": "cancreateinsert()"
     },
     {
@@ -10820,7 +10820,7 @@
       "source_location": "L1816",
       "_origin": "ast",
       "id": "scripts_live_browser_insertcreatedisabledreason",
-      "community": 17,
+      "community": 45,
       "norm_label": "insertcreatedisabledreason()"
     },
     {
@@ -10840,7 +10840,7 @@
       "source_location": "L1829",
       "_origin": "ast",
       "id": "scripts_live_browser_cursorforplaceholderedge",
-      "community": 45,
+      "community": 17,
       "norm_label": "cursorforplaceholderedge()"
     },
     {
@@ -10930,7 +10930,7 @@
       "source_location": "L1997",
       "_origin": "ast",
       "id": "scripts_live_browser_removeinsertplaceholderdom",
-      "community": 3,
+      "community": 0,
       "norm_label": "removeinsertplaceholderdom()"
     },
     {
@@ -10950,7 +10950,7 @@
       "source_location": "L2015",
       "_origin": "ast",
       "id": "scripts_live_browser_buildinsertplaceholdersnapshotfromdom",
-      "community": 0,
+      "community": 35,
       "norm_label": "buildinsertplaceholdersnapshotfromdom()"
     },
     {
@@ -10960,7 +10960,7 @@
       "source_location": "L2029",
       "_origin": "ast",
       "id": "scripts_live_browser_findinsertanchorindom",
-      "community": 45,
+      "community": 35,
       "norm_label": "findinsertanchorindom()"
     },
     {
@@ -10970,7 +10970,7 @@
       "source_location": "L2046",
       "_origin": "ast",
       "id": "scripts_live_browser_isinsertgeneratingsession",
-      "community": 45,
+      "community": 35,
       "norm_label": "isinsertgeneratingsession()"
     },
     {
@@ -10980,7 +10980,7 @@
       "source_location": "L2053",
       "_origin": "ast",
       "id": "scripts_live_browser_ensureinsertplaceholder",
-      "community": 45,
+      "community": 35,
       "norm_label": "ensureinsertplaceholder()"
     },
     {
@@ -10990,7 +10990,7 @@
       "source_location": "L2081",
       "_origin": "ast",
       "id": "scripts_live_browser_applyplaceholderdimensions",
-      "community": 45,
+      "community": 35,
       "norm_label": "applyplaceholderdimensions()"
     },
     {
@@ -11000,7 +11000,7 @@
       "source_location": "L2093",
       "_origin": "ast",
       "id": "scripts_live_browser_showorupdatecyclingbar",
-      "community": 3,
+      "community": 35,
       "norm_label": "showorupdatecyclingbar()"
     },
     {
@@ -11010,7 +11010,7 @@
       "source_location": "L2098",
       "_origin": "ast",
       "id": "scripts_live_browser_buildplaceholderresizehandles",
-      "community": 45,
+      "community": 17,
       "norm_label": "buildplaceholderresizehandles()"
     },
     {
@@ -11020,7 +11020,7 @@
       "source_location": "L2128",
       "_origin": "ast",
       "id": "scripts_live_browser_syncplaceholderresizehandles",
-      "community": 45,
+      "community": 3,
       "norm_label": "syncplaceholderresizehandles()"
     },
     {
@@ -11090,7 +11090,7 @@
       "source_location": "L2250",
       "_origin": "ast",
       "id": "scripts_live_browser_hideinsertcreatetooltip",
-      "community": 17,
+      "community": 45,
       "norm_label": "hideinsertcreatetooltip()"
     },
     {
@@ -11100,7 +11100,7 @@
       "source_location": "L2255",
       "_origin": "ast",
       "id": "scripts_live_browser_insertcreategatestate",
-      "community": 17,
+      "community": 45,
       "norm_label": "insertcreategatestate()"
     },
     {
@@ -11110,7 +11110,7 @@
       "source_location": "L2263",
       "_origin": "ast",
       "id": "scripts_live_browser_syncinsertcreatebutton",
-      "community": 17,
+      "community": 45,
       "norm_label": "syncinsertcreatebutton()"
     },
     {
@@ -11240,7 +11240,7 @@
       "source_location": "L2844",
       "_origin": "ast",
       "id": "scripts_live_browser_toggleactionpicker",
-      "community": 24,
+      "community": 3,
       "norm_label": "toggleactionpicker()"
     },
     {
@@ -11290,7 +11290,7 @@
       "source_location": "L2989",
       "_origin": "ast",
       "id": "scripts_live_browser_getmountedsveltecomponentanchor",
-      "community": 35,
+      "community": 76,
       "norm_label": "getmountedsveltecomponentanchor()"
     },
     {
@@ -11350,7 +11350,7 @@
       "source_location": "L3058",
       "_origin": "ast",
       "id": "scripts_live_browser_formatrangevalue",
-      "community": 24,
+      "community": 35,
       "norm_label": "formatrangevalue()"
     },
     {
@@ -11360,7 +11360,7 @@
       "source_location": "L3065",
       "_origin": "ast",
       "id": "scripts_live_browser_buildparamspanel",
-      "community": 24,
+      "community": 35,
       "norm_label": "buildparamspanel()"
     },
     {
@@ -11840,7 +11840,7 @@
       "source_location": "L3930",
       "_origin": "ast",
       "id": "scripts_live_browser_maybeshowfirstsavetoast",
-      "community": 26,
+      "community": 31,
       "norm_label": "maybeshowfirstsavetoast()"
     },
     {
@@ -12230,7 +12230,7 @@
       "source_location": "L4733",
       "_origin": "ast",
       "id": "scripts_live_browser_toggletunepopover",
-      "community": 3,
+      "community": 35,
       "norm_label": "toggletunepopover()"
     },
     {
@@ -12250,7 +12250,7 @@
       "source_location": "L4759",
       "_origin": "ast",
       "id": "scripts_live_browser_closetunepopover",
-      "community": 3,
+      "community": 35,
       "norm_label": "closetunepopover()"
     },
     {
@@ -12290,7 +12290,7 @@
       "source_location": "L4801",
       "_origin": "ast",
       "id": "scripts_live_browser_synccyclingcontrols",
-      "community": 35,
+      "community": 76,
       "norm_label": "synccyclingcontrols()"
     },
     {
@@ -12310,7 +12310,7 @@
       "source_location": "L4838",
       "_origin": "ast",
       "id": "scripts_live_browser_issveltecomponentmanifestpath",
-      "community": 3,
+      "community": 35,
       "norm_label": "issveltecomponentmanifestpath()"
     },
     {
@@ -12340,7 +12340,7 @@
       "source_location": "L4860",
       "_origin": "ast",
       "id": "scripts_live_browser_buildpickedanchorsnapshot",
-      "community": 0,
+      "community": 3,
       "norm_label": "buildpickedanchorsnapshot()"
     },
     {
@@ -12400,7 +12400,7 @@
       "source_location": "L4986",
       "_origin": "ast",
       "id": "scripts_live_browser_issvelteinsertmanifest",
-      "community": 35,
+      "community": 76,
       "norm_label": "issvelteinsertmanifest()"
     },
     {
@@ -12410,7 +12410,7 @@
       "source_location": "L4990",
       "_origin": "ast",
       "id": "scripts_live_browser_findliveelementforsveltemanifest",
-      "community": 45,
+      "community": 35,
       "norm_label": "findliveelementforsveltemanifest()"
     },
     {
@@ -12420,7 +12420,7 @@
       "source_location": "L4998",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforvariantanchorandretry",
-      "community": 3,
+      "community": 35,
       "norm_label": "waitforvariantanchorandretry()"
     },
     {
@@ -12430,7 +12430,7 @@
       "source_location": "L5022",
       "_origin": "ast",
       "id": "scripts_live_browser_enterrecoverywaitingforanchor",
-      "community": 3,
+      "community": 35,
       "norm_label": "enterrecoverywaitingforanchor()"
     },
     {
@@ -12440,7 +12440,7 @@
       "source_location": "L5036",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsvelteruntime",
-      "community": 35,
+      "community": 76,
       "norm_label": "loadsvelteruntime()"
     },
     {
@@ -12450,7 +12450,7 @@
       "source_location": "L5049",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentparams",
-      "community": 0,
+      "community": 35,
       "norm_label": "loadsveltecomponentparams()"
     },
     {
@@ -12460,7 +12460,7 @@
       "source_location": "L5069",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentvariantsource",
-      "community": 35,
+      "community": 76,
       "norm_label": "loadsveltecomponentvariantsource()"
     },
     {
@@ -12470,7 +12470,7 @@
       "source_location": "L5083",
       "_origin": "ast",
       "id": "scripts_live_browser_extractsveltecomponentstyle",
-      "community": 35,
+      "community": 76,
       "norm_label": "extractsveltecomponentstyle()"
     },
     {
@@ -12480,7 +12480,7 @@
       "source_location": "L5088",
       "_origin": "ast",
       "id": "scripts_live_browser_applysveltecomponentvariantstyle",
-      "community": 35,
+      "community": 76,
       "norm_label": "applysveltecomponentvariantstyle()"
     },
     {
@@ -12490,7 +12490,7 @@
       "source_location": "L5105",
       "_origin": "ast",
       "id": "scripts_live_browser_removesveltecomponentvariantstyle",
-      "community": 35,
+      "community": 76,
       "norm_label": "removesveltecomponentvariantstyle()"
     },
     {
@@ -12570,7 +12570,7 @@
       "source_location": "L5220",
       "_origin": "ast",
       "id": "scripts_live_browser_buildsveltepropvaluesfromliveelement",
-      "community": 76,
+      "community": 0,
       "norm_label": "buildsveltepropvaluesfromliveelement()"
     },
     {
@@ -12580,7 +12580,7 @@
       "source_location": "L5234",
       "_origin": "ast",
       "id": "scripts_live_browser_mountsveltecomponentvariant",
-      "community": 35,
+      "community": 76,
       "norm_label": "mountsveltecomponentvariant()"
     },
     {
@@ -12600,7 +12600,7 @@
       "source_location": "L5303",
       "_origin": "ast",
       "id": "scripts_live_browser_applyoriginalattrstosvelteanchor",
-      "community": 35,
+      "community": 76,
       "norm_label": "applyoriginalattrstosvelteanchor()"
     },
     {
@@ -12610,7 +12610,7 @@
       "source_location": "L5318",
       "_origin": "ast",
       "id": "scripts_live_browser_commitacceptedsveltecomponenttodom",
-      "community": 35,
+      "community": 76,
       "norm_label": "commitacceptedsveltecomponenttodom()"
     },
     {
@@ -12620,7 +12620,7 @@
       "source_location": "L5338",
       "_origin": "ast",
       "id": "scripts_live_browser_injectsveltecomponentsfrommanifest",
-      "community": 3,
+      "community": 35,
       "norm_label": "injectsveltecomponentsfrommanifest()"
     },
     {
@@ -12630,7 +12630,7 @@
       "source_location": "L5459",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforsveltecomponenttargetandretry",
-      "community": 0,
+      "community": 35,
       "norm_label": "waitforsveltecomponenttargetandretry()"
     },
     {
@@ -12650,7 +12650,7 @@
       "source_location": "L5513",
       "_origin": "ast",
       "id": "scripts_live_browser_injectvariantsfromsource",
-      "community": 3,
+      "community": 35,
       "norm_label": "injectvariantsfromsource()"
     },
     {
@@ -12690,7 +12690,7 @@
       "source_location": "L5646",
       "_origin": "ast",
       "id": "scripts_live_browser_buildsvelteexpressiontextmap",
-      "community": 76,
+      "community": 0,
       "norm_label": "buildsvelteexpressiontextmap()"
     },
     {
@@ -12700,7 +12700,7 @@
       "source_location": "L5689",
       "_origin": "ast",
       "id": "scripts_live_browser_expressiontextmatcher",
-      "community": 76,
+      "community": 0,
       "norm_label": "expressiontextmatcher()"
     },
     {
@@ -12710,7 +12710,7 @@
       "source_location": "L5703",
       "_origin": "ast",
       "id": "scripts_live_browser_collecttextnodes",
-      "community": 76,
+      "community": 0,
       "norm_label": "collecttextnodes()"
     },
     {
@@ -12720,7 +12720,7 @@
       "source_location": "L5715",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizepreviewtext",
-      "community": 76,
+      "community": 0,
       "norm_label": "normalizepreviewtext()"
     },
     {
@@ -12730,7 +12730,7 @@
       "source_location": "L5719",
       "_origin": "ast",
       "id": "scripts_live_browser_escaperegexp",
-      "community": 76,
+      "community": 0,
       "norm_label": "escaperegexp()"
     },
     {
@@ -12790,7 +12790,7 @@
       "source_location": "L5811",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolllock",
-      "community": 3,
+      "community": 35,
       "norm_label": "startscrolllock()"
     },
     {
@@ -12810,7 +12810,7 @@
       "source_location": "L5929",
       "_origin": "ast",
       "id": "scripts_live_browser_startvariantobserver",
-      "community": 3,
+      "community": 35,
       "norm_label": "startvariantobserver()"
     },
     {
@@ -12820,7 +12820,7 @@
       "source_location": "L6034",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolltracking",
-      "community": 3,
+      "community": 35,
       "norm_label": "startscrolltracking()"
     },
     {
@@ -12860,7 +12860,7 @@
       "source_location": "L6224",
       "_origin": "ast",
       "id": "scripts_live_browser_sendevent",
-      "community": 0,
+      "community": 37,
       "norm_label": "sendevent()"
     },
     {
@@ -12870,7 +12870,7 @@
       "source_location": "L6245",
       "_origin": "ast",
       "id": "scripts_live_browser_checkpointpayload",
-      "community": 0,
+      "community": 37,
       "norm_label": "checkpointpayload()"
     },
     {
@@ -12880,7 +12880,7 @@
       "source_location": "L6264",
       "_origin": "ast",
       "id": "scripts_live_browser_sendcheckpoint",
-      "community": 0,
+      "community": 37,
       "norm_label": "sendcheckpoint()"
     },
     {
@@ -12890,7 +12890,7 @@
       "source_location": "L6269",
       "_origin": "ast",
       "id": "scripts_live_browser_sendsteercheckpoint",
-      "community": 0,
+      "community": 37,
       "norm_label": "sendsteercheckpoint()"
     },
     {
@@ -12900,7 +12900,7 @@
       "source_location": "L6283",
       "_origin": "ast",
       "id": "scripts_live_browser_queuecheckpoint",
-      "community": 3,
+      "community": 35,
       "norm_label": "queuecheckpoint()"
     },
     {
@@ -12940,7 +12940,7 @@
       "source_location": "L6474",
       "_origin": "ast",
       "id": "scripts_live_browser_maybeprefetchpage",
-      "community": 0,
+      "community": 37,
       "norm_label": "maybeprefetchpage()"
     },
     {
@@ -12950,7 +12950,7 @@
       "source_location": "L6482",
       "_origin": "ast",
       "id": "scripts_live_browser_shouldpassthroughelementnav",
-      "community": 0,
+      "community": 3,
       "norm_label": "shouldpassthroughelementnav()"
     },
     {
@@ -12990,7 +12990,7 @@
       "source_location": "L6686",
       "_origin": "ast",
       "id": "scripts_live_browser_handleinsertcreate",
-      "community": 3,
+      "community": 35,
       "norm_label": "handleinsertcreate()"
     },
     {
@@ -13230,7 +13230,7 @@
       "source_location": "L7317",
       "_origin": "ast",
       "id": "scripts_live_browser_hideshaderoverlay",
-      "community": 3,
+      "community": 35,
       "norm_label": "hideshaderoverlay()"
     },
     {
@@ -13390,7 +13390,7 @@
       "source_location": "L7688",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizesessionpath",
-      "community": 3,
+      "community": 35,
       "norm_label": "normalizesessionpath()"
     },
     {
@@ -13410,7 +13410,7 @@
       "source_location": "L7702",
       "_origin": "ast",
       "id": "scripts_live_browser_remembersessionfilemeta",
-      "community": 3,
+      "community": 35,
       "norm_label": "remembersessionfilemeta()"
     },
     {
@@ -13420,7 +13420,7 @@
       "source_location": "L7720",
       "_origin": "ast",
       "id": "scripts_live_browser_applysavedsessionmeta",
-      "community": 3,
+      "community": 35,
       "norm_label": "applysavedsessionmeta()"
     },
     {
@@ -13460,7 +13460,7 @@
       "source_location": "L7751",
       "_origin": "ast",
       "id": "scripts_live_browser_findactivesessionsummary",
-      "community": 0,
+      "community": 35,
       "norm_label": "findactivesessionsummary()"
     },
     {
@@ -13470,7 +13470,7 @@
       "source_location": "L7760",
       "_origin": "ast",
       "id": "scripts_live_browser_clampvariantindex",
-      "community": 0,
+      "community": 35,
       "norm_label": "clampvariantindex()"
     },
     {
@@ -13480,7 +13480,7 @@
       "source_location": "L7768",
       "_origin": "ast",
       "id": "scripts_live_browser_restoresessionwithoutwrapper",
-      "community": 3,
+      "community": 35,
       "norm_label": "restoresessionwithoutwrapper()"
     },
     {
@@ -13490,7 +13490,7 @@
       "source_location": "L7813",
       "_origin": "ast",
       "id": "scripts_live_browser_restorefromactivesessions",
-      "community": 3,
+      "community": 35,
       "norm_label": "restorefromactivesessions()"
     },
     {
@@ -13500,7 +13500,7 @@
       "source_location": "L7820",
       "_origin": "ast",
       "id": "scripts_live_browser_savesession",
-      "community": 3,
+      "community": 35,
       "norm_label": "savesession()"
     },
     {
@@ -13510,7 +13510,7 @@
       "source_location": "L7842",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsession",
-      "community": 3,
+      "community": 35,
       "norm_label": "loadsession()"
     },
     {
@@ -13540,7 +13540,7 @@
       "source_location": "L7858",
       "_origin": "ast",
       "id": "scripts_live_browser_issessionhandled",
-      "community": 3,
+      "community": 35,
       "norm_label": "issessionhandled()"
     },
     {
@@ -13550,7 +13550,7 @@
       "source_location": "L7862",
       "_origin": "ast",
       "id": "scripts_live_browser_clearhandled",
-      "community": 3,
+      "community": 35,
       "norm_label": "clearhandled()"
     },
     {
@@ -13590,7 +13590,7 @@
       "source_location": "L7964",
       "_origin": "ast",
       "id": "scripts_live_browser_resumesession",
-      "community": 3,
+      "community": 35,
       "norm_label": "resumesession()"
     },
     {
@@ -13630,7 +13630,7 @@
       "source_location": "L8155",
       "_origin": "ast",
       "id": "scripts_live_browser_savepickpref",
-      "community": 0,
+      "community": 3,
       "norm_label": "savepickpref()"
     },
     {
@@ -13670,7 +13670,7 @@
       "source_location": "L8295",
       "_origin": "ast",
       "id": "scripts_live_browser_globalbarmodetoggles",
-      "community": 37,
+      "community": 0,
       "norm_label": "globalbarmodetoggles()"
     },
     {
@@ -13680,7 +13680,7 @@
       "source_location": "L8304",
       "_origin": "ast",
       "id": "scripts_live_browser_applyglobalbarlabelstate",
-      "community": 37,
+      "community": 0,
       "norm_label": "applyglobalbarlabelstate()"
     },
     {
@@ -13790,7 +13790,7 @@
       "source_location": "L8391",
       "_origin": "ast",
       "id": "scripts_live_browser_pagehashosttextselection",
-      "community": 0,
+      "community": 3,
       "norm_label": "pagehashosttextselection()"
     },
     {
@@ -13980,7 +13980,7 @@
       "source_location": "L8680",
       "_origin": "ast",
       "id": "scripts_live_browser_clearsteerawaittimer",
-      "community": 0,
+      "community": 37,
       "norm_label": "clearsteerawaittimer()"
     },
     {
@@ -13990,7 +13990,7 @@
       "source_location": "L8687",
       "_origin": "ast",
       "id": "scripts_live_browser_schedulesteerawaittimeout",
-      "community": 0,
+      "community": 37,
       "norm_label": "schedulesteerawaittimeout()"
     },
     {
@@ -14020,7 +14020,7 @@
       "source_location": "L8778",
       "_origin": "ast",
       "id": "scripts_live_browser_steerspeechrecognitionctor",
-      "community": 0,
+      "community": 157,
       "norm_label": "steerspeechrecognitionctor()"
     },
     {
@@ -14030,7 +14030,7 @@
       "source_location": "L8782",
       "_origin": "ast",
       "id": "scripts_live_browser_isembeddedpreviewbrowser",
-      "community": 0,
+      "community": 157,
       "norm_label": "isembeddedpreviewbrowser()"
     },
     {
@@ -14040,7 +14040,7 @@
       "source_location": "L8791",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoiceunavailablemessage",
-      "community": 0,
+      "community": 157,
       "norm_label": "steervoiceunavailablemessage()"
     },
     {
@@ -14050,7 +14050,7 @@
       "source_location": "L8795",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoiceerrormessage",
-      "community": 0,
+      "community": 157,
       "norm_label": "steervoiceerrormessage()"
     },
     {
@@ -14060,7 +14060,7 @@
       "source_location": "L8817",
       "_origin": "ast",
       "id": "scripts_live_browser_syncvoiceui",
-      "community": 0,
+      "community": 157,
       "norm_label": "syncvoiceui()"
     },
     {
@@ -14070,7 +14070,7 @@
       "source_location": "L8842",
       "_origin": "ast",
       "id": "scripts_live_browser_releasevoiceengine",
-      "community": 0,
+      "community": 157,
       "norm_label": "releasevoiceengine()"
     },
     {
@@ -14080,7 +14080,7 @@
       "source_location": "L8857",
       "_origin": "ast",
       "id": "scripts_live_browser_stopvoice",
-      "community": 0,
+      "community": 157,
       "norm_label": "stopvoice()"
     },
     {
@@ -14090,7 +14090,7 @@
       "source_location": "L8864",
       "_origin": "ast",
       "id": "scripts_live_browser_finishvoicesession",
-      "community": 0,
+      "community": 157,
       "norm_label": "finishvoicesession()"
     },
     {
@@ -14100,7 +14100,7 @@
       "source_location": "L8878",
       "_origin": "ast",
       "id": "scripts_live_browser_startvoice",
-      "community": 0,
+      "community": 157,
       "norm_label": "startvoice()"
     },
     {
@@ -14110,7 +14110,7 @@
       "source_location": "L8952",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoicecontext",
-      "community": 0,
+      "community": 157,
       "norm_label": "steervoicecontext()"
     },
     {
@@ -14120,7 +14120,7 @@
       "source_location": "L8963",
       "_origin": "ast",
       "id": "scripts_live_browser_configurevoicecontext",
-      "community": 0,
+      "community": 157,
       "norm_label": "configurevoicecontext()"
     },
     {
@@ -14130,7 +14130,7 @@
       "source_location": "L8975",
       "_origin": "ast",
       "id": "scripts_live_browser_togglesteervoice",
-      "community": 0,
+      "community": 157,
       "norm_label": "togglesteervoice()"
     },
     {
@@ -14140,7 +14140,7 @@
       "source_location": "L8984",
       "_origin": "ast",
       "id": "scripts_live_browser_toggleconfigurevoice",
-      "community": 0,
+      "community": 157,
       "norm_label": "toggleconfigurevoice()"
     },
     {
@@ -14150,7 +14150,7 @@
       "source_location": "L8993",
       "_origin": "ast",
       "id": "scripts_live_browser_submitsteermessage",
-      "community": 0,
+      "community": 37,
       "norm_label": "submitsteermessage()"
     },
     {
@@ -14240,7 +14240,7 @@
       "source_location": "L9296",
       "_origin": "ast",
       "id": "scripts_live_browser_hideagentpolltooltip",
-      "community": 0,
+      "community": 24,
       "norm_label": "hideagentpolltooltip()"
     },
     {
@@ -14360,7 +14360,7 @@
       "source_location": "L9930",
       "_origin": "ast",
       "id": "scripts_live_browser_teardown",
-      "community": 0,
+      "community": 3,
       "norm_label": "teardown()"
     },
     {
@@ -14410,7 +14410,7 @@
       "source_location": "L10365",
       "_origin": "ast",
       "id": "scripts_live_browser_renderdesignchrome",
-      "community": 32,
+      "community": 24,
       "norm_label": "renderdesignchrome()"
     },
     {
@@ -14420,7 +14420,7 @@
       "source_location": "L10384",
       "_origin": "ast",
       "id": "scripts_live_browser_builddesignheader",
-      "community": 32,
+      "community": 24,
       "norm_label": "builddesignheader()"
     },
     {
@@ -14430,7 +14430,7 @@
       "source_location": "L10423",
       "_origin": "ast",
       "id": "scripts_live_browser_toggledesignpanel",
-      "community": 32,
+      "community": 24,
       "norm_label": "toggledesignpanel()"
     },
     {
@@ -14440,7 +14440,7 @@
       "source_location": "L10433",
       "_origin": "ast",
       "id": "scripts_live_browser_fetchdesignsystem",
-      "community": 32,
+      "community": 24,
       "norm_label": "fetchdesignsystem()"
     },
     {
@@ -17590,7 +17590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "live_event_validation",
-      "community": 141,
+      "community": 20,
       "norm_label": "event-validation.mjs"
     },
     {
@@ -17600,7 +17600,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "live_event_validation_insert_positions",
-      "community": 141,
+      "community": 20,
       "norm_label": "insert_positions"
     },
     {
@@ -17610,7 +17610,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "live_event_validation_forbidden_manual_edit_text_chars",
-      "community": 141,
+      "community": 20,
       "norm_label": "forbidden_manual_edit_text_chars"
     },
     {
@@ -17620,7 +17620,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "live_event_validation_isvalidid",
-      "community": 141,
+      "community": 20,
       "norm_label": "isvalidid()"
     },
     {
@@ -17630,7 +17630,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "live_event_validation_isvalidvariantid",
-      "community": 141,
+      "community": 20,
       "norm_label": "isvalidvariantid()"
     },
     {
@@ -17640,7 +17640,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "live_event_validation_validatemanualedittext",
-      "community": 141,
+      "community": 20,
       "norm_label": "validatemanualedittext()"
     },
     {
@@ -17650,7 +17650,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "live_event_validation_validateannotationfields",
-      "community": 141,
+      "community": 20,
       "norm_label": "validateannotationfields()"
     },
     {
@@ -17660,7 +17660,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "live_event_validation_validateinsertgenerate",
-      "community": 141,
+      "community": 20,
       "norm_label": "validateinsertgenerate()"
     },
     {
@@ -17670,7 +17670,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "live_event_validation_validatereplacegenerate",
-      "community": 141,
+      "community": 20,
       "norm_label": "validatereplacegenerate()"
     },
     {
@@ -17680,7 +17680,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "live_event_validation_validatemanualeditevent",
-      "community": 141,
+      "community": 20,
       "norm_label": "validatemanualeditevent()"
     },
     {
@@ -17690,7 +17690,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "live_event_validation_validateevent",
-      "community": 141,
+      "community": 20,
       "norm_label": "validateevent()"
     },
     {
@@ -19380,7 +19380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "live_vocabulary",
-      "community": 141,
+      "community": 20,
       "norm_label": "vocabulary.mjs"
     },
     {
@@ -19390,7 +19390,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "live_vocabulary_live_commands",
-      "community": 141,
+      "community": 20,
       "norm_label": "live_commands"
     },
     {
@@ -19400,7 +19400,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "live_vocabulary_visual_actions",
-      "community": 141,
+      "community": 20,
       "norm_label": "visual_actions"
     },
     {
@@ -20164,6 +20164,36 @@
       "norm_label": "root"
     },
     {
+      "label": "agy-curriculum-pipeline.ts",
+      "file_type": "code",
+      "source_file": "scripts/agy-curriculum-pipeline.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_agy_curriculum_pipeline",
+      "community": 161,
+      "norm_label": "agy-curriculum-pipeline.ts"
+    },
+    {
+      "label": "AgyGenerationOptions",
+      "file_type": "code",
+      "source_file": "scripts/agy-curriculum-pipeline.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "scripts_agy_curriculum_pipeline_agygenerationoptions",
+      "community": 161,
+      "norm_label": "agygenerationoptions"
+    },
+    {
+      "label": "runAgyCurriculumGenerator()",
+      "file_type": "code",
+      "source_file": "scripts/agy-curriculum-pipeline.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "scripts_agy_curriculum_pipeline_runagycurriculumgenerator",
+      "community": 161,
+      "norm_label": "runagycurriculumgenerator()"
+    },
+    {
       "label": "gemini_authoring.py",
       "file_type": "code",
       "source_file": "scripts/ingestion/gemini_authoring.py",
@@ -20280,7 +20310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_analytics_test",
-      "community": 150,
+      "community": 53,
       "norm_label": "analytics.test.ts"
     },
     {
@@ -20322,6 +20352,16 @@
       "id": "tests_fsrs_test",
       "community": 150,
       "norm_label": "fsrs.test.ts"
+    },
+    {
+      "label": "parametric-engine.test.ts",
+      "file_type": "code",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_parametric_engine_test",
+      "community": 97,
+      "norm_label": "parametric-engine.test.ts"
     },
     {
       "label": "persian-math.test.tsx",
@@ -20390,7 +20430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_ui_bottom_nav_test",
-      "community": 139,
+      "community": 112,
       "norm_label": "ui-bottom-nav.test.tsx"
     },
     {
@@ -20400,7 +20440,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_ui_bottom_nav_test_mockusepathname",
-      "community": 139,
+      "community": 112,
       "norm_label": "mockusepathname"
     },
     {
@@ -20410,7 +20450,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_ui_bottom_nav_test_mockusesearchparams",
-      "community": 139,
+      "community": 112,
       "norm_label": "mockusesearchparams"
     },
     {
@@ -20450,7 +20490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_ui_landing_test",
-      "community": 53,
+      "community": 75,
       "norm_label": "ui-landing.test.tsx"
     },
     {
@@ -20464,14 +20504,14 @@
       "norm_label": "ui-remediation.test.tsx"
     },
     {
-      "label": "ui-student-profile.test.tsx",
+      "label": "ui-topic-selector.test.tsx",
       "file_type": "code",
-      "source_file": "web/__tests__/ui-student-profile.test.tsx",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tests_ui_student_profile_test",
-      "community": 97,
-      "norm_label": "ui-student-profile.test.tsx"
+      "id": "tests_ui_topic_selector_test",
+      "community": 139,
+      "norm_label": "ui-topic-selector.test.tsx"
     },
     {
       "label": "admin.ts",
@@ -20580,7 +20620,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "actions_analytics_learnerprofilesummary",
-      "community": 97,
+      "community": 75,
       "norm_label": "learnerprofilesummary"
     },
     {
@@ -20610,7 +20650,7 @@
       "source_location": "L254",
       "_origin": "ast",
       "id": "actions_analytics_createorselectlearner",
-      "community": 150,
+      "community": 53,
       "norm_label": "createorselectlearner()"
     },
     {
@@ -20790,7 +20830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_layout",
-      "community": 139,
+      "community": 112,
       "norm_label": "layout.tsx"
     },
     {
@@ -20800,7 +20840,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_layout_vazirmatn",
-      "community": 139,
+      "community": 112,
       "norm_label": "vazirmatn"
     },
     {
@@ -20810,7 +20850,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_layout_metadata",
-      "community": 139,
+      "community": 112,
       "norm_label": "metadata"
     },
     {
@@ -20820,7 +20860,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "app_layout_viewport",
-      "community": 139,
+      "community": 112,
       "norm_label": "viewport"
     },
     {
@@ -20830,7 +20870,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "app_layout_rootlayout",
-      "community": 139,
+      "community": 112,
       "norm_label": "rootlayout()"
     },
     {
@@ -20857,7 +20897,7 @@
       "label": "LoginPage()",
       "file_type": "code",
       "source_file": "web/app/login/page.tsx",
-      "source_location": "L441",
+      "source_location": "L429",
       "_origin": "ast",
       "id": "login_page_loginpage",
       "community": 112,
@@ -20870,7 +20910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_page",
-      "community": 53,
+      "community": 75,
       "norm_label": "page.tsx"
     },
     {
@@ -20880,7 +20920,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_page_metadata",
-      "community": 53,
+      "community": 75,
       "norm_label": "metadata"
     },
     {
@@ -20890,7 +20930,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_page_landingpage",
-      "community": 53,
+      "community": 75,
       "norm_label": "landingpage()"
     },
     {
@@ -20900,34 +20940,34 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "mastery_page",
-      "community": 97,
+      "community": 53,
       "norm_label": "page.tsx"
     },
     {
       "label": "metadata",
       "file_type": "code",
       "source_file": "web/app/student/mastery/page.tsx",
-      "source_location": "L13",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "mastery_page_metadata",
-      "community": 97,
+      "community": 53,
       "norm_label": "metadata"
     },
     {
       "label": "PageProps",
       "file_type": "code",
       "source_file": "web/app/student/mastery/page.tsx",
-      "source_location": "L18",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "mastery_page_pageprops",
-      "community": 97,
+      "community": 53,
       "norm_label": "pageprops"
     },
     {
       "label": "MasteryPage()",
       "file_type": "code",
       "source_file": "web/app/student/mastery/page.tsx",
-      "source_location": "L22",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "mastery_page_masterypage",
       "community": 53,
@@ -20947,7 +20987,7 @@
       "label": "metadata",
       "file_type": "code",
       "source_file": "web/app/student/page.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "student_page_metadata",
       "community": 53,
@@ -20957,7 +20997,7 @@
       "label": "StudentPageProps",
       "file_type": "code",
       "source_file": "web/app/student/page.tsx",
-      "source_location": "L14",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "student_page_studentpageprops",
       "community": 53,
@@ -20967,7 +21007,7 @@
       "label": "StudentPage()",
       "file_type": "code",
       "source_file": "web/app/student/page.tsx",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "student_page_studentpage",
       "community": 53,
@@ -21080,7 +21120,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "assessment_assessmentcarousel_distractoritem",
-      "community": 75,
+      "community": 97,
       "norm_label": "distractoritem"
     },
     {
@@ -21100,14 +21140,14 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "assessment_assessmentcarousel_assessmentcarouselprops",
-      "community": 97,
+      "community": 75,
       "norm_label": "assessmentcarouselprops"
     },
     {
       "label": "AssessmentCarousel()",
       "file_type": "code",
       "source_file": "web/components/assessment/AssessmentCarousel.tsx",
-      "source_location": "L55",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "assessment_assessmentcarousel_assessmentcarousel",
       "community": 75,
@@ -21120,7 +21160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assessment_masteryradar",
-      "community": 97,
+      "community": 53,
       "norm_label": "masteryradar.tsx"
     },
     {
@@ -21130,7 +21170,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "assessment_masteryradar_kcmasteryinfo",
-      "community": 97,
+      "community": 53,
       "norm_label": "kcmasteryinfo"
     },
     {
@@ -21140,7 +21180,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "assessment_masteryradar_masteryradarprops",
-      "community": 97,
+      "community": 53,
       "norm_label": "masteryradarprops"
     },
     {
@@ -21150,8 +21190,38 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "assessment_masteryradar_masteryradar",
-      "community": 97,
+      "community": 53,
       "norm_label": "masteryradar()"
+    },
+    {
+      "label": "StudentAssessmentView.tsx",
+      "file_type": "code",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "assessment_studentassessmentview",
+      "community": 139,
+      "norm_label": "studentassessmentview.tsx"
+    },
+    {
+      "label": "StudentAssessmentViewProps",
+      "file_type": "code",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "assessment_studentassessmentview_studentassessmentviewprops",
+      "community": 139,
+      "norm_label": "studentassessmentviewprops"
+    },
+    {
+      "label": "StudentAssessmentView()",
+      "file_type": "code",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "assessment_studentassessmentview_studentassessmentview",
+      "community": 139,
+      "norm_label": "studentassessmentview()"
     },
     {
       "label": "CurationStudio.tsx",
@@ -21234,13 +21304,43 @@
       "norm_label": "diagnosticheatmap()"
     },
     {
+      "label": "ExamTopicSelector.tsx",
+      "file_type": "code",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "curriculum_examtopicselector",
+      "community": 139,
+      "norm_label": "examtopicselector.tsx"
+    },
+    {
+      "label": "ExamTopicSelectorProps",
+      "file_type": "code",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "curriculum_examtopicselector_examtopicselectorprops",
+      "community": 139,
+      "norm_label": "examtopicselectorprops"
+    },
+    {
+      "label": "ExamTopicSelector()",
+      "file_type": "code",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "curriculum_examtopicselector_examtopicselector",
+      "community": 139,
+      "norm_label": "examtopicselector()"
+    },
+    {
       "label": "BottomNav.tsx",
       "file_type": "code",
       "source_file": "web/components/navigation/BottomNav.tsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "navigation_bottomnav",
-      "community": 139,
+      "community": 112,
       "norm_label": "bottomnav.tsx"
     },
     {
@@ -21250,7 +21350,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "navigation_bottomnav_bottomnav",
-      "community": 139,
+      "community": 112,
       "norm_label": "bottomnav()"
     },
     {
@@ -21270,38 +21370,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "navigation_header_header",
-      "community": 139,
+      "community": 112,
       "norm_label": "header()"
-    },
-    {
-      "label": "StudentProfileSwitcher.tsx",
-      "file_type": "code",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "navigation_studentprofileswitcher",
-      "community": 97,
-      "norm_label": "studentprofileswitcher.tsx"
-    },
-    {
-      "label": "StudentProfileSwitcherProps",
-      "file_type": "code",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "navigation_studentprofileswitcher_studentprofileswitcherprops",
-      "community": 97,
-      "norm_label": "studentprofileswitcherprops"
-    },
-    {
-      "label": "StudentProfileSwitcher()",
-      "file_type": "code",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "navigation_studentprofileswitcher_studentprofileswitcher",
-      "community": 97,
-      "norm_label": "studentprofileswitcher()"
     },
     {
       "label": "AreaGrid.tsx",
@@ -21650,7 +21720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "bkt_diagnostics",
-      "community": 5,
+      "community": 150,
       "norm_label": "diagnostics.ts"
     },
     {
@@ -21660,7 +21730,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "bkt_diagnostics_distractorpayload",
-      "community": 5,
+      "community": 150,
       "norm_label": "distractorpayload"
     },
     {
@@ -21804,6 +21874,186 @@
       "norm_label": "diagnosisresult"
     },
     {
+      "label": "parametric-engine.ts",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine",
+      "community": 97,
+      "norm_label": "parametric-engine.ts"
+    },
+    {
+      "label": "PERSIAN_NAMES",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_persian_names",
+      "community": 97,
+      "norm_label": "persian_names"
+    },
+    {
+      "label": "LABELS",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_labels",
+      "community": 97,
+      "norm_label": "labels"
+    },
+    {
+      "label": "randomChoice()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_randomchoice",
+      "community": 97,
+      "norm_label": "randomchoice()"
+    },
+    {
+      "label": "randomInt()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_randomint",
+      "community": 97,
+      "norm_label": "randomint()"
+    },
+    {
+      "label": "shuffle()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_shuffle",
+      "community": 97,
+      "norm_label": "shuffle()"
+    },
+    {
+      "label": "generateFractionConceptItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatefractionconceptitem",
+      "community": 97,
+      "norm_label": "generatefractionconceptitem()"
+    },
+    {
+      "label": "generateEquivalentFractionItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generateequivalentfractionitem",
+      "community": 97,
+      "norm_label": "generateequivalentfractionitem()"
+    },
+    {
+      "label": "generateFractionComparisonItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L184",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatefractioncomparisonitem",
+      "community": 97,
+      "norm_label": "generatefractioncomparisonitem()"
+    },
+    {
+      "label": "generateFractionAdditionItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L251",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatefractionadditionitem",
+      "community": 97,
+      "norm_label": "generatefractionadditionitem()"
+    },
+    {
+      "label": "generateFractionNumberLineItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L320",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "community": 97,
+      "norm_label": "generatefractionnumberlineitem()"
+    },
+    {
+      "label": "generateRatioConceptItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L389",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generateratioconceptitem",
+      "community": 97,
+      "norm_label": "generateratioconceptitem()"
+    },
+    {
+      "label": "generateRatioEquivalenceItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L448",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "community": 97,
+      "norm_label": "generateratioequivalenceitem()"
+    },
+    {
+      "label": "generateProportionTableItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L515",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generateproportiontableitem",
+      "community": 97,
+      "norm_label": "generateproportiontableitem()"
+    },
+    {
+      "label": "generateRatioSharingItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L578",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generateratiosharingitem",
+      "community": 97,
+      "norm_label": "generateratiosharingitem()"
+    },
+    {
+      "label": "generatePercentageItem()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L641",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatepercentageitem",
+      "community": 97,
+      "norm_label": "generatepercentageitem()"
+    },
+    {
+      "label": "DYNAMIC_GENERATORS",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L709",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_dynamic_generators",
+      "community": 97,
+      "norm_label": "dynamic_generators"
+    },
+    {
+      "label": "generateDynamicItemsForKCs()",
+      "file_type": "code",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L725",
+      "_origin": "ast",
+      "id": "curriculum_parametric_engine_generatedynamicitemsforkcs",
+      "community": 97,
+      "norm_label": "generatedynamicitemsforkcs()"
+    },
+    {
       "label": "cartridge.ts",
       "file_type": "code",
       "source_file": "web/lib/data/cartridge.ts",
@@ -21820,7 +22070,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_cartridge_canonicalcartridge",
-      "community": 53,
+      "community": 139,
       "norm_label": "canonicalcartridge"
     },
     {
@@ -21852,6 +22102,86 @@
       "id": "data_cartridge_listavailablecartridges",
       "community": 53,
       "norm_label": "listavailablecartridges()"
+    },
+    {
+      "label": "curriculum-taxonomy.ts",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy",
+      "community": 139,
+      "norm_label": "curriculum-taxonomy.ts"
+    },
+    {
+      "label": "TopicMetadata",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_topicmetadata",
+      "community": 139,
+      "norm_label": "topicmetadata"
+    },
+    {
+      "label": "TopicCategory",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_topiccategory",
+      "community": 139,
+      "norm_label": "topiccategory"
+    },
+    {
+      "label": "SyllabusChapter",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_syllabuschapter",
+      "community": 139,
+      "norm_label": "syllabuschapter"
+    },
+    {
+      "label": "SubjectTaxonomy",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_subjecttaxonomy",
+      "community": 139,
+      "norm_label": "subjecttaxonomy"
+    },
+    {
+      "label": "CANONICAL_TAXONOMIES",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_canonical_taxonomies",
+      "community": 139,
+      "norm_label": "canonical_taxonomies"
+    },
+    {
+      "label": "getSubjectTaxonomy()",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L239",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_getsubjecttaxonomy",
+      "community": 139,
+      "norm_label": "getsubjecttaxonomy()"
+    },
+    {
+      "label": "getAllAvailableTaxonomies()",
+      "file_type": "code",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L252",
+      "_origin": "ast",
+      "id": "data_curriculum_taxonomy_getallavailabletaxonomies",
+      "community": 139,
+      "norm_label": "getallavailabletaxonomies()"
     },
     {
       "label": "prisma.ts",
@@ -83989,6 +84319,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/agy-curriculum-pipeline.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "scripts_agy_curriculum_pipeline",
+      "target": "scripts_agy_curriculum_pipeline_agygenerationoptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/agy-curriculum-pipeline.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "scripts_agy_curriculum_pipeline",
+      "target": "scripts_agy_curriculum_pipeline_runagycurriculumgenerator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/ingestion/gemini_authoring.py",
       "source_location": "L35",
       "weight": 1.0,
@@ -84318,6 +84668,61 @@
       "confidence_score": 1.0,
       "source": "tests_fsrs_test",
       "target": "bkt_fsrs_updatefsrs"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_parametric_engine_test",
+      "target": "curriculum_parametric_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_parametric_engine_test",
+      "target": "curriculum_parametric_engine_generatedynamicitemsforkcs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_parametric_engine_test",
+      "target": "curriculum_parametric_engine_generatefractionadditionitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_parametric_engine_test",
+      "target": "curriculum_parametric_engine_generatepercentageitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/parametric-engine.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tests_parametric_engine_test",
+      "target": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -84778,23 +85183,23 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "web/__tests__/ui-student-profile.test.tsx",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_ui_student_profile_test",
-      "target": "navigation_studentprofileswitcher"
+      "source": "tests_ui_topic_selector_test",
+      "target": "curriculum_examtopicselector",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "web/__tests__/ui-student-profile.test.tsx",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tests_ui_student_profile_test",
-      "target": "navigation_studentprofileswitcher_studentprofileswitcher"
+      "source": "tests_ui_topic_selector_test",
+      "target": "curriculum_examtopicselector_examtopicselector",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -85129,17 +85534,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "actions_analytics"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "web/scripts/test-full-pipeline.ts",
       "source_location": "L7",
       "weight": 1.0,
@@ -85189,28 +85583,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "assessment_assessmentcarousel_assessmentcarouselprops",
-      "target": "actions_analytics_learnerprofilesummary"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "actions_analytics_learnerprofilesummary"
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher_studentprofileswitcherprops",
       "target": "actions_analytics_learnerprofilesummary"
     },
     {
@@ -85300,17 +85672,6 @@
       "weight": 1.0,
       "source": "student_page_studentpage",
       "target": "actions_analytics_getlearnerslist"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "actions_analytics_createorselectlearner"
     },
     {
       "relation": "contains",
@@ -86356,28 +86717,6 @@
       "target": "math_persian_digits_topersiandigits"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/app/student/mastery/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mastery_page",
-      "target": "navigation_studentprofileswitcher"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/app/student/mastery/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "mastery_page",
-      "target": "navigation_studentprofileswitcher_studentprofileswitcher"
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -86431,6 +86770,28 @@
       "confidence_score": 1.0,
       "source": "student_page",
       "target": "assessment_assessmentcarousel_assessmentcarousel"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/app/student/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "student_page",
+      "target": "assessment_studentassessmentview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/app/student/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "student_page",
+      "target": "assessment_studentassessmentview_studentassessmentview",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -86974,28 +87335,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "web/components/assessment/AssessmentCarousel.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "assessment_assessmentcarousel",
-      "target": "navigation_studentprofileswitcher"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/assessment/AssessmentCarousel.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "assessment_assessmentcarousel",
-      "target": "navigation_studentprofileswitcher_studentprofileswitcher"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/assessment/AssessmentCarousel.tsx",
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -87193,12 +87532,45 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "assessment_assessmentcarousel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "web/components/curation/CurationStudio.tsx",
       "source_location": "L11",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "curation_curationstudio",
       "target": "assessment_assessmentcarousel"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "assessment_assessmentcarousel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "assessment_assessmentcarousel_distractoritem",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -87223,6 +87595,17 @@
       "target": "assessment_assessmentcarousel_diagnosticitemdata"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "assessment_assessmentcarousel_diagnosticitemdata",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -87232,6 +87615,17 @@
       "weight": 1.0,
       "source": "assessment_assessmentcarousel_assessmentcarousel",
       "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "assessment_assessmentcarousel_assessmentcarousel",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -87284,6 +87678,103 @@
       "confidence_score": 1.0,
       "source": "assessment_masteryradar",
       "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "assessment_studentassessmentview_studentassessmentview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "assessment_studentassessmentview_studentassessmentviewprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "curriculum_examtopicselector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "curriculum_examtopicselector_examtopicselector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "curriculum_parametric_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "curriculum_parametric_engine_generatedynamicitemsforkcs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "data_cartridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "data_cartridge_canonicalcartridge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview_studentassessmentviewprops",
+      "target": "data_cartridge_canonicalcartridge",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -87612,6 +88103,114 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "curriculum_examtopicselector_examtopicselector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "curriculum_examtopicselector_examtopicselectorprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "data_curriculum_taxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "data_curriculum_taxonomy_canonical_taxonomies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "data_curriculum_taxonomy_getsubjecttaxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "data_curriculum_taxonomy_subjecttaxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "data_curriculum_taxonomy_topicmetadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "math_persian_digits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "math_persian_digits_topersiandigits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L417",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector_examtopicselector",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "web/components/navigation/BottomNav.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -87639,48 +88238,6 @@
       "confidence_score": 1.0,
       "source": "navigation_header",
       "target": "navigation_header_header"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "math_persian_digits"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "math_persian_digits_topersiandigits"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "navigation_studentprofileswitcher_studentprofileswitcher"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "web/components/navigation/StudentProfileSwitcher.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "navigation_studentprofileswitcher",
-      "target": "navigation_studentprofileswitcher_studentprofileswitcherprops"
     },
     {
       "relation": "imports_from",
@@ -88606,6 +89163,583 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L709",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_dynamic_generators",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L725",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatedynamicitemsforkcs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generateequivalentfractionitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L251",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatefractionadditionitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatefractioncomparisonitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatefractionconceptitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L641",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generatepercentageitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L515",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generateproportiontableitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L389",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generateratioconceptitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L448",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L578",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_generateratiosharingitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_persian_names",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_randomint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "math_persian_digits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine",
+      "target": "math_persian_digits_topersiandigits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateequivalentfractionitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionadditionitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractioncomparisonitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionconceptitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L642",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatepercentageitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L516",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateproportiontableitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L390",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioconceptitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L449",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L579",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratiosharingitem",
+      "target": "curriculum_parametric_engine_randomchoice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionadditionitem",
+      "target": "curriculum_parametric_engine_randomint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionconceptitem",
+      "target": "curriculum_parametric_engine_randomint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L322",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "target": "curriculum_parametric_engine_randomint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L392",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioconceptitem",
+      "target": "curriculum_parametric_engine_randomint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L738",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatedynamicitemsforkcs",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateequivalentfractionitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L286",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionadditionitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractioncomparisonitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionconceptitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L353",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L676",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatepercentageitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L554",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateproportiontableitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L424",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioconceptitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L482",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L617",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratiosharingitem",
+      "target": "curriculum_parametric_engine_shuffle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionconceptitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateequivalentfractionitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractioncomparisonitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L264",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionadditionitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L331",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatefractionnumberlineitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L402",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioconceptitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L460",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratioequivalenceitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L532",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateproportiontableitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L595",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generateratiosharingitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/lib/curriculum/parametric-engine.ts",
+      "source_location": "L654",
+      "weight": 1.0,
+      "source": "curriculum_parametric_engine_generatepercentageitem",
+      "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "web/lib/data/cartridge.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -88697,6 +89831,76 @@
       "confidence_score": 1.0,
       "source": "scripts_test_full_pipeline_runfullpipelinetest",
       "target": "data_cartridge_getcanonicalcartridge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_canonical_taxonomies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_getallavailabletaxonomies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_getsubjecttaxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_subjecttaxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_syllabuschapter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_topiccategory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/lib/data/curriculum-taxonomy.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "data_curriculum_taxonomy",
+      "target": "data_curriculum_taxonomy_topicmetadata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -97227,5 +98431,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "da9778214b6cefcd4fa0e096d1b7a33d596a949a"
+  "built_at_commit": "6fe98f4cf62d95d8e55dbdb64a1601f28f47e68b"
 }

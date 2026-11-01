@@ -23,7 +23,9 @@ export async function runAgyCurriculumGenerator(options: AgyGenerationOptions): 
   outputPath?: string;
 }> {
   return new Promise((resolve) => {
-    const agyPath = "agy"; // In PATH via C:\Users\Javad\AppData\Local\agy\bin\agy.EXE
+    const userProfile = process.env.USERPROFILE || "";
+    const defaultAgyExe = path.join(userProfile, "AppData", "Local", "agy", "bin", "agy.exe");
+    const agyPath = fs.existsSync(defaultAgyExe) ? defaultAgyExe : "agy";
 
     const prompt = `
 You are an expert Iranian elementary mathematics pedagogical researcher and cognitive assessment designer.
@@ -36,8 +38,13 @@ Specification:
 - Subject Topic: ${options.curriculumTopic}
 ${options.sourceText ? `- Source Guide: ${options.sourceText}` : ""}
 
-Strict Output Requirements:
-Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code blocks, no other text):
+Strict Instructions:
+1. Generate exactly 5 Knowledge Components (KCs).
+2. Generate exactly 5 root Misconceptions tied to common errors in this topic.
+3. Generate exactly 5 diagnostic multiple-choice items (one item per Knowledge Component), each with 4 distinct options (1 correct, 3 distractors, at least one distractor mapped to a misconception).
+4. Output ONLY valid JSON matching this schema. Do NOT include markdown code fences (like \`\`\`json), markdown formatting, or introductory/explanatory text.
+
+Cartridge Schema:
 {
   "cartridge_id": "CART-IR-MATH${options.gradeLevel}-CH0${options.chapterNumber}",
   "title": "ریاضی پایه ${options.gradeLevel} ابتدایی - فصل ${options.chapterNumber}: ${options.chapterTitle}",
@@ -55,24 +62,22 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
   "knowledge_components": [
     {
       "id": "KC-MATH${options.gradeLevel}-C0${options.chapterNumber}-01",
-      "title": "عنوان دقیق سرفصل شناختی اول",
+      "title": "عنوان سرفصل شناختی اول",
       "bloom_level": "understand",
       "description": "توضیح هدف آموزشی و درک مفهومی",
       "prerequisites": []
     }
-    // Exactly 5 Knowledge Components
   ],
   "misconceptions": [
     {
       "id": "MIS-CODE-1",
-      "title": "عنوان بدفهمی ریشه‌ای",
+      "title": "عنوان بدفهمی",
       "description": "توصیف خطای شناختی دانش‌آموز",
       "counter_example_blueprint": {
-        "scenario": "سناریوی مثال نقض برای درک بهتر",
-        "visual_counter_example": "توصیف بصری مثال نقض"
+        "scenario": "سناریوی مثال نقض",
+        "visual_counter_example": "توصیف بصری"
       }
     }
-    // Exactly 5 Misconceptions
   ],
   "diagnostic_items": [
     {
@@ -118,7 +123,6 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
         }
       ]
     }
-    // At least 5 to 15 diagnostic items
   ]
 }
 `;
@@ -127,15 +131,15 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
     const agyArgs = [
       "--project",
       "education",
-      "-p",
-      prompt,
       "--model",
       modelToUse,
       "--output-format",
       "text",
+      "--print",
+      prompt,
     ];
     const agyProcess = spawn(agyPath, agyArgs, {
-      shell: true,
+      shell: false,
       cwd: path.resolve(__dirname, ".."),
       env: process.env,
     });
@@ -160,17 +164,11 @@ Output ONLY valid JSON matching this exact Cartridge Schema (no markdown code bl
       }
 
       try {
-        // Strip any markdown code fences if present (e.g. ```json ... ```)
-        let cleaned = stdout.trim();
-        if (cleaned.startsWith("```json")) {
-          cleaned = cleaned.slice(7);
-        } else if (cleaned.startsWith("```")) {
-          cleaned = cleaned.slice(3);
-        }
-        if (cleaned.endsWith("```")) {
-          cleaned = cleaned.slice(0, -3);
-        }
-        cleaned = cleaned.trim();
+        // Strip ANSI escape codes if present
+        let cleaned = stdout.replace(/\u001b\[[0-9;]*[a-zA-Z]/g, "").trim();
+
+        // Strip any markdown code fences if present
+        cleaned = cleaned.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
 
         // Extract JSON substring if surrounded by chatter
         const firstBrace = cleaned.indexOf("{");
