@@ -18,7 +18,7 @@ describe("Bottom Navigation Component (Mobile App Tab Bar)", () => {
     mockUseSearchParams.mockReturnValue(new URLSearchParams());
   });
 
-  it("renders 4 student tabs with proper labels and icons on student paths", () => {
+  it("renders 4 student tabs with active curriculum persistence from global store", () => {
     mockUsePathname.mockReturnValue("/student");
     render(<BottomNav />);
 
@@ -31,13 +31,28 @@ describe("Bottom Navigation Component (Mobile App Tab Bar)", () => {
     expect(homeLink).toHaveAttribute("href", "/");
 
     const assessmentLink = screen.getByRole("link", { name: /سنجش و تمرین/i });
-    expect(assessmentLink).toHaveAttribute("href", "/student");
+    expect(assessmentLink).toHaveAttribute("href", "/student?subject=SUBJ-MATH4-FRACTIONS");
 
     const workshopLink = screen.getByRole("link", { name: /کارگاه دست‌ورزی/i });
-    expect(workshopLink).toHaveAttribute("href", "/student/workshop");
+    expect(workshopLink).toHaveAttribute("href", "/student/workshop?subject=SUBJ-MATH4-FRACTIONS");
 
     const masteryLink = screen.getByRole("link", { name: /کارنامه تسلط/i });
-    expect(masteryLink).toHaveAttribute("href", "/student/mastery");
+    expect(masteryLink).toHaveAttribute("href", "/student/mastery?subject=SUBJ-MATH4-FRACTIONS");
+  });
+
+  it("dynamically syncs links when query parameter specifies a different subject", () => {
+    mockUsePathname.mockReturnValue("/student/workshop");
+    const params = new URLSearchParams();
+    params.set("subject", "SUBJ-MATH5-RATIO");
+    mockUseSearchParams.mockReturnValue(params);
+
+    render(<BottomNav />);
+
+    const assessmentLink = screen.getByRole("link", { name: /سنجش و تمرین/i });
+    expect(assessmentLink).toHaveAttribute("href", "/student?subject=SUBJ-MATH5-RATIO");
+
+    const workshopLink = screen.getByRole("link", { name: /کارگاه دست‌ورزی/i });
+    expect(workshopLink).toHaveAttribute("href", "/student/workshop?subject=SUBJ-MATH5-RATIO");
   });
 
   it("hides the student bottom navigation on teacher and admin pages", () => {

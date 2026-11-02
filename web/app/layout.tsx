@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Vazirmatn } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
 import { BottomNav } from "@/components/navigation/BottomNav";
+import { CurriculumProvider } from "@/lib/store/curriculum-store";
 import { Agentation } from "agentation";
 import "./globals.css";
 import "katex/dist/katex.min.css";
@@ -43,22 +44,24 @@ export default function RootLayout({
         />
       </head>
       <body className="h-full flex flex-col justify-between">
-        {/* Mobile & Tablet App Shell (Responsive Centered Tablet Frame on Desktop) */}
-        <div className="w-full max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto min-h-screen bg-white shadow-2xl flex flex-col border-x border-slate-200">
-          <Suspense fallback={<div className="h-14 bg-white border-b border-slate-100" />}>
-            <Header />
-          </Suspense>
-
-          <main className="flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-24 sm:pb-28">
-            <Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">در حال بارگذاری...</div>}>
-              {children}
+        <CurriculumProvider>
+          {/* Mobile & Tablet App Shell (Responsive Centered Tablet Frame on Desktop) */}
+          <div className="w-full max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto min-h-screen bg-white shadow-2xl flex flex-col border-x border-slate-200">
+            <Suspense fallback={<div className="h-14 bg-white border-b border-slate-100" />}>
+              <Header />
             </Suspense>
-          </main>
 
-          <Suspense fallback={null}>
-            <BottomNav />
-          </Suspense>
-        </div>
+            <main className="flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-24 sm:pb-28">
+              <Suspense fallback={<div className="p-8 text-center text-xs text-slate-400">در حال بارگذاری...</div>}>
+                {children}
+              </Suspense>
+            </main>
+
+            <Suspense fallback={null}>
+              <BottomNav />
+            </Suspense>
+          </div>
+        </CurriculumProvider>
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>

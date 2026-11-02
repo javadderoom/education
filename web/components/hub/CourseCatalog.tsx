@@ -17,12 +17,14 @@ import {
 } from "lucide-react";
 import { CANONICAL_TAXONOMIES, SubjectTaxonomy } from "@/lib/data/curriculum-taxonomy";
 import { toPersianDigits } from "@/lib/math/persian-digits";
+import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
 export interface CourseCatalogProps {
   initialGradeFilter?: number | "all";
 }
 
 export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter = "all" }) => {
+  const { setSubject } = useCurriculumStore();
   const [gradeFilter, setGradeFilter] = useState<number | "all">(initialGradeFilter);
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
 
@@ -195,6 +197,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
               <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 mt-2">
                 <Link
                   href={`/student?subject=${course.id}`}
+                  onClick={() => setSubject(course.id)}
                   className={`min-h-[42px] flex items-center justify-center gap-1.5 text-xs font-bold py-2 px-2.5 rounded-xl shadow-xs transition-all text-center ${theme.btn}`}
                 >
                   <span>شروع آزمون</span>
@@ -203,6 +206,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
 
                 <Link
                   href={`/student/workshop?subject=${course.id}`}
+                  onClick={() => setSubject(course.id)}
                   className="min-h-[42px] flex items-center justify-center gap-1.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold py-2 px-2.5 rounded-xl transition-all text-center"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-indigo-600" />

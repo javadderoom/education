@@ -4,17 +4,21 @@ import React from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Home, BookOpenCheck, Sparkles, TrendingUp } from "lucide-react";
+import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
 export const BottomNav: React.FC = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const subject = searchParams.get("subject");
-  const querySuffix = subject ? `?subject=${encodeURIComponent(subject)}` : "";
+  const { selectedSubjectId } = useCurriculumStore();
 
   // If on teacher curation desk or admin dashboard, hide the student bottom navigation bar
   if (pathname.startsWith("/teacher") || pathname.startsWith("/admin")) {
     return null;
   }
+
+  // Active subject prioritizes URL query parameter, then falls back to global curriculum store
+  const activeSubject = searchParams.get("subject") || selectedSubjectId;
+  const querySuffix = activeSubject ? `?subject=${encodeURIComponent(activeSubject)}` : "";
 
   const navItems = [
     {

@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793632779.7031064,
-    "ast_hash": "87caf05a5d64a0c874bc3ecc4a7d119a",
+    "mtime": 1793650983.5331137,
+    "ast_hash": "024cf5fef80b6d89d145f52ca139496d",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
@@ -800,8 +800,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-bottom-nav.test.tsx": {
-    "mtime": 1793456139.5261064,
-    "ast_hash": "f924e4af378023a8d94416aae087a685",
+    "mtime": 1793651090.8479986,
+    "ast_hash": "fcde013dc6c56d8c890a1ceb47776c18",
     "semantic_hash": ""
   },
   "web/app/student/mastery/page.tsx": {
@@ -810,13 +810,13 @@
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
-    "mtime": 1793456074.2363157,
-    "ast_hash": "6ab859c82f0a84548e2c045749608ad0",
+    "mtime": 1793651044.3467765,
+    "ast_hash": "395035381359908b75f21fc76e6e7c88",
     "semantic_hash": ""
   },
   "web/components/navigation/BottomNav.tsx": {
-    "mtime": 1793455898.7169888,
-    "ast_hash": "0bf74af3fe588bbf784044a536ec4225",
+    "mtime": 1793651038.5364778,
+    "ast_hash": "c10cc68544bc534344cb3be1d7da5ceb",
     "semantic_hash": ""
   },
   "web/__tests__/db-sync.test.ts": {
@@ -910,8 +910,8 @@
     "semantic_hash": ""
   },
   "web/components/navigation/Header.tsx": {
-    "mtime": 1793475648.9841735,
-    "ast_hash": "36799a1ecabd4d67a277d2af48d86c08",
+    "mtime": 1793651008.9014626,
+    "ast_hash": "0aca64dbaddb5889d296e3644270b1a0",
     "semantic_hash": ""
   },
   "web/lib/auth/session.ts": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1793518120.7433274,
-    "ast_hash": "b02e4e93d0f440d2115c7436b9580b16",
+    "mtime": 1793650775.151407,
+    "ast_hash": "ecb53dce2ed0b1fe70575473c1cd5b3d",
     "semantic_hash": ""
   },
   "web/proxy.ts": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {
-    "mtime": 1793633566.1176436,
-    "ast_hash": "fe25e9091f26df250da4dc10a19e8fcf",
+    "mtime": 1793651058.5656812,
+    "ast_hash": "424034189e214f39adbb9bdaa48eccca",
     "semantic_hash": ""
   },
   "web/components/hub/HubHero.tsx": {
@@ -1012,6 +1012,21 @@
   "web/components/hub/ReportsAndWorkshops.tsx": {
     "mtime": 1793633373.614963,
     "ast_hash": "42eae999c0f1dbf5b3f4b3076482089c",
+    "semantic_hash": ""
+  },
+  "web/__tests__/ui-curriculum-selector.test.tsx": {
+    "mtime": 1793651123.6889296,
+    "ast_hash": "6c0c8924222ddadbce1a7f3409a48b2d",
+    "semantic_hash": ""
+  },
+  "web/components/navigation/GradeCourseModal.tsx": {
+    "mtime": 1793651015.9400382,
+    "ast_hash": "3092ade424c5e971a0661cb911407851",
+    "semantic_hash": ""
+  },
+  "web/lib/store/curriculum-store.tsx": {
+    "mtime": 1793650791.684324,
+    "ast_hash": "c60a47f025b02d2c651a21ef2a2e777a",
     "semantic_hash": ""
   }
 }

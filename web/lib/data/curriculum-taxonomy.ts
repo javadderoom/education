@@ -352,3 +352,17 @@ export function getSubjectTaxonomy(subjectId: string): SubjectTaxonomy {
 export function getAllAvailableTaxonomies(): SubjectTaxonomy[] {
   return Object.values(CANONICAL_TAXONOMIES);
 }
+
+/**
+ * Returns all subjects belonging to a specific grade level.
+ */
+export function getSubjectsByGrade(grade: number): SubjectTaxonomy[] {
+  return Object.values(CANONICAL_TAXONOMIES).filter((s) => s.gradeLevel === grade);
+}
+
+/**
+ * Returns distinct available grade levels in the curriculum.
+ */
+export function getAvailableGrades(): number[] {
+  return Array.from(new Set(Object.values(CANONICAL_TAXONOMIES).map((s) => s.gradeLevel))).sort();
+}

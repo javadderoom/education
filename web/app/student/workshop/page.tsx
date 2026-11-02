@@ -7,10 +7,12 @@ import { FractionStrip } from "@/components/parametric/FractionStrip";
 import { BalanceScale } from "@/components/parametric/BalanceScale";
 import { AreaGrid } from "@/components/parametric/AreaGrid";
 import { toPersianDigits } from "@/lib/math/persian-digits";
+import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
 export default function WorkshopPage() {
   const searchParams = useSearchParams();
-  const subjectId = searchParams.get("subject") || "SUBJ-MATH4-FRACTIONS";
+  const { selectedSubjectId } = useCurriculumStore();
+  const subjectId = searchParams.get("subject") || selectedSubjectId || "SUBJ-MATH4-FRACTIONS";
   const isGrade5 = subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5");
 
   const [activeTab, setActiveTab] = useState<"strip" | "scale" | "grid">(isGrade5 ? "scale" : "strip");
