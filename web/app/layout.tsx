@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Vazirmatn } from "next/font/google";
 import { Header } from "@/components/navigation/Header";
 import { BottomNav } from "@/components/navigation/BottomNav";
+import { Agentation } from "agentation";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
             <BottomNav />
           </Suspense>
         </div>
+        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );

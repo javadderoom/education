@@ -350,8 +350,8 @@
     "semantic_hash": ""
   },
   "web/app/layout.tsx": {
-    "mtime": 1793455916.2692404,
-    "ast_hash": "f0024933bc8b8a77bfec1354e1057cd8",
+    "mtime": 1793632779.7031064,
+    "ast_hash": "87caf05a5d64a0c874bc3ecc4a7d119a",
     "semantic_hash": ""
   },
   "web/app/page.tsx": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1793448926.5809524,
-    "ast_hash": "4eeca4888930e10284a357d0da05d1ad",
+    "mtime": 1793632738.8071737,
+    "ast_hash": "80d36e2af6ac173b2f0cc041877fdd08",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
