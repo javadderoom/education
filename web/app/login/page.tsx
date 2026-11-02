@@ -32,13 +32,13 @@ function LoginFormContent() {
     }
   }, [roleParam]);
 
-  // Student Login Form State
-  const [studentUsername, setStudentUsername] = useState("");
-  const [studentPin, setStudentPin] = useState("");
+  // Student Login Form State (Prefilled for easy development testing)
+  const [studentUsername, setStudentUsername] = useState("student_demo");
+  const [studentPin, setStudentPin] = useState("1234");
 
-  // Staff Login Form State
-  const [staffUsername, setStaffUsername] = useState("");
-  const [staffPassword, setStaffPassword] = useState("");
+  // Staff Login Form State (Prefilled for easy development testing)
+  const [staffUsername, setStaffUsername] = useState("teacher_maryam");
+  const [staffPassword, setStaffPassword] = useState("teacher123456");
 
   // Register Form State
   const [regName, setRegName] = useState("");
@@ -185,6 +185,41 @@ function LoginFormContent() {
         {/* Tab 1: Student Login Form */}
         {activeTab === "student_login" && (
           <form onSubmit={handleStudentLogin} className="space-y-4">
+            {/* Quick Sample Selector */}
+            <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-2.5">
+              <span className="text-[11px] font-bold text-slate-500 block mb-1.5">حساب‌های نمونه آزمایشی:</span>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStudentUsername("student_demo");
+                    setStudentPin("1234");
+                  }}
+                  className={`flex-1 py-1 px-2 text-[11px] font-bold rounded-xl transition-all cursor-pointer ${
+                    studentUsername === "student_demo"
+                      ? "bg-indigo-600 text-white shadow-2xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  علی رضایی (پایه ۴)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStudentUsername("student_grade5_demo");
+                    setStudentPin("1234");
+                  }}
+                  className={`flex-1 py-1 px-2 text-[11px] font-bold rounded-xl transition-all cursor-pointer ${
+                    studentUsername === "student_grade5_demo"
+                      ? "bg-indigo-600 text-white shadow-2xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  محمدحسین (پایه ۵)
+                </button>
+              </div>
+            </div>
+
             <div>
               <label className="text-xs font-bold text-slate-700 block mb-1">
                 نام کاربری یا شناسه دانش‌آموز:
@@ -235,6 +270,41 @@ function LoginFormContent() {
         {/* Tab 2: Staff Login Form */}
         {activeTab === "staff_login" && (
           <form onSubmit={handleStaffLogin} className="space-y-4">
+            {/* Quick Sample Selector */}
+            <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-2.5">
+              <span className="text-[11px] font-bold text-slate-500 block mb-1.5">حساب‌های نمونه آزمایشی:</span>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStaffUsername("teacher_maryam");
+                    setStaffPassword("teacher123456");
+                  }}
+                  className={`flex-1 py-1 px-2 text-[11px] font-bold rounded-xl transition-all cursor-pointer ${
+                    staffUsername === "teacher_maryam"
+                      ? "bg-slate-800 text-white shadow-2xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  آموزگار (خانم مریم)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStaffUsername("admin");
+                    setStaffPassword("admin123456");
+                  }}
+                  className={`flex-1 py-1 px-2 text-[11px] font-bold rounded-xl transition-all cursor-pointer ${
+                    staffUsername === "admin"
+                      ? "bg-slate-800 text-white shadow-2xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+                  }`}
+                >
+                  مدیر سیستم (Admin)
+                </button>
+              </div>
+            </div>
+
             <div>
               <label className="text-xs font-bold text-slate-700 block mb-1">
                 نام کاربری آموزگار یا مدیر:
