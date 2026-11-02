@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { signSessionToken, verifySessionToken, SESSION_COOKIE_NAME, SessionUser } from "@/lib/auth/token";
-import { middleware } from "@/middleware";
+import { proxy as middleware } from "@/proxy";
 import { NextRequest } from "next/server";
 
 describe("Authentication & RBAC Route Protection Engine", () => {

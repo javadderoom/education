@@ -920,13 +920,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/auth-middleware.test.ts": {
-    "mtime": 1793475694.7847934,
-    "ast_hash": "7552462fa6b24fb5d82897996d5ed8ad",
-    "semantic_hash": ""
-  },
-  "web/middleware.ts": {
-    "mtime": 1793459884.3714135,
-    "ast_hash": "a7f57f4528b84a44362f57e2dc0ff037",
+    "mtime": 1793632262.8427026,
+    "ast_hash": "f7c8b99eb1d16f8e4ded0e8b3b034237",
     "semantic_hash": ""
   },
   "web/AGENTS.md": {
@@ -977,6 +972,11 @@
   "web/lib/data/curriculum-taxonomy.ts": {
     "mtime": 1793518120.7433274,
     "ast_hash": "b02e4e93d0f440d2115c7436b9580b16",
+    "semantic_hash": ""
+  },
+  "web/proxy.ts": {
+    "mtime": 1793632249.582815,
+    "ast_hash": "46dcff998743e95f64f1ef283b75c172",
     "semantic_hash": ""
   }
 }
