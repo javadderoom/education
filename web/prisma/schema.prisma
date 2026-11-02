@@ -20,6 +20,52 @@ model Domain {
   @@map("domains")
 }
 
+model CurriculumFramework {
+  id              String           @id @default(cuid())
+  code            String           @unique // "k12", "university", "bootcamp", "vocational"
+  name            String           // e.g. "مدارس آموزش و پرورش", "آموزش عالی (دانشگاه‌ها)"
+  description     String?          @db.Text
+  isDefault       Boolean          @default(false)
+  isActive        Boolean          @default(true)
+  tierDefinitions Json             // Dynamic level nomenclature definition
+  nodes           CurriculumNode[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  @@map("curriculum_frameworks")
+}
+
+model CurriculumNode {
+  id                  String               @id @default(cuid())
+  frameworkId         String
+  framework           CurriculumFramework  @relation(fields: [frameworkId], references: [id], onDelete: Cascade)
+  
+  parentId            String?
+  parent              CurriculumNode?      @relation("CurriculumTree", fields: [parentId], references: [id], onDelete: Cascade)
+  children            CurriculumNode[]     @relation("CurriculumTree")
+  
+  depth               Int                  // 1: پایه/مقطع/تِرَک | 2: کتاب/درس/دوره | 3: فصل/سرفصل/پودمان | 4: درس/جلسه/مهارت
+  nodeType            String               // "grade" | "book" | "chapter" | "lesson" | "major" | "course" | "sprint"
+  code                String?              // e.g. "G4", "MATH4", "CH02", "L01", "CS101"
+  title               String               // e.g. "پایه چهارم ابتدایی", "ریاضی چهارم", "فصل دوم: کسرها", "شناخت کسر"
+  shortTitle          String?
+  description         String?              @db.Text
+  orderIndex          Int                  @default(0)
+  icon                String?              // Lucide icon key, e.g. "Calculator", "BookOpen", "Scale"
+  color               String?              // e.g. "indigo", "emerald", "amber", "sky"
+  metadata            Json?                // Custom metadata (credits, hours, etc.)
+  isActive            Boolean              @default(true)
+  
+  knowledgeComponents KnowledgeComponent[]
+  
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+
+  @@index([frameworkId, depth])
+  @@index([parentId, orderIndex])
+  @@map("curriculum_nodes")
+}
+
 model Subject {
   id                  String               @id
   domainId            String
@@ -34,16 +80,18 @@ model Subject {
 }
 
 model KnowledgeComponent {
-  id              String                 @id
-  subjectId       String
-  subject         Subject                @relation(fields: [subjectId], references: [id])
-  title           String
-  bloomLevel      String                 @default("understand") // remember, understand, apply, analyze, evaluate, create
-  description     String?                @db.Text
+  id               String                  @id
+  subjectId        String
+  subject          Subject                 @relation(fields: [subjectId], references: [id])
+  curriculumNodeId String?
+  curriculumNode   CurriculumNode?         @relation(fields: [curriculumNodeId], references: [id], onDelete: SetNull)
+  title            String
+  bloomLevel       String                  @default("understand") // remember, understand, apply, analyze, evaluate, create
+  description      String?                 @db.Text
   
   // Prerequisite graph relationships
-  prerequisites   KnowledgePrerequisite[] @relation("Prerequisites")
-  prerequisiteFor KnowledgePrerequisite[] @relation("PrerequisiteFor")
+  prerequisites    KnowledgePrerequisite[] @relation("Prerequisites")
+  prerequisiteFor  KnowledgePrerequisite[] @relation("PrerequisiteFor")
   
   misconceptions  Misconception[]
   diagnosticItems DiagnosticItem[]

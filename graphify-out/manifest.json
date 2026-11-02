@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "web/prisma/seed.ts": {
-    "mtime": 1793476767.6065226,
-    "ast_hash": "37e04d017a00368df33be471db3facd9",
+    "mtime": 1793652175.417095,
+    "ast_hash": "4698f200345e6d4332861e515e361a9e",
     "semantic_hash": ""
   },
   "web/scripts/test-bkt.ts": {
@@ -905,8 +905,8 @@
     "semantic_hash": ""
   },
   "web/components/admin/AdminDashboardClient.tsx": {
-    "mtime": 1793455849.2216465,
-    "ast_hash": "ac5d6eb26af76b5ee08caaeee837c3c6",
+    "mtime": 1793652340.7531805,
+    "ast_hash": "a8c19f127c54afdc929b9bc986169c49",
     "semantic_hash": ""
   },
   "web/components/navigation/Header.tsx": {
@@ -1020,13 +1020,33 @@
     "semantic_hash": ""
   },
   "web/components/navigation/GradeCourseModal.tsx": {
-    "mtime": 1793651015.9400382,
-    "ast_hash": "3092ade424c5e971a0661cb911407851",
+    "mtime": 1793652393.3083782,
+    "ast_hash": "196c3490a7819933cdd11c81fd71306c",
     "semantic_hash": ""
   },
   "web/lib/store/curriculum-store.tsx": {
-    "mtime": 1793650791.684324,
-    "ast_hash": "c60a47f025b02d2c651a21ef2a2e777a",
+    "mtime": 1793652374.6568182,
+    "ast_hash": "1a31304e0fe3badd870a2c2643c4e8b9",
+    "semantic_hash": ""
+  },
+  "web/__tests__/curriculum-tree.test.ts": {
+    "mtime": 1793652413.3626394,
+    "ast_hash": "910c1046632632adddcac862b37510dc",
+    "semantic_hash": ""
+  },
+  "web/actions/curriculum.ts": {
+    "mtime": 1793652231.3173192,
+    "ast_hash": "7acf733e5fd8cdc6c9070b2c27db72bf",
+    "semantic_hash": ""
+  },
+  "web/components/admin/CurriculumManager.tsx": {
+    "mtime": 1793652294.2412872,
+    "ast_hash": "86c22c289aedc7f5bcf9945713b4be8b",
+    "semantic_hash": ""
+  },
+  "web/prisma/seed-curriculum.ts": {
+    "mtime": 1793652141.74192,
+    "ast_hash": "21683af48a6f09a9abeb568f312a40e6",
     "semantic_hash": ""
   }
 }

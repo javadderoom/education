@@ -1,5 +1,6 @@
 import { prisma } from "../lib/db/prisma";
 import { hashPassword } from "../lib/auth/password";
+import { seedCurriculumFrameworksAndNodes } from "./seed-curriculum";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -337,6 +338,8 @@ async function main() {
       pinCode: "1234",
     },
   });
+
+  await seedCurriculumFrameworksAndNodes();
 
   console.log("\n--- All Cartridges, Users & Classrooms Seeded Successfully! ---");
 }

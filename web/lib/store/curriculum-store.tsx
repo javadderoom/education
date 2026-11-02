@@ -7,6 +7,20 @@ import {
   getSubjectTaxonomy,
   getSubjectsByGrade 
 } from "@/lib/data/curriculum-taxonomy";
+import { 
+  CurriculumFrameworkDTO, 
+  CurriculumNodeDTO, 
+  TierDefinition,
+  getCurriculumFrameworksAction,
+  getCurriculumTreeAction 
+} from "@/actions/curriculum";
+
+export const DEFAULT_TIER_DEFINITIONS: TierDefinition[] = [
+  { depth: 1, key: "grade", title: "پایه تحصیلی", singular: "پایه", placeholder: "مثال: پایه چهارم ابتدایی" },
+  { depth: 2, key: "book", title: "کتاب درسی", singular: "کتاب", placeholder: "مثال: ریاضی چهارم" },
+  { depth: 3, key: "chapter", title: "فصل / بخش", singular: "فصل", placeholder: "مثال: فصل دوم: مفهوم و محاسبات کسرها" },
+  { depth: 4, key: "lesson", title: "درس / سرفصل آموزشی", singular: "درس", placeholder: "مثال: درس اول: شناخت کسر و واحد کامل" }
+];
 
 export interface CurriculumContextType {
   selectedGrade: number;
@@ -18,6 +32,12 @@ export interface CurriculumContextType {
   openSelector: () => void;
   closeSelector: () => void;
   toggleSelector: () => void;
+  // Dynamic Universal Framework and Tier Nomenclature
+  frameworks: CurriculumFrameworkDTO[];
+  activeFramework: CurriculumFrameworkDTO | null;
+  tierDefinitions: TierDefinition[];
+  treeNodes: CurriculumNodeDTO[];
+  refreshCurriculumFromDb: () => Promise<void>;
 }
 
 const STORAGE_KEY = "edtech_active_curriculum";
@@ -34,6 +54,11 @@ const defaultContextValue: CurriculumContextType = {
   openSelector: () => {},
   closeSelector: () => {},
   toggleSelector: () => {},
+  frameworks: [],
+  activeFramework: null,
+  tierDefinitions: DEFAULT_TIER_DEFINITIONS,
+  treeNodes: [],
+  refreshCurriculumFromDb: async () => {},
 };
 
 const CurriculumContext = createContext<CurriculumContextType>(defaultContextValue);
@@ -44,10 +69,36 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [isSelectorOpen, setIsSelectorOpen] = useState<boolean>(false);
   const [isHydrated, setIsHydrated] = useState<boolean>(false);
 
+  // Dynamic Framework State from DB
+  const [frameworks, setFrameworks] = useState<CurriculumFrameworkDTO[]>([]);
+  const [activeFramework, setActiveFramework] = useState<CurriculumFrameworkDTO | null>(null);
+  const [treeNodes, setTreeNodes] = useState<CurriculumNodeDTO[]>([]);
+
+  const refreshCurriculumFromDb = useCallback(async () => {
+    try {
+      const fwRes = await getCurriculumFrameworksAction();
+      if (fwRes.success && fwRes.frameworks.length > 0) {
+        setFrameworks(fwRes.frameworks);
+        const defaultFw = fwRes.frameworks.find((f) => f.isDefault) || fwRes.frameworks[0];
+        setActiveFramework(defaultFw);
+
+        const treeRes = await getCurriculumTreeAction(defaultFw.id);
+        if (treeRes.success) {
+          setTreeNodes(treeRes.nodes);
+        }
+      }
+    } catch {
+      // In offline / test environments, fallback smoothly
+    }
+  }, []);
+
+  useEffect(() => {
+    refreshCurriculumFromDb();
+  }, [refreshCurriculumFromDb]);
+
   // Initialize from URL search param or localStorage
   useEffect(() => {
     try {
-      // 1. Check URL first
       if (typeof window !== "undefined") {
         const params = new URLSearchParams(window.location.search);
         const urlSubject = params.get("subject");
@@ -64,7 +115,6 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           return;
         }
 
-        // 2. Check localStorage
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
           const parsed = JSON.parse(stored);
@@ -104,7 +154,6 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     setSelectedGrade(grade);
     const gradeSubjects = getSubjectsByGrade(grade);
     if (gradeSubjects.length > 0) {
-      // If current subject already belongs to this grade, keep it; otherwise switch to first chapter
       const currentTaxonomy = getSubjectTaxonomy(selectedSubjectId);
       const nextSubject =
         currentTaxonomy.gradeLevel === grade ? currentTaxonomy.id : gradeSubjects[0].id;
@@ -131,6 +180,11 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     [selectedSubjectId]
   );
 
+  const tierDefinitions = useMemo(
+    () => activeFramework?.tierDefinitions || DEFAULT_TIER_DEFINITIONS,
+    [activeFramework]
+  );
+
   const contextValue = useMemo<CurriculumContextType>(
     () => ({
       selectedGrade,
@@ -142,6 +196,11 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       openSelector,
       closeSelector,
       toggleSelector,
+      frameworks,
+      activeFramework,
+      tierDefinitions,
+      treeNodes,
+      refreshCurriculumFromDb,
     }),
     [
       selectedGrade,
@@ -153,6 +212,11 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       openSelector,
       closeSelector,
       toggleSelector,
+      frameworks,
+      activeFramework,
+      tierDefinitions,
+      treeNodes,
+      refreshCurriculumFromDb,
     ]
   );
 
@@ -163,10 +227,6 @@ export const CurriculumProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   );
 };
 
-/**
- * Hook to access the curriculum store.
- * Safe to use anywhere; falls back to default values if rendered outside provider.
- */
 export function useCurriculumStore(): CurriculumContextType {
   const context = useContext(CurriculumContext);
   return context || defaultContextValue;

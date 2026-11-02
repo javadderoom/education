@@ -32,8 +32,13 @@ export const GradeCourseModal: React.FC = () => {
     isSelectorOpen, 
     closeSelector, 
     setSubject,
-    setGrade
+    setGrade,
+    tierDefinitions,
   } = useCurriculumStore();
+
+  const tier1 = tierDefinitions?.find((t) => t.depth === 1);
+  const tier2 = tierDefinitions?.find((t) => t.depth === 2);
+  const tier3 = tierDefinitions?.find((t) => t.depth === 3);
 
   // Local active grade tab inside modal to let student explore without committing
   const [activeGradeTab, setActiveGradeTab] = useState<number>(selectedGrade);
@@ -129,7 +134,7 @@ export const GradeCourseModal: React.FC = () => {
           <div>
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 mb-2.5 px-0.5">
               <GraduationCap className="w-4 h-4 text-indigo-600" />
-              <span>مرحله ۱: انتخاب پایه تحصیلی:</span>
+              <span>مرحله ۱: انتخاب {tier1?.title || "پایه تحصیلی"}:</span>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
