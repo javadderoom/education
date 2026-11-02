@@ -128,7 +128,7 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
   const isNoneSelected = selectedTopicIds.length === 0;
 
   return (
-    <div className={`w-full max-w-3xl mx-auto select-none ${isModal ? "p-4" : "py-4 sm:py-6 px-2"} animate-in fade-in duration-300`}>
+    <div className={`w-full max-w-3xl mx-auto select-none ${isModal ? "p-4" : "pt-4 sm:pt-6 px-2 pb-48 sm:pb-52"} animate-in fade-in duration-300`}>
       {/* Top Banner Card */}
       <div className="bg-gradient-to-b from-indigo-50/70 via-white to-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs mb-6 text-center">
         <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-900 text-xs font-bold px-3 py-1 rounded-full mb-3">
@@ -406,13 +406,25 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
         ))}
       </div>
 
-      {/* 4. Sticky Bottom Floating Summary Bar */}
-      <div className="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t-2 border-slate-200 shadow-xl p-3 sm:p-4 z-40">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      {/* 4. Sticky Bottom Floating Summary Bar - Elevated Above BottomNav */}
+      <div
+        className={
+          isModal
+            ? "sticky bottom-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 sm:p-4 z-30"
+            : "fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] sm:bottom-20 left-0 right-0 z-30 flex justify-center pointer-events-none px-3"
+        }
+      >
+        <div
+          className={
+            isModal
+              ? "max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3"
+              : "w-full max-w-xl md:max-w-3xl lg:max-w-4xl bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xl rounded-2xl sm:rounded-3xl p-3 sm:p-4 pointer-events-auto flex flex-col sm:flex-row items-center justify-between gap-3"
+          }
+        >
           {/* Summary Indicators */}
           <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-between sm:justify-start">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0">
                 <Layers className="w-4 h-4" />
               </div>
               <div className="text-right">
@@ -423,11 +435,11 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
               </div>
             </div>
 
-            <div className="h-6 w-px bg-slate-200 hidden sm:block" />
+            <div className="h-6 w-px bg-slate-200" />
 
             <div className="text-right">
               <span className="text-[10px] text-slate-400 block leading-tight">تعداد کل سوالات:</span>
-              <span className="text-xs font-black text-indigo-700 font-mono" dir="ltr">
+              <span className="text-xs font-black text-indigo-700">
                 {toPersianDigits(totalQuestions)} سوال تشخیصی
               </span>
             </div>
@@ -436,7 +448,7 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
 
             <div className="text-right hidden sm:block">
               <span className="text-[10px] text-slate-400 block leading-tight">زمان تقریبی:</span>
-              <span className="text-xs font-bold text-slate-700 font-mono" dir="ltr">
+              <span className="text-xs font-bold text-slate-700">
                 حدود {toPersianDigits(totalEstimatedMinutes)} دقیقه
               </span>
             </div>
@@ -448,7 +460,7 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
               <button
                 type="button"
                 onClick={onCancel}
-                className="py-2.5 px-4 rounded-2xl font-bold text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all cursor-pointer"
+                className="min-h-[44px] py-2.5 px-4 rounded-xl sm:rounded-2xl font-bold text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all cursor-pointer"
               >
                 انصراف
               </button>
@@ -458,7 +470,7 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
               type="button"
               disabled={isNoneSelected}
               onClick={() => onStartExam(selectedSubjectId, selectedTopicIds)}
-              className={`flex-1 sm:flex-initial py-3 px-6 rounded-2xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-98 cursor-pointer ${
+              className={`flex-1 sm:flex-initial min-h-[44px] py-3 px-6 rounded-xl sm:rounded-2xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-98 cursor-pointer ${
                 isNoneSelected
                   ? "bg-slate-200 text-slate-400 cursor-not-allowed shadow-none"
                   : isGrade5
