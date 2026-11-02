@@ -82,8 +82,8 @@ export const AssessmentsHub: React.FC = () => {
               هر بار که در آزمون شرکت می‌کنید، اعداد و سناریوهای مسئله به شکل هوشمند تغییر می‌کنند تا یادگیری عمیق سنجیده شود.
             </p>
           </div>
-          <div className="bg-emerald-50/80 border border-emerald-200 text-emerald-800 text-[11px] font-bold p-2.5 rounded-xl text-center font-mono" dir="ltr">
-            {toPersianDigits(15)} مولفه شناختی فعال
+          <div className="bg-emerald-50/80 border border-emerald-200 text-emerald-800 text-[11px] font-bold p-2.5 rounded-xl text-center">
+            {toPersianDigits(15)} مؤلفه شناختی فعال
           </div>
         </div>
       </div>

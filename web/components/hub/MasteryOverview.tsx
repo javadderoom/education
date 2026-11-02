@@ -67,14 +67,14 @@ export const MasteryOverview: React.FC<MasteryOverviewProps> = ({
           {/* Quick Mastery Counters */}
           <div className="grid grid-cols-2 gap-3 w-full md:w-auto shrink-0">
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center min-w-[130px]">
-              <span className="text-2xl font-black block font-mono text-emerald-400" dir="ltr">
-                %{toPersianDigits(averageMastery)}
+              <span className="text-2xl font-black block text-emerald-400" dir="ltr">
+                {toPersianDigits(averageMastery)}٪
               </span>
               <span className="text-[11px] font-bold text-indigo-200 mt-1 block">میانگین تسلط شناختی</span>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 text-center min-w-[130px]">
-              <span className="text-2xl font-black block font-mono text-amber-400" dir="ltr">
+              <span className="text-2xl font-black block text-amber-400" dir="ltr">
                 {toPersianDigits(masteredCount)} / {toPersianDigits(totalKCs)}
               </span>
               <span className="text-[11px] font-bold text-indigo-200 mt-1 block">سرفصل‌های تثبیت‌شده</span>

@@ -143,7 +143,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
                   <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${theme.badge}`}>
                     پایه {toPersianDigits(course.gradeLevel)} دبستان
                   </span>
-                  <span className="text-xs font-bold text-slate-400 font-mono" dir="ltr">
+                  <span className="text-xs font-bold text-slate-400">
                     {toPersianDigits(course.topics.length)} سرفصل مصوب
                   </span>
                 </div>

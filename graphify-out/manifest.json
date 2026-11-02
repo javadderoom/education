@@ -980,18 +980,18 @@
     "semantic_hash": ""
   },
   "web/components/hub/AssessmentsHub.tsx": {
-    "mtime": 1793633265.2494757,
-    "ast_hash": "0094d6b057c0542404c9b3f2302ad1b1",
+    "mtime": 1793633573.15409,
+    "ast_hash": "e7f3cac38ec5f48f0efdd58ece6f1766",
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {
-    "mtime": 1793633249.5710106,
-    "ast_hash": "2ebee80881cce0bb97ad0ef07439f929",
+    "mtime": 1793633566.1176436,
+    "ast_hash": "fe25e9091f26df250da4dc10a19e8fcf",
     "semantic_hash": ""
   },
   "web/components/hub/HubHero.tsx": {
-    "mtime": 1793633218.4219706,
-    "ast_hash": "7c135ec6fe99bd1593ccb846ad6a682a",
+    "mtime": 1793633558.5097516,
+    "ast_hash": "2c291bfa260f1d47b4f9dcd6966a90b8",
     "semantic_hash": ""
   },
   "web/components/hub/HubNavTabs.tsx": {
@@ -1005,8 +1005,8 @@
     "semantic_hash": ""
   },
   "web/components/hub/MasteryOverview.tsx": {
-    "mtime": 1793633281.0250735,
-    "ast_hash": "1fefcda30e37e599c597c1ee3ab78c9d",
+    "mtime": 1793633586.421981,
+    "ast_hash": "6b6cb044382da12c32af670524bd5c17",
     "semantic_hash": ""
   },
   "web/components/hub/ReportsAndWorkshops.tsx": {

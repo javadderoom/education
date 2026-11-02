@@ -38,7 +38,7 @@ export const HubHero: React.FC<HubHeroProps> = ({ studentName }) => {
           <div className="flex items-center justify-center text-indigo-600 mb-1">
             <Layers className="w-4 h-4" />
           </div>
-          <span className="text-xs sm:text-sm font-black text-slate-900 block font-mono" dir="ltr">
+          <span className="text-xs sm:text-sm font-black text-slate-900 block">
             {toPersianDigits(3)} فصل
           </span>
           <span className="text-[10px] text-slate-500 font-semibold">بسته‌های درسی فعال</span>
@@ -48,7 +48,7 @@ export const HubHero: React.FC<HubHeroProps> = ({ studentName }) => {
           <div className="flex items-center justify-center text-emerald-600 mb-1">
             <BookOpenCheck className="w-4 h-4" />
           </div>
-          <span className="text-xs sm:text-sm font-black text-slate-900 block font-mono" dir="ltr">
+          <span className="text-xs sm:text-sm font-black text-slate-900 block">
             {toPersianDigits(15)} سرفصل
           </span>
           <span className="text-[10px] text-slate-500 font-semibold">اهداف شناختی مصوب</span>
