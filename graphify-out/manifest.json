@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793725467.7971935,
-    "ast_hash": "84d708cfac0ba0ce1b0466c906a74910",
+    "mtime": 1793728857.7394052,
+    "ast_hash": "405b43501b079b934580feebd2b55099",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -830,8 +830,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/adaptive.test.ts": {
-    "mtime": 1793450137.3267357,
-    "ast_hash": "ef54d087dbd574682615c2c0e1578b0d",
+    "mtime": 1793728871.0211663,
+    "ast_hash": "8d8cfe73c99e5cf21466f0e937d2a524",
     "semantic_hash": ""
   },
   "web/__tests__/e2e-session.test.ts": {
@@ -845,8 +845,8 @@
     "semantic_hash": ""
   },
   "web/lib/bkt/adaptive.ts": {
-    "mtime": 1793450126.0922465,
-    "ast_hash": "7f7191fe1af3e1a87aeb321e94d8be38",
+    "mtime": 1793728768.2646842,
+    "ast_hash": "958aee2dd261b0a7c96be7ffd5a1f37a",
     "semantic_hash": ""
   },
   "web/__tests__/analytics.test.ts": {
@@ -950,8 +950,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
-    "mtime": 1793725043.2892623,
-    "ast_hash": "62c7fb384ce310f9bccc04f6804d6b30",
+    "mtime": 1793728882.7102385,
+    "ast_hash": "1b329d0f3bbd7d868c67df0ec7da3fde",
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
@@ -960,8 +960,8 @@
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1793724914.4242704,
-    "ast_hash": "1c28f0bb18b501abb19161acd3ec64c7",
+    "mtime": 1793728802.3230345,
+    "ast_hash": "ddf8be1133059f2cbb4882e63cd71eac",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {

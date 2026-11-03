@@ -13,7 +13,7 @@ import { RemediationPathway } from "../remediation/RemediationPathway";
 import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
 import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
-import { selectNextAdaptiveItem } from "../../lib/bkt/adaptive";
+import { selectNextAdaptiveItem, calculateAdaptiveSessionLimit } from "../../lib/bkt/adaptive";
 import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
@@ -86,6 +86,15 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }
     return items;
   }, [items, selectedTopicIds]);
+
+  // Dynamic adaptive session length based on number of selected topics
+  const targetSessionLimit = React.useMemo(() => {
+    const kcCount =
+      selectedTopicIds && selectedTopicIds.length > 0
+        ? selectedTopicIds.length
+        : knowledgeComponents.length;
+    return calculateAdaptiveSessionLimit(kcCount, activeItems.length);
+  }, [selectedTopicIds, knowledgeComponents, activeItems.length]);
 
   // Map of KC Masteries
   const [masteries, setMasteries] = useState<Record<string, number>>(() => {
@@ -186,7 +195,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, currentIndex + 1 >= activeItems.length);
+    persistToOfflineDB(newHistory, newHistory.length >= targetSessionLimit);
 
     // Check if misconception modal should appear
     if (!distractor.is_correct && distractor.misconception_id) {
@@ -224,7 +233,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, currentIndex + 1 >= activeItems.length);
+    persistToOfflineDB(newHistory, newHistory.length >= targetSessionLimit);
 
     setTimeout(() => advanceToNext(), 400);
   };
@@ -236,12 +245,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       answeredIds.add(currentItem.id);
     }
 
-    const sessionLimit = Math.min(activeItems.length, 6);
     const nextAdaptiveItem = selectNextAdaptiveItem(activeItems, {
       answeredItemIds: answeredIds,
       masteries,
       knowledgeComponents,
-      maxItemsPerSession: sessionLimit,
+      maxItemsPerSession: targetSessionLimit,
     });
 
     if (nextAdaptiveItem) {
@@ -253,6 +261,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }
 
     setSessionCompleted(true);
+    persistToOfflineDB(history, true);
   };
 
   const handleRestart = () => {
@@ -355,7 +364,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
               <span className="text-lg font-black text-emerald-600" dir="ltr">
-                {toPersianDigits(correctCount)} / {toPersianDigits(history.length || activeItems.length)}
+                {toPersianDigits(correctCount)} / {toPersianDigits(history.length || targetSessionLimit)}
               </span>
             </div>
             <div className="p-1 border-x border-slate-200">
@@ -424,15 +433,15 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap">
         <div className="flex-1 min-w-[140px]">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
-            <span>سوال {toPersianDigits(history.length + 1)} از {toPersianDigits(activeItems.length)}</span>
+            <span>سوال {toPersianDigits(Math.min(targetSessionLimit, history.length + 1))} از {toPersianDigits(targetSessionLimit)}</span>
             <span className="font-bold text-indigo-600" dir="ltr">
-              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, activeItems.length)) * 100)))}٪
+              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)))}٪
             </span>
           </div>
           <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-600 rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, activeItems.length)) * 100)}%` }}
+              style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)}%` }}
             />
           </div>
         </div>

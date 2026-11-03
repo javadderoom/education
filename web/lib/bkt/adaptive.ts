@@ -32,6 +32,27 @@ export function calculateMasteryUncertainty(probability: number): number {
 }
 
 /**
+ * Calculates dynamic session length for an adaptive diagnostic assessment.
+ * Scales based on the number of selected Knowledge Components (target: 2 items per KC, minimum 4).
+ * Bounded by the total number of available candidate items.
+ *
+ * Examples:
+ * - 1 KC, 5 items available => Math.min(5, Math.max(4, 2)) = 4
+ * - 2 KCs, 10 items available => Math.min(10, Math.max(4, 4)) = 4
+ * - 3 KCs, 15 items available => Math.min(15, Math.max(4, 6)) = 6
+ * - 5 KCs, 25 items available => Math.min(25, Math.max(4, 10)) = 10
+ */
+export function calculateAdaptiveSessionLimit(
+  selectedKcCount: number,
+  totalCandidateItems: number
+): number {
+  if (totalCandidateItems <= 0) return 0;
+  const count = Math.max(1, selectedKcCount);
+  const target = Math.max(4, count * 2);
+  return Math.min(totalCandidateItems, target);
+}
+
+/**
  * Selects the next optimal diagnostic question.
  * Prioritizes:
  * 1. Knowledge Components with highest uncertainty (closest to P(L)=0.50).

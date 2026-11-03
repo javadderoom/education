@@ -126,14 +126,15 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
     [taxonomy, selectedTopicIds]
   );
 
-  const totalQuestions = useMemo(
-    () => activeTopics.reduce((acc, t) => acc + t.itemCount, 0),
-    [activeTopics]
+  // Dynamic adaptive questions count (target 2 items per selected KC, minimum 4)
+  const adaptiveQuestionCount = useMemo(
+    () => (activeTopics.length > 0 ? Math.max(4, activeTopics.length * 2) : 0),
+    [activeTopics.length]
   );
 
   const totalEstimatedMinutes = useMemo(
-    () => activeTopics.reduce((acc, t) => acc + t.estimatedMinutes, 0),
-    [activeTopics]
+    () => (adaptiveQuestionCount > 0 ? Math.round(adaptiveQuestionCount * 1.5) : 0),
+    [adaptiveQuestionCount]
   );
 
   const isCh3 = selectedSubjectId.includes("CH03") || selectedSubjectId.includes("CH3");
@@ -418,9 +419,9 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
             <div className="h-6 w-px bg-slate-200" />
 
             <div className="text-right">
-              <span className="text-[10px] text-slate-400 block leading-tight">تعداد کل سوالات:</span>
+              <span className="text-[10px] text-slate-400 block leading-tight">تعداد سوالات آزمون:</span>
               <span className="text-xs font-black text-indigo-700">
-                {toPersianDigits(totalQuestions)} سوال تشخیصی
+                {toPersianDigits(adaptiveQuestionCount)} سوال تشخیصی
               </span>
             </div>
 
@@ -461,7 +462,7 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
               <span>
                 {isNoneSelected
                   ? "حداقل یک سرفصل را انتخاب کنید"
-                  : `شروع آزمون با ${toPersianDigits(totalQuestions)} سوال`}
+                  : `شروع آزمون با ${toPersianDigits(adaptiveQuestionCount)} سوال`}
               </span>
               {!isNoneSelected && <ArrowLeft className="w-4 h-4" />}
             </button>

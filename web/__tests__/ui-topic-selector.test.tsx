@@ -120,14 +120,15 @@ describe("ExamTopicSelector Component", () => {
     const foundationsBtn = screen.getByText("مفاهیم پایه");
     fireEvent.click(foundationsBtn);
 
-    // Now start button should be enabled with 6 questions (2 topics * 3 items)
-    expect(screen.getByText("شروع آزمون با ۶ سوال")).toBeInTheDocument();
+    // Now start button should be enabled with 4 dynamic adaptive questions (2 topics * 2 items, min 4)
+    expect(screen.getByText("شروع آزمون با ۴ سوال")).toBeInTheDocument();
 
     // Click 'انتخاب همه مباحث' preset
     const allBtn = screen.getByText("انتخاب همه مباحث");
     fireEvent.click(allBtn);
 
-    expect(screen.getByText("شروع آزمون با ۱۵ سوال")).toBeInTheDocument();
+    // 5 topics * 2 items = 10 adaptive questions
+    expect(screen.getByText("شروع آزمون با ۱۰ سوال")).toBeInTheDocument();
   });
 
   it("submits selected topics on start button click", () => {
@@ -139,7 +140,7 @@ describe("ExamTopicSelector Component", () => {
       />
     );
 
-    const startBtn = screen.getByText("شروع آزمون با ۱۵ سوال").closest("button");
+    const startBtn = screen.getByText("شروع آزمون با ۱۰ سوال").closest("button");
     fireEvent.click(startBtn!);
 
     expect(handleStart).toHaveBeenCalledWith(

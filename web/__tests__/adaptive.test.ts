@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { calculateMasteryUncertainty, selectNextAdaptiveItem } from "../lib/bkt/adaptive";
+import {
+  calculateMasteryUncertainty,
+  selectNextAdaptiveItem,
+  calculateAdaptiveSessionLimit,
+} from "../lib/bkt/adaptive";
 
 describe("Adaptive Question Selection Engine", () => {
   it("calculates mastery uncertainty correctly", () => {
@@ -7,6 +11,26 @@ describe("Adaptive Question Selection Engine", () => {
     expect(calculateMasteryUncertainty(0.85)).toBeCloseTo(0.3);
     expect(calculateMasteryUncertainty(1.0)).toBeCloseTo(0.0);
     expect(calculateMasteryUncertainty(0.0)).toBeCloseTo(0.0);
+  });
+
+  it("calculates dynamic adaptive session limits proportional to selected concepts", () => {
+    // 1 concept with 5 items => max(4, 1*2) = 4 items
+    expect(calculateAdaptiveSessionLimit(1, 5)).toBe(4);
+
+    // 2 concepts with 10 items => max(4, 2*2) = 4 items
+    expect(calculateAdaptiveSessionLimit(2, 10)).toBe(4);
+
+    // 3 concepts with 15 items => max(4, 3*2) = 6 items
+    expect(calculateAdaptiveSessionLimit(3, 15)).toBe(6);
+
+    // 5 concepts with 25 items => max(4, 5*2) = 10 items
+    expect(calculateAdaptiveSessionLimit(5, 25)).toBe(10);
+
+    // Bounded by pool size if pool is smaller than target
+    expect(calculateAdaptiveSessionLimit(5, 7)).toBe(7);
+
+    // Empty candidates pool returns 0
+    expect(calculateAdaptiveSessionLimit(3, 0)).toBe(0);
   });
 
   it("selects unasked items prioritizing uncertain knowledge components", () => {
