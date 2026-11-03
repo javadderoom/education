@@ -78,10 +78,10 @@ describe("Tablet & Mobile UI Assessment Flow", () => {
       />
     );
 
-    // Tap option 'ب' which has misconception MIS-ADD-DENOM
-    const optionB = screen.getByText("ب").closest("button");
-    expect(optionB).not.toBeNull();
-    fireEvent.click(optionB!);
+    // Tap option with misconception content "2/10" -> "۲/۱۰" (regardless of shuffled letter label)
+    const optionWithMisconception = screen.getByText(/۲\/۱۰/).closest("button");
+    expect(optionWithMisconception).not.toBeNull();
+    fireEvent.click(optionWithMisconception!);
 
     // Remediation modal should pop up
     await waitFor(() => {
@@ -116,6 +116,29 @@ describe("Tablet & Mobile UI Assessment Flow", () => {
     await waitFor(() => {
       expect(screen.getByText("ارزیابی به پایان رسید!")).toBeInTheDocument();
     });
+  });
+
+  it("randomly shuffles distractors while maintaining standard Persian labels", () => {
+    render(
+      <AssessmentCarousel
+        items={mockItems}
+        knowledgeComponents={mockKCs}
+        misconceptions={mockMisconceptions}
+        shuffleOptions={true}
+      />
+    );
+
+    // Labels should always exist sequentially
+    expect(screen.getByText("الف")).toBeInTheDocument();
+    expect(screen.getByText("ب")).toBeInTheDocument();
+    expect(screen.getByText("ج")).toBeInTheDocument();
+    expect(screen.getByText("د")).toBeInTheDocument();
+
+    // All option contents should be present with Persian digits
+    expect(screen.getAllByText(/۲\/۵/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/۲\/۱۰/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/۳\/۵/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/۱\/۵/).length).toBeGreaterThan(0);
   });
 });
 

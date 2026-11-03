@@ -52,6 +52,26 @@ export interface AssessmentCarouselProps {
   learners?: LearnerProfileSummary[];
   selectedTopicIds?: string[];
   onConfigureTopics?: () => void;
+  shuffleOptions?: boolean;
+}
+
+const PERSIAN_OPTION_LABELS = ["الف", "ب", "ج", "د"];
+
+/**
+ * Performs an unbiased Fisher-Yates shuffle on distractors and re-assigns
+ * standard Persian option labels ("الف", "ب", "ج", "د") sequentially.
+ */
+export function shuffleDistractors(distractors: DistractorItem[]): DistractorItem[] {
+  if (!distractors || distractors.length <= 1) return distractors;
+  const shuffled = [...distractors];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.map((d, index) => ({
+    ...d,
+    label: PERSIAN_OPTION_LABELS[index] || d.label,
+  }));
 }
 
 export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
@@ -63,6 +83,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   learners = [],
   selectedTopicIds,
   onConfigureTopics,
+  shuffleOptions = true,
 }) => {
   const [activeName, setActiveName] = useState(studentName);
   const [activeUsername, setActiveUsername] = useState(studentUsername);
@@ -115,6 +136,22 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   }>>([]);
 
   const currentItem = activeItems[currentIndex] || activeItems[0];
+
+  // Map of cached shuffled distractors per question item id for session stability
+  const [shuffledDistractorsMap] = useState<Map<string, DistractorItem[]>>(() => new Map());
+
+  // Shuffled distractors for the current question
+  const currentDistractors = React.useMemo(() => {
+    if (!currentItem?.distractors) return [];
+    if (!shuffleOptions) return currentItem.distractors;
+
+    let cached = shuffledDistractorsMap.get(currentItem.id);
+    if (!cached) {
+      cached = shuffleDistractors(currentItem.distractors);
+      shuffledDistractorsMap.set(currentItem.id, cached);
+    }
+    return cached;
+  }, [currentItem, shuffleOptions, shuffledDistractorsMap]);
 
   // Helper map for misconceptions
   const misconceptionsMap = React.useMemo(() => {
@@ -270,6 +307,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setSessionCompleted(false);
     setActiveWorkshopKC(null);
     setHistory([]);
+    shuffledDistractorsMap.clear();
     const resetMasteries: Record<string, number> = {};
     for (const kc of knowledgeComponents) {
       resetMasteries[kc.id] = 0.15;
@@ -487,7 +525,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
           {/* Distractor Options Grid (Touch-First Large Buttons) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-3">
-            {currentItem.distractors.map((dis) => {
+            {currentDistractors.map((dis) => {
               const isSelected = selectedDistractorId === dis.id;
               let btnStyle =
                 "border-slate-200 bg-slate-50/70 hover:border-indigo-400 hover:bg-indigo-50/40 text-slate-800";
