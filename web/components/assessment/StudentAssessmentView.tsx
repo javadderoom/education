@@ -6,6 +6,7 @@ import { CanonicalCartridge } from "@/lib/data/cartridge";
 import { ExamTopicSelector } from "@/components/curriculum/ExamTopicSelector";
 import { AssessmentCarousel } from "@/components/assessment/AssessmentCarousel";
 import { generateDynamicItemsForKCs } from "@/lib/curriculum/parametric-engine";
+import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
 export interface StudentAssessmentViewProps {
   initialSubjectId: string;
@@ -26,14 +27,26 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { selectedSubjectId, setSubject } = useCurriculumStore();
 
-  const [currentSubjectId, setCurrentSubjectId] = useState<string>(initialSubjectId);
+  const [currentSubjectId, setCurrentSubjectId] = useState<string>(
+    initialSubjectId || selectedSubjectId || "SUBJ-MATH4-FRACTIONS"
+  );
   const [selectedTopicIds, setSelectedTopicIds] = useState<string[]>(initialTopicIds || []);
   const [isConfiguring, setIsConfiguring] = useState<boolean>(!initialStarted);
 
   React.useEffect(() => {
-    setCurrentSubjectId(initialSubjectId);
+    if (initialSubjectId) {
+      setCurrentSubjectId(initialSubjectId);
+    }
   }, [initialSubjectId]);
+
+  React.useEffect(() => {
+    if (selectedSubjectId && selectedSubjectId !== currentSubjectId) {
+      setCurrentSubjectId(selectedSubjectId);
+      setSelectedTopicIds([]);
+    }
+  }, [selectedSubjectId]);
 
   React.useEffect(() => {
     if (initialTopicIds) {
@@ -81,6 +94,7 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
     setCurrentSubjectId(subjectId);
     setSelectedTopicIds(topicIds);
     setIsConfiguring(false);
+    setSubject(subjectId);
 
     // Update query params without full navigation reload
     const params = new URLSearchParams(searchParams.toString());

@@ -9,15 +9,11 @@ import {
   CheckSquare, 
   HelpCircle, 
   Target, 
-  RotateCcw,
-  Zap
+  RotateCcw
 } from "lucide-react";
-import { CANONICAL_TAXONOMIES } from "@/lib/data/curriculum-taxonomy";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 
 export const AssessmentsHub: React.FC = () => {
-  const subjects = Object.values(CANONICAL_TAXONOMIES);
-
   return (
     <div className="mb-8">
       {/* Section Header */}
@@ -85,26 +81,6 @@ export const AssessmentsHub: React.FC = () => {
           <div className="bg-emerald-50/80 border border-emerald-200 text-emerald-800 text-[11px] font-bold p-2.5 rounded-xl text-center">
             {toPersianDigits(15)} مؤلفه شناختی فعال
           </div>
-        </div>
-      </div>
-
-      {/* Quick Launch Buttons Bar */}
-      <div className="bg-white border-2 border-indigo-100 rounded-2xl p-3.5 flex flex-wrap items-center justify-between gap-3 shadow-2xs">
-        <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-          <Zap className="w-4 h-4 text-amber-500" />
-          <span>شروع سریع آزمون برای فصل‌های فعال:</span>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          {subjects.map((sub) => (
-            <Link
-              key={sub.id}
-              href={`/student?subject=${sub.id}`}
-              className="py-1.5 px-3 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 text-xs font-bold rounded-xl border border-slate-200 transition-all flex items-center gap-1.5"
-            >
-              <span>{sub.title} ({toPersianDigits(sub.gradeLevel)})</span>
-              <ArrowLeft className="w-3 h-3 text-slate-400" />
-            </Link>
-          ))}
         </div>
       </div>
     </div>

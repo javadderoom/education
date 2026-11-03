@@ -24,6 +24,7 @@ import {
   getSubjectTaxonomy 
 } from "@/lib/data/curriculum-taxonomy";
 import { toPersianDigits } from "@/lib/math/persian-digits";
+import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
 export interface ExamTopicSelectorProps {
   initialSubjectId?: string;
@@ -40,7 +41,19 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
   onCancel,
   isModal = false,
 }) => {
-  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(initialSubjectId);
+  const { openSelector, selectedSubjectId: storeSubjectId } = useCurriculumStore();
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(
+    initialSubjectId || storeSubjectId || "SUBJ-MATH4-FRACTIONS"
+  );
+
+  React.useEffect(() => {
+    if (initialSubjectId && initialSubjectId !== selectedSubjectId) {
+      setSelectedSubjectId(initialSubjectId);
+      const nextTaxonomy = getSubjectTaxonomy(initialSubjectId);
+      setSelectedTopicIds(nextTaxonomy.topics.map((t) => t.id));
+    }
+  }, [initialSubjectId]);
+
   const taxonomy: SubjectTaxonomy = useMemo(
     () => getSubjectTaxonomy(selectedSubjectId),
     [selectedSubjectId]
@@ -123,7 +136,9 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
     [activeTopics]
   );
 
+  const isCh3 = selectedSubjectId.includes("CH03") || selectedSubjectId.includes("CH3");
   const isGrade5 = selectedSubjectId.includes("5") || selectedSubjectId.includes("RATIO");
+  const CourseIcon = isCh3 ? Calculator : isGrade5 ? Scale : SplitSquareVertical;
   const isAllSelected = selectedTopicIds.length === taxonomy.topics.length;
   const isNoneSelected = selectedTopicIds.length === 0;
 
@@ -145,81 +160,46 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
         </p>
       </div>
 
-      {/* 1. Course Selection Tabs */}
-      <div className="mb-6">
-        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 mb-2.5 px-1">
-          <BookOpen className="w-4 h-4 text-indigo-600" />
-          <span>انتخاب کتاب و فصل درسی:</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {Object.values(CANONICAL_TAXONOMIES).map((sub) => {
-            const isSelected = sub.id === selectedSubjectId;
-            const isG5 = sub.gradeLevel === 5;
-            const isCh3 = sub.id === "SUBJ-MATH4-CH03";
-            const Icon = isCh3 ? Calculator : isG5 ? Scale : SplitSquareVertical;
-
-            return (
-              <button
-                key={sub.id}
-                type="button"
-                onClick={() => handleSelectSubject(sub.id)}
-                className={`text-right p-3.5 sm:p-4 rounded-3xl border-2 transition-all cursor-pointer flex items-center justify-between ${
-                  isSelected
-                    ? isCh3
-                      ? "border-amber-500 bg-amber-50/40 shadow-xs"
-                      : isG5
-                      ? "border-emerald-500 bg-emerald-50/40 shadow-xs"
-                      : "border-indigo-500 bg-indigo-50/40 shadow-xs"
-                    : "border-slate-200 hover:border-slate-300 bg-white"
+      {/* 1. Active Curriculum Context Banner - Single Source of Truth */}
+      <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 sm:p-5 shadow-xs mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <div
+            className={`w-11 h-11 rounded-2xl flex items-center justify-center font-black text-white shadow-2xs shrink-0 ${
+              isCh3 ? "bg-amber-600" : isGrade5 ? "bg-emerald-600" : "bg-indigo-600"
+            }`}
+          >
+            <CourseIcon className="w-5 h-5" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span
+                className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                  isCh3
+                    ? "bg-amber-100 text-amber-800"
+                    : isGrade5
+                    ? "bg-emerald-100 text-emerald-800"
+                    : "bg-indigo-100 text-indigo-800"
                 }`}
               >
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div
-                    className={`w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center font-black text-base shadow-2xs shrink-0 ${
-                      isSelected
-                        ? isCh3
-                          ? "bg-amber-600 text-white"
-                          : isG5
-                          ? "bg-emerald-600 text-white"
-                          : "bg-indigo-600 text-white"
-                        : "bg-slate-100 text-slate-600 border border-slate-200"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                      <span className="font-black text-xs sm:text-sm text-slate-900">{sub.title}</span>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                        isCh3 ? "bg-amber-100 text-amber-800" : isG5 ? "bg-emerald-100 text-emerald-800" : "bg-indigo-100 text-indigo-800"
-                      }`}>
-                        پایه {toPersianDigits(sub.gradeLevel)}
-                      </span>
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-slate-500 font-semibold mt-0.5 line-clamp-1">{sub.chapterTitle}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1.5 shrink-0 mr-1">
-                  <div
-                    className={`w-5 h-5 rounded-full flex items-center justify-center border ${
-                      isSelected
-                        ? isCh3
-                          ? "bg-amber-600 border-amber-600 text-white"
-                          : isG5
-                          ? "bg-emerald-600 border-emerald-600 text-white"
-                          : "bg-indigo-600 border-indigo-600 text-white"
-                        : "border-slate-300 bg-white"
-                    }`}
-                  >
-                    {isSelected && <Check className="w-3 h-3 stroke-3" />}
-                  </div>
-                </div>
-              </button>
-            );
-          })}
+                پایه {toPersianDigits(taxonomy.gradeLevel)} دبستان
+              </span>
+              <h2 className="font-black text-xs sm:text-sm text-slate-900 leading-tight">
+                {taxonomy.title}: {taxonomy.chapterTitle}
+              </h2>
+            </div>
+            <p className="text-[11px] text-slate-500 font-medium line-clamp-1">{taxonomy.description}</p>
+          </div>
         </div>
+
+        <button
+          type="button"
+          onClick={openSelector}
+          className="min-h-[40px] px-3.5 py-2 bg-slate-50 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 border border-slate-200 hover:border-indigo-300 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 self-stretch sm:self-auto justify-center"
+          title="تغییر کتاب یا پایه تحصیلی"
+        >
+          <BookOpen className="w-4 h-4 text-indigo-600" />
+          <span>تغییر کتاب یا پایه</span>
+        </button>
       </div>
 
       {/* 2. Fast Batch Presets Bar */}

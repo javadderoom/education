@@ -950,18 +950,18 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
-    "mtime": 1793518359.0377152,
-    "ast_hash": "e9440333d4b465b165ddcca0a531aa44",
+    "mtime": 1793725043.2892623,
+    "ast_hash": "62c7fb384ce310f9bccc04f6804d6b30",
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1793518132.3877277,
-    "ast_hash": "c46933bed3ed19a27865967a7263ee15",
+    "mtime": 1793724955.625456,
+    "ast_hash": "5ad8836b51b75f982755fa31a3c3b6d7",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1793651394.2714972,
-    "ast_hash": "432133dc98596695fa3378e2f0aa607e",
+    "mtime": 1793724914.4242704,
+    "ast_hash": "1c28f0bb18b501abb19161acd3ec64c7",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
@@ -980,8 +980,8 @@
     "semantic_hash": ""
   },
   "web/components/hub/AssessmentsHub.tsx": {
-    "mtime": 1793633573.15409,
-    "ast_hash": "e7f3cac38ec5f48f0efdd58ece6f1766",
+    "mtime": 1793724981.473035,
+    "ast_hash": "8ac16104b2c17e26910ae7ebaa052fdb",
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {

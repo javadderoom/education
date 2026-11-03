@@ -3,9 +3,11 @@ import React from "react";
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ExamTopicSelector } from "../components/curriculum/ExamTopicSelector";
+import { CANONICAL_TAXONOMIES } from "@/lib/data/curriculum-taxonomy";
+import * as curriculumStore from "@/lib/store/curriculum-store";
 
 describe("ExamTopicSelector Component", () => {
-  it("renders course selection tabs and canonical Grade 4 syllabus by default", () => {
+  it("renders active curriculum context banner and canonical Grade 4 syllabus by default", () => {
     const handleStart = vi.fn();
     render(
       <ExamTopicSelector
@@ -16,8 +18,10 @@ describe("ExamTopicSelector Component", () => {
 
     // Header & title
     expect(screen.getByText("تنظیم هوشمند سرفصل‌های آزمون تشخیصی")).toBeInTheDocument();
-    expect(screen.getAllByText("ریاضی چهارم ابتدایی")).toHaveLength(2);
-    expect(screen.getByText("ریاضی پنجم ابتدایی")).toBeInTheDocument();
+    
+    // Active curriculum context banner
+    expect(screen.getByText(/مفهوم و محاسبات کسرها/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /تغییر کتاب یا پایه/i })).toBeInTheDocument();
 
     // Check categories for Grade 4 Chapter 2
     expect(screen.getByText("بخش ۱: مبانی و شناخت کسر")).toBeInTheDocument();
@@ -30,42 +34,69 @@ describe("ExamTopicSelector Component", () => {
     ).toBeInTheDocument();
   });
 
-  it("switches course to Grade 4 Chapter 3 (Multiplication & Division)", () => {
+  it("renders syllabus for Grade 4 Chapter 3 (Multiplication & Division)", () => {
     const handleStart = vi.fn();
     render(
       <ExamTopicSelector
-        initialSubjectId="SUBJ-MATH4-FRACTIONS"
+        initialSubjectId="SUBJ-MATH4-CH03"
         onStartExam={handleStart}
       />
     );
 
-    const multDivCard = screen.getByText("فصل سوم: ضرب و تقسیم").closest("button");
-    expect(multDivCard).toBeInTheDocument();
-    fireEvent.click(multDivCard!);
-
-    // Grade 4 Chapter 3 categories should now be visible
+    // Grade 4 Chapter 3 categories should be visible
+    expect(screen.getAllByText(/ضرب و تقسیم/i).length).toBeGreaterThan(0);
     expect(screen.getByText("بخش ۱: الگوها و الگوریتم‌های ضرب")).toBeInTheDocument();
     expect(screen.getByText("بخش ۲: مفهوم و الگوریتم‌های تقسیم")).toBeInTheDocument();
     expect(screen.getByText("بخش ۳: تخمین و محاسبات تقریبی")).toBeInTheDocument();
   });
 
-  it("switches course to Grade 5 and loads Ratio/Percentage syllabus", () => {
+  it("renders syllabus for Grade 5 Ratio/Percentage", () => {
     const handleStart = vi.fn();
     render(
       <ExamTopicSelector
-        initialSubjectId="SUBJ-MATH4-FRACTIONS"
+        initialSubjectId="SUBJ-MATH5-RATIO"
         onStartExam={handleStart}
       />
     );
 
-    const grade5Tab = screen.getByText("ریاضی پنجم ابتدایی").closest("button");
-    expect(grade5Tab).toBeInTheDocument();
-    fireEvent.click(grade5Tab!);
-
-    // Grade 5 categories should now be visible
+    // Grade 5 categories should be visible
+    expect(screen.getByText(/نسبت، تناسب و درصد/i)).toBeInTheDocument();
     expect(screen.getByText("بخش ۱: شناخت نسبت و روابط تناسبی")).toBeInTheDocument();
     expect(screen.getByText("بخش ۲: جدول تناسب و مسائل تسهیم")).toBeInTheDocument();
     expect(screen.getByText("بخش ۳: درصد و کاربردهای مالی")).toBeInTheDocument();
+  });
+
+  it("triggers openSelector when 'تغییر کتاب یا پایه' button is clicked", () => {
+    const mockOpenSelector = vi.fn();
+    vi.spyOn(curriculumStore, "useCurriculumStore").mockReturnValue({
+      selectedGrade: 4,
+      selectedSubjectId: "SUBJ-MATH4-FRACTIONS",
+      activeTaxonomy: CANONICAL_TAXONOMIES["SUBJ-MATH4-FRACTIONS"],
+      setGrade: vi.fn(),
+      setSubject: vi.fn(),
+      isSelectorOpen: false,
+      openSelector: mockOpenSelector,
+      closeSelector: vi.fn(),
+      toggleSelector: vi.fn(),
+      frameworks: [],
+      activeFramework: null,
+      tierDefinitions: curriculumStore.DEFAULT_TIER_DEFINITIONS,
+      treeNodes: [],
+      refreshCurriculumFromDb: vi.fn(),
+    });
+
+    render(
+      <ExamTopicSelector
+        initialSubjectId="SUBJ-MATH4-FRACTIONS"
+        onStartExam={vi.fn()}
+      />
+    );
+
+    const changeBtn = screen.getByRole("button", { name: /تغییر کتاب یا پایه/i });
+    fireEvent.click(changeBtn);
+
+    expect(mockOpenSelector).toHaveBeenCalledTimes(1);
+    vi.restoreAllMocks();
   });
 
   it("supports batch category toggle and preset buttons", () => {

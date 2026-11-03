@@ -1,16 +1,16 @@
 # Graph Report - education  (2026-11-03)
 
 ## Corpus Check
-- 207 files · ~317,761 words
+- 207 files · ~317,752 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3193 nodes · 6556 edges · 165 communities (157 shown, 8 thin omitted)
+- 3193 nodes · 6565 edges · 164 communities (156 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 52 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4eaf2ea7`
+- Built from commit: `0d67827b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -162,7 +162,6 @@
 - [[_COMMUNITY_Community 146|Community 146]]
 - [[_COMMUNITY_Community 149|Community 149]]
 - [[_COMMUNITY_Community 150|Community 150]]
-- [[_COMMUNITY_Community 152|Community 152]]
 - [[_COMMUNITY_Community 153|Community 153]]
 - [[_COMMUNITY_Community 154|Community 154]]
 - [[_COMMUNITY_Community 155|Community 155]]
@@ -203,7 +202,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (165 total, 8 thin omitted)
+## Communities (164 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.03
@@ -418,8 +417,8 @@ Cohesion: 0.10
 Nodes (19): Clean Up, Code Quality, Color & Contrast, Content & Copy, Design System Discovery, Edge Cases & Error States, Final Verification, Forms & Inputs (+11 more)
 
 ### Community 53 - "Community 53"
-Cohesion: 0.09
-Nodes (27): metadata, vazirmatn, viewport, ExamTopicSelector(), ExamTopicSelectorProps, CANONICAL_TAXONOMIES, getAvailableGrades(), getSubjectsByGrade() (+19 more)
+Cohesion: 0.08
+Nodes (37): CurriculumFrameworkDTO, CurriculumNodeDTO, TierDefinition, metadata, vazirmatn, viewport, StudentAssessmentView(), StudentAssessmentViewProps (+29 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.10
@@ -507,7 +506,7 @@ Nodes (39): hasGeneratedHeader(), HEADER_MARKERS, isGeneratedFile(), isGitIgnore
 
 ### Community 75 - "Community 75"
 Cohesion: 0.09
-Nodes (35): LearnerProfileSummary, AssessmentCarouselProps, DiagnosticItemData, DistractorItem, KCMasteryInfo, MasteryRadar(), MasteryRadarProps, CurationStudioProps (+27 more)
+Nodes (36): LearnerProfileSummary, AssessmentCarousel(), AssessmentCarouselProps, DiagnosticItemData, DistractorItem, KCMasteryInfo, MasteryRadar(), MasteryRadarProps (+28 more)
 
 ### Community 76 - "Community 76"
 Cohesion: 0.12
@@ -518,8 +517,8 @@ Cohesion: 0.17
 Nodes (11): ۱. نقشه راه کشف و جمع‌آوری محتوا (Content Sourcing Architecture), ۱.۱. مخازن مدارس و آموزش و پرورش (K-12 Ecosystem), ۱.۲. مخازن آموزش عالی و آکادمیک (Higher Education & Research), ۲. کالبدشکافی چالش‌های استخراج متن فارسی و اسناد چندرسانه‌ای, ۲.۱. مصیبت فونت‌های InDesign و انکودینگ سفارشی (Custom CMap Problem), ۲.۲. درهم‌تنیدگی متن، تصویر و فرمول (Multimodal Entanglement), ۳. معماری خط لوله مهندسی استخراج متن و تصویر (FOSS Pipeline), ۳.۱. ابزارهای خط لوله و نقش مهندسی هر کدام: (+3 more)
 
 ### Community 78 - "Community 78"
-Cohesion: 0.19
-Nodes (20): createCurriculumNodeAction(), CreateCurriculumNodeInput, CurriculumFrameworkDTO, CurriculumNodeDTO, deleteCurriculumNodeAction(), getCurriculumFrameworksAction(), getCurriculumTreeAction(), reorderCurriculumNodesAction() (+12 more)
+Cohesion: 0.14
+Nodes (23): AdminStats, createClassroomAction(), deleteUserAction(), getAdminOverviewStats(), getAdminUsersList(), createCurriculumNodeAction(), CreateCurriculumNodeInput, deleteCurriculumNodeAction() (+15 more)
 
 ### Community 79 - "Community 79"
 Cohesion: 0.17
@@ -726,8 +725,8 @@ Cohesion: 0.50
 Nodes (3): Agentation Setup, Notes, Steps
 
 ### Community 131 - "Community 131"
-Cohesion: 0.15
-Nodes (20): AdminStats, createClassroomAction(), deleteUserAction(), getAdminOverviewStats(), getAdminUsersList(), AuthResponse, loginStaffAction(), loginStudentAction() (+12 more)
+Cohesion: 0.36
+Nodes (9): AuthResponse, loginStaffAction(), loginStudentAction(), logoutAction(), registerStudentAction(), registerTeacherAction(), clearAuthSession(), setAuthSession() (+1 more)
 
 ### Community 132 - "Community 132"
 Cohesion: 0.50
@@ -758,8 +757,8 @@ Cohesion: 0.50
 Nodes (3): candidates, detectorPath, __dirname
 
 ### Community 139 - "Community 139"
-Cohesion: 0.15
-Nodes (12): LandingPage(), metadata, HubHero(), HubHeroProps, HubNavTabs(), HubNavTabsProps, HubTabKey, LearningHub() (+4 more)
+Cohesion: 0.13
+Nodes (13): LandingPage(), metadata, AssessmentsHub(), HubHero(), HubHeroProps, HubNavTabs(), HubNavTabsProps, HubTabKey (+5 more)
 
 ### Community 140 - "Community 140"
 Cohesion: 0.26
@@ -774,12 +773,8 @@ Cohesion: 0.52
 Nodes (5): getOfflineSessions(), OfflineSessionRecord, openOfflineDatabase(), saveOfflineSession(), syncOfflineSessionsToCloud()
 
 ### Community 150 - "Community 150"
-Cohesion: 0.10
-Nodes (31): ClassDiagnosticSummary, createOrSelectLearner(), getClassDiagnosticStats(), getLearnersList(), KCDiagnosticStat, MisconceptionDiagnosticStat, getStudentMasteryStates(), saveAssessmentSession() (+23 more)
-
-### Community 152 - "Community 152"
-Cohesion: 0.29
-Nodes (8): getCurrentUserAction(), AssessmentCarousel(), StudentAssessmentView(), StudentAssessmentViewProps, CanonicalCartridge, metadata, StudentPage(), StudentPageProps
+Cohesion: 0.09
+Nodes (35): ClassDiagnosticSummary, createOrSelectLearner(), getClassDiagnosticStats(), getLearnersList(), KCDiagnosticStat, MisconceptionDiagnosticStat, getStudentMasteryStates(), saveAssessmentSession() (+27 more)
 
 ### Community 153 - "Community 153"
 Cohesion: 0.50

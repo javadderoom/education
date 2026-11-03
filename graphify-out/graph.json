@@ -20580,7 +20580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "actions_admin",
-      "community": 131,
+      "community": 78,
       "norm_label": "admin.ts"
     },
     {
@@ -20590,7 +20590,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "actions_admin_adminstats",
-      "community": 131,
+      "community": 78,
       "norm_label": "adminstats"
     },
     {
@@ -20600,7 +20600,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "actions_admin_getadminoverviewstats",
-      "community": 131,
+      "community": 78,
       "norm_label": "getadminoverviewstats()"
     },
     {
@@ -20610,7 +20610,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "actions_admin_getadminuserslist",
-      "community": 131,
+      "community": 78,
       "norm_label": "getadminuserslist()"
     },
     {
@@ -20620,7 +20620,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "actions_admin_createclassroomaction",
-      "community": 131,
+      "community": 78,
       "norm_label": "createclassroomaction()"
     },
     {
@@ -20630,7 +20630,7 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "actions_admin_deleteuseraction",
-      "community": 131,
+      "community": 78,
       "norm_label": "deleteuseraction()"
     },
     {
@@ -20830,7 +20830,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "actions_auth_getcurrentuseraction",
-      "community": 152,
+      "community": 150,
       "norm_label": "getcurrentuseraction()"
     },
     {
@@ -20850,7 +20850,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "actions_curriculum_tierdefinition",
-      "community": 78,
+      "community": 53,
       "norm_label": "tierdefinition"
     },
     {
@@ -20860,7 +20860,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "actions_curriculum_curriculumframeworkdto",
-      "community": 78,
+      "community": 53,
       "norm_label": "curriculumframeworkdto"
     },
     {
@@ -20870,7 +20870,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "actions_curriculum_curriculumnodedto",
-      "community": 78,
+      "community": 53,
       "norm_label": "curriculumnodedto"
     },
     {
@@ -20970,7 +20970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_page",
-      "community": 131,
+      "community": 78,
       "norm_label": "page.tsx"
     },
     {
@@ -20980,7 +20980,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "admin_page_metadata",
-      "community": 131,
+      "community": 78,
       "norm_label": "metadata"
     },
     {
@@ -20990,7 +20990,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "admin_page_adminpage",
-      "community": 131,
+      "community": 78,
       "norm_label": "adminpage()"
     },
     {
@@ -21170,7 +21170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "student_page",
-      "community": 152,
+      "community": 150,
       "norm_label": "page.tsx"
     },
     {
@@ -21180,7 +21180,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "student_page_metadata",
-      "community": 152,
+      "community": 150,
       "norm_label": "metadata"
     },
     {
@@ -21190,7 +21190,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "student_page_studentpageprops",
-      "community": 152,
+      "community": 150,
       "norm_label": "studentpageprops"
     },
     {
@@ -21200,7 +21200,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "student_page_studentpage",
-      "community": 152,
+      "community": 150,
       "norm_label": "studentpage()"
     },
     {
@@ -21270,7 +21270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_admindashboardclient",
-      "community": 131,
+      "community": 78,
       "norm_label": "admindashboardclient.tsx"
     },
     {
@@ -21280,7 +21280,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "admin_admindashboardclient_admindashboardclientprops",
-      "community": 131,
+      "community": 78,
       "norm_label": "admindashboardclientprops"
     },
     {
@@ -21290,7 +21290,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "admin_admindashboardclient_admindashboardclient",
-      "community": 131,
+      "community": 78,
       "norm_label": "admindashboardclient()"
     },
     {
@@ -21320,7 +21320,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "admin_curriculummanager_curriculummanager",
-      "community": 131,
+      "community": 78,
       "norm_label": "curriculummanager()"
     },
     {
@@ -21370,7 +21370,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "assessment_assessmentcarousel_assessmentcarousel",
-      "community": 152,
+      "community": 75,
       "norm_label": "assessmentcarousel()"
     },
     {
@@ -21420,27 +21420,27 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "assessment_studentassessmentview",
-      "community": 152,
+      "community": 53,
       "norm_label": "studentassessmentview.tsx"
     },
     {
       "label": "StudentAssessmentViewProps",
       "file_type": "code",
       "source_file": "web/components/assessment/StudentAssessmentView.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "assessment_studentassessmentview_studentassessmentviewprops",
-      "community": 152,
+      "community": 53,
       "norm_label": "studentassessmentviewprops"
     },
     {
       "label": "StudentAssessmentView()",
       "file_type": "code",
       "source_file": "web/components/assessment/StudentAssessmentView.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "assessment_studentassessmentview_studentassessmentview",
-      "community": 152,
+      "community": 53,
       "norm_label": "studentassessmentview()"
     },
     {
@@ -21537,7 +21537,7 @@
       "label": "ExamTopicSelectorProps",
       "file_type": "code",
       "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "curriculum_examtopicselector_examtopicselectorprops",
       "community": 53,
@@ -21547,7 +21547,7 @@
       "label": "ExamTopicSelector()",
       "file_type": "code",
       "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "curriculum_examtopicselector_examtopicselector",
       "community": 53,
@@ -21560,17 +21560,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hub_assessmentshub",
-      "community": 53,
+      "community": 139,
       "norm_label": "assessmentshub.tsx"
     },
     {
       "label": "AssessmentsHub()",
       "file_type": "code",
       "source_file": "web/components/hub/AssessmentsHub.tsx",
-      "source_location": "L18",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "hub_assessmentshub_assessmentshub",
-      "community": 53,
+      "community": 139,
       "norm_label": "assessmentshub()"
     },
     {
@@ -22090,7 +22090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_session",
-      "community": 131,
+      "community": 78,
       "norm_label": "session.ts"
     },
     {
@@ -22580,7 +22580,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "data_cartridge_canonicalcartridge",
-      "community": 152,
+      "community": 53,
       "norm_label": "canonicalcartridge"
     },
     {
@@ -22610,7 +22610,7 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "data_cartridge_listavailablecartridges",
-      "community": 131,
+      "community": 78,
       "norm_label": "listavailablecartridges()"
     },
     {
@@ -22660,7 +22660,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "data_curriculum_taxonomy_subjecttaxonomy",
-      "community": 78,
+      "community": 53,
       "norm_label": "subjecttaxonomy"
     },
     {
@@ -22850,7 +22850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "store_curriculum_store",
-      "community": 78,
+      "community": 53,
       "norm_label": "curriculum-store.tsx"
     },
     {
@@ -22860,7 +22860,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "store_curriculum_store_default_tier_definitions",
-      "community": 78,
+      "community": 53,
       "norm_label": "default_tier_definitions"
     },
     {
@@ -22870,7 +22870,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "store_curriculum_store_curriculumcontexttype",
-      "community": 78,
+      "community": 53,
       "norm_label": "curriculumcontexttype"
     },
     {
@@ -22880,7 +22880,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "store_curriculum_store_defaultcontextvalue",
-      "community": 78,
+      "community": 53,
       "norm_label": "defaultcontextvalue"
     },
     {
@@ -22890,7 +22890,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "store_curriculum_store_curriculumcontext",
-      "community": 78,
+      "community": 53,
       "norm_label": "curriculumcontext"
     },
     {
@@ -86102,6 +86102,39 @@
       "target": "curriculum_examtopicselector_examtopicselector"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_ui_topic_selector_test",
+      "target": "data_curriculum_taxonomy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_ui_topic_selector_test",
+      "target": "data_curriculum_taxonomy_canonical_taxonomies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/__tests__/ui-topic-selector.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_ui_topic_selector_test",
+      "target": "store_curriculum_store",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/actions/admin.ts",
@@ -89235,6 +89268,28 @@
       "target": "data_cartridge_canonicalcartridge"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "store_curriculum_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview",
+      "target": "store_curriculum_store_usecurriculumstore",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
@@ -89244,6 +89299,17 @@
       "confidence_score": 1.0,
       "source": "assessment_studentassessmentview_studentassessmentviewprops",
       "target": "data_cartridge_canonicalcartridge"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/components/assessment/StudentAssessmentView.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "assessment_studentassessmentview_studentassessmentview",
+      "target": "store_curriculum_store_usecurriculumstore"
     },
     {
       "relation": "contains",
@@ -89667,6 +89733,28 @@
       "target": "math_persian_digits_topersiandigits"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "store_curriculum_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector",
+      "target": "store_curriculum_store_usecurriculumstore",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -89676,6 +89764,17 @@
       "weight": 1.0,
       "source": "curriculum_examtopicselector_examtopicselector",
       "target": "math_persian_digits_topersiandigits"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/components/curriculum/ExamTopicSelector.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "curriculum_examtopicselector_examtopicselector",
+      "target": "store_curriculum_store_usecurriculumstore"
     },
     {
       "relation": "imports_from",
@@ -90296,9 +90395,9 @@
       "source_file": "web/components/navigation/GradeCourseModal.tsx",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "navigation_gradecoursemodal",
-      "target": "navigation_gradecoursemodal_educational_stages",
-      "confidence_score": 1.0
+      "target": "navigation_gradecoursemodal_educational_stages"
     },
     {
       "relation": "contains",
@@ -90306,9 +90405,9 @@
       "source_file": "web/components/navigation/GradeCourseModal.tsx",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "navigation_gradecoursemodal",
-      "target": "navigation_gradecoursemodal_educationalstage",
-      "confidence_score": 1.0
+      "target": "navigation_gradecoursemodal_educationalstage"
     },
     {
       "relation": "contains",
@@ -101068,5 +101167,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4eaf2ea77b4292d31e6001d4631a11ea112e9f62"
+  "built_at_commit": "0d67827b92c03be643efbbe053d82e5bfe1d4c23"
 }
