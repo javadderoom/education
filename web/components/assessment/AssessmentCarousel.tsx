@@ -354,19 +354,19 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           <div className="grid grid-cols-3 gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-5 text-center">
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">پاسخ‌های صحیح</span>
-              <span className="text-lg font-black text-emerald-600 font-mono" dir="ltr">
+              <span className="text-lg font-black text-emerald-600" dir="ltr">
                 {toPersianDigits(correctCount)} / {toPersianDigits(history.length || activeItems.length)}
               </span>
             </div>
             <div className="p-1 border-x border-slate-200">
               <span className="text-[11px] text-slate-500 block mb-1">بدون اطمینان</span>
-              <span className="text-lg font-black text-amber-600 font-mono" dir="ltr">
+              <span className="text-lg font-black text-amber-600" dir="ltr">
                 {toPersianDigits(history.filter((h) => h.isNotSure).length)}
               </span>
             </div>
             <div className="p-1">
               <span className="text-[11px] text-slate-500 block mb-1">میانگین تسلط</span>
-              <span className="text-lg font-black text-indigo-600 font-mono" dir="ltr">
+              <span className="text-lg font-black text-indigo-600" dir="ltr">
                 {toPersianDigits(averageMastery)}٪
               </span>
             </div>
@@ -425,7 +425,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         <div className="flex-1 min-w-[140px]">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
             <span>سوال {toPersianDigits(history.length + 1)} از {toPersianDigits(activeItems.length)}</span>
-            <span className="font-mono text-indigo-600" dir="ltr">
+            <span className="font-bold text-indigo-600" dir="ltr">
               {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, activeItems.length)) * 100)))}٪
             </span>
           </div>

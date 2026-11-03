@@ -93,7 +93,7 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
           </div>
           <div>
             <span className="text-[11px] font-bold text-slate-500 block">میانگین تسلط کلاسی:</span>
-            <span className="text-sm font-black text-emerald-700 font-mono" dir="ltr">
+            <span className="text-sm font-black text-emerald-700" dir="ltr">
               {toPersianDigits(calculatedAvgMastery)}٪
             </span>
           </div>
@@ -149,7 +149,7 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeStyle}`}>
                       {statusLabel}
                     </span>
-                    <span className="font-mono font-bold text-slate-900" dir="ltr">
+                    <span className="font-bold text-slate-900" dir="ltr">
                       {toPersianDigits(kc.averageMastery)}٪
                     </span>
                   </div>
@@ -190,7 +190,7 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
               >
                 <div className="flex justify-between items-start gap-2 mb-2">
                   <span className="font-bold text-xs text-slate-900">{item.title}</span>
-                  <span className="font-mono text-xs font-black text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg shrink-0" dir="ltr">
+                  <span className="text-xs font-black text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg shrink-0" dir="ltr">
                     {toPersianDigits(item.prevalencePercent)}٪ شیوع ({toPersianDigits(item.detectedCount)} نفر)
                   </span>
                 </div>

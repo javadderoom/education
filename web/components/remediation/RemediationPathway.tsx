@@ -91,7 +91,7 @@ export const RemediationPathway: React.FC<RemediationPathwayProps> = ({
           </div>
         ) : (
           <p className="text-xs text-center text-slate-500 mb-4">
-            تعداد تکه‌های رنگ‌شده فعلی: <b className="text-indigo-600 font-mono text-sm">{toPersianDigits(coloredCount)}</b> از {toPersianDigits(5)}
+            تعداد تکه‌های رنگ‌شده فعلی: <b className="text-indigo-600 font-bold text-sm">{toPersianDigits(coloredCount)}</b> از {toPersianDigits(5)}
           </p>
         )}
 

@@ -51,7 +51,7 @@ export const MasteryRadar: React.FC<MasteryRadarProps> = ({ masteryList }) => {
                 <span className="font-medium text-slate-700 truncate max-w-[260px]">
                   {kc.title}
                 </span>
-                <span className={`font-mono font-bold px-1.5 py-0.5 rounded text-[11px] ${badgeColor}`} dir="ltr">
+                <span className={`font-bold px-1.5 py-0.5 rounded text-[11px] ${badgeColor}`} dir="ltr">
                   {toPersianDigits(percent)}٪
                 </span>
               </div>

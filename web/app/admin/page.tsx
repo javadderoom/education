@@ -76,7 +76,7 @@ export default async function AdminPage() {
             <Users className="w-5 h-5" />
           </div>
           <span className="text-[11px] font-bold text-slate-500 block">دانش‌آموزان:</span>
-          <span className="text-xl font-black text-slate-900 font-mono" dir="ltr">
+          <span className="text-xl font-black text-slate-900" dir="ltr">
             {toPersianDigits(stats.totalStudents)}
           </span>
         </div>
@@ -86,7 +86,7 @@ export default async function AdminPage() {
             <GraduationCap className="w-5 h-5" />
           </div>
           <span className="text-[11px] font-bold text-slate-500 block">آموزگاران:</span>
-          <span className="text-xl font-black text-slate-900 font-mono" dir="ltr">
+          <span className="text-xl font-black text-slate-900" dir="ltr">
             {toPersianDigits(stats.totalTeachers)}
           </span>
         </div>
@@ -96,7 +96,7 @@ export default async function AdminPage() {
             <School className="w-5 h-5" />
           </div>
           <span className="text-[11px] font-bold text-slate-500 block">کلاس‌های درسی:</span>
-          <span className="text-xl font-black text-slate-900 font-mono" dir="ltr">
+          <span className="text-xl font-black text-slate-900" dir="ltr">
             {toPersianDigits(stats.totalClassrooms)}
           </span>
         </div>
@@ -106,7 +106,7 @@ export default async function AdminPage() {
             <BarChart3 className="w-5 h-5" />
           </div>
           <span className="text-[11px] font-bold text-slate-500 block">جلسات آزمون:</span>
-          <span className="text-xl font-black text-slate-900 font-mono" dir="ltr">
+          <span className="text-xl font-black text-slate-900" dir="ltr">
             {toPersianDigits(stats.totalSessions)}
           </span>
         </div>
@@ -116,7 +116,7 @@ export default async function AdminPage() {
             <BookOpen className="w-5 h-5" />
           </div>
           <span className="text-[11px] font-bold text-slate-500 block">سوالات فعال:</span>
-          <span className="text-xl font-black text-slate-900 font-mono" dir="ltr">
+          <span className="text-xl font-black text-slate-900" dir="ltr">
             {toPersianDigits(stats.totalItems)}
           </span>
         </div>

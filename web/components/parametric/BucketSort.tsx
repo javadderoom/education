@@ -57,7 +57,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
               unassigned.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center gap-1.5 bg-indigo-50 border border-indigo-200 text-indigo-700 px-3 py-1.5 rounded-lg text-sm font-bold font-mono"
+                  className="flex items-center gap-1.5 bg-indigo-50 border border-indigo-200 text-indigo-700 px-3 py-1.5 rounded-lg text-sm font-bold"
                   dir="ltr"
                 >
                   <span>{toPersianDigits(item.label)}</span>
@@ -95,7 +95,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
               {bucketA.map((item) => (
                 <span
                   key={item.id}
-                  className="text-xs font-mono font-bold bg-white text-blue-700 border border-blue-200 px-2 py-1 rounded shadow-sm"
+                  className="text-xs font-bold bg-white text-blue-700 border border-blue-200 px-2 py-1 rounded shadow-sm"
                   dir="ltr"
                 >
                   {toPersianDigits(item.label)}
@@ -112,7 +112,7 @@ export const BucketSort: React.FC<BucketSortProps> = ({
               {bucketB.map((item) => (
                 <span
                   key={item.id}
-                  className="text-xs font-mono font-bold bg-white text-emerald-700 border border-emerald-200 px-2 py-1 rounded shadow-sm"
+                  className="text-xs font-bold bg-white text-emerald-700 border border-emerald-200 px-2 py-1 rounded shadow-sm"
                   dir="ltr"
                 >
                   {toPersianDigits(item.label)}

@@ -241,7 +241,7 @@ export const AdminDashboardClient: React.FC<AdminDashboardClientProps> = ({
                 </div>
                 <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-slate-700">
                   <span>تعداد دانش‌آموزان:</span>
-                  <span className="font-mono text-indigo-700" dir="ltr">{toPersianDigits(c.studentsCount)} نفر</span>
+                  <span className="font-bold text-indigo-700" dir="ltr">{toPersianDigits(c.studentsCount)} نفر</span>
                 </div>
               </div>
             ))}
@@ -378,7 +378,7 @@ export const AdminDashboardClient: React.FC<AdminDashboardClientProps> = ({
                 </div>
                 <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs font-bold text-slate-700">
                   <span>تعداد سوالات تشخیصی مصوب:</span>
-                  <span className="font-mono text-indigo-700" dir="ltr">
+                  <span className="font-bold text-indigo-700" dir="ltr">
                     {toPersianDigits(curr.itemCount)} سوال
                   </span>
                 </div>

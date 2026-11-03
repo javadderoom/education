@@ -96,7 +96,7 @@ export default function WorkshopPage() {
           <div className="space-y-6">
             <div className="flex justify-between items-center text-xs font-bold text-slate-700 border-b border-slate-100 pb-3">
               <span>ابزار نوار رنگ‌آمیزی:</span>
-              <span className="font-mono text-indigo-700 text-sm" dir="ltr">
+              <span className="font-bold text-indigo-700 text-sm" dir="ltr">
                 {toPersianDigits(stripColored)} / {toPersianDigits(stripSegments)}
               </span>
             </div>
@@ -113,7 +113,7 @@ export default function WorkshopPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
                   <span>تعداد کل قطعات واحد:</span>
-                  <span className="font-mono" dir="ltr">{toPersianDigits(stripSegments)}</span>
+                  <span className="font-bold" dir="ltr">{toPersianDigits(stripSegments)}</span>
                 </div>
                 <input
                   type="range"
@@ -132,7 +132,7 @@ export default function WorkshopPage() {
               <div>
                 <div className="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
                   <span>تعداد بخش‌های رنگ‌شده:</span>
-                  <span className="font-mono" dir="ltr">{toPersianDigits(stripColored)}</span>
+                  <span className="font-bold" dir="ltr">{toPersianDigits(stripColored)}</span>
                 </div>
                 <input
                   type="range"
@@ -213,7 +213,7 @@ export default function WorkshopPage() {
           <div className="space-y-6">
             <div className="flex justify-between items-center text-xs font-bold text-slate-700 border-b border-slate-100 pb-3">
               <span>{isGrade5 ? "شبکه ۱۰۰ تایی درصد:" : "شبکه مستطیلی کسر:"}</span>
-              <span className="font-mono text-indigo-700 text-sm" dir="ltr">
+              <span className="font-bold text-indigo-700 text-sm" dir="ltr">
                 {isGrade5 ? `${toPersianDigits(gridColored)}٪` : `${toPersianDigits(gridColored)} / ۶`}
               </span>
             </div>
@@ -230,7 +230,7 @@ export default function WorkshopPage() {
             <div className="pt-4 border-t border-slate-100">
               <div className="flex justify-between text-xs font-bold text-slate-600 mb-1.5">
                 <span>{isGrade5 ? "درصد پرشده:" : "تعداد خانه‌های رنگی:"}</span>
-                <span className="font-mono" dir="ltr">
+                <span className="font-bold" dir="ltr">
                   {isGrade5 ? `${toPersianDigits(gridColored)}٪` : toPersianDigits(gridColored)}
                 </span>
               </div>

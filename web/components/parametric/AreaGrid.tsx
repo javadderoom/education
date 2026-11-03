@@ -67,7 +67,7 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
 
         {!hideBadge && (
           <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-600">
-            <span dir="ltr" className="font-mono bg-slate-200 px-2 py-1 rounded">
+            <span dir="ltr" className="font-bold bg-slate-200 px-2 py-1 rounded">
               {toPersianDigits(coloredCount)} / {toPersianDigits(totalCells)}
             </span>
             {highlightFractionA && highlightFractionB && (

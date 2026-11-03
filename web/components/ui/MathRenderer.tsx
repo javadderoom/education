@@ -41,13 +41,13 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
             <span
               key={index}
               dir="ltr"
-              className="inline-block mx-1 font-mono text-indigo-700 align-middle select-none"
+              className="inline-block mx-1 font-bold text-indigo-700 align-middle select-none"
               dangerouslySetInnerHTML={{ __html: persianHtml }}
             />
           );
         } catch {
           return (
-            <span key={index} dir="ltr" className="inline-block mx-1 font-mono">
+            <span key={index} dir="ltr" className="inline-block mx-1 font-bold">
               {toPersianDigits(mathExpr)}
             </span>
           );

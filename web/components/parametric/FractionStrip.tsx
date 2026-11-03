@@ -95,7 +95,7 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
           })}
         </svg>
 
-        <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-400 font-mono" dir="ltr">
+        <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-400 font-semibold" dir="ltr">
           <span>{toPersianDigits(0)}</span>
           {!hideCounter && (
             <span className="text-slate-600 font-semibold">

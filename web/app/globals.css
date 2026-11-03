@@ -22,11 +22,25 @@
     overscroll-behavior-y: none;
   }
 
-  /* Math rendering isolation */
+  /* Math rendering isolation & Persian digits typography */
   .katex {
     font-size: 1.15em;
     direction: ltr !important;
     unicode-bidi: isolate;
+    font-family: KaTeX_Main, var(--font-vazirmatn), 'Vazirmatn', sans-serif !important;
+  }
+
+  .katex .mord,
+  .katex .minner,
+  .katex .mbin,
+  .katex .mrel,
+  .katex .text {
+    font-family: KaTeX_Main, KaTeX_Math, var(--font-vazirmatn), 'Vazirmatn', sans-serif;
+  }
+
+  /* SVG interactive diagrams Persian digits typography */
+  svg text {
+    font-family: var(--font-vazirmatn), 'Vazirmatn', sans-serif;
   }
 
   /* Prevent text input zooming on mobile Safari and inherit Vazirmatn font */

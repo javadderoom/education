@@ -86,14 +86,14 @@ export default async function MasteryPage({ searchParams }: PageProps) {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mt-4 text-center">
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
             <span className="text-[11px] text-slate-400 block mb-0.5">میانگین تسلط:</span>
-            <span className="text-base font-black text-indigo-700 font-mono" dir="ltr">
+            <span className="text-base font-black text-indigo-700" dir="ltr">
               {toPersianDigits(averageMastery)}٪
             </span>
           </div>
 
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
             <span className="text-[11px] text-slate-400 block mb-0.5">سرفصل‌های مسلط:</span>
-            <span className="text-base font-black text-emerald-700 font-mono" dir="ltr">
+            <span className="text-base font-black text-emerald-700" dir="ltr">
               {toPersianDigits(masteredCount)} از {toPersianDigits(masteries.length || 5)}
             </span>
           </div>
@@ -176,7 +176,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
                           </span>
                         )}
                         <span
-                          className="font-mono text-xs font-black text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-lg shrink-0"
+                          className="text-xs font-black text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-lg shrink-0"
                           dir="ltr"
                         >
                           {toPersianDigits(percent)}٪ تسلط

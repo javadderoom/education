@@ -360,18 +360,18 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1793514423.0304682,
-    "ast_hash": "5b34b1f14eb74e4006c359ea633cf5d2",
+    "mtime": 1793725467.7971935,
+    "ast_hash": "84d708cfac0ba0ce1b0466c906a74910",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
-    "mtime": 1793438736.4480715,
-    "ast_hash": "823f2fdef57234f30725f7e3db627730",
+    "mtime": 1793725542.843317,
+    "ast_hash": "f3ee0dfa4ed0668c0cca7d27b0b4dc8d",
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
-    "mtime": 1793442800.3066988,
-    "ast_hash": "306318e6201a16d8ada89c3a76a6524a",
+    "mtime": 1793725508.5821278,
+    "ast_hash": "9e22e1c30c7b71b73e0d93f6b220b1eb",
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
@@ -380,13 +380,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
-    "mtime": 1793438923.3753335,
-    "ast_hash": "e796b612884f2a93744b941b7da7d264",
+    "mtime": 1793725530.636446,
+    "ast_hash": "62b88a3da7973ccda85ee0afa199b3d5",
     "semantic_hash": ""
   },
   "web/components/parametric/FractionStrip.tsx": {
-    "mtime": 1793442784.4919052,
-    "ast_hash": "b2a83cc4bde5a2451b152a48529557e8",
+    "mtime": 1793725498.3975444,
+    "ast_hash": "2e730f1b8bb06bd207a953e026e99cb2",
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
@@ -400,8 +400,8 @@
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
-    "mtime": 1793438538.438623,
-    "ast_hash": "eec835fec2af09eece8676afec2d56e4",
+    "mtime": 1793725480.8631084,
+    "ast_hash": "0d573020267a7d3d77b213820edab33c",
     "semantic_hash": ""
   },
   "web/lib/bkt/diagnostics.ts": {
@@ -765,8 +765,8 @@
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationPathway.tsx": {
-    "mtime": 1793438756.3726914,
-    "ast_hash": "a006891c61814041ddfe3c4ae9fe720a",
+    "mtime": 1793725635.57131,
+    "ast_hash": "ae713ecdedf8866fcfe161b759b1358d",
     "semantic_hash": ""
   },
   "web/__tests__/persian-math.test.tsx": {
@@ -805,13 +805,13 @@
     "semantic_hash": ""
   },
   "web/app/student/mastery/page.tsx": {
-    "mtime": 1793477416.2931297,
-    "ast_hash": "d9afc11167880660a45a5094be97418c",
+    "mtime": 1793725564.161977,
+    "ast_hash": "33e9abdddde123743399fda7365ae338",
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
-    "mtime": 1793651044.3467765,
-    "ast_hash": "395035381359908b75f21fc76e6e7c88",
+    "mtime": 1793725593.5905502,
+    "ast_hash": "317be76a285134aa9ff11668fcd6adbe",
     "semantic_hash": ""
   },
   "web/components/navigation/BottomNav.tsx": {
@@ -840,8 +840,8 @@
     "semantic_hash": ""
   },
   "web/components/curation/DiagnosticHeatmap.tsx": {
-    "mtime": 1793450758.730877,
-    "ast_hash": "7dfb9bf25151ec5d3cfaceb90cfc01e0",
+    "mtime": 1793725623.7168672,
+    "ast_hash": "7e23b9bc5e29524f09dc5203bf26dd90",
     "semantic_hash": ""
   },
   "web/lib/bkt/adaptive.ts": {
@@ -895,8 +895,8 @@
     "semantic_hash": ""
   },
   "web/app/admin/page.tsx": {
-    "mtime": 1793459892.1671999,
-    "ast_hash": "2a5251361859b307e355946103dd0855",
+    "mtime": 1793725658.789803,
+    "ast_hash": "d4c83157d377844a44902ce276546462",
     "semantic_hash": ""
   },
   "web/app/login/page.tsx": {
@@ -905,8 +905,8 @@
     "semantic_hash": ""
   },
   "web/components/admin/AdminDashboardClient.tsx": {
-    "mtime": 1793652340.7531805,
-    "ast_hash": "a8c19f127c54afdc929b9bc986169c49",
+    "mtime": 1793725681.2804801,
+    "ast_hash": "a041d63ceeab340d944aedc9ad71ecd3",
     "semantic_hash": ""
   },
   "web/components/navigation/Header.tsx": {
