@@ -180,24 +180,20 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
           </g>
         </svg>
 
-        {/* Informative Educational Badges Below */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mt-2 text-xs font-semibold">
-          <span className="text-blue-800 bg-blue-50 px-2.5 py-1 rounded-xl border border-blue-200 shadow-2xs" dir="ltr">
-            کفه چپ: <b>{toPersianDigits(resolvedLeftLabel)}</b>
-          </span>
-
+        {/* Balance Status Badge */}
+        <div className="mt-2 text-center">
           <span
-            className={`px-2.5 py-1 rounded-xl border text-[11px] font-bold ${
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border text-xs font-bold ${
               isBalanced
                 ? "bg-emerald-50 text-emerald-800 border-emerald-300"
                 : "bg-amber-50 text-amber-800 border-amber-300"
             }`}
           >
-            {isBalanced ? "⚖️ تعادل برقرار است (برابر / متناسب)" : diff < 0 ? "کفه چپ سنگین‌تر است" : "کفه راست سنگین‌تر است"}
-          </span>
-
-          <span className="text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-xl border border-emerald-200 shadow-2xs" dir="ltr">
-            کفه راست: <b>{toPersianDigits(resolvedRightLabel)}</b>
+            {isBalanced
+              ? "⚖️ تعادل برقرار است (برابر / متناسب)"
+              : diff < 0
+              ? "کفه چپ سنگین‌تر است"
+              : "کفه راست سنگین‌تر است"}
           </span>
         </div>
       </div>

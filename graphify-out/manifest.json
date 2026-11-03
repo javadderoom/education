@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
-    "mtime": 1793726487.3133838,
-    "ast_hash": "7a895d0cc6560e18bda60baf6e9ddd5b",
+    "mtime": 1793726704.6358137,
+    "ast_hash": "24e6aa87d745a606e60f0ba9ff3ab62d",
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
