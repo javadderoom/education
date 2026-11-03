@@ -50,29 +50,12 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
           preserveAspectRatio="xMidYMid meet"
           className="w-full h-36 sm:h-40 overflow-visible"
         >
-          {/* Base Stand & Pillar */}
-          <polygon points="175,160 225,160 208,80 192,80" fill="#64748b" />
-          <rect x="140" y="152" width="120" height="12" rx="4" fill="#334155" />
-          
-          {/* Scale Dial Arc at fulcrum */}
-          <path d="M 185,82 Q 200,88 215,82" fill="none" stroke="#94a3b8" strokeWidth="2" />
-          {/* Central Fulcrum Pivot Ring */}
-          <circle cx={centerX} cy={beamY} r="8" fill="#0f172a" />
-          <circle cx={centerX} cy={beamY} r="3" fill="#ffffff" />
+          {/* Solid Central Stand & Pillar */}
+          <polygon points="170,154 230,154 206,55 194,55" fill="#475569" />
+          <rect x="135" y="150" width="130" height="12" rx="4" fill="#1e293b" />
 
           {/* Tilting Beam Assembly */}
           <g transform={`rotate(${tiltAngle}, ${centerX}, ${beamY})`}>
-            {/* Balance Needle / Indicator Pointer */}
-            <line
-              x1={centerX}
-              y1={beamY}
-              x2={centerX}
-              y2={beamY + 28}
-              stroke="#e11d48"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            />
-
             {/* Main Horizontal Beam Bar */}
             <line
               x1={centerX - beamWidth / 2}
@@ -83,6 +66,10 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
               strokeWidth="6"
               strokeLinecap="round"
             />
+
+            {/* Central Fulcrum Pivot Ring */}
+            <circle cx={centerX} cy={beamY} r="8" fill="#0f172a" />
+            <circle cx={centerX} cy={beamY} r="3" fill="#94a3b8" />
 
             {/* Left Beam Hook */}
             <circle cx={centerX - beamWidth / 2} cy={beamY} r="4" fill="#475569" />
