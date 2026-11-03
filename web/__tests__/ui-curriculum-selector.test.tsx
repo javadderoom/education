@@ -149,4 +149,42 @@ describe("Two-Tier Grade & Course Selection System", () => {
     // Modal opens
     expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
+
+  it("filters chapters dynamically using the quick search bar in Master-Detail modal", () => {
+    render(
+      <CurriculumProvider>
+        <SelectorTestHarness />
+      </CurriculumProvider>
+    );
+
+    fireEvent.click(screen.getByText("باز کردن انتخابگر"));
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+    const searchInput = screen.getByPlaceholderText(/جستجوی سریع در نام پایه‌ها/i);
+    expect(searchInput).toBeInTheDocument();
+
+    // Search for "ضرب"
+    fireEvent.change(searchInput, { target: { value: "ضرب" } });
+
+    // Should display matching chapter
+    expect(screen.getByText(/فصل سوم: ضرب و تقسیم/i)).toBeInTheDocument();
+  });
+
+  it("filters grades using educational stage pills", () => {
+    render(
+      <CurriculumProvider>
+        <SelectorTestHarness />
+      </CurriculumProvider>
+    );
+
+    fireEvent.click(screen.getByText("باز کردن انتخابگر"));
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+    // Click "دوره دوم ابتدایی (۴ تا ۶)" pill
+    const elem2Pill = screen.getByText("دوره دوم ابتدایی (۴ تا ۶)");
+    fireEvent.click(elem2Pill);
+
+    expect(screen.getByText(/پایه چهارم دبستان/i)).toBeInTheDocument();
+    expect(screen.getByText(/پایه پنجم دبستان/i)).toBeInTheDocument();
+  });
 });

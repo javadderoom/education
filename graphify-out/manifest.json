@@ -1015,13 +1015,13 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-curriculum-selector.test.tsx": {
-    "mtime": 1793651123.6889296,
-    "ast_hash": "6c0c8924222ddadbce1a7f3409a48b2d",
+    "mtime": 1793724247.3907962,
+    "ast_hash": "a52bab46ae2fc291df23eca39bd9a1af",
     "semantic_hash": ""
   },
   "web/components/navigation/GradeCourseModal.tsx": {
-    "mtime": 1793652393.3083782,
-    "ast_hash": "196c3490a7819933cdd11c81fd71306c",
+    "mtime": 1793724189.9452014,
+    "ast_hash": "1396225376da5fa05b1c0d190ff225e9",
     "semantic_hash": ""
   },
   "web/lib/store/curriculum-store.tsx": {
