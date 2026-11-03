@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
-    "mtime": 1793438641.7968373,
-    "ast_hash": "27d1004b410ddd6969bfc4238785e8ea",
+    "mtime": 1793726487.3133838,
+    "ast_hash": "7a895d0cc6560e18bda60baf6e9ddd5b",
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade5_math_ch3.json": {
-    "mtime": 1793451407.371958,
-    "ast_hash": "dd485873c7b0506229989790644955d0",
+    "mtime": 1793726523.1356294,
+    "ast_hash": "fa475cfd4b65443f1bb6d7e0c44564a4",
     "semantic_hash": ""
   },
   "web/__tests__/pipeline-grade5.test.ts": {

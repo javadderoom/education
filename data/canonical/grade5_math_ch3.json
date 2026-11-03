@@ -241,7 +241,7 @@
       "slip_param": 0.10,
       "visual_template": {
         "type": "BalanceScale",
-        "props": { "leftValue": 6, "rightValue": 9, "targetValue": 9 }
+        "props": { "leftValue": 1, "rightValue": 1, "leftLabel": "۲ به ۳", "rightLabel": "۶ به ؟", "targetValue": 9 }
       },
       "distractors": [
         {
@@ -376,7 +376,7 @@
       "slip_param": 0.10,
       "visual_template": {
         "type": "BalanceScale",
-        "props": { "leftValue": 12, "rightValue": 28, "targetValue": 28 }
+        "props": { "leftValue": 1, "rightValue": 1, "leftLabel": "۳ به ۱۲", "rightLabel": "۷ به ؟", "targetValue": 28 }
       },
       "distractors": [
         {
@@ -695,7 +695,7 @@
       "slip_param": 0.10,
       "visual_template": {
         "type": "BalanceScale",
-        "props": { "leftValue": 40, "rightValue": 160, "targetValue": 160 }
+        "props": { "leftValue": 20, "rightValue": 80, "leftLabel": "۲۰٪ تخفیف", "rightLabel": "۸۰٪ پرداختی", "targetValue": 160 }
       },
       "distractors": [
         {
