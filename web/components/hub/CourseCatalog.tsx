@@ -24,7 +24,7 @@ export interface CourseCatalogProps {
 }
 
 export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter = "all" }) => {
-  const { setSubject } = useCurriculumStore();
+  const { setSubject, openSelector } = useCurriculumStore();
   const [gradeFilter, setGradeFilter] = useState<number | "all">(initialGradeFilter);
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
 
@@ -34,6 +34,12 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
     if (gradeFilter === "all") return true;
     return course.gradeLevel === gradeFilter;
   });
+
+  const getCourseBadge = (courseId: string) => {
+    if (courseId === "SUBJ-MATH5-RATIO") return "فصل جدید";
+    if (courseId === "SUBJ-MATH4-FRACTIONS") return "مفاهیم پایه";
+    return "محاسباتی";
+  };
 
   const getCourseIcon = (courseId: string, grade: number) => {
     if (courseId.includes("CH03") || courseId.includes("MULT")) return Calculator;
@@ -81,72 +87,91 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
         <div>
           <div className="flex items-center gap-2 text-slate-900 font-black text-base">
             <BookOpen className="w-5 h-5 text-indigo-600" />
-            <span>کتاب‌ها و سرفصل‌های درسی فعال:</span>
+            <span>کتاب‌ها و سرفصل‌های درسی برگزیده:</span>
           </div>
           <p className="text-xs text-slate-500 mt-0.5">
-            درس و فصل مدنظر خود را برای شروع آزمون یا مرور کارگاه انتخاب کنید
+            فصل‌های شاخص برای شروع سریع، یا انتخاب سایر پایه‌ها و کتاب‌ها
           </p>
         </div>
 
-        {/* Grade Filter Pills */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200">
+        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+          {/* Grade Filter Pills */}
+          <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-xl border border-slate-200">
+            <button
+              type="button"
+              onClick={() => setGradeFilter("all")}
+              className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                gradeFilter === "all"
+                  ? "bg-white text-indigo-700 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              همه ({toPersianDigits(allCourses.length)})
+            </button>
+            <button
+              type="button"
+              onClick={() => setGradeFilter(4)}
+              className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                gradeFilter === 4
+                  ? "bg-white text-indigo-700 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              چهارم ({toPersianDigits(2)})
+            </button>
+            <button
+              type="button"
+              onClick={() => setGradeFilter(5)}
+              className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                gradeFilter === 5
+                  ? "bg-white text-indigo-700 shadow-2xs"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              پنجم ({toPersianDigits(1)})
+            </button>
+          </div>
+
+          {/* Master Selector Button */}
           <button
             type="button"
-            onClick={() => setGradeFilter("all")}
-            className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-              gradeFilter === "all"
-                ? "bg-white text-indigo-700 shadow-2xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
+            onClick={openSelector}
+            className="min-h-[34px] px-3 py-1 rounded-xl border border-indigo-200 bg-indigo-50/80 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs active:scale-95 shrink-0"
+            title="مشاهده همه کتاب‌ها و پایه‌ها"
           >
-            همه پایه‌ها ({toPersianDigits(allCourses.length)})
-          </button>
-          <button
-            type="button"
-            onClick={() => setGradeFilter(4)}
-            className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-              gradeFilter === 4
-                ? "bg-white text-indigo-700 shadow-2xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            پایه چهارم ({toPersianDigits(2)})
-          </button>
-          <button
-            type="button"
-            onClick={() => setGradeFilter(5)}
-            className={`py-1 px-2.5 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-              gradeFilter === 5
-                ? "bg-white text-indigo-700 shadow-2xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            پایه پنجم ({toPersianDigits(1)})
+            <BookOpen className="w-3.5 h-3.5 text-indigo-600" />
+            <span>همه پایه‌ها و کتاب‌ها</span>
           </button>
         </div>
       </div>
 
-      {/* Courses Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {filteredCourses.map((course) => {
+      {/* Courses Cards: Swipeable Carousel on Mobile, Responsive 3-col Grid on Desktop */}
+      <div className="flex overflow-x-auto pb-4 pt-1 px-1 -mx-1 gap-3.5 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:p-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        {filteredCourses.slice(0, 3).map((course) => {
           const Icon = getCourseIcon(course.id, course.gradeLevel);
           const theme = getCourseTheme(course.id, course.gradeLevel);
           const isExpanded = expandedCourseId === course.id;
           const displayTitle = getDisplayTitle(course);
+          const badgeText = getCourseBadge(course.id);
 
           return (
             <div
               key={course.id}
-              className={`border-2 rounded-3xl p-5 shadow-xs transition-all duration-200 flex flex-col justify-between bg-white ${theme.border}`}
+              className={`w-[85vw] max-w-[320px] shrink-0 snap-center md:w-auto md:max-w-none md:shrink border-2 rounded-3xl p-5 shadow-xs transition-all duration-200 flex flex-col justify-between bg-white ${theme.border}`}
             >
               <div>
                 {/* Card Top Meta */}
                 <div className="flex items-center justify-between mb-3">
-                  <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${theme.badge}`}>
-                    پایه {toPersianDigits(course.gradeLevel)} دبستان
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${theme.badge}`}>
+                      پایه {toPersianDigits(course.gradeLevel)} دبستان
+                    </span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                      {badgeText}
+                    </span>
+                  </div>
                   <span className="text-xs font-bold text-slate-400">
-                    {toPersianDigits(course.topics.length)} سرفصل مصوب
+                    {toPersianDigits(course.topics.length)} سرفصل
                   </span>
                 </div>
 
@@ -216,6 +241,22 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
             </div>
           );
         })}
+      </div>
+
+      {/* Mobile Swipe Hint & Quick Action */}
+      <div className="flex md:hidden items-center justify-between text-[11px] text-slate-500 font-medium px-2 mt-1">
+        <span className="flex items-center gap-1">
+          <span>برای سایر درس‌ها ورق بزنید</span>
+          <ArrowLeft className="w-3 h-3 text-slate-400" />
+        </span>
+        <button
+          type="button"
+          onClick={openSelector}
+          className="text-indigo-600 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+        >
+          <span>فهرست کامل پایه‌ها</span>
+          <ArrowLeft className="w-3 h-3" />
+        </button>
       </div>
     </div>
   );

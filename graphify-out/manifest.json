@@ -785,8 +785,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-landing.test.tsx": {
-    "mtime": 1793475681.4891963,
-    "ast_hash": "3cb75b209091f83ab49bc7f89e1c3bf7",
+    "mtime": 1793811427.8859713,
+    "ast_hash": "34a481d7cff30348bab676c9a1302fe2",
     "semantic_hash": ""
   },
   "web/app/student/page.tsx": {
@@ -985,8 +985,8 @@
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {
-    "mtime": 1793651058.5656812,
-    "ast_hash": "424034189e214f39adbb9bdaa48eccca",
+    "mtime": 1793811415.5414083,
+    "ast_hash": "87b1125c62a1a1aecfc66b9642453d05",
     "semantic_hash": ""
   },
   "web/components/hub/HubHero.tsx": {

@@ -14,8 +14,10 @@ describe("Landing Page Component (Multi-Course Hub)", () => {
     // Grade 4 Course Card
     expect(screen.getByText("ریاضی چهارم: مفهوم و محاسبات کسرها")).toBeInTheDocument();
     
-    // Grade 5 Course Card
+    // Grade 5 Course Card & Pedagogical Badges
     expect(screen.getByText("ریاضی پنجم: نسبت، تناسب و درصد")).toBeInTheDocument();
+    expect(screen.getByText("فصل جدید")).toBeInTheDocument();
+    expect(screen.getByText("همه پایه‌ها و کتاب‌ها")).toBeInTheDocument();
 
     // Educational Standards & Staff Portal Access
     expect(screen.getByText("ورود همکاران")).toBeInTheDocument();
