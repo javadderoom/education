@@ -586,29 +586,29 @@ export function generateRatioSharingItem(index: number = 0): DiagnosticItemData 
   const totalMoney = totalRatio * unitValue;
   const correctShareA = ratioA * unitValue;
 
-  const stem = `${nameA} و ${nameB} مبلغ $${totalMoney.toLocaleString("fa-IR")}$ تومان را به نسبت $${ratioA}$ به $${ratioB}$ بین خود تقسیم می‌کنند. سهم ${nameA} چقدر است؟`;
+  const stem = `${nameA} و ${nameB} مبلغ ${totalMoney.toLocaleString("fa-IR")} تومان را به نسبت $${ratioA}$ به $${ratioB}$ بین خود تقسیم می‌کنند. سهم ${nameA} چقدر است؟`;
 
   const rawDistractors = [
     {
-      content: `$${correctShareA.toLocaleString("fa-IR")}$ تومان`,
+      content: `${correctShareA.toLocaleString("fa-IR")} تومان`,
       isCorrect: true,
       misconceptionId: null,
       rationale: `پاسخ صحیح: مجموع نسبت‌ها ${toPersianDigits(totalRatio)} است و ارزش هر سهم ${toPersianDigits(unitValue)} تومان است (${toPersianDigits(ratioA)} × ${toPersianDigits(unitValue)}).`,
     },
     {
-      content: `$${(totalMoney / 2).toLocaleString("fa-IR")}$ تومان`,
+      content: `${(totalMoney / 2).toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-EQUAL-SPLIT",
       rationale: `تقسیم مساوی بر ۲ بدون توجه به نسبت‌های تسهیم (${toPersianDigits(ratioA)} به ${toPersianDigits(ratioB)}).`,
     },
     {
-      content: `$${(ratioB * unitValue).toLocaleString("fa-IR")}$ تومان`,
+      content: `${(ratioB * unitValue).toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-PARTNER-SHARE",
       rationale: `محاسبه سهم نفر دوم به جای نفر اول.`,
     },
     {
-      content: `$${(totalMoney / ratioA).toLocaleString("fa-IR")}$ تومان`,
+      content: `${(totalMoney / ratioA).toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-DIVIDE-BY-RATIO",
       rationale: `تقسیم کل پول بر نسبت فرد اول بدون محاسبه سطر مجموع نسبت‌ها.`,
@@ -645,29 +645,29 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
   const discountAmount = (originalPrice * percent) / 100;
   const finalPrice = originalPrice - discountAmount;
 
-  const stem = `یک کالای $${originalPrice.toLocaleString("fa-IR")}$ تومانی دارای $${percent}$٪ تخفیف است. قیمت نهایی پرداختی چقدر است؟`;
+  const stem = `یک کالای ${originalPrice.toLocaleString("fa-IR")} تومانی دارای $${percent}$٪ تخفیف است. قیمت نهایی پرداختی چقدر است؟`;
 
   const rawDistractors = [
     {
-      content: `$${finalPrice.toLocaleString("fa-IR")}$ تومان`,
+      content: `${finalPrice.toLocaleString("fa-IR")} تومان`,
       isCorrect: true,
       misconceptionId: null,
       rationale: `پاسخ صحیح: تخفیف ${toPersianDigits(discountAmount)} تومان است و قیمت نهایی ${toPersianDigits(originalPrice)} - ${toPersianDigits(discountAmount)} = ${toPersianDigits(finalPrice)} تومان می‌شود.`,
     },
     {
-      content: `$${discountAmount.toLocaleString("fa-IR")}$ تومان`,
+      content: `${discountAmount.toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-DISCOUNT-AS-PRICE",
       rationale: `اشتباه گرفتن مقدار تخفیف به جای قیمت نهایی کالا.`,
     },
     {
-      content: `$${(originalPrice - percent).toLocaleString("fa-IR")}$ تومان`,
+      content: `${(originalPrice - percent).toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-PERCENT-AS-ABSOLUTE",
       rationale: `کسر کردن مستقیم عدد درصد (${toPersianDigits(percent)}) از قیمت کل به جای محاسبه نسبت درصدی.`,
     },
     {
-      content: `$${(originalPrice + discountAmount).toLocaleString("fa-IR")}$ تومان`,
+      content: `${(originalPrice + discountAmount).toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-ADD-DISCOUNT",
       rationale: `اضافه کردن مبلغ تخفیف به جای کسر آن.`,

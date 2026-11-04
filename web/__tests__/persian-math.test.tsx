@@ -2,7 +2,7 @@
 import React from "react";
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
-import { toPersianDigits, renderPersianKaTeXHtml } from "../lib/math/persian-digits";
+import { toPersianDigits, toAsciiDigits, renderPersianKaTeXHtml } from "../lib/math/persian-digits";
 import { MathRenderer } from "../components/ui/MathRenderer";
 
 describe("Persian Digits & Math Formatting Engine", () => {
@@ -12,6 +12,14 @@ describe("Persian Digits & Math Formatting Engine", () => {
     expect(toPersianDigits(85)).toBe("۸۵");
     expect(toPersianDigits(null)).toBe("");
     expect(toPersianDigits(undefined)).toBe("");
+  });
+
+  it("converts Persian and Arabic digits and separators back to ASCII correctly", () => {
+    expect(toAsciiDigits("۰۱۲۳۴۵۶۷۸۹")).toBe("0123456789");
+    expect(toAsciiDigits("٠١٢٣٤٥٦٧٨٩")).toBe("0123456789");
+    expect(toAsciiDigits("۱۹۲٬۵۰۰")).toBe("192,500");
+    expect(toAsciiDigits("۳٫۱۴")).toBe("3.14");
+    expect(toAsciiDigits(null)).toBe("");
   });
 
   it("safely converts visible text nodes in KaTeX HTML without breaking CSS styles", () => {
@@ -39,5 +47,16 @@ describe("Persian Digits & Math Formatting Engine", () => {
     // LTR wrapper for math exists
     const ltrContainer = container.querySelector('[dir="ltr"]');
     expect(ltrContainer).toBeInTheDocument();
+  });
+
+  it("safely renders MathRenderer when input contains Persian numerals or commas inside math delimiters without console warnings", () => {
+    const { container } = render(
+      <MathRenderer content="مبلغ $۱۹۲٬۵۰۰$ ریال و $\frac{۲}{۵}$ کسر" />
+    );
+
+    expect(container.textContent).toContain("مبلغ");
+    expect(container.textContent).toContain("۱۹۲,۵۰۰");
+    expect(container.textContent).toContain("۲");
+    expect(container.textContent).toContain("۵");
   });
 });

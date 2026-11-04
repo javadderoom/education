@@ -94,3 +94,4 @@ export function clearActiveExamSession(
     console.warn("Failed to clear active exam session from localStorage:", err);
   }
 }
+

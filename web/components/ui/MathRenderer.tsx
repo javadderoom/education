@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import katex from "katex";
-import { toPersianDigits, renderPersianKaTeXHtml } from "../../lib/math/persian-digits";
+import { toPersianDigits, toAsciiDigits, renderPersianKaTeXHtml } from "../../lib/math/persian-digits";
 
 interface MathRendererProps {
   content: string;
@@ -31,9 +31,13 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
       if (part.startsWith("$") && part.endsWith("$")) {
         const mathExpr = part.slice(1, -1);
         try {
-          const rawHtml = katex.renderToString(mathExpr, {
+          // Normalize any Persian/Arabic digits or typographic separators (٬, ٫) to standard ASCII
+          // before KaTeX parsing to guarantee perfect glyph metrics and eliminate console warnings.
+          const normalizedExpr = toAsciiDigits(mathExpr);
+          const rawHtml = katex.renderToString(normalizedExpr, {
             throwOnError: false,
             displayMode: !inline,
+            strict: "ignore",
           });
           const persianHtml = renderPersianKaTeXHtml(rawHtml);
 
