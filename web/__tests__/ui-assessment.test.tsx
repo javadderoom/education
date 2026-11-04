@@ -140,6 +140,100 @@ describe("Tablet & Mobile UI Assessment Flow", () => {
     expect(screen.getAllByText(/۳\/۵/).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/۱\/۵/).length).toBeGreaterThan(0);
   });
+
+  it("allows student to end exam early and confirms submission", async () => {
+    const multiItems = [
+      ...mockItems,
+      {
+        ...mockItems[0],
+        id: "ITEM-02",
+        stem: "سوال دوم آزمون",
+      },
+    ];
+
+    render(
+      <AssessmentCarousel
+        items={multiItems}
+        knowledgeComponents={mockKCs}
+        misconceptions={mockMisconceptions}
+        studentName="سارا محمدی"
+      />
+    );
+
+    // Answer first question
+    const firstOption = screen.getByText(/۲\/۵/).closest("button");
+    expect(firstOption).not.toBeNull();
+    fireEvent.click(firstOption!);
+
+    // Click early finish button
+    const earlyFinishBtn = screen.getByTitle("پایان زودهنگام آزمون");
+    expect(earlyFinishBtn).toBeInTheDocument();
+    fireEvent.click(earlyFinishBtn);
+
+    // Early finish confirmation modal should be visible
+    expect(screen.getByText("اتمام زودهنگام آزمون")).toBeInTheDocument();
+    expect(screen.getByText(/ثبت و مشاهده کارنامه/)).toBeInTheDocument();
+
+    // Confirm early submission
+    const confirmBtn = screen.getByText(/ثبت و مشاهده کارنامه/).closest("button");
+    fireEvent.click(confirmBtn!);
+
+    // Completion view should show
+    await waitFor(() => {
+      expect(screen.getByText("ارزیابی به پایان رسید!")).toBeInTheDocument();
+    });
+  });
+
+  it("persists and restores active exam session state across remounts", () => {
+    const multiItems = [
+      ...mockItems,
+      {
+        ...mockItems[0],
+        id: "ITEM-02",
+        stem: "سوال دوم آزمون",
+      },
+    ];
+
+    // Mock initial active session state
+    const savedState = {
+      sessionId: "sess_test_123",
+      subjectId: "SUBJ-MATH4-FRACTIONS",
+      studentUsername: "student_ali",
+      studentName: "علی رضایی",
+      selectedTopicIds: ["KC-01"],
+      currentIndex: 1,
+      items: multiItems,
+      history: [
+        {
+          itemId: "ITEM-01",
+          kcId: "KC-01",
+          isCorrect: true,
+          isNotSure: false,
+          timestamp: Date.now(),
+        },
+      ],
+      masteries: { "KC-01": 0.55 },
+      targetSessionLimit: 2,
+      startedAt: Date.now(),
+      lastUpdatedAt: Date.now(),
+    };
+
+    render(
+      <AssessmentCarousel
+        items={multiItems}
+        knowledgeComponents={mockKCs}
+        misconceptions={mockMisconceptions}
+        studentName="علی رضایی"
+        studentUsername="student_ali"
+        initialSessionState={savedState}
+      />
+    );
+
+    // It should render the second question because currentIndex was 1
+    expect(screen.getByText("سوال دوم آزمون")).toBeInTheDocument();
+    // Progress should reflect 1 answered question
+    expect(screen.getByText(/سوال ۲ از ۲/)).toBeInTheDocument();
+  });
 });
 
 describe("5 Parametric Visual Templates Rendering", () => {

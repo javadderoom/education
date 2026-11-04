@@ -25,6 +25,7 @@ import {
 } from "@/lib/data/curriculum-taxonomy";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
+import { ActiveExamSession } from "@/lib/store/exam-storage";
 
 export interface ExamTopicSelectorProps {
   initialSubjectId?: string;
@@ -32,6 +33,9 @@ export interface ExamTopicSelectorProps {
   onStartExam: (subjectId: string, selectedTopicIds: string[]) => void;
   onCancel?: () => void;
   isModal?: boolean;
+  activeExamSession?: ActiveExamSession | null;
+  onResumeExam?: () => void;
+  onDiscardExam?: () => void;
 }
 
 export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
@@ -40,6 +44,9 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
   onStartExam,
   onCancel,
   isModal = false,
+  activeExamSession,
+  onResumeExam,
+  onDiscardExam,
 }) => {
   const { openSelector, selectedSubjectId: storeSubjectId } = useCurriculumStore();
   const [selectedSubjectId, setSelectedSubjectId] = useState<string>(
@@ -202,6 +209,54 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
           <span>تغییر کتاب یا پایه</span>
         </button>
       </div>
+
+      {/* Active In-Progress Exam Resume Banner */}
+      {activeExamSession && activeExamSession.history && (
+        <div className="bg-amber-50/90 border-2 border-amber-300 rounded-2xl p-3.5 mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-bold text-xs sm:text-sm text-amber-950">
+                آزمون در حال اجرا دارید
+              </h3>
+              <p className="text-[11px] text-amber-800">
+                پاسخ داده شده:{" "}
+                <span className="font-bold font-mono" dir="ltr">
+                  {toPersianDigits(activeExamSession.history.length)}
+                </span>{" "}
+                از{" "}
+                <span className="font-bold font-mono" dir="ltr">
+                  {toPersianDigits(activeExamSession.targetSessionLimit)}
+                </span>{" "}
+                سوال
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            {onResumeExam && (
+              <button
+                type="button"
+                onClick={onResumeExam}
+                className="flex-1 sm:flex-initial min-h-[38px] px-4 py-1.5 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>ادامه آزمون</span>
+              </button>
+            )}
+            {onDiscardExam && (
+              <button
+                type="button"
+                onClick={onDiscardExam}
+                className="flex-1 sm:flex-initial min-h-[38px] px-3 py-1.5 bg-white hover:bg-amber-100 text-amber-900 border border-amber-200 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 cursor-pointer"
+              >
+                <span>شروع مجدد</span>
+              </button>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* 2. Fast Batch Presets Bar */}
       <div className="bg-slate-50 border border-slate-200 rounded-2xl p-2.5 mb-5">

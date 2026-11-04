@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check } from "lucide-react";
+import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -18,6 +18,11 @@ import { saveOfflineSession } from "../../lib/offline/storage";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { saveAssessmentSession } from "../../actions/assessment";
 import { LearnerProfileSummary } from "../../actions/analytics";
+import {
+  ActiveExamSession,
+  saveActiveExamSession,
+  clearActiveExamSession,
+} from "../../lib/store/exam-storage";
 import { ListChecks } from "lucide-react";
 
 export interface DistractorItem {
@@ -49,10 +54,12 @@ export interface AssessmentCarouselProps {
   misconceptions: Array<{ id: string; title: string; counter_example_blueprint: any }>;
   studentName?: string;
   studentUsername?: string;
+  subjectId?: string;
   learners?: LearnerProfileSummary[];
   selectedTopicIds?: string[];
   onConfigureTopics?: () => void;
   shuffleOptions?: boolean;
+  initialSessionState?: ActiveExamSession | null;
 }
 
 const PERSIAN_OPTION_LABELS = ["الف", "ب", "ج", "د"];
@@ -80,17 +87,28 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   misconceptions,
   studentName = "علی رضایی",
   studentUsername = "student_ali",
+  subjectId = "SUBJ-MATH4-FRACTIONS",
   learners = [],
   selectedTopicIds,
   onConfigureTopics,
   shuffleOptions = true,
+  initialSessionState,
 }) => {
-  const [activeName, setActiveName] = useState(studentName);
-  const [activeUsername, setActiveUsername] = useState(studentUsername);
-  const [sessionId] = useState(() => `sess_${Date.now()}`);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeName, setActiveName] = useState(
+    initialSessionState?.studentName || studentName
+  );
+  const [activeUsername, setActiveUsername] = useState(
+    initialSessionState?.studentUsername || studentUsername
+  );
+  const [sessionId] = useState(
+    () => initialSessionState?.sessionId || `sess_${Date.now()}`
+  );
+  const [currentIndex, setCurrentIndex] = useState(
+    initialSessionState?.currentIndex ?? 0
+  );
   const [selectedDistractorId, setSelectedDistractorId] = useState<string | null>(null);
   const [showMasterySheet, setShowMasterySheet] = useState(false);
+  const [showEarlyFinishModal, setShowEarlyFinishModal] = useState(false);
   const [activeWorkshopKC, setActiveWorkshopKC] = useState<{ id: string; title: string } | null>(null);
   const [activeRemediation, setActiveRemediation] = useState<{
     isOpen: boolean;
@@ -110,15 +128,21 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   // Dynamic adaptive session length based on number of selected topics
   const targetSessionLimit = React.useMemo(() => {
+    if (initialSessionState?.targetSessionLimit) {
+      return initialSessionState.targetSessionLimit;
+    }
     const kcCount =
       selectedTopicIds && selectedTopicIds.length > 0
         ? selectedTopicIds.length
         : knowledgeComponents.length;
     return calculateAdaptiveSessionLimit(kcCount, activeItems.length);
-  }, [selectedTopicIds, knowledgeComponents, activeItems.length]);
+  }, [selectedTopicIds, knowledgeComponents, activeItems.length, initialSessionState?.targetSessionLimit]);
 
   // Map of KC Masteries
   const [masteries, setMasteries] = useState<Record<string, number>>(() => {
+    if (initialSessionState?.masteries) {
+      return initialSessionState.masteries;
+    }
     const initial: Record<string, number> = {};
     for (const kc of knowledgeComponents) {
       initial[kc.id] = 0.15; // default initial prior
@@ -133,12 +157,20 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     isCorrect: boolean;
     isNotSure: boolean;
     timestamp: number;
-  }>>([]);
+  }>>(() => initialSessionState?.history || []);
 
   const currentItem = activeItems[currentIndex] || activeItems[0];
 
   // Map of cached shuffled distractors per question item id for session stability
-  const [shuffledDistractorsMap] = useState<Map<string, DistractorItem[]>>(() => new Map());
+  const [shuffledDistractorsMap] = useState<Map<string, DistractorItem[]>>(() => {
+    const map = new Map<string, DistractorItem[]>();
+    if (initialSessionState?.shuffledDistractors) {
+      Object.entries(initialSessionState.shuffledDistractors).forEach(([key, val]) => {
+        map.set(key, val);
+      });
+    }
+    return map;
+  });
 
   // Shuffled distractors for the current question
   const currentDistractors = React.useMemo(() => {
@@ -164,6 +196,59 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }
     return map;
   }, [misconceptions]);
+
+  const syncExamStorage = React.useCallback(
+    (
+      currentHist: typeof history,
+      currentMast: typeof masteries,
+      currIdx: number,
+      isFinished: boolean = false
+    ) => {
+      const activeSubj = subjectId || "SUBJ-MATH4-FRACTIONS";
+      if (isFinished) {
+        clearActiveExamSession(activeSubj, activeUsername);
+        return;
+      }
+      const distractorCache: Record<string, DistractorItem[]> = {};
+      shuffledDistractorsMap.forEach((val, key) => {
+        distractorCache[key] = val;
+      });
+
+      saveActiveExamSession({
+        sessionId,
+        subjectId: activeSubj,
+        studentUsername: activeUsername,
+        studentName: activeName,
+        selectedTopicIds: selectedTopicIds || [],
+        currentIndex: currIdx,
+        items: activeItems,
+        history: currentHist,
+        masteries: currentMast,
+        targetSessionLimit,
+        shuffledDistractors: distractorCache,
+        startedAt: initialSessionState?.startedAt || Date.now(),
+        lastUpdatedAt: Date.now(),
+      });
+    },
+    [
+      subjectId,
+      activeUsername,
+      activeName,
+      selectedTopicIds,
+      activeItems,
+      targetSessionLimit,
+      sessionId,
+      shuffledDistractorsMap,
+      initialSessionState?.startedAt,
+    ]
+  );
+
+  // Sync to local storage on mount if session is active
+  React.useEffect(() => {
+    if (!sessionCompleted) {
+      syncExamStorage(history, masteries, currentIndex, false);
+    }
+  }, []);
 
   const persistToOfflineDB = (newHistory: typeof history, isFinished: boolean = false) => {
     saveOfflineSession({
@@ -195,6 +280,13 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }
   };
 
+  const handleFinishEarly = () => {
+    setShowEarlyFinishModal(false);
+    setSessionCompleted(true);
+    persistToOfflineDB(history, true);
+    syncExamStorage(history, masteries, currentIndex, true);
+  };
+
   const handleSelectOption = (distractor: DistractorItem) => {
     if (selectedDistractorId) return; // Prevent double taps
     setSelectedDistractorId(distractor.id);
@@ -216,10 +308,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     const prior = masteries[currentItem.kc_id] ?? 0.15;
     const bktResult = updateMastery(prior, distractor.is_correct, false);
 
-    setMasteries((prev) => ({
-      ...prev,
+    const updatedMasteries = {
+      ...masteries,
       [currentItem.kc_id]: bktResult.posteriorMastery,
-    }));
+    };
+    setMasteries(updatedMasteries);
 
     const newHistory = [
       ...history,
@@ -232,7 +325,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, newHistory.length >= targetSessionLimit);
+    const isFinished = newHistory.length >= targetSessionLimit;
+    persistToOfflineDB(newHistory, isFinished);
+    syncExamStorage(newHistory, updatedMasteries, currentIndex, isFinished);
 
     // Check if misconception modal should appear
     if (!distractor.is_correct && distractor.misconception_id) {
@@ -243,7 +338,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         rationale: distractor.rationale,
       });
     } else {
-      setTimeout(() => advanceToNext(), 500);
+      setTimeout(() => advanceToNext(newHistory, updatedMasteries), 500);
     }
   };
 
@@ -254,10 +349,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     const prior = masteries[currentItem.kc_id] ?? 0.15;
     const bktResult = updateMastery(prior, false, true);
 
-    setMasteries((prev) => ({
-      ...prev,
+    const updatedMasteries = {
+      ...masteries,
       [currentItem.kc_id]: bktResult.posteriorMastery,
-    }));
+    };
+    setMasteries(updatedMasteries);
 
     const newHistory = [
       ...history,
@@ -270,21 +366,26 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       },
     ];
     setHistory(newHistory);
-    persistToOfflineDB(newHistory, newHistory.length >= targetSessionLimit);
+    const isFinished = newHistory.length >= targetSessionLimit;
+    persistToOfflineDB(newHistory, isFinished);
+    syncExamStorage(newHistory, updatedMasteries, currentIndex, isFinished);
 
-    setTimeout(() => advanceToNext(), 400);
+    setTimeout(() => advanceToNext(newHistory, updatedMasteries), 400);
   };
 
-  const advanceToNext = () => {
+  const advanceToNext = (
+    currentHistory: typeof history = history,
+    currentMasteries: typeof masteries = masteries
+  ) => {
     setSelectedDistractorId(null);
-    const answeredIds = new Set(history.map((h) => h.itemId));
+    const answeredIds = new Set(currentHistory.map((h) => h.itemId));
     if (currentItem) {
       answeredIds.add(currentItem.id);
     }
 
     const nextAdaptiveItem = selectNextAdaptiveItem(activeItems, {
       answeredItemIds: answeredIds,
-      masteries,
+      masteries: currentMasteries,
       knowledgeComponents,
       maxItemsPerSession: targetSessionLimit,
     });
@@ -293,15 +394,19 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       const nextIdx = activeItems.findIndex((i) => i.id === nextAdaptiveItem.id);
       if (nextIdx !== -1) {
         setCurrentIndex(nextIdx);
+        syncExamStorage(currentHistory, currentMasteries, nextIdx, false);
         return;
       }
     }
 
     setSessionCompleted(true);
-    persistToOfflineDB(history, true);
+    persistToOfflineDB(currentHistory, true);
+    syncExamStorage(currentHistory, currentMasteries, currentIndex, true);
   };
 
   const handleRestart = () => {
+    const activeSubj = subjectId || "SUBJ-MATH4-FRACTIONS";
+    clearActiveExamSession(activeSubj, activeUsername);
     setCurrentIndex(0);
     setSelectedDistractorId(null);
     setSessionCompleted(false);
@@ -313,6 +418,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       resetMasteries[kc.id] = 0.15;
     }
     setMasteries(resetMasteries);
+    syncExamStorage([], resetMasteries, 0, false);
   };
 
   const handleCompleteWorkshop = (kcId: string) => {
@@ -484,7 +590,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Quick Early Finish Button */}
+          <button
+            type="button"
+            onClick={() => setShowEarlyFinishModal(true)}
+            className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 sm:px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
+            title="پایان زودهنگام آزمون"
+          >
+            <Flag className="w-4 h-4 text-amber-600" />
+            <span className="hidden sm:inline">اتمام آزمون</span>
+          </button>
+
           {onConfigureTopics && (
             <button
               type="button"
@@ -601,6 +718,71 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             >
               بازگشت به آزمون
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Early Finish Confirmation Modal */}
+      {showEarlyFinishModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 flex flex-col text-right animate-in zoom-in-95 duration-200">
+            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4">
+              <Flag className="w-6 h-6" />
+            </div>
+
+            <h3 className="text-lg font-black text-slate-900 mb-2">
+              {history.length === 0 ? "خروج از آزمون" : "اتمام زودهنگام آزمون"}
+            </h3>
+
+            <p className="text-sm text-slate-600 leading-relaxed mb-4">
+              {history.length === 0 ? (
+                "شما هنوز به هیچ سوالی پاسخ نداده‌اید. آیا مایلید به صفحه انتخاب سرفصل‌های درسی بازگردید؟"
+              ) : (
+                <>
+                  شما تا این لحظه به{" "}
+                  <span className="font-bold text-amber-700 font-mono" dir="ltr">
+                    {toPersianDigits(history.length)}
+                  </span>{" "}
+                  سوال از{" "}
+                  <span className="font-bold text-slate-700 font-mono" dir="ltr">
+                    {toPersianDigits(targetSessionLimit)}
+                  </span>{" "}
+                  سوال پاسخ داده‌اید. کارنامه و تحلیل میزان تسلط شما بر اساس پاسخ‌های ثبت‌شده تا این مرحله محاسبه و در پرونده آموزشی ذخیره خواهد شد.
+                </>
+              )}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-2 mt-2">
+              {history.length > 0 ? (
+                <button
+                  type="button"
+                  onClick={handleFinishEarly}
+                  className="flex-1 min-h-[46px] bg-amber-600 hover:bg-amber-700 active:scale-98 text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <Check className="w-4 h-4" />
+                  <span>ثبت و مشاهده کارنامه</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowEarlyFinishModal(false);
+                    if (onConfigureTopics) onConfigureTopics();
+                  }}
+                  className="flex-1 min-h-[46px] bg-slate-800 hover:bg-slate-900 active:scale-98 text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <span>بازگشت به سرفصل‌ها</span>
+                </button>
+              )}
+
+              <button
+                type="button"
+                onClick={() => setShowEarlyFinishModal(false)}
+                className="min-h-[46px] px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
+              >
+                ادامه آزمون
+              </button>
+            </div>
           </div>
         </div>
       )}
