@@ -76,4 +76,11 @@ describe("Dynamic Parametric Question Engine", () => {
     expect(kc1).toHaveLength(2);
     expect(kc4).toHaveLength(2);
   });
+
+  it("ensures generateRatioEquivalenceItem does not leak the answer on BalanceScale", () => {
+    const item = generateRatioEquivalenceItem(1);
+    expect(item.visual_template?.type).toBe("BalanceScale");
+    // Right pan must have mystery label '؟', not the multiplied answer
+    expect(item.visual_template?.props?.rightLabel).toBe("؟");
+  });
 });

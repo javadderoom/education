@@ -239,6 +239,7 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
         leftValue: 1 / smallerDen,
         rightLabel: `1/${largerDen}`,
         rightValue: 1 / largerDen,
+        hideBadge: true,
       },
     },
     distractors,
@@ -450,7 +451,7 @@ export function generateRatioEquivalenceItem(index: number = 0): DiagnosticItemD
   const b = randomChoice([3, 5, 7]);
   const mult = randomChoice([2, 3, 4, 5]);
 
-  const stem = `نسبت $\\frac{${a}}{${b}}$ با کدام یک از نسبت‌های زیر مساوی است و تشکیل یک تناسب می‌دهد؟`;
+  const stem = `نسبت $\\frac{${a}}{${b}}$ با کدام یک از نسبت‌های زیر مساوی است تا با قرار گرفتن در کفه دیگر، تعادل ترازو (تناسب) برقرار بماند؟`;
 
   const rawDistractors = [
     {
@@ -501,7 +502,7 @@ export function generateRatioEquivalenceItem(index: number = 0): DiagnosticItemD
       props: {
         leftLabel: `${a}:${b}`,
         leftValue: 1,
-        rightLabel: `${a * mult}:${b * mult}`,
+        rightLabel: "؟",
         rightValue: 1,
       },
     },

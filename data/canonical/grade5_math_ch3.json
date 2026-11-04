@@ -695,7 +695,7 @@
       "slip_param": 0.10,
       "visual_template": {
         "type": "BalanceScale",
-        "props": { "leftValue": 20, "rightValue": 80, "leftLabel": "۲۰٪ تخفیف", "rightLabel": "۸۰٪ پرداختی", "targetValue": 160 }
+        "props": { "leftValue": 20, "rightValue": 80, "leftLabel": "۲۰٪ تخفیف", "rightLabel": "؟٪ پرداختی", "targetValue": 160 }
       },
       "distractors": [
         {

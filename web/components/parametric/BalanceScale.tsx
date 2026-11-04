@@ -9,6 +9,7 @@ export interface BalanceScaleProps {
   leftLabel?: string; // e.g. "1/4" or "۲ به ۳"
   rightLabel?: string; // e.g. "1/6" or "۶ به ۹"
   targetValue?: number;
+  hideBadge?: boolean;
 }
 
 export const BalanceScale: React.FC<BalanceScaleProps> = ({
@@ -16,6 +17,7 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
   rightValue = 1,
   leftLabel,
   rightLabel,
+  hideBadge = false,
 }) => {
   // Gracefully fallback to stringified values if labels are missing
   const resolvedLeftLabel =
@@ -168,21 +170,23 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
         </svg>
 
         {/* Balance Status Badge */}
-        <div className="mt-2 text-center">
-          <span
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border text-xs font-bold ${
-              isBalanced
-                ? "bg-emerald-50 text-emerald-800 border-emerald-300"
-                : "bg-amber-50 text-amber-800 border-amber-300"
-            }`}
-          >
-            {isBalanced
-              ? "⚖️ تعادل برقرار است (برابر / متناسب)"
-              : diff < 0
-              ? "کفه چپ سنگین‌تر است"
-              : "کفه راست سنگین‌تر است"}
-          </span>
-        </div>
+        {!hideBadge && (
+          <div className="mt-2 text-center">
+            <span
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl border text-xs font-bold ${
+                isBalanced
+                  ? "bg-emerald-50 text-emerald-800 border-emerald-300"
+                  : "bg-amber-50 text-amber-800 border-amber-300"
+              }`}
+            >
+              {isBalanced
+                ? "⚖️ تعادل برقرار است (برابر / متناسب)"
+                : diff < 0
+                ? "کفه چپ سنگین‌تر است"
+                : "کفه راست سنگین‌تر است"}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

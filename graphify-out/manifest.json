@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch2.json": {
-    "mtime": 1793450066.8291807,
-    "ast_hash": "4d27735921261192960ef569b77ea4d0",
+    "mtime": 1793812427.8772557,
+    "ast_hash": "83346aa3dd90338bf9c53bcd07d05b53",
     "semantic_hash": ""
   },
   "scripts/ingestion/gemini_authoring.py": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
-    "mtime": 1793727651.3218243,
-    "ast_hash": "2419535bf961038a75411dad86c56ee1",
+    "mtime": 1793812381.0717077,
+    "ast_hash": "1706525ed6faab5fa21df269ad36a02c",
     "semantic_hash": ""
   },
   "web/components/parametric/BucketSort.tsx": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-assessment.test.tsx": {
-    "mtime": 1793734490.5472183,
-    "ast_hash": "29b98b4b61c54e0111879f25167bffae",
+    "mtime": 1793812470.674667,
+    "ast_hash": "f19dee8085c462b7341c9520a7892269",
     "semantic_hash": ""
   },
   "web/vitest.setup.ts": {
@@ -785,7 +785,7 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-landing.test.tsx": {
-    "mtime": 1793811427.8859713,
+    "mtime": 1793811582.1320505,
     "ast_hash": "34a481d7cff30348bab676c9a1302fe2",
     "semantic_hash": ""
   },
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade5_math_ch3.json": {
-    "mtime": 1793726523.1356294,
-    "ast_hash": "fa475cfd4b65443f1bb6d7e0c44564a4",
+    "mtime": 1793812440.8963027,
+    "ast_hash": "f72da7a9a615e37a50ee849ffce7356f",
     "semantic_hash": ""
   },
   "web/__tests__/pipeline-grade5.test.ts": {
@@ -945,8 +945,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/parametric-engine.test.ts": {
-    "mtime": 1793518218.074559,
-    "ast_hash": "b43382c8bb8550e8de8931a613497685",
+    "mtime": 1793812454.6035514,
+    "ast_hash": "dc6fe6721a811a874b7def19f944df91",
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1793518201.7900605,
-    "ast_hash": "883068072e0b16cb677892c7df97ca08",
+    "mtime": 1793812419.0946157,
+    "ast_hash": "e2d4e6661f0132e385867395a13d357c",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -985,7 +985,7 @@
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {
-    "mtime": 1793811415.5414083,
+    "mtime": 1793811582.2332566,
     "ast_hash": "87b1125c62a1a1aecfc66b9642453d05",
     "semantic_hash": ""
   },

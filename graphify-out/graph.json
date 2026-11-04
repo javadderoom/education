@@ -3870,7 +3870,7 @@
       "source_location": "L4404",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_iselementhidden",
-      "community": 13,
+      "community": 48,
       "norm_label": "iselementhidden()"
     },
     {
@@ -3880,7 +3880,7 @@
       "source_location": "L4411",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_serializefindings",
-      "community": 156,
+      "community": 13,
       "norm_label": "serializefindings()"
     },
     {
@@ -4010,7 +4010,7 @@
       "source_location": "L4561",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_shouldskipdesignelement",
-      "community": 13,
+      "community": 48,
       "norm_label": "shouldskipdesignelement()"
     },
     {
@@ -4110,7 +4110,7 @@
       "source_location": "L4843",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_scanresultmeta",
-      "community": 156,
+      "community": 13,
       "norm_label": "scanresultmeta()"
     },
     {
@@ -4120,7 +4120,7 @@
       "source_location": "L4849",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_postserializedfindings",
-      "community": 156,
+      "community": 13,
       "norm_label": "postserializedfindings()"
     },
     {
@@ -4190,7 +4190,7 @@
       "source_location": "L4978",
       "_origin": "ast",
       "id": "detector_detect_antipatterns_browser_renderbrowserfindings",
-      "community": 156,
+      "community": 13,
       "norm_label": "renderbrowserfindings()"
     },
     {
@@ -4340,7 +4340,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "regex_detect_text_isneutralbordercolor",
-      "community": 19,
+      "community": 1,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -5400,7 +5400,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "rules_checks_checkborders",
-      "community": 19,
+      "community": 1,
       "norm_label": "checkborders()"
     },
     {
@@ -5600,7 +5600,7 @@
       "source_location": "L755",
       "_origin": "ast",
       "id": "rules_checks_checkelementbordersdom",
-      "community": 19,
+      "community": 1,
       "norm_label": "checkelementbordersdom()"
     },
     {
@@ -5670,7 +5670,7 @@
       "source_location": "L925",
       "_origin": "ast",
       "id": "rules_checks_oklchtorgb",
-      "community": 1,
+      "community": 28,
       "norm_label": "oklchtorgb()"
     },
     {
@@ -5680,7 +5680,7 @@
       "source_location": "L951",
       "_origin": "ast",
       "id": "rules_checks_parseanycolor",
-      "community": 1,
+      "community": 28,
       "norm_label": "parseanycolor()"
     },
     {
@@ -5820,7 +5820,7 @@
       "source_location": "L1252",
       "_origin": "ast",
       "id": "rules_checks_resolvelengthpx",
-      "community": 1,
+      "community": 28,
       "norm_label": "resolvelengthpx()"
     },
     {
@@ -5830,7 +5830,7 @@
       "source_location": "L1264",
       "_origin": "ast",
       "id": "rules_checks_csscoloristransparent",
-      "community": 1,
+      "community": 28,
       "norm_label": "csscoloristransparent()"
     },
     {
@@ -5840,7 +5840,7 @@
       "source_location": "L1273",
       "_origin": "ast",
       "id": "rules_checks_colorsnearlymatch",
-      "community": 1,
+      "community": 28,
       "norm_label": "colorsnearlymatch()"
     },
     {
@@ -5850,7 +5850,7 @@
       "source_location": "L1286",
       "_origin": "ast",
       "id": "rules_checks_getcomputedstylefor",
-      "community": 1,
+      "community": 28,
       "norm_label": "getcomputedstylefor()"
     },
     {
@@ -5860,7 +5860,7 @@
       "source_location": "L1296",
       "_origin": "ast",
       "id": "rules_checks_hasvisiblebackgroundboundary",
-      "community": 1,
+      "community": 28,
       "norm_label": "hasvisiblebackgroundboundary()"
     },
     {
@@ -5880,7 +5880,7 @@
       "source_location": "L1315",
       "_origin": "ast",
       "id": "rules_checks_hasmeaningfuldirecttext",
-      "community": 1,
+      "community": 28,
       "norm_label": "hasmeaningfuldirecttext()"
     },
     {
@@ -5890,7 +5890,7 @@
       "source_location": "L1323",
       "_origin": "ast",
       "id": "rules_checks_textdescendantsflushsides",
-      "community": 1,
+      "community": 28,
       "norm_label": "textdescendantsflushsides()"
     },
     {
@@ -5900,7 +5900,7 @@
       "source_location": "L1349",
       "_origin": "ast",
       "id": "rules_checks_checkquality",
-      "community": 1,
+      "community": 28,
       "norm_label": "checkquality()"
     },
     {
@@ -5910,7 +5910,7 @@
       "source_location": "L1660",
       "_origin": "ast",
       "id": "rules_checks_checkelementqualitydom",
-      "community": 1,
+      "community": 28,
       "norm_label": "checkelementqualitydom()"
     },
     {
@@ -5940,7 +5940,7 @@
       "source_location": "L1709",
       "_origin": "ast",
       "id": "rules_checks_checkelementquality",
-      "community": 1,
+      "community": 28,
       "norm_label": "checkelementquality()"
     },
     {
@@ -5950,7 +5950,7 @@
       "source_location": "L1718",
       "_origin": "ast",
       "id": "rules_checks_checkelementborders",
-      "community": 19,
+      "community": 1,
       "norm_label": "checkelementborders()"
     },
     {
@@ -6160,7 +6160,7 @@
       "source_location": "L2275",
       "_origin": "ast",
       "id": "rules_checks_shadowlayeralpha",
-      "community": 1,
+      "community": 156,
       "norm_label": "shadowlayeralpha()"
     },
     {
@@ -6170,7 +6170,7 @@
       "source_location": "L2284",
       "_origin": "ast",
       "id": "rules_checks_shadowmaxblurpx",
-      "community": 1,
+      "community": 156,
       "norm_label": "shadowmaxblurpx()"
     },
     {
@@ -6180,7 +6180,7 @@
       "source_location": "L2301",
       "_origin": "ast",
       "id": "rules_checks_csscoloralpha",
-      "community": 1,
+      "community": 28,
       "norm_label": "csscoloralpha()"
     },
     {
@@ -6190,7 +6190,7 @@
       "source_location": "L2307",
       "_origin": "ast",
       "id": "rules_checks_checkgptthinborderwideshadow",
-      "community": 1,
+      "community": 156,
       "norm_label": "checkgptthinborderwideshadow()"
     },
     {
@@ -6200,7 +6200,7 @@
       "source_location": "L2319",
       "_origin": "ast",
       "id": "rules_checks_borderwidthsfromstyle",
-      "community": 1,
+      "community": 156,
       "norm_label": "borderwidthsfromstyle()"
     },
     {
@@ -6210,7 +6210,7 @@
       "source_location": "L2328",
       "_origin": "ast",
       "id": "rules_checks_bordercolorsfromstyle",
-      "community": 1,
+      "community": 156,
       "norm_label": "bordercolorsfromstyle()"
     },
     {
@@ -6220,7 +6220,7 @@
       "source_location": "L2337",
       "_origin": "ast",
       "id": "rules_checks_checkelementgptbordershadow",
-      "community": 1,
+      "community": 156,
       "norm_label": "checkelementgptbordershadow()"
     },
     {
@@ -6230,7 +6230,7 @@
       "source_location": "L2341",
       "_origin": "ast",
       "id": "rules_checks_checkelementgptbordershadowdom",
-      "community": 1,
+      "community": 156,
       "norm_label": "checkelementgptbordershadowdom()"
     },
     {
@@ -6450,7 +6450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_color_isneutralcolor",
-      "community": 19,
+      "community": 1,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -9510,7 +9510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_is_generated",
-      "community": 28,
+      "community": 74,
       "norm_label": "is-generated.mjs"
     },
     {
@@ -9520,7 +9520,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "lib_is_generated_header_markers",
-      "community": 28,
+      "community": 74,
       "norm_label": "header_markers"
     },
     {
@@ -9530,7 +9530,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "lib_is_generated_isgeneratedfile",
-      "community": 28,
+      "community": 74,
       "norm_label": "isgeneratedfile()"
     },
     {
@@ -9540,7 +9540,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "lib_is_generated_isgitignored",
-      "community": 28,
+      "community": 74,
       "norm_label": "isgitignored()"
     },
     {
@@ -9550,7 +9550,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "lib_is_generated_hasgeneratedheader",
-      "community": 28,
+      "community": 74,
       "norm_label": "hasgeneratedheader()"
     },
     {
@@ -21907,7 +21907,7 @@
       "label": "BalanceScale()",
       "file_type": "code",
       "source_file": "web/components/parametric/BalanceScale.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "parametric_balancescale_balancescale",
       "community": 75,
@@ -22457,7 +22457,7 @@
       "label": "generateFractionAdditionItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L251",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatefractionadditionitem",
       "community": 97,
@@ -22467,7 +22467,7 @@
       "label": "generateFractionNumberLineItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L320",
+      "source_location": "L321",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatefractionnumberlineitem",
       "community": 97,
@@ -22477,7 +22477,7 @@
       "label": "generateRatioConceptItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L389",
+      "source_location": "L390",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratioconceptitem",
       "community": 97,
@@ -22487,7 +22487,7 @@
       "label": "generateRatioEquivalenceItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L448",
+      "source_location": "L449",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratioequivalenceitem",
       "community": 97,
@@ -22497,7 +22497,7 @@
       "label": "generateProportionTableItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L515",
+      "source_location": "L516",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateproportiontableitem",
       "community": 97,
@@ -22507,7 +22507,7 @@
       "label": "generateRatioSharingItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L578",
+      "source_location": "L579",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratiosharingitem",
       "community": 97,
@@ -22517,7 +22517,7 @@
       "label": "generatePercentageItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L641",
+      "source_location": "L642",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatepercentageitem",
       "community": 97,
@@ -22527,7 +22527,7 @@
       "label": "generateAreaMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L712",
+      "source_location": "L713",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateareamultiplicationitem",
       "community": 97,
@@ -22537,7 +22537,7 @@
       "label": "generateVerticalMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L781",
+      "source_location": "L782",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateverticalmultiplicationitem",
       "community": 97,
@@ -22547,7 +22547,7 @@
       "label": "generateEstimationMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L848",
+      "source_location": "L849",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateestimationmultiplicationitem",
       "community": 97,
@@ -22557,7 +22557,7 @@
       "label": "generateDivisionVerificationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L914",
+      "source_location": "L915",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatedivisionverificationitem",
       "community": 97,
@@ -22567,7 +22567,7 @@
       "label": "generateMultiDigitDivisionItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L978",
+      "source_location": "L979",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatemultidigitdivisionitem",
       "community": 97,
@@ -22577,7 +22577,7 @@
       "label": "DYNAMIC_GENERATORS",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1044",
+      "source_location": "L1045",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_dynamic_generators",
       "community": 97,
@@ -22587,7 +22587,7 @@
       "label": "generateDynamicItemsForKCs()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1070",
+      "source_location": "L1071",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatedynamicitemsforkcs",
       "community": 97,
@@ -88758,9 +88758,9 @@
       "source_file": "web/components/assessment/AssessmentCarousel.tsx",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assessment_assessmentcarousel",
-      "target": "assessment_assessmentcarousel_persian_option_labels",
-      "confidence_score": 1.0
+      "target": "assessment_assessmentcarousel_persian_option_labels"
     },
     {
       "relation": "contains",
@@ -88768,9 +88768,9 @@
       "source_file": "web/components/assessment/AssessmentCarousel.tsx",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "assessment_assessmentcarousel",
-      "target": "assessment_assessmentcarousel_shuffledistractors",
-      "confidence_score": 1.0
+      "target": "assessment_assessmentcarousel_shuffledistractors"
     },
     {
       "relation": "imports_from",
@@ -101249,5 +101249,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "352fb872f8f526b081558122830e7e30316fdc0c"
+  "built_at_commit": "26e81642aef9358260d7c7af57b74bbf02334c2d"
 }

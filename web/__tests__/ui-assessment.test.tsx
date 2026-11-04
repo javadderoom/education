@@ -189,12 +189,17 @@ describe("5 Parametric Visual Templates Rendering", () => {
     expect(container.textContent).not.toContain("۴ / ۶");
   });
 
-  it("renders BalanceScale with tilt angle", () => {
-    const { container } = render(
-      <BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" />
+  it("renders BalanceScale with tilt angle and respects hideBadge prop", () => {
+    const { container, rerender } = render(
+      <BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" hideBadge={true} />
     );
     expect(container.querySelector("svg")).toBeInTheDocument();
     expect(container.textContent).toContain("۱/۲");
     expect(container.textContent).toContain("۱/۴");
+    expect(container.textContent).not.toContain("کفه چپ سنگین‌تر است");
+
+    // When hideBadge is false, status badge should be present
+    rerender(<BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" hideBadge={false} />);
+    expect(container.textContent).toContain("کفه چپ سنگین‌تر است");
   });
 });

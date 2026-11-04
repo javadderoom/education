@@ -162,7 +162,8 @@
           "leftValue": 0.25,
           "rightValue": 0.1666,
           "leftLabel": "1/4",
-          "rightLabel": "1/6"
+          "rightLabel": "1/6",
+          "hideBadge": true
         }
       },
       "distractors": [
