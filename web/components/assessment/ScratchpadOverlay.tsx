@@ -36,8 +36,8 @@ const PEN_COLORS = [
 
 const STROKE_WIDTHS = [
   { id: "thin", label: "نازک", value: 2.5 },
-  { id: "medium", label: "متوسط", value: 4.5 },
-  { id: "thick", label: "پهن", value: 8 },
+  { id: "medium", label: "متوسط", value: 5 },
+  { id: "thick", label: "پهن", value: 10 },
 ];
 
 export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
@@ -50,7 +50,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
   const savedDataUrlRef = useRef<string | null>(null);
 
   const [activeColor, setActiveColor] = useState<string>("#334155");
-  const [activeWidth, setActiveWidth] = useState<number>(3.5);
+  const [activeWidth, setActiveWidth] = useState<number>(5);
   const [isEraser, setIsEraser] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isTransparent, setIsTransparent] = useState<boolean>(false);
@@ -388,9 +388,14 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                   </div>
                 </div>
 
-                {/* Row 2: Stroke Sizes */}
+                {/* Row 2: Stroke Sizes with 1:1 True Pixel Preview */}
                 <div className="border-t border-slate-100 pt-2">
-                  <span className="text-[10px] font-bold text-slate-500 block mb-1.5">ضخامت قلم:</span>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-bold text-slate-500">ضخامت واقعی قلم:</span>
+                    <span className="text-[10px] font-mono text-indigo-600 font-bold" dir="ltr">
+                      {toPersianDigits(activeWidth)} پیکسل
+                    </span>
+                  </div>
                   <div className="grid grid-cols-3 gap-1.5">
                     {STROKE_WIDTHS.map((sw) => {
                       const isSelected = activeWidth === sw.value;
@@ -403,20 +408,22 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                             setIsEraser(false);
                             setShowPenSettings(false);
                           }}
-                          className={`py-1.5 px-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
+                          className={`py-2 px-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex flex-col items-center justify-between gap-2 ${
                             isSelected
-                              ? "bg-indigo-600 text-white shadow-xs"
+                              ? "bg-indigo-600 text-white shadow-xs ring-2 ring-indigo-300"
                               : "bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200"
                           }`}
                         >
                           <span className="text-[10px]">{sw.label}</span>
-                          <span
-                            className="w-full rounded-full"
-                            style={{
-                              height: `${Math.max(2, sw.value / 2)}px`,
-                              backgroundColor: isSelected ? "#ffffff" : activeColor,
-                            }}
-                          />
+                          <div className="h-4 flex items-center justify-center w-full px-1">
+                            <span
+                              className="w-full rounded-full transition-all"
+                              style={{
+                                height: `${sw.value}px`,
+                                backgroundColor: isSelected ? "#ffffff" : activeColor,
+                              }}
+                            />
+                          </div>
                         </button>
                       );
                     })}
