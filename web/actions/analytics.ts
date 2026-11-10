@@ -293,3 +293,162 @@ export async function createOrSelectLearner(displayName: string): Promise<{
     };
   }
 }
+
+export interface StudentKCMasteryItem {
+  kcId: string;
+  kcTitle: string;
+  probability: number;
+  percent: number;
+  status: "mastered" | "developing" | "struggling" | "unassessed";
+}
+
+export interface StudentMasteryMatrixRow {
+  studentId: string;
+  displayName: string;
+  username: string;
+  classroomName: string | null;
+  overallAverage: number;
+  lastActive: Date | null;
+  kcMasteries: StudentKCMasteryItem[];
+  hasMisconception: boolean;
+}
+
+export interface ClassStudentsMasteryMatrixResult {
+  success: boolean;
+  kcs: Array<{ id: string; title: string }>;
+  students: StudentMasteryMatrixRow[];
+  classrooms: Array<{
+    id: string;
+    name: string;
+    schoolName: string | null;
+    gradeLevel: number;
+    studentsCount: number;
+  }>;
+  error?: string;
+}
+
+/**
+ * Retrieves student-level 2D mastery matrix for a subject and optional classroom filter.
+ * Strictly adheres to Rule 7 (all data fetched from PostgreSQL, zero hardcoded in-code mock data).
+ */
+export async function getClassStudentsMasteryMatrix(
+  subjectId: string = "SUBJ-MATH4-FRACTIONS",
+  classroomId?: string
+): Promise<ClassStudentsMasteryMatrixResult> {
+  try {
+    const kcs = await prisma.knowledgeComponent.findMany({
+      where: { subjectId },
+      select: { id: true, title: true },
+      orderBy: { id: "asc" },
+    });
+
+    const classrooms = await prisma.classroom.findMany({
+      include: { _count: { select: { students: true } } },
+      orderBy: { gradeLevel: "asc" },
+    });
+
+    const whereLearners: any = { role: "student" };
+    if (classroomId && classroomId !== "all") {
+      whereLearners.classroomId = classroomId;
+    } else {
+      whereLearners.OR = [
+        { sessions: { some: { subjectId } } },
+        { masteryStates: { some: { kc: { subjectId } } } },
+      ];
+    }
+
+    const learners = await prisma.learner.findMany({
+      where: whereLearners,
+      include: {
+        classroom: { select: { id: true, name: true } },
+        masteryStates: {
+          where: { kc: { subjectId } },
+        },
+        sessions: {
+          where: { subjectId },
+          orderBy: { startedAt: "desc" },
+          take: 1,
+          include: {
+            responses: {
+              where: { diagnosedMisconceptionId: { not: null } },
+              take: 1,
+            },
+          },
+        },
+      },
+      orderBy: { displayName: "asc" },
+    });
+
+    const students: StudentMasteryMatrixRow[] = learners.map((l) => {
+      const stateMap = new Map(l.masteryStates.map((s) => [s.kcId, s.masteryProbability]));
+
+      let sumPercent = 0;
+      let assessedCount = 0;
+
+      const kcMasteries: StudentKCMasteryItem[] = kcs.map((kc) => {
+        const prob = stateMap.get(kc.id);
+        if (prob === undefined) {
+          return {
+            kcId: kc.id,
+            kcTitle: kc.title,
+            probability: 0,
+            percent: 0,
+            status: "unassessed",
+          };
+        }
+
+        const pct = Math.round(prob * 100);
+        sumPercent += pct;
+        assessedCount++;
+
+        let status: "mastered" | "developing" | "struggling" = "developing";
+        if (pct >= 85) status = "mastered";
+        else if (pct < 60) status = "struggling";
+
+        return {
+          kcId: kc.id,
+          kcTitle: kc.title,
+          probability: prob,
+          percent: pct,
+          status,
+        };
+      });
+
+      const overallAverage = assessedCount > 0 ? Math.round(sumPercent / assessedCount) : 0;
+      const lastSession = l.sessions[0];
+      const hasMisconception = (lastSession?.responses?.length || 0) > 0;
+
+      return {
+        studentId: l.id,
+        displayName: l.displayName,
+        username: l.username,
+        classroomName: l.classroom?.name || null,
+        overallAverage,
+        lastActive: lastSession?.startedAt || null,
+        kcMasteries,
+        hasMisconception,
+      };
+    });
+
+    return {
+      success: true,
+      kcs,
+      students,
+      classrooms: classrooms.map((c) => ({
+        id: c.id,
+        name: c.name,
+        schoolName: c.schoolName,
+        gradeLevel: c.gradeLevel,
+        studentsCount: c._count.students,
+      })),
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      kcs: [],
+      students: [],
+      classrooms: [],
+      error: error?.message || "Failed to load class students mastery matrix",
+    };
+  }
+}

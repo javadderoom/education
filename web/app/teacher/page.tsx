@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { CurationStudio } from "@/components/curation/CurationStudio";
-import { getClassDiagnosticStats } from "@/actions/analytics";
+import { getClassDiagnosticStats, getClassStudentsMasteryMatrix } from "@/actions/analytics";
 import { getAuthSession } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
@@ -30,7 +30,10 @@ export default async function TeacherPage({ searchParams }: TeacherPageProps) {
       : "grade4_math_ch2.json";
 
   const cartridge = getCanonicalCartridge(cartridgeFile);
-  const diagnosticSummary = await getClassDiagnosticStats(cartridge.subject.id);
+  const [diagnosticSummary, matrixData] = await Promise.all([
+    getClassDiagnosticStats(cartridge.subject.id),
+    getClassStudentsMasteryMatrix(cartridge.subject.id),
+  ]);
 
   return (
     <div className="w-full">
@@ -43,6 +46,8 @@ export default async function TeacherPage({ searchParams }: TeacherPageProps) {
         totalStudents={diagnosticSummary.totalStudents}
         classAverageMastery={diagnosticSummary.classAverageMastery}
         mostPrevalentMisconception={diagnosticSummary.mostPrevalentMisconception}
+        matrixStudents={matrixData.students}
+        classrooms={matrixData.classrooms}
       />
     </div>
   );

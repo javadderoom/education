@@ -1,8 +1,20 @@
 "use client";
 
-import React from "react";
-import { BarChart3, AlertTriangle, CheckCircle2, TrendingUp, Lightbulb, Users, Info } from "lucide-react";
+import React, { useState } from "react";
+import {
+  BarChart3,
+  AlertTriangle,
+  CheckCircle2,
+  TrendingUp,
+  Lightbulb,
+  Users,
+  Info,
+  Grid3X3,
+  LayoutDashboard,
+} from "lucide-react";
 import { toPersianDigits } from "../../lib/math/persian-digits";
+import { TeacherClassHeatmap } from "./TeacherClassHeatmap";
+import { StudentMasteryMatrixRow } from "../../actions/analytics";
 
 export interface MisconceptionStat {
   id: string;
@@ -27,6 +39,14 @@ export interface DiagnosticHeatmapProps {
   classAverageMastery?: number;
   mostPrevalentMisconception?: string | null;
   classNameTitle?: string;
+  matrixStudents?: StudentMasteryMatrixRow[];
+  classrooms?: Array<{
+    id: string;
+    name: string;
+    schoolName: string | null;
+    gradeLevel: number;
+    studentsCount: number;
+  }>;
 }
 
 export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
@@ -36,8 +56,14 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
   classAverageMastery = 0,
   mostPrevalentMisconception = null,
   classNameTitle = "کلاس ریاضی پایه چهارم",
+  matrixStudents = [],
+  classrooms = [],
 }) => {
-  const hasData = totalStudents > 0 && kcStats.length > 0;
+  const [subView, setSubView] = useState<"aggregate" | "matrix">("aggregate");
+  const [selectedClassroomId, setSelectedClassroomId] = useState<string>("all");
+
+  const hasData =
+    (totalStudents > 0 && kcStats.length > 0) || matrixStudents.length > 0;
 
   const calculatedAvgMastery =
     classAverageMastery ||
@@ -61,7 +87,7 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
           هنوز اطلاعاتی برای این کلاس ثبت نشده است
         </h3>
         <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed mb-6">
-          به محض اینکه دانش‌آموزان در بخش آزمون تشخیصی کسرها شرکت کنند، نمودار تسلط سرفصل‌ها و آمار بدفهمی‌ها در این میز کار نمایش داده خواهد شد.
+          به محض اینکه دانش‌آموزان در بخش آزمون تشخیصی شرکت کنند، نمودار تسلط سرفصل‌ها و آمار بدفهمی‌ها در این میز کار نمایش داده خواهد شد.
         </p>
         <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 text-xs px-4 py-2 rounded-xl">
           <Info className="w-4 h-4 text-indigo-500" />
@@ -72,147 +98,203 @@ export const DiagnosticHeatmap: React.FC<DiagnosticHeatmapProps> = ({
   }
 
   return (
-    <div className="w-full space-y-6 select-none animate-in fade-in duration-300">
-      {/* Overview Stat Badges */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
-            <Users className="w-6 h-6" />
-          </div>
-          <div>
-            <span className="text-[11px] font-bold text-slate-500 block">جامعه آماری:</span>
-            <span className="text-sm font-bold text-slate-800">
-              {classNameTitle} ({toPersianDigits(totalStudents)} دانش‌آموز)
-            </span>
-          </div>
+    <div className="w-full space-y-5 select-none animate-in fade-in duration-300">
+      {/* Sub-view Switcher: Aggregate Stats vs Individual Student Matrix */}
+      <div className="flex items-center justify-between gap-3 bg-white border-2 border-slate-200 rounded-2xl p-2 shadow-2xs flex-wrap">
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={() => setSubView("aggregate")}
+            className={`min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+              subView === "aggregate"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+            }`}
+          >
+            <LayoutDashboard className="w-4 h-4" />
+            <span>نمودار تجمیعی و تحلیل کلاسی</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setSubView("matrix")}
+            className={`min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+              subView === "matrix"
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+            }`}
+          >
+            <Grid3X3 className="w-4 h-4 text-amber-500" />
+            <span>ماتریس انفرادی دانش‌آموزان</span>
+            {matrixStudents.length > 0 && (
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                subView === "matrix" ? "bg-indigo-700 text-white" : "bg-slate-200 text-slate-700"
+              }`}>
+                {toPersianDigits(matrixStudents.length)}
+              </span>
+            )}
+          </button>
         </div>
 
-        <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
-            <CheckCircle2 className="w-6 h-6" />
-          </div>
-          <div>
-            <span className="text-[11px] font-bold text-slate-500 block">میانگین تسلط کلاسی:</span>
-            <span className="text-sm font-black text-emerald-700" dir="ltr">
-              {toPersianDigits(calculatedAvgMastery)}٪
-            </span>
-          </div>
-        </div>
-
-        <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0">
-            <AlertTriangle className="w-6 h-6" />
-          </div>
-          <div>
-            <span className="text-[11px] font-bold text-slate-500 block">بدفهمی با بیشترین شیوع:</span>
-            <span className="text-xs font-bold text-amber-900 truncate max-w-[170px] block">
-              {dominantMisconception}
-            </span>
-          </div>
-        </div>
+        <span className="text-xs text-slate-400 font-medium px-2 hidden sm:inline">
+          {subView === "aggregate"
+            ? "میانگین و تحلیل آماری کلیه دانش‌آموزان"
+            : "وضعیت تسلط تک‌تک دانش‌آموزان به تفکیک مهارت‌ها"}
+        </span>
       </div>
 
-      {/* Section 1: KC Class Mastery Distribution */}
-      <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs">
-        <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-4">
-          <TrendingUp className="w-5 h-5 text-indigo-600" />
-          <div>
-            <h3 className="font-bold text-sm text-slate-900">میزان تسلط کلاسی به تفکیک مهارت‌های پنج‌گانه</h3>
-            <p className="text-xs text-slate-500 mt-0.5">درصد تسلط کلی دانش‌آموزان در هر سرفصل تشخیصی</p>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          {kcStats.map((kc) => {
-            const isHigh = kc.averageMastery >= 80;
-            const isMedium = kc.averageMastery >= 60 && kc.averageMastery < 80;
-
-            let barColor = "bg-rose-500";
-            let badgeStyle = "text-rose-700 bg-rose-50 border-rose-200";
-            let statusLabel = "نیازمند بازتدریس";
-
-            if (isHigh) {
-              barColor = "bg-emerald-500";
-              badgeStyle = "text-emerald-700 bg-emerald-50 border-emerald-200";
-              statusLabel = "تسلط مطلوب";
-            } else if (isMedium) {
-              barColor = "bg-amber-500";
-              badgeStyle = "text-amber-700 bg-amber-50 border-amber-200";
-              statusLabel = "نیازمند تمرین دست‌ورزی";
-            }
-
-            return (
-              <div key={kc.id} className="text-xs">
-                <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1">
-                  <span className="font-bold text-slate-800">{kc.title}</span>
-                  <div className="flex items-center gap-2">
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeStyle}`}>
-                      {statusLabel}
-                    </span>
-                    <span className="font-bold text-slate-900" dir="ltr">
-                      {toPersianDigits(kc.averageMastery)}٪
-                    </span>
-                  </div>
-                </div>
-
-                <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all duration-500 ${barColor}`}
-                    style={{ width: `${Math.min(100, Math.max(0, kc.averageMastery))}%` }}
-                  />
-                </div>
-
-                <span className="text-[11px] text-slate-400 mt-1 block">
-                  {toPersianDigits(kc.masteredCount)} نفر از {toPersianDigits(kc.totalStudents)} دانش‌آموز به تسلط کامل رسیده‌اند.
+      {subView === "matrix" ? (
+        <TeacherClassHeatmap
+          students={matrixStudents}
+          kcs={kcStats}
+          classrooms={classrooms}
+          selectedClassroomId={selectedClassroomId}
+          onSelectClassroom={(id) => setSelectedClassroomId(id)}
+        />
+      ) : (
+        <div className="space-y-6">
+          {/* Overview Stat Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                <Users className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-slate-500 block">جامعه آماری:</span>
+                <span className="text-sm font-bold text-slate-800">
+                  {classNameTitle} ({toPersianDigits(totalStudents)} دانش‌آموز)
                 </span>
               </div>
-            );
-          })}
-        </div>
-      </div>
+            </div>
 
-      {/* Section 2: Misconception Frequency & Remediation Recommendations */}
-      {misconceptionStats.length > 0 && (
-        <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs">
-          <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-4">
-            <BarChart3 className="w-5 h-5 text-amber-600" />
-            <div>
-              <h3 className="font-bold text-sm text-slate-900">نقشه شیوع بدفهمی‌ها و خطاهای مفهومی در کلاس</h3>
-              <p className="text-xs text-slate-500 mt-0.5">شناسایی ریشه پاسخ‌های نادرست و راهکار مداخله آموزشی</p>
+            <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-slate-500 block">میانگین تسلط کلاسی:</span>
+                <span className="text-sm font-black text-emerald-700" dir="ltr">
+                  {toPersianDigits(calculatedAvgMastery)}٪
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 shadow-xs flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                <AlertTriangle className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-bold text-slate-500 block">بدفهمی با بیشترین شیوع:</span>
+                <span className="text-xs font-bold text-amber-900 truncate max-w-[170px] block">
+                  {dominantMisconception}
+                </span>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-3.5">
-            {misconceptionStats.map((item) => (
-              <div
-                key={item.id}
-                className="p-4 rounded-2xl border-2 border-slate-100 bg-slate-50/60 hover:bg-slate-50 transition-all"
-              >
-                <div className="flex justify-between items-start gap-2 mb-2">
-                  <span className="font-bold text-xs text-slate-900">{item.title}</span>
-                  <span className="text-xs font-black text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg shrink-0" dir="ltr">
-                    {toPersianDigits(item.prevalencePercent)}٪ شیوع ({toPersianDigits(item.detectedCount)} نفر)
-                  </span>
-                </div>
+          {/* Section 1: KC Class Mastery Distribution */}
+          <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-4">
+              <TrendingUp className="w-5 h-5 text-indigo-600" />
+              <div>
+                <h3 className="font-bold text-sm text-slate-900">میزان تسلط کلاسی به تفکیک مهارت‌های پنج‌گانه</h3>
+                <p className="text-xs text-slate-500 mt-0.5">درصد تسلط کلی دانش‌آموزان در هر سرفصل تشخیصی</p>
+              </div>
+            </div>
 
-                {/* Progress Bar of Misconception Prevalence */}
-                <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden mb-2.5">
-                  <div
-                    className="h-full bg-amber-500 rounded-full"
-                    style={{ width: `${Math.min(100, Math.max(0, item.prevalencePercent))}%` }}
-                  />
-                </div>
+            <div className="space-y-4">
+              {kcStats.map((kc) => {
+                const isHigh = kc.averageMastery >= 80;
+                const isMedium = kc.averageMastery >= 60 && kc.averageMastery < 80;
 
-                {/* Teacher Guidance from Curriculum Guide */}
-                <div className="flex items-start gap-2 text-[11px] text-slate-600 bg-white p-2.5 rounded-xl border border-slate-200">
-                  <Lightbulb className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">
-                    <b className="text-slate-900">راهکار مداخله پیشنهادی کتاب معلم:</b> {item.recommendedAction}
-                  </span>
+                let barColor = "bg-rose-500";
+                let badgeStyle = "text-rose-700 bg-rose-50 border-rose-200";
+                let statusLabel = "نیازمند بازتدریس";
+
+                if (isHigh) {
+                  barColor = "bg-emerald-500";
+                  badgeStyle = "text-emerald-700 bg-emerald-50 border-emerald-200";
+                  statusLabel = "تسلط مطلوب";
+                } else if (isMedium) {
+                  barColor = "bg-amber-500";
+                  badgeStyle = "text-amber-700 bg-amber-50 border-amber-200";
+                  statusLabel = "نیازمند تمرین دست‌ورزی";
+                }
+
+                return (
+                  <div key={kc.id} className="text-xs">
+                    <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1">
+                      <span className="font-bold text-slate-800">{kc.title}</span>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeStyle}`}>
+                          {statusLabel}
+                        </span>
+                        <span className="font-bold text-slate-900" dir="ltr">
+                          {toPersianDigits(kc.averageMastery)}٪
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                      <div
+                        className={`h-full rounded-full transition-all duration-500 ${barColor}`}
+                        style={{ width: `${Math.min(100, Math.max(0, kc.averageMastery))}%` }}
+                      />
+                    </div>
+
+                    <span className="text-[11px] text-slate-400 mt-1 block">
+                      {toPersianDigits(kc.masteredCount)} نفر از {toPersianDigits(kc.totalStudents)} دانش‌آموز به تسلط کامل رسیده‌اند.
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Section 2: Misconception Frequency & Remediation Recommendations */}
+          {misconceptionStats.length > 0 && (
+            <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs">
+              <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-4">
+                <BarChart3 className="w-5 h-5 text-amber-600" />
+                <div>
+                  <h3 className="font-bold text-sm text-slate-900">نقشه شیوع بدفهمی‌ها و خطاهای مفهومی در کلاس</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">شناسایی ریشه پاسخ‌های نادرست و راهکار مداخله آموزشی</p>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="space-y-3.5">
+                {misconceptionStats.map((item) => (
+                  <div
+                    key={item.id}
+                    className="p-4 rounded-2xl border-2 border-slate-100 bg-slate-50/60 hover:bg-slate-50 transition-all"
+                  >
+                    <div className="flex justify-between items-start gap-2 mb-2">
+                      <span className="font-bold text-xs text-slate-900">{item.title}</span>
+                      <span className="text-xs font-black text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-lg shrink-0" dir="ltr">
+                        {toPersianDigits(item.prevalencePercent)}٪ شیوع ({toPersianDigits(item.detectedCount)} نفر)
+                      </span>
+                    </div>
+
+                    {/* Progress Bar of Misconception Prevalence */}
+                    <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden mb-2.5">
+                      <div
+                        className="h-full bg-amber-500 rounded-full"
+                        style={{ width: `${Math.min(100, Math.max(0, item.prevalencePercent))}%` }}
+                      />
+                    </div>
+
+                    {/* Teacher Guidance from Curriculum Guide */}
+                    <div className="flex items-start gap-2 text-[11px] text-slate-600 bg-white p-2.5 rounded-xl border border-slate-200">
+                      <Lightbulb className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">
+                        <b className="text-slate-900">راهکار مداخله پیشنهادی کتاب معلم:</b> {item.recommendedAction}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

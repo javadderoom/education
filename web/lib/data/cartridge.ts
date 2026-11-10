@@ -42,7 +42,7 @@ export interface CanonicalCartridge {
   }>;
 }
 
-function resolveCanonicalDir(): string {
+export function resolveCanonicalDir(): string {
   const candidates = [
     path.resolve(process.cwd(), "data/canonical"),
     path.resolve(process.cwd(), "../data/canonical"),

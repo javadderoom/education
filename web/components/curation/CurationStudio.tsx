@@ -11,6 +11,7 @@ import { BucketSort } from "../parametric/BucketSort";
 import { DiagnosticItemData } from "../assessment/AssessmentCarousel";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { DiagnosticHeatmap, KCMasteryStat, MisconceptionStat } from "./DiagnosticHeatmap";
+import { StudentMasteryMatrixRow } from "../../actions/analytics";
 
 export interface CurationStudioProps {
   initialItems: DiagnosticItemData[];
@@ -21,6 +22,14 @@ export interface CurationStudioProps {
   totalStudents?: number;
   classAverageMastery?: number;
   mostPrevalentMisconception?: string | null;
+  matrixStudents?: StudentMasteryMatrixRow[];
+  classrooms?: Array<{
+    id: string;
+    name: string;
+    schoolName: string | null;
+    gradeLevel: number;
+    studentsCount: number;
+  }>;
 }
 
 export const CurationStudio: React.FC<CurationStudioProps> = ({
@@ -32,6 +41,8 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
   totalStudents = 0,
   classAverageMastery = 0,
   mostPrevalentMisconception = null,
+  matrixStudents = [],
+  classrooms = [],
 }) => {
   const [items, setItems] = useState<DiagnosticItemData[]>(initialItems);
   const [viewMode, setViewMode] = useState<"questions" | "heatmap">("questions");
@@ -150,6 +161,8 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
           totalStudents={totalStudents}
           classAverageMastery={classAverageMastery}
           mostPrevalentMisconception={mostPrevalentMisconception}
+          matrixStudents={matrixStudents}
+          classrooms={classrooms}
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">

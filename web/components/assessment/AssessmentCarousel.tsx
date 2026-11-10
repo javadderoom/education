@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag, Volume2, VolumeX, PenTool, ListChecks } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -11,6 +11,7 @@ import { BucketSort } from "../parametric/BucketSort";
 import { RemediationModal } from "../remediation/RemediationModal";
 import { RemediationPathway } from "../remediation/RemediationPathway";
 import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
+import { ScratchpadOverlay } from "./ScratchpadOverlay";
 import { updateMastery } from "../../lib/bkt/engine";
 import { evaluateDiagnosticResponse } from "../../lib/bkt/diagnostics";
 import { selectNextAdaptiveItem, calculateAdaptiveSessionLimit } from "../../lib/bkt/adaptive";
@@ -23,7 +24,7 @@ import {
   saveActiveExamSession,
   clearActiveExamSession,
 } from "../../lib/store/exam-storage";
-import { ListChecks } from "lucide-react";
+import { speakPersian, stopPersianSpeech } from "../../lib/audio/speech";
 
 export interface DistractorItem {
   id: string;
@@ -109,6 +110,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const [selectedDistractorId, setSelectedDistractorId] = useState<string | null>(null);
   const [showMasterySheet, setShowMasterySheet] = useState(false);
   const [showEarlyFinishModal, setShowEarlyFinishModal] = useState(false);
+  const [isScratchpadOpen, setIsScratchpadOpen] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const [activeWorkshopKC, setActiveWorkshopKC] = useState<{ id: string; title: string } | null>(null);
   const [activeRemediation, setActiveRemediation] = useState<{
     isOpen: boolean;
@@ -116,6 +119,26 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     blueprint?: any;
     rationale?: string | null;
   }>({ isOpen: false });
+
+  // Cleanup speech synthesis on unmount
+  useEffect(() => {
+    return () => {
+      stopPersianSpeech();
+    };
+  }, []);
+
+  const handleToggleSpeech = () => {
+    if (isSpeaking) {
+      stopPersianSpeech();
+      setIsSpeaking(false);
+    } else if (currentItem) {
+      speakPersian(currentItem.stem, {
+        onStart: () => setIsSpeaking(true),
+        onEnd: () => setIsSpeaking(false),
+        onError: () => setIsSpeaking(false),
+      });
+    }
+  };
 
   // Filter items by selected topics if specified
   const activeItems = React.useMemo(() => {
@@ -377,6 +400,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     currentHistory: typeof history = history,
     currentMasteries: typeof masteries = masteries
   ) => {
+    stopPersianSpeech();
+    setIsSpeaking(false);
     setSelectedDistractorId(null);
     const answeredIds = new Set(currentHistory.map((h) => h.itemId));
     if (currentItem) {
@@ -405,6 +430,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   };
 
   const handleRestart = () => {
+    stopPersianSpeech();
+    setIsSpeaking(false);
     const activeSubj = subjectId || "SUBJ-MATH4-FRACTIONS";
     clearActiveExamSession(activeSubj, activeUsername);
     setCurrentIndex(0);
@@ -614,6 +641,21 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             </button>
           )}
 
+          {/* Digital Scratchpad Button */}
+          <button
+            type="button"
+            onClick={() => setIsScratchpadOpen((prev) => !prev)}
+            className={`shrink-0 flex items-center gap-1.5 text-xs font-bold border px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs ${
+              isScratchpadOpen
+                ? "bg-indigo-600 text-white border-indigo-700 shadow-xs"
+                : "bg-white hover:bg-slate-50 text-slate-700 border-slate-200"
+            }`}
+            title="چرک‌نویس و یادداشت روی صفحه"
+          >
+            <PenTool className={`w-4 h-4 ${isScratchpadOpen ? "text-amber-300" : "text-indigo-600"}`} />
+            <span className="hidden sm:inline">چرک‌نویس</span>
+          </button>
+
           {/* Quick Drawer Button to View Mastery */}
           <button
             type="button"
@@ -630,9 +672,34 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       {/* Main Diagnostic Question Card */}
       <div className="bg-white border-2 border-slate-200 rounded-3xl p-4 sm:p-6 shadow-sm flex flex-col flex-1 justify-between mb-3">
         <div>
-          {/* Question Stem */}
-          <div className="text-base sm:text-lg font-bold text-slate-900 mb-3 leading-relaxed">
-            <MathRenderer content={currentItem.stem} />
+          {/* Question Stem & Speech Reader */}
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="text-base sm:text-lg font-bold text-slate-900 leading-relaxed flex-1">
+              <MathRenderer content={currentItem.stem} />
+            </div>
+
+            <button
+              type="button"
+              onClick={handleToggleSpeech}
+              className={`shrink-0 min-h-[38px] px-2.5 py-1.5 rounded-xl border flex items-center gap-1.5 text-xs font-bold transition-all cursor-pointer select-none active:scale-95 ${
+                isSpeaking
+                  ? "bg-amber-100 border-amber-300 text-amber-900 ring-2 ring-amber-400 animate-pulse"
+                  : "bg-slate-50 hover:bg-indigo-50 border-slate-200 hover:border-indigo-200 text-slate-600 hover:text-indigo-700"
+              }`}
+              title={isSpeaking ? "توقف روخوانی صوتی" : "روخوانی صوتی سوال"}
+            >
+              {isSpeaking ? (
+                <>
+                  <VolumeX className="w-4 h-4 text-amber-700" />
+                  <span className="text-[11px] hidden xs:inline">توقف صدا</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 className="w-4 h-4 text-indigo-600" />
+                  <span className="text-[11px] hidden xs:inline">بخوان</span>
+                </>
+              )}
+            </button>
           </div>
 
           {/* Parametric Visual Template */}
@@ -797,6 +864,13 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           setActiveRemediation({ isOpen: false });
           advanceToNext();
         }}
+      />
+
+      {/* Digital Scratchpad Overlay */}
+      <ScratchpadOverlay
+        isOpen={isScratchpadOpen}
+        onClose={() => setIsScratchpadOpen(false)}
+        questionNumber={history.length + 1}
       />
     </div>
   );

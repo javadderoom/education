@@ -214,3 +214,57 @@ export async function logoutAction(): Promise<{ success: boolean }> {
 export async function getCurrentUserAction(): Promise<SessionUser | null> {
   return await getAuthSession();
 }
+
+/**
+ * Allows a student to join a classroom using the class code or identifier.
+ */
+export async function joinClassroomAction(codeOrId: string): Promise<{
+  success: boolean;
+  classroomName?: string;
+  error?: string;
+}> {
+  try {
+    const session = await getAuthSession();
+    if (!session || !session.id) {
+      return { success: false, error: "ابتدا باید وارد حساب کاربری خود شوید." };
+    }
+
+    const trimmed = codeOrId.trim();
+    if (!trimmed) {
+      return { success: false, error: "کد کلاس نمی‌تواند خالی باشد." };
+    }
+
+    const classroom = await prisma.classroom.findFirst({
+      where: {
+        OR: [
+          { id: trimmed },
+          { id: { equals: trimmed, mode: "insensitive" } },
+          { name: { contains: trimmed, mode: "insensitive" } },
+        ],
+      },
+    });
+
+    if (!classroom) {
+      return { success: false, error: "کلاسی با این کد یافت نشد. لطفاً از آموزگار خود کد را مجدداً بپرسید." };
+    }
+
+    await prisma.learner.update({
+      where: { id: session.id },
+      data: {
+        classroomId: classroom.id,
+        schoolName: classroom.schoolName || session.schoolName,
+      },
+    });
+
+    const updatedSession: SessionUser = {
+      ...session,
+      classroomId: classroom.id,
+      schoolName: classroom.schoolName || session.schoolName,
+    };
+    await setAuthSession(updatedSession);
+
+    return { success: true, classroomName: classroom.name };
+  } catch (err: any) {
+    return { success: false, error: err?.message || "خطا در پیوستن به کلاس" };
+  }
+}

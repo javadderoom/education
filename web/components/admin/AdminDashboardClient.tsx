@@ -5,6 +5,7 @@ import { School, Users, BookOpen, Plus, Trash2, CheckCircle2, Search, Filter, La
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { createClassroomAction, deleteUserAction } from "@/actions/admin";
 import { CurriculumManager } from "./CurriculumManager";
+import { CartridgeUploader } from "./CartridgeUploader";
 
 interface AdminDashboardClientProps {
   initialClassrooms: Array<{
@@ -354,8 +355,11 @@ export const AdminDashboardClient: React.FC<AdminDashboardClientProps> = ({
 
       {/* Tab 3: Curricula */}
       {activeTab === "curricula" && (
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
+        <div className="space-y-6">
+          {/* Cartridge Uploader */}
+          <CartridgeUploader />
+
+          <div className="flex items-center justify-between pt-2">
             <h3 className="font-bold text-sm text-slate-900">بسته‌های درسی و استانداردهای فعال</h3>
             <span className="text-xs text-slate-500">پوشش مصوب آموزش و پرورش</span>
           </div>

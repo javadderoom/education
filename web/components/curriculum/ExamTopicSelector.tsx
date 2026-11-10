@@ -15,7 +15,10 @@ import {
   RotateCcw,
   ListChecks,
   Compass,
-  Calculator
+  Calculator,
+  Users,
+  X,
+  Share2
 } from "lucide-react";
 import { 
   CANONICAL_TAXONOMIES, 
@@ -26,6 +29,7 @@ import {
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
 import { ActiveExamSession } from "@/lib/store/exam-storage";
+import { joinClassroomAction } from "@/actions/auth";
 
 export interface ExamTopicSelectorProps {
   initialSubjectId?: string;
@@ -73,6 +77,25 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
     }
     return taxonomy.topics.map((t) => t.id);
   });
+
+  // Classroom Join State
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [joinCodeInput, setJoinCodeInput] = useState("");
+  const [joinStatus, setJoinStatus] = useState<{ loading: boolean; error?: string; successName?: string } | null>(null);
+
+  const handleJoinClass = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!joinCodeInput.trim()) return;
+
+    setJoinStatus({ loading: true });
+    const res = await joinClassroomAction(joinCodeInput.trim());
+    if (res.success) {
+      setJoinStatus({ loading: false, successName: res.classroomName });
+      setJoinCodeInput("");
+    } else {
+      setJoinStatus({ loading: false, error: res.error });
+    }
+  };
 
   // Handle switching course
   const handleSelectSubject = (subjectId: string) => {
@@ -199,15 +222,30 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={openSelector}
-          className="min-h-[40px] px-3.5 py-2 bg-slate-50 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 border border-slate-200 hover:border-indigo-300 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 self-stretch sm:self-auto justify-center"
-          title="تغییر کتاب یا پایه تحصیلی"
-        >
-          <BookOpen className="w-4 h-4 text-indigo-600" />
-          <span>تغییر کتاب یا پایه</span>
-        </button>
+        <div className="flex items-center gap-2 shrink-0 self-stretch sm:self-auto flex-wrap sm:flex-nowrap">
+          <button
+            type="button"
+            onClick={() => {
+              setShowJoinModal(true);
+              setJoinStatus(null);
+            }}
+            className="min-h-[40px] px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer justify-center flex-1 sm:flex-initial"
+            title="پیوستن به کلاس آموزگار با کد"
+          >
+            <Users className="w-4 h-4 text-indigo-600" />
+            <span>پیوستن به کلاس</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={openSelector}
+            className="min-h-[40px] px-3.5 py-2 bg-slate-50 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 border border-slate-200 hover:border-indigo-300 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shrink-0 justify-center flex-1 sm:flex-initial"
+            title="تغییر کتاب یا پایه تحصیلی"
+          >
+            <BookOpen className="w-4 h-4 text-indigo-600" />
+            <span>تغییر کتاب یا پایه</span>
+          </button>
+        </div>
       </div>
 
       {/* Active In-Progress Exam Resume Banner */}
@@ -524,6 +562,92 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Join Class Modal */}
+      {showJoinModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-2xl max-w-md w-full select-none animate-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
+                  <Users className="w-4 h-4" />
+                </div>
+                <h3 className="font-bold text-sm text-slate-900">پیوستن به کلاس آموزگار</h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowJoinModal(false)}
+                className="p-1 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {joinStatus?.successName ? (
+              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                  <Check className="w-6 h-6" />
+                </div>
+                <h4 className="font-bold text-sm text-emerald-950">
+                  شما با موفقیت به «{joinStatus.successName}» پیوستید!
+                </h4>
+                <p className="text-xs text-emerald-800">
+                  از این پس نتایج ارزیابی شما در میز کار آموزگارتان قابل مشاهده و راهنمایی خواهد بود.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setShowJoinModal(false)}
+                  className="w-full min-h-[42px] bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl transition-all cursor-pointer shadow-xs"
+                >
+                  متوجه شدم
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleJoinClass} className="space-y-4">
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  کد کلاسی را که آموزگارتان به شما داده است وارد کنید:
+                </p>
+
+                <div>
+                  <input
+                    type="text"
+                    value={joinCodeInput}
+                    onChange={(e) => setJoinCodeInput(e.target.value)}
+                    placeholder="مثال: CLASS-GRADE4-A"
+                    className="w-full text-center font-mono uppercase tracking-wider py-2.5 px-3 rounded-xl border border-slate-300 focus:outline-none focus:border-indigo-600 text-sm font-bold bg-slate-50 focus:bg-white transition-all"
+                    dir="ltr"
+                    required
+                  />
+                </div>
+
+                {joinStatus?.error && (
+                  <p className="text-xs font-bold text-rose-600 bg-rose-50 border border-rose-200 p-2 rounded-xl">
+                    {joinStatus.error}
+                  </p>
+                )}
+
+                <div className="flex items-center gap-2 pt-2">
+                  <button
+                    type="submit"
+                    disabled={joinStatus?.loading || !joinCodeInput.trim()}
+                    className="flex-1 min-h-[44px] bg-indigo-600 hover:bg-indigo-700 active:scale-98 disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>{joinStatus?.loading ? "در حال بررسی..." : "ثبت و عضویت در کلاس"}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowJoinModal(false)}
+                    className="min-h-[44px] px-4 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-all cursor-pointer"
+                  >
+                    انصراف
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
