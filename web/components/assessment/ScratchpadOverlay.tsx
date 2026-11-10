@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import {
   X,
-  RotateCcw,
+  Undo2,
   Eraser,
   PenTool,
   Minimize2,
@@ -456,7 +456,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                 : "opacity-40 bg-slate-100 text-slate-400 cursor-not-allowed border border-transparent"
             }`}
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <Undo2 className="w-3.5 h-3.5" />
           </button>
 
           {/* Clear All */}
