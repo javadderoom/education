@@ -12,6 +12,7 @@ import {
   Eye,
   EyeOff,
 } from "lucide-react";
+import { toPersianDigits } from "@/lib/math/persian-digits";
 
 export interface ScratchpadOverlayProps {
   isOpen: boolean;
@@ -276,25 +277,41 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       ref={containerRef}
       className={`fixed inset-x-2 sm:inset-x-6 bottom-4 top-16 sm:top-24 z-50 flex flex-col rounded-3xl border-2 shadow-2xl transition-all duration-200 ${
         isTransparent
-          ? "bg-white/80 backdrop-blur-md border-indigo-400/80 shadow-indigo-900/10"
+          ? "bg-white/20 backdrop-blur-none border-indigo-500/90 shadow-indigo-950/20 ring-2 ring-indigo-500/30"
           : "bg-white border-slate-300 shadow-slate-900/15"
       }`}
       style={{ touchAction: "none" }}
     >
       {/* Scratchpad Header Toolbar */}
-      <div className="p-2 sm:px-4 py-2 bg-slate-50 border-b border-slate-200 rounded-t-3xl flex items-center justify-between gap-1.5 sm:gap-2 select-none">
+      <div
+        className={`p-2 sm:px-4 py-2 border-b rounded-t-3xl flex items-center justify-between gap-1.5 sm:gap-2 select-none transition-colors ${
+          isTransparent
+            ? "bg-white/95 backdrop-blur-xs border-indigo-200/90 shadow-xs"
+            : "bg-slate-50 border-slate-200"
+        }`}
+      >
         {/* Title & Info */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div
+            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 ${
+              isTransparent
+                ? "bg-indigo-600 text-white shadow-xs"
+                : "bg-indigo-100 text-indigo-700"
+            }`}
+          >
             <PenTool className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
           <div>
             <h4 className="text-xs sm:text-sm font-bold text-slate-800">
               چرک‌نویس
-              {questionNumber ? ` (سوال ${questionNumber})` : ""}
+              <span className="hidden sm:inline">
+                {questionNumber ? ` (سوال ${toPersianDigits(questionNumber)})` : ""}
+              </span>
             </h4>
             <span className="text-[10px] text-slate-500 hidden md:inline">
-              محاسبات خود را آزادانه با قلم یا انگشت یادداشت کنید
+              {isTransparent
+                ? "حالت شیشه‌ای: سوال زیر چرک‌نویس کاملاً قابل مشاهده است"
+                : "محاسبات خود را آزادانه با قلم یا انگشت یادداشت کنید"}
             </span>
           </div>
         </div>
@@ -386,15 +403,19 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
           {/* Transparent Glass Toggle */}
           <button
             type="button"
-            title={isTransparent ? "حالت کاغذ سفید" : "حالت شیشه‌ای (دیدن سوال)"}
+            title={isTransparent ? "بازگشت به کاغذ سفید" : "حالت شیشه‌ای شفاف (مشاهده سوال زیر چرک‌نویس)"}
             onClick={() => setIsTransparent(!isTransparent)}
-            className={`min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
+            className={`min-h-[28px] sm:min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
               isTransparent
-                ? "bg-indigo-100 text-indigo-700 border border-indigo-300"
+                ? "bg-indigo-600 text-white shadow-xs ring-2 ring-indigo-300"
                 : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
-            {isTransparent ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+            {isTransparent ? <Eye className="w-3.5 h-3.5 text-white" /> : <EyeOff className="w-3.5 h-3.5 text-slate-500" />}
+            <span>
+              <span className="hidden sm:inline">{isTransparent ? "حالت شیشه‌ای" : "کاغذ سفید"}</span>
+              <span className="sm:hidden">{isTransparent ? "شیشه‌ای" : "کاغذ"}</span>
+            </span>
           </button>
 
           {/* Minimize */}
@@ -423,7 +444,9 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       <div className="relative flex-1 w-full h-full overflow-hidden touch-none cursor-crosshair">
         {/* Subtle grid pattern for mathematical writing */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-20"
+          className={`absolute inset-0 pointer-events-none transition-opacity duration-200 ${
+            isTransparent ? "opacity-5" : "opacity-20"
+          }`}
           style={{
             backgroundImage:
               "linear-gradient(to right, #94a3b8 1px, transparent 1px), linear-gradient(to bottom, #94a3b8 1px, transparent 1px)",

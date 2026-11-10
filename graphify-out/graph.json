@@ -4340,7 +4340,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "regex_detect_text_isneutralbordercolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -5410,7 +5410,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "rules_checks_isemojionlytext",
-      "community": 1,
+      "community": 165,
       "norm_label": "isemojionlytext()"
     },
     {
@@ -5420,7 +5420,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "rules_checks_checkcolors",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkcolors()"
     },
     {
@@ -5450,7 +5450,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "rules_checks_checkicontile",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkicontile()"
     },
     {
@@ -5530,7 +5530,7 @@
       "source_location": "L410",
       "_origin": "ast",
       "id": "rules_checks_checkglow",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkglow()"
     },
     {
@@ -5550,7 +5550,7 @@
       "source_location": "L616",
       "_origin": "ast",
       "id": "rules_checks_readownbackgroundcolor",
-      "community": 1,
+      "community": 165,
       "norm_label": "readownbackgroundcolor()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L637",
       "_origin": "ast",
       "id": "rules_checks_resolvebackground",
-      "community": 1,
+      "community": 165,
       "norm_label": "resolvebackground()"
     },
     {
@@ -5570,7 +5570,7 @@
       "source_location": "L699",
       "_origin": "ast",
       "id": "rules_checks_resolvegradientstops",
-      "community": 1,
+      "community": 165,
       "norm_label": "resolvegradientstops()"
     },
     {
@@ -5610,7 +5610,7 @@
       "source_location": "L770",
       "_origin": "ast",
       "id": "rules_checks_checkelementcolorsdom",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementcolorsdom()"
     },
     {
@@ -5620,7 +5620,7 @@
       "source_location": "L797",
       "_origin": "ast",
       "id": "rules_checks_checkelementicontiledom",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementicontiledom()"
     },
     {
@@ -5690,7 +5690,7 @@
       "source_location": "L998",
       "_origin": "ast",
       "id": "rules_checks_parsecolorresolved",
-      "community": 1,
+      "community": 165,
       "norm_label": "parsecolorresolved()"
     },
     {
@@ -5780,7 +5780,7 @@
       "source_location": "L1135",
       "_origin": "ast",
       "id": "rules_checks_checkelementglowdom",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementglowdom()"
     },
     {
@@ -5790,7 +5790,7 @@
       "source_location": "L1164",
       "_origin": "ast",
       "id": "rules_checks_checkelementaipalettedom",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementaipalettedom()"
     },
     {
@@ -5960,7 +5960,7 @@
       "source_location": "L1748",
       "_origin": "ast",
       "id": "rules_checks_checkelementcolors",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementcolors()"
     },
     {
@@ -5970,7 +5970,7 @@
       "source_location": "L1802",
       "_origin": "ast",
       "id": "rules_checks_checkelementicontile",
-      "community": 1,
+      "community": 165,
       "norm_label": "checkelementicontile()"
     },
     {
@@ -6440,7 +6440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_color",
-      "community": 1,
+      "community": 165,
       "norm_label": "color.mjs"
     },
     {
@@ -6450,7 +6450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_color_isneutralcolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -6460,7 +6460,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "shared_color_parsergb",
-      "community": 1,
+      "community": 165,
       "norm_label": "parsergb()"
     },
     {
@@ -6470,7 +6470,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "shared_color_relativeluminance",
-      "community": 1,
+      "community": 165,
       "norm_label": "relativeluminance()"
     },
     {
@@ -6480,7 +6480,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "shared_color_contrastratio",
-      "community": 1,
+      "community": 165,
       "norm_label": "contrastratio()"
     },
     {
@@ -6490,7 +6490,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "shared_color_parsegradientcolors",
-      "community": 1,
+      "community": 165,
       "norm_label": "parsegradientcolors()"
     },
     {
@@ -6500,7 +6500,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "shared_color_haschroma",
-      "community": 1,
+      "community": 165,
       "norm_label": "haschroma()"
     },
     {
@@ -6510,7 +6510,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "shared_color_gethue",
-      "community": 1,
+      "community": 165,
       "norm_label": "gethue()"
     },
     {
@@ -6520,7 +6520,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "shared_color_colortohex",
-      "community": 1,
+      "community": 165,
       "norm_label": "colortohex()"
     },
     {
@@ -9990,7 +9990,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "scripts_live_browser_writescrolly",
-      "community": 3,
+      "community": 164,
       "norm_label": "writescrolly()"
     },
     {
@@ -10000,7 +10000,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "scripts_live_browser_readscrolly",
-      "community": 0,
+      "community": 164,
       "norm_label": "readscrolly()"
     },
     {
@@ -10110,7 +10110,7 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "scripts_live_browser_positionannotoverlay",
-      "community": 19,
+      "community": 3,
       "norm_label": "positionannotoverlay()"
     },
     {
@@ -10290,7 +10290,7 @@
       "source_location": "L943",
       "_origin": "ast",
       "id": "scripts_live_browser_contextelementformanualedit",
-      "community": 31,
+      "community": 0,
       "norm_label": "contextelementformanualedit()"
     },
     {
@@ -10300,7 +10300,7 @@
       "source_location": "L967",
       "_origin": "ast",
       "id": "scripts_live_browser_isusefulmanualeditcontext",
-      "community": 31,
+      "community": 0,
       "norm_label": "isusefulmanualeditcontext()"
     },
     {
@@ -10310,7 +10310,7 @@
       "source_location": "L973",
       "_origin": "ast",
       "id": "scripts_live_browser_collectmanualcontextpieces",
-      "community": 31,
+      "community": 0,
       "norm_label": "collectmanualcontextpieces()"
     },
     {
@@ -10320,7 +10320,7 @@
       "source_location": "L992",
       "_origin": "ast",
       "id": "scripts_live_browser_addmanualcontexttext",
-      "community": 31,
+      "community": 0,
       "norm_label": "addmanualcontexttext()"
     },
     {
@@ -10360,7 +10360,7 @@
       "source_location": "L1046",
       "_origin": "ast",
       "id": "scripts_live_browser_positionbar",
-      "community": 3,
+      "community": 164,
       "norm_label": "positionbar()"
     },
     {
@@ -10370,7 +10370,7 @@
       "source_location": "L1091",
       "_origin": "ast",
       "id": "scripts_live_browser_showbar",
-      "community": 3,
+      "community": 164,
       "norm_label": "showbar()"
     },
     {
@@ -10780,7 +10780,7 @@
       "source_location": "L1774",
       "_origin": "ast",
       "id": "scripts_live_browser_placeholderwidthisimplicit",
-      "community": 0,
+      "community": 76,
       "norm_label": "placeholderwidthisimplicit()"
     },
     {
@@ -10800,7 +10800,7 @@
       "source_location": "L1795",
       "_origin": "ast",
       "id": "scripts_live_browser_materializeplaceholderwidth",
-      "community": 0,
+      "community": 76,
       "norm_label": "materializeplaceholderwidth()"
     },
     {
@@ -10810,7 +10810,7 @@
       "source_location": "L1807",
       "_origin": "ast",
       "id": "scripts_live_browser_cancreateinsert",
-      "community": 76,
+      "community": 17,
       "norm_label": "cancreateinsert()"
     },
     {
@@ -10820,7 +10820,7 @@
       "source_location": "L1816",
       "_origin": "ast",
       "id": "scripts_live_browser_insertcreatedisabledreason",
-      "community": 76,
+      "community": 17,
       "norm_label": "insertcreatedisabledreason()"
     },
     {
@@ -10840,7 +10840,7 @@
       "source_location": "L1829",
       "_origin": "ast",
       "id": "scripts_live_browser_cursorforplaceholderedge",
-      "community": 19,
+      "community": 17,
       "norm_label": "cursorforplaceholderedge()"
     },
     {
@@ -10950,7 +10950,7 @@
       "source_location": "L2015",
       "_origin": "ast",
       "id": "scripts_live_browser_buildinsertplaceholdersnapshotfromdom",
-      "community": 0,
+      "community": 164,
       "norm_label": "buildinsertplaceholdersnapshotfromdom()"
     },
     {
@@ -10960,7 +10960,7 @@
       "source_location": "L2029",
       "_origin": "ast",
       "id": "scripts_live_browser_findinsertanchorindom",
-      "community": 19,
+      "community": 164,
       "norm_label": "findinsertanchorindom()"
     },
     {
@@ -10970,7 +10970,7 @@
       "source_location": "L2046",
       "_origin": "ast",
       "id": "scripts_live_browser_isinsertgeneratingsession",
-      "community": 19,
+      "community": 164,
       "norm_label": "isinsertgeneratingsession()"
     },
     {
@@ -10980,7 +10980,7 @@
       "source_location": "L2053",
       "_origin": "ast",
       "id": "scripts_live_browser_ensureinsertplaceholder",
-      "community": 19,
+      "community": 164,
       "norm_label": "ensureinsertplaceholder()"
     },
     {
@@ -10990,7 +10990,7 @@
       "source_location": "L2081",
       "_origin": "ast",
       "id": "scripts_live_browser_applyplaceholderdimensions",
-      "community": 19,
+      "community": 76,
       "norm_label": "applyplaceholderdimensions()"
     },
     {
@@ -11000,7 +11000,7 @@
       "source_location": "L2093",
       "_origin": "ast",
       "id": "scripts_live_browser_showorupdatecyclingbar",
-      "community": 3,
+      "community": 164,
       "norm_label": "showorupdatecyclingbar()"
     },
     {
@@ -11010,7 +11010,7 @@
       "source_location": "L2098",
       "_origin": "ast",
       "id": "scripts_live_browser_buildplaceholderresizehandles",
-      "community": 19,
+      "community": 17,
       "norm_label": "buildplaceholderresizehandles()"
     },
     {
@@ -11020,7 +11020,7 @@
       "source_location": "L2128",
       "_origin": "ast",
       "id": "scripts_live_browser_syncplaceholderresizehandles",
-      "community": 19,
+      "community": 3,
       "norm_label": "syncplaceholderresizehandles()"
     },
     {
@@ -11030,7 +11030,7 @@
       "source_location": "L2139",
       "_origin": "ast",
       "id": "scripts_live_browser_startplaceholderedgeresize",
-      "community": 0,
+      "community": 76,
       "norm_label": "startplaceholderedgeresize()"
     },
     {
@@ -11090,7 +11090,7 @@
       "source_location": "L2250",
       "_origin": "ast",
       "id": "scripts_live_browser_hideinsertcreatetooltip",
-      "community": 76,
+      "community": 17,
       "norm_label": "hideinsertcreatetooltip()"
     },
     {
@@ -11100,7 +11100,7 @@
       "source_location": "L2255",
       "_origin": "ast",
       "id": "scripts_live_browser_insertcreategatestate",
-      "community": 76,
+      "community": 17,
       "norm_label": "insertcreategatestate()"
     },
     {
@@ -11110,7 +11110,7 @@
       "source_location": "L2263",
       "_origin": "ast",
       "id": "scripts_live_browser_syncinsertcreatebutton",
-      "community": 76,
+      "community": 17,
       "norm_label": "syncinsertcreatebutton()"
     },
     {
@@ -11800,7 +11800,7 @@
       "source_location": "L3832",
       "_origin": "ast",
       "id": "scripts_live_browser_refreshlivecontrolsformanualapply",
-      "community": 26,
+      "community": 3,
       "norm_label": "refreshlivecontrolsformanualapply()"
     },
     {
@@ -12310,7 +12310,7 @@
       "source_location": "L4838",
       "_origin": "ast",
       "id": "scripts_live_browser_issveltecomponentmanifestpath",
-      "community": 3,
+      "community": 164,
       "norm_label": "issveltecomponentmanifestpath()"
     },
     {
@@ -12340,7 +12340,7 @@
       "source_location": "L4860",
       "_origin": "ast",
       "id": "scripts_live_browser_buildpickedanchorsnapshot",
-      "community": 0,
+      "community": 164,
       "norm_label": "buildpickedanchorsnapshot()"
     },
     {
@@ -12410,7 +12410,7 @@
       "source_location": "L4990",
       "_origin": "ast",
       "id": "scripts_live_browser_findliveelementforsveltemanifest",
-      "community": 19,
+      "community": 164,
       "norm_label": "findliveelementforsveltemanifest()"
     },
     {
@@ -12420,7 +12420,7 @@
       "source_location": "L4998",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforvariantanchorandretry",
-      "community": 3,
+      "community": 164,
       "norm_label": "waitforvariantanchorandretry()"
     },
     {
@@ -12430,7 +12430,7 @@
       "source_location": "L5022",
       "_origin": "ast",
       "id": "scripts_live_browser_enterrecoverywaitingforanchor",
-      "community": 3,
+      "community": 164,
       "norm_label": "enterrecoverywaitingforanchor()"
     },
     {
@@ -12450,7 +12450,7 @@
       "source_location": "L5049",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentparams",
-      "community": 0,
+      "community": 164,
       "norm_label": "loadsveltecomponentparams()"
     },
     {
@@ -12620,7 +12620,7 @@
       "source_location": "L5338",
       "_origin": "ast",
       "id": "scripts_live_browser_injectsveltecomponentsfrommanifest",
-      "community": 3,
+      "community": 164,
       "norm_label": "injectsveltecomponentsfrommanifest()"
     },
     {
@@ -12630,7 +12630,7 @@
       "source_location": "L5459",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforsveltecomponenttargetandretry",
-      "community": 0,
+      "community": 164,
       "norm_label": "waitforsveltecomponenttargetandretry()"
     },
     {
@@ -12650,7 +12650,7 @@
       "source_location": "L5513",
       "_origin": "ast",
       "id": "scripts_live_browser_injectvariantsfromsource",
-      "community": 3,
+      "community": 164,
       "norm_label": "injectvariantsfromsource()"
     },
     {
@@ -12790,7 +12790,7 @@
       "source_location": "L5811",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolllock",
-      "community": 3,
+      "community": 164,
       "norm_label": "startscrolllock()"
     },
     {
@@ -12810,7 +12810,7 @@
       "source_location": "L5929",
       "_origin": "ast",
       "id": "scripts_live_browser_startvariantobserver",
-      "community": 3,
+      "community": 164,
       "norm_label": "startvariantobserver()"
     },
     {
@@ -12820,7 +12820,7 @@
       "source_location": "L6034",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolltracking",
-      "community": 3,
+      "community": 164,
       "norm_label": "startscrolltracking()"
     },
     {
@@ -12870,7 +12870,7 @@
       "source_location": "L6245",
       "_origin": "ast",
       "id": "scripts_live_browser_checkpointpayload",
-      "community": 0,
+      "community": 164,
       "norm_label": "checkpointpayload()"
     },
     {
@@ -12880,7 +12880,7 @@
       "source_location": "L6264",
       "_origin": "ast",
       "id": "scripts_live_browser_sendcheckpoint",
-      "community": 0,
+      "community": 164,
       "norm_label": "sendcheckpoint()"
     },
     {
@@ -12900,7 +12900,7 @@
       "source_location": "L6283",
       "_origin": "ast",
       "id": "scripts_live_browser_queuecheckpoint",
-      "community": 3,
+      "community": 164,
       "norm_label": "queuecheckpoint()"
     },
     {
@@ -12950,7 +12950,7 @@
       "source_location": "L6482",
       "_origin": "ast",
       "id": "scripts_live_browser_shouldpassthroughelementnav",
-      "community": 0,
+      "community": 3,
       "norm_label": "shouldpassthroughelementnav()"
     },
     {
@@ -12970,7 +12970,7 @@
       "source_location": "L6610",
       "_origin": "ast",
       "id": "scripts_live_browser_handlego",
-      "community": 3,
+      "community": 164,
       "norm_label": "handlego()"
     },
     {
@@ -12990,7 +12990,7 @@
       "source_location": "L6686",
       "_origin": "ast",
       "id": "scripts_live_browser_handleinsertcreate",
-      "community": 3,
+      "community": 164,
       "norm_label": "handleinsertcreate()"
     },
     {
@@ -13130,7 +13130,7 @@
       "source_location": "L7048",
       "_origin": "ast",
       "id": "scripts_live_browser_captureandemit",
-      "community": 0,
+      "community": 164,
       "norm_label": "captureandemit()"
     },
     {
@@ -13230,7 +13230,7 @@
       "source_location": "L7317",
       "_origin": "ast",
       "id": "scripts_live_browser_hideshaderoverlay",
-      "community": 3,
+      "community": 164,
       "norm_label": "hideshaderoverlay()"
     },
     {
@@ -13270,7 +13270,7 @@
       "source_location": "L7510",
       "_origin": "ast",
       "id": "scripts_live_browser_maybecompleteacceptedsession",
-      "community": 164,
+      "community": 0,
       "norm_label": "maybecompleteacceptedsession()"
     },
     {
@@ -13280,7 +13280,7 @@
       "source_location": "L7529",
       "_origin": "ast",
       "id": "scripts_live_browser_scheduleacceptcleanup",
-      "community": 164,
+      "community": 0,
       "norm_label": "scheduleacceptcleanup()"
     },
     {
@@ -13310,7 +13310,7 @@
       "source_location": "L7564",
       "_origin": "ast",
       "id": "scripts_live_browser_accepteddomalreadyclean",
-      "community": 164,
+      "community": 0,
       "norm_label": "accepteddomalreadyclean()"
     },
     {
@@ -13320,7 +13320,7 @@
       "source_location": "L7571",
       "_origin": "ast",
       "id": "scripts_live_browser_ensureaccepteddomclean",
-      "community": 164,
+      "community": 0,
       "norm_label": "ensureaccepteddomclean()"
     },
     {
@@ -13330,7 +13330,7 @@
       "source_location": "L7597",
       "_origin": "ast",
       "id": "scripts_live_browser_findacceptedruntimewrappers",
-      "community": 164,
+      "community": 0,
       "norm_label": "findacceptedruntimewrappers()"
     },
     {
@@ -13340,7 +13340,7 @@
       "source_location": "L7605",
       "_origin": "ast",
       "id": "scripts_live_browser_restoreaccepteddomfromsnapshot",
-      "community": 164,
+      "community": 0,
       "norm_label": "restoreaccepteddomfromsnapshot()"
     },
     {
@@ -13350,7 +13350,7 @@
       "source_location": "L7627",
       "_origin": "ast",
       "id": "scripts_live_browser_reloadaftermissingaccepteddom",
-      "community": 164,
+      "community": 0,
       "norm_label": "reloadaftermissingaccepteddom()"
     },
     {
@@ -13390,7 +13390,7 @@
       "source_location": "L7688",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizesessionpath",
-      "community": 3,
+      "community": 164,
       "norm_label": "normalizesessionpath()"
     },
     {
@@ -13410,7 +13410,7 @@
       "source_location": "L7702",
       "_origin": "ast",
       "id": "scripts_live_browser_remembersessionfilemeta",
-      "community": 3,
+      "community": 164,
       "norm_label": "remembersessionfilemeta()"
     },
     {
@@ -13420,7 +13420,7 @@
       "source_location": "L7720",
       "_origin": "ast",
       "id": "scripts_live_browser_applysavedsessionmeta",
-      "community": 3,
+      "community": 164,
       "norm_label": "applysavedsessionmeta()"
     },
     {
@@ -13460,7 +13460,7 @@
       "source_location": "L7751",
       "_origin": "ast",
       "id": "scripts_live_browser_findactivesessionsummary",
-      "community": 0,
+      "community": 164,
       "norm_label": "findactivesessionsummary()"
     },
     {
@@ -13470,7 +13470,7 @@
       "source_location": "L7760",
       "_origin": "ast",
       "id": "scripts_live_browser_clampvariantindex",
-      "community": 0,
+      "community": 164,
       "norm_label": "clampvariantindex()"
     },
     {
@@ -13480,7 +13480,7 @@
       "source_location": "L7768",
       "_origin": "ast",
       "id": "scripts_live_browser_restoresessionwithoutwrapper",
-      "community": 3,
+      "community": 164,
       "norm_label": "restoresessionwithoutwrapper()"
     },
     {
@@ -13490,7 +13490,7 @@
       "source_location": "L7813",
       "_origin": "ast",
       "id": "scripts_live_browser_restorefromactivesessions",
-      "community": 3,
+      "community": 164,
       "norm_label": "restorefromactivesessions()"
     },
     {
@@ -13500,7 +13500,7 @@
       "source_location": "L7820",
       "_origin": "ast",
       "id": "scripts_live_browser_savesession",
-      "community": 3,
+      "community": 164,
       "norm_label": "savesession()"
     },
     {
@@ -13510,7 +13510,7 @@
       "source_location": "L7842",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsession",
-      "community": 3,
+      "community": 164,
       "norm_label": "loadsession()"
     },
     {
@@ -13530,7 +13530,7 @@
       "source_location": "L7853",
       "_origin": "ast",
       "id": "scripts_live_browser_marksessionhandled",
-      "community": 164,
+      "community": 0,
       "norm_label": "marksessionhandled()"
     },
     {
@@ -13540,7 +13540,7 @@
       "source_location": "L7858",
       "_origin": "ast",
       "id": "scripts_live_browser_issessionhandled",
-      "community": 3,
+      "community": 164,
       "norm_label": "issessionhandled()"
     },
     {
@@ -13590,7 +13590,7 @@
       "source_location": "L7964",
       "_origin": "ast",
       "id": "scripts_live_browser_resumesession",
-      "community": 3,
+      "community": 164,
       "norm_label": "resumesession()"
     },
     {
@@ -13630,7 +13630,7 @@
       "source_location": "L8155",
       "_origin": "ast",
       "id": "scripts_live_browser_savepickpref",
-      "community": 0,
+      "community": 3,
       "norm_label": "savepickpref()"
     },
     {
@@ -13670,7 +13670,7 @@
       "source_location": "L8295",
       "_origin": "ast",
       "id": "scripts_live_browser_globalbarmodetoggles",
-      "community": 0,
+      "community": 37,
       "norm_label": "globalbarmodetoggles()"
     },
     {
@@ -13680,7 +13680,7 @@
       "source_location": "L8304",
       "_origin": "ast",
       "id": "scripts_live_browser_applyglobalbarlabelstate",
-      "community": 0,
+      "community": 37,
       "norm_label": "applyglobalbarlabelstate()"
     },
     {
@@ -13790,7 +13790,7 @@
       "source_location": "L8391",
       "_origin": "ast",
       "id": "scripts_live_browser_pagehashosttextselection",
-      "community": 0,
+      "community": 3,
       "norm_label": "pagehashosttextselection()"
     },
     {
@@ -13860,7 +13860,7 @@
       "source_location": "L8490",
       "_origin": "ast",
       "id": "scripts_live_browser_steerfocusdebugenabled",
-      "community": 24,
+      "community": 37,
       "norm_label": "steerfocusdebugenabled()"
     },
     {
@@ -13880,7 +13880,7 @@
       "source_location": "L8507",
       "_origin": "ast",
       "id": "scripts_live_browser_attachsteerfocusdebug",
-      "community": 24,
+      "community": 37,
       "norm_label": "attachsteerfocusdebug()"
     },
     {
@@ -13930,7 +13930,7 @@
       "source_location": "L8612",
       "_origin": "ast",
       "id": "scripts_live_browser_buildsteerprocessingdots",
-      "community": 17,
+      "community": 24,
       "norm_label": "buildsteerprocessingdots()"
     },
     {
@@ -20370,7 +20370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_db_sync_test",
-      "community": 75,
+      "community": 166,
       "norm_label": "db-sync.test.ts"
     },
     {
@@ -21587,7 +21587,7 @@
       "label": "ScratchpadOverlayProps",
       "file_type": "code",
       "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "assessment_scratchpadoverlay_scratchpadoverlayprops",
       "community": 75,
@@ -21597,7 +21597,7 @@
       "label": "Point",
       "file_type": "code",
       "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "assessment_scratchpadoverlay_point",
       "community": 75,
@@ -21607,7 +21607,7 @@
       "label": "PEN_COLORS",
       "file_type": "code",
       "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "assessment_scratchpadoverlay_pen_colors",
       "community": 75,
@@ -21617,7 +21617,7 @@
       "label": "STROKE_WIDTHS",
       "file_type": "code",
       "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "assessment_scratchpadoverlay_stroke_widths",
       "community": 75,
@@ -21627,7 +21627,7 @@
       "label": "ScratchpadOverlay()",
       "file_type": "code",
       "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "assessment_scratchpadoverlay_scratchpadoverlay",
       "community": 75,
@@ -23130,7 +23130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "offline_storage",
-      "community": 75,
+      "community": 166,
       "norm_label": "storage.ts"
     },
     {
@@ -23140,7 +23140,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "offline_storage_offlinesessionrecord",
-      "community": 75,
+      "community": 166,
       "norm_label": "offlinesessionrecord"
     },
     {
@@ -23150,7 +23150,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "offline_storage_openofflinedatabase",
-      "community": 75,
+      "community": 166,
       "norm_label": "openofflinedatabase()"
     },
     {
@@ -23160,7 +23160,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "offline_storage_saveofflinesession",
-      "community": 75,
+      "community": 166,
       "norm_label": "saveofflinesession()"
     },
     {
@@ -23170,7 +23170,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "offline_storage_getofflinesessions",
-      "community": 75,
+      "community": 166,
       "norm_label": "getofflinesessions()"
     },
     {
@@ -23180,7 +23180,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "offline_storage_syncofflinesessionstocloud",
-      "community": 75,
+      "community": 166,
       "norm_label": "syncofflinesessionstocloud()"
     },
     {
@@ -89979,9 +89979,9 @@
       "source_file": "web/components/admin/CartridgeUploader.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "admin_cartridgeuploader",
-      "target": "admin_cartridgeuploader_sampleitem",
-      "confidence_score": 1.0
+      "target": "admin_cartridgeuploader_sampleitem"
     },
     {
       "relation": "imports_from",
@@ -90813,6 +90813,39 @@
       "confidence_score": 1.0,
       "source": "assessment_scratchpadoverlay",
       "target": "assessment_scratchpadoverlay_stroke_widths"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "assessment_scratchpadoverlay",
+      "target": "math_persian_digits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "assessment_scratchpadoverlay",
+      "target": "math_persian_digits_topersiandigits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/components/assessment/ScratchpadOverlay.tsx",
+      "source_location": "L308",
+      "weight": 1.0,
+      "source": "assessment_scratchpadoverlay_scratchpadoverlay",
+      "target": "math_persian_digits_topersiandigits"
     },
     {
       "relation": "contains",
@@ -92873,9 +92906,9 @@
       "source_file": "web/lib/audio/speech.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "audio_speech",
-      "target": "audio_speech_common_fractions_spoken",
-      "confidence_score": 1.0
+      "target": "audio_speech_common_fractions_spoken"
     },
     {
       "relation": "contains",
@@ -95580,9 +95613,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit",
-      "target": "scripts_deep_feature_audit_cdpclient",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient"
     },
     {
       "relation": "contains",
@@ -95590,9 +95623,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit",
-      "target": "scripts_deep_feature_audit_rundeepaudit",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_rundeepaudit"
     },
     {
       "relation": "contains",
@@ -95600,9 +95633,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit",
-      "target": "scripts_deep_feature_audit_signtoken",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_signtoken"
     },
     {
       "relation": "calls",
@@ -95611,9 +95644,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_signtoken",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_signtoken"
     },
     {
       "relation": "method",
@@ -95621,9 +95654,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_capturescreenshot",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_capturescreenshot"
     },
     {
       "relation": "method",
@@ -95631,9 +95664,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_constructor",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_constructor"
     },
     {
       "relation": "method",
@@ -95641,9 +95674,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_evaluate",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_evaluate"
     },
     {
       "relation": "method",
@@ -95651,9 +95684,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_navigate",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_navigate"
     },
     {
       "relation": "method",
@@ -95661,9 +95694,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "method",
@@ -95671,9 +95704,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_setcookie",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_setcookie"
     },
     {
       "relation": "method",
@@ -95681,9 +95714,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_setviewport",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_setviewport"
     },
     {
       "relation": "method",
@@ -95691,9 +95724,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient",
-      "target": "scripts_deep_feature_audit_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -95702,9 +95735,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_capturescreenshot",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95713,9 +95746,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L91",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_evaluate",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95724,9 +95757,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_navigate",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95735,9 +95768,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_setcookie",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95746,9 +95779,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_setviewport",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95757,9 +95790,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -95768,9 +95801,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_cdpclient_navigate",
-      "target": "scripts_deep_feature_audit_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -95779,9 +95812,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -95790,9 +95823,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_setviewport",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_setviewport"
     },
     {
       "relation": "calls",
@@ -95801,9 +95834,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L174",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_navigate",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_navigate"
     },
     {
       "relation": "calls",
@@ -95812,9 +95845,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_capturescreenshot",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_capturescreenshot"
     },
     {
       "relation": "calls",
@@ -95823,9 +95856,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_evaluate",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_evaluate"
     },
     {
       "relation": "calls",
@@ -95834,9 +95867,9 @@
       "source_file": "web/scripts/deep-feature-audit.mjs",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_deep_feature_audit_rundeepaudit",
-      "target": "scripts_deep_feature_audit_cdpclient_setcookie",
-      "confidence_score": 1.0
+      "target": "scripts_deep_feature_audit_cdpclient_setcookie"
     },
     {
       "relation": "contains",
@@ -95914,9 +95947,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features",
-      "target": "scripts_verify_additional_features_cdpclient",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient"
     },
     {
       "relation": "contains",
@@ -95924,9 +95957,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features",
-      "target": "scripts_verify_additional_features_run",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_run"
     },
     {
       "relation": "contains",
@@ -95934,9 +95967,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features",
-      "target": "scripts_verify_additional_features_signtoken",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_signtoken"
     },
     {
       "relation": "calls",
@@ -95945,9 +95978,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_signtoken",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_signtoken"
     },
     {
       "relation": "method",
@@ -95955,9 +95988,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_capturescreenshot",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_capturescreenshot"
     },
     {
       "relation": "method",
@@ -95965,9 +95998,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_constructor",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_constructor"
     },
     {
       "relation": "method",
@@ -95975,9 +96008,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_evaluate",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_evaluate"
     },
     {
       "relation": "method",
@@ -95985,9 +96018,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_navigate",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_navigate"
     },
     {
       "relation": "method",
@@ -95995,9 +96028,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "method",
@@ -96005,9 +96038,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_setcookie",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_setcookie"
     },
     {
       "relation": "method",
@@ -96015,9 +96048,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_setviewport",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_setviewport"
     },
     {
       "relation": "method",
@@ -96025,9 +96058,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient",
-      "target": "scripts_verify_additional_features_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -96036,9 +96069,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_capturescreenshot",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96047,9 +96080,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_evaluate",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96058,9 +96091,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_navigate",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96069,9 +96102,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_setcookie",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96080,9 +96113,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_setviewport",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96091,9 +96124,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_send",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_send"
     },
     {
       "relation": "calls",
@@ -96102,9 +96135,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_cdpclient_navigate",
-      "target": "scripts_verify_additional_features_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -96113,9 +96146,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L151",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_sleep",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_sleep"
     },
     {
       "relation": "calls",
@@ -96124,9 +96157,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L149",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_setviewport",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_setviewport"
     },
     {
       "relation": "calls",
@@ -96135,9 +96168,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_navigate",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_navigate"
     },
     {
       "relation": "calls",
@@ -96146,9 +96179,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_capturescreenshot",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_capturescreenshot"
     },
     {
       "relation": "calls",
@@ -96157,9 +96190,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_evaluate",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_evaluate"
     },
     {
       "relation": "calls",
@@ -96168,9 +96201,9 @@
       "source_file": "web/scripts/verify-additional-features.mjs",
       "source_location": "L148",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scripts_verify_additional_features_run",
-      "target": "scripts_verify_additional_features_cdpclient_setcookie",
-      "confidence_score": 1.0
+      "target": "scripts_verify_additional_features_cdpclient_setcookie"
     },
     {
       "relation": "contains",
@@ -104258,5 +104291,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7399b0c95a1da7a73241a2d0e92acab3ce025531"
+  "built_at_commit": "d7fbc406da8b632b399bb0fdcef6520edc363d01"
 }
