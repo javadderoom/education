@@ -29,6 +29,8 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
 
   const allCourses: SubjectTaxonomy[] = Object.values(CANONICAL_TAXONOMIES);
+  const grade4Count = allCourses.filter((c) => c.gradeLevel === 4).length;
+  const grade5Count = allCourses.filter((c) => c.gradeLevel === 5).length;
 
   const filteredCourses = allCourses.filter((course) => {
     if (gradeFilter === "all") return true;
@@ -37,12 +39,16 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
 
   const getCourseBadge = (courseId: string) => {
     if (courseId === "SUBJ-MATH5-RATIO") return "فصل جدید";
-    if (courseId === "SUBJ-MATH4-FRACTIONS") return "مفاهیم پایه";
+    if (courseId === "SUBJ-MATH4-FRACTIONS" || courseId === "SUBJ-MATH4-CH01") return "مفاهیم پایه";
+    if (courseId.includes("CH06") || courseId.includes("GEOM")) return "هندسی";
+    if (courseId.includes("CH07") || courseId.includes("STAT")) return "آمار و احتمال";
     return "محاسباتی";
   };
 
   const getCourseIcon = (courseId: string, grade: number) => {
     if (courseId.includes("CH03") || courseId.includes("MULT")) return Calculator;
+    if (courseId.includes("CH06") || courseId.includes("GEOM")) return Layers;
+    if (courseId.includes("CH07") || courseId.includes("STAT")) return Sparkles;
     if (grade === 5) return Scale;
     return SplitSquareVertical;
   };
@@ -74,8 +80,13 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
 
   // Helper title for tests / display
   const getDisplayTitle = (sub: SubjectTaxonomy) => {
+    if (sub.id === "SUBJ-MATH4-CH01") return "ریاضی چهارم: اعداد و الگوها";
     if (sub.id === "SUBJ-MATH4-FRACTIONS") return "ریاضی چهارم: مفهوم و محاسبات کسرها";
     if (sub.id === "SUBJ-MATH4-CH03") return "ریاضی چهارم: ضرب و تقسیم";
+    if (sub.id === "SUBJ-MATH4-CH04") return "ریاضی چهارم: اندازه‌گیری";
+    if (sub.id === "SUBJ-MATH4-CH05") return "ریاضی چهارم: عدد مخلوط و اعشار";
+    if (sub.id === "SUBJ-MATH4-CH06") return "ریاضی چهارم: شکل‌های هندسی";
+    if (sub.id === "SUBJ-MATH4-CH07") return "ریاضی چهارم: آمار و احتمال";
     if (sub.id === "SUBJ-MATH5-RATIO") return "ریاضی پنجم: نسبت، تناسب و درصد";
     return `${sub.title}: ${sub.chapterTitle}`;
   };
@@ -117,7 +128,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              چهارم ({toPersianDigits(2)})
+              چهارم ({toPersianDigits(grade4Count)})
             </button>
             <button
               type="button"
@@ -128,7 +139,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              پنجم ({toPersianDigits(1)})
+              پنجم ({toPersianDigits(grade5Count)})
             </button>
           </div>
 
@@ -147,7 +158,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ initialGradeFilter
 
       {/* Courses Cards: Swipeable Carousel on Mobile, Responsive 3-col Grid on Desktop */}
       <div className="flex overflow-x-auto pb-4 pt-1 px-1 -mx-1 gap-3.5 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:p-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-        {filteredCourses.slice(0, 3).map((course) => {
+        {filteredCourses.map((course) => {
           const Icon = getCourseIcon(course.id, course.gradeLevel);
           const theme = getCourseTheme(course.id, course.gradeLevel);
           const isExpanded = expandedCourseId === course.id;

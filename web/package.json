@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prisma:generate": "prisma generate",
     "prisma:seed": "node --loader ts-node/esm prisma/seed.ts",
-    "test:bkt": "node --loader ts-node/esm scripts/test-bkt.ts",
+    "validate:cartridges": "node -e \"require('jiti')()('../scripts/validate-cartridges.ts').runCli();\"",
+    "test:bkt": "node -e \"require('jiti')()('./scripts/test-bkt.ts');\"",
     "test:ui": "vitest run",
     "test": "npm run test:bkt && vitest run"
   },

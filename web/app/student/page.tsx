@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getCanonicalCartridge } from "@/lib/data/cartridge";
+import { getCanonicalCartridge, listAvailableCartridges, CanonicalCartridge } from "@/lib/data/cartridge";
 import { StudentAssessmentView } from "@/components/assessment/StudentAssessmentView";
 import { getAuthSession } from "@/lib/auth/session";
 
@@ -25,17 +25,19 @@ export default async function StudentPage({ searchParams }: StudentPageProps) {
     redirect(`/login?role=student&redirect=${encodeURIComponent(`/student?subject=${subjectId}`)}`);
   }
 
-  const [cartridgeG4, cartridgeG4Ch3, cartridgeG5] = await Promise.all([
-    getCanonicalCartridge("grade4_math_ch2.json"),
-    getCanonicalCartridge("grade4_math_ch3.json"),
-    getCanonicalCartridge("grade5_math_ch3.json"),
-  ]);
-
-  const cartridges = {
-    "SUBJ-MATH4-FRACTIONS": cartridgeG4,
-    "SUBJ-MATH4-CH03": cartridgeG4Ch3,
-    "SUBJ-MATH5-RATIO": cartridgeG5,
-  };
+  const available = listAvailableCartridges();
+  const cartridges: Record<string, CanonicalCartridge> = {};
+  for (const item of available) {
+    try {
+      const c = getCanonicalCartridge(item.filename);
+      cartridges[c.subject.id] = c;
+      if (item.filename === "grade4_math_ch2.json") {
+        cartridges["SUBJ-MATH4-FRACTIONS"] = c;
+      }
+    } catch {
+      // Ignore unreadable cartridges
+    }
+  }
 
   const defaultStudentName = user.displayName;
   const defaultStudentUsername = user.username;

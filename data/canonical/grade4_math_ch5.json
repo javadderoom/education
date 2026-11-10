@@ -1,0 +1,323 @@
+{
+  "cartridge_id": "CART-IR-MATH4-CH05",
+  "title": "ریاضی پایه ۴ ابتدایی - فصل ۵: عدد مخلوط و عدد اعشاری",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس معلم ریاضی چهارم دبستان",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH4-CH05",
+    "name": "عدد مخلوط و عدد اعشاری (پایه ۴)",
+    "grade_level": 4
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH4-C05-01",
+      "title": "درک مفهوم عدد مخلوط به عنوان ترکیب واحد کامل و کسر کوچکتر از واحد",
+      "bloom_level": "understand",
+      "description": "توانایی بازنمایی مقادیر بزرگتر از واحد کامل به صورت عدد مخلوط و نمایش بصری آن با اشکال هندسی یا محور اعداد.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH4-C05-02",
+      "title": "تبدیل کسرهای بزرگتر از واحد به عدد مخلوط و تبدیل معکوس عدد مخلوط به کسر",
+      "bloom_level": "apply",
+      "description": "مهارت استفاده از تقسیم برای تعیین تعداد واحدهای کامل و کسر باقی‌مانده و تبدیل فرمولی عدد مخلوط به کسر نامتعارف.",
+      "prerequisites": [
+        "KC-MATH4-C05-01"
+      ]
+    },
+    {
+      "id": "KC-MATH4-C05-03",
+      "title": "شناخت مفهوم عدد اعشاری با مخرج‌های ۱۰ و ۱۰۰ و نماد ممیز",
+      "bloom_level": "understand",
+      "description": "درک ارتباط کسر با مخرج ۱۰ و ۱۰۰ با مرتبه‌های دهم و صدم و نمایش آن با خط ممیز فارسی.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH4-C05-04",
+      "title": "جدول ارزش مکانی اعشاری و مقایسه عددهای اعشاری",
+      "bloom_level": "analyze",
+      "description": "مهارت قرار دادن ارقام در جدول ارزش مکانی اعشاری و مقایسه اندازه دو عدد اعشاری با بررسی رقم به رقم از بزرگترین مرتبه.",
+      "prerequisites": [
+        "KC-MATH4-C05-03"
+      ]
+    },
+    {
+      "id": "KC-MATH4-C05-05",
+      "title": "جمع و تفریق عددهای اعشاری با تراز کردن خط ممیز",
+      "bloom_level": "apply",
+      "description": "تسلط بر چینش ستونی اعداد اعشاری بر اساس ممیز، موازنه‌سازی مرتبه‌ها با صفر و اجرای جمع و تفریق با حفظ موقعیت ممیز.",
+      "prerequisites": [
+        "KC-MATH4-C05-03",
+        "KC-MATH4-C05-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-MATH4-C05-01",
+      "title": "برداشت ضربی از عدد مخلوط به جای جمع واحد و کسر",
+      "description": "دانش‌آموز عدد صحیح کنار کسر را ضریب ضرب در صورت یا کل کسر می‌داند و آن را کسری کوچکتر از واحد محاسبه می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "دانش‌آموز $2 \\frac{1}{3}$ را برابر با $\\frac{2}{3}$ می‌داند چون ۲ را در ۱ ضرب کرده است.",
+        "visual_counter_example": "تصویر ۲ نان کامل به علاوه یک‌سوم نان که نشان می‌دهد این مقدار از ۲ نان بیشتر است نه کمتر از ۱ نان."
+      }
+    },
+    {
+      "id": "MIS-MATH4-C05-02",
+      "title": "جابجایی خارج‌قسمت و باقی‌مانده در تبدیل کسر به عدد مخلوط",
+      "description": "دانش‌آموز پس از تقسیم صورت بر مخرج، باقی‌مانده را به عنوان جزء صحیح و خارج‌قسمت را در صورت کسر جدید قرار می‌دهد.",
+      "counter_example_blueprint": {
+        "scenario": "در تبدیل $\\frac{11}{4}$، دانش‌آموز خارج‌قسمت ۲ و باقی‌مانده ۳ را اشتباه چیده و $3 \\frac{2}{4}$ می‌نویسد به جای $2 \\frac{3}{4}$.",
+        "visual_counter_example": "رسم ۱۱ تکه یک‌چهارمی که در قالب بسته‌های چهارتایی ۲ بسته کامل و ۳ تکه تکی تولید می‌کنند."
+      }
+    },
+    {
+      "id": "MIS-MATH4-C05-03",
+      "title": "تعمیم قواعد اعداد صحیح به قسمت اعشار در مقایسه اعداد",
+      "description": "دانش‌آموز بخش اعشاری را مانند یک عدد صحیح مستقل در نظر گرفته و تصورش این است که تعداد ارقام بیشتر یعنی عدد بزرگتر.",
+      "counter_example_blueprint": {
+        "scenario": "دانش‌آموز $0/35$ را بزرگتر از $0/6$ می‌داند چون ۳۵ از ۶ بزرگتر است.",
+        "visual_counter_example": "جدول ۱۰ در ۱۰ شطرنجی که نشان می‌دهد ۶ ستون کامل (۶۰ خانه) بیشتر از ۳۵ خانه است ($0/60 > 0/35$)."
+      }
+    },
+    {
+      "id": "MIS-MATH4-C05-04",
+      "title": "تراز کردن ستونی از سمت راست به جای ممیز در جمع و تفریق",
+      "description": "دانش‌آموز مانند اعداد طبیعی ارقام را از سمت راست تراز می‌کند و دهم را زیر صدم یا یکان جمع می‌زند.",
+      "counter_example_blueprint": {
+        "scenario": "در جمع $3/4 + 1/25$، دانش‌آموز رقم ۴ را زیر ۵ قرار داده و حاصل را $1/29$ یا $1/65$ به دست می‌آورد.",
+        "visual_counter_example": "جدول ستونی با خط ممیز پررنگ قرمز که نشان می‌دهد ۳ دهم باید زیر ۲ دهم قرار گیرد ($3/40 + 1/25 = 4/65$)."
+      }
+    },
+    {
+      "id": "MIS-MATH4-C05-05",
+      "title": "عدم درک صدم در ممیزهای تک رقمی",
+      "description": "دانش‌آموز کسر $\\frac{3}{100}$ را به صورت $0/3$ می‌نویسد بدون اینکه صفر مرتبه دهم را درج کند.",
+      "counter_example_blueprint": {
+        "scenario": "کسر $\\frac{5}{100}$ توسط دانش‌آموز $0/5$ ثبت می‌شود که معادل ۵ دهم است.",
+        "visual_counter_example": "تصویر مقایسه شبکه ۱۰ تایی و ۱۰۰ تایی برای تفاوت فاحش ۵ دهم با ۵ صدم."
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH4-CH05-001",
+      "kc_id": "KC-MATH4-C05-01",
+      "stem": "شکل رو‌به‌رو شامل $3$ دایره کامل رنگ‌شده و $2$ قسمت از $5$ قسمت یک دایره دیگر است. این مقدار با کدام عدد مخلوط نشان داده می‌شود؟",
+      "difficulty": 0.35,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-G4C05-001-A",
+          "label": "الف",
+          "content": "$3 \\frac{2}{5}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳ واحد کامل به همراه کسر دو پنجم به صورت سه و دو پنجم نوشته می‌شود."
+        },
+        {
+          "id": "DIS-G4C05-001-B",
+          "label": "ب",
+          "content": "$\\frac{6}{5}$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C05-01",
+          "rationale": "ضرب ۳ در صورت کسر ($3 \\times 2 = 6$) به جای ترکیب واحد کامل."
+        },
+        {
+          "id": "DIS-G4C05-001-C",
+          "label": "ج",
+          "content": "$2 \\frac{3}{5}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جابجا نوشتن تعداد واحد کامل (۳) با صورت کسر (۲)."
+        },
+        {
+          "id": "DIS-G4C05-001-D",
+          "label": "د",
+          "content": "$5 \\frac{2}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه در تشخیص مخرج و واحد کامل."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH05-002",
+      "kc_id": "KC-MATH4-C05-02",
+      "stem": "کسر بزرگتر از واحد $\\frac{14}{3}$ با کدام عدد مخلوط برابر است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-G4C05-002-A",
+          "label": "الف",
+          "content": "$4 \\frac{2}{3}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در تقسیم ۱۴ بر ۳، خارج‌قسمت ۴ (واحد کامل) و باقی‌مانده ۲ (صورت کسر) می‌شود و مخرج ۳ ثابت است ($14 = 4 \\times 3 + 2$)."
+        },
+        {
+          "id": "DIS-G4C05-002-B",
+          "label": "ب",
+          "content": "$2 \\frac{4}{3}$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C05-02",
+          "rationale": "جابجا قرار دادن باقی‌مانده به عنوان جزء صحیح و خارج‌قسمت در صورت کسر."
+        },
+        {
+          "id": "DIS-G4C05-002-C",
+          "label": "ج",
+          "content": "$3 \\frac{5}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم ناقص با باقی‌مانده بزرگتر از مقسوم‌علیه."
+        },
+        {
+          "id": "DIS-G4C05-002-D",
+          "label": "د",
+          "content": "$4 \\frac{1}{3}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای محاسباتی در باقی‌مانده تقسیم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH05-003",
+      "kc_id": "KC-MATH4-C05-03",
+      "stem": "کسر $\\frac{7}{100}$ با کدام نماد اعشاری نمایش داده می‌شود؟",
+      "difficulty": 0.4,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-G4C05-003-A",
+          "label": "الف",
+          "content": "$0/07$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج ۱۰۰ یعنی دو رقم بعد از ممیز، پس ۷ صدم به صورت ۰/۰۷ با حفظ صفر در مرتبه دهم نوشته می‌شود."
+        },
+        {
+          "id": "DIS-G4C05-003-B",
+          "label": "ب",
+          "content": "$0/7$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C05-05",
+          "rationale": "حذف صفر مرتبه دهم و اشتباه گرفتن ۷ صدم با ۷ دهم."
+        },
+        {
+          "id": "DIS-G4C05-003-C",
+          "label": "ج",
+          "content": "$0/70$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قرار دادن صفر بعد از ۷ که معادل ۷۰ صدم (۷ دهم) است."
+        },
+        {
+          "id": "DIS-G4C05-003-D",
+          "label": "د",
+          "content": "$7/00$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قرار دادن ۷ در قسمت صحیح به جای بخش اعشار."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH05-004",
+      "kc_id": "KC-MATH4-C05-04",
+      "stem": "کدام رابطه مقایسه‌ای در بین گزینه‌های زیر درست است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-G4C05-004-A",
+          "label": "الف",
+          "content": "$0/6 > 0/48$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: با هم‌تراز کردن تعداد ارقام ($0/60$ در برابر $0/48$)، ۶ دهم ($60$ صدم) از ۴ دهم ($48$ صدم) بزرگتر است."
+        },
+        {
+          "id": "DIS-G4C05-004-B",
+          "label": "ب",
+          "content": "$0/48 > 0/6$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C05-03",
+          "rationale": "تصور اینکه چون ۴۸ از ۶ بزرگتر است پس ۰/۴۸ از ۰/۶ بزرگتر است."
+        },
+        {
+          "id": "DIS-G4C05-004-C",
+          "label": "ج",
+          "content": "$1/05 = 1/5$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نادیده گرفتن صفر ارزش مکانی دهم در ۱/۰۵."
+        },
+        {
+          "id": "DIS-G4C05-004-D",
+          "label": "د",
+          "content": "$2/3 < 2/19$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مقایسه اشتباه ۱۹ با ۳ به دلیل تعداد ارقام بیشتر."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH05-005",
+      "kc_id": "KC-MATH4-C05-05",
+      "stem": "حاصل جمع دو عدد اعشاری $3/6 + 2/15$ برابر کدام گزینه است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-G4C05-005-A",
+          "label": "الف",
+          "content": "$5/75$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: با موازنه ممیز ($3/60 + 2/15$)، حاصل برابر با $5/75$ است."
+        },
+        {
+          "id": "DIS-G4C05-005-B",
+          "label": "ب",
+          "content": "$2/51$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C05-04",
+          "rationale": "تراز کردن اشتباه از سمت راست و جمع زدن ۶ دهم با ۵ صدم."
+        },
+        {
+          "id": "DIS-G4C05-005-C",
+          "label": "ج",
+          "content": "$5/21$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای ستونی در جمع مرتبه دهم و صدم."
+        },
+        {
+          "id": "DIS-G4C05-005-D",
+          "label": "د",
+          "content": "$57/5$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جابجا قرار دادن ممیز در حاصل نهایی."
+        }
+      ]
+    }
+  ]
+}

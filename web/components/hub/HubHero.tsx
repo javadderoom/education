@@ -4,12 +4,19 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, BookOpenCheck, TrendingUp, Layers } from "lucide-react";
 import { toPersianDigits } from "@/lib/math/persian-digits";
+import { CANONICAL_TAXONOMIES } from "@/lib/data/curriculum-taxonomy";
 
 export interface HubHeroProps {
   studentName?: string;
 }
 
 export const HubHero: React.FC<HubHeroProps> = ({ studentName }) => {
+  const totalChapters = Object.keys(CANONICAL_TAXONOMIES).length;
+  const totalTopics = Object.values(CANONICAL_TAXONOMIES).reduce(
+    (acc, t) => acc + t.topics.length,
+    0
+  );
+
   return (
     <div className="bg-gradient-to-b from-indigo-50/90 via-white to-white border-2 border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center shadow-xs mb-6 relative overflow-hidden">
       {/* Decorative ambient badge */}
@@ -39,7 +46,7 @@ export const HubHero: React.FC<HubHeroProps> = ({ studentName }) => {
             <Layers className="w-4 h-4" />
           </div>
           <span className="text-xs sm:text-sm font-black text-slate-900 block">
-            {toPersianDigits(3)} فصل
+            {toPersianDigits(totalChapters)} فصل
           </span>
           <span className="text-[10px] text-slate-500 font-semibold">بسته‌های درسی فعال</span>
         </div>
@@ -49,7 +56,7 @@ export const HubHero: React.FC<HubHeroProps> = ({ studentName }) => {
             <BookOpenCheck className="w-4 h-4" />
           </div>
           <span className="text-xs sm:text-sm font-black text-slate-900 block">
-            {toPersianDigits(15)} سرفصل
+            {toPersianDigits(totalTopics)} سرفصل
           </span>
           <span className="text-[10px] text-slate-500 font-semibold">اهداف شناختی مصوب</span>
         </div>

@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1793632738.8071737,
-    "ast_hash": "80d36e2af6ac173b2f0cc041877fdd08",
+    "mtime": 1794331629.0412982,
+    "ast_hash": "5d158d5a4cf6b0de7f0fdfe8ef5e7b8d",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "web/app/student/page.tsx": {
-    "mtime": 1793518125.9773772,
-    "ast_hash": "1df552fe4b09605d3b93194e1dac40f8",
+    "mtime": 1794331544.571545,
+    "ast_hash": "f332ebc894573458d455e57c048ee22e",
     "semantic_hash": ""
   },
   "web/app/teacher/page.tsx": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1793650775.151407,
-    "ast_hash": "ecb53dce2ed0b1fe70575473c1cd5b3d",
+    "mtime": 1794331590.847705,
+    "ast_hash": "6a1e00ec916a011b34213ebc1165b3ab",
     "semantic_hash": ""
   },
   "web/proxy.ts": {
@@ -985,13 +985,13 @@
     "semantic_hash": ""
   },
   "web/components/hub/CourseCatalog.tsx": {
-    "mtime": 1793811582.2332566,
-    "ast_hash": "87b1125c62a1a1aecfc66b9642453d05",
+    "mtime": 1794331433.8563962,
+    "ast_hash": "1780c76b042f65d09ffafca6ae8e449f",
     "semantic_hash": ""
   },
   "web/components/hub/HubHero.tsx": {
-    "mtime": 1793633558.5097516,
-    "ast_hash": "2c291bfa260f1d47b4f9dcd6966a90b8",
+    "mtime": 1794331453.2368653,
+    "ast_hash": "9331eeb965066ccc9dd5299b6320d358",
     "semantic_hash": ""
   },
   "web/components/hub/HubNavTabs.tsx": {
@@ -1112,6 +1112,41 @@
   "web/scripts/verify-additional-features.mjs": {
     "mtime": 1794319616.6494691,
     "ast_hash": "01d1d81b6af5bfaef1b741a876a7ec3c",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade4_math_ch1.json": {
+    "mtime": 1794330663.6209688,
+    "ast_hash": "b47afa8146f11f93cfa82017c8b746c4",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade4_math_ch4.json": {
+    "mtime": 1794330718.8463476,
+    "ast_hash": "00790e2119c691dbb5c3b0ec4a1d2d0c",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade4_math_ch5.json": {
+    "mtime": 1794330793.3864384,
+    "ast_hash": "0a03e99cc95bfb42d9bf26739b8b742d",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade4_math_ch6.json": {
+    "mtime": 1794330845.797572,
+    "ast_hash": "ff9735ec55fb0c02729aa5531065710b",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade4_math_ch7.json": {
+    "mtime": 1794330960.6846776,
+    "ast_hash": "a98d27acb0f6bac5a915a341a37d7739",
+    "semantic_hash": ""
+  },
+  "scripts/validate-cartridges.ts": {
+    "mtime": 1794331270.420655,
+    "ast_hash": "32d26d8edbac603ad1e958ea1fc792e7",
+    "semantic_hash": ""
+  },
+  "web/__tests__/grade4-curriculum-integration.test.ts": {
+    "mtime": 1794331560.989269,
+    "ast_hash": "66e95199285ecf60891b1e7367aec228",
     "semantic_hash": ""
   }
 }
