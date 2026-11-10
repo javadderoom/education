@@ -11,6 +11,8 @@ import {
   Trash2,
   Eye,
   EyeOff,
+  ChevronDown,
+  Check,
 } from "lucide-react";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 
@@ -52,6 +54,24 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
   const [isEraser, setIsEraser] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [isTransparent, setIsTransparent] = useState<boolean>(false);
+  const [showPenSettings, setShowPenSettings] = useState<boolean>(false);
+  const popoverRef = useRef<HTMLDivElement | null>(null);
+
+  // Close pen settings popover on outside click/touch
+  useEffect(() => {
+    if (!showPenSettings) return;
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (popoverRef.current && !popoverRef.current.contains(e.target as Node)) {
+        setShowPenSettings(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [showPenSettings]);
 
   const isDrawing = useRef<boolean>(false);
   const lastPoint = useRef<Point | null>(null);
@@ -284,90 +304,139 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
     >
       {/* Scratchpad Header Toolbar */}
       <div
-        className={`p-2 sm:px-4 py-2 border-b rounded-t-3xl flex items-center justify-between gap-1.5 sm:gap-2 select-none transition-colors ${
+        className={`p-2 sm:px-4 py-2 border-b rounded-t-3xl flex items-center justify-between gap-1.5 sm:gap-2 select-none transition-colors relative ${
           isTransparent
             ? "bg-white/95 backdrop-blur-xs border-indigo-200/90 shadow-xs"
             : "bg-slate-50 border-slate-200"
         }`}
       >
-        {/* Title & Info */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <div
-            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 ${
-              isTransparent
-                ? "bg-indigo-600 text-white shadow-xs"
-                : "bg-indigo-100 text-indigo-700"
-            }`}
-          >
-            <PenTool className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-          </div>
-          <div>
+        {/* Right Group: Title & Drawing Tools (No Horizontal Scroll) */}
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          {/* Title & Badge */}
+          <div className="flex items-center gap-1.5 pl-1 sm:pl-2 border-l border-slate-200 shrink-0">
+            <div
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center shrink-0 ${
+                isTransparent
+                  ? "bg-indigo-600 text-white shadow-xs"
+                  : "bg-indigo-100 text-indigo-700"
+              }`}
+            >
+              <PenTool className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </div>
             <h4 className="text-xs sm:text-sm font-bold text-slate-800">
               چرک‌نویس
-              <span className="hidden sm:inline">
-                {questionNumber ? ` (سوال ${toPersianDigits(questionNumber)})` : ""}
+              <span className="hidden md:inline font-mono text-[11px] text-slate-500 mr-1" dir="ltr">
+                {questionNumber ? `(#${toPersianDigits(questionNumber)})` : ""}
               </span>
             </h4>
-            <span className="text-[10px] text-slate-500 hidden md:inline">
-              {isTransparent
-                ? "حالت شیشه‌ای: سوال زیر چرک‌نویس کاملاً قابل مشاهده است"
-                : "محاسبات خود را آزادانه با قلم یا انگشت یادداشت کنید"}
-            </span>
-          </div>
-        </div>
-
-        {/* Action Controls & Pens */}
-        <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-none py-0.5">
-          {/* Colors */}
-          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shrink-0">
-            {PEN_COLORS.map((col) => {
-              const isSelected = !isEraser && activeColor === col.value;
-              return (
-                <button
-                  key={col.id}
-                  type="button"
-                  title={col.label}
-                  onClick={() => {
-                    setActiveColor(col.value);
-                    setIsEraser(false);
-                  }}
-                  className={`w-5 h-5 sm:w-6 sm:h-6 rounded-lg transition-all flex items-center justify-center cursor-pointer ${
-                    isSelected ? "ring-2 ring-indigo-500 scale-110 shadow-xs" : "opacity-80 hover:opacity-100"
-                  }`}
-                  style={{ backgroundColor: col.value }}
-                />
-              );
-            })}
           </div>
 
-          {/* Stroke Widths */}
-          <div className="flex items-center gap-0.5 bg-white p-0.5 sm:p-1 rounded-xl border border-slate-200 shrink-0">
-            {STROKE_WIDTHS.map((sw) => {
-              const isSelected = activeWidth === sw.value;
-              return (
-                <button
-                  key={sw.id}
-                  type="button"
-                  title={sw.label}
-                  onClick={() => setActiveWidth(sw.value)}
-                  className={`px-1.5 sm:px-2 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-bold transition-all cursor-pointer ${
-                    isSelected ? "bg-indigo-600 text-white" : "text-slate-600 hover:bg-slate-100"
-                  }`}
-                >
-                  {sw.label}
-                </button>
-              );
-            })}
+          {/* Pen Button (with Color Dot & Popover Trigger) */}
+          <div className="relative">
+            <button
+              type="button"
+              title="تنظیمات قلم (رنگ و ضخامت)"
+              onClick={() => {
+                setShowPenSettings((prev) => !prev);
+                setIsEraser(false);
+              }}
+              className={`min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                !isEraser
+                  ? "bg-white border-2 border-indigo-500 text-slate-800 shadow-xs ring-2 ring-indigo-200/50"
+                  : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
+              }`}
+            >
+              <span
+                className="w-3.5 h-3.5 rounded-full shrink-0 border border-black/15 shadow-2xs"
+                style={{ backgroundColor: activeColor }}
+              />
+              <span className="hidden sm:inline text-[11px] font-bold">قلم</span>
+              <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform ${showPenSettings ? "rotate-180 text-indigo-600" : ""}`} />
+            </button>
+
+            {/* Compact Pen Settings Popover (Colors + Sizes) */}
+            {showPenSettings && (
+              <div
+                ref={popoverRef}
+                className="absolute top-full mt-2 right-0 z-50 bg-white border-2 border-indigo-200 rounded-2xl p-3 shadow-xl flex flex-col gap-2.5 animate-in fade-in zoom-in-95 duration-150 w-56 text-right select-none"
+              >
+                {/* Row 1: Pen Colors */}
+                <div>
+                  <span className="text-[10px] font-bold text-slate-500 block mb-1.5">انتخاب رنگ قلم:</span>
+                  <div className="flex items-center justify-between gap-1.5">
+                    {PEN_COLORS.map((col) => {
+                      const isSelected = !isEraser && activeColor === col.value;
+                      return (
+                        <button
+                          key={col.id}
+                          type="button"
+                          title={col.label}
+                          onClick={() => {
+                            setActiveColor(col.value);
+                            setIsEraser(false);
+                            setShowPenSettings(false);
+                          }}
+                          className={`w-8 h-8 rounded-xl transition-all flex items-center justify-center cursor-pointer ${
+                            isSelected ? "ring-2 ring-indigo-600 scale-110 shadow-xs" : "opacity-80 hover:opacity-100 hover:scale-105"
+                          }`}
+                          style={{ backgroundColor: col.value }}
+                        >
+                          {isSelected && <Check className="w-4 h-4 text-white stroke-3" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Row 2: Stroke Sizes */}
+                <div className="border-t border-slate-100 pt-2">
+                  <span className="text-[10px] font-bold text-slate-500 block mb-1.5">ضخامت قلم:</span>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {STROKE_WIDTHS.map((sw) => {
+                      const isSelected = activeWidth === sw.value;
+                      return (
+                        <button
+                          key={sw.id}
+                          type="button"
+                          onClick={() => {
+                            setActiveWidth(sw.value);
+                            setIsEraser(false);
+                            setShowPenSettings(false);
+                          }}
+                          className={`py-1.5 px-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
+                            isSelected
+                              ? "bg-indigo-600 text-white shadow-xs"
+                              : "bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200"
+                          }`}
+                        >
+                          <span className="text-[10px]">{sw.label}</span>
+                          <span
+                            className="w-full rounded-full"
+                            style={{
+                              height: `${Math.max(2, sw.value / 2)}px`,
+                              backgroundColor: isSelected ? "#ffffff" : activeColor,
+                            }}
+                          />
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Eraser */}
           <button
             type="button"
             title="پاک‌کن"
-            onClick={() => setIsEraser(!isEraser)}
-            className={`min-h-[28px] sm:min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
+            onClick={() => {
+              setIsEraser(!isEraser);
+              setShowPenSettings(false);
+            }}
+            className={`min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer ${
               isEraser
-                ? "bg-rose-600 text-white shadow-xs"
+                ? "bg-rose-600 text-white shadow-xs ring-2 ring-rose-200"
                 : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
@@ -381,10 +450,10 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             title="بازگشت حرکت قبلی (Ctrl+Z)"
             disabled={!canUndo}
             onClick={handleUndo}
-            className={`min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all shrink-0 ${
+            className={`min-h-[32px] p-1.5 sm:px-2 rounded-xl text-xs font-bold flex items-center gap-1 transition-all ${
               canUndo
                 ? "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 cursor-pointer"
-                : "opacity-40 bg-slate-100 text-slate-400 cursor-not-allowed"
+                : "opacity-40 bg-slate-100 text-slate-400 cursor-not-allowed border border-transparent"
             }`}
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -395,27 +464,27 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="پاک کردن کامل صفحه"
             onClick={handleClear}
-            className="min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold bg-white text-rose-600 hover:bg-rose-50 border border-rose-200 flex items-center gap-1 cursor-pointer transition-all shrink-0"
+            className="min-h-[32px] p-1.5 sm:px-2 rounded-xl text-xs font-bold bg-white text-rose-600 hover:bg-rose-50 border border-rose-200 flex items-center gap-1 cursor-pointer transition-all"
           >
             <Trash2 className="w-3.5 h-3.5" />
           </button>
+        </div>
 
+        {/* Left Group: Window & View Controls */}
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
           {/* Transparent Glass Toggle */}
           <button
             type="button"
             title={isTransparent ? "بازگشت به کاغذ سفید" : "حالت شیشه‌ای شفاف (مشاهده سوال زیر چرک‌نویس)"}
             onClick={() => setIsTransparent(!isTransparent)}
-            className={`min-h-[28px] sm:min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
+            className={`min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-bold flex items-center gap-1 transition-all cursor-pointer ${
               isTransparent
                 ? "bg-indigo-600 text-white shadow-xs ring-2 ring-indigo-300"
                 : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
             {isTransparent ? <Eye className="w-3.5 h-3.5 text-white" /> : <EyeOff className="w-3.5 h-3.5 text-slate-500" />}
-            <span>
-              <span className="hidden sm:inline">{isTransparent ? "حالت شیشه‌ای" : "کاغذ سفید"}</span>
-              <span className="sm:hidden">{isTransparent ? "شیشه‌ای" : "کاغذ"}</span>
-            </span>
+            <span className="hidden xs:inline">{isTransparent ? "شیشه‌ای" : "کاغذ"}</span>
           </button>
 
           {/* Minimize */}
@@ -423,9 +492,9 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="کوچک‌نمایی چرک‌نویس"
             onClick={() => setIsMinimized(true)}
-            className="min-h-[28px] sm:min-h-[32px] p-1.5 rounded-xl text-slate-600 hover:bg-slate-200 bg-white border border-slate-200 cursor-pointer transition-all shrink-0"
+            className="min-h-[32px] p-1.5 rounded-xl text-slate-600 hover:bg-slate-200 bg-white border border-slate-200 cursor-pointer transition-all"
           >
-            <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <Minimize2 className="w-3.5 h-3.5" />
           </button>
 
           {/* Close */}
@@ -433,9 +502,9 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="بستن چرک‌نویس (Escape)"
             onClick={onClose}
-            className="min-h-[28px] sm:min-h-[32px] p-1.5 rounded-xl text-rose-600 hover:bg-rose-100 bg-rose-50 border border-rose-200 cursor-pointer transition-all shrink-0"
+            className="min-h-[32px] p-1.5 rounded-xl text-rose-600 hover:bg-rose-100 bg-rose-50 border border-rose-200 cursor-pointer transition-all"
           >
-            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
