@@ -252,7 +252,11 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
 export function generateFractionAdditionItem(index: number = 0): DiagnosticItemData {
   const den = randomChoice([6, 7, 8, 9, 10, 12]);
   const a = randomInt(1, Math.floor(den / 2));
-  const b = randomInt(1, den - a - 1);
+  let b = randomInt(1, den - a - 1);
+  // Prevent 2 + 2 = 4 and 2 * 2 = 4 collision which causes identical distractors
+  if (a === 2 && b === 2) {
+    b = 1;
+  }
   const correctSum = a + b;
 
   const stem = `حاصل جمع دو کسر $\\frac{${a}}{${den}} + \\frac{${b}}{${den}}$ کدام است؟`;
@@ -580,7 +584,8 @@ export function generateRatioSharingItem(index: number = 0): DiagnosticItemData 
   const nameA = randomChoice(["علی", "امیر", "سینا"]);
   const nameB = randomChoice(["رضا", "محمد", "نیما"]);
   const ratioA = randomChoice([2, 3]);
-  const ratioB = randomChoice([3, 4, 5]);
+  // Prevent equal ratio split collision which equates share with 50% split
+  const ratioB = ratioA === 2 ? randomChoice([3, 5]) : randomChoice([4, 5]);
   const totalRatio = ratioA + ratioB;
   const unitValue = randomChoice([10000, 20000, 50000]);
   const totalMoney = totalRatio * unitValue;
