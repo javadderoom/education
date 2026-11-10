@@ -83,4 +83,16 @@ describe("Dynamic Parametric Question Engine", () => {
     // Right pan must have mystery label '؟', not the multiplied answer
     expect(item.visual_template?.props?.rightLabel).toBe("؟");
   });
+
+  it("ensures every registered generator produces 4 strictly unique distractors without duplicate options across 100 runs each", () => {
+    for (const [kcId, generator] of Object.entries(DYNAMIC_GENERATORS)) {
+      for (let run = 0; run < 100; run++) {
+        const item = generator(run);
+        expect(item.distractors).toHaveLength(4);
+        const contents = item.distractors.map((d) => d.content);
+        const unique = new Set(contents);
+        expect(unique.size, `Duplicate option detected in ${kcId} (run ${run}): ${contents.join(", ")}`).toBe(4);
+      }
+    }
+  });
 });

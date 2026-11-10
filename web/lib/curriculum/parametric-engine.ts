@@ -27,6 +27,75 @@ function shuffle<T>(array: T[]): T[] {
   return result;
 }
 
+export interface RawDistractorChoice {
+  content: string;
+  isCorrect: boolean;
+  misconceptionId: string | null;
+  rationale: string;
+}
+
+/**
+ * Ensures exactly 4 distractors with 100% unique contents, proper shuffling, and sequential labels (الف، ب، ج، د).
+ * If any collision occurs, it defensively perturbs or adjusts the duplicate incorrect choices
+ * so that no two options ever have identical content.
+ */
+function finalizeDistractors(
+  rawList: RawDistractorChoice[],
+  prefix: string
+): DistractorItem[] {
+  const seenContents = new Set<string>();
+  const cleaned: RawDistractorChoice[] = [];
+
+  // Always keep correct answer first
+  const correctChoice = rawList.find((d) => d.isCorrect);
+  if (correctChoice) {
+    seenContents.add(correctChoice.content.trim());
+    cleaned.push(correctChoice);
+  }
+
+  // Then add incorrect choices, ensuring each content is unique
+  for (const d of rawList) {
+    if (d.isCorrect) continue;
+    let candidate = d.content.trim();
+    if (seenContents.has(candidate)) {
+      // Perturb candidate to ensure mathematical uniqueness if an unexpected collision occurred
+      const numMatch = candidate.match(/\d+/);
+      if (numMatch) {
+        let offset = 1;
+        let perturbed = candidate;
+        while (seenContents.has(perturbed)) {
+          const originalNum = parseInt(numMatch[0], 10);
+          perturbed = candidate.replace(numMatch[0], String(originalNum + offset));
+          offset++;
+        }
+        candidate = perturbed;
+      } else {
+        let suffix = " (دیگر)";
+        let count = 1;
+        while (seenContents.has(candidate + (count > 1 ? ` ${count}` : suffix))) {
+          count++;
+        }
+        candidate = candidate + (count > 1 ? ` ${count}` : suffix);
+      }
+    }
+    seenContents.add(candidate);
+    cleaned.push({
+      ...d,
+      content: candidate,
+    });
+  }
+
+  const shuffled = shuffle(cleaned);
+  return shuffled.map((d, i) => ({
+    id: `DIS-DYN-${prefix}-${Date.now()}-${i}-${Math.random().toString(36).slice(2, 6)}`,
+    label: LABELS[i] || `${i + 1}`,
+    content: d.content,
+    is_correct: d.isCorrect,
+    misconception_id: d.misconceptionId,
+    rationale: d.rationale,
+  }));
+}
+
 // -------------------------------------------------------------
 // Grade 4 Generators
 // -------------------------------------------------------------
@@ -43,7 +112,7 @@ export function generateFractionConceptItem(index: number = 0): DiagnosticItemDa
   const stem = `${name} یک نوار مستطیلی را به $${total}$ قسمت مساوی تقسیم کرده و $${colored}$ قسمت از آن را رنگ‌آمیزی نموده است. چه کسری از نوار رنگ شده است؟`;
 
   const correctContent = `$\\frac{${colored}}{${total}}$`;
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: correctContent,
       isCorrect: true,
@@ -70,25 +139,7 @@ export function generateFractionConceptItem(index: number = 0): DiagnosticItemDa
     },
   ];
 
-  // Remove potential duplicates and shuffle
-  const uniqueDistractors: typeof rawDistractors = [];
-  const seen = new Set<string>();
-  for (const d of rawDistractors) {
-    if (!seen.has(d.content)) {
-      seen.add(d.content);
-      uniqueDistractors.push(d);
-    }
-  }
-
-  const shuffled = shuffle(uniqueDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-C01-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01");
 
   return {
     id: `ITEM-DYN-G4-C01-${Date.now()}-${index}`,
@@ -122,7 +173,7 @@ export function generateEquivalentFractionItem(index: number = 0): DiagnosticIte
 
   const stem = `کدام کسر با کسر $\\frac{${num}}{${den}}$ مساوی است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$\\frac{${eqNum}}{${eqDen}}$`,
       isCorrect: true,
@@ -149,15 +200,7 @@ export function generateEquivalentFractionItem(index: number = 0): DiagnosticIte
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-C02-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C02");
 
   return {
     id: `ITEM-DYN-G4-C02-${Date.now()}-${index}`,
@@ -188,7 +231,7 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
 
   const stem = `کدام رابطه درباره مقایسه دو کسر $\\frac{1}{${smallerDen}}$ و $\\frac{1}{${largerDen}}$ درست است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$\\frac{1}{${smallerDen}} > \\frac{1}{${largerDen}}$`,
       isCorrect: true,
@@ -215,15 +258,7 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-C03-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03");
 
   return {
     id: `ITEM-DYN-G4-C03-${Date.now()}-${index}`,
@@ -251,17 +286,25 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
  */
 export function generateFractionAdditionItem(index: number = 0): DiagnosticItemData {
   const den = randomChoice([6, 7, 8, 9, 10, 12]);
-  const a = randomInt(1, Math.floor(den / 2));
+  const a = randomInt(1, Math.floor((den - 2) / 2));
   let b = randomInt(1, den - a - 1);
-  // Prevent 2 + 2 = 4 and 2 * 2 = 4 collision which causes identical distractors
-  if (a === 2 && b === 2) {
-    b = 1;
+  // Guarantee a !== b and a * b !== a + b to avoid distractor collision
+  while (b === a || a * b === a + b) {
+    b = randomInt(1, den - a - 1);
   }
   const correctSum = a + b;
+  const subDiff = Math.abs(a - b);
+  let diffVal = subDiff === 0 || subDiff === correctSum || subDiff === a * b
+    ? (correctSum + 1 < den ? correctSum + 1 : Math.max(1, correctSum - 2))
+    : subDiff;
+  let mulVal = a * b;
+  if (mulVal === correctSum || mulVal === diffVal) {
+    mulVal = correctSum + 2 < den ? correctSum + 2 : Math.max(1, correctSum - 1);
+  }
 
   const stem = `حاصل جمع دو کسر $\\frac{${a}}{${den}} + \\frac{${b}}{${den}}$ کدام است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$\\frac{${correctSum}}{${den}}$`,
       isCorrect: true,
@@ -275,28 +318,20 @@ export function generateFractionAdditionItem(index: number = 0): DiagnosticItemD
       rationale: `بدفهمی جمع مخرج‌ها: دانش‌آموز علاوه بر صورت‌ها، مخرج‌ها را هم جمع کرده است (${toPersianDigits(den)} + ${toPersianDigits(den)} = ${toPersianDigits(den * 2)}).`,
     },
     {
-      content: `$\\frac{${a * b}}{${den}}$`,
+      content: `$\\frac{${mulVal}}{${den}}$`,
       isCorrect: false,
       misconceptionId: "MIS-MUL-INSTEAD-ADD",
       rationale: `ضرب کردن صورت‌ها به جای عمل جمع (${toPersianDigits(a)} × ${toPersianDigits(b)}).`,
     },
     {
-      content: `$\\frac{${Math.abs(a - b) || 1}}{${den}}$`,
+      content: `$\\frac{${diffVal}}{${den}}$`,
       isCorrect: false,
       misconceptionId: "MIS-SUB-INSTEAD-ADD",
       rationale: `تفریق صورت‌ها به جای جمع کردن آن‌ها.`,
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-C04-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C04");
 
   return {
     id: `ITEM-DYN-G4-C04-${Date.now()}-${index}`,
@@ -328,7 +363,7 @@ export function generateFractionNumberLineItem(index: number = 0): DiagnosticIte
 
   const stem = `اگر فاصله بین دو عدد ۰ و ۱ روی محور اعداد به $${den}$ قسمت مساوی تقسیم شده باشد، نقطه نمایش کسر $\\frac{${num}}{${den}}$ کجاست؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `قسمت $${num}$ام بعد از نقطه ۰`,
       isCorrect: true,
@@ -355,15 +390,7 @@ export function generateFractionNumberLineItem(index: number = 0): DiagnosticIte
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-C05-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C05");
 
   return {
     id: `ITEM-DYN-G4-C05-${Date.now()}-${index}`,
@@ -395,11 +422,15 @@ export function generateRatioConceptItem(index: number = 0): DiagnosticItemData 
   const objA = randomChoice(["سیب", "مداد", "توپ قرمز", "دفتر"]);
   const objB = randomChoice(["پرتقال", "پاک‌کن", "توپ آبی", "کتاب"]);
   const countA = randomInt(2, 6);
-  const countB = randomInt(3, 8);
+  let countB = randomInt(3, 8);
+  // Guarantee countB is never equal to countA to prevent identical distractors
+  while (countB === countA) {
+    countB = countA <= 4 ? countA + randomInt(1, 3) : countA - randomInt(1, 2);
+  }
 
   const stem = `در یک سبد $${countA}$ عدد ${objA} و $${countB}$ عدد ${objB} قرار دارد. نسبت تعداد ${objA}ها به تعداد ${objB}ها کدام است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${countA}$ به $${countB}$ (یا $\\frac{${countA}}{${countB}}$)`,
       isCorrect: true,
@@ -426,15 +457,7 @@ export function generateRatioConceptItem(index: number = 0): DiagnosticItemData 
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G5-C01-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G5-C01");
 
   return {
     id: `ITEM-DYN-G5-C01-${Date.now()}-${index}`,
@@ -457,7 +480,7 @@ export function generateRatioEquivalenceItem(index: number = 0): DiagnosticItemD
 
   const stem = `نسبت $\\frac{${a}}{${b}}$ با کدام یک از نسبت‌های زیر مساوی است تا با قرار گرفتن در کفه دیگر، تعادل ترازو (تناسب) برقرار بماند؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$\\frac{${a * mult}}{${b * mult}}$`,
       isCorrect: true,
@@ -484,15 +507,7 @@ export function generateRatioEquivalenceItem(index: number = 0): DiagnosticItemD
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G5-C02-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G5-C02");
 
   return {
     id: `ITEM-DYN-G5-C02-${Date.now()}-${index}`,
@@ -521,15 +536,24 @@ export function generateProportionTableItem(index: number = 0): DiagnosticItemDa
   const rate = randomChoice([3, 4, 5, 6]);
   const knownA = randomChoice([2, 3, 5]);
   const knownB = knownA * rate;
-  const targetA = knownA + randomChoice([2, 3, 4]);
+  let targetA = knownA + randomChoice([2, 3, 4]);
+  // Prevent knownB * 2 colliding with (targetA - 1) * rate
+  if (knownB * 2 === (targetA - 1) * rate) {
+    targetA += 1;
+  }
   const correctTargetB = targetA * rate;
-
-  const stem = `یک اتومبیل در هر $${knownA}$ ساعت، مسافت $${knownB}$ کیلومتر را طی می‌کند. با همین سرعت، این اتومبیل در $${targetA}$ ساعت چند کیلومتر را طی خواهد کرد؟`;
 
   const additiveWrong = knownB + (targetA - knownA);
   const diffHours = targetA - knownA;
+  const doubleWrong = knownB * 2;
+  let slipVal = correctTargetB - rate;
+  if (slipVal === doubleWrong || slipVal === additiveWrong) {
+    slipVal = correctTargetB + rate;
+  }
 
-  const rawDistractors = [
+  const stem = `یک اتومبیل در هر $${knownA}$ ساعت، مسافت $${knownB}$ کیلومتر را طی می‌کند. با همین سرعت، این اتومبیل در $${targetA}$ ساعت چند کیلومتر را طی خواهد کرد؟`;
+
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${correctTargetB}$ کیلومتر`,
       isCorrect: true,
@@ -543,28 +567,20 @@ export function generateProportionTableItem(index: number = 0): DiagnosticItemDa
       rationale: `بدفهمی جمعی: دانش‌آموز به جای ضرب، اختلاف ساعت‌ها (${toPersianDigits(diffHours)}) را به مسافت اضافه کرده است.`,
     },
     {
-      content: `$${knownB * 2}$ کیلومتر`,
+      content: `$${doubleWrong}$ کیلومتر`,
       isCorrect: false,
       misconceptionId: "MIS-DOUBLE-BIAS",
       rationale: `دو برابر کردن مسافت بدون توجه به نسبت ساعت‌های واقعی.`,
     },
     {
-      content: `$${correctTargetB - rate}$ کیلومتر`,
+      content: `$${slipVal}$ کیلومتر`,
       isCorrect: false,
       misconceptionId: "MIS-CALCULATION",
       rationale: `خطای محاسباتی در ضرب ضریب تناسب.`,
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G5-C03-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G5-C03");
 
   return {
     id: `ITEM-DYN-G5-C03-${Date.now()}-${index}`,
@@ -590,10 +606,19 @@ export function generateRatioSharingItem(index: number = 0): DiagnosticItemData 
   const unitValue = randomChoice([10000, 20000, 50000]);
   const totalMoney = totalRatio * unitValue;
   const correctShareA = ratioA * unitValue;
+  const halfMoney = totalMoney / 2;
+  const partnerShare = ratioB * unitValue;
+
+  // When ratioA === 2, totalMoney / ratioA is identical to totalMoney / 2 (halfMoney)!
+  // In that case, use single unit value (totalMoney / totalRatio) as the misconception distractor
+  const singleUnitShare = unitValue;
+  const divideRatioDistractor = (totalMoney / ratioA === halfMoney)
+    ? singleUnitShare
+    : Math.round(totalMoney / ratioA);
 
   const stem = `${nameA} و ${nameB} مبلغ ${totalMoney.toLocaleString("fa-IR")} تومان را به نسبت $${ratioA}$ به $${ratioB}$ بین خود تقسیم می‌کنند. سهم ${nameA} چقدر است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `${correctShareA.toLocaleString("fa-IR")} تومان`,
       isCorrect: true,
@@ -601,34 +626,28 @@ export function generateRatioSharingItem(index: number = 0): DiagnosticItemData 
       rationale: `پاسخ صحیح: مجموع نسبت‌ها ${toPersianDigits(totalRatio)} است و ارزش هر سهم ${toPersianDigits(unitValue)} تومان است (${toPersianDigits(ratioA)} × ${toPersianDigits(unitValue)}).`,
     },
     {
-      content: `${(totalMoney / 2).toLocaleString("fa-IR")} تومان`,
+      content: `${halfMoney.toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-EQUAL-SPLIT",
       rationale: `تقسیم مساوی بر ۲ بدون توجه به نسبت‌های تسهیم (${toPersianDigits(ratioA)} به ${toPersianDigits(ratioB)}).`,
     },
     {
-      content: `${(ratioB * unitValue).toLocaleString("fa-IR")} تومان`,
+      content: `${partnerShare.toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
       misconceptionId: "MIS-PARTNER-SHARE",
       rationale: `محاسبه سهم نفر دوم به جای نفر اول.`,
     },
     {
-      content: `${(totalMoney / ratioA).toLocaleString("fa-IR")} تومان`,
+      content: `${divideRatioDistractor.toLocaleString("fa-IR")} تومان`,
       isCorrect: false,
-      misconceptionId: "MIS-DIVIDE-BY-RATIO",
-      rationale: `تقسیم کل پول بر نسبت فرد اول بدون محاسبه سطر مجموع نسبت‌ها.`,
+      misconceptionId: divideRatioDistractor === singleUnitShare ? "MIS-SINGLE-UNIT-SHARE" : "MIS-DIVIDE-BY-RATIO",
+      rationale: divideRatioDistractor === singleUnitShare
+        ? `محاسبه ارزش تنها یک سهم به جای ${toPersianDigits(ratioA)} سهم.`
+        : `تقسیم کل پول بر نسبت فرد اول بدون محاسبه سطر مجموع نسبت‌ها.`,
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G5-C04-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G5-C04");
 
   return {
     id: `ITEM-DYN-G5-C04-${Date.now()}-${index}`,
@@ -652,7 +671,7 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
 
   const stem = `یک کالای ${originalPrice.toLocaleString("fa-IR")} تومانی دارای $${percent}$٪ تخفیف است. قیمت نهایی پرداختی چقدر است؟`;
 
-  const rawDistractors = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `${finalPrice.toLocaleString("fa-IR")} تومان`,
       isCorrect: true,
@@ -679,15 +698,7 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G5-C05-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G5-C05");
 
   return {
     id: `ITEM-DYN-G5-C05-${Date.now()}-${index}`,
@@ -728,11 +739,15 @@ export function generateAreaMultiplicationItem(index: number = 0): DiagnosticIte
   const totalArea = L * W;
   const componentArea = L10 * W10 + L1 * W1; // Misconception: omitting cross terms
   const missingOneCross = totalArea - L1 * W10;
-  const calculationSlip = totalArea - 20;
+  let slipOffset = 20;
+  if (totalArea - slipOffset === missingOneCross || totalArea - slipOffset === componentArea) {
+    slipOffset = 30;
+  }
+  const calculationSlip = totalArea - slipOffset;
 
   const stem = `${name} می‌خواهد مساحت یک فرش مستطیل‌شکل به طول $${L}$ و عرض $${W}$ سانتی‌متر را با روش ضرب مساحتی (۴ بخش: $(${L10} \\times ${W10})$، $(${L10} \\times ${W1})$، $(${L1} \\times ${W10})$ و $(${L1} \\times ${W1})$) محاسبه کند. مساحت کل فرش کدام است؟`;
 
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${totalArea}$ سانتی‌متر مربع`,
       isCorrect: true,
@@ -759,15 +774,7 @@ export function generateAreaMultiplicationItem(index: number = 0): DiagnosticIte
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G4-C03-01-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03-01");
 
   return {
     id: `ITEM-DYN-G4-C03-01-${Date.now()}-${index}`,
@@ -799,7 +806,7 @@ export function generateVerticalMultiplicationItem(index: number = 0): Diagnosti
 
   const stem = `در محاسبه‌ی ضرب ستونی رو‌به‌رو حاصل نهایی کدام است؟\n$$\\begin{array}{r} ${A} \\\\ \\times \\ ${B} \\\\ \\hline \\end{array}$$`;
 
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${total}$`,
       isCorrect: true,
@@ -826,15 +833,7 @@ export function generateVerticalMultiplicationItem(index: number = 0): Diagnosti
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G4-C03-02-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03-02");
 
   return {
     id: `ITEM-DYN-G4-C03-02-${Date.now()}-${index}`,
@@ -865,7 +864,7 @@ export function generateEstimationMultiplicationItem(index: number = 0): Diagnos
 
   const stem = `${name} می‌خواهد برای $${baseA}$ بسته دفتر، قیمت تقریبی را با در نظر گرفتن قیمت هر بسته $${baseB}$ هزار تومان محاسبه کند. اگر او هر دو عدد را به «نزدیک‌ترین ده‌گان» گرد کند، حاصل تقریبی کدام گزینه است؟`;
 
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${correctEst}$ هزار تومان`,
       isCorrect: true,
@@ -892,15 +891,7 @@ export function generateEstimationMultiplicationItem(index: number = 0): Diagnos
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G4-C03-03-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03-03");
 
   return {
     id: `ITEM-DYN-G4-C03-03-${Date.now()}-${index}`,
@@ -929,7 +920,7 @@ export function generateDivisionVerificationItem(index: number = 0): DiagnosticI
 
   const stem = `در یک تقسیم بر $${d}$، مقسوم برابر با $${D}$ است. کدام‌یک از تساوی‌های زیر یک تقسیم «درست و کامل» را نشان می‌دهد؟`;
 
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${D} = (${d} \\times ${q}) + ${r}$`,
       isCorrect: true,
@@ -956,15 +947,7 @@ export function generateDivisionVerificationItem(index: number = 0): DiagnosticI
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G4-C03-04-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03-04");
 
   return {
     id: `ITEM-DYN-G4-C03-04-${Date.now()}-${index}`,
@@ -994,7 +977,7 @@ export function generateMultiDigitDivisionItem(index: number = 0): DiagnosticIte
 
   const stem = `حاصل تقسیم $${D} \\div ${d}$ کدام است؟`;
 
-  const rawDistractors: Array<{ content: string; isCorrect: boolean; misconceptionId: string | null; rationale: string }> = [
+  const rawDistractors: RawDistractorChoice[] = [
     {
       content: `$${q}$`,
       isCorrect: true,
@@ -1021,15 +1004,7 @@ export function generateMultiDigitDivisionItem(index: number = 0): DiagnosticIte
     },
   ];
 
-  const shuffled = shuffle(rawDistractors);
-  const distractors: DistractorItem[] = shuffled.map((d, i) => ({
-    id: `DIS-DYN-G4-C03-05-${Date.now()}-${i}`,
-    label: LABELS[i],
-    content: d.content,
-    is_correct: d.isCorrect,
-    misconception_id: d.misconceptionId,
-    rationale: d.rationale,
-  }));
+  const distractors = finalizeDistractors(rawDistractors, "G4-C03-05");
 
   return {
     id: `ITEM-DYN-G4-C03-05-${Date.now()}-${index}`,

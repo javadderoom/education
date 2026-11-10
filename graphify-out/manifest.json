@@ -945,8 +945,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/parametric-engine.test.ts": {
-    "mtime": 1793812454.6035514,
-    "ast_hash": "dc6fe6721a811a874b7def19f944df91",
+    "mtime": 1794324381.9498625,
+    "ast_hash": "d840971cea2f692f4b5e133c6e9338d1",
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794312266.3268256,
-    "ast_hash": "f761fba047ed5916836f876ef4d1deb1",
+    "mtime": 1794324293.6526637,
+    "ast_hash": "066c9dc93e85f1fbc506f865af90da72",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
