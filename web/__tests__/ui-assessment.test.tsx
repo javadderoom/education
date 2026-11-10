@@ -296,4 +296,24 @@ describe("5 Parametric Visual Templates Rendering", () => {
     rerender(<BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" hideBadge={false} />);
     expect(container.textContent).toContain("کفه چپ سنگین‌تر است");
   });
+
+  it("renders BalanceScale with mixed Persian text and numbers using proper BiDi direction", () => {
+    const { container, rerender } = render(
+      <BalanceScale leftValue={1} rightValue={1} leftLabel="۲ به ۳" rightLabel="۶ به ؟" />
+    );
+    const texts = container.querySelectorAll("svg text");
+    expect(texts.length).toBe(2);
+    // Left text with Persian words must be RTL
+    expect(texts[0].getAttribute("direction")).toBe("rtl");
+    expect(texts[0].textContent).toBe("۲ به ۳");
+    // Right text with Persian words must be RTL
+    expect(texts[1].getAttribute("direction")).toBe("rtl");
+    expect(texts[1].textContent).toBe("۶ به ؟");
+
+    // Pure math fraction must be LTR
+    rerender(<BalanceScale leftValue={0.5} rightValue={0.25} leftLabel="1/2" rightLabel="1/4" />);
+    const fractionTexts = container.querySelectorAll("svg text");
+    expect(fractionTexts[0].getAttribute("direction")).toBe("ltr");
+    expect(fractionTexts[1].getAttribute("direction")).toBe("ltr");
+  });
 });

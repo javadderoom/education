@@ -12,6 +12,18 @@ export interface BalanceScaleProps {
   hideBadge?: boolean;
 }
 
+/**
+ * Detects whether a label contains Persian letters / words (like "به")
+ * that require RTL rendering, versus pure mathematical expressions (like "1/2" or "2:3")
+ * that require LTR rendering to prevent BiDi reordering bugs.
+ */
+function getLabelDirection(label: string): "rtl" | "ltr" {
+  if (!label) return "ltr";
+  // Matches Persian/Arabic letters (like "به", "کیلوگرم", "گرم", etc.)
+  const hasPersianLetters = /[\u0600-\u0605\u0621-\u064A\u0671-\u06D3\u06D5\u06EE\u06EF\u06FA-\u06FC\u06FF]/.test(label);
+  return hasPersianLetters ? "rtl" : "ltr";
+}
+
 export const BalanceScale: React.FC<BalanceScaleProps> = ({
   leftValue = 1,
   rightValue = 1,
@@ -33,6 +45,9 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
       : rightValue !== undefined
       ? String(rightValue)
       : "—";
+
+  const leftDir = getLabelDirection(resolvedLeftLabel);
+  const rightDir = getLabelDirection(resolvedRightLabel);
 
   // Calculate tilt angle: negative tilts left down, positive tilts right down
   // Max tilt angle capped at 14 degrees
@@ -90,11 +105,11 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                 <g>
                   {/* Weight Ring Handle */}
                   <path d="M -9,22 C -9,13 9,13 9,22" fill="none" stroke="#1d4ed8" strokeWidth="2.5" />
-                  {/* Weight Body */}
+                  {/* Weight Body (comfortably fits multi-digit numbers and Persian text) */}
                   <rect
-                    x="-32"
+                    x="-37"
                     y="22"
-                    width="64"
+                    width="74"
                     height="28"
                     rx="6"
                     fill="#3b82f6"
@@ -103,8 +118,8 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                     className="shadow-sm"
                   />
                   {/* Weight Highlight Rim */}
-                  <line x1="-28" y1="26" x2="28" y2="26" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" />
-                  {/* Weight Text Label */}
+                  <line x1="-32" y1="26" x2="32" y2="26" stroke="#93c5fd" strokeWidth="1.5" strokeLinecap="round" />
+                  {/* Weight Text Label with dynamic BiDi direction */}
                   <text
                     x="0"
                     y="41"
@@ -112,7 +127,9 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                     fontSize="13"
                     fontWeight="800"
                     fill="#ffffff"
-                    style={{ direction: "ltr" }}
+                    direction={leftDir}
+                    unicodeBidi="embed"
+                    style={{ direction: leftDir, unicodeBidi: "embed" }}
                   >
                     {toPersianDigits(resolvedLeftLabel)}
                   </text>
@@ -137,11 +154,11 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                 <g>
                   {/* Weight Ring Handle */}
                   <path d="M -9,22 C -9,13 9,13 9,22" fill="none" stroke="#047857" strokeWidth="2.5" />
-                  {/* Weight Body */}
+                  {/* Weight Body (comfortably fits multi-digit numbers and Persian text) */}
                   <rect
-                    x="-32"
+                    x="-37"
                     y="22"
-                    width="64"
+                    width="74"
                     height="28"
                     rx="6"
                     fill="#10b981"
@@ -150,8 +167,8 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                     className="shadow-sm"
                   />
                   {/* Weight Highlight Rim */}
-                  <line x1="-28" y1="26" x2="28" y2="26" stroke="#a7f3d0" strokeWidth="1.5" strokeLinecap="round" />
-                  {/* Weight Text Label */}
+                  <line x1="-32" y1="26" x2="32" y2="26" stroke="#a7f3d0" strokeWidth="1.5" strokeLinecap="round" />
+                  {/* Weight Text Label with dynamic BiDi direction */}
                   <text
                     x="0"
                     y="41"
@@ -159,7 +176,9 @@ export const BalanceScale: React.FC<BalanceScaleProps> = ({
                     fontSize="13"
                     fontWeight="800"
                     fill="#ffffff"
-                    style={{ direction: "ltr" }}
+                    direction={rightDir}
+                    unicodeBidi="embed"
+                    style={{ direction: rightDir, unicodeBidi: "embed" }}
                   >
                     {toPersianDigits(resolvedRightLabel)}
                   </text>
