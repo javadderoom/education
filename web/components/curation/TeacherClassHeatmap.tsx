@@ -13,6 +13,7 @@ import {
   HelpCircle,
   Clock,
   Sparkles,
+  Printer,
 } from "lucide-react";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import {
@@ -52,6 +53,12 @@ export const TeacherClassHeatmap: React.FC<TeacherClassHeatmapProps> = ({
       navigator.clipboard.writeText(code);
       setCopiedCode(code);
       setTimeout(() => setCopiedCode(null), 2500);
+    }
+  };
+
+  const handlePrint = () => {
+    if (typeof window !== "undefined") {
+      window.print();
     }
   };
 
@@ -131,9 +138,23 @@ export const TeacherClassHeatmap: React.FC<TeacherClassHeatmapProps> = ({
 
   return (
     <div className="w-full space-y-4 select-none animate-in fade-in duration-300">
+      {/* Official Print-Only Header for Administrative and Parent Reporting */}
+      <div className="hidden print:block p-4 mb-4 border-b-2 border-slate-800 text-center">
+        <h2 className="text-xl font-black text-slate-900">سامانه پایش تشخیصی یادگیری ریاضی</h2>
+        <h3 className="text-sm font-bold text-slate-700 mt-1">
+          کارنامه تحلیلی تسلط کلاسی به تفکیک مهارت‌های پنج‌گانه
+        </h3>
+        <div className="flex justify-between items-center text-xs text-slate-600 mt-3 pt-2 border-t border-slate-200">
+          <span>کلاس: {activeClassroom?.name || "کلاس چهارم"}</span>
+          <span>مدرسه: {activeClassroom?.schoolName || "دبستان هوشمند شهید بهشتی"}</span>
+          <span>تعداد دانش‌آموزان: {toPersianDigits(filteredStudents.length)} نفر</span>
+          <span>تاریخ گزارش: {new Date().toLocaleDateString("fa-IR")}</span>
+        </div>
+      </div>
+
       {/* Classroom Join Code Card */}
       {activeClassroom && (
-        <div className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 text-white rounded-3xl p-4 sm:p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 text-white rounded-3xl p-4 sm:p-5 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 print:hidden">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-xs px-2.5 py-0.5 rounded-full text-xs font-bold mb-1.5">
               <Share2 className="w-3.5 h-3.5" />
@@ -250,6 +271,17 @@ export const TeacherClassHeatmap: React.FC<TeacherClassHeatmapProps> = ({
               مسلط
             </button>
           </div>
+
+          {/* Print / PDF Export Button */}
+          <button
+            type="button"
+            onClick={handlePrint}
+            className="min-h-[36px] px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center gap-1.5 transition-all cursor-pointer shadow-2xs print:hidden shrink-0"
+            title="چاپ کارنامه کلاسی یا ذخیره به صورت PDF"
+          >
+            <Printer className="w-4 h-4 text-slate-600" />
+            <span>چاپ کارنامه (PDF)</span>
+          </button>
         </div>
       </div>
 

@@ -44,6 +44,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const savedDataUrlRef = useRef<string | null>(null);
 
   const [activeColor, setActiveColor] = useState<string>("#334155");
   const [activeWidth, setActiveWidth] = useState<number>(3.5);
@@ -56,7 +57,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
   const historyStack = useRef<ImageData[]>([]);
   const [canUndo, setCanUndo] = useState<boolean>(false);
 
-  // Resize canvas according to device pixel ratio
+  // Resize canvas according to device pixel ratio and restore contents
   const syncCanvasSize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -68,7 +69,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Save existing drawing if available
+    // Cache current drawing if available
     let existingData: ImageData | null = null;
     if (canvas.width > 0 && canvas.height > 0) {
       try {
@@ -91,10 +92,16 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       } catch {
         // ignore
       }
+    } else if (savedDataUrlRef.current) {
+      const img = new Image();
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, rect.width, rect.height);
+      };
+      img.src = savedDataUrlRef.current;
     }
   }, []);
 
-  // Sync size when opened or minimized state changes
+  // Sync size when opened or un-minimized
   useEffect(() => {
     if (isOpen && !isMinimized) {
       const timer = setTimeout(() => {
@@ -107,6 +114,21 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       };
     }
   }, [isOpen, isMinimized, syncCanvasSize]);
+
+  // Keyboard shortcuts (Escape to minimize/close, Ctrl+Z to undo)
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
+        e.preventDefault();
+        handleUndo();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, canUndo]);
 
   // Capture canvas state for Undo
   const pushState = () => {
@@ -137,6 +159,11 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       const prev = historyStack.current.pop();
       if (prev) {
         ctx.putImageData(prev, 0, 0);
+        try {
+          savedDataUrlRef.current = canvas.toDataURL();
+        } catch {
+          // ignore
+        }
       }
       setCanUndo(historyStack.current.length > 0);
     }
@@ -150,6 +177,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
 
     pushState();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    savedDataUrlRef.current = null;
   };
 
   // Drawing Pointer Event Handlers
@@ -177,7 +205,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
     lastPoint.current = pt;
 
     ctx.beginPath();
-    ctx.arc(pt.x, pt.y, (isEraser ? 12 : activeWidth) / 2, 0, Math.PI * 2);
+    ctx.arc(pt.x, pt.y, (isEraser ? 14 : activeWidth) / 2, 0, Math.PI * 2);
     ctx.fillStyle = isEraser ? "rgba(0,0,0,1)" : activeColor;
     ctx.globalCompositeOperation = isEraser ? "destination-out" : "source-over";
     ctx.fill();
@@ -196,7 +224,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
     ctx.moveTo(lastPoint.current.x, lastPoint.current.y);
     ctx.lineTo(currentPt.x, currentPt.y);
     ctx.strokeStyle = isEraser ? "rgba(0,0,0,1)" : activeColor;
-    ctx.lineWidth = isEraser ? 18 : activeWidth;
+    ctx.lineWidth = isEraser ? 20 : activeWidth;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.globalCompositeOperation = isEraser ? "destination-out" : "source-over";
@@ -210,12 +238,21 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
     isDrawing.current = false;
     lastPoint.current = null;
     const canvas = canvasRef.current;
-    if (canvas && canvas.hasPointerCapture(e.pointerId)) {
-      canvas.releasePointerCapture(e.pointerId);
+    if (canvas) {
+      if (canvas.hasPointerCapture(e.pointerId)) {
+        canvas.releasePointerCapture(e.pointerId);
+      }
+      try {
+        savedDataUrlRef.current = canvas.toDataURL();
+      } catch {
+        // ignore
+      }
     }
   };
 
-  if (!isOpen) return null;
+  if (!isOpen && !isMinimized) {
+    return null;
+  }
 
   // Minimized floating bubble
   if (isMinimized) {
@@ -237,7 +274,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-x-2 sm:inset-x-6 bottom-4 top-20 sm:top-24 z-50 flex flex-col rounded-3xl border-2 shadow-2xl transition-all duration-200 ${
+      className={`fixed inset-x-2 sm:inset-x-6 bottom-4 top-16 sm:top-24 z-50 flex flex-col rounded-3xl border-2 shadow-2xl transition-all duration-200 ${
         isTransparent
           ? "bg-white/80 backdrop-blur-md border-indigo-400/80 shadow-indigo-900/10"
           : "bg-white border-slate-300 shadow-slate-900/15"
@@ -245,27 +282,27 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
       style={{ touchAction: "none" }}
     >
       {/* Scratchpad Header Toolbar */}
-      <div className="p-3 sm:px-4 py-2.5 bg-slate-50 border-b border-slate-200 rounded-t-3xl flex items-center justify-between gap-2 flex-wrap select-none">
+      <div className="p-2 sm:px-4 py-2 bg-slate-50 border-b border-slate-200 rounded-t-3xl flex items-center justify-between gap-1.5 sm:gap-2 select-none">
         {/* Title & Info */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
-            <PenTool className="w-4 h-4" />
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0">
+            <PenTool className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </div>
           <div>
             <h4 className="text-xs sm:text-sm font-bold text-slate-800">
-              چرک‌نویس و محاسبات
+              چرک‌نویس
               {questionNumber ? ` (سوال ${questionNumber})` : ""}
             </h4>
-            <span className="text-[10px] text-slate-500 hidden sm:inline">
+            <span className="text-[10px] text-slate-500 hidden md:inline">
               محاسبات خود را آزادانه با قلم یا انگشت یادداشت کنید
             </span>
           </div>
         </div>
 
         {/* Action Controls & Pens */}
-        <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+        <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-none py-0.5">
           {/* Colors */}
-          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200">
+          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 shrink-0">
             {PEN_COLORS.map((col) => {
               const isSelected = !isEraser && activeColor === col.value;
               return (
@@ -277,7 +314,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                     setActiveColor(col.value);
                     setIsEraser(false);
                   }}
-                  className={`w-6 h-6 rounded-lg transition-all flex items-center justify-center cursor-pointer ${
+                  className={`w-5 h-5 sm:w-6 sm:h-6 rounded-lg transition-all flex items-center justify-center cursor-pointer ${
                     isSelected ? "ring-2 ring-indigo-500 scale-110 shadow-xs" : "opacity-80 hover:opacity-100"
                   }`}
                   style={{ backgroundColor: col.value }}
@@ -287,7 +324,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
           </div>
 
           {/* Stroke Widths */}
-          <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200">
+          <div className="flex items-center gap-0.5 bg-white p-0.5 sm:p-1 rounded-xl border border-slate-200 shrink-0">
             {STROKE_WIDTHS.map((sw) => {
               const isSelected = activeWidth === sw.value;
               return (
@@ -296,7 +333,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                   type="button"
                   title={sw.label}
                   onClick={() => setActiveWidth(sw.value)}
-                  className={`px-2 py-0.5 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
+                  className={`px-1.5 sm:px-2 py-0.5 rounded-lg text-[9px] sm:text-[10px] font-bold transition-all cursor-pointer ${
                     isSelected ? "bg-indigo-600 text-white" : "text-slate-600 hover:bg-slate-100"
                   }`}
                 >
@@ -311,7 +348,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="پاک‌کن"
             onClick={() => setIsEraser(!isEraser)}
-            className={`min-h-[32px] px-2.5 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer ${
+            className={`min-h-[28px] sm:min-h-[32px] px-2 sm:px-2.5 py-1 rounded-xl text-[11px] sm:text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
               isEraser
                 ? "bg-rose-600 text-white shadow-xs"
                 : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
@@ -324,10 +361,10 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
           {/* Undo */}
           <button
             type="button"
-            title="بازگشت حرکت قبلی"
+            title="بازگشت حرکت قبلی (Ctrl+Z)"
             disabled={!canUndo}
             onClick={handleUndo}
-            className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all ${
+            className={`min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all shrink-0 ${
               canUndo
                 ? "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 cursor-pointer"
                 : "opacity-40 bg-slate-100 text-slate-400 cursor-not-allowed"
@@ -341,7 +378,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="پاک کردن کامل صفحه"
             onClick={handleClear}
-            className="min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold bg-white text-rose-600 hover:bg-rose-50 border border-rose-200 flex items-center gap-1 cursor-pointer transition-all"
+            className="min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold bg-white text-rose-600 hover:bg-rose-50 border border-rose-200 flex items-center gap-1 cursor-pointer transition-all shrink-0"
           >
             <Trash2 className="w-3.5 h-3.5" />
           </button>
@@ -351,7 +388,7 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title={isTransparent ? "حالت کاغذ سفید" : "حالت شیشه‌ای (دیدن سوال)"}
             onClick={() => setIsTransparent(!isTransparent)}
-            className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer ${
+            className={`min-h-[28px] sm:min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer shrink-0 ${
               isTransparent
                 ? "bg-indigo-100 text-indigo-700 border border-indigo-300"
                 : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
@@ -365,19 +402,19 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
             type="button"
             title="کوچک‌نمایی چرک‌نویس"
             onClick={() => setIsMinimized(true)}
-            className="min-h-[32px] p-1.5 rounded-xl text-slate-600 hover:bg-slate-200 bg-white border border-slate-200 cursor-pointer transition-all"
+            className="min-h-[28px] sm:min-h-[32px] p-1.5 rounded-xl text-slate-600 hover:bg-slate-200 bg-white border border-slate-200 cursor-pointer transition-all shrink-0"
           >
-            <Minimize2 className="w-4 h-4" />
+            <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
 
           {/* Close */}
           <button
             type="button"
-            title="بستن چرک‌نویس"
+            title="بستن چرک‌نویس (Escape)"
             onClick={onClose}
-            className="min-h-[32px] p-1.5 rounded-xl text-rose-600 hover:bg-rose-100 bg-rose-50 border border-rose-200 cursor-pointer transition-all"
+            className="min-h-[28px] sm:min-h-[32px] p-1.5 rounded-xl text-rose-600 hover:bg-rose-100 bg-rose-50 border border-rose-200 cursor-pointer transition-all shrink-0"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>

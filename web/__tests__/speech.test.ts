@@ -2,18 +2,24 @@ import { describe, it, expect } from "vitest";
 import { cleanTextForSpeech } from "../lib/audio/speech";
 
 describe("Persian Audio Speech Normalizer", () => {
-  it("normalizes LaTeX fraction to spoken Persian", () => {
+  it("normalizes LaTeX fraction to natural spoken Persian", () => {
     const raw = "حاصل کسر $\\frac{2}{3}$ با کدام گزینه برابر است؟";
     const cleaned = cleanTextForSpeech(raw);
-    expect(cleaned).toContain("2 بر روی 3");
+    expect(cleaned).toContain("دو سوم");
     expect(cleaned).not.toContain("\\frac");
     expect(cleaned).not.toContain("$");
   });
 
-  it("normalizes slash fraction format", () => {
+  it("normalizes slash fraction format to spoken Persian", () => {
     const raw = "مقدار 3/4 کیلوگرم سیب چقدر است؟";
     const cleaned = cleanTextForSpeech(raw);
-    expect(cleaned).toContain("3 بر روی 4");
+    expect(cleaned).toContain("سه چهارم");
+  });
+
+  it("falls back to 'بر روی' for unmapped larger fractions", () => {
+    const raw = "کسر $\\frac{17}{35}$ را در نظر بگیرید";
+    const cleaned = cleanTextForSpeech(raw);
+    expect(cleaned).toContain("17 بر روی 35");
   });
 
   it("replaces mathematical symbols with Persian spoken words", () => {

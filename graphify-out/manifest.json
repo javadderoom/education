@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794313156.8248608,
-    "ast_hash": "fbfc61952198d0f247449e1ad64373a6",
+    "mtime": 1794319121.4511416,
+    "ast_hash": "a6440747f8c7c08b9cf523cc0863310f",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -1070,8 +1070,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/speech.test.ts": {
-    "mtime": 1794313025.634381,
-    "ast_hash": "4d748ea26fe31c79603bedb16ccc8a77",
+    "mtime": 1794318878.0981352,
+    "ast_hash": "b62794139ffedd2209cd5651dccbaab6",
     "semantic_hash": ""
   },
   "web/__tests__/teacher-matrix.test.ts": {
@@ -1080,28 +1080,38 @@
     "semantic_hash": ""
   },
   "web/components/admin/CartridgeUploader.tsx": {
-    "mtime": 1794313560.4322925,
-    "ast_hash": "e981c5e73dc13eb6f049befd2ab43b4a",
+    "mtime": 1794319344.2018604,
+    "ast_hash": "f23335165720408ff12cc7a26dcb6efd",
     "semantic_hash": ""
   },
   "web/components/assessment/ScratchpadOverlay.tsx": {
-    "mtime": 1794313063.491986,
-    "ast_hash": "cc61a46c03c85f1cc279207f0c9ea39b",
+    "mtime": 1794318932.9081967,
+    "ast_hash": "584a83aa6a60b50135771ba977962a99",
     "semantic_hash": ""
   },
   "web/components/curation/TeacherClassHeatmap.tsx": {
-    "mtime": 1794313287.0984893,
-    "ast_hash": "4484aa1077e952c671ddfcad975e0403",
+    "mtime": 1794319200.3112476,
+    "ast_hash": "16eeec24a90a5926bec30e65314454ee",
     "semantic_hash": ""
   },
   "web/lib/audio/speech.ts": {
-    "mtime": 1794313007.735611,
-    "ast_hash": "ad9b1525457d5be3483ec3157c3c8d80",
+    "mtime": 1794318856.6232224,
+    "ast_hash": "9859dc1dbc2df4c83d5cf33a8d782f43",
     "semantic_hash": ""
   },
   "web/scripts/verify-features.mjs": {
     "mtime": 1794314033.1194787,
     "ast_hash": "112452c1d596430aa0d5f599c7cc2709",
+    "semantic_hash": ""
+  },
+  "web/scripts/deep-feature-audit.mjs": {
+    "mtime": 1794318739.32037,
+    "ast_hash": "2c7b9786f55a69cfa764e66131cfe176",
+    "semantic_hash": ""
+  },
+  "web/scripts/verify-additional-features.mjs": {
+    "mtime": 1794319616.6494691,
+    "ast_hash": "01d1d81b6af5bfaef1b741a876a7ec3c",
     "semantic_hash": ""
   }
 }

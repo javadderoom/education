@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag, Volume2, VolumeX, PenTool, ListChecks } from "lucide-react";
+import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag, Volume2, VolumeX, PenTool, ListChecks, CheckCircle, XCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
 import { FractionStrip } from "../parametric/FractionStrip";
 import { NumberLine } from "../parametric/NumberLine";
@@ -174,12 +174,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   });
 
   const [sessionCompleted, setSessionCompleted] = useState(false);
+  const [showQuestionReview, setShowQuestionReview] = useState(false);
   const [history, setHistory] = useState<Array<{
     itemId: string;
     kcId: string;
     isCorrect: boolean;
     isNotSure: boolean;
     timestamp: number;
+    stem?: string;
+    selectedLabel?: string;
+    selectedContent?: string;
+    correctContent?: string;
+    rationale?: string | null;
   }>>(() => initialSessionState?.history || []);
 
   const currentItem = activeItems[currentIndex] || activeItems[0];
@@ -337,6 +343,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     };
     setMasteries(updatedMasteries);
 
+    const correctDistractor = currentDistractors.find((d) => d.is_correct);
     const newHistory = [
       ...history,
       {
@@ -345,6 +352,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         isCorrect: distractor.is_correct,
         isNotSure: false,
         timestamp: Date.now(),
+        stem: currentItem.stem,
+        selectedLabel: distractor.label,
+        selectedContent: distractor.content,
+        correctContent: correctDistractor?.content || distractor.content,
+        rationale: distractor.rationale,
       },
     ];
     setHistory(newHistory);
@@ -378,6 +390,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     };
     setMasteries(updatedMasteries);
 
+    const correctDistractor = currentDistractors.find((d) => d.is_correct);
     const newHistory = [
       ...history,
       {
@@ -386,6 +399,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         isCorrect: false,
         isNotSure: true,
         timestamp: Date.now(),
+        stem: currentItem.stem,
+        selectedLabel: "هنوز مطمئن نیستم",
+        selectedContent: "عدم اطمینان",
+        correctContent: correctDistractor?.content,
+        rationale: "پاسخ با علامت عدم اطمینان ثبت شد تا نقطه شروع آموزشی بدون نمره منفی تنظیم شود.",
       },
     ];
     setHistory(newHistory);
@@ -550,6 +568,124 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
                 {toPersianDigits(averageMastery)}٪
               </span>
             </div>
+          </div>
+
+          {/* Motivational Achievement Badge for Elementary Students */}
+          {averageMastery >= 80 && (
+            <div className="mb-5 p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border-2 border-amber-300 text-amber-950 flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 text-amber-600 animate-spin" />
+              <span className="font-bold text-xs sm:text-sm">
+                آفرین قهرمان ریاضی! نشان طلایی تسلط بر مباحث به شما تعلق گرفت 🌟
+              </span>
+            </div>
+          )}
+
+          {/* Interactive Question-by-Question Review Accordion */}
+          <div className="mb-5 text-right">
+            <button
+              type="button"
+              onClick={() => setShowQuestionReview(!showQuestionReview)}
+              className="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 active:scale-98 text-slate-800 rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-between transition-all cursor-pointer shadow-2xs"
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-indigo-600" />
+                <span>مرور سوالات و تحلیل پاسخ‌های آزمون ({toPersianDigits(history.length)} سوال)</span>
+              </div>
+              {showQuestionReview ? (
+                <ChevronUp className="w-4 h-4 text-slate-500" />
+              ) : (
+                <ChevronDown className="w-4 h-4 text-slate-500" />
+              )}
+            </button>
+
+            {showQuestionReview && (
+              <div className="space-y-3 mt-3 animate-in fade-in duration-200">
+                {history.map((h, idx) => {
+                  return (
+                    <div
+                      key={h.itemId || idx}
+                      className={`p-4 rounded-2xl border text-right transition-all ${
+                        h.isCorrect
+                          ? "bg-emerald-50/50 border-emerald-200"
+                          : h.isNotSure
+                          ? "bg-amber-50/50 border-amber-200"
+                          : "bg-rose-50/50 border-rose-200"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-slate-200/60">
+                        <span className="font-bold text-xs text-slate-800">
+                          سوال شماره {toPersianDigits(idx + 1)}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          {h.isCorrect ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                              <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
+                              <span>صحیح</span>
+                            </span>
+                          ) : h.isNotSure ? (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                              <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+                              <span>بدون اطمینان</span>
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-800 bg-rose-100 px-2.5 py-0.5 rounded-full">
+                              <XCircle className="w-3.5 h-3.5 text-rose-600" />
+                              <span>نادرست</span>
+                            </span>
+                          )}
+
+                          {h.stem && (
+                            <button
+                              type="button"
+                              onClick={() => speakPersian(h.stem!)}
+                              title="شنیدن صوتی صورت سوال"
+                              className="p-1 rounded-lg text-slate-500 hover:text-indigo-600 hover:bg-white transition-all cursor-pointer"
+                            >
+                              <Volume2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Question Stem */}
+                      {h.stem && (
+                        <div className="text-xs sm:text-sm font-semibold text-slate-900 mb-2.5 leading-relaxed">
+                          <MathRenderer content={h.stem} />
+                        </div>
+                      )}
+
+                      {/* Chosen Option vs Correct Option */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-2">
+                        <div className="bg-white p-2.5 rounded-xl border border-slate-200">
+                          <span className="text-[10px] text-slate-500 block mb-0.5">پاسخ شما:</span>
+                          <span className="font-bold text-slate-800">
+                            {h.selectedLabel && `${h.selectedLabel}: `}
+                            {h.selectedContent ? <MathRenderer content={h.selectedContent} /> : "—"}
+                          </span>
+                        </div>
+
+                        {!h.isCorrect && h.correctContent && (
+                          <div className="bg-white p-2.5 rounded-xl border border-emerald-200">
+                            <span className="text-[10px] text-emerald-700 font-bold block mb-0.5">پاسخ صحیح:</span>
+                            <span className="font-bold text-emerald-900">
+                              <MathRenderer content={h.correctContent} />
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Rationale Explanation */}
+                      {h.rationale && (
+                        <div className="text-[11px] text-slate-600 bg-white/80 p-2.5 rounded-xl border border-slate-200 leading-relaxed">
+                          <b className="text-slate-800">توضیح مفهومی: </b>
+                          <span>{h.rationale}</span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* Interactive Workshop Recommendation */}

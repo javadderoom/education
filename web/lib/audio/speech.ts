@@ -1,6 +1,34 @@
 // Web Speech API wrapper for Pedagogical Persian Narration in Elementary Math
 // Conforms strictly to Rule 8 (100% Free and Open Source, zero paid cloud APIs)
 
+const COMMON_FRACTIONS_SPOKEN: Record<string, string> = {
+  "1/2": "یک دوم",
+  "1/3": "یک سوم",
+  "2/3": "دو سوم",
+  "1/4": "یک چهارم",
+  "2/4": "دو چهارم",
+  "3/4": "سه چهارم",
+  "1/5": "یک پنجم",
+  "2/5": "دو پنجم",
+  "3/5": "سه پنجم",
+  "4/5": "چهار پنجم",
+  "1/6": "یک ششم",
+  "5/6": "پنج ششم",
+  "1/8": "یک هشتم",
+  "3/8": "سه هشتم",
+  "5/8": "پنج هشتم",
+  "7/8": "هفت هشتم",
+  "1/10": "یک دهم",
+  "2/10": "دو دهم",
+  "3/10": "سه دهم",
+  "4/10": "چهار دهم",
+  "5/10": "پنج دهم",
+  "6/10": "شش دهم",
+  "7/10": "هفت دهم",
+  "8/10": "هشت دهم",
+  "9/10": "نه دهم",
+};
+
 /**
  * Normalizes math expressions and Persian fractions into spoken Persian prose
  * so native browser speech synthesis can pronounce them clearly for young learners.
@@ -10,15 +38,25 @@ export function cleanTextForSpeech(input: string): string {
 
   let text = input;
 
-  // 1. Convert LaTeX fractions: \frac{a}{b} -> "a b-om"
+  // 1. Convert common LaTeX fractions with canonical spoken Persian
   text = text.replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g, (_match, num, den) => {
     const cleanNum = num.trim();
     const cleanDen = den.trim();
+    const key = `${cleanNum}/${cleanDen}`;
+    if (COMMON_FRACTIONS_SPOKEN[key]) {
+      return COMMON_FRACTIONS_SPOKEN[key];
+    }
     return `${cleanNum} بر روی ${cleanDen}`;
   });
 
-  // 2. Convert standard slash fractions: 3/4 -> "3 بر روی 4"
-  text = text.replace(/(\d+)\s*\/\s*(\d+)/g, "$1 بر روی $2");
+  // 2. Convert standard slash fractions
+  text = text.replace(/(\d+)\s*\/\s*(\d+)/g, (_match, num, den) => {
+    const key = `${num}/${den}`;
+    if (COMMON_FRACTIONS_SPOKEN[key]) {
+      return COMMON_FRACTIONS_SPOKEN[key];
+    }
+    return `${num} بر روی ${den}`;
+  });
 
   // 3. Convert mathematical operational signs to Persian words
   text = text
@@ -30,10 +68,10 @@ export function cleanTextForSpeech(input: string): string {
     .replace(/\+/g, " به علاوه ")
     .replace(/−/g, " منهای ")
     .replace(/-/g, " منهای ")
-    .replace(/\\leq?/g, " کوچک‌تر مساوی ")
-    .replace(/\\geq?/g, " بزرگ‌تر مساوی ")
-    .replace(/<=/g, " کوچک‌تر مساوی ")
-    .replace(/>=/g, " بزرگ‌تر مساوی ")
+    .replace(/\\leq?/g, " کوچک‌تر یا مساوی ")
+    .replace(/\\geq?/g, " بزرگ‌تر یا مساوی ")
+    .replace(/<=/g, " کوچک‌تر یا مساوی ")
+    .replace(/>=/g, " بزرگ‌تر یا مساوی ")
     .replace(/=/g, " برابر است با ")
     .replace(/</g, " کوچک‌تر از ")
     .replace(/>/g, " بزرگ‌تر از ")
@@ -90,13 +128,19 @@ export function speakPersian(
   utterance.rate = 0.88; // Slightly gentle pacing for elementary students
   utterance.pitch = 1.05; // Slightly warmer/friendly pitch
 
-  // Attempt to select an authentic Persian voice if installed on OS/Browser
-  const voices = window.speechSynthesis.getVoices();
-  const faVoice = voices.find(
-    (v) => v.lang.toLowerCase().startsWith("fa") || v.name.toLowerCase().includes("persian")
-  );
-  if (faVoice) {
-    utterance.voice = faVoice;
+  const selectVoice = () => {
+    const voices = window.speechSynthesis.getVoices();
+    const faVoice = voices.find(
+      (v) => v.lang.toLowerCase().startsWith("fa") || v.name.toLowerCase().includes("persian")
+    );
+    if (faVoice) {
+      utterance.voice = faVoice;
+    }
+  };
+
+  selectVoice();
+  if (typeof window.speechSynthesis.onvoiceschanged !== "undefined") {
+    window.speechSynthesis.onvoiceschanged = selectVoice;
   }
 
   utterance.onstart = () => {
@@ -108,7 +152,6 @@ export function speakPersian(
   };
 
   utterance.onerror = (e) => {
-    // Interrupted errors happen normally when user stops speech manually
     if (e.error !== "interrupted" && e.error !== "canceled") {
       callbacks?.onError?.(e);
     } else {

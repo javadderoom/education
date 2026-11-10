@@ -11,6 +11,10 @@ import {
   RefreshCw,
   Layers,
   BookOpen,
+  Download,
+  Eye,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { importCartridgePackageAction } from "@/actions/admin";
@@ -19,11 +23,19 @@ export interface CartridgeUploaderProps {
   onSuccess?: () => void;
 }
 
+interface SampleItem {
+  index: number;
+  stem: string;
+  kcId: string;
+  optionsCount: number;
+}
+
 export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [jsonContent, setJsonContent] = useState<string>("");
   const [fileName, setFileName] = useState<string | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
+  const [showSampleQuestions, setShowSampleQuestions] = useState<boolean>(false);
   const [parsedPreview, setParsedPreview] = useState<{
     cartridgeId: string;
     title: string;
@@ -32,10 +44,69 @@ export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess 
     kcCount: number;
     itemCount: number;
     misconceptionCount: number;
+    sampleItems: SampleItem[];
   } | null>(null);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const downloadBlankTemplate = () => {
+    const template = {
+      cartridge_id: "math_grade5_ch_sample",
+      title: "فصل نمونه ریاضی پنجم ابتدایی",
+      version: "1.0.0",
+      subject: {
+        slug: "math-grade-5",
+        name: "ریاضی پنجم ابتدایی",
+        grade_level: 5
+      },
+      knowledge_components: [
+        {
+          id: "KC-SAMPLE-01",
+          slug: "sample-concept",
+          title: "عنوان مفهوم کلیدی اول",
+          description: "شرح تفصیلی یادگیری و مهارت مورد انتظار",
+          prior: 0.5,
+          transit: 0.1,
+          guess: 0.2,
+          slip: 0.1
+        }
+      ],
+      misconceptions: [
+        {
+          code: "SAMPLE_MISCONCEPTION",
+          name: "عنوان بدفهمی رایج دانش‌آموزان",
+          description: "توضیح خطای ادراکی و دلیل رخ دادن آن",
+          remedial_strategy: "راهبرد پیشنهادی معلم برای برطرف‌سازی بدفهمی"
+        }
+      ],
+      diagnostic_items: [
+        {
+          id: "ITEM-SAMPLE-01",
+          stem: "صورت سوال تشخیصی اول به زبان فارسی یا همراه با فرمول؟",
+          difficulty: 0.2,
+          discrimination: 1.0,
+          kc_id: "KC-SAMPLE-01",
+          options: [
+            { "label": "الف", "content": "گزینه درست", "is_correct": true },
+            { "label": "ب", "content": "گزینه غلط دارای بدفهمی", "is_correct": false, "misconception_code": "SAMPLE_MISCONCEPTION" },
+            { "label": "ج", "content": "گزینه خطای تصادفی ۱", "is_correct": false },
+            { "label": "د", "content": "گزینه خطای تصادفی ۲", "is_correct": false }
+          ]
+        }
+      ]
+    };
+
+    const blob = new Blob([JSON.stringify(template, null, 2)], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "curriculum_cartridge_template.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   const validateJson = (content: string, name?: string) => {
     setValidationError(null);
@@ -68,6 +139,13 @@ export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess 
         return;
       }
 
+      const sampleItems: SampleItem[] = (data.diagnostic_items || []).slice(0, 3).map((item: any, idx: number) => ({
+        index: idx + 1,
+        stem: item.stem || "بدون صورت سوال",
+        kcId: item.kc_id || "نامشخص",
+        optionsCount: Array.isArray(item.options) ? item.options.length : 0,
+      }));
+
       setParsedPreview({
         cartridgeId: data.cartridge_id,
         title: data.title,
@@ -76,6 +154,7 @@ export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess 
         kcCount: data.knowledge_components.length,
         itemCount: data.diagnostic_items.length,
         misconceptionCount: data.misconceptions?.length || 0,
+        sampleItems,
       });
       if (name) setFileName(name);
     } catch {
@@ -120,18 +199,30 @@ export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess 
 
   return (
     <div className="bg-white border-2 border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs select-none">
-      <div className="flex items-center gap-2.5 pb-4 border-b border-slate-100 mb-5">
-        <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center">
-          <UploadCloud className="w-5 h-5" />
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 mb-5 gap-3">
+        <div className="flex items-center gap-2.5">
+          <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
+            <UploadCloud className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="font-bold text-sm sm:text-base text-slate-900">
+              بارگذاری بسته درسی جدید (Cartridge Importer)
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5">
+              بدون نیاز به تغییر سورس‌کد یا دستورات سرور، بسته استاندارد سوالات و مفاهیم را بارگذاری کنید.
+            </p>
+          </div>
         </div>
-        <div>
-          <h3 className="font-bold text-sm sm:text-base text-slate-900">
-            بارگذاری بسته درسی جدید (Cartridge Importer)
-          </h3>
-          <p className="text-xs text-slate-500 mt-0.5">
-            بدون نیاز به تغییر سورس‌کد یا دستورات سرور، بسته استاندارد سوالات و مفاهیم را بارگذاری کنید.
-          </p>
-        </div>
+
+        <button
+          type="button"
+          onClick={downloadBlankTemplate}
+          className="min-h-[40px] self-start sm:self-auto flex items-center gap-2 px-3 py-1.5 rounded-xl border border-indigo-200 bg-indigo-50/70 hover:bg-indigo-100/60 active:scale-98 text-indigo-700 text-xs font-semibold transition-all cursor-pointer"
+          title="دانلود ساختار نمونه JSON برای تالیف کارتریج درسی جدید"
+        >
+          <Download className="w-4 h-4 text-indigo-600 shrink-0" />
+          <span>دریافت نمونه خام (JSON)</span>
+        </button>
       </div>
 
       {/* Success Notification */}
@@ -216,6 +307,44 @@ export const CartridgeUploader: React.FC<CartridgeUploaderProps> = ({ onSuccess 
               <span className="font-bold text-amber-700">{toPersianDigits(parsedPreview.misconceptionCount)} مورد</span>
             </div>
           </div>
+
+          {/* Sample Questions Accordion */}
+          {parsedPreview.sampleItems && parsedPreview.sampleItems.length > 0 && (
+            <div className="mt-3 border border-indigo-200/80 rounded-xl bg-white overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setShowSampleQuestions((prev) => !prev)}
+                className="w-full flex items-center justify-between p-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                <span className="flex items-center gap-1.5">
+                  <Eye className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>مشاهده نمونه سوالات تشخیصی بسته ({toPersianDigits(parsedPreview.sampleItems.length)} سوال نخست)</span>
+                </span>
+                {showSampleQuestions ? (
+                  <ChevronUp className="w-4 h-4 text-slate-400" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-slate-400" />
+                )}
+              </button>
+
+              {showSampleQuestions && (
+                <div className="p-3 border-t border-slate-100 space-y-2 bg-slate-50/50">
+                  {parsedPreview.sampleItems.map((item) => (
+                    <div key={item.index} className="bg-white p-2.5 rounded-lg border border-slate-200 text-xs">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-bold text-slate-900">سوال شماره {toPersianDigits(item.index)}</span>
+                        <span className="text-[10px] font-mono text-slate-500" dir="ltr">{item.kcId}</span>
+                      </div>
+                      <p className="text-slate-700 text-xs line-clamp-2 leading-relaxed">{item.stem}</p>
+                      <div className="mt-1 text-[11px] text-slate-500">
+                        تعداد گزینه‌ها: {toPersianDigits(item.optionsCount)} گزینه
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="mt-4 flex justify-end">
             <button
