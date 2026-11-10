@@ -1085,8 +1085,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/ScratchpadOverlay.tsx": {
-    "mtime": 1794322206.4000847,
-    "ast_hash": "d9df62bc8100e36129bb3ff3f521df8c",
+    "mtime": 1794322811.8724482,
+    "ast_hash": "55328af02fd431b1cf5531b92a1ba7f2",
     "semantic_hash": ""
   },
   "web/components/curation/TeacherClassHeatmap.tsx": {

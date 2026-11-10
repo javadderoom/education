@@ -388,14 +388,9 @@ export const ScratchpadOverlay: React.FC<ScratchpadOverlayProps> = ({
                   </div>
                 </div>
 
-                {/* Row 2: Stroke Sizes with 1:1 True Pixel Preview */}
+                {/* Row 2: Stroke Sizes with 1:1 True Line Preview */}
                 <div className="border-t border-slate-100 pt-2">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-bold text-slate-500">ضخامت واقعی قلم:</span>
-                    <span className="text-[10px] font-mono text-indigo-600 font-bold" dir="ltr">
-                      {toPersianDigits(activeWidth)} پیکسل
-                    </span>
-                  </div>
+                  <span className="text-[10px] font-bold text-slate-500 block mb-1.5">ضخامت قلم:</span>
                   <div className="grid grid-cols-3 gap-1.5">
                     {STROKE_WIDTHS.map((sw) => {
                       const isSelected = activeWidth === sw.value;
