@@ -384,7 +384,15 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
                     <button
                       type="button"
                       onClick={() => toggleCategory(category.topicIds)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      aria-label={
+                        isCategoryFull
+                          ? "کل بخش انتخاب شد"
+                          : isCategoryPartial
+                          ? `${toPersianDigits(selectedCount)} از ${toPersianDigits(categoryTopics.length)} سرفصل انتخاب شده`
+                          : "انتخاب کل بخش"
+                      }
+                      title={isCategoryFull ? "لغو انتخاب سرفصل‌های این بخش" : "انتخاب تمام سرفصل‌های این بخش"}
+                      className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shrink-0 ${
                         isCategoryFull
                           ? isGrade5
                             ? "bg-emerald-600 text-white shadow-2xs"
@@ -402,11 +410,19 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
                         <Square className="w-3.5 h-3.5 text-slate-400" />
                       )}
                       <span>
-                        {isCategoryFull
-                          ? "کل بخش انتخاب شد"
-                          : isCategoryPartial
-                          ? `${toPersianDigits(selectedCount)} از ${toPersianDigits(categoryTopics.length)}`
-                          : "انتخاب کل بخش"}
+                        {isCategoryFull ? (
+                          <>
+                            <span className="hidden sm:inline">کل بخش انتخاب شد</span>
+                            <span className="sm:hidden">همه</span>
+                          </>
+                        ) : isCategoryPartial ? (
+                          `${toPersianDigits(selectedCount)} از ${toPersianDigits(categoryTopics.length)}`
+                        ) : (
+                          <>
+                            <span className="hidden sm:inline">انتخاب کل بخش</span>
+                            <span className="sm:hidden">انتخاب همه</span>
+                          </>
+                        )}
                       </span>
                     </button>
                   </div>
