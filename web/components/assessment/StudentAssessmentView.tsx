@@ -214,16 +214,4 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
       />
     </div>
   );
-        items={activeQuestions}
-        knowledgeComponents={activeCartridge.knowledge_components}
-        misconceptions={activeCartridge.misconceptions}
-        studentName={studentName}
-        studentUsername={studentUsername}
-        subjectId={currentSubjectId}
-        selectedTopicIds={selectedTopicIds}
-        onConfigureTopics={handleOpenConfigurator}
-        initialSessionState={activeExamSession}
-      />
-    </div>
-  );
 };
