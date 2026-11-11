@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && npm run prisma:seed && next build",
     "start": "next start",
     "lint": "next lint",
     "prisma:generate": "prisma generate",
-    "prisma:seed": "node --loader ts-node/esm prisma/seed.ts",
+    "prisma:seed": "node -e \"require('jiti')()('./prisma/seed.ts');\"",
     "validate:cartridges": "node -e \"require('jiti')()('../scripts/validate-cartridges.ts').runCli();\"",
     "test:bkt": "node -e \"require('jiti')()('./scripts/test-bkt.ts');\"",
     "type-check": "tsc --noEmit",
