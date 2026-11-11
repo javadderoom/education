@@ -65,6 +65,12 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
     }
   }, [initialSubjectId]);
 
+  React.useEffect(() => {
+    if (initialSelectedTopicIds && initialSelectedTopicIds.length > 0) {
+      setSelectedTopicIds(initialSelectedTopicIds);
+    }
+  }, [initialSelectedTopicIds]);
+
   const taxonomy: SubjectTaxonomy = useMemo(
     () => getSubjectTaxonomy(selectedSubjectId),
     [selectedSubjectId]

@@ -22,7 +22,7 @@ export interface ActiveExamSession {
   lastUpdatedAt: number;
 }
 
-const STORAGE_PREFIX = "edu_active_exam_v1";
+const STORAGE_PREFIX = "edu_active_exam_v2";
 const EXPIRY_MS = 24 * 60 * 60 * 1000; // 24 hours validity
 
 function getStorageKey(subjectId: string, username: string = "guest"): string {

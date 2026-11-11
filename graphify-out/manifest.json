@@ -400,7 +400,7 @@
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
-    "mtime": 1794411963.6655183,
+    "mtime": 1794412503.3824916,
     "ast_hash": "b5e88c44ceee1c823d69e874cec52613",
     "semantic_hash": ""
   },
@@ -935,7 +935,7 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch3.json": {
-    "mtime": 1794412179.9606717,
+    "mtime": 1794412503.078719,
     "ast_hash": "e4ba202f19a9064b6a5147607d962050",
     "semantic_hash": ""
   },
@@ -955,17 +955,17 @@
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1793816496.0090494,
-    "ast_hash": "d9cb0489c9a6f1a5992d0d3bbed42b16",
+    "mtime": 1794412876.8102806,
+    "ast_hash": "b704c27cee7987094328f1bf6f74bfd4",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1794320086.6680217,
-    "ast_hash": "ac339b43ff5b81717b7ff52ebb8ee870",
+    "mtime": 1794412900.064147,
+    "ast_hash": "19a103a51a5ba194cbed509d0a20b083",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794412133.1828573,
+    "mtime": 1794412503.5061922,
     "ast_hash": "6585f7b75e7fc7763158f765bdb9b478",
     "semantic_hash": ""
   },
@@ -1050,8 +1050,8 @@
     "semantic_hash": ""
   },
   "web/lib/store/exam-storage.ts": {
-    "mtime": 1793816486.4050531,
-    "ast_hash": "3d6074f3d4dd1feb5844d12c7d575b33",
+    "mtime": 1794412825.1832674,
+    "ast_hash": "d5af8d100e0edcbe46446cf530d2c854",
     "semantic_hash": ""
   },
   "web/scripts/audit-agent.mjs": {
@@ -1115,7 +1115,7 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794412222.1057928,
+    "mtime": 1794412503.044153,
     "ast_hash": "671111ac121a1841b81ce4d27985595b",
     "semantic_hash": ""
   },
@@ -1125,12 +1125,12 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch5.json": {
-    "mtime": 1794412278.4318693,
+    "mtime": 1794412503.1779077,
     "ast_hash": "f8510bfc5608201629d376b83d1809a9",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch6.json": {
-    "mtime": 1794412298.2975936,
+    "mtime": 1794412503.302791,
     "ast_hash": "007c1d9d0660fab5d3dacc51a3e4a7e6",
     "semantic_hash": ""
   },

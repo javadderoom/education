@@ -44,13 +44,30 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
   // Load existing in-progress session if any
   useEffect(() => {
     const saved = loadActiveExamSession(currentSubjectId, studentUsername);
-    setActiveExamSession(saved);
-    if (saved && initialStarted) {
-      if (saved.selectedTopicIds && saved.selectedTopicIds.length > 0) {
-        setSelectedTopicIds(saved.selectedTopicIds);
+    if (saved) {
+      // If URL explicitly requested topics that do not match the saved session,
+      // the URL topic selection takes priority and we discard the stale session.
+      if (initialTopicIds && initialTopicIds.length > 0) {
+        const isMatch =
+          initialTopicIds.length === saved.selectedTopicIds?.length &&
+          initialTopicIds.every((id) => saved.selectedTopicIds?.includes(id));
+        if (!isMatch) {
+          clearActiveExamSession(currentSubjectId, studentUsername);
+          setActiveExamSession(null);
+          return;
+        }
       }
+
+      setActiveExamSession(saved);
+      if (initialStarted) {
+        if (saved.selectedTopicIds && saved.selectedTopicIds.length > 0) {
+          setSelectedTopicIds(saved.selectedTopicIds);
+        }
+      }
+    } else {
+      setActiveExamSession(null);
     }
-  }, [currentSubjectId, studentUsername, initialStarted]);
+  }, [currentSubjectId, studentUsername, initialStarted, initialTopicIds]);
 
   React.useEffect(() => {
     if (initialSubjectId) {
@@ -91,9 +108,17 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
 
   // Combine static canonical questions with newly randomized dynamic items
   const activeQuestions = useMemo(() => {
-    // If resuming an active session in exam mode, keep the exact items list to prevent question drift
+    // If resuming an active session in exam mode, keep the exact items list only if topics match
     if (activeExamSession && activeExamSession.items && activeExamSession.items.length > 0 && !isConfiguring) {
-      return activeExamSession.items;
+      const sessionTopicIds = activeExamSession.selectedTopicIds || [];
+      const topicsMatch =
+        selectedTopicIds.length === 0 ||
+        (selectedTopicIds.length === sessionTopicIds.length &&
+          selectedTopicIds.every((id) => sessionTopicIds.includes(id)));
+
+      if (topicsMatch) {
+        return activeExamSession.items;
+      }
     }
 
     const targetKCs =
@@ -118,8 +143,9 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
     setIsConfiguring(false);
     setSubject(subjectId);
 
-    const existing = loadActiveExamSession(subjectId, studentUsername);
-    setActiveExamSession(existing);
+    // Explicit start with topic selection: clear any old stale session so fresh questions are generated!
+    clearActiveExamSession(subjectId, studentUsername);
+    setActiveExamSession(null);
 
     // Update query params without full navigation reload
     const params = new URLSearchParams(searchParams.toString());
@@ -150,7 +176,18 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
         activeExamSession={activeExamSession}
         onResumeExam={() => {
           if (activeExamSession) {
-            handleStartExam(activeExamSession.subjectId, activeExamSession.selectedTopicIds);
+            setCurrentSubjectId(activeExamSession.subjectId);
+            setSelectedTopicIds(activeExamSession.selectedTopicIds);
+            setIsConfiguring(false);
+            setSubject(activeExamSession.subjectId);
+
+            const params = new URLSearchParams(searchParams.toString());
+            params.set("subject", activeExamSession.subjectId);
+            if (activeExamSession.selectedTopicIds.length > 0) {
+              params.set("topics", activeExamSession.selectedTopicIds.join(","));
+            }
+            params.set("start", "1");
+            router.replace(`/student?${params.toString()}`);
           }
         }}
         onDiscardExam={() => {
@@ -164,7 +201,19 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
   return (
     <div className="w-full">
       <AssessmentCarousel
-        key={`${currentSubjectId}_${activeExamSession?.sessionId || "fresh"}`}
+        key={`${currentSubjectId}_${selectedTopicIds.slice().sort().join(",")}_${activeExamSession?.sessionId || "fresh"}`}
+        items={activeQuestions}
+        knowledgeComponents={activeCartridge.knowledge_components}
+        misconceptions={activeCartridge.misconceptions}
+        studentName={studentName}
+        studentUsername={studentUsername}
+        subjectId={currentSubjectId}
+        selectedTopicIds={selectedTopicIds}
+        onConfigureTopics={handleOpenConfigurator}
+        initialSessionState={activeExamSession}
+      />
+    </div>
+  );
         items={activeQuestions}
         knowledgeComponents={activeCartridge.knowledge_components}
         misconceptions={activeCartridge.misconceptions}
