@@ -11,8 +11,9 @@
     "prisma:seed": "node --loader ts-node/esm prisma/seed.ts",
     "validate:cartridges": "node -e \"require('jiti')()('../scripts/validate-cartridges.ts').runCli();\"",
     "test:bkt": "node -e \"require('jiti')()('./scripts/test-bkt.ts');\"",
+    "type-check": "tsc --noEmit",
     "test:ui": "vitest run",
-    "test": "npm run test:bkt && vitest run"
+    "test": "npm run test:bkt && npm run type-check && vitest run"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.1",
