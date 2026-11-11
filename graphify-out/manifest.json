@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "web/package.json": {
-    "mtime": 1794331629.0412982,
-    "ast_hash": "5d158d5a4cf6b0de7f0fdfe8ef5e7b8d",
+    "mtime": 1794424874.449983,
+    "ast_hash": "5b819d46b6a741f4664d84c2e15d0e8d",
     "semantic_hash": ""
   },
   "web/postcss.config.mjs": {
@@ -445,8 +445,8 @@
     "semantic_hash": ""
   },
   "web/prisma.config.ts": {
-    "mtime": 1793377862.907894,
-    "ast_hash": "d84aafe93b25cd323a505679a1070e21",
+    "mtime": 1794424871.9863737,
+    "ast_hash": "cf3dff685f913218a56b8408d3e96440",
     "semantic_hash": ""
   },
   "web/prisma/seed.ts": {
@@ -780,8 +780,8 @@
     "semantic_hash": ""
   },
   "web/vercel.json": {
-    "mtime": 1793438065.0049787,
-    "ast_hash": "024182d9aca240447ff214f38a46c7c6",
+    "mtime": 1794424876.5294967,
+    "ast_hash": "29144fa1e488029e9ce44e2bbb27adff",
     "semantic_hash": ""
   },
   "web/__tests__/ui-landing.test.tsx": {
@@ -955,8 +955,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1794412876.8102806,
-    "ast_hash": "b704c27cee7987094328f1bf6f74bfd4",
+    "mtime": 1794415487.888427,
+    "ast_hash": "465f4f51c8f3a92e1f223f5f2a15152d",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
@@ -1050,7 +1050,7 @@
     "semantic_hash": ""
   },
   "web/lib/store/exam-storage.ts": {
-    "mtime": 1794412825.1832674,
+    "mtime": 1794413067.8980637,
     "ast_hash": "d5af8d100e0edcbe46446cf530d2c854",
     "semantic_hash": ""
   },
@@ -1147,6 +1147,11 @@
   "web/__tests__/grade4-curriculum-integration.test.ts": {
     "mtime": 1794331560.989269,
     "ast_hash": "66e95199285ecf60891b1e7367aec228",
+    "semantic_hash": ""
+  },
+  "web/__tests__/ui-student-assessment-view.test.tsx": {
+    "mtime": 1794417991.003935,
+    "ast_hash": "afc0339865575aec0fe3d3c7ac74bfa9",
     "semantic_hash": ""
   }
 }
