@@ -745,7 +745,7 @@ export function generateAreaMultiplicationItem(index: number = 0): DiagnosticIte
   }
   const calculationSlip = totalArea - slipOffset;
 
-  const stem = `${name} می‌خواهد مساحت یک فرش مستطیل‌شکل به طول $${L}$ و عرض $${W}$ سانتی‌متر را با روش ضرب مساحتی (۴ بخش: $(${L10} \\times ${W10})$، $(${L10} \\times ${W1})$، $(${L1} \\times ${W10})$ و $(${L1} \\times ${W1})$) محاسبه کند. مساحت کل فرش کدام است؟`;
+  const stem = `یک فرش مستطیل‌شکل به طول $${L}$ و عرض $${W}$ سانتی‌متر داریم. اگر برای محاسبه‌ی مساحت آن، از روش ضرب مساحتی و تفکیک به ۴ مستطیل فرعیِ ($${L10} \\times ${W10}$)، ($${L10} \\times ${W1}$)، ($${L1} \\times ${W10}$) و ($${L1} \\times ${W1}$) استفاده کنیم، مساحت کل این فرش چند سانتی‌متر مربع می‌شود؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -804,7 +804,7 @@ export function generateVerticalMultiplicationItem(index: number = 0): Diagnosti
   const row2NoZero = A * B10;
   const totalNoZero = row1 + row2NoZero; // Misconception: omitting place-value zero
 
-  const stem = `در محاسبه‌ی ضرب ستونی رو‌به‌رو حاصل نهایی کدام است؟\n$$\\begin{array}{r} ${A} \\\\ \\times \\ ${B} \\\\ \\hline \\end{array}$$`;
+  const stem = `حاصل ضرب ستونی زیر کدام است؟\n$$\\begin{array}{r} ${A} \\\\ \\times \\ ${B} \\\\ \\hline \\end{array}$$`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -862,7 +862,7 @@ export function generateEstimationMultiplicationItem(index: number = 0): Diagnos
   const truncationEst = Math.floor(baseA / 10) * 10 * Math.floor(baseB / 10) * 10;
   const roundingErrorEst = (roundA - 10) * roundB;
 
-  const stem = `${name} می‌خواهد برای $${baseA}$ بسته دفتر، قیمت تقریبی را با در نظر گرفتن قیمت هر بسته $${baseB}$ هزار تومان محاسبه کند. اگر او هر دو عدد را به «نزدیک‌ترین ده‌گان» گرد کند، حاصل تقریبی کدام گزینه است؟`;
+  const stem = `قیمت هر بسته دفتر $${baseB}$ هزار تومان است. ${name} می‌خواهد $${baseA}$ بسته از این دفترها را بخرد. اگر او برای تخمین هزینه‌ی کل، هر دو عدد را به «نزدیک‌ترین ده‌گان» گرد کند، قیمت تقریبی کل دفترها چند هزار تومان می‌شود؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -918,7 +918,7 @@ export function generateDivisionVerificationItem(index: number = 0): DiagnosticI
   const qMis = q - 1;
   const rMis = r + d; // strictly >= d
 
-  const stem = `در یک تقسیم بر $${d}$، مقسوم برابر با $${D}$ است. کدام‌یک از تساوی‌های زیر یک تقسیم «درست و کامل» را نشان می‌دهد؟`;
+  const stem = `در تقسیم عدد $${D}$ بر مقسوم‌علیه $${d}$، کدام تساوی نشان‌دهنده‌ی یک تقسیم «درست و کامل» است؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {

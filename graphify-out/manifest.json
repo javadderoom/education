@@ -400,8 +400,8 @@
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
-    "mtime": 1793822924.6549306,
-    "ast_hash": "dfdab6df66de92716783a8025b8de75e",
+    "mtime": 1794411963.6655183,
+    "ast_hash": "b5e88c44ceee1c823d69e874cec52613",
     "semantic_hash": ""
   },
   "web/lib/bkt/diagnostics.ts": {
@@ -935,8 +935,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch3.json": {
-    "mtime": 1793518325.1915276,
-    "ast_hash": "beb9b68db42fb125d23ac15e76ff627a",
+    "mtime": 1794412179.9606717,
+    "ast_hash": "e4ba202f19a9064b6a5147607d962050",
     "semantic_hash": ""
   },
   "scripts/agy-curriculum-pipeline.ts": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794324293.6526637,
-    "ast_hash": "066c9dc93e85f1fbc506f865af90da72",
+    "mtime": 1794412133.1828573,
+    "ast_hash": "6585f7b75e7fc7763158f765bdb9b478",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794330663.6209688,
-    "ast_hash": "b47afa8146f11f93cfa82017c8b746c4",
+    "mtime": 1794412222.1057928,
+    "ast_hash": "671111ac121a1841b81ce4d27985595b",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1125,13 +1125,13 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch5.json": {
-    "mtime": 1794330793.3864384,
-    "ast_hash": "0a03e99cc95bfb42d9bf26739b8b742d",
+    "mtime": 1794412278.4318693,
+    "ast_hash": "f8510bfc5608201629d376b83d1809a9",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch6.json": {
-    "mtime": 1794330845.797572,
-    "ast_hash": "ff9735ec55fb0c02729aa5531065710b",
+    "mtime": 1794412298.2975936,
+    "ast_hash": "007c1d9d0660fab5d3dacc51a3e4a7e6",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch7.json": {

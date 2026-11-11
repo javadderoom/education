@@ -24,19 +24,22 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
   const renderedElements = useMemo(() => {
     if (!content) return null;
 
-    // Split text by single dollar signs for inline math: e.g. "حاصل $\frac{2}{3}$ را بیابید"
-    const parts = content.split(/(\$[^$]+\$)/g);
+    // Split text by block math ($$...$$) or inline math ($...$)
+    const parts = content.split(/(\$\$[\s\S]+?\$\$|\$[^$]+?\$)/g);
 
     return parts.map((part, index) => {
-      if (part.startsWith("$") && part.endsWith("$")) {
-        const mathExpr = part.slice(1, -1);
+      const isBlock = part.startsWith("$$") && part.endsWith("$$") && part.length >= 4;
+      const isInline = !isBlock && part.startsWith("$") && part.endsWith("$") && part.length >= 2;
+
+      if (isBlock || isInline) {
+        const mathExpr = isBlock ? part.slice(2, -2) : part.slice(1, -1);
         try {
           // Normalize any Persian/Arabic digits or typographic separators (٬, ٫) to standard ASCII
           // before KaTeX parsing to guarantee perfect glyph metrics and eliminate console warnings.
           const normalizedExpr = toAsciiDigits(mathExpr);
           const rawHtml = katex.renderToString(normalizedExpr, {
             throwOnError: false,
-            displayMode: !inline,
+            displayMode: isBlock ? true : !inline,
             strict: "ignore",
           });
           const persianHtml = renderPersianKaTeXHtml(rawHtml);
@@ -45,13 +48,25 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
             <span
               key={index}
               dir="ltr"
-              className="inline-block mx-1 font-bold text-indigo-700 align-middle select-none"
+              className={
+                isBlock
+                  ? "block my-2 text-center font-bold text-indigo-700 select-none"
+                  : "inline-block mx-1 font-bold text-indigo-700 align-middle select-none"
+              }
               dangerouslySetInnerHTML={{ __html: persianHtml }}
             />
           );
         } catch {
           return (
-            <span key={index} dir="ltr" className="inline-block mx-1 font-bold">
+            <span
+              key={index}
+              dir="ltr"
+              className={
+                isBlock
+                  ? "block my-2 text-center font-bold text-indigo-700 select-none"
+                  : "inline-block mx-1 font-bold"
+              }
+            >
               {toPersianDigits(mathExpr)}
             </span>
           );
