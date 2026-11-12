@@ -5,6 +5,7 @@ import { getStudentMasteryStates } from "@/actions/assessment";
 import { getAuthSession } from "@/lib/auth/session";
 import { MasteryRadar, KCMasteryInfo } from "@/components/assessment/MasteryRadar";
 import { toPersianDigits } from "@/lib/math/persian-digits";
+import { getSubjectTaxonomy } from "@/lib/data/curriculum-taxonomy";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
   const user = await getAuthSession();
   const params = await searchParams;
   const subjectId = params.subject || "SUBJ-MATH4-FRACTIONS";
+  const taxonomy = getSubjectTaxonomy(subjectId);
 
   if (!user) {
     redirect(`/login?role=student&redirect=${encodeURIComponent(`/student/mastery?subject=${subjectId}`)}`);
@@ -64,7 +66,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
             </div>
             <div>
               <h1 className="text-base sm:text-lg font-black text-slate-900">
-                کارنامه تسلط و مرور مفاهیم کسرها
+                کارنامه تسلط و مرور مفاهیم ({taxonomy.chapterTitle})
               </h1>
               <p className="text-xs text-slate-500">
                 بر اساس ارزیابی‌های شناختی و زمان‌بندی تثبیت در حافظه
@@ -132,7 +134,7 @@ export default async function MasteryPage({ searchParams }: PageProps) {
         <>
           {/* Main Radar Card */}
           <div className="mb-4">
-            <MasteryRadar masteryList={masteryRadarList} />
+            <MasteryRadar masteryList={masteryRadarList} chapterTitle={taxonomy.chapterTitle} />
           </div>
 
           {/* Section: Spaced Repetition & Memory Stability Cards */}

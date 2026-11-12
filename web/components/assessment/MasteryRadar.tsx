@@ -13,9 +13,13 @@ export interface KCMasteryInfo {
 
 export interface MasteryRadarProps {
   masteryList: KCMasteryInfo[];
+  chapterTitle?: string;
 }
 
-export const MasteryRadar: React.FC<MasteryRadarProps> = ({ masteryList }) => {
+export const MasteryRadar: React.FC<MasteryRadarProps> = ({
+  masteryList,
+  chapterTitle,
+}) => {
   return (
     <div className="w-full bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
       <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
@@ -23,9 +27,11 @@ export const MasteryRadar: React.FC<MasteryRadarProps> = ({ masteryList }) => {
           <TrendingUp className="w-5 h-5 text-indigo-600" />
           <h3 className="font-bold text-sm text-slate-800">میزان تسلط بر مفاهیم درس</h3>
         </div>
-        <span className="text-xs bg-indigo-50 text-indigo-700 font-semibold px-2.5 py-1 rounded-full">
-          فصل ۲: کسرها
-        </span>
+        {chapterTitle && (
+          <span className="text-xs bg-indigo-50 text-indigo-700 font-semibold px-2.5 py-1 rounded-full">
+            {chapterTitle}
+          </span>
+        )}
       </div>
 
       <div className="space-y-3">

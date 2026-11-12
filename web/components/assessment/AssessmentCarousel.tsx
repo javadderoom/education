@@ -25,6 +25,7 @@ import {
   clearActiveExamSession,
 } from "../../lib/store/exam-storage";
 import { speakPersian, stopPersianSpeech } from "../../lib/audio/speech";
+import { getSubjectTaxonomy } from "../../lib/data/curriculum-taxonomy";
 
 export interface DistractorItem {
   id: string;
@@ -119,6 +120,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     blueprint?: any;
     rationale?: string | null;
   }>({ isOpen: false });
+
+  const activeTaxonomy = React.useMemo(() => getSubjectTaxonomy(subjectId), [subjectId]);
+  const activeChapterTitle = activeTaxonomy?.chapterTitle || "فصل جاری";
 
   // Cleanup speech synthesis on unmount
   useEffect(() => {
@@ -283,7 +287,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     saveOfflineSession({
       sessionId,
       learnerName: activeName,
-      subjectTitle: "فصل دوم: کسرها",
+      subjectTitle: activeChapterTitle,
       startedAt: Date.now(),
       completedAt: isFinished ? Date.now() : undefined,
       responses: newHistory,
@@ -528,9 +532,10 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   if (sessionCompleted) {
     const correctCount = history.filter((h) => h.isCorrect).length;
+    const evaluatedMasteries = evaluatedKCs.map((kc) => masteries[kc.id] ?? 0.15);
     const averageMastery = Math.round(
-      (Object.values(masteries).reduce((a, b) => a + b, 0) /
-        Object.values(masteries).length) *
+      (evaluatedMasteries.reduce((a, b) => a + b, 0) /
+        (evaluatedMasteries.length || 1)) *
         100
     );
 
@@ -542,11 +547,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
           <p className="text-xs sm:text-sm text-slate-600 mb-5">
-            آفرین {activeName} عزیز، نتیجه میزان تسلط شما بر کسرها:
+            آفرین {activeName} عزیز، نتیجه میزان تسلط شما بر {activeChapterTitle}:
           </p>
 
           <div className="mb-5 text-right">
-            <MasteryRadar masteryList={masteryRadarList} />
+            <MasteryRadar masteryList={masteryRadarList} chapterTitle={activeChapterTitle} />
           </div>
 
           <div className="grid grid-cols-3 gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-5 text-center">
@@ -911,7 +916,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             </div>
 
             <div className="overflow-y-auto flex-1">
-              <MasteryRadar masteryList={masteryRadarList} />
+              <MasteryRadar masteryList={masteryRadarList} chapterTitle={activeChapterTitle} />
             </div>
 
             <button
