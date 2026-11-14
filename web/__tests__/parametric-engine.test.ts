@@ -54,8 +54,8 @@ describe("Dynamic Parametric Question Engine", () => {
     expect(divMis).toBeDefined();
   });
 
-  it("registers all 15 Knowledge Components across 3 chapters in master registry", () => {
-    expect(Object.keys(DYNAMIC_GENERATORS)).toHaveLength(15);
+  it("registers all 20 Knowledge Components across 4 chapters in master registry", () => {
+    expect(Object.keys(DYNAMIC_GENERATORS)).toHaveLength(20);
   });
 
   it("generates varied items across consecutive calls (non-repetition)", () => {

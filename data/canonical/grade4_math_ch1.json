@@ -1,7 +1,7 @@
 {
   "cartridge_id": "CART-IR-MATH4-CH01",
   "title": "ریاضی پایه ۴ ابتدایی - فصل ۱: اعداد و الگوها",
-  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس معلم ریاضی چهارم دبستان",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - کتاب درسی ریاضی چهارم دبستان سال تحصیلی ۱۴۰۲-۱۴۰۵",
   "domain": {
     "id": "DOM-K12-MATH",
     "name": "ریاضیات دوره دوم ابتدایی",
@@ -15,41 +15,41 @@
   "knowledge_components": [
     {
       "id": "KC-MATH4-C01-01",
-      "title": "عددنویسی، خواندن و بازنمایی اعداد چندرقمی تا طبقه میلیون",
+      "title": "عددنویسی، جدول ارزش مکانی و خواندن و بازنمایی تا طبقه هزار",
       "bloom_level": "understand",
-      "description": "توانایی خواندن و نوشتن اعداد تا طبقه میلیون با رعایت دسته‌های سه‌تایی و استفاده صحیح از جدول ارزش مکانی.",
+      "description": "توانایی خواندن و نوشتن اعداد تا طبقه هزار با رعایت دسته‌های سه‌تایی، درک مکعب‌های کوئیزنر و استفاده صحیح از جدول ارزش مکانی.",
       "prerequisites": []
     },
     {
       "id": "KC-MATH4-C01-02",
-      "title": "گسترده‌نویسی اعداد و تجزیه بر اساس ارزش مکانی ارقام",
+      "title": "گسترده‌نویسی، مقایسه و ترتیب اعداد چندرقمی",
       "bloom_level": "apply",
-      "description": "مهارت نمایش اعداد به صورت مجموع ارزش مکانی هر رقم و بازسازی عدد از روی شکل گسترده آن.",
+      "description": "مهارت تجزیه اعداد به ارزش مکانی ارقام، مقایسه اعداد چندرقمی بر اساس تعداد ارقام و بالاترین مرتبه و حل مسئله با کارت‌های رقم.",
       "prerequisites": [
         "KC-MATH4-C01-01"
       ]
     },
     {
       "id": "KC-MATH4-C01-03",
-      "title": "کشف رابطه در الگوهای عددی، هندسی و ماشین‌های ورودی-خروجی",
+      "title": "الگوهای عددی، هندسی و کشف رابطه بین شماره شکل و تعداد",
       "bloom_level": "analyze",
-      "description": "توانایی کشف قانون الگوهای متوالی، پیش‌بینی جمله‌های بعدی و تعیین عملکرد ماشین‌های محاسباتی ورودی-خروجی.",
+      "description": "توانایی کشف ضابطه الگوهای عددی و هندسی (چوب‌کبریت‌ها و دایره‌ها)، تعمیم رابطه ریاضی بین شماره شکل و تعداد و حل مسائل الگویابی.",
       "prerequisites": []
     },
     {
       "id": "KC-MATH4-C01-04",
-      "title": "مقایسه و ترتیب‌بندی اعداد بزرگ و نمایش آن‌ها روی محور اعداد",
+      "title": "ماشین‌های ورودی ــ خروجی و عملیات معکوس",
       "bloom_level": "apply",
-      "description": "مهارت مقایسه اعداد چندرقمی بر اساس تعداد ارقام و بالاترین مرتبه مکانی و مکان‌یابی تقریبی روی محور اعداد.",
+      "description": "درک کارکرد ماشین‌های محاسباتی یک‌مرحله‌ای و دومرحله‌ای (مانند ماشین محیط‌یاب)، تکمیل جدول داده‌ها و یافتن ورودی از روی خروجی.",
       "prerequisites": [
         "KC-MATH4-C01-01"
       ]
     },
     {
       "id": "KC-MATH4-C01-05",
-      "title": "محاسبات تقریبی و گرد کردن به نزدیک‌ترین مرتبه ده‌گان، صدگان و هزارگان",
-      "bloom_level": "apply",
-      "description": "مهارت تقریب زدن اعداد با روش گرد کردن (بررسی رقم مرتبه کمتر) و تفکیک آن از روش قطع کردن در حل مسائل روزمره.",
+      "title": "معرفی طبقه میلیون، جدول ارزش مکانی و مقایسه اعداد بزرگ",
+      "bloom_level": "understand",
+      "description": "درک مفهوم ۱۰ تا صدهزارتا برابر یک میلیون، خواندن و نوشتن اعداد تا طبقه میلیون، چرتکه، ارزش پول (ریال) و کاربرد در داده‌های واقعی جمعیت.",
       "prerequisites": [
         "KC-MATH4-C01-01",
         "KC-MATH4-C01-02"
@@ -77,29 +77,29 @@
     },
     {
       "id": "MIS-MATH4-C01-03",
-      "title": "فرض الگوی صرفاً جمعی و نادیده گرفتن ضرب یا روابط دو مرحله‌ای",
-      "description": "دانش‌آموز تغییرات الگو یا خروجی ماشین را همیشه یک عدد ثابت جمعی فرض می‌کند و تغییر فواصل یا ضرب را کشف نمی‌کند.",
+      "title": "فرض الگوی صرفاً جمعی و نادیده گرفتن رابطه شماره شکل یا ضرب",
+      "description": "دانش‌آموز تغییرات الگو را همیشه یک عدد ثابت جمعی ساده فرض می‌کند و ضرب یا رابطه شماره شکل (مانند شماره شکل ضرب در ۳ به علاوه ۱) را در نظر نمی‌گیرد.",
       "counter_example_blueprint": {
-        "scenario": "در الگوی $2, 5, 11, 23, \\dots$ دانش‌آموز اختلاف ۵ و ۲ را ۳ دانسته و عدد بعدی را به جای $47$ برابر با $26$ محاسبه می‌کند.",
-        "visual_counter_example": "نمایش درختی ماشین ورودی-خروجی که نشان می‌دهد هر مرحله «ضرب در ۲ به علاوه ۱» است نه افزایش ثابت."
+        "scenario": "در الگوی چوب‌کبریت‌ها با مقادیر ۴، ۷، ۱۰، دانش‌آموز برای شکل دهم به جای $10 \\times 3 + 1 = 31$ عدد ۲۰ را حدس می‌زند.",
+        "visual_counter_example": "تفکیک هندسی چوب‌کبریت‌ها که نشان می‌دهد ۱ چوب‌کبریت اولیه ثابت است و با هر شکل جدید، ۳ چوب‌کبریت دیگر اضافه می‌شود."
       }
     },
     {
       "id": "MIS-MATH4-C01-04",
-      "title": "مقایسه بر اساس بزرگی اولین رقم به جای تعداد ارقام عدد",
-      "description": "دانش‌آموز به دلیل بزرگتر بودن رقم اول یک عدد کوچک‌تر، آن را بزرگتر از یک عدد چندرقمی با رقم آغازین کوچکتر تصور می‌کند.",
+      "title": "اشتباه در مسیر معکوس ماشین ورودی-خروجی یا اولویت عملیات",
+      "description": "دانش‌آموز در مسیر برگشت از خروجی به ورودی، عملگرها را معکوس نمی‌کند یا ترتیب مراحل را در ماشین دو مرحله‌ای رعایت نمی‌کند.",
       "counter_example_blueprint": {
-        "scenario": "دانش‌آموز تصور می‌کند $9875$ از $12000$ بزرگتر است چون ۹ از ۱ بزرگتر است.",
-        "visual_counter_example": "مقایسه دو خط محور که نشان می‌دهد عدد دوازده‌هزار ۵ رقمی بعد از ده‌هزار قرار می‌گیرد اما ۹۸۷۵ قبل از ده‌هزار است."
+        "scenario": "در ماشینی با قاعده «ضرب در ۲، سپس به علاوه ۳»، با داشتن خروجی ۱۳، دانش‌آموز به جای کم کردن ۳ و سپس تقسیم بر ۲، عدد ۱۳ را در ۲ ضرب می‌کند.",
+        "visual_counter_example": "نمودار فلش دوطرفه ماشین ورودی-خروجی که نشان می‌دهد عملگرها در مسیر بازگشت کاملاً قرینه و برعکس عمل می‌کنند."
       }
     },
     {
       "id": "MIS-MATH4-C01-05",
-      "title": "اشتباه در مرز گرد کردن رقم ۵ و خلط آن با قطع کردن",
-      "description": "هنگامی که رقم سمت راست مرتبه تقریب ۵ باشد، دانش‌آموز آن را به سمت پایین گرد می‌کند یا مانند قطع کردن ارقام را فقط صفر می‌کند.",
+      "title": "اشتباه در درک مقیاس طبقه میلیون و خلط آن با طبقه هزار",
+      "description": "دانش‌آموز تعداد دسته‌ها و صفرهای طبقه میلیون را با هزار اشتباه گرفته یا مرتبه میلیون (۷ رقمی) را ۶ رقمی می‌نویسد.",
       "counter_example_blueprint": {
-        "scenario": "در گرد کردن عدد $3450$ به نزدیک‌ترین صدگان، دانش‌آموز حاصل را $3400$ بیان می‌کند در حالی که فاصله تا ۳۵۰۰ و ۳۴۰۰ یکسان بوده و طبق قاعده کتاب به سمت بالا (۳۵۰۰) گرد می‌شود.",
-        "visual_counter_example": "خط‌کش مدرج بین ۳۴۰۰ و ۳۵۰۰ با علامت نقطه وسط در ۳۴۵۰ که قاعده قرارداد تقریب رو به بالا را نمایش می‌دهد."
+        "scenario": "دانش‌آموز عدد «دو میلیون و پانصد هزار» را به صورت $250000$ (شش رقمی) می‌نویسد و طبقه میلیون را نادیده می‌گیرد.",
+        "visual_counter_example": "جدول ارزش مکانی نه رقمی با تفکیک سه طبقه یکی‌ها، هزارها و میلیون‌ها که نشان می‌دهد یک میلیون حداقل ۷ رقم دارد."
       }
     }
   ],
@@ -107,221 +107,579 @@
     {
       "id": "ITEM-MATH4-CH01-001",
       "kc_id": "KC-MATH4-C01-01",
-      "stem": "نماد عددی «چهارصد و هفت هزار و پنجاه و سه» کدام است؟",
+      "curriculum_node_id": "NODE-G4-CH01-L01",
+      "stem": "نماد عددی «چهارصد و هفت هزار و پنجاه و سه» با کدام گزینه برابر است؟",
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.08,
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-G4C01-001-A",
+          "id": "DIS-MATH4-C01-001-A",
           "label": "الف",
           "content": "$407053$",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "پاسخ صحیح: طبقه هزار دارای ۴۰۷ و طبقه یکی‌ها دارای ۰۵۳ است و صفرهای مرتبه ده‌گان‌هزار و صدگان یکی به درستی ثبت شده‌اند."
+          "rationale": "در طبقه هزار عدد ۴۰۷ (چهارصد و هفت) و در طبقه یکی‌ها عدد ۰۵۳ (پنجاه و سه) قرار دارد."
         },
         {
-          "id": "DIS-G4C01-001-B",
+          "id": "DIS-MATH4-C01-001-B",
           "label": "ب",
           "content": "$47053$",
           "is_correct": false,
           "misconception_id": "MIS-MATH4-C01-01",
-          "rationale": "حذف صفر مرتبه ده‌گان‌هزار: نوشتن ۴۷ به جای ۴۰۷ در طبقه هزار."
+          "rationale": "دانش‌آموز صفر میانی طبقه هزار را حذف کرده و عدد شش‌رقمی را پنج‌رقمی نوشته است."
         },
         {
-          "id": "DIS-G4C01-001-C",
+          "id": "DIS-MATH4-C01-001-C",
           "label": "ج",
           "content": "$407530$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "جابجا نوشتن پنجاه و سه و قرار دادن صفر در انتهای عدد به جای مرتبه صدگان."
+          "rationale": "دانش‌آموز پنجاه و سه را با پانصد و سی اشتباه گرفته و جای صفر را تغییر داده است."
         },
         {
-          "id": "DIS-G4C01-001-D",
+          "id": "DIS-MATH4-C01-001-D",
           "label": "د",
           "content": "$470053$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "قرار دادن چهارصد و هفتاد در طبقه هزار به جای چهارصد و هفت."
+          "rationale": "دانش‌آموز «چهارصد و هفت هزار» را به اشتباه «چهارصد و هفتاد هزار» ثبت کرده است."
         }
       ]
     },
     {
       "id": "ITEM-MATH4-CH01-002",
+      "kc_id": "KC-MATH4-C01-01",
+      "curriculum_node_id": "NODE-G4-CH01-L01",
+      "stem": "در عدد شش‌رقمی $470295$، رقم «$7$» در کدام مرتبه‌ی جدول ارزش مکانی قرار دارد؟",
+      "difficulty": 0.3,
+      "guess_param": 0.25,
+      "slip_param": 0.05,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-002-A",
+          "label": "الف",
+          "content": "ده‌گان‌هزار",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "در طبقه هزار: ۵ یکان، ۹ دهگان، ۲ صدگان، ۰ یکان‌هزار، ۷ ده‌گان‌هزار و ۴ صدگان‌هزار است."
+        },
+        {
+          "id": "DIS-MATH4-C01-002-B",
+          "label": "ب",
+          "content": "یکان‌هزار",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-01",
+          "rationale": "نادیده گرفتن رقم صفر در یکان‌هزار و تلقی اولین رقم غیرصفر هزار به عنوان یکان‌هزار."
+        },
+        {
+          "id": "DIS-MATH4-C01-002-C",
+          "label": "ج",
+          "content": "صدگان‌هزار",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن بالاترین مرتبه عدد (۴) با مرتبه رقم ۷."
+        },
+        {
+          "id": "DIS-MATH4-C01-002-D",
+          "label": "د",
+          "content": "ده‌گان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه در تشخیص طبقه هزار و طبقه یکی‌ها."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-003",
+      "kc_id": "KC-MATH4-C01-01",
+      "curriculum_node_id": "NODE-G4-CH01-L01",
+      "stem": "اگر $3$ بسته صد‌هزارتایی، $5$ بسته ده‌هزارتایی و $8$ بسته هزارتایی را در کنار هم قرار دهیم، چه عددی ساخته می‌شود؟",
+      "difficulty": 0.38,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-003-A",
+          "label": "الف",
+          "content": "$358000$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "$3 \\times 100000 + 5 \\times 10000 + 8 \\times 1000 = 358000$."
+        },
+        {
+          "id": "DIS-MATH4-C01-003-B",
+          "label": "ب",
+          "content": "$358$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-01",
+          "rationale": "حذف ارزش مکانی هزارها و نوشتن تعداد بسته‌ها به عنوان ارقام طبقه یکی‌ها."
+        },
+        {
+          "id": "DIS-MATH4-C01-003-C",
+          "label": "ج",
+          "content": "$305800$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قرار دادن نابجای صفر بین مرتبه صدگان‌هزار و ده‌گان‌هزار."
+        },
+        {
+          "id": "DIS-MATH4-C01-003-D",
+          "label": "د",
+          "content": "$3508000$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در تعداد صفرها و تبدیل عدد شش‌رقمی به هفت‌رقمی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-004",
       "kc_id": "KC-MATH4-C01-02",
-      "stem": "گسترده‌ی عدد $530408$ با کدام گزینه برابر است؟",
+      "curriculum_node_id": "NODE-G4-CH01-L02",
+      "stem": "شکل گسترده‌ی عدد $530408$ با کدام گزینه برابر است؟",
       "difficulty": 0.4,
       "guess_param": 0.25,
       "slip_param": 0.1,
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-G4C01-002-A",
+          "id": "DIS-MATH4-C01-004-A",
           "label": "الف",
           "content": "$500000 + 30000 + 400 + 8$",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "پاسخ صحیح: رقم ۵ در صدگان‌هزار ($500000$)، ۳ در ده‌گان‌هزار ($30000$)، ۴ در صدگان ($400$) و ۸ در یکان ($8$) قرار دارد."
+          "rationale": "ارزش مکانی ارقام غیرصفر به دقت محاسبه و ارقام صفر نادیده گرفته شده‌اند."
         },
         {
-          "id": "DIS-G4C01-002-B",
+          "id": "DIS-MATH4-C01-004-B",
           "label": "ب",
           "content": "$5 + 3 + 0 + 4 + 0 + 8$",
           "is_correct": false,
           "misconception_id": "MIS-MATH4-C01-02",
-          "rationale": "جمع ارقام مطلق بدون اعمال ارزش مکانی هر رقم."
+          "rationale": "دانش‌آموز ارقام مطلق را بدون اعمال ارزش مکانی آن‌ها با هم جمع کرده است."
         },
         {
-          "id": "DIS-G4C01-002-C",
+          "id": "DIS-MATH4-C01-004-C",
           "label": "ج",
           "content": "$50000 + 3000 + 400 + 8$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "تنزل یک مرتبه‌ای ارزش مکانی صدگان‌هزار و ده‌گان‌هزار."
+          "rationale": "تنزل مرتبه ۵ از صدگان‌هزار به ده‌گان‌هزار و ۳ از ده‌گان‌هزار به یکان‌هزار."
         },
         {
-          "id": "DIS-G4C01-002-D",
+          "id": "DIS-MATH4-C01-004-D",
           "label": "د",
-          "content": "$500000 + 3000 + 40 + 8$",
+          "content": "$500000 + 30000 + 40 + 8$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "اشتباه در تشخیص مرتبه ۳ (به جای ده‌گان‌هزار، هزار در نظر گرفته شده است)."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-003",
-      "kc_id": "KC-MATH4-C01-03",
-      "stem": "در یک ماشین ورودی-خروجی، هر عددی که وارد می‌شود ابتدا «ضرب در ۳» شده و سپس «منهای ۲» می‌گردد. اگر عدد $7$ وارد این ماشین شود، چه عددی خارج خواهد شد؟",
-      "difficulty": 0.45,
-      "guess_param": 0.25,
-      "slip_param": 0.1,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-003-A",
-          "label": "الف",
-          "content": "$19$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: ابتدا عمل ضرب انجام می‌شود ($7 \\times 3 = 21$) و سپس تفریق صورت می‌گیرد ($21 - 2 = 19$)."
-        },
-        {
-          "id": "DIS-G4C01-003-B",
-          "label": "ب",
-          "content": "$15$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "جابجا انجام دادن ترتیب عملیات: ابتدا تفریق $7 - 2 = 5$ و سپس ضرب $5 \\times 3 = 15$."
-        },
-        {
-          "id": "DIS-G4C01-003-C",
-          "label": "ج",
-          "content": "$8$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-03",
-          "rationale": "اشتباه گرفتن ضرب با جمع ($7 + 3 - 2 = 8$)."
-        },
-        {
-          "id": "DIS-G4C01-003-D",
-          "label": "د",
-          "content": "$23$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "جمع کردن مرحله دوم به جای تفریق کردن ($21 + 2 = 23$)."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-004",
-      "kc_id": "KC-MATH4-C01-04",
-      "stem": "کدام رابطه مقایسه‌ای در بین گزینه‌های زیر درست است؟",
-      "difficulty": 0.35,
-      "guess_param": 0.25,
-      "slip_param": 0.08,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-004-A",
-          "label": "الف",
-          "content": "$102300 > 98450$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: عدد ۱۰۲۳۰۰ شش‌رقمی است در حالی که ۹۸۴۵۰ پنج‌رقمی است، بنابراین همیشه عدد شش‌رقمی بزرگتر است."
-        },
-        {
-          "id": "DIS-G4C01-004-B",
-          "label": "ب",
-          "content": "$98450 > 102300$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-04",
-          "rationale": "مقایسه بر اساس رقم آغازین: تصور اینکه چون ۹ از ۱ بزرگتر است پس ۹۸۴۵۰ بزرگتر از ۱۰۲۳۰۰ است."
-        },
-        {
-          "id": "DIS-G4C01-004-C",
-          "label": "ج",
-          "content": "$450200 < 405200$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اشتباه در مقایسه رقم ده‌گان‌هزار (۵ ده‌گان‌هزار بزرگتر از ۰ است)."
-        },
-        {
-          "id": "DIS-G4C01-004-D",
-          "label": "د",
-          "content": "$320150 = 320050$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "تصور برابری علی‌رغم تفاوت در مرتبه صدگان (۱ صدگان در برابر ۰ صدگان)."
+          "rationale": "نوشتن ارزش مکانی رقم ۴ به صورت ۴۰ (دهگان) به جای ۴۰۰ (صدگان)."
         }
       ]
     },
     {
       "id": "ITEM-MATH4-CH01-005",
-      "kc_id": "KC-MATH4-C01-05",
-      "stem": "اگر عدد $4852$ را با روش «گرد کردن» به نزدیک‌ترین صدگان تقریب بزنیم، حاصل کدام است؟",
+      "kc_id": "KC-MATH4-C01-02",
+      "curriculum_node_id": "NODE-G4-CH01-L02",
+      "stem": "با رقم‌های $2$، $0$، $5$، $8$، $3$ و $9$ بدون تکرار، «بزرگ‌ترین» عدد شش‌رقمی کدام است؟",
       "difficulty": 0.45,
       "guess_param": 0.25,
-      "slip_param": 0.1,
+      "slip_param": 0.08,
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-G4C01-005-A",
+          "id": "DIS-MATH4-C01-005-A",
           "label": "الف",
-          "content": "$4900$",
+          "content": "$985320$",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "پاسخ صحیح: رقم سمت راست صدگان عدد ۵ است؛ طبق قاعده گرد کردن وقتی رقم ۵ یا بیشتر باشد، یک واحد به صدگان اضافه شده و ارقام سمت راست صفر می‌شوند ($4852 \\rightarrow 4900$)."
+          "rationale": "برای ساخت بزرگ‌ترین عدد، بزرگ‌ترین ارقام را از بالاترین مرتبه (سمت چپ) قرار می‌دهیم: ۹، سپس ۸، ۵، ۳، ۲ و ۰."
         },
         {
-          "id": "DIS-G4C01-005-B",
+          "id": "DIS-MATH4-C01-005-B",
           "label": "ب",
-          "content": "$4800$",
+          "content": "$985302$",
           "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-05",
-          "rationale": "قطع کردن به جای گرد کردن: صفر کردن ارقام بعد از صدگان بدون توجه به اینکه رقم ده‌گان ۵ است."
+          "misconception_id": null,
+          "rationale": "جابجایی دو رقم آخر (۰ و ۲) که عدد را کوچک‌تر از حالت بهینه می‌کند."
         },
         {
-          "id": "DIS-G4C01-005-C",
+          "id": "DIS-MATH4-C01-005-C",
           "label": "ج",
-          "content": "$5000$",
+          "content": "$983520$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "گرد کردن به نزدیک‌ترین هزارگان به جای نزدیک‌ترین صدگان."
+          "rationale": "جابجایی ارقام هزارگان (۳ قبل از ۵ قرار گرفته است)."
         },
         {
-          "id": "DIS-G4C01-005-D",
+          "id": "DIS-MATH4-C01-005-D",
           "label": "د",
-          "content": "$4850$",
+          "content": "$203589$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "گرد کردن به نزدیک‌ترین ده‌گان به جای نزدیک‌ترین صدگان."
+          "rationale": "دانش‌آموز به اشتباه کوچک‌ترین عدد شش‌رقمی ممکن را ساخته است."
         }
       ]
     },
     {
       "id": "ITEM-MATH4-CH01-006",
-      "kc_id": "KC-MATH4-C01-01",
+      "kc_id": "KC-MATH4-C01-02",
+      "curriculum_node_id": "NODE-G4-CH01-L02",
+      "stem": "در عدد $40400$، ارزش رقم «$4$» سمت چپ، چند برابر ارزش رقم «$4$» دیگر است؟",
+      "difficulty": 0.48,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-006-A",
+          "label": "الف",
+          "content": "$100$ برابر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "رقم ۴ سمت چپ در ده‌گان‌هزار ($40000$) و رقم ۴ دوم در صدگان ($400$) است: $40000 \\div 400 = 100$."
+        },
+        {
+          "id": "DIS-MATH4-C01-006-B",
+          "label": "ب",
+          "content": "$10$ برابر",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-01",
+          "rationale": "فرض اینکه این دو رقم در دو مرتبه متوالی کنار هم هستند و نادیده گرفتن صفر میان آن‌ها."
+        },
+        {
+          "id": "DIS-MATH4-C01-006-C",
+          "label": "ج",
+          "content": "$1000$ برابر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه در شمارش اختلاف مرتبه‌ها و اضافه در نظر گرفتن یک صفر."
+        },
+        {
+          "id": "DIS-MATH4-C01-006-D",
+          "label": "د",
+          "content": "با هم برابرند چون هر دو رقم $4$ هستند",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-02",
+          "rationale": "خلط ارزش رقمی مطلق با ارزش مکانی رقم در عدد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-007",
+      "kc_id": "KC-MATH4-C01-03",
+      "curriculum_node_id": "NODE-G4-CH01-L03",
+      "stem": "در یک الگوی هندسی چوب‌کبریت‌ها، شکل اول با $4$ چوب‌کبریت، شکل دوم با $7$ چوب‌کبریت و شکل سوم با $10$ چوب‌کبریت ساخته شده است. شکل دهم با چند چوب‌کبریت ساخته می‌شود؟",
+      "difficulty": 0.5,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-007-A",
+          "label": "الف",
+          "content": "$31$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "رابطه الگو برابر است با: $\\text{شماره شکل} \\times 3 + 1$. برای شکل دهم: $10 \\times 3 + 1 = 31$."
+        },
+        {
+          "id": "DIS-MATH4-C01-007-B",
+          "label": "ب",
+          "content": "$30$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فراموش کردن چوب‌کبریت ثابت اولیه و محاسبه صرفاً $10 \\times 3$."
+        },
+        {
+          "id": "DIS-MATH4-C01-007-C",
+          "label": "ج",
+          "content": "$25$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-03",
+          "rationale": "محاسبه بر مبنای افزایش نادرست و حدس غیرفرمول‌بندی‌شده."
+        },
+        {
+          "id": "DIS-MATH4-C01-007-D",
+          "label": "د",
+          "content": "$40$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-03",
+          "rationale": "ضرب شماره شکل در تعداد چوب‌کبریت‌های شکل اول ($10 \\times 4$)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-008",
+      "kc_id": "KC-MATH4-C01-03",
+      "curriculum_node_id": "NODE-G4-CH01-L03",
+      "stem": "در دنباله‌ی عددی مقابل، عدد بعدی کدام است؟ $$1, 2, 4, 8, 16, \\dots$$",
+      "difficulty": 0.38,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-008-A",
+          "label": "الف",
+          "content": "$32$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "الگوی ضربی دو برابر شدن: هر عدد ضرب در ۲ می‌شود ($16 \\times 2 = 32$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-008-B",
+          "label": "ب",
+          "content": "$24$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-03",
+          "rationale": "فرض الگوی جمعی با افزودن فاصله قبلی ($16 + 8 = 24$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-008-C",
+          "label": "ج",
+          "content": "$18$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-03",
+          "rationale": "فرض افزایش ثابت ۲ تایی در تمام مراحل ($16 + 2 = 18$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-008-D",
+          "label": "د",
+          "content": "$20$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "افزودن ۴ واحد به عدد ۱۶."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-009",
+      "kc_id": "KC-MATH4-C01-03",
+      "curriculum_node_id": "NODE-G4-CH01-L03",
+      "stem": "در الگوی مثلثی نقطه‌ها (مسئله صفحه ۲ کتاب)، تعداد نقطه‌ها به ترتیب $1$، $3$، $6$، $10$ و $15$ است. شکل هفتم با چند نقطه درست می‌شود؟",
+      "difficulty": 0.52,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-009-A",
+          "label": "الف",
+          "content": "$28$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "به تعداد نقطه‌ها به ترتیب $+2, +3, +4, +5, +6, +7$ اضافه می‌شود: شکل ششم $15 + 6 = 21$ و شکل هفتم $21 + 7 = 28$."
+        },
+        {
+          "id": "DIS-MATH4-C01-009-B",
+          "label": "ب",
+          "content": "$21$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه تعداد نقطه‌های شکل ششم به جای شکل هفتم."
+        },
+        {
+          "id": "DIS-MATH4-C01-009-C",
+          "label": "ج",
+          "content": "$25$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-03",
+          "rationale": "فرض افزایش ثابت ۵ تایی بین مراحل."
+        },
+        {
+          "id": "DIS-MATH4-C01-009-D",
+          "label": "د",
+          "content": "$35$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب شماره شکل در ۵ ($7 \\times 5$)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-010",
+      "kc_id": "KC-MATH4-C01-04",
+      "curriculum_node_id": "NODE-G4-CH01-L04",
+      "stem": "یک ماشین «محیط‌یاب»، طول ضلع مثلث متساوی‌الاضلاع را می‌گیرد و محیط آن را به عنوان خروجی تحویل می‌دهد. اگر عدد $14$ وارد این ماشین شود، چه عددی خارج می‌شود؟",
+      "difficulty": 0.35,
+      "guess_param": 0.25,
+      "slip_param": 0.05,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-010-A",
+          "label": "الف",
+          "content": "$42$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "محیط مثلث متساوی‌الاضلاع برابر است با طول یک ضلع ضرب در ۳: $14 \\times 3 = 42$."
+        },
+        {
+          "id": "DIS-MATH4-C01-010-B",
+          "label": "ب",
+          "content": "$56$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن مثلث متساوی‌الاضلاع با مربع و ضرب در ۴ ($14 \\times 4 = 56$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-010-C",
+          "label": "ج",
+          "content": "$17$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-04",
+          "rationale": "جمع کردن ورودی با ۳ به جای ضرب کردن ($14 + 3 = 17$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-010-D",
+          "label": "د",
+          "content": "$28$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب طول ضلع در ۲ به جای ۳."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-011",
+      "kc_id": "KC-MATH4-C01-04",
+      "curriculum_node_id": "NODE-G4-CH01-L04",
+      "stem": "در یک ماشین دو مرحله‌ای ورودی-خروجی، هر عددی وارد شود ابتدا «ضرب در ۴» و سپس حاصل «منهای ۵» می‌شود. اگر عدد $6$ وارد این ماشین شود، خروجی کدام است؟",
+      "difficulty": 0.42,
+      "guess_param": 0.25,
+      "slip_param": 0.08,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-011-A",
+          "label": "الف",
+          "content": "$19$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "ابتدا عمل ضرب: $6 \\times 4 = 24$ و سپس تفریق: $24 - 5 = 19$."
+        },
+        {
+          "id": "DIS-MATH4-C01-011-B",
+          "label": "ب",
+          "content": "$29$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-04",
+          "rationale": "انجام عمل جمع به جای تفریق در مرحله دوم ($24 + 5 = 29$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-011-C",
+          "label": "ج",
+          "content": "$4$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-04",
+          "rationale": "جابجایی ترتیب مراحل: ابتدا $6 - 5 = 1$ و سپس $1 \\times 4 = 4$."
+        },
+        {
+          "id": "DIS-MATH4-C01-011-D",
+          "label": "د",
+          "content": "$5$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تبدیل عمل ضرب به جمع ($6 + 4 - 5 = 5$)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-012",
+      "kc_id": "KC-MATH4-C01-04",
+      "curriculum_node_id": "NODE-G4-CH01-L04",
+      "stem": "قاعده‌ی یک ماشین ورودی-خروجی «ضرب در ۳، سپس به علاوه ۴» است. اگر از این ماشین عدد $25$ خارج شده باشد، چه عددی وارد آن شده بود؟",
+      "difficulty": 0.52,
+      "guess_param": 0.25,
+      "slip_param": 0.1,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-012-A",
+          "label": "الف",
+          "content": "$7$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "در مسیر معکوس: ابتدا ۴ واحد کم می‌کنیم ($25 - 4 = 21$) و سپس بر ۳ تقسیم می‌کنیم: $21 \\div 3 = 7$."
+        },
+        {
+          "id": "DIS-MATH4-C01-012-B",
+          "label": "ب",
+          "content": "$79$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-04",
+          "rationale": "اعمال مستقیم قاعده ماشین روی خروجی به جای مسیر معکوس ($25 \\times 3 + 4 = 79$)."
+        },
+        {
+          "id": "DIS-MATH4-C01-012-C",
+          "label": "ج",
+          "content": "$9$",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-04",
+          "rationale": "اشتباه در ترتیب معکوس‌سازی: ابتدا تقسیم بر ۳ و سپس تفریق ۴."
+        },
+        {
+          "id": "DIS-MATH4-C01-012-D",
+          "label": "د",
+          "content": "$11$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در عملیات تفریق یا تقسیم در مسیر برگشت."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-013",
+      "kc_id": "KC-MATH4-C01-05",
+      "curriculum_node_id": "NODE-G4-CH01-L05",
+      "stem": "چند بسته «صدهزارتایی» در کنار هم، یک عدد «یک میلیون» ($1000000$) را تشکیل می‌دهند؟",
+      "difficulty": 0.32,
+      "guess_param": 0.25,
+      "slip_param": 0.05,
+      "visual_template": null,
+      "distractors": [
+        {
+          "id": "DIS-MATH4-C01-013-A",
+          "label": "الف",
+          "content": "$10$ بسته",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "۱۰ تا صد‌هزارتا می‌شود یک میلیون: $10 \\times 100000 = 1000000$."
+        },
+        {
+          "id": "DIS-MATH4-C01-013-B",
+          "label": "ب",
+          "content": "$100$ بسته",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-05",
+          "rationale": "خلط بسته‌های ده‌هزارتایی با صدهزارتایی (۱۰۰ تا ده‌هزارتا می‌شود یک میلیون)."
+        },
+        {
+          "id": "DIS-MATH4-C01-013-C",
+          "label": "ج",
+          "content": "$1000$ بسته",
+          "is_correct": false,
+          "misconception_id": "MIS-MATH4-C01-05",
+          "rationale": "خلط بسته‌های هزارتایی با صدهزارتایی."
+        },
+        {
+          "id": "DIS-MATH4-C01-013-D",
+          "label": "د",
+          "content": "$5$ بسته",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اشتباه گرفتن با نصف میلیون (پانصد هزار)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH4-CH01-014",
+      "kc_id": "KC-MATH4-C01-05",
+      "curriculum_node_id": "NODE-G4-CH01-L05",
       "stem": "نماد عددی «سی و پنج میلیون و چهارصد و هشت هزار و نه» با کدام گزینه برابر است؟",
       "difficulty": 0.42,
       "guess_param": 0.25,
@@ -329,423 +687,80 @@
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-G4C01-006-A",
+          "id": "DIS-MATH4-C01-014-A",
           "label": "الف",
           "content": "$35408009$",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "پاسخ صحیح: ۳۵ در طبقه میلیون، ۴۰۸ در طبقه هزار و ۰۰۹ در طبقه یکی‌ها قرار دارد و صفرهای مرتبه ده‌گان‌هزار، صدگان و ده‌گان به درستی درج شده‌اند."
+          "rationale": "طبقه میلیون: ۳۵، طبقه هزار: ۴۰۸، طبقه یکی‌ها: ۰۰۹."
         },
         {
-          "id": "DIS-G4C01-006-B",
+          "id": "DIS-MATH4-C01-014-B",
           "label": "ب",
-          "content": "$35489$",
+          "content": "$3548009$",
           "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-01",
-          "rationale": "حذف صفرهای میانی ارزش مکانی و فشرده‌سازی ارقام بدون رعایت مرتبه‌ها."
+          "misconception_id": "MIS-MATH4-C01-05",
+          "rationale": "حذف صفر میانی در طبقه هزار و تبدیل عدد هشت‌رقمی به هفت‌رقمی."
         },
         {
-          "id": "DIS-G4C01-006-C",
+          "id": "DIS-MATH4-C01-014-C",
           "label": "ج",
-          "content": "$35048009$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اشتباه در طبقه هزار و ثبت ۴۸ هزار به جای ۴۰۸ هزار."
-        },
-        {
-          "id": "DIS-G4C01-006-D",
-          "label": "د",
           "content": "$35408090$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "اشتباه در رقم یکان و ده‌گان (ثبت ۹۰ به جای ۹)."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-007",
-      "kc_id": "KC-MATH4-C01-01",
-      "stem": "در عدد هشت‌رقمی $47029513$، رقم $7$ در کدام مرتبه مکانی قرار دارد؟",
-      "difficulty": 0.38,
-      "guess_param": 0.25,
-      "slip_param": 0.08,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-007-A",
-          "label": "الف",
-          "content": "یکان میلیون",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: دسته‌های سه‌تایی از راست عبارتند از: ۵۱۳ (یکی‌ها)، ۰۲۹ (هزارها) و ۴۷ (میلیون‌ها)؛ بنابراین رقم ۷ در مرتبه یکان میلیون است."
+          "rationale": "نوشتن نود به جای نه در طبقه یکی‌ها."
         },
         {
-          "id": "DIS-G4C01-007-B",
-          "label": "ب",
-          "content": "صدگان‌هزار",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اشتباه در دسته‌بندی سه‌تایی و یکی دانستن طبقه میلیون با صدگان‌هزار."
-        },
-        {
-          "id": "DIS-G4C01-007-C",
-          "label": "ج",
-          "content": "ده‌گان میلیون",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "خلط یکان میلیون با ده‌گان میلیون (رقم ۴ در ده‌گان میلیون است نه ۷)."
-        },
-        {
-          "id": "DIS-G4C01-007-D",
+          "id": "DIS-MATH4-C01-014-D",
           "label": "د",
-          "content": "ده‌گان‌هزار",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-01",
-          "rationale": "نادیده گرفتن طبقه هزار به دلیل وجود رقم صفر و تنزل ارزش رقم ۷ به ده‌گان‌هزار."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-008",
-      "kc_id": "KC-MATH4-C01-02",
-      "stem": "حاصل عبارت گسترده‌ی زیر برابر با کدام عدد است؟\n$$6000000 + 50000 + 400 + 7$$",
-      "difficulty": 0.4,
-      "guess_param": 0.25,
-      "slip_param": 0.09,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-008-A",
-          "label": "الف",
-          "content": "$6050407$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: رقم ۶ در یکان میلیون، ۵ در ده‌گان‌هزار، ۴ در صدگان و ۷ در یکان قرار دارد و مرتبه‌های بدون مقدار (صدگان‌هزار، یکان‌هزار، ده‌گان) با صفر پر می‌شوند."
-        },
-        {
-          "id": "DIS-G4C01-008-B",
-          "label": "ب",
-          "content": "$6547$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-01",
-          "rationale": "حذف صفرهای مرتبه‌های خالی و چسباندن ارقام غیرصفر به یکدیگر."
-        },
-        {
-          "id": "DIS-G4C01-008-C",
-          "label": "ج",
-          "content": "$650407$",
+          "content": "$35489000$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "تنزل دادن مرتبه میلیون به صدگان‌هزار و نوشتن عدد شش‌رقمی به جای هفت‌رقمی."
-        },
-        {
-          "id": "DIS-G4C01-008-D",
-          "label": "د",
-          "content": "$6054007$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "جابجا قرار دادن رقم ۴ در مرتبه هزارگان به جای صدگان."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-009",
-      "kc_id": "KC-MATH4-C01-02",
-      "stem": "در عدد $40400$، ارزش رقمی رقم $4$ سمت چپ، چند برابر ارزش رقمی رقم $4$ سمت راست است؟",
-      "difficulty": 0.48,
-      "guess_param": 0.25,
-      "slip_param": 0.1,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-009-A",
-          "label": "الف",
-          "content": "$100$ برابر",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: رقم ۴ سمت چپ در ده‌گان‌هزار ($40000$) و رقم ۴ سمت راست در صدگان ($400$) است؛ حاصل تقسیم $40000 \\div 400 = 100$ است."
-        },
-        {
-          "id": "DIS-G4C01-009-B",
-          "label": "ب",
-          "content": "$1$ برابر (برابر هستند چون هر دو رقم ۴ هستند)",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-02",
-          "rationale": "عدم تفکیک ارزش مطلق رقم از ارزش مکانی آن و فرض برابری ارزش رقمی‌ها."
-        },
-        {
-          "id": "DIS-G4C01-009-C",
-          "label": "ج",
-          "content": "$10$ برابر",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "شمارش غلط فاصله‌ی مرتبه‌ها و فرض یک مرتبه اختلاف به جای دو مرتبه."
-        },
-        {
-          "id": "DIS-G4C01-009-D",
-          "label": "د",
-          "content": "$1000$ برابر",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "خطا در شمارش تعداد صفرهای اختلاف ارزش مکانی."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-010",
-      "kc_id": "KC-MATH4-C01-03",
-      "stem": "در یک الگوی هندسی، تعداد چوب‌کبریت‌ها در شکل‌های متوالی به صورت $4, 7, 10, 13, \\dots$ است. رابطه‌ی بین شماره‌ی شکل و تعداد چوب‌کبریت‌ها کدام است؟",
-      "difficulty": 0.45,
-      "guess_param": 0.25,
-      "slip_param": 0.1,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-010-A",
-          "label": "الف",
-          "content": "شماره‌ی شکل $\\times 3 + 1$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: چون فاصله جملات ۳ تا است، ضریب ۳ بوده و برای شکل اول: $1 \\times 3 + 1 = 4$ برقرار است."
-        },
-        {
-          "id": "DIS-G4C01-010-B",
-          "label": "ب",
-          "content": "شماره‌ی شکل $+ 3$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-03",
-          "rationale": "فرض تفکر جمعی ساده و اعمال اختلاف جمله‌ها به جای ضریب ضربی."
-        },
-        {
-          "id": "DIS-G4C01-010-C",
-          "label": "ج",
-          "content": "شماره‌ی شکل $\\times 4$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "تعمیم غلط مقدار شکل اول به کل الگو بدون آزمودن شکل‌های بعدی."
-        },
-        {
-          "id": "DIS-G4C01-010-D",
-          "label": "د",
-          "content": "شماره‌ی شکل $\\times 2 + 2$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "فرمول نادرستی که فقط برای شکل اول برقرار است اما برای شکل دوم صادق نیست ($2 \\times 2 + 2 = 6 \\neq 7$)."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-011",
-      "kc_id": "KC-MATH4-C01-03",
-      "stem": "در دنباله‌ی عددی مقابل، عدد بعدی کدام است؟\n$$2, 5, 11, 23, \\dots$$",
-      "difficulty": 0.5,
-      "guess_param": 0.25,
-      "slip_param": 0.1,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-011-A",
-          "label": "الف",
-          "content": "$47$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: قانون الگو «هر عدد ضرب در ۲ به علاوه ۱» است ($23 \\times 2 + 1 = 47$)."
-        },
-        {
-          "id": "DIS-G4C01-011-B",
-          "label": "ب",
-          "content": "$26$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-03",
-          "rationale": "فرض الگوی صرفاً جمعی و اضافه کردن عدد ثابت ۳ به آخرین جمله ($23 + 3 = 26$)."
-        },
-        {
-          "id": "DIS-G4C01-011-C",
-          "label": "ج",
-          "content": "$35$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اضافه کردن اختلاف مرحله قبل (۱۲) به ۲۳ به جای دو برابر کردن اختلاف ($23 + 12 = 35$)."
-        },
-        {
-          "id": "DIS-G4C01-011-D",
-          "label": "د",
-          "content": "$46$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "فقط ضرب در ۲ بدون اضافه کردن عدد ۱ ($23 \\times 2 = 46$)."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-012",
-      "kc_id": "KC-MATH4-C01-04",
-      "stem": "کدام گزینه، ترتیب صحیح اعداد از «کوچک به بزرگ» را نشان می‌دهد؟",
-      "difficulty": 0.4,
-      "guess_param": 0.25,
-      "slip_param": 0.08,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-012-A",
-          "label": "الف",
-          "content": "$89750 < 103200 < 120000$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: عدد پنج‌رقمی ($89750$) کوچکتر از اعداد شش‌رقمی است و در بین دو عدد شش‌رقمی، $103200$ به دلیل کوچکتر بودن رقم ده‌گان‌هزار از $120000$ کوچکتر است."
-        },
-        {
-          "id": "DIS-G4C01-012-B",
-          "label": "ب",
-          "content": "$103200 < 89750 < 120000$",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-04",
-          "rationale": "مقایسه بر اساس رقم آغازین و تصور اینکه چون رقم ۱ از ۸ کوچکتر است، عدد شش‌رقمی از پنج‌رقمی کوچکتر است."
-        },
-        {
-          "id": "DIS-G4C01-012-C",
-          "label": "ج",
-          "content": "$120000 < 103200 < 89750$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "ترتیب برعکس (از بزرگ به کوچک به جای کوچک به بزرگ)."
-        },
-        {
-          "id": "DIS-G4C01-012-D",
-          "label": "د",
-          "content": "$89750 < 120000 < 103200$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "جابجا مقایسه کردن دو عدد شش‌رقمی پایانی."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-013",
-      "kc_id": "KC-MATH4-C01-04",
-      "stem": "روی محور اعداد زیر که با فواصل ده‌هزارتایی مدرج شده است، عدد $78400$ بین کدام دو عدد قرار دارد و به کدام یک نزدیک‌تر است؟",
-      "difficulty": 0.38,
-      "guess_param": 0.25,
-      "slip_param": 0.08,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-013-A",
-          "label": "الف",
-          "content": "بین $70000$ و $80000$، و به $80000$ نزدیک‌تر است.",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: ۷۸۴۰۰ بیشتر از ۷۰۰۰۰ و کمتر از ۸۰۰۰۰ است و چون رقم هزارگان ۸ است، فاصله آن تا ۸۰۰۰۰ تنها ۱۶۰۰ واحد ولی تا ۷۰۰۰۰ برابر ۸۴۰۰ واحد است."
-        },
-        {
-          "id": "DIS-G4C01-013-B",
-          "label": "ب",
-          "content": "بین $70000$ و $80000$، و به $70000$ نزدیک‌تر است.",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-05",
-          "rationale": "خطا در تخمین فاصله و نادیده گرفتن اینکه ۷۸۴۰۰ از نقطه وسط (۷۵۰۰۰) عبور کرده است."
-        },
-        {
-          "id": "DIS-G4C01-013-C",
-          "label": "ج",
-          "content": "بین $80000$ و $90000$، و به $80000$ نزدیک‌تر است.",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "قرار دادن اشتباه عدد در بازه بزرگتر از خود."
-        },
-        {
-          "id": "DIS-G4C01-013-D",
-          "label": "د",
-          "content": "بین $60000$ و $70000$، و به $70000$ نزدیک‌تر است.",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اشتباه در تشخیص طبقه ده‌گان‌هزار عدد."
-        }
-      ]
-    },
-    {
-      "id": "ITEM-MATH4-CH01-014",
-      "kc_id": "KC-MATH4-C01-05",
-      "stem": "اگر عدد $5374$ را یک بار با روش «گرد کردن» و یک بار با روش «قطع کردن» به نزدیک‌ترین صدگان تقریب بزنیم، اختلاف حاصل این دو تقریب چقدر خواهد بود؟",
-      "difficulty": 0.48,
-      "guess_param": 0.25,
-      "slip_param": 0.1,
-      "visual_template": null,
-      "distractors": [
-        {
-          "id": "DIS-G4C01-014-A",
-          "label": "الف",
-          "content": "$100$",
-          "is_correct": true,
-          "misconception_id": null,
-          "rationale": "پاسخ صحیح: در روش گرد کردن به دلیل رقم ۷ در ده‌گان حاصل $5400$ و در روش قطع کردن حاصل $5300$ می‌شود؛ اختلاف آن‌ها $5400 - 5300 = 100$ است."
-        },
-        {
-          "id": "DIS-G4C01-014-B",
-          "label": "ب",
-          "content": "$0$ (هیچ اختلافی ندارند)",
-          "is_correct": false,
-          "misconception_id": "MIS-MATH4-C01-05",
-          "rationale": "یکسان پنداشتن ماهیت روش گرد کردن با روش قطع کردن."
-        },
-        {
-          "id": "DIS-G4C01-014-C",
-          "label": "ج",
-          "content": "$74$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "اشتباه گرفتن رقم‌های حذف‌شده با اختلاف حاصل تقریب‌ها."
-        },
-        {
-          "id": "DIS-G4C01-014-D",
-          "label": "د",
-          "content": "$10$",
-          "is_correct": false,
-          "misconception_id": null,
-          "rationale": "خطا در ارزش مکانی مرتبه تقریب مورد نظر (صدگان)."
+          "rationale": "جابجایی طبقات و قرار دادن ارقام در طبقه هزار."
         }
       ]
     },
     {
       "id": "ITEM-MATH4-CH01-015",
       "kc_id": "KC-MATH4-C01-05",
-      "stem": "قیمت یک کتاب $48500$ تومان است. اگر بخواهیم این قیمت را به نزدیک‌ترین «ده‌هزار تومان» گرد کنیم، حاصل تقریبی کدام است؟",
-      "difficulty": 0.42,
+      "curriculum_node_id": "NODE-G4-CH01-L05",
+      "stem": "ارزش مجموع دو فقره چک‌پول $500000$ ریالی و چهار فقره چک‌پول $1000000$ ریالی برابر با چند ریال است؟",
+      "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.08,
       "visual_template": null,
       "distractors": [
         {
-          "id": "DIS-G4C01-015-A",
+          "id": "DIS-MATH4-C01-015-A",
           "label": "الف",
-          "content": "$50000$ تومان",
+          "content": "$5000000$ ریال",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "پاسخ صحیح: رقم سمت راست مرتبه ده‌هزارگان رقم ۸ است؛ چون ۸ بزرگتر از ۵ است، یک واحد به ده‌هزارگان اضافه شده و ارقام بعدی صفر می‌شوند ($48500 \\rightarrow 50000$)."
+          "rationale": "دو فقره ۵۰۰,۰۰۰ ریالی برابر با ۱,۰۰۰,۰۰۰ ریال است؛ با ۴,۰۰۰,۰۰۰ ریال مجموعاً ۵,۰۰۰,۰۰۰ ریال (۵ میلیون ریال) می‌شود."
         },
         {
-          "id": "DIS-G4C01-015-B",
+          "id": "DIS-MATH4-C01-015-B",
           "label": "ب",
-          "content": "$40000$ تومان",
+          "content": "$4500000$ ریال",
           "is_correct": false,
           "misconception_id": "MIS-MATH4-C01-05",
-          "rationale": "قطع کردن به جای گرد کردن و نادیده گرفتن اینکه ۸ باعث افزایش مرتبه می‌شود."
+          "rationale": "محاسبه تنها یک فقره چک‌پول ۵۰۰,۰۰۰ ریالی به جای دو فقره."
         },
         {
-          "id": "DIS-G4C01-015-C",
+          "id": "DIS-MATH4-C01-015-C",
           "label": "ج",
-          "content": "$49000$ تومان",
+          "content": "$500000$ ریال",
           "is_correct": false,
-          "misconception_id": null,
-          "rationale": "گرد کردن به نزدیک‌ترین هزارگان به جای ده‌هزارگان."
+          "misconception_id": "MIS-MATH4-C01-05",
+          "rationale": "حذف یک صفر از حاصل و خطای مرتبه طبقه میلیون."
         },
         {
-          "id": "DIS-G4C01-015-D",
+          "id": "DIS-MATH4-C01-015-D",
           "label": "د",
-          "content": "$48000$ تومان",
+          "content": "$6000000$ ریال",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "قطع کردن به مرتبه هزارگان به جای تقریب ده‌هزارگان."
+          "rationale": "اشتباه در محاسبه و اضافه در نظر گرفتن یک میلیون ریال."
         }
       ]
     }

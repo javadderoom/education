@@ -945,8 +945,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/parametric-engine.test.ts": {
-    "mtime": 1794324381.9498625,
-    "ast_hash": "d840971cea2f692f4b5e133c6e9338d1",
+    "mtime": 1794686717.8991547,
+    "ast_hash": "830ecdbee0b7f68414d95c42861cf9d0",
     "semantic_hash": ""
   },
   "web/__tests__/ui-topic-selector.test.tsx": {
@@ -965,13 +965,13 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794683848.0357163,
-    "ast_hash": "67d41581af32a9e06baec165a569dd70",
+    "mtime": 1794686637.3228707,
+    "ast_hash": "0cb9ad17e1a880678cad1dbd2825edbf",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1794331590.847705,
-    "ast_hash": "6a1e00ec916a011b34213ebc1165b3ab",
+    "mtime": 1794686468.0428746,
+    "ast_hash": "d9558b135ab5b1c231dd4fa4af5f4d00",
     "semantic_hash": ""
   },
   "web/proxy.ts": {
@@ -1045,8 +1045,8 @@
     "semantic_hash": ""
   },
   "web/prisma/seed-curriculum.ts": {
-    "mtime": 1794683740.0780966,
-    "ast_hash": "3aba577041f5001e6a1af16a0bfc847d",
+    "mtime": 1794686510.9158795,
+    "ast_hash": "1da4efb97cf2936a25592ba933ff3fc8",
     "semantic_hash": ""
   },
   "web/lib/store/exam-storage.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794683930.3594077,
-    "ast_hash": "0f88ad082258ac003f16ce74dc464761",
+    "mtime": 1794686371.4788234,
+    "ast_hash": "550878258aea9c1de8ffb484d4f5edd7",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {

@@ -103,27 +103,26 @@ function finalizeDistractors(
 // =============================================================
 // Grade 4 Chapter 1: Numbers & Patterns (اعداد و الگوها)
 // =============================================================
+// Grade 4 Chapter 1: Numbers & Patterns (اعداد و الگوها)
+// Official Textbook Lessons:
+// Lesson 1: عددنویسی (ص ۴)
+// Lesson 2: الگوها (ص ۸)
+// Lesson 3: ماشین ورودی - خروجی (ص ۱۲)
+// Lesson 4: معرفی میلیون (ص ۱۶)
+// =============================================================
 
 /**
- * KC-MATH4-C01-01: عددنویسی، خواندن و بازنمایی اعداد چندرقمی تا طبقه میلیون
+ * KC-MATH4-C01-01: عددنویسی، جدول ارزش مکانی و بازنمایی تا طبقه هزار (درس اول)
  */
-export function generateMillionsNumberItem(index: number = 0): DiagnosticItemData {
+export function generateThousandsNumberItem(index: number = 0): DiagnosticItemData {
   const configs = [
     {
-      words: "چهارصد و پنج هزار و سی و هفت",
-      val: "405037",
-      mis: "45037",
-      alt1: "405370",
-      alt2: "450037",
-      desc: "طبقه هزار دارای ۴۰۵ و طبقه یکی‌ها دارای ۰۳۷ است.",
-    },
-    {
-      words: "سیصد و هشت میلیون و چهل هزار و پنج",
-      val: "308040005",
-      mis: "38405",
-      alt1: "308400005",
-      alt2: "38040050",
-      desc: "۳۰۸ در طبقه میلیون، ۰۴۰ در طبقه هزار و ۰۰۵ در طبقه یکی‌ها قرار دارد.",
+      words: "چهارصد و هفت هزار و پنجاه و سه",
+      val: "407053",
+      mis: "47053",
+      alt1: "407530",
+      alt2: "470053",
+      desc: "طبقه هزار دارای ۴۰۷ و طبقه یکی‌ها دارای ۰۵۳ است.",
     },
     {
       words: "ششصد و بیست هزار و هفتصد و چهار",
@@ -134,20 +133,20 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
       desc: "۶۲۰ در طبقه هزار و ۷۰۴ در طبقه یکی‌ها است.",
     },
     {
-      words: "پنج میلیون و نه هزار و هشتاد",
-      val: "5009080",
-      mis: "5980",
-      alt1: "5090080",
-      alt2: "590080",
-      desc: "۵ در طبقه میلیون، ۰۰۹ در طبقه هزار و ۰۸۰ در طبقه یکی‌ها قرار دارد.",
-    },
-    {
       words: "هفتصد و چهار هزار و شصت و سه",
       val: "704063",
       mis: "74063",
       alt1: "704630",
       alt2: "746300",
       desc: "۷۰۴ در طبقه هزار و ۰۶۳ در طبقه یکی‌ها است.",
+    },
+    {
+      words: "پانصد و سه هزار و دویست و هشت",
+      val: "503208",
+      mis: "53208",
+      alt1: "503280",
+      alt2: "530208",
+      desc: "۵۰۳ در طبقه هزار و ۲۰۸ در طبقه یکی‌ها قرار دارد.",
     },
   ];
 
@@ -254,10 +253,163 @@ export function generateExpandedFormItem(index: number = 0): DiagnosticItemData 
 }
 
 /**
- * KC-MATH4-C01-03: کشف رابطه در الگوهای عددی، هندسی و ماشین‌های ورودی-خروجی
+ * KC-MATH4-C01-03: الگوهای عددی، هندسی و کشف رابطه بین شماره شکل و تعداد (درس دوم)
  */
-export function generatePatternMachineItem(index: number = 0): DiagnosticItemData {
-  const mult = randomChoice([3, 4, 5]);
+export function generateGeometricNumericPatternItem(index: number = 0): DiagnosticItemData {
+  const isMatchstick = randomChoice([true, false]);
+
+  if (isMatchstick) {
+    const step = randomChoice([3, 4]);
+    const base = randomChoice([1, 2]);
+    const targetShape = randomChoice([7, 8, 10]);
+    const correctCount = targetShape * step + base;
+    const stem = `در یک الگوی چوب‌کبریت‌ها، شکل اول با $${1 * step + base}$ چوب‌کبریت، شکل دوم با $${2 * step + base}$ و شکل سوم با $${3 * step + base}$ چوب‌کبریت ساخته شده است. شکل ${toPersianDigits(targetShape)} با چند چوب‌کبریت ساخته می‌شود؟`;
+
+    const rawDistractors: RawDistractorChoice[] = [
+      {
+        content: `$${correctCount}$`,
+        isCorrect: true,
+        misconceptionId: null,
+        rationale: `پاسخ صحیح: رابطه الگو برابر است با: $\\text{شماره شکل} \\times ${step} + ${base}$. برای شکل ${toPersianDigits(targetShape)}: $${targetShape} \\times ${step} + ${base} = ${correctCount}$.`,
+      },
+      {
+        content: `$${targetShape * step}$`,
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `فراموش کردن چوب‌کبریت‌های ثابت اولیه ($${targetShape} \\times ${step}$).`,
+      },
+      {
+        content: `$${correctCount - step}$`,
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-03",
+        rationale: `محاسبه تعداد چوب‌کبریت‌های شکل قبلی به جای شکل خواسته شده.`,
+      },
+      {
+        content: `$${targetShape * (step + base)}$`,
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-03",
+        rationale: `ضرب شماره شکل در کل چوب‌کبریت‌های شکل اول ($${targetShape} \\times ${step + base}$).`,
+      },
+    ];
+
+    const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+    return {
+      id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
+      kc_id: "KC-MATH4-C01-03",
+      stem,
+      difficulty: 0.45,
+      guess_param: 0.25,
+      slip_param: 0.1,
+      visual_template: null,
+      distractors,
+    };
+  }
+
+  // Doubling numeric pattern
+  const start = randomChoice([1, 2, 3]);
+  const s1 = start;
+  const s2 = start * 2;
+  const s3 = start * 4;
+  const s4 = start * 8;
+  const s5 = start * 16;
+  const stem = `در دنباله‌ی عددی مقابل، عدد بعدی کدام است؟ $$${s1}, ${s2}, ${s3}, ${s4}, \\dots$$`;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${s5}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: الگوی ضربی ۲ برابر شدن: $${s4} \\times 2 = ${s5}$.`,
+    },
+    {
+      content: `$${s4 + (s4 - s3)}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-03",
+      rationale: `فرض الگوی جمعی با افزودن فاصله دو جمله آخر ($${s4} + ${s4 - s3} = ${s4 + (s4 - s3)}$).`,
+    },
+    {
+      content: `$${s4 + 2}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-03",
+      rationale: `فرض افزایش ثابت ۲ واحدی در تمام مراحل.`,
+    },
+    {
+      content: `$${s4 + start}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `افزودن جمله اول به جمله آخر.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+  return {
+    id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-03",
+    stem,
+    difficulty: 0.38,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-04: ماشین‌های ورودی ــ خروجی و عملیات معکوس (درس سوم)
+ */
+export function generateInputOutputMachineItem(index: number = 0): DiagnosticItemData {
+  const isReverse = randomChoice([true, false]);
+
+  if (isReverse) {
+    const mult = randomChoice([2, 3, 4]);
+    const add = randomChoice([3, 4, 5]);
+    const inputVal = randomChoice([5, 6, 7, 8]);
+    const outputVal = inputVal * mult + add;
+
+    const stem = `قاعده‌ی یک ماشین ورودی-خروجی «ضرب در ${toPersianDigits(mult)}، سپس به علاوه ${toPersianDigits(add)}» است. اگر از این ماشین عدد $${outputVal}$ خارج شده باشد، چه عددی وارد آن شده بود؟`;
+
+    const rawDistractors: RawDistractorChoice[] = [
+      {
+        content: `$${inputVal}$`,
+        isCorrect: true,
+        misconceptionId: null,
+        rationale: `پاسخ صحیح: در مسیر برگشت ابتدا تفریق ($${outputVal} - ${add} = ${outputVal - add}$) و سپس تقسیم انجام می‌شود: $${outputVal - add} \\div ${mult} = ${inputVal}$.`,
+      },
+      {
+        content: `$${outputVal * mult + add}$`,
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-04",
+        rationale: `اعمال مستقیم قاعده ماشین روی خروجی به جای حل در مسیر معکوس.`,
+      },
+      {
+        content: `$${Math.round((outputVal + add) / mult)}$`,
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-04",
+        rationale: `جمع کردن به جای تفریق در مرحله اول معکوس‌سازی.`,
+      },
+      {
+        content: `$${inputVal + 2}$`,
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `خطای محاسباتی در تقسیم یا تفریق.`,
+      },
+    ];
+
+    const distractors = finalizeDistractors(rawDistractors, "G4-C01-04");
+    return {
+      id: `ITEM-DYN-G4-C01-04-${Date.now()}-${index}`,
+      kc_id: "KC-MATH4-C01-04",
+      stem,
+      difficulty: 0.48,
+      guess_param: 0.25,
+      slip_param: 0.1,
+      visual_template: null,
+      distractors,
+    };
+  }
+
+  // Forward machine
+  const mult = randomChoice([3, 4]);
   const add = randomChoice([1, 2, 3]);
   const isAddition = randomChoice([true, false]);
   const inputVal = randomChoice([4, 6, 8, 9]);
@@ -282,13 +434,13 @@ export function generatePatternMachineItem(index: number = 0): DiagnosticItemDat
     {
       content: `$${misVal}$`,
       isCorrect: false,
-      misconceptionId: "MIS-MATH4-C01-03",
+      misconceptionId: "MIS-MATH4-C01-04",
       rationale: `فرض الگوی صرفاً جمعی و تبدیل عمل ضرب به جمع ($${inputVal} + ${mult} ${isAddition ? "+" : "-"} ${add}$).`,
     },
     {
       content: `$${invVal}$`,
       isCorrect: false,
-      misconceptionId: null,
+      misconceptionId: "MIS-MATH4-C01-04",
       rationale: `جابجایی ترتیب عملیات و انجام مرحله دوم قبل از مرحله اول.`,
     },
     {
@@ -299,11 +451,11 @@ export function generatePatternMachineItem(index: number = 0): DiagnosticItemDat
     },
   ];
 
-  const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-04");
 
   return {
-    id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
-    kc_id: "KC-MATH4-C01-03",
+    id: `ITEM-DYN-G4-C01-04-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-04",
     stem,
     difficulty: 0.42,
     guess_param: 0.25,
@@ -311,6 +463,96 @@ export function generatePatternMachineItem(index: number = 0): DiagnosticItemDat
     visual_template: null,
     distractors,
   };
+}
+
+/**
+ * KC-MATH4-C01-05: معرفی طبقه میلیون، جدول ارزش مکانی و مقایسه اعداد بزرگ (درس چهارم)
+ */
+export function generateMillionsNumberItem(index: number = 0): DiagnosticItemData {
+  const configs = [
+    {
+      words: "سی و پنج میلیون و چهارصد و هشت هزار و نه",
+      val: "35408009",
+      mis: "3548009",
+      alt1: "35408090",
+      alt2: "35489000",
+      desc: "طبقه میلیون دارای ۳۵، طبقه هزار دارای ۴۰۸ و طبقه یکی‌ها دارای ۰۰۹ است.",
+    },
+    {
+      words: "سیصد و هشت میلیون و چهل هزار و پنج",
+      val: "308040005",
+      mis: "38405",
+      alt1: "308400005",
+      alt2: "38040050",
+      desc: "۳۰۸ در طبقه میلیون، ۰۴۰ در طبقه هزار و ۰۰۵ در طبقه یکی‌ها قرار دارد.",
+    },
+    {
+      words: "پنج میلیون و نه هزار و هشتاد",
+      val: "5009080",
+      mis: "5980",
+      alt1: "5090080",
+      alt2: "590080",
+      desc: "۵ در طبقه میلیون، ۰۰۹ در طبقه هزار و ۰۸۰ در طبقه یکی‌ها قرار دارد.",
+    },
+    {
+      words: "چهل و دو میلیون و هفتصد هزار و ششصد",
+      val: "42700600",
+      mis: "427600",
+      alt1: "42706000",
+      alt2: "42070600",
+      desc: "۴۲ در طبقه میلیون، ۷۰۰ در طبقه هزار و ۶۰۰ در طبقه یکی‌ها است.",
+    },
+  ];
+
+  const cfg = randomChoice(configs);
+  const stem = `نماد عددی «${cfg.words}» با کدام گزینه برابر است؟`;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${cfg.val}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: ${cfg.desc}`,
+    },
+    {
+      content: `$${cfg.mis}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-05",
+      rationale: `اشتباه در مقیاس طبقه میلیون و حذف صفرهای مرتبه‌ها.`,
+    },
+    {
+      content: `$${cfg.alt1}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `جابجایی ارزش مکانی ارقام در طبقه یکی‌ها یا هزارها.`,
+    },
+    {
+      content: `$${cfg.alt2}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `اشتباه در تفکیک دسته‌های سه‌تایی در طبقه میلیون.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-05");
+
+  return {
+    id: `ITEM-DYN-G4-C01-05-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-05",
+    stem,
+    difficulty: 0.42,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-03 (Legacy alias): کشف رابطه در الگوهای عددی، هندسی و ماشین‌های ورودی-خروجی
+ */
+export function generatePatternMachineItem(index: number = 0): DiagnosticItemData {
+  return generateInputOutputMachineItem(index);
 }
 
 /**
@@ -1344,11 +1586,12 @@ export function generateMultiDigitDivisionItem(index: number = 0): DiagnosticIte
 
 export const DYNAMIC_GENERATORS: Record<string, (index?: number) => DiagnosticItemData> = {
   // Grade 4 Chapter 1: Numbers & Patterns
-  "KC-MATH4-C01-01": generateMillionsNumberItem,
+  // Grade 4 Chapter 1: Numbers & Patterns (اعداد و الگوها)
+  "KC-MATH4-C01-01": generateThousandsNumberItem,
   "KC-MATH4-C01-02": generateExpandedFormItem,
-  "KC-MATH4-C01-03": generatePatternMachineItem,
-  "KC-MATH4-C01-04": generateComparisonNumberLineItem,
-  "KC-MATH4-C01-05": generateRoundingEstimationItem,
+  "KC-MATH4-C01-03": generateGeometricNumericPatternItem,
+  "KC-MATH4-C01-04": generateInputOutputMachineItem,
+  "KC-MATH4-C01-05": generateMillionsNumberItem,
 
   // Grade 4 Chapter 2: Fractions
   "KC-MATH4-C02-01": generateFractionConceptItem,
