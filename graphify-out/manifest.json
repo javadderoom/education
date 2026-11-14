@@ -360,13 +360,13 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794319121.4511416,
-    "ast_hash": "a6440747f8c7c08b9cf523cc0863310f",
+    "mtime": 1794516683.8566358,
+    "ast_hash": "64cbf83d8e57a389e8c53baf406bec79",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
-    "mtime": 1793725542.843317,
-    "ast_hash": "f3ee0dfa4ed0668c0cca7d27b0b4dc8d",
+    "mtime": 1794516044.2759738,
+    "ast_hash": "797ab877aff587b46e39c175625fcefd",
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
@@ -805,8 +805,8 @@
     "semantic_hash": ""
   },
   "web/app/student/mastery/page.tsx": {
-    "mtime": 1793725564.161977,
-    "ast_hash": "33e9abdddde123743399fda7365ae338",
+    "mtime": 1794516899.0359147,
+    "ast_hash": "9a768b2e879c86f172ff0671f22a02e0",
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794412503.5061922,
-    "ast_hash": "6585f7b75e7fc7763158f765bdb9b478",
+    "mtime": 1794683848.0357163,
+    "ast_hash": "67d41581af32a9e06baec165a569dd70",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1045,8 +1045,8 @@
     "semantic_hash": ""
   },
   "web/prisma/seed-curriculum.ts": {
-    "mtime": 1793652141.74192,
-    "ast_hash": "21683af48a6f09a9abeb568f312a40e6",
+    "mtime": 1794683740.0780966,
+    "ast_hash": "3aba577041f5001e6a1af16a0bfc847d",
     "semantic_hash": ""
   },
   "web/lib/store/exam-storage.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794412503.044153,
-    "ast_hash": "671111ac121a1841b81ce4d27985595b",
+    "mtime": 1794683930.3594077,
+    "ast_hash": "0f88ad082258ac003f16ce74dc464761",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-curriculum-integration.test.ts": {
-    "mtime": 1794331560.989269,
-    "ast_hash": "66e95199285ecf60891b1e7367aec228",
+    "mtime": 1794683993.9364762,
+    "ast_hash": "72642a5647eedc8120ed76cb7019bc7f",
     "semantic_hash": ""
   },
   "web/__tests__/ui-student-assessment-view.test.tsx": {
