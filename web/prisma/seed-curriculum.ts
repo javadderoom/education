@@ -216,73 +216,201 @@ export async function seedCurriculumFrameworksAndNodes() {
   });
 
   // --- Depth 3: Chapters (فصل‌ها) ---
-  // Grade 4 Chapter 2: Fractions
-  await prisma.curriculumNode.upsert({
-    where: { id: "NODE-G4-MATH-CH02" },
-    update: {
-      frameworkId: frameworkK12.id,
-      parentId: "NODE-G4-MATH",
-      depth: 3,
-      nodeType: "chapter",
-      code: "CH02",
-      title: "فصل دوم: مفهوم و محاسبات کسرها",
-      shortTitle: "کسرها",
-      description: "شناخت مفهوم جزء از کل، تساوی کسرها، مقایسه، جمع و تفریق هم‌مخرج و نمایش روی محور",
+  const grade4Chapters = [
+    {
+      id: "NODE-G4-MATH-CH01",
+      code: "CH01",
+      title: "فصل اول: اعداد و الگوها",
+      shortTitle: "اعداد و الگوها",
+      description: "شناخت و تعمیم الگوها، جدول ارزش مکانی، اعداد چندرقمی تا مرتبه میلیون و تقریب",
       orderIndex: 1,
       color: "indigo",
-      icon: "SplitSquareVertical",
-      isActive: true,
+      icon: "Hash",
+      lessons: [
+        { id: "NODE-G4-CH01-L01", kcId: "KC-MATH4-C01-01", code: "L01", title: "درس اول: عددنویسی و خواندن اعداد تا طبقه میلیون", shortTitle: "عددنویسی میلیون", order: 1 },
+        { id: "NODE-G4-CH01-L02", kcId: "KC-MATH4-C01-02", code: "L02", title: "درس دوم: گسترده‌نویسی و ارزش مکانی ارقام", shortTitle: "گسترده‌نویسی", order: 2 },
+        { id: "NODE-G4-CH01-L03", kcId: "KC-MATH4-C01-03", code: "L03", title: "درس سوم: الگوهای عددی، هندسی و ماشین ورودی-خروجی", shortTitle: "الگوها و ماشین‌ها", order: 3 },
+        { id: "NODE-G4-CH01-L04", kcId: "KC-MATH4-C01-04", code: "L04", title: "درس چهارم: مقایسه اعداد بزرگ و محور اعداد", shortTitle: "مقایسه اعداد", order: 4 },
+        { id: "NODE-G4-CH01-L05", kcId: "KC-MATH4-C01-05", code: "L05", title: "درس پنجم: محاسبات تقریبی و روش گرد کردن", shortTitle: "محاسبات تقریبی", order: 5 },
+      ],
     },
-    create: {
+    {
       id: "NODE-G4-MATH-CH02",
-      frameworkId: frameworkK12.id,
-      parentId: "NODE-G4-MATH",
-      depth: 3,
-      nodeType: "chapter",
       code: "CH02",
       title: "فصل دوم: مفهوم و محاسبات کسرها",
       shortTitle: "کسرها",
       description: "شناخت مفهوم جزء از کل، تساوی کسرها، مقایسه، جمع و تفریق هم‌مخرج و نمایش روی محور",
-      orderIndex: 1,
+      orderIndex: 2,
       color: "indigo",
       icon: "SplitSquareVertical",
-      isActive: true,
+      lessons: [
+        { id: "NODE-G4-CH02-L01", kcId: "KC-MATH4-C02-01", code: "L01", title: "درس اول: شناخت مفهوم کسر و تفکیک واحد", shortTitle: "مفهوم جزء از کل", order: 1 },
+        { id: "NODE-G4-CH02-L02", kcId: "KC-MATH4-C02-02", code: "L02", title: "درس دوم: کسرهای مساوی و ساده‌کردن کسرها", shortTitle: "کسرهای مساوی", order: 2 },
+        { id: "NODE-G4-CH02-L03", kcId: "KC-MATH4-C02-03", code: "L03", title: "درس سوم: مقایسه کسرها و درک اندازه نسبی", shortTitle: "مقایسه کسرها", order: 3 },
+        { id: "NODE-G4-CH02-L04", kcId: "KC-MATH4-C02-04", code: "L04", title: "درس چهارم: جمع و تفریق کسرهای هم‌مخرج", shortTitle: "جمع و تفریق کسر", order: 4 },
+        { id: "NODE-G4-CH02-L05", kcId: "KC-MATH4-C02-05", code: "L05", title: "درس پنجم: نمایش کسرها و اعداد مخلوط روی محور اعداد", shortTitle: "محور اعداد", order: 5 },
+      ],
     },
-  });
-
-  // Grade 4 Chapter 3: Multiplication & Division
-  await prisma.curriculumNode.upsert({
-    where: { id: "NODE-G4-MATH-CH03" },
-    update: {
-      frameworkId: frameworkK12.id,
-      parentId: "NODE-G4-MATH",
-      depth: 3,
-      nodeType: "chapter",
-      code: "CH03",
-      title: "فصل سوم: ضرب و تقسیم",
-      shortTitle: "ضرب و تقسیم",
-      description: "الگوهای ضرب چندرقمی، مساحت و گسترده، تقسیم با باقی‌مانده و تخمین محاسباتی",
-      orderIndex: 2,
-      color: "amber",
-      icon: "Calculator",
-      isActive: true,
-    },
-    create: {
+    {
       id: "NODE-G4-MATH-CH03",
-      frameworkId: frameworkK12.id,
-      parentId: "NODE-G4-MATH",
-      depth: 3,
-      nodeType: "chapter",
       code: "CH03",
       title: "فصل سوم: ضرب و تقسیم",
       shortTitle: "ضرب و تقسیم",
       description: "الگوهای ضرب چندرقمی، مساحت و گسترده، تقسیم با باقی‌مانده و تخمین محاسباتی",
-      orderIndex: 2,
+      orderIndex: 3,
       color: "amber",
       icon: "Calculator",
-      isActive: true,
+      lessons: [
+        { id: "NODE-G4-CH03-L01", kcId: "KC-MATH4-C03-01", code: "L01", title: "درس اول: الگوها و خاصیت پخشی ضرب", shortTitle: "الگوهای ضرب", order: 1 },
+        { id: "NODE-G4-CH03-L02", kcId: "KC-MATH4-C03-02", code: "L02", title: "درس دوم: الگوریتم ضرب دو رقم در دو رقم", shortTitle: "ضرب دو رقمی", order: 2 },
+        { id: "NODE-G4-CH03-L03", kcId: "KC-MATH4-C03-03", code: "L03", title: "درس سوم: مفهوم تقسیم و رابطه مقسوم‌علیه", shortTitle: "مفهوم تقسیم", order: 3 },
+        { id: "NODE-G4-CH03-L04", kcId: "KC-MATH4-C03-04", code: "L04", title: "درس چهارم: الگوریتم تقسیم ستونی با باقی‌مانده", shortTitle: "تقسیم ستونی", order: 4 },
+        { id: "NODE-G4-CH03-L05", kcId: "KC-MATH4-C03-05", code: "L05", title: "درس پنجم: تقریب و تخمین در ضرب و تقسیم", shortTitle: "محاسبات تقریبی", order: 5 },
+      ],
     },
-  });
+    {
+      id: "NODE-G4-MATH-CH04",
+      code: "CH04",
+      title: "فصل چهارم: اندازه‌گیری",
+      shortTitle: "اندازه‌گیری",
+      description: "مفهوم و اندازه‌گیری زاویه، کار با نقاله، زمان، طول و مساحت، حجم و گنجایش",
+      orderIndex: 4,
+      color: "purple",
+      icon: "Compass",
+      lessons: [
+        { id: "NODE-G4-CH04-L01", kcId: "KC-MATH4-C04-01", code: "L01", title: "درس اول: شناخت مفهوم و انواع زاویه (راست، تند، باز)", shortTitle: "مفهوم زاویه", order: 1 },
+        { id: "NODE-G4-CH04-L02", kcId: "KC-MATH4-C04-02", code: "L02", title: "درس دوم: اندازه‌گیری و رسم زاویه با نقاله", shortTitle: "کار با نقاله", order: 2 },
+        { id: "NODE-G4-CH04-L03", kcId: "KC-MATH4-C04-03", code: "L03", title: "درس سوم: اندازه‌گیری زمان و محاسبه زمان سپری‌شده", shortTitle: "واحدهای زمان", order: 3 },
+        { id: "NODE-G4-CH04-L04", kcId: "KC-MATH4-C04-04", code: "L04", title: "درس چهارم: اندازه‌گیری طول و مساحت مستطیل و مربع", shortTitle: "طول و مساحت", order: 4 },
+        { id: "NODE-G4-CH04-L05", kcId: "KC-MATH4-C04-05", code: "L05", title: "درس پنجم: مفهوم حجم، گنجایش و واحدهای لیتر و میلی‌لیتر", shortTitle: "حجم و گنجایش", order: 5 },
+      ],
+    },
+    {
+      id: "NODE-G4-MATH-CH05",
+      code: "CH05",
+      title: "فصل پنجم: عدد مخلوط و عدد اعشاری",
+      shortTitle: "عدد مخلوط و اعشاری",
+      description: "مفهوم عدد مخلوط، تبدیل به کسر، معرفی عدد اعشاری با دهم و صدم، جدول ارزش مکانی و جمع و تفریق اعشار",
+      orderIndex: 5,
+      color: "blue",
+      icon: "Sliders",
+      lessons: [
+        { id: "NODE-G4-CH05-L01", kcId: "KC-MATH4-C05-01", code: "L01", title: "درس اول: مفهوم و نمایش تصویری عدد مخلوط", shortTitle: "مفهوم عدد مخلوط", order: 1 },
+        { id: "NODE-G4-CH05-L02", kcId: "KC-MATH4-C05-02", code: "L02", title: "درس دوم: تبدیل کسر به عدد مخلوط و بالعکس", shortTitle: "تبدیل کسر و مخلوط", order: 2 },
+        { id: "NODE-G4-CH05-L03", kcId: "KC-MATH4-C05-03", code: "L03", title: "درس سوم: شناخت مفهوم عدد اعشاری با دهم و صدم", shortTitle: "مفهوم عدد اعشاری", order: 3 },
+        { id: "NODE-G4-CH05-L04", kcId: "KC-MATH4-C05-04", code: "L04", title: "درس چهارم: جدول ارزش مکانی و مقایسه عددهای اعشاری", shortTitle: "ارزش مکانی اعشار", order: 4 },
+        { id: "NODE-G4-CH05-L05", kcId: "KC-MATH4-C05-05", code: "L05", title: "درس پنجم: جمع و تفریق ستونی عددهای اعشاری", shortTitle: "جمع و تفریق اعشار", order: 5 },
+      ],
+    },
+    {
+      id: "NODE-G4-MATH-CH06",
+      code: "CH06",
+      title: "فصل ششم: شکل‌های هندسی",
+      shortTitle: "شکل‌های هندسی",
+      description: "خطوط عمود و موازی، خانواده چهارضلعی‌ها، قاعده و ارتفاع نظیر، مساحت متوازی‌الاضلاع و انواع مثلث",
+      orderIndex: 6,
+      color: "teal",
+      icon: "Shapes",
+      lessons: [
+        { id: "NODE-G4-CH06-L01", kcId: "KC-MATH4-C06-01", code: "L01", title: "درس اول: تشخیص و رسم خطوط عمود و موازی با گونیا", shortTitle: "خطوط عمود و موازی", order: 1 },
+        { id: "NODE-G4-CH06-L02", kcId: "KC-MATH4-C06-02", code: "L02", title: "درس دوم: ویژگی‌ها و روابط خانواده چهارضلعی‌ها", shortTitle: "خانواده چهارضلعی‌ها", order: 2 },
+        { id: "NODE-G4-CH06-L03", kcId: "KC-MATH4-C06-03", code: "L03", title: "درس سوم: تشخیص قاعده و رسم ارتفاع نظیر در متوازی‌الاضلاع و مثلث", shortTitle: "قاعده و ارتفاع", order: 3 },
+        { id: "NODE-G4-CH06-L04", kcId: "KC-MATH4-C06-04", code: "L04", title: "درس چهارم: محاسبه مساحت متوازی‌الاضلاع", shortTitle: "مساحت متوازی‌الاضلاع", order: 4 },
+        { id: "NODE-G4-CH06-L05", kcId: "KC-MATH4-C06-05", code: "L05", title: "درس پنجم: محاسبه مساحت انواع مثلث", shortTitle: "مساحت مثلث", order: 5 },
+      ],
+    },
+    {
+      id: "NODE-G4-MATH-CH07",
+      code: "CH07",
+      title: "فصل هفتم: آمار و احتمال",
+      shortTitle: "آمار و احتمال",
+      description: "جمع‌آوری داده‌ها، نمودار ستونی، نمودار خط شکسته، نمودار دایره‌ای، انتخاب نمودار مناسب و احتمال و شانس",
+      orderIndex: 7,
+      color: "rose",
+      icon: "BarChart3",
+      lessons: [
+        { id: "NODE-G4-CH07-L01", kcId: "KC-MATH4-C07-01", code: "L01", title: "درس اول: جمع‌آوری داده‌ها با جدول و خط‌نشان", shortTitle: "جدول داده و خط‌نشان", order: 1 },
+        { id: "NODE-G4-CH07-L02", kcId: "KC-MATH4-C07-02", code: "L02", title: "درس دوم: رسم، خواندن و تحلیل نمودار ستونی", shortTitle: "نمودار ستونی", order: 2 },
+        { id: "NODE-G4-CH07-L03", kcId: "KC-MATH4-C07-03", code: "L03", title: "درس سوم: رسم و تفسیر نمودار خط شکسته در گذر زمان", shortTitle: "نمودار خط شکسته", order: 3 },
+        { id: "NODE-G4-CH07-L04", kcId: "KC-MATH4-C07-04", code: "L04", title: "درس چهارم: درک و تحلیل نمودار دایره‌ای با رویکرد جزء به کل", shortTitle: "نمودار دایره‌ای", order: 4 },
+        { id: "NODE-G4-CH07-L05", kcId: "KC-MATH4-C07-05", code: "L05", title: "درس پنجم: ارزیابی شانس و احتمال رخ‌داد پیشامدها", shortTitle: "مفهوم شانس و احتمال", order: 5 },
+      ],
+    },
+  ];
+
+  for (const ch of grade4Chapters) {
+    await prisma.curriculumNode.upsert({
+      where: { id: ch.id },
+      update: {
+        frameworkId: frameworkK12.id,
+        parentId: "NODE-G4-MATH",
+        depth: 3,
+        nodeType: "chapter",
+        code: ch.code,
+        title: ch.title,
+        shortTitle: ch.shortTitle,
+        description: ch.description,
+        orderIndex: ch.orderIndex,
+        color: ch.color,
+        icon: ch.icon,
+        isActive: true,
+      },
+      create: {
+        id: ch.id,
+        frameworkId: frameworkK12.id,
+        parentId: "NODE-G4-MATH",
+        depth: 3,
+        nodeType: "chapter",
+        code: ch.code,
+        title: ch.title,
+        shortTitle: ch.shortTitle,
+        description: ch.description,
+        orderIndex: ch.orderIndex,
+        color: ch.color,
+        icon: ch.icon,
+        isActive: true,
+      },
+    });
+
+    for (const l of ch.lessons) {
+      await prisma.curriculumNode.upsert({
+        where: { id: l.id },
+        update: {
+          frameworkId: frameworkK12.id,
+          parentId: ch.id,
+          depth: 4,
+          nodeType: "lesson",
+          code: l.code,
+          title: l.title,
+          shortTitle: l.shortTitle,
+          orderIndex: l.order,
+          color: ch.color,
+          icon: "Layers",
+          isActive: true,
+        },
+        create: {
+          id: l.id,
+          frameworkId: frameworkK12.id,
+          parentId: ch.id,
+          depth: 4,
+          nodeType: "lesson",
+          code: l.code,
+          title: l.title,
+          shortTitle: l.shortTitle,
+          orderIndex: l.order,
+          color: ch.color,
+          icon: "Layers",
+          isActive: true,
+        },
+      });
+
+      // Link KnowledgeComponent to this Lesson Node
+      await prisma.knowledgeComponent.updateMany({
+        where: { id: l.kcId },
+        data: { curriculumNodeId: l.id },
+      });
+    }
+  }
 
   // Grade 5 Chapter 3: Ratio, Proportion & Percentage
   await prisma.curriculumNode.upsert({
@@ -318,104 +446,7 @@ export async function seedCurriculumFrameworksAndNodes() {
     },
   });
 
-  // --- Depth 4: Lessons (درس‌ها / سرفصل‌های آموزشی متصل به KCs) ---
-
-  // G4 Chapter 2 Lessons:
-  const g4Ch2Lessons = [
-    { id: "NODE-G4-CH02-L01", kcId: "KC-MATH4-C02-01", code: "L01", title: "درس اول: شناخت مفهوم کسر و تفکیک واحد", shortTitle: "مفهوم جزء از کل", order: 1 },
-    { id: "NODE-G4-CH02-L02", kcId: "KC-MATH4-C02-02", code: "L02", title: "درس دوم: کسرهای مساوی و ساده‌کردن کسرها", shortTitle: "کسرهای مساوی", order: 2 },
-    { id: "NODE-G4-CH02-L03", kcId: "KC-MATH4-C02-03", code: "L03", title: "درس سوم: مقایسه کسرها و درک اندازه نسبی", shortTitle: "مقایسه کسرها", order: 3 },
-    { id: "NODE-G4-CH02-L04", kcId: "KC-MATH4-C02-04", code: "L04", title: "درس چهارم: جمع و تفریق کسرهای هم‌مخرج", shortTitle: "جمع و تفریق کسر", order: 4 },
-    { id: "NODE-G4-CH02-L05", kcId: "KC-MATH4-C02-05", code: "L05", title: "درس پنجم: نمایش کسرها و اعداد مخلوط روی محور اعداد", shortTitle: "محور اعداد", order: 5 },
-  ];
-
-  for (const l of g4Ch2Lessons) {
-    await prisma.curriculumNode.upsert({
-      where: { id: l.id },
-      update: {
-        frameworkId: frameworkK12.id,
-        parentId: "NODE-G4-MATH-CH02",
-        depth: 4,
-        nodeType: "lesson",
-        code: l.code,
-        title: l.title,
-        shortTitle: l.shortTitle,
-        orderIndex: l.order,
-        color: "indigo",
-        icon: "Layers",
-        isActive: true,
-      },
-      create: {
-        id: l.id,
-        frameworkId: frameworkK12.id,
-        parentId: "NODE-G4-MATH-CH02",
-        depth: 4,
-        nodeType: "lesson",
-        code: l.code,
-        title: l.title,
-        shortTitle: l.shortTitle,
-        orderIndex: l.order,
-        color: "indigo",
-        icon: "Layers",
-        isActive: true,
-      },
-    });
-
-    // Link KnowledgeComponent to this Lesson Node
-    await prisma.knowledgeComponent.updateMany({
-      where: { id: l.kcId },
-      data: { curriculumNodeId: l.id },
-    });
-  }
-
-  // G4 Chapter 3 Lessons:
-  const g4Ch3Lessons = [
-    { id: "NODE-G4-CH03-L01", kcId: "KC-MATH4-C03-01", code: "L01", title: "درس اول: الگوها و خاصیت پخشی ضرب", shortTitle: "الگوهای ضرب", order: 1 },
-    { id: "NODE-G4-CH03-L02", kcId: "KC-MATH4-C03-02", code: "L02", title: "درس دوم: الگوریتم ضرب دو رقم در دو رقم", shortTitle: "ضرب دو رقمی", order: 2 },
-    { id: "NODE-G4-CH03-L03", kcId: "KC-MATH4-C03-03", code: "L03", title: "درس سوم: مفهوم تقسیم و رابطه مقسوم‌علیه", shortTitle: "مفهوم تقسیم", order: 3 },
-    { id: "NODE-G4-CH03-L04", kcId: "KC-MATH4-C03-04", code: "L04", title: "درس چهارم: الگوریتم تقسیم ستونی با باقی‌مانده", shortTitle: "تقسیم ستونی", order: 4 },
-    { id: "NODE-G4-CH03-L05", kcId: "KC-MATH4-C03-05", code: "L05", title: "درس پنجم: تقریب و تخمین در ضرب و تقسیم", shortTitle: "محاسبات تقریبی", order: 5 },
-  ];
-
-  for (const l of g4Ch3Lessons) {
-    await prisma.curriculumNode.upsert({
-      where: { id: l.id },
-      update: {
-        frameworkId: frameworkK12.id,
-        parentId: "NODE-G4-MATH-CH03",
-        depth: 4,
-        nodeType: "lesson",
-        code: l.code,
-        title: l.title,
-        shortTitle: l.shortTitle,
-        orderIndex: l.order,
-        color: "amber",
-        icon: "Calculator",
-        isActive: true,
-      },
-      create: {
-        id: l.id,
-        frameworkId: frameworkK12.id,
-        parentId: "NODE-G4-MATH-CH03",
-        depth: 4,
-        nodeType: "lesson",
-        code: l.code,
-        title: l.title,
-        shortTitle: l.shortTitle,
-        orderIndex: l.order,
-        color: "amber",
-        icon: "Calculator",
-        isActive: true,
-      },
-    });
-
-    await prisma.knowledgeComponent.updateMany({
-      where: { id: l.kcId },
-      data: { curriculumNodeId: l.id },
-    });
-  }
-
-  // G5 Chapter 3 Lessons:
+  // --- Depth 4: Lessons for Grade 5 Chapter 3 ---
   const g5Ch3Lessons = [
     { id: "NODE-G5-CH03-L01", kcId: "KC-MATH5-C03-01", code: "L01", title: "درس اول: درک مفهوم نسبت و اندازه نسبی", shortTitle: "مفهوم نسبت", order: 1 },
     { id: "NODE-G5-CH03-L02", kcId: "KC-MATH5-C03-02", code: "L02", title: "درس دوم: ساخت نسبت‌های مساوی و تناسب", shortTitle: "نسبت‌های مساوی", order: 2 },

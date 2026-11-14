@@ -100,6 +100,326 @@ function finalizeDistractors(
 // Grade 4 Generators
 // -------------------------------------------------------------
 
+// =============================================================
+// Grade 4 Chapter 1: Numbers & Patterns (اعداد و الگوها)
+// =============================================================
+
+/**
+ * KC-MATH4-C01-01: عددنویسی، خواندن و بازنمایی اعداد چندرقمی تا طبقه میلیون
+ */
+export function generateMillionsNumberItem(index: number = 0): DiagnosticItemData {
+  const configs = [
+    {
+      words: "چهارصد و پنج هزار و سی و هفت",
+      val: "405037",
+      mis: "45037",
+      alt1: "405370",
+      alt2: "450037",
+      desc: "طبقه هزار دارای ۴۰۵ و طبقه یکی‌ها دارای ۰۳۷ است.",
+    },
+    {
+      words: "سیصد و هشت میلیون و چهل هزار و پنج",
+      val: "308040005",
+      mis: "38405",
+      alt1: "308400005",
+      alt2: "38040050",
+      desc: "۳۰۸ در طبقه میلیون، ۰۴۰ در طبقه هزار و ۰۰۵ در طبقه یکی‌ها قرار دارد.",
+    },
+    {
+      words: "ششصد و بیست هزار و هفتصد و چهار",
+      val: "620704",
+      mis: "62704",
+      alt1: "620740",
+      alt2: "627400",
+      desc: "۶۲۰ در طبقه هزار و ۷۰۴ در طبقه یکی‌ها است.",
+    },
+    {
+      words: "پنج میلیون و نه هزار و هشتاد",
+      val: "5009080",
+      mis: "5980",
+      alt1: "5090080",
+      alt2: "590080",
+      desc: "۵ در طبقه میلیون، ۰۰۹ در طبقه هزار و ۰۸۰ در طبقه یکی‌ها قرار دارد.",
+    },
+    {
+      words: "هفتصد و چهار هزار و شصت و سه",
+      val: "704063",
+      mis: "74063",
+      alt1: "704630",
+      alt2: "746300",
+      desc: "۷۰۴ در طبقه هزار و ۰۶۳ در طبقه یکی‌ها است.",
+    },
+  ];
+
+  const cfg = randomChoice(configs);
+  const stem = `نماد عددی «${cfg.words}» با کدام گزینه برابر است؟`;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${cfg.val}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: ${cfg.desc}`,
+    },
+    {
+      content: `$${cfg.mis}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-01",
+      rationale: `حذف صفرهای میانی ارزش مکانی و فشرده کردن ارقام بدون رعایت مرتبه‌ها.`,
+    },
+    {
+      content: `$${cfg.alt1}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `جابجایی ارزش مکانی ارقام در طبقه یکی‌ها یا هزارها.`,
+    },
+    {
+      content: `$${cfg.alt2}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `اشتباه در تفکیک دسته‌های سه‌تایی و قرارگیری اشتباه ارقام در طبقات.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-01");
+
+  return {
+    id: `ITEM-DYN-G4-C01-01-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-01",
+    stem,
+    difficulty: 0.35,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-02: گسترده‌نویسی اعداد و تجزیه بر اساس ارزش مکانی ارقام
+ */
+export function generateExpandedFormItem(index: number = 0): DiagnosticItemData {
+  const hTh = randomChoice([3, 4, 5, 6, 7, 8]);
+  const tTh = randomChoice([2, 3, 5, 7]);
+  const h = randomChoice([4, 6, 8, 9]);
+  const u = randomChoice([2, 3, 5, 7]);
+  const num = hTh * 100000 + tTh * 10000 + h * 100 + u;
+
+  const stem = `شکل گسترده‌ی عدد $${num}$ در کدام گزینه به درستی نوشته شده است؟`;
+
+  const correctContent = `$${hTh * 100000} + ${tTh * 10000} + ${h * 100} + ${u}$`;
+  const misAbsoluteSum = `$${hTh} + ${tTh} + 0 + ${h} + 0 + ${u}$`;
+  const misShifted = `$${hTh * 10000} + ${tTh * 1000} + ${h * 100} + ${u}$`;
+  const misOmitZero = `$${hTh * 100000} + ${tTh * 1000} + ${h * 10} + ${u}$`;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: correctContent,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: رقم ${hTh} در صدگان‌هزار ($${hTh * 100000}$)، رقم ${tTh} در ده‌گان‌هزار ($${tTh * 10000}$)، رقم ${h} در صدگان ($${h * 100}$) و رقم ${u} در یکان ($${u}$) قرار دارد.`,
+    },
+    {
+      content: misAbsoluteSum,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-02",
+      rationale: `جمع ارقام مطلق به جای ارزش مکانی در گسترده‌نویسی.`,
+    },
+    {
+      content: misShifted,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `تنزل یک مرتبه‌ای ارزش مکانی صدگان‌هزار و ده‌گان‌هزار.`,
+    },
+    {
+      content: misOmitZero,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `اشتباه در تعیین تعداد صفرهای مرتبه‌های مختلف.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-02");
+
+  return {
+    id: `ITEM-DYN-G4-C01-02-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-02",
+    stem,
+    difficulty: 0.4,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-03: کشف رابطه در الگوهای عددی، هندسی و ماشین‌های ورودی-خروجی
+ */
+export function generatePatternMachineItem(index: number = 0): DiagnosticItemData {
+  const mult = randomChoice([3, 4, 5]);
+  const add = randomChoice([1, 2, 3]);
+  const isAddition = randomChoice([true, false]);
+  const inputVal = randomChoice([4, 6, 8, 9]);
+
+  const opText = isAddition
+    ? `«ضرب در ${toPersianDigits(mult)}» و سپس «به علاوه ${toPersianDigits(add)}»`
+    : `«ضرب در ${toPersianDigits(mult)}» و سپس «منهای ${toPersianDigits(add)}»`;
+  const stem = `در یک ماشین دو مرحله‌ای ورودی-خروجی، هر عددی وارد شود ابتدا ${opText} می‌شود. اگر عدد $${inputVal}$ وارد این ماشین شود، چه عددی خارج خواهد شد؟`;
+
+  const correctVal = isAddition ? inputVal * mult + add : inputVal * mult - add;
+  const misVal = isAddition ? inputVal + mult + add : inputVal + mult - add;
+  const invVal = isAddition ? (inputVal + add) * mult : (inputVal - add) * mult;
+  const wrongSignVal = isAddition ? inputVal * mult - add : inputVal * mult + add;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${correctVal}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: ابتدا عمل ضرب ($${inputVal} \\times ${mult} = ${inputVal * mult}$) و سپس ${isAddition ? "جمع" : "تفریق"} انجام می‌شود: $${correctVal}$.`,
+    },
+    {
+      content: `$${misVal}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-03",
+      rationale: `فرض الگوی صرفاً جمعی و تبدیل عمل ضرب به جمع ($${inputVal} + ${mult} ${isAddition ? "+" : "-"} ${add}$).`,
+    },
+    {
+      content: `$${invVal}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `جابجایی ترتیب عملیات و انجام مرحله دوم قبل از مرحله اول.`,
+    },
+    {
+      content: `$${wrongSignVal}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطای معکوس کردن علامت مرحله دوم عملیات.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+
+  return {
+    id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-03",
+    stem,
+    difficulty: 0.42,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-04: مقایسه و ترتیب‌بندی اعداد بزرگ و نمایش آن‌ها روی محور اعداد
+ */
+export function generateComparisonNumberLineItem(index: number = 0): DiagnosticItemData {
+  const n6 = randomInt(102000, 115000);
+  const n5 = randomInt(94000, 99500);
+
+  const stem = `کدام مقایسه در بین گزینه‌های زیر «صحیح» است؟`;
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${n6} > ${n5}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: عدد شش‌رقمی ($${n6}$) همواره از عدد پنج‌رقمی ($${n5}$) بزرگتر است.`,
+    },
+    {
+      content: `$${n5} > ${n6}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-04",
+      rationale: `مقایسه بر اساس رقم آغازین: تصور اینکه چون رقم اول ۹ از ۱ بزرگتر است، پس عدد پنج‌رقمی بزرگتر است.`,
+    },
+    {
+      content: `$${n6} = ${n5}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `فرض نادرست برابری علی‌رغم تفاوت آشکار در مرتبه‌ها و ارقام.`,
+    },
+    {
+      content: `$${n5} = ${n6 - 1000}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `خطای مقایسه و تخمین نادرست تفاوت دو عدد.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-04");
+
+  return {
+    id: `ITEM-DYN-G4-C01-04-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-04",
+    stem,
+    difficulty: 0.35,
+    guess_param: 0.25,
+    slip_param: 0.08,
+    visual_template: null,
+    distractors,
+  };
+}
+
+/**
+ * KC-MATH4-C01-05: محاسبات تقریبی و گرد کردن به نزدیک‌ترین مرتبه ده‌گان، صدگان و هزارگان
+ */
+export function generateRoundingEstimationItem(index: number = 0): DiagnosticItemData {
+  const baseThousands = randomChoice([3, 4, 5, 6, 7, 8]);
+  const hundreds = randomChoice([2, 4, 6, 7]);
+  const units = randomInt(1, 9);
+  const num = baseThousands * 1000 + hundreds * 100 + 50 + units;
+
+  const stem = `اگر عدد $${num}$ را با روش «گرد کردن» به نزدیک‌ترین صدگان تقریب بزنیم، حاصل کدام است؟`;
+
+  const roundedCorrect = baseThousands * 1000 + (hundreds + 1) * 100;
+  const truncatedMis = baseThousands * 1000 + hundreds * 100;
+  const roundedThousands = (baseThousands + (hundreds >= 5 ? 1 : 0)) * 1000;
+  const roundedTens = baseThousands * 1000 + hundreds * 100 + (units >= 5 ? 60 : 50);
+
+  const rawDistractors: RawDistractorChoice[] = [
+    {
+      content: `$${roundedCorrect}$`,
+      isCorrect: true,
+      misconceptionId: null,
+      rationale: `پاسخ صحیح: رقم مرتبه ده‌گان عدد ۵ است؛ طبق قانون گرد کردن کتاب درسی، هرگاه رقم بعدی ۵ یا بیشتر باشد، یک واحد به صدگان افزوده و ارقام بعدی صفر می‌شوند ($${num} \\rightarrow ${roundedCorrect}$).`,
+    },
+    {
+      content: `$${truncatedMis}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-MATH4-C01-05",
+      rationale: `قطع کردن به جای گرد کردن: صفر کردن ارقام بعد از صدگان بدون توجه به اینکه رقم ده‌گان ۵ است و باید رو به بالا گرد شود.`,
+    },
+    {
+      content: `$${roundedThousands}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `گرد کردن به مرتبه هزارگان به جای صدگان خواسته شده در صورت سؤال.`,
+    },
+    {
+      content: `$${roundedTens}$`,
+      isCorrect: false,
+      misconceptionId: null,
+      rationale: `گرد کردن به نزدیک‌ترین ده‌گان به جای نزدیک‌ترین صدگان.`,
+    },
+  ];
+
+  const distractors = finalizeDistractors(rawDistractors, "G4-C01-05");
+
+  return {
+    id: `ITEM-DYN-G4-C01-05-${Date.now()}-${index}`,
+    kc_id: "KC-MATH4-C01-05",
+    stem,
+    difficulty: 0.45,
+    guess_param: 0.25,
+    slip_param: 0.1,
+    visual_template: null,
+    distractors,
+  };
+}
+
 /**
  * KC-MATH4-C02-01: مفهوم جزء از کل و تفکیک واحد
  */
@@ -1023,6 +1343,13 @@ export function generateMultiDigitDivisionItem(index: number = 0): DiagnosticIte
 // -------------------------------------------------------------
 
 export const DYNAMIC_GENERATORS: Record<string, (index?: number) => DiagnosticItemData> = {
+  // Grade 4 Chapter 1: Numbers & Patterns
+  "KC-MATH4-C01-01": generateMillionsNumberItem,
+  "KC-MATH4-C01-02": generateExpandedFormItem,
+  "KC-MATH4-C01-03": generatePatternMachineItem,
+  "KC-MATH4-C01-04": generateComparisonNumberLineItem,
+  "KC-MATH4-C01-05": generateRoundingEstimationItem,
+
   // Grade 4 Chapter 2: Fractions
   "KC-MATH4-C02-01": generateFractionConceptItem,
   "KC-MATH4-C02-02": generateEquivalentFractionItem,
