@@ -9,6 +9,7 @@ export interface AbacusColumn {
   tier?: "ones" | "thousands" | "millions";
   highlight?: boolean;
   hidden?: boolean;
+  hiddenLabel?: boolean;
 }
 
 export interface AbacusVisualizerProps {
@@ -17,6 +18,9 @@ export interface AbacusVisualizerProps {
   maxBeads?: number;
   label?: string;
   showDigitBadges?: boolean;
+  highlightRod?: string | number; // rod label or index to highlight
+  hiddenLabel?: string | number; // rod label or index whose label is masked with '؟'
+  showRodIndices?: boolean; // shows "میله ۱", "میله ۲", etc. from left to right
 }
 
 export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
@@ -25,6 +29,9 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
   maxBeads = 9,
   label,
   showDigitBadges = true,
+  highlightRod,
+  hiddenLabel,
+  showRodIndices = false,
 }) => {
   // If number is provided, automatically derive columns
   let effectiveColumns: AbacusColumn[] = [];
@@ -121,22 +128,45 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
             const cx = (idx + 1) * colSpacing;
             const colors = getTierColors(col.tier);
             const clampedCount = Math.min(Math.max(col.count, 0), maxBeads);
+            const isRodHighlighted =
+              col.highlight ||
+              highlightRod === col.label ||
+              highlightRod === idx ||
+              highlightRod === idx + 1;
+            const isLabelHidden =
+              col.hiddenLabel ||
+              hiddenLabel === col.label ||
+              hiddenLabel === idx ||
+              hiddenLabel === idx + 1;
 
             return (
               <g key={col.label + idx}>
+                {/* Highlight Glow behind rod if selected */}
+                {isRodHighlighted && (
+                  <rect
+                    x={cx - beadWidth / 2 - 4}
+                    y={rodTopY - 4}
+                    width={beadWidth + 8}
+                    height={baseLineY - rodTopY + 8}
+                    rx={12}
+                    fill="#fef3c7"
+                    opacity={0.6}
+                  />
+                )}
+
                 {/* Vertical Rod */}
                 <line
                   x1={cx}
                   y1={rodTopY}
                   x2={cx}
                   y2={baseLineY}
-                  stroke="#cbd5e1"
-                  strokeWidth={4}
+                  stroke={isRodHighlighted ? "#f59e0b" : "#cbd5e1"}
+                  strokeWidth={isRodHighlighted ? 5 : 4}
                   strokeLinecap="round"
                 />
 
                 {/* Rod Tip Bead */}
-                <circle cx={cx} y={rodTopY} r={4} fill="#94a3b8" />
+                <circle cx={cx} y={rodTopY} r={isRodHighlighted ? 5 : 4} fill={isRodHighlighted ? "#f59e0b" : "#94a3b8"} />
 
                 {/* Stacked Beads */}
                 {!col.hidden &&
@@ -150,8 +180,8 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
                           cy={beadY}
                           rx={beadWidth / 2}
                           ry={beadHeight / 2 - 1}
-                          fill={colors.beadFill}
-                          stroke={colors.beadStroke}
+                          fill={isRodHighlighted ? "#f59e0b" : colors.beadFill}
+                          stroke={isRodHighlighted ? "#b45309" : colors.beadStroke}
                           strokeWidth={1.5}
                         />
                         {/* Shading highlight */}
@@ -181,21 +211,65 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
                   </text>
                 )}
 
+                {/* Highlight background in base bar */}
+                {isRodHighlighted && (
+                  <rect
+                    x={cx - colSpacing / 2 + 4}
+                    y={baseLineY + 3}
+                    width={colSpacing - 8}
+                    height={22}
+                    rx={6}
+                    fill="#fef3c7"
+                    stroke="#f59e0b"
+                    strokeWidth={1.5}
+                  />
+                )}
+
                 {/* Rod Label inside Base */}
                 <text
                   x={cx}
                   y={baseLineY + 18}
                   textAnchor="middle"
-                  fill="#334155"
-                  fontSize={11}
+                  fill={isRodHighlighted ? "#78350f" : "#334155"}
+                  fontSize={isLabelHidden ? 15 : 11}
                   fontWeight="bold"
                 >
-                  {col.label}
+                  {isLabelHidden ? "؟" : col.label}
                 </text>
               </g>
             );
           })}
         </svg>
+
+        {/* Rod Index Badges Below (میله ۱، میله ۲، ...) */}
+        {showRodIndices && (
+          <div
+            className="grid mt-2 mb-1 gap-1 w-full"
+            style={{ gridTemplateColumns: `repeat(${colCount}, minmax(0, 1fr))` }}
+          >
+            {effectiveColumns.map((col, idx) => {
+              const isRodHighlighted =
+                col.highlight ||
+                highlightRod === col.label ||
+                highlightRod === idx ||
+                highlightRod === idx + 1;
+              return (
+                <div key={"rod-idx-" + idx} className="flex justify-center">
+                  <span
+                    className={`text-[10px] sm:text-xs font-bold px-1.5 py-0.5 rounded-md ${
+                      isRodHighlighted
+                        ? "bg-amber-200 text-amber-950 font-black ring-1 ring-amber-400"
+                        : "bg-slate-200/70 text-slate-600"
+                    }`}
+                    dir="rtl"
+                  >
+                    میله {toPersianDigits(idx + 1)}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Digit Badges Below */}
         {showDigitBadges && (

@@ -115,6 +115,103 @@ function finalizeDistractors(
  * KC-MATH4-C01-01: عددنویسی، جدول ارزش مکانی و بازنمایی تا طبقه هزار (درس اول)
  */
 export function generateThousandsNumberItem(index: number = 0): DiagnosticItemData {
+  const variant = randomChoice<"table_column" | "abacus">([
+    "table_column",
+    "abacus",
+  ]);
+
+  if (variant === "table_column") {
+    // Spatial column reference in place value table with hidden header
+    const sampleNumbers = [470295, 638410, 529074, 814520, 705932, 942108];
+    const num = randomChoice(sampleNumbers);
+
+    const columnTargets = [
+      {
+        key: "صدگان‌هزار",
+        name: "صدگان‌هزار",
+        ordinal: "اول",
+        colIndex: 1,
+        dists: ["ده‌گان‌هزار", "یکان‌هزار", "صدگان"],
+      },
+      {
+        key: "دهگان‌هزار",
+        name: "ده‌گان‌هزار",
+        ordinal: "دوم",
+        colIndex: 2,
+        dists: ["یکان‌هزار", "صدگان‌هزار", "دهگان"],
+      },
+      {
+        key: "یکان‌هزار",
+        name: "یکان‌هزار",
+        ordinal: "سوم",
+        colIndex: 3,
+        dists: ["ده‌گان‌هزار", "صدگان", "یکان"],
+      },
+      {
+        key: "صدگان",
+        name: "صدگان",
+        ordinal: "چهارم",
+        colIndex: 4,
+        dists: ["یکان‌هزار", "ده‌گان‌هزار", "دهگان"],
+      },
+    ];
+
+    const target = randomChoice(columnTargets);
+    const stem = `با توجه به جدول ارزش مکانی زیر، ستون ${target.ordinal} از سمت چپ (خانه‌ی مشخص‌شده با علامت ؟) مربوط به کدام مرتبه است؟`;
+
+    const rawDistractors: RawDistractorChoice[] = [
+      {
+        content: target.name,
+        isCorrect: true,
+        misconceptionId: null,
+        rationale: `پاسخ صحیح: ستون ${target.ordinal} از سمت چپ جدول ارزش مکانی، مرتبه‌ی «${target.name}» را نشان می‌دهد.`,
+      },
+      {
+        content: target.dists[0],
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-01",
+        rationale: `اشتباه در تشخیص مرتبه و جابجایی ستون مجاور.`,
+      },
+      {
+        content: target.dists[1],
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `اشتباه در تشخیص مرتبه در جدول ارزش مکانی.`,
+      },
+      {
+        content: target.dists[2],
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `اشتباه در تفکیک طبقه هزارها و طبقه یکی‌ها.`,
+      },
+    ];
+
+    const distractors = finalizeDistractors(rawDistractors, "G4-C01-01");
+
+    return {
+      id: `ITEM-DYN-G4-C01-01-${Date.now()}-${index}`,
+      kc_id: "KC-MATH4-C01-01",
+      stem,
+      difficulty: 0.32,
+      guess_param: 0.25,
+      slip_param: 0.06,
+      visual_template: {
+        type: "PlaceValueTable",
+        props: {
+          number: num,
+          tiers: ["thousands", "ones"],
+          highlightColumn: target.key,
+          hiddenHeader: target.key,
+          showColumnIndices: true,
+          showLabels: true,
+          label: "جایگاه رقم در جدول ارزش مکانی:",
+        },
+      },
+      distractors,
+    };
+  }
+
+  // Variant: Abacus Reading without spoiler badges
   const configs = [
     {
       words: "چهارصد و هفت هزار و پنجاه و سه",
@@ -122,7 +219,7 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
       mis: "47053",
       alt1: "407530",
       alt2: "470053",
-      desc: "طبقه هزار دارای ۴۰۷ و طبقه یکی‌ها دارای ۰۵۳ است.",
+      desc: "در طبقه هزار ۴۰۷ (۴ مهره در صدگان‌هزار، ۰ در دهگان‌هزار، ۷ در یکان‌هزار) و در طبقه یکی‌ها ۰۵۳ (۰ در صدگان، ۵ در دهگان و ۳ در یکان) قرار دارد.",
     },
     {
       words: "ششصد و بیست هزار و هفتصد و چهار",
@@ -151,7 +248,7 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
   ];
 
   const cfg = randomChoice(configs);
-  const stem = `نماد عددی «${cfg.words}» با کدام گزینه برابر است؟`;
+  const stem = `با توجه به چرتکه‌ی زیر، این چرتکه چه عددی را نشان می‌دهد؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -164,7 +261,7 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
       content: `$${cfg.mis}$`,
       isCorrect: false,
       misconceptionId: "MIS-MATH4-C01-01",
-      rationale: `حذف صفرهای میانی ارزش مکانی و فشرده کردن ارقام بدون رعایت مرتبه‌ها.`,
+      rationale: `حذف صفرهای میانی ارزش مکانی (میله‌های خالی چرتکه) و فشرده کردن ارقام بدون رعایت مرتبه‌ها.`,
     },
     {
       content: `$${cfg.alt1}$`,
@@ -190,12 +287,12 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
     guess_param: 0.25,
     slip_param: 0.08,
     visual_template: {
-      type: "PlaceValueTable",
+      type: "AbacusVisualizer",
       props: {
         number: parseInt(cfg.val, 10),
-        tiers: ["thousands", "ones"],
-        showLabels: true,
-        label: "جدول ارزش مکانی مربوط به عدد:",
+        showDigitBadges: false,
+        showRodIndices: true,
+        label: "چرتکه ستونی ارزش مکانی:",
       },
     },
     distractors,
@@ -620,7 +717,7 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
   ];
 
   const cfg = randomChoice(configs);
-  const stem = `نماد عددی «${cfg.words}» با کدام گزینه برابر است؟`;
+  const stem = `با توجه به چرتکه‌ی زیر، این چرتکه چه عددی را نشان می‌دهد؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -662,8 +759,9 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
       type: "AbacusVisualizer",
       props: {
         number: parseInt(cfg.val, 10),
-        showDigitBadges: true,
-        label: "چرتکه نشان‌دهنده عدد مورد نظر:",
+        showDigitBadges: false,
+        showRodIndices: true,
+        label: "چرتکه ستونی طبقه میلیون:",
       },
     },
     distractors,

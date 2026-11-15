@@ -360,7 +360,7 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794751302.3927689,
+    "mtime": 1794752797.167509,
     "ast_hash": "6c655467173c8eb58d9aa46db5616c75",
     "semantic_hash": ""
   },
@@ -870,7 +870,7 @@
     "semantic_hash": ""
   },
   "data/canonical/grade5_math_ch3.json": {
-    "mtime": 1794751959.880167,
+    "mtime": 1794752798.6563146,
     "ast_hash": "1eff78d8562dbde580f88cb9ba94d436",
     "semantic_hash": ""
   },
@@ -955,18 +955,18 @@
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1794751333.9736161,
+    "mtime": 1794752905.6372137,
     "ast_hash": "1cd52535424c1ad52c6d2f4b056633db",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1794750499.447705,
+    "mtime": 1794752797.2935386,
     "ast_hash": "cfe479a61ad6195ed54d6f3d3accd6f2",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794752659.5475633,
-    "ast_hash": "695b13b5335f4c78a9234165cc58506e",
+    "mtime": 1794758305.9861157,
+    "ast_hash": "5a4a645d4b54cb37f3bccdfff719fcbc",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794752631.247166,
-    "ast_hash": "d6037c958cfbffef80ac5466b155cbc8",
+    "mtime": 1794758232.3520815,
+    "ast_hash": "b613f095bf56a2dee08d60e43aafc9e9",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1165,13 +1165,13 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794752001.81024,
-    "ast_hash": "a9648be13e39d372710ced402595e86a",
+    "mtime": 1794758378.7685072,
+    "ast_hash": "fdb01463e08b73812a7849fde7376002",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
-    "mtime": 1794741487.0635855,
-    "ast_hash": "3b9784acfee6bda2bb7e96024bc15782",
+    "mtime": 1794758187.69805,
+    "ast_hash": "f70a3380df9e82485ad188a58c1eae80",
     "semantic_hash": ""
   },
   "web/components/parametric/BrokenLineGraph.tsx": {
@@ -1180,12 +1180,12 @@
     "semantic_hash": ""
   },
   "web/components/parametric/ClockVisualizer.tsx": {
-    "mtime": 1794750472.4337225,
+    "mtime": 1794752797.3756123,
     "ast_hash": "31db0c0429dbc7af4d6255ce2aa219ad",
     "semantic_hash": ""
   },
   "web/components/parametric/DotPatternVisualizer.tsx": {
-    "mtime": 1794752251.4357,
+    "mtime": 1794752799.1589587,
     "ast_hash": "e6b068ec99a84434850a2f5d7b3fc6dc",
     "semantic_hash": ""
   },
@@ -1195,22 +1195,22 @@
     "semantic_hash": ""
   },
   "web/components/parametric/InputOutputMachine.tsx": {
-    "mtime": 1794751890.9119346,
+    "mtime": 1794752798.8859725,
     "ast_hash": "34197647fd5a615f589327135fdba296",
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
-    "mtime": 1794752614.8547657,
+    "mtime": 1794752900.6030648,
     "ast_hash": "76d74ff5b2f1796d54ab2bc7ec91c5e1",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
-    "mtime": 1794752273.371992,
-    "ast_hash": "3349c4157287510ea5186639d915a9eb",
+    "mtime": 1794758134.1677582,
+    "ast_hash": "278e49f88509651e9f9d0bd1b59ffd3f",
     "semantic_hash": ""
   },
   "web/components/parametric/ProbabilitySpinner.tsx": {
-    "mtime": 1794750485.6497624,
+    "mtime": 1794752797.6188025,
     "ast_hash": "bba97657111640699c744747cfc80de8",
     "semantic_hash": ""
   },

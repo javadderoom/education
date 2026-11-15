@@ -9,8 +9,11 @@ export interface PlaceValueTableProps {
   tiers?: ("millions" | "thousands" | "ones")[];
   highlightColumn?: string; // e.g. "دهگان‌هزار", "صدگان", "یکان‌میلیون"
   hiddenSlot?: string; // e.g. "دهگان‌هزار"
+  hiddenHeader?: string; // column key or label whose subheader is masked with '؟'
   showLabels?: boolean;
   label?: string;
+  showColumnIndices?: boolean; // shows column numbers "ستون ۱", "ستون ۲", etc. from left to right
+  hideFullNumber?: boolean;
 }
 
 interface ColumnDef {
@@ -39,8 +42,11 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
   tiers = ["thousands", "ones"],
   highlightColumn,
   hiddenSlot,
+  hiddenHeader,
   showLabels = true,
   label,
+  showColumnIndices = false,
+  hideFullNumber = false,
 }) => {
   // Determine if millions tier is active
   const hasMillions = tiers.includes("millions") || (number !== undefined && number >= 1_000_000);
@@ -112,12 +118,34 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
               })}
             </tr>
 
+            {/* Optional Column Index Indicators (ستون ۱، ستون ۲، ...) */}
+            {showColumnIndices && (
+              <tr className="border-b border-slate-200 bg-slate-100/90 text-[10px] sm:text-xs text-slate-600 font-bold">
+                {activeColumns.map((col, idx) => {
+                  const isHighlighted = highlightColumn === col.key || highlightColumn === col.label;
+                  return (
+                    <th
+                      key={"col-idx-" + idx}
+                      className={`py-1 px-0.5 border-l border-slate-200 ${
+                        isHighlighted ? "bg-amber-200/70 text-amber-950 font-black" : ""
+                      }`}
+                    >
+                      <span className="inline-block" dir="rtl">
+                        ستون {toPersianDigits(idx + 1)}
+                      </span>
+                    </th>
+                  );
+                })}
+              </tr>
+            )}
+
             {/* Sub Headers (صدگان، دهگان، یکان) */}
             {showLabels && (
               <tr className="border-b border-slate-300">
                 {activeColumns.map((col, idx) => {
                   const colors = getTierColor(col.tier);
                   const isHighlighted = highlightColumn === col.key || highlightColumn === col.label;
+                  const isHeaderHidden = hiddenHeader === col.key || hiddenHeader === col.label;
                   return (
                     <th
                       key={col.key + idx}
@@ -125,7 +153,13 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
                         isHighlighted ? "bg-amber-200 text-amber-950 font-black" : colors.subBg
                       }`}
                     >
-                      {col.label}
+                      {isHeaderHidden ? (
+                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-md border-2 border-dashed border-amber-600 bg-amber-100 text-amber-950 font-black text-xs animate-pulse">
+                          ؟
+                        </span>
+                      ) : (
+                        col.label
+                      )}
                     </th>
                   );
                 })}
@@ -171,7 +205,7 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
         </table>
       </div>
 
-      {number !== undefined && !hiddenSlot && (
+      {number !== undefined && !hiddenSlot && !hideFullNumber && (
         <div className="mt-2 text-xs font-bold text-slate-500 flex items-center gap-1.5" dir="rtl">
           <span className="text-slate-500">عدد کامل:</span>
           <span className="font-black text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-200 text-sm tracking-normal shadow-2xs" dir="ltr">
