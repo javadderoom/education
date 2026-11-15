@@ -92,7 +92,7 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
       {label && <p className="text-sm font-bold text-slate-800 mb-2">{label}</p>}
 
       <div className="w-full max-w-lg overflow-x-auto shadow-sm rounded-2xl border-2 border-slate-300 bg-white">
-        <table className="w-full border-collapse text-center">
+        <table className="w-full border-collapse text-center" dir="ltr">
           {/* Tier Top Headers */}
           <thead>
             <tr>

@@ -136,7 +136,7 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
       {label && <p className="text-sm font-bold text-slate-800 mb-2">{label}</p>}
 
       <div className="w-full max-w-xl bg-slate-50 border-2 border-slate-300 rounded-3xl p-4 shadow-sm">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" dir="ltr">
           {stages.map((stage, idx) => (
             <div
               key={idx}
@@ -146,7 +146,7 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
                   : "bg-white border-slate-200 shadow-xs"
               }`}
             >
-              <span className="text-xs font-black text-slate-700 mb-2">
+              <span className="text-xs font-black text-slate-700 mb-2" dir="rtl">
                 شکل ({toPersianDigits(stage.stageNumber)})
               </span>
 
@@ -161,7 +161,7 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
                       ? "bg-amber-200 text-amber-900"
                       : "bg-slate-100 text-slate-600"
                   }`}
-                  dir="ltr"
+                  dir="rtl"
                 >
                   {stage.isTarget ? "؟ چوب‌کبریت" : `${toPersianDigits(stage.count)} چوب‌کبریت`}
                 </span>

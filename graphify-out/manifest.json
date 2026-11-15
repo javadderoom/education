@@ -1185,8 +1185,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/DotPatternVisualizer.tsx": {
-    "mtime": 1794741536.462536,
-    "ast_hash": "377be11e4c9324250bb53486d8b4eba0",
+    "mtime": 1794752251.4357,
+    "ast_hash": "e6b068ec99a84434850a2f5d7b3fc6dc",
     "semantic_hash": ""
   },
   "web/components/parametric/FractionCircle.tsx": {
@@ -1200,13 +1200,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
-    "mtime": 1794741522.5810642,
-    "ast_hash": "de241d480311dcff395fa702706e759b",
+    "mtime": 1794752260.3595407,
+    "ast_hash": "ebb3469164e8e12c857ac927205c3592",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
-    "mtime": 1794750464.224243,
-    "ast_hash": "51b3f2e7ca533b705a48480f678abd86",
+    "mtime": 1794752273.371992,
+    "ast_hash": "3349c4157287510ea5186639d915a9eb",
     "semantic_hash": ""
   },
   "web/components/parametric/ProbabilitySpinner.tsx": {
