@@ -27,34 +27,6 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
   label,
   showCounts = true,
 }) => {
-  // Render a matchstick SVG element with wooden body and red/amber sulfur tip
-  const renderMatchstick = (x1: number, y1: number, x2: number, y2: number, key: string | number) => {
-    // Sulfur head position at x1, y1
-    return (
-      <g key={key}>
-        {/* Matchstick wooden stick */}
-        <line
-          x1={x1}
-          y1={y1}
-          x2={x2}
-          y2={y2}
-          stroke="#d97706" // amber-600 (wood)
-          strokeWidth={4.5}
-          strokeLinecap="round"
-        />
-        {/* Matchstick sulfur tip */}
-        <circle
-          cx={x1}
-          cy={y1}
-          r={4}
-          fill="#ef4444" // red-500
-          stroke="#b91c1c"
-          strokeWidth={1}
-        />
-      </g>
-    );
-  };
-
   // Render matchstick arrangement for a given stage
   const renderStageShape = (stageNum: number, isTarget?: boolean) => {
     if (isTarget) {
@@ -80,16 +52,46 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
             const top = 11;
             const bottom = top + boxSize;
 
+            const sticks: { x1: number; y1: number; x2: number; y2: number; key: string }[] = [];
+
+            // Top horizontal: left -> right (head at left-top)
+            sticks.push({ x1: left, y1: top, x2: right, y2: top, key: `top-${i}` });
+            // Right vertical: top -> bottom (head at right-top)
+            sticks.push({ x1: right, y1: top, x2: right, y2: bottom, key: `right-${i}` });
+            // Bottom horizontal: right -> left (head at right-bottom)
+            sticks.push({ x1: right, y1: bottom, x2: left, y2: bottom, key: `bot-${i}` });
+            // Left vertical (only for first square): bottom -> top (head at left-bottom)
+            if (i === 0) {
+              sticks.push({ x1: left, y1: bottom, x2: left, y2: top, key: `left-${i}` });
+            }
+
             return (
               <g key={i}>
-                {/* Top horizontal */}
-                {renderMatchstick(left, top, right, top, `top-${i}`)}
-                {/* Bottom horizontal */}
-                {renderMatchstick(left, bottom, right, bottom, `bot-${i}`)}
-                {/* Left vertical (only for first square) */}
-                {i === 0 && renderMatchstick(left, top, left, bottom, `left-${i}`)}
-                {/* Right vertical */}
-                {renderMatchstick(right, top, right, bottom, `right-${i}`)}
+                {/* 1. Render all wooden sticks first */}
+                {sticks.map((s) => (
+                  <line
+                    key={`line-${s.key}`}
+                    x1={s.x1}
+                    y1={s.y1}
+                    x2={s.x2}
+                    y2={s.y2}
+                    stroke="#d97706"
+                    strokeWidth={4.5}
+                    strokeLinecap="round"
+                  />
+                ))}
+                {/* 2. Render all sulfur tips on top so sticks never occlude them */}
+                {sticks.map((s) => (
+                  <circle
+                    key={`tip-${s.key}`}
+                    cx={s.x1}
+                    cy={s.y1}
+                    r={4}
+                    fill="#ef4444"
+                    stroke="#b91c1c"
+                    strokeWidth={1}
+                  />
+                ))}
               </g>
             );
           })}
@@ -114,50 +116,66 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
     return (
       <svg viewBox={`0 0 ${totalW} ${totalH}`} className="h-16 sm:h-20 max-w-full">
         {Array.from({ length: count }).map((_, i) => {
+          const sticks: { x1: number; y1: number; x2: number; y2: number; key: string }[] = [];
+
           if (i === 0) {
-            // First triangle (points up): 3 sticks (left, right, base)
+            // First triangle (points up): 3 sticks (left slope, right slope, base)
             const x0 = 12;
             const x1 = 12 + halfBase; // 27
             const x2 = 12 + baseW; // 42
-            return (
-              <g key={i}>
-                {/* Base horizontal */}
-                {renderMatchstick(x0, yBase, x2, yBase, `base-0`)}
-                {/* Left slope */}
-                {renderMatchstick(x1, yPeak, x0, yBase, `ls-0`)}
-                {/* Right slope (shared with triangle 1) */}
-                {renderMatchstick(x1, yPeak, x2, yBase, `rs-0`)}
-              </g>
-            );
+            // Left slope: bottom-left -> peak (head at bottom-left)
+            sticks.push({ x1: x0, y1: yBase, x2: x1, y2: yPeak, key: "ls-0" });
+            // Right slope: peak -> bottom-right (head at peak)
+            sticks.push({ x1: x1, y1: yPeak, x2: x2, y2: yBase, key: "rs-0" });
+            // Base horizontal: bottom-right -> bottom-left (head at bottom-right)
+            sticks.push({ x1: x2, y1: yBase, x2: x0, y2: yBase, key: "base-0" });
           } else if (i % 2 === 1) {
             // Odd index (1, 3, 5... points down): shares previous right slope
             // Adds top horizontal and new right slope
             const xTopLeft = 12 + i * halfBase;
             const xTopRight = xTopLeft + baseW;
             const xBottom = xTopLeft + halfBase;
-            return (
-              <g key={i}>
-                {/* Top horizontal */}
-                {renderMatchstick(xTopLeft, yPeak, xTopRight, yPeak, `top-${i}`)}
-                {/* Right slope */}
-                {renderMatchstick(xTopRight, yPeak, xBottom, yBase, `rs-${i}`)}
-              </g>
-            );
+            sticks.push({ x1: xTopLeft, y1: yPeak, x2: xTopRight, y2: yPeak, key: `top-${i}` });
+            sticks.push({ x1: xTopRight, y1: yPeak, x2: xBottom, y2: yBase, key: `rs-${i}` });
           } else {
             // Even index (2, 4, 6... points up): shares previous right slope
             // Adds bottom horizontal and new right slope
             const xBottomLeft = 12 + i * halfBase;
             const xBottomRight = xBottomLeft + baseW;
             const xTop = xBottomLeft + halfBase;
-            return (
-              <g key={i}>
-                {/* Bottom horizontal */}
-                {renderMatchstick(xBottomLeft, yBase, xBottomRight, yBase, `base-${i}`)}
-                {/* Right slope */}
-                {renderMatchstick(xTop, yPeak, xBottomRight, yBase, `rs-${i}`)}
-              </g>
-            );
+            sticks.push({ x1: xBottomRight, y1: yBase, x2: xBottomLeft, y2: yBase, key: `base-${i}` });
+            sticks.push({ x1: xTop, y1: yPeak, x2: xBottomRight, y2: yBase, key: `rs-${i}` });
           }
+
+          return (
+            <g key={i}>
+              {/* 1. Render all wooden sticks */}
+              {sticks.map((s) => (
+                <line
+                  key={`line-${s.key}`}
+                  x1={s.x1}
+                  y1={s.y1}
+                  x2={s.x2}
+                  y2={s.y2}
+                  stroke="#d97706"
+                  strokeWidth={4.5}
+                  strokeLinecap="round"
+                />
+              ))}
+              {/* 2. Render all sulfur tips on top */}
+              {sticks.map((s) => (
+                <circle
+                  key={`tip-${s.key}`}
+                  cx={s.x1}
+                  cy={s.y1}
+                  r={4}
+                  fill="#ef4444"
+                  stroke="#b91c1c"
+                  strokeWidth={1}
+                />
+              ))}
+            </g>
+          );
         })}
       </svg>
     );

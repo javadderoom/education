@@ -125,22 +125,63 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(container.querySelector(".font-mono")).toBeNull();
   });
 
-  it("renders MatchstickPattern with triangle and square chain configurations", () => {
-    const { container, getByText, getAllByText } = render(
+  it("renders MatchstickPattern with triangle and square chain configurations and distinct sulfur tips", () => {
+    // 1. Squares pattern
+    const { container: squareContainer, getByText: getByTextSquare } = render(
       <MatchstickPattern
-        patternKind="triangles"
+        patternKind="squares"
         stages={[
           { stageNumber: 1, count: 4, isTarget: false },
           { stageNumber: 2, count: 7, isTarget: false },
           { stageNumber: 3, count: 10, isTarget: false },
           { stageNumber: 4, count: 13, isTarget: true },
         ]}
-        label="الگوی چوب‌کبریت‌ها"
+        label="الگوی چوب‌کبریت‌های مربعی"
       />
     );
-    expect(getByText("الگوی چوب‌کبریت‌ها")).toBeDefined();
-    expect(getByText("؟ چوب‌کبریت")).toBeDefined();
-    expect(container.querySelectorAll("svg").length).toBe(3); // 3 non-target stages have SVGs
+    expect(getByTextSquare("الگوی چوب‌کبریت‌های مربعی")).toBeDefined();
+    expect(getByTextSquare("؟ چوب‌کبریت")).toBeDefined();
+    const squareSvgs = squareContainer.querySelectorAll("svg");
+    expect(squareSvgs.length).toBe(3);
+
+    // Stage 1 (1 square): exactly 4 lines (wooden bodies) and 4 circles (sulfur heads)
+    const stage1Lines = squareSvgs[0].querySelectorAll("line");
+    const stage1Tips = squareSvgs[0].querySelectorAll("circle");
+    expect(stage1Lines.length).toBe(4);
+    expect(stage1Tips.length).toBe(4);
+
+    // Verify all 4 distinct corners are covered by sulfur tips
+    const coords = Array.from(stage1Tips).map((c) => `${c.getAttribute("cx")},${c.getAttribute("cy")}`);
+    const uniqueCoords = new Set(coords);
+    expect(uniqueCoords.size).toBe(4); // 4 distinct corners, no overlap!
+
+    // Stage 2 (2 squares): 7 lines and 7 tips
+    const stage2Lines = squareSvgs[1].querySelectorAll("line");
+    const stage2Tips = squareSvgs[1].querySelectorAll("circle");
+    expect(stage2Lines.length).toBe(7);
+    expect(stage2Tips.length).toBe(7);
+
+    // 2. Triangles pattern
+    const { container: triContainer, getByText: getByTextTri } = render(
+      <MatchstickPattern
+        patternKind="triangles"
+        stages={[
+          { stageNumber: 1, count: 3, isTarget: false },
+          { stageNumber: 2, count: 5, isTarget: false },
+          { stageNumber: 3, count: 7, isTarget: true },
+        ]}
+        label="الگوی چوب‌کبریت‌های مثلثی"
+      />
+    );
+    expect(getByTextTri("الگوی چوب‌کبریت‌های مثلثی")).toBeDefined();
+    const triSvgs = triContainer.querySelectorAll("svg");
+    expect(triSvgs.length).toBe(2);
+
+    // Stage 1 (1 triangle): exactly 3 lines and 3 tips at 3 distinct corners
+    const triStage1Tips = triSvgs[0].querySelectorAll("circle");
+    expect(triStage1Tips.length).toBe(3);
+    const triCoords = Array.from(triStage1Tips).map((c) => `${c.getAttribute("cx")},${c.getAttribute("cy")}`);
+    expect(new Set(triCoords).size).toBe(3);
   });
 
   it("renders DotPatternVisualizer with triangular numbers", () => {
