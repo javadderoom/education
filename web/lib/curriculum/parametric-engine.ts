@@ -1103,6 +1103,7 @@ export function generateEquivalentFractionItem(index: number = 0): DiagnosticIte
       props: {
         rows: den,
         cols: multiplier,
+        initialColored: eqNum,
         coloredCount: eqNum,
       },
     },
@@ -1602,6 +1603,7 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
       props: {
         rows: 10,
         cols: 10,
+        initialColored: percent,
         coloredCount: percent,
       },
     },

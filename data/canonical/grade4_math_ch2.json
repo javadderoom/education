@@ -213,6 +213,8 @@
         "props": {
           "rows": 2,
           "cols": 3,
+          "initialColored": 4,
+          "coloredCount": 4,
           "highlightFractionA": "2/3",
           "highlightFractionB": "4/6"
         }
@@ -458,7 +460,8 @@
         "props": {
           "rows": 2,
           "cols": 4,
-          "initialColored": 5
+          "initialColored": 5,
+          "coloredCount": 5
         }
       },
       "distractors": [

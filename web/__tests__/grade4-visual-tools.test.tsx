@@ -372,6 +372,51 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(gridDiv.style.gridTemplateColumns).toBe("45fr 18fr 37fr");
   });
 
+  it("renders AreaGrid with coloredCount prop and correct proportion (e.g. 9/12 for equivalent fractions)", () => {
+    // 4 rows x 3 cols = 12 total cells, coloredCount = 9 (representing 3/4 = 9/12)
+    const { container, rerender } = render(
+      <AreaGrid rows={4} cols={3} coloredCount={9} hideBadge={true} />
+    );
+
+    const buttons = container.querySelectorAll("button");
+    expect(buttons.length).toBe(12);
+
+    const coloredButtons = Array.from(buttons).filter((b) =>
+      b.className.includes("bg-indigo-600")
+    );
+    expect(coloredButtons.length).toBe(9);
+
+    // Verify dynamic update via rerender (e.g. when moving between carousel questions)
+    rerender(
+      <AreaGrid rows={4} cols={3} coloredCount={6} hideBadge={true} />
+    );
+    const updatedColored = Array.from(container.querySelectorAll("button")).filter((b) =>
+      b.className.includes("bg-indigo-600")
+    );
+    expect(updatedColored.length).toBe(6);
+
+    // Verify VisualTemplateRenderer correctly passes coloredCount and color
+    const { container: vtContainer } = render(
+      <VisualTemplateRenderer
+        template={{
+          type: "AreaGrid",
+          props: {
+            rows: 10,
+            cols: 10,
+            coloredCount: 35,
+            color: "emerald",
+          },
+        }}
+      />
+    );
+    const vtButtons = vtContainer.querySelectorAll("button");
+    expect(vtButtons.length).toBe(100);
+    const emeraldButtons = Array.from(vtButtons).filter((b) =>
+      b.className.includes("bg-emerald-600")
+    );
+    expect(emeraldButtons.length).toBe(35);
+  });
+
   it("renders NumberLine with circle directly on the line and correctly selects 5th tick for 5/6", () => {
     const { container, rerender } = render(
       <NumberLine

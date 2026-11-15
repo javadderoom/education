@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch2.json": {
-    "mtime": 1793815204.3890758,
-    "ast_hash": "83346aa3dd90338bf9c53bcd07d05b53",
+    "mtime": 1794774206.7633064,
+    "ast_hash": "455eb03088d4f5b9d36063ebb54e9670",
     "semantic_hash": ""
   },
   "scripts/ingestion/gemini_authoring.py": {
@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794752797.167509,
-    "ast_hash": "6c655467173c8eb58d9aa46db5616c75",
+    "mtime": 1794772699.8361182,
+    "ast_hash": "b7c4b8dde19db1bdee12171cf0d7dc2c",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/AreaGrid.tsx": {
-    "mtime": 1793725508.5821278,
-    "ast_hash": "9e22e1c30c7b71b73e0d93f6b220b1eb",
+    "mtime": 1794774012.5766783,
+    "ast_hash": "046cbe68094283df30d72f7502856918",
     "semantic_hash": ""
   },
   "web/components/parametric/BalanceScale.tsx": {
@@ -385,13 +385,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/FractionStrip.tsx": {
-    "mtime": 1793725498.3975444,
-    "ast_hash": "2e730f1b8bb06bd207a953e026e99cb2",
+    "mtime": 1794771146.3330762,
+    "ast_hash": "72aefa6f032b1476f8224acccefb9470",
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
-    "mtime": 1793442822.6249096,
-    "ast_hash": "64a6add41c397d684aa818fe0eb40c42",
+    "mtime": 1794772699.9072537,
+    "ast_hash": "2fce163f411e4ce03050de74544e42db",
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "web/tsconfig.json": {
-    "mtime": 1793421965.9563825,
-    "ast_hash": "c951d6755f931d8ac2bd0b97d23310a6",
+    "mtime": 1794771431.1821704,
+    "ast_hash": "2e710af958bc275b18051dcc2001a9d7",
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
@@ -955,8 +955,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1794752905.6372137,
-    "ast_hash": "1cd52535424c1ad52c6d2f4b056633db",
+    "mtime": 1794773312.9808755,
+    "ast_hash": "1e20147ded4096c4d81e731a63f506ab",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794762263.1746335,
-    "ast_hash": "e3249eb52c3b9a981be2e53a0e2fbae8",
+    "mtime": 1794774180.1656883,
+    "ast_hash": "d7ec42f2d830fc3046c167aa9734c6bb",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,7 +1115,7 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794762188.6399393,
+    "mtime": 1794762722.2673688,
     "ast_hash": "0ad30e06f02c54a9c871569d1105ca0b",
     "semantic_hash": ""
   },
@@ -1150,12 +1150,12 @@
     "semantic_hash": ""
   },
   "web/__tests__/ui-student-assessment-view.test.tsx": {
-    "mtime": 1794417991.003935,
-    "ast_hash": "afc0339865575aec0fe3d3c7ac74bfa9",
+    "mtime": 1794769443.455954,
+    "ast_hash": "485c26c9ec16c1dd40fef07695615ebc",
     "semantic_hash": ""
   },
   "data/tools/grade4_visual_tools_manifest.json": {
-    "mtime": 1794762230.7517767,
+    "mtime": 1794762722.3757777,
     "ast_hash": "d5fac17e15523eaf45b59d2b3b0966a7",
     "semantic_hash": ""
   },
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794762372.268503,
-    "ast_hash": "20b79936384aae51c5c99d96feb2b6a7",
+    "mtime": 1794774239.1773515,
+    "ast_hash": "1a49bdba0df4772bae286c2bd063d7da",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
@@ -1200,8 +1200,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
-    "mtime": 1794752900.6030648,
-    "ast_hash": "76d74ff5b2f1796d54ab2bc7ec91c5e1",
+    "mtime": 1794767358.112084,
+    "ast_hash": "f96c2b979c260d30cd5211e925d5a039",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
