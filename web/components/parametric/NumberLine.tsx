@@ -8,6 +8,7 @@ export interface NumberLineProps {
   max?: number;
   partitions?: number;
   targetPoint?: number; // e.g. 0.5 for 2/4
+  targetFraction?: number; // alias for targetPoint
   targetLabel?: string;
   hideFractions?: boolean;
   interactive?: boolean;
@@ -18,15 +19,25 @@ export const NumberLine: React.FC<NumberLineProps> = ({
   min = 0,
   max = 1,
   partitions = 4,
-  targetPoint = 0.5,
+  targetPoint,
+  targetFraction,
   targetLabel,
   hideFractions = false,
   interactive = false,
   onPositionSelect,
 }) => {
+  const effectiveTarget = targetPoint ?? targetFraction ?? 0.5;
+
   const [selectedTick, setSelectedTick] = useState<number | null>(
-    targetPoint !== undefined ? Math.round(targetPoint * partitions) : null
+    effectiveTarget !== undefined ? Math.round(effectiveTarget * partitions) : null
   );
+
+  React.useEffect(() => {
+    const effective = targetPoint ?? targetFraction;
+    if (effective !== undefined) {
+      setSelectedTick(Math.round(effective * partitions));
+    }
+  }, [targetPoint, targetFraction, partitions]);
 
   const paddingX = 40;
   const lineY = 60;
@@ -122,7 +133,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
                 {isSelected && (
                   <circle
                     cx={x}
-                    y={lineY}
+                    cy={lineY}
                     r={7}
                     fill="#4f46e5"
                     stroke="#ffffff"

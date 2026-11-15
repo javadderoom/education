@@ -1292,6 +1292,7 @@ export function generateFractionNumberLineItem(index: number = 0): DiagnosticIte
       type: "NumberLine",
       props: {
         partitions: den,
+        targetPoint: num / den,
         targetFraction: num / den,
         hideFractions: true,
       },

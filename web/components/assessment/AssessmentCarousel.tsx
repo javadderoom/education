@@ -513,7 +513,12 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   // Render Visual Template dynamically
   const renderVisualTemplate = () => {
     if (!currentItem.visual_template) return null;
-    return <VisualTemplateRenderer template={currentItem.visual_template} />;
+    return (
+      <VisualTemplateRenderer
+        key={currentItem.id}
+        template={currentItem.visual_template}
+      />
+    );
   };
 
   // If in interactive workshop mode

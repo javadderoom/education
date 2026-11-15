@@ -2,6 +2,7 @@ import React from "react";
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { VisualTemplateRenderer } from "../components/parametric/VisualTemplateRegistry";
+import { NumberLine } from "../components/parametric/NumberLine";
 import { FractionStrip } from "../components/parametric/FractionStrip";
 import { AreaGrid } from "../components/parametric/AreaGrid";
 import { PlaceValueTable } from "../components/parametric/PlaceValueTable";
@@ -362,5 +363,51 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     buttons.forEach((btn) => {
       expect(btn.textContent?.trim()).toBe("");
     });
+  });
+
+  it("renders NumberLine with circle directly on the line and correctly selects 5th tick for 5/6", () => {
+    const { container, rerender } = render(
+      <NumberLine
+        min={0}
+        max={1}
+        partitions={6}
+        targetPoint={0.833}
+        targetLabel="نقطه مورد نظر"
+        hideFractions={true}
+      />
+    );
+
+    // 1. Circle must sit on axis line (cy="60", NOT floating at top or using y)
+    const circle = container.querySelector("circle");
+    expect(circle).toBeDefined();
+    expect(circle?.getAttribute("cy")).toBe("60");
+    expect(circle?.getAttribute("y")).toBeNull();
+
+    // 2. Usable width is 380 (460 - 2*40). For 6 partitions, step width is 380/6 = 63.33.
+    // For tick 5 (5/6), cx should be 40 + 5 * (380 / 6) = 356.666...
+    const cx = parseFloat(circle?.getAttribute("cx") || "0");
+    const expectedCx = 40 + (5 * (460 - 80)) / 6;
+    expect(Math.abs(cx - expectedCx)).toBeLessThan(1);
+
+    // 3. Question mark text must be rendered at tick 5
+    const questionText = Array.from(container.querySelectorAll("text")).find((t) => t.textContent === "؟");
+    expect(questionText).toBeDefined();
+    expect(parseFloat(questionText?.getAttribute("x") || "0")).toBeCloseTo(expectedCx, 0);
+
+    // 4. Test re-rendering with new targetPoint (state sync)
+    rerender(
+      <NumberLine
+        min={0}
+        max={1}
+        partitions={6}
+        targetPoint={0.166} // 1/6 (tick 1)
+        hideFractions={true}
+      />
+    );
+
+    const updatedCircle = container.querySelector("circle");
+    const updatedCx = parseFloat(updatedCircle?.getAttribute("cx") || "0");
+    const expectedTick1Cx = 40 + (1 * (460 - 80)) / 6;
+    expect(Math.abs(updatedCx - expectedTick1Cx)).toBeLessThan(1);
   });
 });
