@@ -159,7 +159,7 @@
       "id": "ITEM-MATH4-CH01-002",
       "kc_id": "KC-MATH4-C01-01",
       "curriculum_node_id": "NODE-G4-CH01-L01",
-      "stem": "در جدول ارزش مکانی زیر، ستون دوم از سمت چپ (خانه‌ی مشخص‌شده با علامت ؟) مربوط به کدام مرتبه است؟",
+      "stem": "در جدول ارزش مکانی زیر، چه رقمی باید در جای علامت ؟ قرار گیرد تا عدد $470295$ کامل شود؟",
       "difficulty": 0.3,
       "guess_param": 0.25,
       "slip_param": 0.05,
@@ -171,44 +171,42 @@
             "thousands",
             "ones"
           ],
-          "highlightColumn": "دهگان‌هزار",
-          "hiddenHeader": "دهگان‌هزار",
-          "showLabels": true,
-          "showColumnIndices": true
+          "hiddenSlot": "دهگان‌هزار",
+          "showLabels": true
         }
       },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-002-A",
           "label": "الف",
-          "content": "ده‌گان‌هزار",
+          "content": "$7$",
           "is_correct": true,
           "misconception_id": null,
-          "rationale": "در طبقه هزار: ۵ یکان، ۹ دهگان، ۲ صدگان، ۰ یکان‌هزار، ۷ ده‌گان‌هزار و ۴ صدگان‌هزار است."
+          "rationale": "پاسخ صحیح: در عدد ۴۷۰۲۹۵، رقم ۷ در مرتبه‌ی ده‌گان‌هزار قرار دارد و باید در جای علامت ؟ نوشته شود."
         },
         {
           "id": "DIS-MATH4-C01-002-B",
           "label": "ب",
-          "content": "یکان‌هزار",
+          "content": "$0$",
           "is_correct": false,
           "misconception_id": "MIS-MATH4-C01-01",
-          "rationale": "نادیده گرفتن رقم صفر در یکان‌هزار و تلقی اولین رقم غیرصفر هزار به عنوان یکان‌هزار."
+          "rationale": "اشتباه گرفتن رقم مرتبه‌ی یکان‌هزار (۰) با مرتبه‌ی ده‌گان‌هزار."
         },
         {
           "id": "DIS-MATH4-C01-002-C",
           "label": "ج",
-          "content": "صدگان‌هزار",
+          "content": "$4$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "اشتباه گرفتن بالاترین مرتبه عدد (۴) با مرتبه رقم ۷."
+          "rationale": "اشتباه گرفتن بالاترین مرتبه (صدگان‌هزار) با مرتبه‌ی ده‌گان‌هزار."
         },
         {
           "id": "DIS-MATH4-C01-002-D",
           "label": "د",
-          "content": "ده‌گان",
+          "content": "$2$",
           "is_correct": false,
           "misconception_id": null,
-          "rationale": "اشتباه در تشخیص طبقه هزار و طبقه یکی‌ها."
+          "rationale": "اشتباه در تشخیص طبقه و انتخاب رقم صدگان طبقه یکی‌ها به جای ده‌گان‌هزار."
         }
       ]
     },

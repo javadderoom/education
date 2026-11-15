@@ -121,68 +121,72 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
   ]);
 
   if (variant === "table_column") {
-    // Spatial column reference in place value table with hidden header
-    const sampleNumbers = [470295, 638410, 529074, 814520, 705932, 942108];
-    const num = randomChoice(sampleNumbers);
-
-    const columnTargets = [
+    // Missing digit puzzle in canonical place value table
+    const sampleItems = [
       {
-        key: "صدگان‌هزار",
-        name: "صدگان‌هزار",
-        ordinal: "اول",
-        colIndex: 1,
-        dists: ["ده‌گان‌هزار", "یکان‌هزار", "صدگان"],
+        num: 470295,
+        targetKey: "دهگان‌هزار",
+        targetTitle: "ده‌گان‌هزار",
+        correctDigit: "7",
+        distractors: ["0", "4", "2"],
       },
       {
-        key: "دهگان‌هزار",
-        name: "ده‌گان‌هزار",
-        ordinal: "دوم",
-        colIndex: 2,
-        dists: ["یکان‌هزار", "صدگان‌هزار", "دهگان"],
+        num: 638410,
+        targetKey: "یکان‌هزار",
+        targetTitle: "یکان‌هزار",
+        correctDigit: "8",
+        distractors: ["3", "4", "0"],
       },
       {
-        key: "یکان‌هزار",
-        name: "یکان‌هزار",
-        ordinal: "سوم",
-        colIndex: 3,
-        dists: ["ده‌گان‌هزار", "صدگان", "یکان"],
+        num: 529074,
+        targetKey: "صدگان‌هزار",
+        targetTitle: "صدگان‌هزار",
+        correctDigit: "5",
+        distractors: ["2", "9", "0"],
       },
       {
-        key: "صدگان",
-        name: "صدگان",
-        ordinal: "چهارم",
-        colIndex: 4,
-        dists: ["یکان‌هزار", "ده‌گان‌هزار", "دهگان"],
+        num: 814520,
+        targetKey: "صدگان",
+        targetTitle: "صدگان",
+        correctDigit: "5",
+        distractors: ["4", "1", "2"],
+      },
+      {
+        num: 705932,
+        targetKey: "دهگان‌هزار",
+        targetTitle: "ده‌گان‌هزار",
+        correctDigit: "0",
+        distractors: ["7", "5", "9"],
       },
     ];
 
-    const target = randomChoice(columnTargets);
-    const stem = `در جدول ارزش مکانی زیر، ستون ${target.ordinal} از سمت چپ (خانه‌ی مشخص‌شده با علامت ؟) مربوط به کدام مرتبه است؟`;
+    const itemConfig = randomChoice(sampleItems);
+    const stem = `در جدول ارزش مکانی زیر، چه رقمی باید در جای علامت ؟ قرار گیرد تا عدد $${itemConfig.num}$ کامل شود؟`;
 
     const rawDistractors: RawDistractorChoice[] = [
       {
-        content: target.name,
+        content: `$${itemConfig.correctDigit}$`,
         isCorrect: true,
         misconceptionId: null,
-        rationale: `پاسخ صحیح: ستون ${target.ordinal} از سمت چپ جدول ارزش مکانی، مرتبه‌ی «${target.name}» را نشان می‌دهد.`,
+        rationale: `پاسخ صحیح: در عدد ${itemConfig.num}، رقم ${itemConfig.correctDigit} در مرتبه‌ی ${itemConfig.targetTitle} قرار دارد و باید در جای علامت ؟ نوشته شود.`,
       },
       {
-        content: target.dists[0],
+        content: `$${itemConfig.distractors[0]}$`,
         isCorrect: false,
         misconceptionId: "MIS-MATH4-C01-01",
-        rationale: `اشتباه در تشخیص مرتبه و جابجایی ستون مجاور.`,
+        rationale: `اشتباه در تشخیص مرتبه و انتخاب رقم مرتبه‌ی مجاور.`,
       },
       {
-        content: target.dists[1],
+        content: `$${itemConfig.distractors[1]}$`,
         isCorrect: false,
         misconceptionId: null,
-        rationale: `اشتباه در تشخیص مرتبه در جدول ارزش مکانی.`,
+        rationale: `اشتباه در تفکیک ارقام طبقات در جدول ارزش مکانی.`,
       },
       {
-        content: target.dists[2],
+        content: `$${itemConfig.distractors[2]}$`,
         isCorrect: false,
         misconceptionId: null,
-        rationale: `اشتباه در تفکیک طبقه هزارها و طبقه یکی‌ها.`,
+        rationale: `اشتباه در تشخیص طبقه هزار و طبقه یکی‌ها.`,
       },
     ];
 
@@ -198,13 +202,10 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
       visual_template: {
         type: "PlaceValueTable",
         props: {
-          number: num,
+          number: itemConfig.num,
           tiers: ["thousands", "ones"],
-          highlightColumn: target.key,
-          hiddenHeader: target.key,
-          showColumnIndices: true,
+          hiddenSlot: itemConfig.targetKey,
           showLabels: true,
-          label: "جایگاه رقم در جدول ارزش مکانی:",
         },
       },
       distractors,
@@ -291,7 +292,6 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
       props: {
         number: parseInt(cfg.val, 10),
         showDigitBadges: false,
-        showRodIndices: true,
       },
     },
     distractors,
@@ -759,7 +759,6 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
       props: {
         number: parseInt(cfg.val, 10),
         showDigitBadges: false,
-        showRodIndices: true,
       },
     },
     distractors,

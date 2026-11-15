@@ -20,7 +20,6 @@ export interface AbacusVisualizerProps {
   showDigitBadges?: boolean;
   highlightRod?: string | number; // rod label or index to highlight
   hiddenLabel?: string | number; // rod label or index whose label is masked with '؟'
-  showRodIndices?: boolean; // shows "میله ۱", "میله ۲", etc. from left to right
 }
 
 export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
@@ -31,7 +30,6 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
   showDigitBadges = true,
   highlightRod,
   hiddenLabel,
-  showRodIndices = false,
 }) => {
   // If number is provided, automatically derive columns
   let effectiveColumns: AbacusColumn[] = [];
@@ -240,36 +238,6 @@ export const AbacusVisualizer: React.FC<AbacusVisualizerProps> = ({
             );
           })}
         </svg>
-
-        {/* Rod Index Badges Below (میله ۱، میله ۲، ...) */}
-        {showRodIndices && (
-          <div
-            className="grid mt-2 mb-1 gap-1 w-full"
-            style={{ gridTemplateColumns: `repeat(${colCount}, minmax(0, 1fr))` }}
-          >
-            {effectiveColumns.map((col, idx) => {
-              const isRodHighlighted =
-                col.highlight ||
-                highlightRod === col.label ||
-                highlightRod === idx ||
-                highlightRod === idx + 1;
-              return (
-                <div key={"rod-idx-" + idx} className="flex justify-center">
-                  <span
-                    className={`text-[10px] sm:text-xs font-bold px-1.5 py-0.5 rounded-md ${
-                      isRodHighlighted
-                        ? "bg-amber-200 text-amber-950 font-black ring-1 ring-amber-400"
-                        : "bg-slate-200/70 text-slate-600"
-                    }`}
-                    dir="rtl"
-                  >
-                    میله {toPersianDigits(idx + 1)}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        )}
 
         {/* Digit Badges Below */}
         {showDigitBadges && (

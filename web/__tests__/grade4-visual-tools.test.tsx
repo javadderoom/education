@@ -55,38 +55,32 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(getByText("؟")).toBeDefined();
   });
 
-  it("renders PlaceValueTable with hiddenHeader and column indices without spoiling answer", () => {
+  it("renders PlaceValueTable with hiddenHeader and hiddenSlot without spoiling answer", () => {
     const { getByText } = render(
       <PlaceValueTable
         number={470295}
         tiers={["thousands", "ones"]}
         highlightColumn="دهگان‌هزار"
-        hiddenHeader="دهگان‌هزار"
-        showColumnIndices={true}
+        hiddenSlot="دهگان‌هزار"
         label="جایگاه رقم در جدول ارزش مکانی:"
       />
     );
     expect(getByText("جایگاه رقم در جدول ارزش مکانی:")).toBeDefined();
-    expect(getByText("ستون ۱")).toBeDefined();
-    expect(getByText("ستون ۲")).toBeDefined();
-    // The target header must be masked with question mark
+    // The target slot must be masked with question mark
     expect(getByText("؟")).toBeDefined();
   });
 
-  it("renders AbacusVisualizer component with beaded columns, rod indices, and hidden labels", () => {
+  it("renders AbacusVisualizer component with beaded columns and hidden labels", () => {
     const { container, getByText, getAllByText } = render(
       <AbacusVisualizer
         number={35408009}
         label="چرتکه نشان‌دهنده عدد"
         showDigitBadges={false}
-        showRodIndices={true}
         highlightRod="دهگان‌هزار"
         hiddenLabel="دهگان‌هزار"
       />
     );
     expect(getByText("چرتکه نشان‌دهنده عدد")).toBeDefined();
-    expect(getByText("میله ۱")).toBeDefined();
-    expect(getByText("میله ۲")).toBeDefined();
     expect(container.querySelector("svg")).toBeDefined();
     // Hidden label should show question mark
     expect(getAllByText("؟").length).toBeGreaterThan(0);

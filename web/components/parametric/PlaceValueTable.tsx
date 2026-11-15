@@ -12,7 +12,6 @@ export interface PlaceValueTableProps {
   hiddenHeader?: string; // column key or label whose subheader is masked with '؟'
   showLabels?: boolean;
   label?: string;
-  showColumnIndices?: boolean; // shows column numbers "ستون ۱", "ستون ۲", etc. from left to right
   hideFullNumber?: boolean;
 }
 
@@ -45,7 +44,6 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
   hiddenHeader,
   showLabels = true,
   label,
-  showColumnIndices = false,
   hideFullNumber = false,
 }) => {
   // Determine if millions tier is active
@@ -117,27 +115,6 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
                 );
               })}
             </tr>
-
-            {/* Optional Column Index Indicators (ستون ۱، ستون ۲، ...) */}
-            {showColumnIndices && (
-              <tr className="border-b border-slate-200 bg-slate-100/90 text-[10px] sm:text-xs text-slate-600 font-bold">
-                {activeColumns.map((col, idx) => {
-                  const isHighlighted = highlightColumn === col.key || highlightColumn === col.label;
-                  return (
-                    <th
-                      key={"col-idx-" + idx}
-                      className={`py-1 px-0.5 border-l border-slate-200 ${
-                        isHighlighted ? "bg-amber-200/70 text-amber-950 font-black" : ""
-                      }`}
-                    >
-                      <span className="inline-block" dir="rtl">
-                        ستون {toPersianDigits(idx + 1)}
-                      </span>
-                    </th>
-                  );
-                })}
-              </tr>
-            )}
 
             {/* Sub Headers (صدگان، دهگان، یکان) */}
             {showLabels && (
