@@ -595,7 +595,7 @@
         "type": "InputOutputMachine",
         "props": {
           "inputVal": 14,
-          "outputVal": 42,
+          "outputVal": "؟",
           "operations": [
             {
               "op": "mul",
@@ -668,7 +668,7 @@
         "type": "InputOutputMachine",
         "props": {
           "inputVal": 6,
-          "outputVal": 19,
+          "outputVal": "؟",
           "operations": [
             {
               "op": "mul",

@@ -72,19 +72,22 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     const { container, getByText, getAllByText } = render(
       <InputOutputMachine
         inputVal={14}
-        outputVal={42}
+        outputVal="؟"
         operations={[{ op: "mul", value: 3 }]}
         machineTitle="ماشین محیط‌یاب"
         showTable={true}
         tablePairs={[
           { input: 2, output: 6 },
-          { input: 14, output: 42 },
+          { input: 14, output: "؟" },
         ]}
       />
     );
     expect(getByText("ماشین محیط‌یاب")).toBeDefined();
     expect(getAllByText("ورودی").length).toBeGreaterThanOrEqual(1);
     expect(getAllByText("خروجی").length).toBeGreaterThanOrEqual(1);
+    expect(getAllByText("؟").length).toBeGreaterThanOrEqual(2);
+    // Ensure font-mono is not used on numerals or operations
+    expect(container.querySelector(".font-mono")).toBeNull();
   });
 
   it("renders MatchstickPattern with triangle and square chain configurations", () => {

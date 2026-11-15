@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade5_math_ch3.json": {
-    "mtime": 1793815204.4716465,
-    "ast_hash": "f72da7a9a615e37a50ee849ffce7356f",
+    "mtime": 1794751959.880167,
+    "ast_hash": "1eff78d8562dbde580f88cb9ba94d436",
     "semantic_hash": ""
   },
   "web/__tests__/pipeline-grade5.test.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794741761.3067136,
-    "ast_hash": "4e7ad3ae3db3011a994fd01d62f435e5",
+    "mtime": 1794751916.0047562,
+    "ast_hash": "ac9d1f9f566c17dddcab359115e553ef",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794742126.0928864,
-    "ast_hash": "d8d600519345407e8a20a9e2c37b7d0a",
+    "mtime": 1794752001.81024,
+    "ast_hash": "a9648be13e39d372710ced402595e86a",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/InputOutputMachine.tsx": {
-    "mtime": 1794750479.270406,
-    "ast_hash": "d15d76330f011bb28359b3a2ec210d3e",
+    "mtime": 1794751890.9119346,
+    "ast_hash": "34197647fd5a615f589327135fdba296",
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
