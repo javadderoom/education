@@ -115,10 +115,120 @@ function finalizeDistractors(
  * KC-MATH4-C01-01: عددنویسی، جدول ارزش مکانی و بازنمایی تا طبقه هزار (درس اول)
  */
 export function generateThousandsNumberItem(index: number = 0): DiagnosticItemData {
-  const variant = randomChoice<"table_column" | "abacus">([
+  const variant = randomChoice<"table_column" | "abacus" | "bundles">([
     "table_column",
     "abacus",
+    "bundles",
   ]);
+
+  if (variant === "bundles") {
+    // 3D Place Value Bundles
+    const bundleConfigs = [
+      {
+        hTh: 3,
+        tTh: 5,
+        th: 8,
+        correct: 358000,
+        mis: 358,
+        alt1: 305800,
+        alt2: 3508000,
+      },
+      {
+        hTh: 4,
+        tTh: 2,
+        th: 6,
+        correct: 426000,
+        mis: 426,
+        alt1: 402600,
+        alt2: 4206000,
+      },
+      {
+        hTh: 5,
+        tTh: 7,
+        th: 3,
+        correct: 573000,
+        mis: 573,
+        alt1: 507300,
+        alt2: 5703000,
+      },
+      {
+        hTh: 6,
+        tTh: 4,
+        th: 9,
+        correct: 649000,
+        mis: 649,
+        alt1: 604900,
+        alt2: 6409000,
+      },
+    ];
+
+    const cfg = randomChoice(bundleConfigs);
+    const stem = `اگر $${cfg.hTh}$ بسته صد‌هزارتایی، $${cfg.tTh}$ بسته ده‌هزارتایی و $${cfg.th}$ بسته هزارتایی را در کنار هم قرار دهیم، چه عددی ساخته می‌شود؟`;
+
+    const rawDistractors: RawDistractorChoice[] = [
+      {
+        content: `$${cfg.correct}$`,
+        isCorrect: true,
+        misconceptionId: null,
+        rationale: `پاسخ صحیح: $${cfg.hTh} \\times 100000 + ${cfg.tTh} \\times 10000 + ${cfg.th} \\times 1000 = ${cfg.correct}$.`,
+      },
+      {
+        content: `$${cfg.mis}$`,
+        isCorrect: false,
+        misconceptionId: "MIS-MATH4-C01-01",
+        rationale: `حذف ارزش مکانی هزارها و جمع ساده تعداد بسته‌ها ($${cfg.hTh} + ${cfg.tTh} + ${cfg.th} \\to ${cfg.mis}$).`,
+      },
+      {
+        content: `$${cfg.alt1}$`,
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `قرار دادن نابجای صفر بین مرتبه صدگان‌هزار و ده‌گان‌هزار.`,
+      },
+      {
+        content: `$${cfg.alt2}$`,
+        isCorrect: false,
+        misconceptionId: null,
+        rationale: `خطا در تعداد صفرها و تبدیل عدد شش‌رقمی به هفت‌رقمی.`,
+      },
+    ];
+
+    const distractors = finalizeDistractors(rawDistractors, "G4-C01-01");
+
+    return {
+      id: `ITEM-DYN-G4-C01-01-${Date.now()}-${index}`,
+      kc_id: "KC-MATH4-C01-01",
+      stem,
+      difficulty: 0.38,
+      guess_param: 0.25,
+      slip_param: 0.08,
+      visual_template: {
+        type: "PlaceValueBundles",
+        props: {
+          bundles: [
+            {
+              count: cfg.hTh,
+              unitValue: 100000,
+              unitLabel: "صدهزارتایی",
+              theme: "purple",
+            },
+            {
+              count: cfg.tTh,
+              unitValue: 10000,
+              unitLabel: "ده‌هزارتایی",
+              theme: "emerald",
+            },
+            {
+              count: cfg.th,
+              unitValue: 1000,
+              unitLabel: "هزارتایی",
+              theme: "sky",
+            },
+          ],
+        },
+      },
+      distractors,
+    };
+  }
 
   if (variant === "table_column") {
     // Missing digit puzzle in canonical place value table

@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794759747.9542675,
-    "ast_hash": "04f685f1499bc05b73b9fbeadfdf2d73",
+    "mtime": 1794762263.1746335,
+    "ast_hash": "e3249eb52c3b9a981be2e53a0e2fbae8",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794759659.360916,
-    "ast_hash": "3e50deb76d67501fb09a2fc1f49b7edc",
+    "mtime": 1794762188.6399393,
+    "ast_hash": "0ad30e06f02c54a9c871569d1105ca0b",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1155,8 +1155,8 @@
     "semantic_hash": ""
   },
   "data/tools/grade4_visual_tools_manifest.json": {
-    "mtime": 1794742104.292064,
-    "ast_hash": "beacca191e2ae5d98bc74caad398e756",
+    "mtime": 1794762230.7517767,
+    "ast_hash": "d5fac17e15523eaf45b59d2b3b0966a7",
     "semantic_hash": ""
   },
   "scripts/extract-grade4-visual-tools.py": {
@@ -1165,12 +1165,12 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794759841.6392443,
-    "ast_hash": "ed6404e99a0dc75dd728a0fe201a05b2",
+    "mtime": 1794762372.268503,
+    "ast_hash": "20b79936384aae51c5c99d96feb2b6a7",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
-    "mtime": 1794759823.5707798,
+    "mtime": 1794761170.7680974,
     "ast_hash": "67550c2c055ea703e1d5fd9fe01f99c2",
     "semantic_hash": ""
   },
@@ -1205,7 +1205,7 @@
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
-    "mtime": 1794759792.1940038,
+    "mtime": 1794761170.8727028,
     "ast_hash": "92807b4171e80ad768ed005a1730884c",
     "semantic_hash": ""
   },
@@ -1220,8 +1220,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/VisualTemplateRegistry.tsx": {
-    "mtime": 1794742181.107786,
-    "ast_hash": "a5e27dec53225366fa5b4750b3a69b29",
+    "mtime": 1794762133.4758635,
+    "ast_hash": "a430599640b3565161682e06218b755d",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/PlaceValueBundles.tsx": {
+    "mtime": 1794762107.900079,
+    "ast_hash": "2b341108ce048d4fd321417eda1930c4",
     "semantic_hash": ""
   }
 }

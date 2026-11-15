@@ -16,6 +16,7 @@ import { ClockVisualizer } from "./ClockVisualizer";
 import { FractionCircle } from "./FractionCircle";
 import { ProbabilitySpinner } from "./ProbabilitySpinner";
 import { BrokenLineGraph } from "./BrokenLineGraph";
+import { PlaceValueBundles } from "./PlaceValueBundles";
 
 export interface VisualTemplateData {
   type: string;
@@ -51,6 +52,8 @@ export const VisualTemplateRenderer: React.FC<VisualTemplateRendererProps> = ({ 
     // Grade 4 Canonical Textbook Manipulatives
     case "PlaceValueTable":
       return <PlaceValueTable {...p} />;
+    case "PlaceValueBundles":
+      return <PlaceValueBundles {...p} />;
     case "AbacusVisualizer":
       return <AbacusVisualizer {...p} />;
     case "InputOutputMachine":

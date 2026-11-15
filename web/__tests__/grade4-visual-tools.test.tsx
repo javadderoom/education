@@ -12,6 +12,7 @@ import { ClockVisualizer } from "@/components/parametric/ClockVisualizer";
 import { FractionCircle } from "@/components/parametric/FractionCircle";
 import { ProbabilitySpinner } from "@/components/parametric/ProbabilitySpinner";
 import { BrokenLineGraph } from "@/components/parametric/BrokenLineGraph";
+import { PlaceValueBundles } from "@/components/parametric/PlaceValueBundles";
 import { getCanonicalCartridge } from "@/lib/data/cartridge";
 import { DYNAMIC_GENERATORS } from "@/lib/curriculum/parametric-engine";
 import fs from "fs";
@@ -37,6 +38,7 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(toolIds).toContain("TOOL-FRACTION-CIRCLE");
     expect(toolIds).toContain("TOOL-PROBABILITY-SPINNER");
     expect(toolIds).toContain("TOOL-BROKEN-LINE-GRAPH");
+    expect(toolIds).toContain("TOOL-PLACE-VALUE-BUNDLES");
   });
 
   it("renders PlaceValueTable component with thousands and millions correctly", () => {
@@ -84,6 +86,21 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(container.querySelector("svg")).toBeDefined();
     // Hidden label should show question mark
     expect(getAllByText("؟").length).toBeGreaterThan(0);
+  });
+
+  it("renders PlaceValueBundles component with 3D packets and badges correctly", () => {
+    const { getByText } = render(
+      <PlaceValueBundles
+        bundles={[
+          { count: 3, unitValue: 100000, unitLabel: "صدهزارتایی", theme: "purple" },
+          { count: 5, unitValue: 10000, unitLabel: "ده‌هزارتایی", theme: "emerald" },
+          { count: 8, unitValue: 1000, unitLabel: "هزارتایی", theme: "sky" },
+        ]}
+      />
+    );
+    expect(getByText("بسته صدهزارتایی")).toBeDefined();
+    expect(getByText("بسته ده‌هزارتایی")).toBeDefined();
+    expect(getByText("بسته هزارتایی")).toBeDefined();
   });
 
   it("renders InputOutputMachine component with operations and data table", () => {
@@ -243,12 +260,13 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(types).toContain("DotPatternVisualizer");
     expect(types).toContain("InputOutputMachine");
     expect(types).toContain("AbacusVisualizer");
+    expect(types).toContain("PlaceValueBundles");
   });
 
   it("verifies parametric dynamic generators produce items with visual templates", () => {
     const item1 = DYNAMIC_GENERATORS["KC-MATH4-C01-01"](0);
     expect(item1.visual_template).toBeDefined();
-    expect(item1.visual_template?.type).toBe("PlaceValueTable");
+    expect(["PlaceValueTable", "AbacusVisualizer", "PlaceValueBundles"]).toContain(item1.visual_template?.type);
 
     const item3 = DYNAMIC_GENERATORS["KC-MATH4-C01-03"](0);
     expect(item3.visual_template).toBeDefined();

@@ -218,7 +218,31 @@
       "difficulty": 0.38,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueBundles",
+        "props": {
+          "bundles": [
+            {
+              "count": 3,
+              "unitValue": 100000,
+              "unitLabel": "صدهزارتایی",
+              "theme": "purple"
+            },
+            {
+              "count": 5,
+              "unitValue": 10000,
+              "unitLabel": "ده‌هزارتایی",
+              "theme": "emerald"
+            },
+            {
+              "count": 8,
+              "unitValue": 1000,
+              "unitLabel": "هزارتایی",
+              "theme": "sky"
+            }
+          ]
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-003-A",

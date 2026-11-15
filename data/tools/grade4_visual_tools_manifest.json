@@ -1,6 +1,6 @@
 {
   "curriculum": "کتاب ریاضی چهارم ابتدایی، سال تحصیلی ۱۴۰۲-۱۴۰۵ (chap.sch.ir)",
-  "total_tools": 10,
+  "total_tools": 11,
   "tools": [
     {
       "id": "TOOL-PLACE-VALUE-TABLE",
@@ -949,6 +949,90 @@
         146,
         147,
         152
+      ]
+    },
+    {
+      "id": "TOOL-PLACE-VALUE-BUNDLES",
+      "component_name": "PlaceValueBundles",
+      "title": "بسته‌های ارزش مکانی سه‌بعدی",
+      "short_title": "بسته‌های ارزش مکانی",
+      "category": "اعداد و الگوها",
+      "chapter_ids": [
+        "CH01"
+      ],
+      "primary_chapter": 1,
+      "keywords": [
+        "بسته صدهزارتایی",
+        "بسته ده‌هزارتایی",
+        "بسته هزارتایی",
+        "ارزش مکانی",
+        "ترکیب بسته‌ها"
+      ],
+      "pedagogical_purpose": "تبدیل بازنمایی مجسم و نیمه‌مجسم بسته‌های ارزش مکانی به نماد عددی، و پیشگیری از خطای شناختی جمع ساده تعداد بسته‌ها (مانند ۳۵۸ به جای ۳۵۸,۰۰۰).",
+      "parametric_props_schema": {
+        "type": "object",
+        "properties": {
+          "bundles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "number"
+                },
+                "unitValue": {
+                  "type": "number"
+                },
+                "unitLabel": {
+                  "type": "string"
+                },
+                "theme": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "count",
+                "unitValue",
+                "unitLabel"
+              ]
+            }
+          },
+          "label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bundles"
+        ]
+      },
+      "sample_props": {
+        "bundles": [
+          {
+            "count": 3,
+            "unitValue": 100000,
+            "unitLabel": "صدهزارتایی",
+            "theme": "purple"
+          },
+          {
+            "count": 5,
+            "unitValue": 10000,
+            "unitLabel": "ده‌هزارتایی",
+            "theme": "emerald"
+          },
+          {
+            "count": 8,
+            "unitValue": 1000,
+            "unitLabel": "هزارتایی",
+            "theme": "sky"
+          }
+        ]
+      },
+      "book_pages": [
+        4,
+        6,
+        10,
+        12,
+        13
       ]
     }
   ]
