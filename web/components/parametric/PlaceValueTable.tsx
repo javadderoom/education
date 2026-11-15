@@ -172,9 +172,9 @@ export const PlaceValueTable: React.FC<PlaceValueTableProps> = ({
       </div>
 
       {number !== undefined && !hiddenSlot && (
-        <div className="mt-2 text-xs font-bold text-slate-500 flex items-center gap-1.5" dir="ltr">
-          <span className="text-slate-400">عدد کامل:</span>
-          <span className="font-mono text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-200">
+        <div className="mt-2 text-xs font-bold text-slate-500 flex items-center gap-1.5" dir="rtl">
+          <span className="text-slate-500">عدد کامل:</span>
+          <span className="font-black text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-200 text-sm tracking-normal shadow-2xs" dir="ltr">
             {toPersianDigits(number.toLocaleString())}
           </span>
         </div>

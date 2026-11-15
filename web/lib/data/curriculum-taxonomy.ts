@@ -833,6 +833,9 @@ export function getSubjectTaxonomy(subjectId: string): SubjectTaxonomy {
   if (s.includes("CH01") || s.includes("CH1") || s.includes("PATTERN") || s.includes("NUMBER")) {
     return CANONICAL_TAXONOMIES["SUBJ-MATH4-CH01"];
   }
+  if (s.includes("CH02") || s.includes("CH2") || s.includes("FRAC")) {
+    return CANONICAL_TAXONOMIES["SUBJ-MATH4-FRACTIONS"];
+  }
   if (s.includes("CH03") || s.includes("CH3") || s.includes("MULT") || s.includes("DIV")) {
     return CANONICAL_TAXONOMIES["SUBJ-MATH4-CH03"];
   }

@@ -35,7 +35,7 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
   const { selectedSubjectId, setSubject } = useCurriculumStore();
 
   const [currentSubjectId, setCurrentSubjectId] = useState<string>(
-    initialSubjectId || selectedSubjectId || "SUBJ-MATH4-FRACTIONS"
+    initialSubjectId || selectedSubjectId || "SUBJ-MATH4-CH01"
   );
   const [selectedTopicIds, setSelectedTopicIds] = useState<string[]>(initialTopicIds || []);
   const [isConfiguring, setIsConfiguring] = useState<boolean>(!initialStarted);
@@ -97,13 +97,32 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
     if (cartridges[currentSubjectId]) {
       return cartridges[currentSubjectId];
     }
-    if (currentSubjectId.includes("5") || currentSubjectId.includes("RATIO")) {
-      return cartridges["SUBJ-MATH5-RATIO"] || Object.values(cartridges)[0];
+    const s = (currentSubjectId || "").toUpperCase();
+    if (s.includes("CH01") || s.includes("CH1") || s.includes("PATTERN") || s.includes("NUMBER")) {
+      return cartridges["SUBJ-MATH4-CH01"] || Object.values(cartridges)[0];
     }
-    if (currentSubjectId.includes("CH03") || currentSubjectId.includes("CH3") || currentSubjectId.toLowerCase().includes("mult")) {
+    if (s.includes("CH02") || s.includes("CH2") || s.includes("FRAC")) {
+      return cartridges["SUBJ-MATH4-FRACTIONS"] || Object.values(cartridges)[0];
+    }
+    if (s.includes("CH03") || s.includes("CH3") || s.includes("MULT")) {
       return cartridges["SUBJ-MATH4-CH03"] || Object.values(cartridges)[0];
     }
-    return cartridges["SUBJ-MATH4-FRACTIONS"] || Object.values(cartridges)[0];
+    if (s.includes("CH04") || s.includes("CH4") || s.includes("MEASUR") || s.includes("ANGLE")) {
+      return cartridges["SUBJ-MATH4-CH04"] || Object.values(cartridges)[0];
+    }
+    if (s.includes("CH05") || s.includes("CH5") || s.includes("DECIMAL") || s.includes("MIXED")) {
+      return cartridges["SUBJ-MATH4-CH05"] || Object.values(cartridges)[0];
+    }
+    if (s.includes("CH06") || s.includes("CH6") || s.includes("GEOM") || s.includes("SHAPE")) {
+      return cartridges["SUBJ-MATH4-CH06"] || Object.values(cartridges)[0];
+    }
+    if (s.includes("CH07") || s.includes("CH7") || s.includes("STAT") || s.includes("PROB")) {
+      return cartridges["SUBJ-MATH4-CH07"] || Object.values(cartridges)[0];
+    }
+    if (s.includes("5") || s.includes("RATIO")) {
+      return cartridges["SUBJ-MATH5-RATIO"] || Object.values(cartridges)[0];
+    }
+    return cartridges["SUBJ-MATH4-CH01"] || cartridges["SUBJ-MATH4-FRACTIONS"] || Object.values(cartridges)[0];
   }, [cartridges, currentSubjectId]);
 
   // Combine static canonical questions with newly randomized dynamic items

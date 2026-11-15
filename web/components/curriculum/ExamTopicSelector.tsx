@@ -267,11 +267,11 @@ export const ExamTopicSelector: React.FC<ExamTopicSelectorProps> = ({
               </h3>
               <p className="text-[11px] text-amber-800">
                 پاسخ داده شده:{" "}
-                <span className="font-bold font-mono" dir="ltr">
+                <span className="font-bold" dir="ltr">
                   {toPersianDigits(activeExamSession.history.length)}
                 </span>{" "}
                 از{" "}
-                <span className="font-bold font-mono" dir="ltr">
+                <span className="font-bold" dir="ltr">
                   {toPersianDigits(activeExamSession.targetSessionLimit)}
                 </span>{" "}
                 سوال

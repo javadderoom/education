@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794741691.2330122,
-    "ast_hash": "58cf02186b8be1c0d2afa71845af456e",
+    "mtime": 1794751302.3927689,
+    "ast_hash": "6c655467173c8eb58d9aa46db5616c75",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -955,13 +955,13 @@
     "semantic_hash": ""
   },
   "web/components/assessment/StudentAssessmentView.tsx": {
-    "mtime": 1794415487.888427,
-    "ast_hash": "465f4f51c8f3a92e1f223f5f2a15152d",
+    "mtime": 1794751333.9736161,
+    "ast_hash": "1cd52535424c1ad52c6d2f4b056633db",
     "semantic_hash": ""
   },
   "web/components/curriculum/ExamTopicSelector.tsx": {
-    "mtime": 1794412900.064147,
-    "ast_hash": "19a103a51a5ba194cbed509d0a20b083",
+    "mtime": 1794750499.447705,
+    "ast_hash": "cfe479a61ad6195ed54d6f3d3accd6f2",
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1794686468.0428746,
-    "ast_hash": "d9558b135ab5b1c231dd4fa4af5f4d00",
+    "mtime": 1794751349.0957804,
+    "ast_hash": "adbec4d51f1115513e7e83d6fba4d7e7",
     "semantic_hash": ""
   },
   "web/proxy.ts": {
@@ -1180,8 +1180,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/ClockVisualizer.tsx": {
-    "mtime": 1794741582.7211163,
-    "ast_hash": "4953756591202e2234224af67d0c355a",
+    "mtime": 1794750472.4337225,
+    "ast_hash": "31db0c0429dbc7af4d6255ce2aa219ad",
     "semantic_hash": ""
   },
   "web/components/parametric/DotPatternVisualizer.tsx": {
@@ -1195,8 +1195,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/InputOutputMachine.tsx": {
-    "mtime": 1794741506.5581188,
-    "ast_hash": "26d9f18074179a6a7874c1a6366caf49",
+    "mtime": 1794750479.270406,
+    "ast_hash": "d15d76330f011bb28359b3a2ec210d3e",
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
@@ -1205,13 +1205,13 @@
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
-    "mtime": 1794741468.8959422,
-    "ast_hash": "930a5c799f73d4bb2b97cb3e4e2371d7",
+    "mtime": 1794750464.224243,
+    "ast_hash": "51b3f2e7ca533b705a48480f678abd86",
     "semantic_hash": ""
   },
   "web/components/parametric/ProbabilitySpinner.tsx": {
-    "mtime": 1794741621.3866148,
-    "ast_hash": "8dea74613e9ed9e03f94d885fff26332",
+    "mtime": 1794750485.6497624,
+    "ast_hash": "bba97657111640699c744747cfc80de8",
     "semantic_hash": ""
   },
   "web/components/parametric/ProtractorVisualizer.tsx": {

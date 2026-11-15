@@ -85,7 +85,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   misconceptions,
   studentName = "علی رضایی",
   studentUsername = "student_ali",
-  subjectId = "SUBJ-MATH4-FRACTIONS",
+  subjectId = "SUBJ-MATH4-CH01",
   learners = [],
   selectedTopicIds,
   onConfigureTopics,
@@ -117,7 +117,31 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     rationale?: string | null;
   }>({ isOpen: false });
 
-  const activeTaxonomy = React.useMemo(() => getSubjectTaxonomy(subjectId), [subjectId]);
+  // Filter evaluated KCs to only those selected in the current exam
+  const evaluatedKCs = React.useMemo(() => {
+    if (selectedTopicIds && selectedTopicIds.length > 0) {
+      return knowledgeComponents.filter((kc) => selectedTopicIds.includes(kc.id));
+    }
+    return knowledgeComponents;
+  }, [knowledgeComponents, selectedTopicIds]);
+
+  // Dynamically resolve subject taxonomy from evaluated KCs or questions to prevent any mismatch
+  const effectiveSubjectId = React.useMemo(() => {
+    const sampleKcId = evaluatedKCs[0]?.id || items[0]?.kc_id || (selectedTopicIds && selectedTopicIds[0]);
+    if (sampleKcId) {
+      if (sampleKcId.includes("C01") || sampleKcId.includes("CH01")) return "SUBJ-MATH4-CH01";
+      if (sampleKcId.includes("C02") || sampleKcId.includes("CH02") || sampleKcId.includes("FRAC")) return "SUBJ-MATH4-FRACTIONS";
+      if (sampleKcId.includes("C03") || sampleKcId.includes("CH03")) return "SUBJ-MATH4-CH03";
+      if (sampleKcId.includes("C04") || sampleKcId.includes("CH04")) return "SUBJ-MATH4-CH04";
+      if (sampleKcId.includes("C05") || sampleKcId.includes("CH05")) return "SUBJ-MATH4-CH05";
+      if (sampleKcId.includes("C06") || sampleKcId.includes("CH06")) return "SUBJ-MATH4-CH06";
+      if (sampleKcId.includes("C07") || sampleKcId.includes("CH07")) return "SUBJ-MATH4-CH07";
+      if (sampleKcId.includes("MATH5")) return "SUBJ-MATH5-RATIO";
+    }
+    return subjectId || "SUBJ-MATH4-CH01";
+  }, [evaluatedKCs, items, selectedTopicIds, subjectId]);
+
+  const activeTaxonomy = React.useMemo(() => getSubjectTaxonomy(effectiveSubjectId), [effectiveSubjectId]);
   const activeChapterTitle = activeTaxonomy?.chapterTitle || "فصل جاری";
 
   // Cleanup speech synthesis on unmount
@@ -233,7 +257,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
       currIdx: number,
       isFinished: boolean = false
     ) => {
-      const activeSubj = subjectId || "SUBJ-MATH4-FRACTIONS";
+      const activeSubj = effectiveSubjectId;
       if (isFinished) {
         clearActiveExamSession(activeSubj, activeUsername);
         return;
@@ -450,7 +474,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const handleRestart = () => {
     stopPersianSpeech();
     setIsSpeaking(false);
-    const activeSubj = subjectId || "SUBJ-MATH4-FRACTIONS";
+    const activeSubj = effectiveSubjectId;
     clearActiveExamSession(activeSubj, activeUsername);
     setCurrentIndex(0);
     setSelectedDistractorId(null);
@@ -473,14 +497,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     }));
     setActiveWorkshopKC(null);
   };
-
-  // Filter evaluated KCs to only those selected in the current exam
-  const evaluatedKCs = React.useMemo(() => {
-    if (selectedTopicIds && selectedTopicIds.length > 0) {
-      return knowledgeComponents.filter((kc) => selectedTopicIds.includes(kc.id));
-    }
-    return knowledgeComponents;
-  }, [knowledgeComponents, selectedTopicIds]);
 
   const masteryRadarList: KCMasteryInfo[] = evaluatedKCs.map((kc) => ({
     id: kc.id,
@@ -929,11 +945,11 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
               ) : (
                 <>
                   شما تا این لحظه به{" "}
-                  <span className="font-bold text-amber-700 font-mono" dir="ltr">
+                  <span className="font-bold text-amber-700" dir="ltr">
                     {toPersianDigits(history.length)}
                   </span>{" "}
                   سوال از{" "}
-                  <span className="font-bold text-slate-700 font-mono" dir="ltr">
+                  <span className="font-bold text-slate-700" dir="ltr">
                     {toPersianDigits(targetSessionLimit)}
                   </span>{" "}
                   سوال پاسخ داده‌اید. کارنامه و تحلیل میزان تسلط شما بر اساس پاسخ‌های ثبت‌شده تا این مرحله محاسبه و در پرونده آموزشی ذخیره خواهد شد.

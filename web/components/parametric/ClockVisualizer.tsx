@@ -172,7 +172,7 @@ export const ClockVisualizer: React.FC<ClockVisualizerProps> = ({
         {showDigital && (
           <div className="mt-3 flex flex-col items-center gap-1">
             <span
-              className="text-base font-black px-3 py-1 rounded-xl bg-slate-900 text-white font-mono tracking-wider shadow-inner"
+              className="text-base font-black px-3 py-1 rounded-xl bg-slate-900 text-white tracking-wider shadow-inner"
               dir="ltr"
             >
               {toPersianDigits(formattedHours)}:{toPersianDigits(formattedMinutes)}

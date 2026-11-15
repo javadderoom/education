@@ -100,7 +100,7 @@ export const InputOutputMachine: React.FC<InputOutputMachineProps> = ({
                   </span>
                 </div>
                 <div
-                  className="font-mono font-black text-sm px-2.5 py-0.5 rounded-lg bg-indigo-600 text-white shadow-xs"
+                  className="font-black text-sm px-2.5 py-0.5 rounded-lg bg-indigo-600 text-white shadow-xs"
                   dir="ltr"
                 >
                   {getOpSymbol(opItem.op)} {toPersianDigits(opItem.value)}

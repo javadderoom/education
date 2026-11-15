@@ -132,7 +132,7 @@ export const ProbabilitySpinner: React.FC<ProbabilitySpinnerProps> = ({
               >
                 <span className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: sec.color }} />
                 <span className="font-bold text-slate-700">{sec.label}:</span>
-                <span className="font-mono font-black text-slate-900" dir="ltr">
+                <span className="font-black text-slate-900" dir="ltr">
                   {toPersianDigits(Math.round(sec.fraction * 100))}%
                 </span>
               </div>
