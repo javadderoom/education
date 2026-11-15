@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import { CheckCircle2, AlertCircle, Edit3, ArrowRight, Eye, ShieldCheck, Check, BarChart3, ListFilter } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
-import { FractionStrip } from "../parametric/FractionStrip";
-import { NumberLine } from "../parametric/NumberLine";
-import { AreaGrid } from "../parametric/AreaGrid";
-import { BalanceScale } from "../parametric/BalanceScale";
-import { BucketSort } from "../parametric/BucketSort";
+import { VisualTemplateRenderer } from "../parametric/VisualTemplateRegistry";
 import { DiagnosticItemData } from "../assessment/AssessmentCarousel";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 import { DiagnosticHeatmap, KCMasteryStat, MisconceptionStat } from "./DiagnosticHeatmap";
@@ -83,22 +79,7 @@ export const CurationStudio: React.FC<CurationStudioProps> = ({
 
   const renderVisualTemplate = () => {
     if (!currentItem.visual_template) return null;
-    const { type, props } = currentItem.visual_template;
-
-    switch (type) {
-      case "FractionStrip":
-        return <FractionStrip {...props} hideCounter={true} />;
-      case "NumberLine":
-        return <NumberLine {...props} hideFractions={true} />;
-      case "AreaGrid":
-        return <AreaGrid {...props} hideBadge={true} />;
-      case "BalanceScale":
-        return <BalanceScale {...props} />;
-      case "BucketSort":
-        return <BucketSort {...props} />;
-      default:
-        return null;
-    }
+    return <VisualTemplateRenderer template={currentItem.visual_template} />;
   };
 
   const isApproved = approvedIds.has(currentItem.id);

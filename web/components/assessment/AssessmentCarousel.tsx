@@ -3,11 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { HelpCircle, Award, RotateCcw, BarChart2, X, Sparkles, Check, Flag, Volume2, VolumeX, PenTool, ListChecks, CheckCircle, XCircle, ChevronDown, ChevronUp } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
-import { FractionStrip } from "../parametric/FractionStrip";
-import { NumberLine } from "../parametric/NumberLine";
-import { AreaGrid } from "../parametric/AreaGrid";
-import { BalanceScale } from "../parametric/BalanceScale";
-import { BucketSort } from "../parametric/BucketSort";
+import { VisualTemplateRenderer } from "../parametric/VisualTemplateRegistry";
 import { RemediationModal } from "../remediation/RemediationModal";
 import { RemediationPathway } from "../remediation/RemediationPathway";
 import { MasteryRadar, KCMasteryInfo } from "./MasteryRadar";
@@ -501,22 +497,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   // Render Visual Template dynamically
   const renderVisualTemplate = () => {
     if (!currentItem.visual_template) return null;
-    const { type, props } = currentItem.visual_template;
-
-    switch (type) {
-      case "FractionStrip":
-        return <FractionStrip {...props} hideCounter={true} />;
-      case "NumberLine":
-        return <NumberLine {...props} hideFractions={true} />;
-      case "AreaGrid":
-        return <AreaGrid {...props} hideBadge={true} />;
-      case "BalanceScale":
-        return <BalanceScale {...props} />;
-      case "BucketSort":
-        return <BucketSort {...props} />;
-      default:
-        return null;
-    }
+    return <VisualTemplateRenderer template={currentItem.visual_template} />;
   };
 
   // If in interactive workshop mode

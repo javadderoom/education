@@ -189,7 +189,15 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
     difficulty: 0.35,
     guess_param: 0.25,
     slip_param: 0.08,
-    visual_template: null,
+    visual_template: {
+      type: "PlaceValueTable",
+      props: {
+        number: parseInt(cfg.val, 10),
+        tiers: ["thousands", "ones"],
+        showLabels: true,
+        label: "جدول ارزش مکانی مربوط به عدد:",
+      },
+    },
     distractors,
   };
 }
@@ -300,7 +308,19 @@ export function generateGeometricNumericPatternItem(index: number = 0): Diagnost
       difficulty: 0.45,
       guess_param: 0.25,
       slip_param: 0.1,
-      visual_template: null,
+      visual_template: {
+        type: "MatchstickPattern",
+        props: {
+          patternKind: "triangles",
+          stages: [
+            { stageNumber: 1, count: 1 * step + base, isTarget: false },
+            { stageNumber: 2, count: 2 * step + base, isTarget: false },
+            { stageNumber: 3, count: 3 * step + base, isTarget: false },
+            { stageNumber: targetShape, count: correctCount, isTarget: true },
+          ],
+          showCounts: true,
+        },
+      },
       distractors,
     };
   }
@@ -349,7 +369,19 @@ export function generateGeometricNumericPatternItem(index: number = 0): Diagnost
     difficulty: 0.38,
     guess_param: 0.25,
     slip_param: 0.08,
-    visual_template: null,
+    visual_template: {
+      type: "DotPatternVisualizer",
+      props: {
+        shapeType: "triangle",
+        stages: [
+          { stageNumber: 1, dotCount: 1, rows: 1 },
+          { stageNumber: 2, dotCount: 3, rows: 2 },
+          { stageNumber: 3, dotCount: 6, rows: 3 },
+          { stageNumber: 4, dotCount: 10, rows: 4, isTarget: true },
+        ],
+        showCounts: true,
+      },
+    },
     distractors,
   };
 }
@@ -403,7 +435,18 @@ export function generateInputOutputMachineItem(index: number = 0): DiagnosticIte
       difficulty: 0.48,
       guess_param: 0.25,
       slip_param: 0.1,
-      visual_template: null,
+      visual_template: {
+        type: "InputOutputMachine",
+        props: {
+          inputVal: "؟",
+          outputVal: outputVal,
+          operations: [
+            { op: "mul", value: mult },
+            { op: "add", value: add },
+          ],
+          machineTitle: "ماشین ورودی-خروجی (مسیر معکوس)",
+        },
+      },
       distractors,
     };
   }
@@ -460,7 +503,18 @@ export function generateInputOutputMachineItem(index: number = 0): DiagnosticIte
     difficulty: 0.42,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: null,
+    visual_template: {
+      type: "InputOutputMachine",
+      props: {
+        inputVal: inputVal,
+        outputVal: "؟",
+        operations: [
+          { op: "mul", value: mult },
+          { op: isAddition ? "add" : "sub", value: add },
+        ],
+        machineTitle: "ماشین دو مرحله‌ای",
+      },
+    },
     distractors,
   };
 }
@@ -543,7 +597,14 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
     difficulty: 0.42,
     guess_param: 0.25,
     slip_param: 0.08,
-    visual_template: null,
+    visual_template: {
+      type: "AbacusVisualizer",
+      props: {
+        number: parseInt(cfg.val, 10),
+        showDigitBadges: true,
+        label: "چرتکه نشان‌دهنده عدد مورد نظر:",
+      },
+    },
     distractors,
   };
 }

@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794516683.8566358,
-    "ast_hash": "64cbf83d8e57a389e8c53baf406bec79",
+    "mtime": 1794741691.2330122,
+    "ast_hash": "58cf02186b8be1c0d2afa71845af456e",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -420,8 +420,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/cartridge.ts": {
-    "mtime": 1794313507.3172343,
-    "ast_hash": "3ed5cac5d8059023ae6751ad266fe2d2",
+    "mtime": 1794742118.7202518,
+    "ast_hash": "90710121f6ecffd7df85f8ad11518b75",
     "semantic_hash": ""
   },
   "web/lib/db/prisma.ts": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "web/components/curation/CurationStudio.tsx": {
-    "mtime": 1794313411.4978685,
-    "ast_hash": "3bc0c4d3ccfa661f6cce1ec191784ff0",
+    "mtime": 1794741727.53423,
+    "ast_hash": "1ce824c664d233c2ba2bcba666c5c2d4",
     "semantic_hash": ""
   },
   "web/lib/offline/storage.ts": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794686637.3228707,
-    "ast_hash": "0cb9ad17e1a880678cad1dbd2825edbf",
+    "mtime": 1794741947.8265157,
+    "ast_hash": "63040b8da1df858985785601fdf1a2ac",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794686371.4788234,
-    "ast_hash": "550878258aea9c1de8ffb484d4f5edd7",
+    "mtime": 1794741761.3067136,
+    "ast_hash": "4e7ad3ae3db3011a994fd01d62f435e5",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1140,8 +1140,8 @@
     "semantic_hash": ""
   },
   "scripts/validate-cartridges.ts": {
-    "mtime": 1794331270.420655,
-    "ast_hash": "32d26d8edbac603ad1e958ea1fc792e7",
+    "mtime": 1794741800.1298728,
+    "ast_hash": "100e12e04d14d0d8995946327b110cfd",
     "semantic_hash": ""
   },
   "web/__tests__/grade4-curriculum-integration.test.ts": {
@@ -1152,6 +1152,76 @@
   "web/__tests__/ui-student-assessment-view.test.tsx": {
     "mtime": 1794417991.003935,
     "ast_hash": "afc0339865575aec0fe3d3c7ac74bfa9",
+    "semantic_hash": ""
+  },
+  "data/tools/grade4_visual_tools_manifest.json": {
+    "mtime": 1794742104.292064,
+    "ast_hash": "beacca191e2ae5d98bc74caad398e756",
+    "semantic_hash": ""
+  },
+  "scripts/extract-grade4-visual-tools.py": {
+    "mtime": 1794742092.3952813,
+    "ast_hash": "6cb30214d619d19b50e42191564a8238",
+    "semantic_hash": ""
+  },
+  "web/__tests__/grade4-visual-tools.test.tsx": {
+    "mtime": 1794742126.0928864,
+    "ast_hash": "d8d600519345407e8a20a9e2c37b7d0a",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/AbacusVisualizer.tsx": {
+    "mtime": 1794741487.0635855,
+    "ast_hash": "3b9784acfee6bda2bb7e96024bc15782",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/BrokenLineGraph.tsx": {
+    "mtime": 1794741637.7318459,
+    "ast_hash": "c2742c5460939579dc32a7a4b1b44f70",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/ClockVisualizer.tsx": {
+    "mtime": 1794741582.7211163,
+    "ast_hash": "4953756591202e2234224af67d0c355a",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/DotPatternVisualizer.tsx": {
+    "mtime": 1794741536.462536,
+    "ast_hash": "377be11e4c9324250bb53486d8b4eba0",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/FractionCircle.tsx": {
+    "mtime": 1794741605.1342201,
+    "ast_hash": "4b476f7eb8ad04c41e49ae10c3fbc4c9",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/InputOutputMachine.tsx": {
+    "mtime": 1794741506.5581188,
+    "ast_hash": "26d9f18074179a6a7874c1a6366caf49",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/MatchstickPattern.tsx": {
+    "mtime": 1794741522.5810642,
+    "ast_hash": "de241d480311dcff395fa702706e759b",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/PlaceValueTable.tsx": {
+    "mtime": 1794741468.8959422,
+    "ast_hash": "930a5c799f73d4bb2b97cb3e4e2371d7",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/ProbabilitySpinner.tsx": {
+    "mtime": 1794741621.3866148,
+    "ast_hash": "8dea74613e9ed9e03f94d885fff26332",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/ProtractorVisualizer.tsx": {
+    "mtime": 1794741561.4012103,
+    "ast_hash": "c543371f521c7d06ad82461a5f57fb45",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/VisualTemplateRegistry.tsx": {
+    "mtime": 1794742181.107786,
+    "ast_hash": "a5e27dec53225366fa5b4750b3a69b29",
     "semantic_hash": ""
   }
 }

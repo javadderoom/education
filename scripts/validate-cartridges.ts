@@ -182,7 +182,7 @@ export function validateAllCanonicalCartridges(): boolean {
     return false;
   }
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json") && !f.includes("manifest"));
   console.log(`\nFound ${files.length} canonical cartridge(s) to validate in ${dir}:`);
 
   let totalErrors = 0;

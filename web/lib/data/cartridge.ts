@@ -75,7 +75,9 @@ export function getCanonicalCartridge(filenameOrId: string = "grade4_math_ch2.js
 
   // Search by cartridge_id or subject.id
   if (fs.existsSync(/*turbopackIgnore: true*/ dir)) {
-    const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json"));
+    const files = fs
+    .readdirSync(/*turbopackIgnore: true*/ dir)
+    .filter((f) => f.endsWith(".json") && !f.includes("manifest"));
     for (const f of files) {
       const fullPath = path.join(/*turbopackIgnore: true*/ dir, f);
       const parsed: CanonicalCartridge = JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ fullPath, "utf-8"));
@@ -107,7 +109,9 @@ export function listAvailableCartridges(): Array<{
   const dir = resolveCanonicalDir();
   if (!fs.existsSync(/*turbopackIgnore: true*/ dir)) return [];
 
-  const files = fs.readdirSync(/*turbopackIgnore: true*/ dir).filter((f) => f.endsWith(".json"));
+  const files = fs
+    .readdirSync(/*turbopackIgnore: true*/ dir)
+    .filter((f) => f.endsWith(".json") && !f.includes("manifest"));
   return files.map((file) => {
     const fullPath = path.join(/*turbopackIgnore: true*/ dir, file);
     const raw = fs.readFileSync(/*turbopackIgnore: true*/ fullPath, "utf-8");

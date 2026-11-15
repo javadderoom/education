@@ -112,7 +112,19 @@
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 407053,
+          "tiers": [
+            "thousands",
+            "ones"
+          ],
+          "hiddenSlot": "دهگان‌هزار",
+          "showLabels": true,
+          "label": "جدول ارزش مکانی مربوط به عدد:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-001-A",
@@ -156,7 +168,19 @@
       "difficulty": 0.3,
       "guess_param": 0.25,
       "slip_param": 0.05,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 470295,
+          "tiers": [
+            "thousands",
+            "ones"
+          ],
+          "highlightColumn": "دهگان‌هزار",
+          "showLabels": true,
+          "label": "جایگاه رقم در جدول ارزش مکانی:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-002-A",
@@ -376,7 +400,36 @@
       "difficulty": 0.5,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "MatchstickPattern",
+        "props": {
+          "patternKind": "triangles",
+          "stages": [
+            {
+              "stageNumber": 1,
+              "count": 4,
+              "isTarget": false
+            },
+            {
+              "stageNumber": 2,
+              "count": 7,
+              "isTarget": false
+            },
+            {
+              "stageNumber": 3,
+              "count": 10,
+              "isTarget": false
+            },
+            {
+              "stageNumber": 4,
+              "count": 13,
+              "isTarget": true
+            }
+          ],
+          "showCounts": true,
+          "label": "مراحل ساخت الگوی چوب‌کبریت‌ها:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-007-A",
@@ -464,7 +517,37 @@
       "difficulty": 0.52,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "DotPatternVisualizer",
+        "props": {
+          "shapeType": "triangle",
+          "stages": [
+            {
+              "stageNumber": 1,
+              "dotCount": 1,
+              "rows": 1
+            },
+            {
+              "stageNumber": 2,
+              "dotCount": 3,
+              "rows": 2
+            },
+            {
+              "stageNumber": 3,
+              "dotCount": 6,
+              "rows": 3
+            },
+            {
+              "stageNumber": 4,
+              "dotCount": 10,
+              "rows": 4,
+              "isTarget": true
+            }
+          ],
+          "showCounts": true,
+          "label": "الگوی آرایش نقطه‌ها در شکل‌های متوالی:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-009-A",
@@ -508,7 +591,36 @@
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.05,
-      "visual_template": null,
+      "visual_template": {
+        "type": "InputOutputMachine",
+        "props": {
+          "inputVal": 14,
+          "outputVal": 42,
+          "operations": [
+            {
+              "op": "mul",
+              "value": 3
+            }
+          ],
+          "machineTitle": "ماشین محیط‌یاب مثلث متساوی‌الاضلاع",
+          "showTable": true,
+          "tablePairs": [
+            {
+              "input": 2,
+              "output": 6
+            },
+            {
+              "input": 5,
+              "output": 15
+            },
+            {
+              "input": 14,
+              "output": "؟"
+            }
+          ],
+          "label": "نمای عملکرد ماشین محیط‌یاب:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-010-A",
@@ -552,7 +664,25 @@
       "difficulty": 0.42,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "InputOutputMachine",
+        "props": {
+          "inputVal": 6,
+          "outputVal": 19,
+          "operations": [
+            {
+              "op": "mul",
+              "value": 4
+            },
+            {
+              "op": "sub",
+              "value": 5
+            }
+          ],
+          "machineTitle": "ماشین دو مرحله‌ای",
+          "label": "نمودار فرآیند ماشین دو مرحله‌ای:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-011-A",
@@ -596,7 +726,25 @@
       "difficulty": 0.52,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "InputOutputMachine",
+        "props": {
+          "inputVal": "؟",
+          "outputVal": 25,
+          "operations": [
+            {
+              "op": "mul",
+              "value": 3
+            },
+            {
+              "op": "add",
+              "value": 4
+            }
+          ],
+          "machineTitle": "ماشین ورودی-خروجی (مسیر معکوس)",
+          "label": "نمودار ماشین با خروجی مشخص:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-012-A",
@@ -684,7 +832,14 @@
       "difficulty": 0.42,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "AbacusVisualizer",
+        "props": {
+          "number": 35408009,
+          "showDigitBadges": true,
+          "label": "چرتکه نشان‌دهنده عدد مورد نظر:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-014-A",
