@@ -66,18 +66,18 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
     }
 
     if (patternKind === "squares") {
-      // Chain of squares: stage 1 = 1 square (4 sticks), stage 2 = 2 squares (7 sticks)
+      // Chain of squares: stage 1 = 1 square (4 sticks), stage 2 = 2 squares (7 sticks), stage n = 3n + 1
       const count = stageNum;
       const boxSize = 28;
-      const totalWidth = count * boxSize + 20;
-      const height = 48;
+      const totalWidth = count * boxSize + 24;
+      const height = 50;
 
       return (
         <svg viewBox={`0 0 ${totalWidth} ${height}`} className="h-16 sm:h-20 max-w-full">
           {Array.from({ length: count }).map((_, i) => {
-            const left = 10 + i * boxSize;
+            const left = 12 + i * boxSize;
             const right = left + boxSize;
-            const top = 10;
+            const top = 11;
             const bottom = top + boxSize;
 
             return (
@@ -97,35 +97,67 @@ export const MatchstickPattern: React.FC<MatchstickPatternProps> = ({
       );
     }
 
-    // Default: Chain of connected triangles
+    // Connected alternating triangles (مثلث‌های به‌هم‌پیوسته طبق کتاب درسی ریاضی چهارم)
     // Stage 1 = 1 triangle (3 sticks)
-    // Stage 2 = 2 connected triangles (5 sticks)
-    // Stage 3 = 3 connected triangles (7 sticks)
+    // Stage 2 = 2 connected triangles sharing an edge (5 sticks)
+    // Stage 3 = 3 connected triangles sharing edges (7 sticks)
+    // Stage n = 2n + 1 sticks
     const count = stageNum;
-    const baseW = 28;
+    const halfBase = 15;
+    const baseW = 30;
     const peakH = 32;
-    const totalW = count * baseW + 20;
+    const totalW = (count + 1) * halfBase + 24;
     const totalH = 50;
+    const yBase = 42;
+    const yPeak = yBase - peakH; // 10
 
     return (
       <svg viewBox={`0 0 ${totalW} ${totalH}`} className="h-16 sm:h-20 max-w-full">
         {Array.from({ length: count }).map((_, i) => {
-          const xLeft = 10 + i * baseW;
-          const xMid = xLeft + baseW / 2;
-          const xRight = xLeft + baseW;
-          const yBase = 40;
-          const yPeak = yBase - peakH;
-
-          return (
-            <g key={i}>
-              {/* Left slope */}
-              {renderMatchstick(xMid, yPeak, xLeft, yBase, `ls-${i}`)}
-              {/* Right slope */}
-              {renderMatchstick(xMid, yPeak, xRight, yBase, `rs-${i}`)}
-              {/* Bottom horizontal */}
-              {renderMatchstick(xLeft, yBase, xRight, yBase, `base-${i}`)}
-            </g>
-          );
+          if (i === 0) {
+            // First triangle (points up): 3 sticks (left, right, base)
+            const x0 = 12;
+            const x1 = 12 + halfBase; // 27
+            const x2 = 12 + baseW; // 42
+            return (
+              <g key={i}>
+                {/* Base horizontal */}
+                {renderMatchstick(x0, yBase, x2, yBase, `base-0`)}
+                {/* Left slope */}
+                {renderMatchstick(x1, yPeak, x0, yBase, `ls-0`)}
+                {/* Right slope (shared with triangle 1) */}
+                {renderMatchstick(x1, yPeak, x2, yBase, `rs-0`)}
+              </g>
+            );
+          } else if (i % 2 === 1) {
+            // Odd index (1, 3, 5... points down): shares previous right slope
+            // Adds top horizontal and new right slope
+            const xTopLeft = 12 + i * halfBase;
+            const xTopRight = xTopLeft + baseW;
+            const xBottom = xTopLeft + halfBase;
+            return (
+              <g key={i}>
+                {/* Top horizontal */}
+                {renderMatchstick(xTopLeft, yPeak, xTopRight, yPeak, `top-${i}`)}
+                {/* Right slope */}
+                {renderMatchstick(xTopRight, yPeak, xBottom, yBase, `rs-${i}`)}
+              </g>
+            );
+          } else {
+            // Even index (2, 4, 6... points up): shares previous right slope
+            // Adds bottom horizontal and new right slope
+            const xBottomLeft = 12 + i * halfBase;
+            const xBottomRight = xBottomLeft + baseW;
+            const xTop = xBottomLeft + halfBase;
+            return (
+              <g key={i}>
+                {/* Bottom horizontal */}
+                {renderMatchstick(xBottomLeft, yBase, xBottomRight, yBase, `base-${i}`)}
+                {/* Right slope */}
+                {renderMatchstick(xTop, yPeak, xBottomRight, yBase, `rs-${i}`)}
+              </g>
+            );
+          }
         })}
       </svg>
     );

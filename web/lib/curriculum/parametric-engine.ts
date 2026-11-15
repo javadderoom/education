@@ -267,62 +267,123 @@ export function generateGeometricNumericPatternItem(index: number = 0): Diagnost
   const isMatchstick = randomChoice([true, false]);
 
   if (isMatchstick) {
-    const step = randomChoice([3, 4]);
-    const base = randomChoice([1, 2]);
-    const targetShape = randomChoice([7, 8, 10]);
-    const correctCount = targetShape * step + base;
-    const stem = `در یک الگوی چوب‌کبریت‌ها، شکل اول با $${1 * step + base}$ چوب‌کبریت، شکل دوم با $${2 * step + base}$ و شکل سوم با $${3 * step + base}$ چوب‌کبریت ساخته شده است. شکل ${toPersianDigits(targetShape)} با چند چوب‌کبریت ساخته می‌شود؟`;
+    const patternKind = randomChoice<"squares" | "triangles">(["squares", "triangles"]);
 
-    const rawDistractors: RawDistractorChoice[] = [
-      {
-        content: `$${correctCount}$`,
-        isCorrect: true,
-        misconceptionId: null,
-        rationale: `پاسخ صحیح: رابطه الگو برابر است با: $\\text{شماره شکل} \\times ${step} + ${base}$. برای شکل ${toPersianDigits(targetShape)}: $${targetShape} \\times ${step} + ${base} = ${correctCount}$.`,
-      },
-      {
-        content: `$${targetShape * step}$`,
-        isCorrect: false,
-        misconceptionId: null,
-        rationale: `فراموش کردن چوب‌کبریت‌های ثابت اولیه ($${targetShape} \\times ${step}$).`,
-      },
-      {
-        content: `$${correctCount - step}$`,
-        isCorrect: false,
-        misconceptionId: "MIS-MATH4-C01-03",
-        rationale: `محاسبه تعداد چوب‌کبریت‌های شکل قبلی به جای شکل خواسته شده.`,
-      },
-      {
-        content: `$${targetShape * (step + base)}$`,
-        isCorrect: false,
-        misconceptionId: "MIS-MATH4-C01-03",
-        rationale: `ضرب شماره شکل در کل چوب‌کبریت‌های شکل اول ($${targetShape} \\times ${step + base}$).`,
-      },
-    ];
+    if (patternKind === "squares") {
+      // Chain of squares: 4, 7, 10, 13... Rule: 3n + 1 (مربع‌های به‌هم‌پیوسته)
+      const targetShape = randomChoice([6, 7, 8, 10]);
+      const correctCount = targetShape * 3 + 1;
+      const stem = `در یک الگوی هندسی چوب‌کبریت‌ها (مربع‌های به‌هم‌پیوسته)، شکل اول با $4$ چوب‌کبریت، شکل دوم با $7$ و شکل سوم با $10$ چوب‌کبریت ساخته شده است. شکل ${toPersianDigits(targetShape)} با چند چوب‌کبریت ساخته می‌شود؟`;
 
-    const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
-    return {
-      id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
-      kc_id: "KC-MATH4-C01-03",
-      stem,
-      difficulty: 0.45,
-      guess_param: 0.25,
-      slip_param: 0.1,
-      visual_template: {
-        type: "MatchstickPattern",
-        props: {
-          patternKind: "triangles",
-          stages: [
-            { stageNumber: 1, count: 1 * step + base, isTarget: false },
-            { stageNumber: 2, count: 2 * step + base, isTarget: false },
-            { stageNumber: 3, count: 3 * step + base, isTarget: false },
-            { stageNumber: targetShape, count: correctCount, isTarget: true },
-          ],
-          showCounts: true,
+      const rawDistractors: RawDistractorChoice[] = [
+        {
+          content: `$${correctCount}$`,
+          isCorrect: true,
+          misconceptionId: null,
+          rationale: `پاسخ صحیح: رابطه الگو برابر است با: $\\text{شماره شکل} \\times 3 + 1$. برای شکل ${toPersianDigits(targetShape)}: $${targetShape} \\times 3 + 1 = ${correctCount}$.`,
         },
-      },
-      distractors,
-    };
+        {
+          content: `$${targetShape * 3}$`,
+          isCorrect: false,
+          misconceptionId: null,
+          rationale: `فراموش کردن چوب‌کبریت اولیه‌ی شروع ($${targetShape} \\times 3$).`,
+        },
+        {
+          content: `$${correctCount - 3}$`,
+          isCorrect: false,
+          misconceptionId: "MIS-MATH4-C01-03",
+          rationale: `محاسبه تعداد چوب‌کبریت‌های شکل قبلی (${toPersianDigits(targetShape - 1)}) به جای شکل خواسته شده.`,
+        },
+        {
+          content: `$${targetShape * 4}$`,
+          isCorrect: false,
+          misconceptionId: "MIS-MATH4-C01-03",
+          rationale: `فرض جدا بودن تمام مربع‌ها و عدم اشتراک اضلاع ($${targetShape} \\times 4$).`,
+        },
+      ];
+
+      const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+      return {
+        id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
+        kc_id: "KC-MATH4-C01-03",
+        stem,
+        difficulty: 0.45,
+        guess_param: 0.25,
+        slip_param: 0.1,
+        visual_template: {
+          type: "MatchstickPattern",
+          props: {
+            patternKind: "squares",
+            stages: [
+              { stageNumber: 1, count: 4, isTarget: false },
+              { stageNumber: 2, count: 7, isTarget: false },
+              { stageNumber: 3, count: 10, isTarget: false },
+              { stageNumber: targetShape, count: correctCount, isTarget: true },
+            ],
+            showCounts: true,
+            label: "مراحل ساخت الگوی چوب‌کبریت‌ها (مربع‌های به‌هم‌پیوسته):",
+          },
+        },
+        distractors,
+      };
+    } else {
+      // Chain of connected triangles: 3, 5, 7, 9... Rule: 2n + 1 (مثلث‌های به‌هم‌پیوسته)
+      const targetShape = randomChoice([6, 7, 8, 10]);
+      const correctCount = targetShape * 2 + 1;
+      const stem = `در یک الگوی هندسی چوب‌کبریت‌ها (مثلث‌های به‌هم‌پیوسته)، شکل اول با $3$ چوب‌کبریت، شکل دوم با $5$ و شکل سوم با $7$ چوب‌کبریت ساخته شده است. شکل ${toPersianDigits(targetShape)} با چند چوب‌کبریت ساخته می‌شود؟`;
+
+      const rawDistractors: RawDistractorChoice[] = [
+        {
+          content: `$${correctCount}$`,
+          isCorrect: true,
+          misconceptionId: null,
+          rationale: `پاسخ صحیح: رابطه الگو برابر است با: $\\text{شماره شکل} \\times 2 + 1$. برای شکل ${toPersianDigits(targetShape)}: $${targetShape} \\times 2 + 1 = ${correctCount}$.`,
+        },
+        {
+          content: `$${targetShape * 2}$`,
+          isCorrect: false,
+          misconceptionId: null,
+          rationale: `فراموش کردن چوب‌کبریت اولیه‌ی شروع ($${targetShape} \\times 2$).`,
+        },
+        {
+          content: `$${correctCount - 2}$`,
+          isCorrect: false,
+          misconceptionId: "MIS-MATH4-C01-03",
+          rationale: `محاسبه تعداد چوب‌کبریت‌های شکل قبلی (${toPersianDigits(targetShape - 1)}) به جای شکل خواسته شده.`,
+        },
+        {
+          content: `$${targetShape * 3}$`,
+          isCorrect: false,
+          misconceptionId: "MIS-MATH4-C01-03",
+          rationale: `فرض جدا بودن تمام مثلث‌ها و عدم اشتراک اضلاع ($${targetShape} \\times 3$).`,
+        },
+      ];
+
+      const distractors = finalizeDistractors(rawDistractors, "G4-C01-03");
+      return {
+        id: `ITEM-DYN-G4-C01-03-${Date.now()}-${index}`,
+        kc_id: "KC-MATH4-C01-03",
+        stem,
+        difficulty: 0.45,
+        guess_param: 0.25,
+        slip_param: 0.1,
+        visual_template: {
+          type: "MatchstickPattern",
+          props: {
+            patternKind: "triangles",
+            stages: [
+              { stageNumber: 1, count: 3, isTarget: false },
+              { stageNumber: 2, count: 5, isTarget: false },
+              { stageNumber: 3, count: 7, isTarget: false },
+              { stageNumber: targetShape, count: correctCount, isTarget: true },
+            ],
+            showCounts: true,
+            label: "مراحل ساخت الگوی چوب‌کبریت‌ها (مثلث‌های به‌هم‌پیوسته):",
+          },
+        },
+        distractors,
+      };
+    }
   }
 
   // Doubling numeric pattern

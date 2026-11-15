@@ -403,7 +403,7 @@
       "visual_template": {
         "type": "MatchstickPattern",
         "props": {
-          "patternKind": "triangles",
+          "patternKind": "squares",
           "stages": [
             {
               "stageNumber": 1,

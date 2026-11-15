@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794741947.8265157,
-    "ast_hash": "63040b8da1df858985785601fdf1a2ac",
+    "mtime": 1794752659.5475633,
+    "ast_hash": "695b13b5335f4c78a9234165cc58506e",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794751916.0047562,
-    "ast_hash": "ac9d1f9f566c17dddcab359115e553ef",
+    "mtime": 1794752631.247166,
+    "ast_hash": "d6037c958cfbffef80ac5466b155cbc8",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
@@ -1200,8 +1200,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/MatchstickPattern.tsx": {
-    "mtime": 1794752260.3595407,
-    "ast_hash": "ebb3469164e8e12c857ac927205c3592",
+    "mtime": 1794752614.8547657,
+    "ast_hash": "76d74ff5b2f1796d54ab2bc7ec91c5e1",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
