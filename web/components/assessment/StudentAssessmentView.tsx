@@ -136,7 +136,21 @@ export const StudentAssessmentView: React.FC<StudentAssessmentViewProps> = ({
           selectedTopicIds.every((id) => sessionTopicIds.includes(id)));
 
       if (topicsMatch) {
-        return activeExamSession.items;
+        // Re-sync canonical static items with activeCartridge to always reflect latest canonical updates
+        const canonicalMap = new Map(activeCartridge.diagnostic_items.map((it) => [it.id, it]));
+        return activeExamSession.items.map((it) => {
+          const canonical = canonicalMap.get(it.id);
+          if (canonical) {
+            return {
+              ...it,
+              stem: canonical.stem,
+              visual_template: canonical.visual_template,
+              distractors: canonical.distractors,
+              difficulty: canonical.difficulty,
+            };
+          }
+          return it;
+        });
       }
     }
 

@@ -351,8 +351,8 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(container.querySelectorAll("text").length).toBe(0);
   });
 
-  it("renders AreaGrid with shaded cells without misleading checkmarks", () => {
-    const { container } = render(
+  it("renders AreaGrid with shaded cells without misleading checkmarks and supports columnRatios", () => {
+    const { container, rerender } = render(
       <AreaGrid rows={1} cols={3} initialColored={1} hideBadge={true} />
     );
 
@@ -363,6 +363,13 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     buttons.forEach((btn) => {
       expect(btn.textContent?.trim()).toBe("");
     });
+
+    // Test unequal column ratios support
+    rerender(
+      <AreaGrid rows={1} cols={3} columnRatios={[45, 18, 37]} initialColored={1} hideBadge={true} />
+    );
+    const gridDiv = container.querySelector(".grid") as HTMLElement;
+    expect(gridDiv.style.gridTemplateColumns).toBe("45fr 18fr 37fr");
   });
 
   it("renders NumberLine with circle directly on the line and correctly selects 5th tick for 5/6", () => {

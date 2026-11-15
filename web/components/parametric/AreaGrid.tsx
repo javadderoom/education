@@ -6,6 +6,7 @@ import { toPersianDigits } from "../../lib/math/persian-digits";
 export interface AreaGridProps {
   rows?: number;
   cols?: number;
+  columnRatios?: number[];
   initialColored?: number;
   interactive?: boolean;
   highlightFractionA?: string;
@@ -17,6 +18,7 @@ export interface AreaGridProps {
 export const AreaGrid: React.FC<AreaGridProps> = ({
   rows = 2,
   cols = 3,
+  columnRatios,
   initialColored = 4,
   interactive = false,
   highlightFractionA,
@@ -24,7 +26,8 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
   hideBadge = false,
   onChange,
 }) => {
-  const totalCells = rows * cols;
+  const effectiveCols = columnRatios && columnRatios.length > 0 ? columnRatios.length : cols;
+  const totalCells = rows * effectiveCols;
   const [selectedCells, setSelectedCells] = useState<boolean[]>(
     Array.from({ length: totalCells }, (_, i) => i < initialColored)
   );
@@ -43,9 +46,12 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
     <div className="w-full flex flex-col items-center my-4 select-none">
       <div className="bg-slate-50 border-2 border-slate-200 rounded-xl p-4 shadow-sm flex flex-col items-center">
         <div
-          className="grid gap-1.5 p-2 bg-white rounded-lg border border-slate-300 shadow-inner"
+          className="grid gap-1.5 p-2 bg-white rounded-lg border border-slate-300 shadow-inner w-full max-w-sm"
           style={{
-            gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+            gridTemplateColumns:
+              columnRatios && columnRatios.length > 0
+                ? columnRatios.map((r) => `${r}fr`).join(" ")
+                : `repeat(${cols}, minmax(0, 1fr))`,
           }}
         >
           {selectedCells.map((isColored, i) => (
