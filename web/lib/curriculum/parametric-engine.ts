@@ -157,7 +157,7 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
     ];
 
     const target = randomChoice(columnTargets);
-    const stem = `با توجه به جدول ارزش مکانی زیر، ستون ${target.ordinal} از سمت چپ (خانه‌ی مشخص‌شده با علامت ؟) مربوط به کدام مرتبه است؟`;
+    const stem = `در جدول ارزش مکانی زیر، ستون ${target.ordinal} از سمت چپ (خانه‌ی مشخص‌شده با علامت ؟) مربوط به کدام مرتبه است؟`;
 
     const rawDistractors: RawDistractorChoice[] = [
       {
@@ -248,7 +248,7 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
   ];
 
   const cfg = randomChoice(configs);
-  const stem = `با توجه به چرتکه‌ی زیر، این چرتکه چه عددی را نشان می‌دهد؟`;
+  const stem = `چرتکه‌ی زیر چه عددی را نشان می‌دهد؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -292,7 +292,6 @@ export function generateThousandsNumberItem(index: number = 0): DiagnosticItemDa
         number: parseInt(cfg.val, 10),
         showDigitBadges: false,
         showRodIndices: true,
-        label: "چرتکه ستونی ارزش مکانی:",
       },
     },
     distractors,
@@ -717,7 +716,7 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
   ];
 
   const cfg = randomChoice(configs);
-  const stem = `با توجه به چرتکه‌ی زیر، این چرتکه چه عددی را نشان می‌دهد؟`;
+  const stem = `چرتکه‌ی زیر چه عددی را نشان می‌دهد؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
@@ -761,7 +760,6 @@ export function generateMillionsNumberItem(index: number = 0): DiagnosticItemDat
         number: parseInt(cfg.val, 10),
         showDigitBadges: false,
         showRodIndices: true,
-        label: "چرتکه ستونی طبقه میلیون:",
       },
     },
     distractors,
