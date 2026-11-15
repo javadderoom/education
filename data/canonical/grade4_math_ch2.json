@@ -357,16 +357,15 @@
     {
       "id": "ITEM-MATH4-CH02-006",
       "kc_id": "KC-MATH4-C02-01",
-      "stem": "یک شکل به ۳ قسمت تقسیم شده ولی اندازه قسمت‌ها با هم برابر نیست و ۱ قسمت آن رنگ شده است. آیا قسمت رنگ‌شده کسر $\\frac{1}{3}$ را نشان می‌دهد؟",
+      "stem": "با توجه به شکل زیر، آیا قسمت رنگ‌شده کسر $\\frac{1}{3}$ شکل را نشان می‌دهد؟",
       "difficulty": 0.40,
       "guess_param": 0.25,
       "slip_param": 0.08,
       "visual_template": {
-        "type": "AreaGrid",
+        "type": "FractionStrip",
         "props": {
-          "rows": 1,
-          "cols": 3,
-          "initialColored": 1
+          "segmentRatios": [45, 18, 37],
+          "coloredSegments": [1]
         }
       },
       "distractors": [

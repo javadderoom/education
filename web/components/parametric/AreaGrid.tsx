@@ -56,12 +56,10 @@ export const AreaGrid: React.FC<AreaGridProps> = ({
               onClick={() => toggleCell(i)}
               className={`w-11 h-11 sm:w-14 sm:h-14 rounded-md border-2 transition-all duration-150 flex items-center justify-center font-bold text-sm ${
                 isColored
-                  ? "bg-indigo-600 border-indigo-700 text-white shadow-sm"
-                  : "bg-slate-100 border-slate-300 text-slate-400 hover:bg-slate-200"
+                  ? "bg-indigo-600 border-indigo-700 shadow-sm"
+                  : "bg-slate-100 border-slate-300 hover:bg-slate-200"
               } ${interactive ? "cursor-pointer active:scale-95" : "cursor-default"}`}
-            >
-              {isColored ? "✓" : ""}
-            </button>
+            />
           ))}
         </div>
 

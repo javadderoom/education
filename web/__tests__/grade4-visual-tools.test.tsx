@@ -2,6 +2,8 @@ import React from "react";
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
 import { VisualTemplateRenderer } from "../components/parametric/VisualTemplateRegistry";
+import { FractionStrip } from "../components/parametric/FractionStrip";
+import { AreaGrid } from "../components/parametric/AreaGrid";
 import { PlaceValueTable } from "../components/parametric/PlaceValueTable";
 import { AbacusVisualizer } from "../components/parametric/AbacusVisualizer";
 import { InputOutputMachine } from "../components/parametric/InputOutputMachine";
@@ -320,5 +322,45 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     const item5 = DYNAMIC_GENERATORS["KC-MATH4-C01-05"](0);
     expect(item5.visual_template).toBeDefined();
     expect(item5.visual_template?.type).toBe("AbacusVisualizer");
+  });
+
+  it("renders FractionStrip with unequal segments for MIS-UNEQUAL-PARTITIONS diagnostic item", () => {
+    const { container } = render(
+      <FractionStrip
+        segmentRatios={[45, 18, 37]}
+        coloredSegments={[1]}
+      />
+    );
+
+    const rects = container.querySelectorAll("rect");
+    expect(rects.length).toBe(3);
+
+    // Verify widths are unequal (e.g. middle segment width is much smaller than first)
+    const widths = Array.from(rects).map((r) => parseFloat(r.getAttribute("width") || "0"));
+    expect(widths[0]).toBeGreaterThan(widths[1]); // 45% > 18%
+    expect(widths[2]).toBeGreaterThan(widths[1]); // 37% > 18%
+
+    // Verify middle segment is colored with indigo fill
+    expect(rects[1].getAttribute("fill")).toBe("#6366f1");
+    // Verify first and third segments are uncolored
+    expect(rects[0].getAttribute("fill")).toBe("#f8fafc");
+    expect(rects[2].getAttribute("fill")).toBe("#f8fafc");
+
+    // Unequal partitions must NOT have misleading fraction text or 0..1 slider
+    expect(container.querySelectorAll("text").length).toBe(0);
+  });
+
+  it("renders AreaGrid with shaded cells without misleading checkmarks", () => {
+    const { container } = render(
+      <AreaGrid rows={1} cols={3} initialColored={1} hideBadge={true} />
+    );
+
+    const buttons = container.querySelectorAll("button");
+    expect(buttons.length).toBe(3);
+
+    // Verify buttons have no checkmark text
+    buttons.forEach((btn) => {
+      expect(btn.textContent?.trim()).toBe("");
+    });
   });
 });

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { toPersianDigits } from "../../lib/math/persian-digits";
 
 export interface FractionStripProps {
-  totalSegments: number;
+  totalSegments?: number;
   initialColored?: number;
   interactive?: boolean;
   showSumMode?: boolean;
@@ -12,6 +12,9 @@ export interface FractionStripProps {
   operandB?: number;
   label?: string;
   hideCounter?: boolean;
+  showLabels?: boolean;
+  segmentRatios?: number[];
+  coloredSegments?: number[];
   onChange?: (coloredCount: number) => void;
 }
 
@@ -24,8 +27,14 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
   operandB = 0,
   label,
   hideCounter = false,
+  showLabels,
+  segmentRatios,
+  coloredSegments,
   onChange,
 }) => {
+  const isUnequal = Boolean(segmentRatios && segmentRatios.length > 0);
+  const effectiveTotal = isUnequal ? segmentRatios!.length : totalSegments;
+
   const [coloredCount, setColoredCount] = useState(initialColored);
 
   const handleSegmentClick = (index: number) => {
@@ -35,7 +44,30 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
     onChange?.(newCount);
   };
 
-  const segmentWidth = 100 / totalSegments;
+  // Pre-calculate segment coordinates
+  const segments = React.useMemo(() => {
+    const totalSvgWidth = 500;
+    if (isUnequal && segmentRatios) {
+      const sumRatios = segmentRatios.reduce((acc, val) => acc + val, 0);
+      let currX = 0;
+      return segmentRatios.map((ratio, i) => {
+        const w = (ratio / sumRatios) * totalSvgWidth;
+        const seg = { x: currX, width: w, index: i };
+        currX += w;
+        return seg;
+      });
+    }
+
+    const uniformW = totalSvgWidth / effectiveTotal;
+    return Array.from({ length: effectiveTotal }, (_, i) => ({
+      x: i * uniformW,
+      width: uniformW,
+      index: i,
+    }));
+  }, [isUnequal, segmentRatios, effectiveTotal]);
+
+  const shouldShowLabels = showLabels ?? !isUnequal;
+  const shouldShowCounter = !hideCounter && !isUnequal;
 
   return (
     <div className="w-full flex flex-col items-center my-4 select-none">
@@ -46,18 +78,25 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
           viewBox="0 0 500 70"
           className="w-full h-16 rounded-lg overflow-hidden border border-slate-300 bg-white"
         >
-          {Array.from({ length: totalSegments }).map((_, i) => {
-            const x = (i * 500) / totalSegments;
-            const width = 500 / totalSegments;
-
+          {segments.map(({ x, width, index: i }) => {
+            let isColored = false;
             let fillColor = "#f8fafc"; // uncolored slate-50
-            if (showSumMode) {
+
+            if (coloredSegments && coloredSegments.length > 0) {
+              isColored = coloredSegments.includes(i);
+            } else if (showSumMode) {
               if (i < operandA) {
                 fillColor = "#3b82f6"; // blue-500
+                isColored = true;
               } else if (i < operandA + operandB) {
                 fillColor = "#10b981"; // emerald-500
+                isColored = true;
               }
             } else if (i < coloredCount) {
+              isColored = true;
+            }
+
+            if (isColored && !showSumMode) {
               fillColor = "#6366f1"; // indigo-500
             }
 
@@ -76,36 +115,34 @@ export const FractionStrip: React.FC<FractionStripProps> = ({
                   stroke="#cbd5e1"
                   strokeWidth="2"
                 />
-                <text
-                  x={x + width / 2}
-                  y={42}
-                  textAnchor="middle"
-                  fontSize="16"
-                  fontWeight="600"
-                  fill={
-                    (showSumMode && (i < operandA || i < operandA + operandB)) || i < coloredCount
-                      ? "#ffffff"
-                      : "#64748b"
-                  }
-                >
-                  {`${toPersianDigits(1)}/${toPersianDigits(totalSegments)}`}
-                </text>
+                {shouldShowLabels && (
+                  <text
+                    x={x + width / 2}
+                    y={42}
+                    textAnchor="middle"
+                    fontSize="16"
+                    fontWeight="600"
+                    fill={isColored ? "#ffffff" : "#64748b"}
+                  >
+                    {`${toPersianDigits(1)}/${toPersianDigits(effectiveTotal)}`}
+                  </text>
+                )}
               </g>
             );
           })}
         </svg>
 
-        <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-400 font-semibold" dir="ltr">
-          <span>{toPersianDigits(0)}</span>
-          {!hideCounter && (
+        {shouldShowCounter && (
+          <div className="flex justify-between items-center mt-2 px-1 text-xs text-slate-400 font-semibold" dir="ltr">
+            <span>{toPersianDigits(0)}</span>
             <span className="text-slate-600 font-semibold">
               {showSumMode
-                ? `${toPersianDigits(operandA + operandB)} / ${toPersianDigits(totalSegments)}`
-                : `${toPersianDigits(coloredCount)} / ${toPersianDigits(totalSegments)}`}
+                ? `${toPersianDigits(operandA + operandB)} / ${toPersianDigits(effectiveTotal)}`
+                : `${toPersianDigits(coloredCount)} / ${toPersianDigits(effectiveTotal)}`}
             </span>
-          )}
-          <span>{toPersianDigits(1)}</span>
-        </div>
+            <span>{toPersianDigits(1)}</span>
+          </div>
+        )}
       </div>
     </div>
   );
