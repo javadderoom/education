@@ -30,31 +30,30 @@ vi.mock("@/lib/curriculum/parametric-engine", () => ({
 }));
 
 const mockCartridge: CanonicalCartridge = {
-  cartridge_version: "2.0.0",
-  schema_version: "2.0.0",
-  metadata: {
-    locale: "fa-IR",
-    created_at: "2026-01-01T00:00:00Z",
-    total_kcs: 2,
-    total_items: 2,
-    total_misconceptions: 1,
+  cartridge_id: "CART-TEST-01",
+  title: "آزمون آزمایشی کسرها",
+  domain: {
+    id: "DOM-FRACTIONS",
+    name: "کسر",
+    category: "ریاضی",
   },
   subject: {
     id: "SUBJ-MATH4-FRACTIONS",
-    title: "ریاضی چهارم - کسرها",
+    name: "ریاضی چهارم - کسرها",
     grade_level: 4,
-    domain: "کسر",
   },
   knowledge_components: [
     {
       id: "KC-MATH4-C02-01",
       title: "مفهوم کسر به عنوان جزء از کل",
+      bloom_level: "Understand",
       description: "شناخت مفهوم کسر",
       prerequisites: [],
     },
     {
       id: "KC-MATH4-C02-02",
       title: "کسرهای مساوی و ساده کردن",
+      bloom_level: "Apply",
       description: "یافتن کسرهای مساوی",
       prerequisites: ["KC-MATH4-C02-01"],
     },
@@ -64,7 +63,6 @@ const mockCartridge: CanonicalCartridge = {
       id: "MIS-01",
       title: "جمع مخرج‌ها",
       description: "دانش‌آموز مخرج‌ها را جمع می‌کند",
-      remediation_strategy: "استفاده از شکل واحد",
       counter_example_blueprint: {
         scenario: "پیتزا",
       },
