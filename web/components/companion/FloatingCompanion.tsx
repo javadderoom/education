@@ -183,8 +183,8 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
       className={`fixed z-[60] select-none transition-[left,right] duration-300 ease-out ${className}`}
       style={{
         top: `${positionY}px`,
-        left: dockSide === "left" ? (isPeeking ? "-42px" : "12px") : undefined,
-        right: dockSide === "right" ? (isPeeking ? "-42px" : "12px") : undefined,
+        left: dockSide === "left" ? (isPeeking ? "0px" : "12px") : undefined,
+        right: dockSide === "right" ? (isPeeking ? "0px" : "12px") : undefined,
         touchAction: "none",
       }}
     >
@@ -223,14 +223,14 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
           </div>
         )}
 
-        {/* Draggable Dana Avatar Container */}
+        {/* Draggable Dana Avatar Container or Docked Edge Tab */}
         <div
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          className={`relative group cursor-grab active:cursor-grabbing transition-transform ${
-            isDragging ? "scale-105" : "hover:scale-105"
-          }`}
+          onPointerDown={isPeeking ? undefined : handlePointerDown}
+          onPointerMove={isPeeking ? undefined : handlePointerMove}
+          onPointerUp={isPeeking ? undefined : handlePointerUp}
+          className={`relative group ${
+            isPeeking ? "cursor-pointer" : "cursor-grab active:cursor-grabbing transition-transform"
+          } ${!isPeeking && isDragging ? "scale-105" : !isPeeking ? "hover:scale-105" : ""}`}
           role="button"
           tabIndex={0}
           aria-label={
@@ -239,21 +239,59 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               : `همیار دانا در حالت ${internalMood} - قابل جابه‌جایی و لمس`
           }
         >
-          {/* Peeking Peek Hint Tab */}
+          {/* Peeking Docked Edge Tab (Clear, Unmistakable & Sleek) */}
           {isPeeking ? (
-            <div className="relative flex items-center justify-center p-1 bg-indigo-600/90 hover:bg-indigo-700 text-white rounded-full shadow-lg border-2 border-white cursor-pointer animate-pulse">
-              <RobotCompanion
-                mood={internalMood}
-                size="sm"
-                peeking={true}
-                showSpeechBubble={false}
-                interactiveHop={false}
-                className="pointer-events-none"
-              />
-              <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-              </span>
+            <div
+              onClick={() => {
+                setIsPeeking(false);
+                setIsSpeechOpen(true);
+              }}
+              className={`flex items-center gap-2 py-1.5 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-300 dark:border-indigo-600 shadow-xl cursor-pointer hover:bg-indigo-50/90 dark:hover:bg-slate-700/90 active:scale-95 transition-all group ${
+                dockSide === "left"
+                  ? "rounded-r-2xl border-l-0 pl-1.5 pr-3.5"
+                  : "rounded-l-2xl border-r-0 pr-1.5 pl-3.5"
+              }`}
+              title="بازگشت دانا (هم‌شاگردی کاوشگر)"
+            >
+              {dockSide === "left" ? (
+                <>
+                  {/* Dana Mini Avatar */}
+                  <div className="w-10 h-11 shrink-0 relative flex items-center justify-center">
+                    <RobotCompanion
+                      mood={internalMood}
+                      size="xs"
+                      showSpeechBubble={false}
+                      interactiveHop={false}
+                      className="pointer-events-none filter drop-shadow-xs"
+                    />
+                  </div>
+
+                  {/* Clear Label & Direction Indicator */}
+                  <div className="flex items-center gap-1 text-indigo-700 dark:text-indigo-300 font-black text-xs">
+                    <span>دانا</span>
+                    <ChevronRight className="w-4 h-4 text-indigo-500 group-hover:translate-x-0.5 transition-transform animate-pulse" />
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Direction Indicator & Clear Label */}
+                  <div className="flex items-center gap-1 text-indigo-700 dark:text-indigo-300 font-black text-xs">
+                    <ChevronLeft className="w-4 h-4 text-indigo-500 group-hover:-translate-x-0.5 transition-transform animate-pulse" />
+                    <span>دانا</span>
+                  </div>
+
+                  {/* Dana Mini Avatar */}
+                  <div className="w-10 h-11 shrink-0 relative flex items-center justify-center">
+                    <RobotCompanion
+                      mood={internalMood}
+                      size="xs"
+                      showSpeechBubble={false}
+                      interactiveHop={false}
+                      className="pointer-events-none filter drop-shadow-xs"
+                    />
+                  </div>
+                </>
+              )}
             </div>
           ) : (
             <div className="relative flex flex-col items-center">
@@ -277,15 +315,19 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
                 />
               </div>
 
-              {/* Mini Quick-Action Bar below Dana */}
+              {/* Mini Quick-Action Button below Dana to Dock */}
               <div className="mt-1 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                 <button
                   type="button"
                   onClick={handleTogglePeeking}
-                  className="px-2 py-0.5 rounded-full bg-white/90 dark:bg-slate-800/90 border border-indigo-200 text-[10px] font-bold text-indigo-700 dark:text-indigo-300 shadow-xs hover:bg-indigo-50 flex items-center gap-0.5 cursor-pointer"
-                  title="سرک کشیدن به لبه صفحه برای خلوت شدن صفحه"
+                  className="px-2.5 py-1 rounded-full bg-white/95 dark:bg-slate-800/95 border border-indigo-200 dark:border-indigo-800 text-[11px] font-bold text-indigo-700 dark:text-indigo-300 shadow-xs hover:bg-indigo-50 dark:hover:bg-slate-700 flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                  title="پنهان کردن دانا در کنار صفحه"
                 >
-                  {dockSide === "left" ? <ChevronLeft className="w-2.5 h-2.5" /> : <ChevronRight className="w-2.5 h-2.5" />}
+                  {dockSide === "left" ? (
+                    <ChevronLeft className="w-3 h-3 text-indigo-500" />
+                  ) : (
+                    <ChevronRight className="w-3 h-3 text-indigo-500" />
+                  )}
                   <span>کنار بایست</span>
                 </button>
               </div>

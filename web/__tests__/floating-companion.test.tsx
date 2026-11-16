@@ -47,7 +47,7 @@ describe("FloatingCompanion Component (Smart Roaming Pedagogical Companion)", ()
   it("toggles peeking mode when toggle button is clicked", () => {
     render(<FloatingCompanion mood="idle" />);
 
-    const peekBtn = screen.getByTitle(/سرک کشیدن به لبه صفحه/);
+    const peekBtn = screen.getByText("کنار بایست");
     expect(peekBtn).toBeDefined();
     fireEvent.click(peekBtn);
 

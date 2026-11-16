@@ -159,9 +159,7 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
 
       {/* Robot SVG Avatar with Multi-Axis Floating & Hopping Physics */}
       <div
-        className={`${sizeCfg.container} relative flex items-center justify-center transition-transform duration-300 ${
-          peeking ? "translate-y-6 opacity-90 scale-90" : ""
-        }`}
+        className={`${sizeCfg.container} relative flex items-center justify-center transition-transform duration-300`}
         style={{
           zIndex: zIndex + 5,
           animation: isHopping
@@ -170,7 +168,7 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
         }}
       >
         <svg
-          viewBox={peeking ? "30 20 140 120" : "0 0 200 230"}
+          viewBox="0 0 200 230"
           className={`${sizeCfg.svg} overflow-visible transition-transform duration-300`}
         >
           <defs>
@@ -204,10 +202,8 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
             </filter>
           </defs>
 
-          {/* Shadow on Floor (hidden in peeking mode) */}
-          {!peeking && (
-            <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
-          )}
+          {/* Shadow on Floor */}
+          <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
 
           {/* School Backpack */}
           <g id="backpack">
@@ -356,73 +352,69 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
           </g>
 
           {/* Torso & Arms (omitted if peeking) */}
-          {!peeking && (
-            <>
-              {/* Torso */}
-              <g id="torso">
-                <path
-                  d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
-                  fill="url(#danaBody)"
-                  stroke="#94a3b8"
-                  strokeWidth="2.5"
-                />
-                {/* Chest Core Badge */}
-                <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
-                <g filter="url(#danaGlow)">
-                  <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
-                  <circle cx="100" cy="158" r="3" fill="#fbbf24" />
-                </g>
-                {/* Student Scarf */}
-                <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
-              </g>
+          {/* Torso */}
+          <g id="torso">
+            <path
+              d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
+              fill="url(#danaBody)"
+              stroke="#94a3b8"
+              strokeWidth="2.5"
+            />
+            {/* Chest Core Badge */}
+            <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
+            <g filter="url(#danaGlow)">
+              <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="100" cy="158" r="3" fill="#fbbf24" />
+            </g>
+            {/* Student Scarf */}
+            <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
+          </g>
 
-              {/* Left Arm / Hand */}
-              <g id="leftArm">
-                <path
-                  d={leftArmPath}
-                  fill="none"
-                  stroke="url(#danaBody)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  className="transition-all duration-300"
-                />
-                <circle
-                  cx={leftHandCx}
-                  cy={leftHandCy}
-                  r="7"
-                  fill="#4f46e5"
-                  stroke="#312e81"
-                  strokeWidth="1.5"
-                  className="transition-all duration-300"
-                />
-              </g>
+          {/* Left Arm / Hand */}
+          <g id="leftArm">
+            <path
+              d={leftArmPath}
+              fill="none"
+              stroke="url(#danaBody)"
+              strokeWidth="10"
+              strokeLinecap="round"
+              className="transition-all duration-300"
+            />
+            <circle
+              cx={leftHandCx}
+              cy={leftHandCy}
+              r="7"
+              fill="#4f46e5"
+              stroke="#312e81"
+              strokeWidth="1.5"
+              className="transition-all duration-300"
+            />
+          </g>
 
-              {/* Right Arm / Hand (holding pencil) */}
-              <g id="rightArm">
-                <path
-                  d={rightArmPath}
-                  fill="none"
-                  stroke="url(#danaBody)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  className="transition-all duration-300"
-                />
-                <circle
-                  cx={rightHandCx}
-                  cy={rightHandCy}
-                  r="7"
-                  fill="#4f46e5"
-                  stroke="#312e81"
-                  strokeWidth="1.5"
-                  className="transition-all duration-300"
-                />
-                {/* Golden Pencil */}
-                <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
-                <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
-                <polygon points="144,180 146,180 145,182" fill="#0f172a" />
-              </g>
-            </>
-          )}
+          {/* Right Arm / Hand (holding pencil) */}
+          <g id="rightArm">
+            <path
+              d={rightArmPath}
+              fill="none"
+              stroke="url(#danaBody)"
+              strokeWidth="10"
+              strokeLinecap="round"
+              className="transition-all duration-300"
+            />
+            <circle
+              cx={rightHandCx}
+              cy={rightHandCy}
+              r="7"
+              fill="#4f46e5"
+              stroke="#312e81"
+              strokeWidth="1.5"
+              className="transition-all duration-300"
+            />
+            {/* Golden Pencil */}
+            <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
+            <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
+            <polygon points="144,180 146,180 145,182" fill="#0f172a" />
+          </g>
         </svg>
       </div>
 
