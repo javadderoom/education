@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 export type CompanionMood = "idle" | "thinking" | "celebrating" | "reassuring";
-export type CompanionSize = "sm" | "md" | "lg";
+export type CompanionSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 export interface RobotCompanionProps {
   mood?: CompanionMood;
@@ -14,6 +14,8 @@ export interface RobotCompanionProps {
   className?: string;
   onClick?: () => void;
   zIndex?: number;
+  peeking?: boolean;
+  interactiveHop?: boolean;
 }
 
 const DEFAULT_SPEECH: Record<CompanionMood, string> = {
@@ -24,20 +26,33 @@ const DEFAULT_SPEECH: Record<CompanionMood, string> = {
 };
 
 const SIZE_CONFIGS = {
+  xs: {
+    container: "w-9 h-10",
+    svg: "w-9 h-10",
+    bubble: "text-[10px] max-w-[180px] px-2 py-0.5",
+  },
   sm: {
-    container: "w-10 h-10 sm:w-12 sm:h-12",
-    svg: "w-10 h-10 sm:w-12 sm:h-12",
-    bubble: "text-[11px] max-w-[200px] px-2.5 py-1",
+    container: "w-14 h-16",
+    svg: "w-14 h-16",
+    bubble: "text-[11px] max-w-[210px] px-2.5 py-1",
   },
   md: {
-    container: "w-24 h-28 sm:w-28 sm:h-32",
-    svg: "w-24 h-28 sm:w-28 sm:h-32",
-    bubble: "text-xs max-w-[260px] px-3.5 py-1.5",
+    // Standard floating mobile size (80px - 88px)
+    container: "w-20 h-24 sm:w-22 sm:h-26",
+    svg: "w-20 h-24 sm:w-22 sm:h-26",
+    bubble: "text-xs max-w-[240px] px-3.5 py-1.5",
   },
   lg: {
+    // Standard desktop companion size (104px - 115px)
+    container: "w-26 h-30 sm:w-28 sm:h-34",
+    svg: "w-26 h-30 sm:w-28 sm:h-34",
+    bubble: "text-xs sm:text-sm max-w-[280px] px-4 py-2",
+  },
+  xl: {
+    // Showcase & Completion celebration (140px - 160px)
     container: "w-36 h-44 sm:w-44 sm:h-52",
     svg: "w-36 h-44 sm:w-44 sm:h-52",
-    bubble: "text-xs sm:text-sm max-w-xs px-4 py-2",
+    bubble: "text-sm max-w-xs px-4 py-2.5",
   },
 };
 
@@ -50,9 +65,22 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
   className = "",
   onClick,
   zIndex = 60,
+  peeking = false,
+  interactiveHop = true,
 }) => {
+  const [isHopping, setIsHopping] = useState(false);
   const currentSpeech = speechText || DEFAULT_SPEECH[mood];
   const sizeCfg = SIZE_CONFIGS[size];
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (interactiveHop) {
+      setIsHopping(true);
+      setTimeout(() => setIsHopping(false), 600);
+    }
+    if (onClick) {
+      onClick();
+    }
+  };
 
   // Visual state variables depending on mood
   let antennaColor = "#38bdf8";
@@ -110,33 +138,40 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
     <div
       className={`relative inline-flex flex-col items-center select-none ${className}`}
       style={{ zIndex }}
-      onClick={onClick}
+      onClick={handleClick}
       role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
       aria-label={`هم‌شاگردی ربات دانا - حالت: ${mood}`}
     >
-      {/* Speech Bubble */}
+      {/* Speech Bubble with Smooth Pop-in Spring Animation */}
       {showSpeechBubble && (
         <div
-          className={`relative mb-2 bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-900/60 rounded-2xl shadow-md font-bold text-slate-700 dark:text-slate-200 text-center transition-all duration-300 animate-in fade-in zoom-in-95 ${sizeCfg.bubble}`}
-          style={{ zIndex: zIndex + 10 }}
+          className={`relative mb-2.5 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xs border-2 border-indigo-200 dark:border-indigo-900/60 rounded-2xl shadow-lg font-bold text-slate-800 dark:text-slate-100 text-center transition-all ${sizeCfg.bubble}`}
+          style={{
+            zIndex: zIndex + 10,
+            animation: "speechBubbleBounce 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+          }}
         >
-          <span>{currentSpeech}</span>
+          <span className="leading-relaxed">{currentSpeech}</span>
           <div className="absolute -bottom-1.5 right-1/2 translate-x-1/2 w-2.5 h-2.5 bg-white dark:bg-slate-800 border-r-2 border-b-2 border-indigo-200 dark:border-indigo-900/60 rotate-45" />
         </div>
       )}
 
-      {/* Robot SVG Avatar */}
+      {/* Robot SVG Avatar with Multi-Axis Floating & Hopping Physics */}
       <div
-        className={`${sizeCfg.container} relative flex items-center justify-center`}
-        style={{ zIndex: zIndex + 5 }}
+        className={`${sizeCfg.container} relative flex items-center justify-center transition-transform duration-300 ${
+          peeking ? "translate-y-6 opacity-90 scale-90" : ""
+        }`}
+        style={{
+          zIndex: zIndex + 5,
+          animation: isHopping
+            ? "danaHop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1)"
+            : "danaFloat 3.8s ease-in-out infinite",
+        }}
       >
         <svg
-          viewBox="0 0 200 230"
+          viewBox={peeking ? "30 20 140 120" : "0 0 200 230"}
           className={`${sizeCfg.svg} overflow-visible transition-transform duration-300`}
-          style={{
-            animation: "robotBreathe 3.6s ease-in-out infinite",
-          }}
         >
           <defs>
             <linearGradient id="danaBody" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -169,8 +204,10 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
             </filter>
           </defs>
 
-          {/* Shadow on Floor */}
-          <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
+          {/* Shadow on Floor (hidden in peeking mode) */}
+          {!peeking && (
+            <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
+          )}
 
           {/* School Backpack */}
           <g id="backpack">
@@ -232,7 +269,7 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
             />
           </g>
 
-          {/* Antenna Assembly */}
+          {/* Antenna Assembly with Pulsing Glow Beacon */}
           <g id="antenna">
             <path d="M 100 52 Q 100 38 100 32" stroke="#94a3b8" strokeWidth="3.5" strokeLinecap="round" />
             <circle
@@ -242,6 +279,10 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
               fill={antennaColor}
               filter="url(#danaGlow)"
               className="transition-colors duration-300"
+              style={{
+                transformOrigin: "100px 30px",
+                animation: "antennaPulse 2.4s ease-in-out infinite",
+              }}
             />
             <circle cx="98" cy="28" r="2.5" fill="#ffffff" opacity="0.8" />
           </g>
@@ -271,15 +312,21 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
             <rect x="58" y="58" width="84" height="58" rx="24" fill="url(#danaVisor)" stroke="#0f172a" strokeWidth="2" />
             <path d="M 64 64 Q 100 60 136 68 Q 120 74 64 72 Z" fill="#ffffff" opacity="0.14" />
 
-            {/* Eyes */}
-            <g id="eyes" filter="url(#danaGlow)">
+            {/* Eyes with Natural Biological Blinking Cycle */}
+            <g
+              id="eyes"
+              filter="url(#danaGlow)"
+              style={{
+                transformOrigin: "100px 85px",
+                animation: isEyeBlinking ? "danaEyeBlink 3.6s ease-in-out infinite" : undefined,
+              }}
+            >
               <ellipse
                 cx="82"
                 cy="85"
                 rx={eyeRx}
                 ry={eyeRy}
                 fill={eyeColor}
-                className={isEyeBlinking ? "animate-pulse" : ""}
               />
               <circle cx="80" cy="81" r="2.5" fill="#ffffff" />
 
@@ -289,7 +336,6 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
                 rx={eyeRx}
                 ry={eyeRy}
                 fill={eyeColor}
-                className={isEyeBlinking ? "animate-pulse" : ""}
               />
               <circle cx="116" cy="81" r="2.5" fill="#ffffff" />
             </g>
@@ -309,78 +355,121 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
             />
           </g>
 
-          {/* Torso */}
-          <g id="torso">
-            <path
-              d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
-              fill="url(#danaBody)"
-              stroke="#94a3b8"
-              strokeWidth="2.5"
-            />
-            {/* Chest Core Badge */}
-            <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
-            <g filter="url(#danaGlow)">
-              <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="100" cy="158" r="3" fill="#fbbf24" />
-            </g>
-            {/* Student Scarf */}
-            <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
-          </g>
+          {/* Torso & Arms (omitted if peeking) */}
+          {!peeking && (
+            <>
+              {/* Torso */}
+              <g id="torso">
+                <path
+                  d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
+                  fill="url(#danaBody)"
+                  stroke="#94a3b8"
+                  strokeWidth="2.5"
+                />
+                {/* Chest Core Badge */}
+                <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
+                <g filter="url(#danaGlow)">
+                  <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
+                  <circle cx="100" cy="158" r="3" fill="#fbbf24" />
+                </g>
+                {/* Student Scarf */}
+                <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
+              </g>
 
-          {/* Left Arm / Hand */}
-          <g id="leftArm">
-            <path
-              d={leftArmPath}
-              fill="none"
-              stroke="url(#danaBody)"
-              strokeWidth="10"
-              strokeLinecap="round"
-              className="transition-all duration-300"
-            />
-            <circle
-              cx={leftHandCx}
-              cy={leftHandCy}
-              r="7"
-              fill="#4f46e5"
-              stroke="#312e81"
-              strokeWidth="1.5"
-              className="transition-all duration-300"
-            />
-          </g>
+              {/* Left Arm / Hand */}
+              <g id="leftArm">
+                <path
+                  d={leftArmPath}
+                  fill="none"
+                  stroke="url(#danaBody)"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  className="transition-all duration-300"
+                />
+                <circle
+                  cx={leftHandCx}
+                  cy={leftHandCy}
+                  r="7"
+                  fill="#4f46e5"
+                  stroke="#312e81"
+                  strokeWidth="1.5"
+                  className="transition-all duration-300"
+                />
+              </g>
 
-          {/* Right Arm / Hand (holding pencil) */}
-          <g id="rightArm">
-            <path
-              d={rightArmPath}
-              fill="none"
-              stroke="url(#danaBody)"
-              strokeWidth="10"
-              strokeLinecap="round"
-              className="transition-all duration-300"
-            />
-            <circle
-              cx={rightHandCx}
-              cy={rightHandCy}
-              r="7"
-              fill="#4f46e5"
-              stroke="#312e81"
-              strokeWidth="1.5"
-              className="transition-all duration-300"
-            />
-            {/* Golden Pencil */}
-            <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
-            <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
-            <polygon points="144,180 146,180 145,182" fill="#0f172a" />
-          </g>
+              {/* Right Arm / Hand (holding pencil) */}
+              <g id="rightArm">
+                <path
+                  d={rightArmPath}
+                  fill="none"
+                  stroke="url(#danaBody)"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  className="transition-all duration-300"
+                />
+                <circle
+                  cx={rightHandCx}
+                  cy={rightHandCy}
+                  r="7"
+                  fill="#4f46e5"
+                  stroke="#312e81"
+                  strokeWidth="1.5"
+                  className="transition-all duration-300"
+                />
+                {/* Golden Pencil */}
+                <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
+                <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
+                <polygon points="144,180 146,180 145,182" fill="#0f172a" />
+              </g>
+            </>
+          )}
         </svg>
       </div>
 
       <style>{`
-        @keyframes robotBreathe {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-5px); }
+        @keyframes danaFloat {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          25% { transform: translateY(-4px) rotate(1deg); }
+          50% { transform: translateY(-7px) rotate(0deg); }
+          75% { transform: translateY(-3px) rotate(-1deg); }
+        }
+
+        @keyframes danaEyeBlink {
+          0%, 86%, 100% { transform: scaleY(1); }
+          90% { transform: scaleY(0.08); }
+          94% { transform: scaleY(1); }
+          96% { transform: scaleY(0.08); }
+          98% { transform: scaleY(1); }
+        }
+
+        @keyframes antennaPulse {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          50% { transform: scale(1.18); opacity: 1; }
+        }
+
+        @keyframes danaHop {
+          0% { transform: translateY(0px) scale(1); }
+          30% { transform: translateY(-16px) scale(1.08) rotate(-2deg); }
+          60% { transform: translateY(2px) scale(0.96) rotate(1deg); }
+          100% { transform: translateY(0px) scale(1); }
+        }
+
+        @keyframes speechBubbleBounce {
+          0% {
+            opacity: 0;
+            transform: scale(0.65) translateY(12px);
+          }
+          65% {
+            opacity: 1;
+            transform: scale(1.04) translateY(-3px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
         }
       `}</style>
     </div>
   );
 };
+

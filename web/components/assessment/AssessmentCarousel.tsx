@@ -23,6 +23,7 @@ import {
 import { speakPersian, stopPersianSpeech } from "../../lib/audio/speech";
 import { getSubjectTaxonomy } from "../../lib/data/curriculum-taxonomy";
 import { RobotCompanion, CompanionMood } from "../companion/RobotCompanion";
+import { FloatingCompanion } from "../companion/FloatingCompanion";
 
 export interface DistractorItem {
   id: string;
@@ -561,7 +562,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     const averageMastery = Math.round(
       (evaluatedMasteries.reduce((a, b) => a + b, 0) /
         (evaluatedMasteries.length || 1)) *
-        100
+      100
     );
 
     return (
@@ -569,7 +570,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-lg">
           <RobotCompanion
             mood="celebrating"
-            size="md"
+            size="lg"
             showSpeechBubble={true}
             speechText="خسته نباشی قهرمان! ارزیابی به پایان رسید و کارنامه‌ات آماده شد."
             className="mb-3"
@@ -639,13 +640,12 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
                   return (
                     <div
                       key={h.itemId || idx}
-                      className={`p-4 rounded-2xl border text-right transition-all ${
-                        h.isCorrect
-                          ? "bg-emerald-50/50 border-emerald-200"
-                          : h.isNotSure
+                      className={`p-4 rounded-2xl border text-right transition-all ${h.isCorrect
+                        ? "bg-emerald-50/50 border-emerald-200"
+                        : h.isNotSure
                           ? "bg-amber-50/50 border-amber-200"
                           : "bg-rose-50/50 border-rose-200"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-slate-200/60">
                         <span className="font-bold text-xs text-slate-800">
@@ -771,25 +771,23 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   return (
     <div className="w-full flex flex-col flex-1 justify-between select-none">
+      {/* Floating Smart Roaming Companion (Dana) with magnetic edge docking */}
+      <FloatingCompanion
+        mood={companionMood}
+        speechText={companionSpeech || undefined}
+        autoOpenSpeech={true}
+        questionId={currentItem?.id}
+        onCompanionClick={() => setShowCompanionSpeech((prev) => !prev)}
+      />
+
       {/* Top Tablet/Mobile Progress & Header Bar */}
-      <div className="bg-white/90 backdrop-blur-xs border border-slate-200/90 rounded-2xl p-2.5 sm:p-3 mb-3 shadow-2xs relative z-[60]">
-        {/* Row 1: Dana Companion & Progress Counter (Start/Right) vs Action Buttons (End/Left) */}
+      <div className="bg-white/90 backdrop-blur-xs border border-slate-200/90 rounded-2xl p-2.5 sm:p-3 mb-3 shadow-2xs relative z-[50]">
+        {/* Row 1: Question Counter & Progress (Start/Right) vs Action Buttons (End/Left) */}
         <div className="flex items-center justify-between gap-2">
-          {/* Start (Right): Dana Companion & Question Counter */}
+          {/* Start (Right): Progress Counter with Sparkle Indicator */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="relative shrink-0 flex items-center">
-              <RobotCompanion
-                mood={companionMood}
-                size="sm"
-                showSpeechBubble={false}
-                onClick={() => setShowCompanionSpeech((prev) => !prev)}
-                className="cursor-pointer hover:scale-105 active:scale-95 transition-transform"
-                zIndex={60}
-              />
-              {/* Active tip glow dot on Dana */}
-              {companionSpeech && (
-                <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-indigo-500 rounded-full ring-2 ring-white animate-pulse" />
-              )}
+            <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 shadow-2xs shrink-0">
+              <Sparkles className="w-4 h-4 text-indigo-600 animate-pulse" />
             </div>
 
             <div className="flex flex-col min-w-0">
@@ -831,11 +829,10 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <button
               type="button"
               onClick={() => setIsScratchpadOpen((prev) => !prev)}
-              className={`flex items-center gap-1.5 text-xs font-bold border p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs ${
-                isScratchpadOpen
-                  ? "bg-indigo-600 text-white border-indigo-700 shadow-xs"
-                  : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200"
-              }`}
+              className={`flex items-center gap-1.5 text-xs font-bold border p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs ${isScratchpadOpen
+                ? "bg-indigo-600 text-white border-indigo-700 shadow-xs"
+                : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200"
+                }`}
               title="چرک‌نویس و یادداشت روی صفحه"
             >
               <PenTool className={`w-4 h-4 shrink-0 ${isScratchpadOpen ? "text-amber-300" : "text-indigo-600"}`} />
@@ -897,11 +894,10 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             <button
               type="button"
               onClick={handleToggleSpeech}
-              className={`shrink-0 min-h-[38px] px-2.5 py-1.5 rounded-xl border flex items-center gap-1.5 text-xs font-bold transition-all cursor-pointer select-none active:scale-95 ${
-                isSpeaking
-                  ? "bg-amber-100 border-amber-300 text-amber-900 ring-2 ring-amber-400 animate-pulse"
-                  : "bg-slate-50 hover:bg-indigo-50 border-slate-200 hover:border-indigo-200 text-slate-600 hover:text-indigo-700"
-              }`}
+              className={`shrink-0 min-h-[38px] px-2.5 py-1.5 rounded-xl border flex items-center gap-1.5 text-xs font-bold transition-all cursor-pointer select-none active:scale-95 ${isSpeaking
+                ? "bg-amber-100 border-amber-300 text-amber-900 ring-2 ring-amber-400 animate-pulse"
+                : "bg-slate-50 hover:bg-indigo-50 border-slate-200 hover:border-indigo-200 text-slate-600 hover:text-indigo-700"
+                }`}
               title={isSpeaking ? "توقف روخوانی صوتی" : "روخوانی صوتی سوال"}
             >
               {isSpeaking ? (
