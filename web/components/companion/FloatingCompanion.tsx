@@ -192,8 +192,8 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
         {/* Animated Speech Bubble Popup */}
         {isSpeechOpen && !isPeeking && activeSpeech && (
           <div
-            className={`absolute bottom-full mb-3 max-w-[240px] sm:max-w-[280px] w-max bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-200 dark:border-indigo-900/60 rounded-3xl p-3 shadow-xl text-slate-800 dark:text-slate-100 font-bold text-xs leading-relaxed z-[70] ${
-              dockSide === "left" ? "right-0 sm:right-auto sm:left-0" : "left-0 sm:left-auto sm:right-0"
+            className={`absolute bottom-full mb-3 w-[250px] sm:w-[280px] max-w-[calc(100vw-36px)] bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-200 dark:border-indigo-900/60 rounded-3xl p-3 shadow-xl text-slate-800 dark:text-slate-100 font-bold text-xs leading-relaxed z-[70] ${
+              dockSide === "left" ? "left-0" : "right-0"
             }`}
             style={{
               animation: "speechBubbleBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
@@ -202,7 +202,7 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
             <div className="flex items-start justify-between gap-2">
               <div className="flex items-start gap-1.5 min-w-0">
                 <span className="text-sm shrink-0">💡</span>
-                <span>{activeSpeech}</span>
+                <span className="leading-relaxed break-words">{activeSpeech}</span>
               </div>
               <button
                 type="button"
@@ -214,10 +214,10 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               </button>
             </div>
 
-            {/* Bubble Anchor Pointer Tip */}
+            {/* Bubble Anchor Pointer Tip pointing down to Dana */}
             <div
               className={`absolute -bottom-1.5 w-3 h-3 bg-white dark:bg-slate-800 border-r-2 border-b-2 border-indigo-200 dark:border-indigo-900/60 rotate-45 ${
-                dockSide === "left" ? "right-8" : "left-8"
+                dockSide === "left" ? "left-8" : "right-8"
               }`}
             />
           </div>

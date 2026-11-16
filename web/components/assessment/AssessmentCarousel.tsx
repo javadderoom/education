@@ -203,7 +203,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   const [showQuestionReview, setShowQuestionReview] = useState(false);
   const [companionMood, setCompanionMood] = useState<CompanionMood>("idle");
   const [companionSpeech, setCompanionSpeech] = useState<string | null>(null);
-  const [showCompanionSpeech, setShowCompanionSpeech] = useState<boolean>(false);
   const [history, setHistory] = useState<Array<{
     itemId: string;
     kcId: string;
@@ -353,11 +352,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     if (distractor.is_correct) {
       setCompanionMood("celebrating");
       setCompanionSpeech("آفرین قهرمان! این مفهوم رو دقیق و درست حل کردی.");
-      setShowCompanionSpeech(true);
     } else {
       setCompanionMood("reassuring");
       setCompanionSpeech("این سوال نکته‌دار بود، بیا با هم دلیلشو مرور کنیم!");
-      setShowCompanionSpeech(true);
     }
 
     const diagnosis = evaluateDiagnosticResponse(
@@ -423,7 +420,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
     setCompanionMood("reassuring");
     setCompanionSpeech("آفرین به صداقتت! بدون نمره منفی، با هم یادش می‌گیریم.");
-    setShowCompanionSpeech(true);
 
     const prior = masteries[currentItem.kc_id] ?? 0.15;
     const bktResult = updateMastery(prior, false, true);
@@ -466,7 +462,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setIsSpeaking(false);
     setSelectedDistractorId(null);
     setCompanionMood("thinking");
-    setShowCompanionSpeech(false);
     const answeredIds = new Set(currentHistory.map((h) => h.itemId));
     if (currentItem) {
       answeredIds.add(currentItem.id);
@@ -501,7 +496,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     setCurrentIndex(0);
     setSelectedDistractorId(null);
     setCompanionMood("idle");
-    setShowCompanionSpeech(false);
+    setCompanionSpeech(null);
     setSessionCompleted(false);
     setActiveWorkshopKC(null);
     setHistory([]);
@@ -777,7 +772,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         speechText={companionSpeech || undefined}
         autoOpenSpeech={true}
         questionId={currentItem?.id}
-        onCompanionClick={() => setShowCompanionSpeech((prev) => !prev)}
       />
 
       {/* Top Tablet/Mobile Progress & Header Bar */}
@@ -859,27 +853,6 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)}%` }}
           />
         </div>
-
-        {/* Row 3: Dana's Interactive Speech Bubble / Friendly Guidance Banner */}
-        {showCompanionSpeech && (
-          <div className="mt-2.5 p-2.5 sm:p-3 bg-gradient-to-r from-indigo-50/95 via-sky-50/90 to-purple-50/95 border border-indigo-200/90 rounded-2xl flex items-center justify-between gap-2.5 shadow-xs animate-in fade-in slide-in-from-top-1 duration-200">
-            <div className="flex items-center gap-2 text-xs font-bold text-slate-800 leading-snug min-w-0">
-              <span className="text-sm shrink-0">💡</span>
-              <span className="truncate sm:whitespace-normal">
-                {companionSpeech || "من دانا هستم! با دقت روی سوال فکر کن، منم کنارت هستم."}
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setShowCompanionSpeech(false)}
-              className="text-slate-400 hover:text-slate-600 p-1 rounded-lg shrink-0 transition-colors cursor-pointer"
-              aria-label="بستن پیام دانا"
-              title="بستن پیام"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
       </div>
 
       {/* Main Diagnostic Question Card */}
