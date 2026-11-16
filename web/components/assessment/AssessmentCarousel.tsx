@@ -410,7 +410,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
         rationale: distractor.rationale,
       });
     } else {
-      setTimeout(() => advanceToNext(newHistory, updatedMasteries), 500);
+      const isTestEnv = typeof process !== "undefined" && process.env.NODE_ENV === "test";
+      const delayMs = isTestEnv ? 300 : distractor.is_correct ? 2600 : 1200;
+      setTimeout(() => advanceToNext(newHistory, updatedMasteries), delayMs);
     }
   };
 
@@ -451,7 +453,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     persistToOfflineDB(newHistory, isFinished);
     syncExamStorage(newHistory, updatedMasteries, currentIndex, isFinished);
 
-    setTimeout(() => advanceToNext(newHistory, updatedMasteries), 400);
+    const isTestEnv = typeof process !== "undefined" && process.env.NODE_ENV === "test";
+    const delayMs = isTestEnv ? 300 : 1000;
+    setTimeout(() => advanceToNext(newHistory, updatedMasteries), delayMs);
   };
 
   const advanceToNext = (
@@ -461,7 +465,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     stopPersianSpeech();
     setIsSpeaking(false);
     setSelectedDistractorId(null);
-    setCompanionMood("thinking");
+    setCompanionMood("idle");
+    setCompanionSpeech(null);
     const answeredIds = new Set(currentHistory.map((h) => h.itemId));
     if (currentItem) {
       answeredIds.add(currentItem.id);

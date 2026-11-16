@@ -27,14 +27,16 @@ const DEFAULT_SPEECH: Record<CompanionMood, string> = {
 };
 
 const CELEBRATION_PARTICLES = [
-  { char: "★", color: "#fbbf24", size: 16, angle: 20, distance: 52, delay: 0 },
-  { char: "✨", color: "#38bdf8", size: 14, angle: 65, distance: 58, delay: 0.1 },
-  { char: "✦", color: "#10b981", size: 15, angle: 115, distance: 50, delay: 0.2 },
-  { char: "★", color: "#f43f5e", size: 16, angle: 160, distance: 56, delay: 0.15 },
-  { char: "🎉", color: "#f59e0b", size: 14, angle: 210, distance: 54, delay: 0.05 },
-  { char: "✦", color: "#6366f1", size: 15, angle: 255, distance: 48, delay: 0.25 },
-  { char: "✨", color: "#fbbf24", size: 14, angle: 300, distance: 56, delay: 0.18 },
-  { char: "★", color: "#10b981", size: 15, angle: 345, distance: 50, delay: 0.12 },
+  { char: "★", color: "#fbbf24", size: 16, angle: 15, distance: 54, delay: 0 },
+  { char: "✨", color: "#38bdf8", size: 15, angle: 50, distance: 60, delay: 0.08 },
+  { char: "⭐", color: "#f59e0b", size: 16, angle: 85, distance: 56, delay: 0.16 },
+  { char: "✦", color: "#10b981", size: 14, angle: 120, distance: 52, delay: 0.12 },
+  { char: "🎉", color: "#ec4899", size: 15, angle: 155, distance: 58, delay: 0.04 },
+  { char: "★", color: "#f43f5e", size: 16, angle: 195, distance: 55, delay: 0.14 },
+  { char: "🌟", color: "#fbbf24", size: 16, angle: 230, distance: 50, delay: 0.22 },
+  { char: "✦", color: "#6366f1", size: 14, angle: 265, distance: 52, delay: 0.10 },
+  { char: "✨", color: "#38bdf8", size: 15, angle: 305, distance: 58, delay: 0.18 },
+  { char: "★", color: "#10b981", size: 16, angle: 340, distance: 54, delay: 0.06 },
 ];
 
 const SIZE_CONFIGS = {
@@ -216,9 +218,9 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
           style={{
             animation:
               mood === "celebrating"
-                ? "danaCelebrationDance 2.4s cubic-bezier(0.34, 1.25, 0.64, 1) infinite"
+                ? "danaCelebrationDance 2.4s cubic-bezier(0.34, 1.25, 0.64, 1) forwards"
                 : isHopping
-                ? "danaJoyHop 1.4s cubic-bezier(0.34, 1.25, 0.64, 1)"
+                ? "danaJoyHop 1.4s cubic-bezier(0.34, 1.25, 0.64, 1) forwards"
                 : "danaFloat 3.8s ease-in-out infinite",
           }}
         >
@@ -257,8 +259,25 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
               </filter>
             </defs>
 
-            {/* Shadow on Floor */}
-            <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
+            {/* Shadow on Floor with Vertical Depth Scaling */}
+            <ellipse
+              cx="100"
+              cy="222"
+              rx="42"
+              ry="7"
+              fill="#64748b"
+              className="origin-center"
+              style={{
+                transformOrigin: "100px 222px",
+                animation:
+                  mood === "celebrating"
+                    ? "danaShadowCelebration 2.4s ease-in-out forwards"
+                    : isHopping
+                    ? "danaShadowHop 1.4s ease-in-out forwards"
+                    : undefined,
+                opacity: 0.22,
+              }}
+            />
 
             {/* Antenna Assembly with Pulsing Glow Beacon */}
             <g id="antenna">
@@ -439,26 +458,92 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
           0% {
             transform: translateY(0px) scale(1, 1) rotate(0deg);
           }
-          12% {
-            transform: translateY(4px) scale(1.12, 0.88) rotate(0deg);
+          10% {
+            transform: translateY(5px) scale(1.14, 0.86) rotate(0deg);
           }
-          28% {
-            transform: translateY(-28px) scale(0.92, 1.16) rotate(-4deg);
+          26% {
+            transform: translateY(-28px) scale(0.92, 1.15) rotate(-5deg);
           }
-          42% {
-            transform: translateY(-24px) scale(1.06, 1) rotate(6deg);
+          40% {
+            transform: translateY(-22px) scale(1.05, 1) rotate(5deg);
           }
-          58% {
-            transform: translateY(-26px) scale(1.04, 1.02) rotate(-6deg);
+          54% {
+            transform: translateY(2px) scale(1.10, 0.90) rotate(0deg);
           }
-          74% {
-            transform: translateY(-12px) scale(0.96, 1.05) rotate(3deg);
+          68% {
+            transform: translateY(-20px) scale(0.94, 1.12) rotate(-4deg);
           }
-          88% {
-            transform: translateY(2px) scale(1.08, 0.92) rotate(0deg);
+          84% {
+            transform: translateY(3px) scale(1.08, 0.94) rotate(0deg);
           }
           100% {
             transform: translateY(0px) scale(1, 1) rotate(0deg);
+          }
+        }
+
+        @keyframes danaShadowCelebration {
+          0% {
+            transform: scale(1, 1);
+            opacity: 0.22;
+          }
+          10% {
+            transform: scale(1.15, 1.1);
+            opacity: 0.32;
+          }
+          26% {
+            transform: scale(0.55, 0.5);
+            opacity: 0.10;
+          }
+          40% {
+            transform: scale(0.65, 0.6);
+            opacity: 0.14;
+          }
+          54% {
+            transform: scale(1.12, 1.1);
+            opacity: 0.30;
+          }
+          68% {
+            transform: scale(0.68, 0.65);
+            opacity: 0.15;
+          }
+          84% {
+            transform: scale(1.1, 1.05);
+            opacity: 0.28;
+          }
+          100% {
+            transform: scale(1, 1);
+            opacity: 0.22;
+          }
+        }
+
+        @keyframes danaShadowHop {
+          0% {
+            transform: scale(1, 1);
+            opacity: 0.22;
+          }
+          14% {
+            transform: scale(1.15, 1.1);
+            opacity: 0.30;
+          }
+          34% {
+            transform: scale(0.58, 0.55);
+            opacity: 0.12;
+          }
+          52% {
+            transform: scale(0.70, 0.68);
+            opacity: 0.16;
+          }
+          72% {
+            transform: scale(0.85, 0.85);
+            opacity: 0.20;
+          }
+          88% {
+            transform: scale(1.08, 1.05);
+            opacity: 0.26;
+          }
+          100% {
+            transform: scale(1, 1);
+            opacity: 0.22;
           }
         }
 

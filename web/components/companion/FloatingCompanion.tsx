@@ -35,11 +35,37 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
   const hasMovedRef = useRef<boolean>(false);
   const autoCloseTimerRef = useRef<NodeJS.Timeout | null>(null);
   const thinkingTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const celebrationTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isCelebrationLockedRef = useRef<boolean>(false);
 
-  // Sync external mood to internal mood
+  // Sync external mood to internal mood with celebration persistence guard
   useEffect(() => {
-    setInternalMood(mood);
+    if (mood === "celebrating") {
+      isCelebrationLockedRef.current = true;
+      setInternalMood("celebrating");
+
+      if (celebrationTimerRef.current) clearTimeout(celebrationTimerRef.current);
+      // Ensure celebration animation finishes full 2.4s cycle and lands gracefully (2600ms total window)
+      celebrationTimerRef.current = setTimeout(() => {
+        isCelebrationLockedRef.current = false;
+        setInternalMood((curr) => (curr === "celebrating" ? "idle" : curr));
+      }, 2600);
+    } else {
+      // If we are currently locked in a celebration, don't interrupt it mid-flight!
+      if (!isCelebrationLockedRef.current) {
+        setInternalMood(mood);
+      }
+    }
   }, [mood]);
+
+  // Clean up all background timers on unmount
+  useEffect(() => {
+    return () => {
+      if (celebrationTimerRef.current) clearTimeout(celebrationTimerRef.current);
+      if (autoCloseTimerRef.current) clearTimeout(autoCloseTimerRef.current);
+      if (thinkingTimerRef.current) clearTimeout(thinkingTimerRef.current);
+    };
+  }, []);
 
   // Handle automatic speech opening with animation when speechText changes
   useEffect(() => {
@@ -54,8 +80,18 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
           setIsSpeechOpen(false);
         }, 6500);
       }
+    } else {
+      setIsSpeechOpen(false);
+      setActiveSpeech("");
     }
   }, [speechText, autoOpenSpeech]);
+
+  // Clean up speech bubble when transitioning to a new question
+  useEffect(() => {
+    if (questionId) {
+      setIsSpeechOpen(false);
+    }
+  }, [questionId]);
 
   // Contemplation / Thinking timer on question load
   useEffect(() => {

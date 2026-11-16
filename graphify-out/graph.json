@@ -280,7 +280,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "scripts_context_ispathinside",
-      "community": 78,
+      "community": 115,
       "norm_label": "ispathinside()"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "L215",
       "_origin": "ast",
       "id": "scripts_context_findmonoreporoot",
-      "community": 115,
+      "community": 78,
       "norm_label": "findmonoreporoot()"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L240",
       "_origin": "ast",
       "id": "scripts_context_hasgitboundary",
-      "community": 115,
+      "community": 78,
       "norm_label": "hasgitboundary()"
     },
     {
@@ -370,7 +370,7 @@
       "source_location": "L300",
       "_origin": "ast",
       "id": "scripts_context_resolvecandidatecontextsummary",
-      "community": 78,
+      "community": 115,
       "norm_label": "resolvecandidatecontextsummary()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L316",
       "_origin": "ast",
       "id": "scripts_context_contextsourcestatus",
-      "community": 78,
+      "community": 115,
       "norm_label": "contextsourcestatus()"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L330",
       "_origin": "ast",
       "id": "scripts_context_contextsourcepath",
-      "community": 78,
+      "community": 115,
       "norm_label": "contextsourcepath()"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L501",
       "_origin": "ast",
       "id": "scripts_context_ispathinsideorequal",
-      "community": 78,
+      "community": 115,
       "norm_label": "ispathinsideorequal()"
     },
     {
@@ -10780,7 +10780,7 @@
       "source_location": "L1774",
       "_origin": "ast",
       "id": "scripts_live_browser_placeholderwidthisimplicit",
-      "community": 19,
+      "community": 0,
       "norm_label": "placeholderwidthisimplicit()"
     },
     {
@@ -10800,7 +10800,7 @@
       "source_location": "L1795",
       "_origin": "ast",
       "id": "scripts_live_browser_materializeplaceholderwidth",
-      "community": 19,
+      "community": 0,
       "norm_label": "materializeplaceholderwidth()"
     },
     {
@@ -11030,7 +11030,7 @@
       "source_location": "L2139",
       "_origin": "ast",
       "id": "scripts_live_browser_startplaceholderedgeresize",
-      "community": 19,
+      "community": 0,
       "norm_label": "startplaceholderedgeresize()"
     },
     {
@@ -11290,7 +11290,7 @@
       "source_location": "L2989",
       "_origin": "ast",
       "id": "scripts_live_browser_getmountedsveltecomponentanchor",
-      "community": 126,
+      "community": 110,
       "norm_label": "getmountedsveltecomponentanchor()"
     },
     {
@@ -11800,7 +11800,7 @@
       "source_location": "L3832",
       "_origin": "ast",
       "id": "scripts_live_browser_refreshlivecontrolsformanualapply",
-      "community": 3,
+      "community": 26,
       "norm_label": "refreshlivecontrolsformanualapply()"
     },
     {
@@ -11870,7 +11870,7 @@
       "source_location": "L3996",
       "_origin": "ast",
       "id": "scripts_live_browser_onpendingtrashclick",
-      "community": 31,
+      "community": 26,
       "norm_label": "onpendingtrashclick()"
     },
     {
@@ -12050,7 +12050,7 @@
       "source_location": "L4329",
       "_origin": "ast",
       "id": "scripts_live_browser_usesshadowchromeroot",
-      "community": 152,
+      "community": 0,
       "norm_label": "usesshadowchromeroot()"
     },
     {
@@ -12060,7 +12060,7 @@
       "source_location": "L4334",
       "_origin": "ast",
       "id": "scripts_live_browser_setimportantstyle",
-      "community": 152,
+      "community": 0,
       "norm_label": "setimportantstyle()"
     },
     {
@@ -12070,7 +12070,7 @@
       "source_location": "L4338",
       "_origin": "ast",
       "id": "scripts_live_browser_initeditbadgehitproxies",
-      "community": 152,
+      "community": 0,
       "norm_label": "initeditbadgehitproxies()"
     },
     {
@@ -12080,7 +12080,7 @@
       "source_location": "L4360",
       "_origin": "ast",
       "id": "scripts_live_browser_styleeditbadgeproxy",
-      "community": 152,
+      "community": 0,
       "norm_label": "styleeditbadgeproxy()"
     },
     {
@@ -12100,7 +12100,7 @@
       "source_location": "L4408",
       "_origin": "ast",
       "id": "scripts_live_browser_bindeditbadgeproxy",
-      "community": 152,
+      "community": 0,
       "norm_label": "bindeditbadgeproxy()"
     },
     {
@@ -12110,7 +12110,7 @@
       "source_location": "L4439",
       "_origin": "ast",
       "id": "scripts_live_browser_editbadgeproxytargets",
-      "community": 152,
+      "community": 0,
       "norm_label": "editbadgeproxytargets()"
     },
     {
@@ -12120,7 +12120,7 @@
       "source_location": "L4450",
       "_origin": "ast",
       "id": "scripts_live_browser_synceditbadgehitproxies",
-      "community": 152,
+      "community": 0,
       "norm_label": "synceditbadgehitproxies()"
     },
     {
@@ -12140,7 +12140,7 @@
       "source_location": "L4512",
       "_origin": "ast",
       "id": "scripts_live_browser_positioneditbadge",
-      "community": 152,
+      "community": 0,
       "norm_label": "positioneditbadge()"
     },
     {
@@ -12230,7 +12230,7 @@
       "source_location": "L4733",
       "_origin": "ast",
       "id": "scripts_live_browser_toggletunepopover",
-      "community": 3,
+      "community": 110,
       "norm_label": "toggletunepopover()"
     },
     {
@@ -12250,7 +12250,7 @@
       "source_location": "L4759",
       "_origin": "ast",
       "id": "scripts_live_browser_closetunepopover",
-      "community": 3,
+      "community": 110,
       "norm_label": "closetunepopover()"
     },
     {
@@ -12290,7 +12290,7 @@
       "source_location": "L4801",
       "_origin": "ast",
       "id": "scripts_live_browser_synccyclingcontrols",
-      "community": 126,
+      "community": 110,
       "norm_label": "synccyclingcontrols()"
     },
     {
@@ -12400,7 +12400,7 @@
       "source_location": "L4986",
       "_origin": "ast",
       "id": "scripts_live_browser_issvelteinsertmanifest",
-      "community": 126,
+      "community": 110,
       "norm_label": "issvelteinsertmanifest()"
     },
     {
@@ -12440,7 +12440,7 @@
       "source_location": "L5036",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsvelteruntime",
-      "community": 126,
+      "community": 110,
       "norm_label": "loadsvelteruntime()"
     },
     {
@@ -12460,7 +12460,7 @@
       "source_location": "L5069",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentvariantsource",
-      "community": 126,
+      "community": 0,
       "norm_label": "loadsveltecomponentvariantsource()"
     },
     {
@@ -12470,7 +12470,7 @@
       "source_location": "L5083",
       "_origin": "ast",
       "id": "scripts_live_browser_extractsveltecomponentstyle",
-      "community": 126,
+      "community": 0,
       "norm_label": "extractsveltecomponentstyle()"
     },
     {
@@ -12480,7 +12480,7 @@
       "source_location": "L5088",
       "_origin": "ast",
       "id": "scripts_live_browser_applysveltecomponentvariantstyle",
-      "community": 126,
+      "community": 0,
       "norm_label": "applysveltecomponentvariantstyle()"
     },
     {
@@ -12490,7 +12490,7 @@
       "source_location": "L5105",
       "_origin": "ast",
       "id": "scripts_live_browser_removesveltecomponentvariantstyle",
-      "community": 126,
+      "community": 0,
       "norm_label": "removesveltecomponentvariantstyle()"
     },
     {
@@ -12580,7 +12580,7 @@
       "source_location": "L5234",
       "_origin": "ast",
       "id": "scripts_live_browser_mountsveltecomponentvariant",
-      "community": 126,
+      "community": 110,
       "norm_label": "mountsveltecomponentvariant()"
     },
     {
@@ -12600,7 +12600,7 @@
       "source_location": "L5303",
       "_origin": "ast",
       "id": "scripts_live_browser_applyoriginalattrstosvelteanchor",
-      "community": 126,
+      "community": 110,
       "norm_label": "applyoriginalattrstosvelteanchor()"
     },
     {
@@ -12610,7 +12610,7 @@
       "source_location": "L5318",
       "_origin": "ast",
       "id": "scripts_live_browser_commitacceptedsveltecomponenttodom",
-      "community": 126,
+      "community": 110,
       "norm_label": "commitacceptedsveltecomponenttodom()"
     },
     {
@@ -15400,7 +15400,7 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "scripts_live_copy_edit_agent_runcopyeditpostapplychecks",
-      "community": 10,
+      "community": 45,
       "norm_label": "runcopyeditpostapplychecks()"
     },
     {
@@ -20450,7 +20450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_db_sync_test",
-      "community": 150,
+      "community": 152,
       "norm_label": "db-sync.test.ts"
     },
     {
@@ -21917,7 +21917,7 @@
       "label": "SIZE_CONFIGS",
       "file_type": "code",
       "source_file": "web/components/companion/RobotCompanion.tsx",
-      "source_location": "L40",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "companion_robotcompanion_size_configs",
       "community": 163,
@@ -21927,7 +21927,7 @@
       "label": "RobotCompanion()",
       "file_type": "code",
       "source_file": "web/components/companion/RobotCompanion.tsx",
-      "source_location": "L71",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "companion_robotcompanion_robotcompanion",
       "community": 163,
@@ -23980,7 +23980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "offline_storage",
-      "community": 150,
+      "community": 152,
       "norm_label": "storage.ts"
     },
     {
@@ -23990,7 +23990,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "offline_storage_offlinesessionrecord",
-      "community": 150,
+      "community": 152,
       "norm_label": "offlinesessionrecord"
     },
     {
@@ -24000,7 +24000,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "offline_storage_openofflinedatabase",
-      "community": 150,
+      "community": 152,
       "norm_label": "openofflinedatabase()"
     },
     {
@@ -24010,7 +24010,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "offline_storage_saveofflinesession",
-      "community": 150,
+      "community": 152,
       "norm_label": "saveofflinesession()"
     },
     {
@@ -24020,7 +24020,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "offline_storage_getofflinesessions",
-      "community": 150,
+      "community": 152,
       "norm_label": "getofflinesessions()"
     },
     {
@@ -24030,7 +24030,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "offline_storage_syncofflinesessionstocloud",
-      "community": 150,
+      "community": 152,
       "norm_label": "syncofflinesessionstocloud()"
     },
     {
@@ -92820,9 +92820,9 @@
       "source_file": "web/components/companion/RobotCompanion.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "companion_robotcompanion",
-      "target": "companion_robotcompanion_celebration_particles",
-      "confidence_score": 1.0
+      "target": "companion_robotcompanion_celebration_particles"
     },
     {
       "relation": "contains",
@@ -107777,5 +107777,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a6bd616ddb31774a47ef63481b4ab08fc75b7ec3"
+  "built_at_commit": "cc7315d114549a14b3cc5b8d7c1774264c6d1834"
 }
