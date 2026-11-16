@@ -772,85 +772,117 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   return (
     <div className="w-full flex flex-col flex-1 justify-between select-none">
       {/* Top Tablet/Mobile Progress & Header Bar */}
-      <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap relative z-[60]">
-        {/* Companion Avatar in Top Header */}
-        <div className="relative shrink-0 flex items-center z-[60]">
-          <RobotCompanion
-            mood={companionMood}
-            size="sm"
-            showSpeechBubble={showCompanionSpeech}
-            speechText={companionSpeech || undefined}
-            onClick={() => setShowCompanionSpeech((prev) => !prev)}
-            className="cursor-pointer"
-            zIndex={60}
+      <div className="bg-white/90 backdrop-blur-xs border border-slate-200/90 rounded-2xl p-2.5 sm:p-3 mb-3 shadow-2xs relative z-[60]">
+        {/* Row 1: Dana Companion & Progress Counter (Start/Right) vs Action Buttons (End/Left) */}
+        <div className="flex items-center justify-between gap-2">
+          {/* Start (Right): Dana Companion & Question Counter */}
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="relative shrink-0 flex items-center">
+              <RobotCompanion
+                mood={companionMood}
+                size="sm"
+                showSpeechBubble={false}
+                onClick={() => setShowCompanionSpeech((prev) => !prev)}
+                className="cursor-pointer hover:scale-105 active:scale-95 transition-transform"
+                zIndex={60}
+              />
+              {/* Active tip glow dot on Dana */}
+              {companionSpeech && (
+                <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-indigo-500 rounded-full ring-2 ring-white animate-pulse" />
+              )}
+            </div>
+
+            <div className="flex flex-col min-w-0">
+              <div className="flex items-center gap-1 text-xs sm:text-sm font-black text-slate-800 truncate">
+                <span>سوال {toPersianDigits(Math.min(targetSessionLimit, history.length + 1))} از {toPersianDigits(targetSessionLimit)}</span>
+              </div>
+              <div className="text-[11px] font-bold text-indigo-600 leading-none" dir="ltr">
+                {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)))}٪
+              </div>
+            </div>
+          </div>
+
+          {/* End (Left): Action Utility Buttons (Compact on Mobile, Expanded on Desktop) */}
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+            {/* Quick Early Finish Button */}
+            <button
+              type="button"
+              onClick={() => setShowEarlyFinishModal(true)}
+              className="flex items-center gap-1.5 text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200/80 p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
+              title="پایان زودهنگام آزمون"
+            >
+              <Flag className="w-4 h-4 text-amber-600 shrink-0" />
+              <span className="hidden md:inline">اتمام</span>
+            </button>
+
+            {onConfigureTopics && (
+              <button
+                type="button"
+                onClick={onConfigureTopics}
+                className="flex items-center gap-1.5 text-xs font-bold bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
+                title="تغییر سرفصل‌های آزمون"
+              >
+                <ListChecks className="w-4 h-4 text-indigo-600 shrink-0" />
+                <span className="hidden md:inline">سرفصل‌ها</span>
+              </button>
+            )}
+
+            {/* Digital Scratchpad Button */}
+            <button
+              type="button"
+              onClick={() => setIsScratchpadOpen((prev) => !prev)}
+              className={`flex items-center gap-1.5 text-xs font-bold border p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs ${
+                isScratchpadOpen
+                  ? "bg-indigo-600 text-white border-indigo-700 shadow-xs"
+                  : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200"
+              }`}
+              title="چرک‌نویس و یادداشت روی صفحه"
+            >
+              <PenTool className={`w-4 h-4 shrink-0 ${isScratchpadOpen ? "text-amber-300" : "text-indigo-600"}`} />
+              <span className="hidden md:inline">چرک‌نویس</span>
+            </button>
+
+            {/* Quick Drawer Button to View Mastery */}
+            <button
+              type="button"
+              onClick={() => setShowMasterySheet(true)}
+              className="flex items-center gap-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200/80 p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
+              title="مشاهده میزان تسلط"
+            >
+              <BarChart2 className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span className="hidden md:inline">میزان تسلط</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Row 2: Full-width Sleek Progress Bar */}
+        <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mt-2 border border-slate-200/60">
+          <div
+            className="h-full bg-gradient-to-l from-indigo-500 to-indigo-600 rounded-full transition-all duration-300 ease-out"
+            style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)}%` }}
           />
         </div>
 
-        <div className="flex-1 min-w-[140px]">
-          <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
-            <span>سوال {toPersianDigits(Math.min(targetSessionLimit, history.length + 1))} از {toPersianDigits(targetSessionLimit)}</span>
-            <span className="font-bold text-indigo-600" dir="ltr">
-              {toPersianDigits(Math.min(100, Math.round(((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)))}٪
-            </span>
-          </div>
-          <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-indigo-600 rounded-full transition-all duration-300 ease-out"
-              style={{ width: `${Math.min(100, ((history.length + 1) / Math.max(1, targetSessionLimit)) * 100)}%` }}
-            />
-          </div>
-        </div>
-
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          {/* Quick Early Finish Button */}
-          <button
-            type="button"
-            onClick={() => setShowEarlyFinishModal(true)}
-            className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 sm:px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
-            title="پایان زودهنگام آزمون"
-          >
-            <Flag className="w-4 h-4 text-amber-600" />
-            <span className="hidden sm:inline">اتمام آزمون</span>
-          </button>
-
-          {onConfigureTopics && (
+        {/* Row 3: Dana's Interactive Speech Bubble / Friendly Guidance Banner */}
+        {showCompanionSpeech && (
+          <div className="mt-2.5 p-2.5 sm:p-3 bg-gradient-to-r from-indigo-50/95 via-sky-50/90 to-purple-50/95 border border-indigo-200/90 rounded-2xl flex items-center justify-between gap-2.5 shadow-xs animate-in fade-in slide-in-from-top-1 duration-200">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-800 leading-snug min-w-0">
+              <span className="text-sm shrink-0">💡</span>
+              <span className="truncate sm:whitespace-normal">
+                {companionSpeech || "من دانا هستم! با دقت روی سوال فکر کن، منم کنارت هستم."}
+              </span>
+            </div>
             <button
               type="button"
-              onClick={onConfigureTopics}
-              className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs"
-              title="تغییر سرفصل‌های آزمون"
+              onClick={() => setShowCompanionSpeech(false)}
+              className="text-slate-400 hover:text-slate-600 p-1 rounded-lg shrink-0 transition-colors cursor-pointer"
+              aria-label="بستن پیام دانا"
+              title="بستن پیام"
             >
-              <ListChecks className="w-4 h-4 text-indigo-600" />
-              <span className="hidden sm:inline">سرفصل‌ها</span>
+              <X className="w-3.5 h-3.5" />
             </button>
-          )}
-
-          {/* Digital Scratchpad Button */}
-          <button
-            type="button"
-            onClick={() => setIsScratchpadOpen((prev) => !prev)}
-            className={`shrink-0 flex items-center gap-1.5 text-xs font-bold border px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer shadow-2xs ${
-              isScratchpadOpen
-                ? "bg-indigo-600 text-white border-indigo-700 shadow-xs"
-                : "bg-white hover:bg-slate-50 text-slate-700 border-slate-200"
-            }`}
-            title="چرک‌نویس و یادداشت روی صفحه"
-          >
-            <PenTool className={`w-4 h-4 ${isScratchpadOpen ? "text-amber-300" : "text-indigo-600"}`} />
-            <span className="hidden sm:inline">چرک‌نویس</span>
-          </button>
-
-          {/* Quick Drawer Button to View Mastery */}
-          <button
-            type="button"
-            onClick={() => setShowMasterySheet(true)}
-            className="shrink-0 flex items-center gap-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 px-3 py-2 rounded-xl transition-all active:scale-95 cursor-pointer"
-            title="مشاهده میزان تسلط"
-          >
-            <BarChart2 className="w-4 h-4 text-indigo-600" />
-            <span className="hidden sm:inline">میزان تسلط</span>
-          </button>
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Main Diagnostic Question Card */}
