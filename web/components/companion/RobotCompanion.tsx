@@ -13,6 +13,7 @@ export interface RobotCompanionProps {
   speechText?: string;
   className?: string;
   onClick?: () => void;
+  zIndex?: number;
 }
 
 const DEFAULT_SPEECH: Record<CompanionMood, string> = {
@@ -48,6 +49,7 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
   speechText,
   className = "",
   onClick,
+  zIndex = 60,
 }) => {
   const currentSpeech = speechText || DEFAULT_SPEECH[mood];
   const sizeCfg = SIZE_CONFIGS[size];
@@ -107,6 +109,7 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
   return (
     <div
       className={`relative inline-flex flex-col items-center select-none ${className}`}
+      style={{ zIndex }}
       onClick={onClick}
       role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
@@ -115,7 +118,8 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
       {/* Speech Bubble */}
       {showSpeechBubble && (
         <div
-          className={`relative z-20 mb-2 bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-900/60 rounded-2xl shadow-sm font-bold text-slate-700 dark:text-slate-200 text-center transition-all duration-300 animate-in fade-in zoom-in-95 ${sizeCfg.bubble}`}
+          className={`relative mb-2 bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-900/60 rounded-2xl shadow-md font-bold text-slate-700 dark:text-slate-200 text-center transition-all duration-300 animate-in fade-in zoom-in-95 ${sizeCfg.bubble}`}
+          style={{ zIndex: zIndex + 10 }}
         >
           <span>{currentSpeech}</span>
           <div className="absolute -bottom-1.5 right-1/2 translate-x-1/2 w-2.5 h-2.5 bg-white dark:bg-slate-800 border-r-2 border-b-2 border-indigo-200 dark:border-indigo-900/60 rotate-45" />
@@ -123,7 +127,10 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
       )}
 
       {/* Robot SVG Avatar */}
-      <div className={`${sizeCfg.container} relative flex items-center justify-center`}>
+      <div
+        className={`${sizeCfg.container} relative flex items-center justify-center`}
+        style={{ zIndex: zIndex + 5 }}
+      >
         <svg
           viewBox="0 0 200 230"
           className={`${sizeCfg.svg} overflow-visible transition-transform duration-300`}

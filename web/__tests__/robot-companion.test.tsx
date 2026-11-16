@@ -45,4 +45,13 @@ describe("RobotCompanion Component", () => {
     fireEvent.click(companion);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+  it("applies highest z-index above all UI overlays by default and supports custom zIndex", () => {
+    const { container, rerender } = render(<RobotCompanion showSpeechBubble={true} />);
+    const rootElement = container.firstChild as HTMLElement;
+    expect(rootElement.style.zIndex).toBe("60");
+
+    rerender(<RobotCompanion showSpeechBubble={true} zIndex={100} />);
+    expect(rootElement.style.zIndex).toBe("100");
+  });
 });

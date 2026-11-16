@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794840289.1128478,
-    "ast_hash": "5c54ca1e076600457ed0c8d09489dba7",
+    "mtime": 1794841439.088641,
+    "ast_hash": "7c499428a94b00fbc376611dd1d7f5e9",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -395,8 +395,8 @@
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
-    "mtime": 1794840102.3902836,
-    "ast_hash": "480cbabc68376475bee038363dd5dfc7",
+    "mtime": 1794841452.7909641,
+    "ast_hash": "af455c5c1e3a39b72474ec59d10c7937",
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
@@ -1230,13 +1230,13 @@
     "semantic_hash": ""
   },
   "web/__tests__/robot-companion.test.tsx": {
-    "mtime": 1794839892.0494826,
-    "ast_hash": "e143570d29a6f019877f9985f28a6e25",
+    "mtime": 1794841483.1626468,
+    "ast_hash": "fbea818173d050932c230a5fedac8bd5",
     "semantic_hash": ""
   },
   "web/components/companion/RobotCompanion.tsx": {
-    "mtime": 1794839937.6804192,
-    "ast_hash": "562566168c44abc26feb3bdb74ad826c",
+    "mtime": 1794841408.1658518,
+    "ast_hash": "7f2ca32191428db46cdb07f1c21971c5",
     "semantic_hash": ""
   }
 }

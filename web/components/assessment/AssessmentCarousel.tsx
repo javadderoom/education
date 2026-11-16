@@ -573,6 +573,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             showSpeechBubble={true}
             speechText="خسته نباشی قهرمان! ارزیابی به پایان رسید و کارنامه‌ات آماده شد."
             className="mb-3"
+            zIndex={60}
           />
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
           <p className="text-xs sm:text-sm text-slate-600 mb-5">
@@ -771,9 +772,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   return (
     <div className="w-full flex flex-col flex-1 justify-between select-none">
       {/* Top Tablet/Mobile Progress & Header Bar */}
-      <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap">
+      <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap relative z-[60]">
         {/* Companion Avatar in Top Header */}
-        <div className="relative shrink-0 flex items-center">
+        <div className="relative shrink-0 flex items-center z-[60]">
           <RobotCompanion
             mood={companionMood}
             size="sm"
@@ -781,6 +782,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
             speechText={companionSpeech || undefined}
             onClick={() => setShowCompanionSpeech((prev) => !prev)}
             className="cursor-pointer"
+            zIndex={60}
           />
         </div>
 
