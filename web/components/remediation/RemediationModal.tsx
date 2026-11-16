@@ -3,6 +3,7 @@
 import React from "react";
 import { AlertCircle, ArrowRight, Lightbulb } from "lucide-react";
 import { MathRenderer } from "../ui/MathRenderer";
+import { RobotCompanion } from "../companion/RobotCompanion";
 
 export interface RemediationModalProps {
   isOpen: boolean;
@@ -35,7 +36,7 @@ export const RemediationModal: React.FC<RemediationModalProps> = ({
       <div className="bg-white border-t-2 sm:border-2 border-indigo-200 rounded-t-3xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl overflow-y-auto max-h-[90vh] relative animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 duration-200">
         {/* Header Badge */}
         <div className="flex items-center gap-3 text-amber-800 bg-amber-50 border border-amber-200 px-4 py-2.5 rounded-2xl mb-4">
-          <Lightbulb className="w-6 h-6 shrink-0 text-amber-600 animate-bounce" />
+          <RobotCompanion mood="reassuring" size="sm" className="shrink-0" />
           <div>
             <h3 className="font-bold text-sm">نکته آموزشی و تفکر بیشتر</h3>
             {misconceptionTitle && (

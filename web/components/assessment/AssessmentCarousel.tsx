@@ -22,6 +22,7 @@ import {
 } from "../../lib/store/exam-storage";
 import { speakPersian, stopPersianSpeech } from "../../lib/audio/speech";
 import { getSubjectTaxonomy } from "../../lib/data/curriculum-taxonomy";
+import { RobotCompanion, CompanionMood } from "../companion/RobotCompanion";
 
 export interface DistractorItem {
   id: string;
@@ -199,6 +200,9 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
 
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const [showQuestionReview, setShowQuestionReview] = useState(false);
+  const [companionMood, setCompanionMood] = useState<CompanionMood>("idle");
+  const [companionSpeech, setCompanionSpeech] = useState<string | null>(null);
+  const [showCompanionSpeech, setShowCompanionSpeech] = useState<boolean>(false);
   const [history, setHistory] = useState<Array<{
     itemId: string;
     kcId: string;
@@ -344,6 +348,17 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     if (selectedDistractorId) return; // Prevent double taps
     setSelectedDistractorId(distractor.id);
 
+    // Dynamic Companion reaction
+    if (distractor.is_correct) {
+      setCompanionMood("celebrating");
+      setCompanionSpeech("آفرین قهرمان! این مفهوم رو دقیق و درست حل کردی.");
+      setShowCompanionSpeech(true);
+    } else {
+      setCompanionMood("reassuring");
+      setCompanionSpeech("این سوال نکته‌دار بود، بیا با هم دلیلشو مرور کنیم!");
+      setShowCompanionSpeech(true);
+    }
+
     const diagnosis = evaluateDiagnosticResponse(
       {
         id: distractor.id,
@@ -405,6 +420,10 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     if (selectedDistractorId) return;
     setSelectedDistractorId("not_sure");
 
+    setCompanionMood("reassuring");
+    setCompanionSpeech("آفرین به صداقتت! بدون نمره منفی، با هم یادش می‌گیریم.");
+    setShowCompanionSpeech(true);
+
     const prior = masteries[currentItem.kc_id] ?? 0.15;
     const bktResult = updateMastery(prior, false, true);
 
@@ -445,6 +464,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     stopPersianSpeech();
     setIsSpeaking(false);
     setSelectedDistractorId(null);
+    setCompanionMood("thinking");
+    setShowCompanionSpeech(false);
     const answeredIds = new Set(currentHistory.map((h) => h.itemId));
     if (currentItem) {
       answeredIds.add(currentItem.id);
@@ -478,6 +499,8 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     clearActiveExamSession(activeSubj, activeUsername);
     setCurrentIndex(0);
     setSelectedDistractorId(null);
+    setCompanionMood("idle");
+    setShowCompanionSpeech(false);
     setSessionCompleted(false);
     setActiveWorkshopKC(null);
     setHistory([]);
@@ -544,9 +567,13 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     return (
       <div className="w-full max-w-lg mx-auto py-4 px-2 text-center animate-in fade-in duration-300">
         <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 shadow-lg">
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-inner">
-            <Award className="w-9 h-9" />
-          </div>
+          <RobotCompanion
+            mood="celebrating"
+            size="md"
+            showSpeechBubble={true}
+            speechText="خسته نباشی قهرمان! ارزیابی به پایان رسید و کارنامه‌ات آماده شد."
+            className="mb-3"
+          />
           <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-1">ارزیابی به پایان رسید!</h2>
           <p className="text-xs sm:text-sm text-slate-600 mb-5">
             آفرین {activeName} عزیز، نتیجه میزان تسلط شما بر {activeChapterTitle}:
@@ -745,6 +772,18 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
     <div className="w-full flex flex-col flex-1 justify-between select-none">
       {/* Top Tablet/Mobile Progress & Header Bar */}
       <div className="flex items-center justify-between gap-2.5 mb-3 flex-wrap sm:flex-nowrap">
+        {/* Companion Avatar in Top Header */}
+        <div className="relative shrink-0 flex items-center">
+          <RobotCompanion
+            mood={companionMood}
+            size="sm"
+            showSpeechBubble={showCompanionSpeech}
+            speechText={companionSpeech || undefined}
+            onClick={() => setShowCompanionSpeech((prev) => !prev)}
+            className="cursor-pointer"
+          />
+        </div>
+
         <div className="flex-1 min-w-[140px]">
           <div className="flex justify-between items-center text-xs font-bold text-slate-600 mb-1.5">
             <span>سوال {toPersianDigits(Math.min(targetSessionLimit, history.length + 1))} از {toPersianDigits(targetSessionLimit)}</span>

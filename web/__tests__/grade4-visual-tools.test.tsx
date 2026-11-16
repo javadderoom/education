@@ -19,8 +19,8 @@ import { PlaceValueBundles } from "../components/parametric/PlaceValueBundles";
 import { getCanonicalCartridge } from "../lib/data/cartridge";
 import { DYNAMIC_GENERATORS } from "../lib/curriculum/parametric-engine";
 import fs from "node:fs";
-import path from "node:path";
 
+import path from "node:path";
 describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
   it("verifies that grade4_visual_tools_manifest.json exists and catalogs all tools", () => {
     const manifestPath = path.resolve(__dirname, "../../data/tools/grade4_visual_tools_manifest.json");

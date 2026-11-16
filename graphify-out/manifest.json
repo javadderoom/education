@@ -360,8 +360,8 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794772699.8361182,
-    "ast_hash": "b7c4b8dde19db1bdee12171cf0d7dc2c",
+    "mtime": 1794840289.1128478,
+    "ast_hash": "5c54ca1e076600457ed0c8d09489dba7",
     "semantic_hash": ""
   },
   "web/components/assessment/MasteryRadar.tsx": {
@@ -395,8 +395,8 @@
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
-    "mtime": 1793438879.2443964,
-    "ast_hash": "151c849579d07afd0d78bd3c46cd1fd5",
+    "mtime": 1794840102.3902836,
+    "ast_hash": "480cbabc68376475bee038363dd5dfc7",
     "semantic_hash": ""
   },
   "web/components/ui/MathRenderer.tsx": {
@@ -965,7 +965,7 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794832147.5111787,
+    "mtime": 1794836505.1755872,
     "ast_hash": "54db1f4367388fbf541936231700ffec",
     "semantic_hash": ""
   },
@@ -1115,12 +1115,12 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794831907.4181747,
+    "mtime": 1794836504.7169528,
     "ast_hash": "84294719481210124eeb619ea3073e81",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
-    "mtime": 1794831936.2860541,
+    "mtime": 1794836504.817724,
     "ast_hash": "01f2d0af2e7da63063834330b992fe60",
     "semantic_hash": ""
   },
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794832171.7490897,
-    "ast_hash": "b47405eea45b2af70fe0347d77028d91",
+    "mtime": 1794838407.1335814,
+    "ast_hash": "a7371dfb18608ba7ae9ee05b49bb6635",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
@@ -1229,34 +1229,14 @@
     "ast_hash": "2b341108ce048d4fd321417eda1930c4",
     "semantic_hash": ""
   },
-  "scratch/audit_all_chapters.py": {
-    "mtime": 1794830197.9011042,
-    "ast_hash": "2e1953224b8721e338b39e35c865fdf4",
+  "web/__tests__/robot-companion.test.tsx": {
+    "mtime": 1794839892.0494826,
+    "ast_hash": "e143570d29a6f019877f9985f28a6e25",
     "semantic_hash": ""
   },
-  "scratch/audit_parametric_generators.py": {
-    "mtime": 1794830208.4725485,
-    "ast_hash": "40c84b75b4afd86ad8cdb432329cec81",
-    "semantic_hash": ""
-  },
-  "scratch/audit_visual_items.py": {
-    "mtime": 1794830144.7777994,
-    "ast_hash": "bd54178d7c873796a8ea64cdde9494a8",
-    "semantic_hash": ""
-  },
-  "scratch/inspect_ch2.py": {
-    "mtime": 1794830180.1651902,
-    "ast_hash": "1a9cbff5a819bc6e5e9cbe3cd7f5c7e5",
-    "semantic_hash": ""
-  },
-  "scratch/print_ch2_items.py": {
-    "mtime": 1794831813.8230293,
-    "ast_hash": "2b2f482db61923ff2f515016cb7ad73b",
-    "semantic_hash": ""
-  },
-  "scratch/update_ch2.py": {
-    "mtime": 1794831916.7689836,
-    "ast_hash": "fe217f6e5efa15346910ac4609124d3e",
+  "web/components/companion/RobotCompanion.tsx": {
+    "mtime": 1794839937.6804192,
+    "ast_hash": "562566168c44abc26feb3bdb74ad826c",
     "semantic_hash": ""
   }
 }
