@@ -108,7 +108,17 @@
       "difficulty": 0.3,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "ProtractorVisualizer",
+        "props": {
+          "angleDegree": 135,
+          "showProtractor": false,
+          "showClassification": false,
+          "showDegreeLabel": false,
+          "vertexLabel": "ب",
+          "label": "نمای زاویه مورد نظر:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C04-001-A",
@@ -151,7 +161,19 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "ProtractorVisualizer",
+        "props": {
+          "angleDegree": 50,
+          "showProtractor": true,
+          "startRayAngle": 0,
+          "showClassification": false,
+          "showDegreeLabel": false,
+          "showDualScale": true,
+          "vertexLabel": "ب",
+          "label": "نقاله و زاویه اندازه گرفته شده توسط علی:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C04-002-A",
@@ -194,7 +216,16 @@
       "difficulty": 0.5,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "ClockVisualizer",
+        "props": {
+          "hours": 10,
+          "minutes": 45,
+          "elapsedMinutes": 40,
+          "showDigital": true,
+          "label": "ساعت شروع زنگ ورزش (۱۰:۴۵) با چرخش ۴۰ دقیقه‌ای:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C04-003-A",
@@ -237,7 +268,16 @@
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 5,
+          "cols": 8,
+          "initialColored": 40,
+          "coloredCount": 40,
+          "hideBadge": true
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C04-004-A",

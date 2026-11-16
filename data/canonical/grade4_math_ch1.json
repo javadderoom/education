@@ -286,7 +286,18 @@
       "difficulty": 0.4,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 530408,
+          "tiers": [
+            "thousands",
+            "ones"
+          ],
+          "showLabels": true,
+          "label": "جدول ارزش مکانی عدد ۵۳۰,۴۰۸:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-004-A",
@@ -374,7 +385,19 @@
       "difficulty": 0.48,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 40400,
+          "tiers": [
+            "thousands",
+            "ones"
+          ],
+          "showLabels": true,
+          "highlightColumn": "دهگان‌هزار",
+          "label": "جدول ارزش مکانی عدد ۴۰,۴۰۰:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-006-A",
@@ -806,7 +829,20 @@
       "difficulty": 0.32,
       "guess_param": 0.25,
       "slip_param": 0.05,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueBundles",
+        "props": {
+          "bundles": [
+            {
+              "count": 10,
+              "unitValue": 100000,
+              "unitLabel": "صدهزارتایی",
+              "theme": "purple"
+            }
+          ],
+          "label": "۱۰ بسته صدهزارتایی معادل یک میلیون:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-013-A",
@@ -901,7 +937,26 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "PlaceValueBundles",
+        "props": {
+          "bundles": [
+            {
+              "count": 4,
+              "unitValue": 1000000,
+              "unitLabel": "یک میلیونی",
+              "theme": "purple"
+            },
+            {
+              "count": 2,
+              "unitValue": 500000,
+              "unitLabel": "پانصدهزارتایی",
+              "theme": "emerald"
+            }
+          ],
+          "label": "دسته‌های چک‌پول ریالی:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-MATH4-C01-015-A",

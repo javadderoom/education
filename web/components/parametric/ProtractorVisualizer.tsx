@@ -10,6 +10,7 @@ export interface ProtractorVisualizerProps {
   vertexLabel?: string;
   showDegreeLabel?: boolean;
   showClassification?: boolean;
+  showDualScale?: boolean;
   label?: string;
 }
 
@@ -20,6 +21,7 @@ export const ProtractorVisualizer: React.FC<ProtractorVisualizerProps> = ({
   vertexLabel = "ب",
   showDegreeLabel = true,
   showClassification = true,
+  showDualScale = true,
   label,
 }) => {
   const cx = 200;
@@ -104,10 +106,22 @@ export const ProtractorVisualizer: React.FC<ProtractorVisualizerProps> = ({
               <line x1={cx - 8} y1={cy} x2={cx + 8} y2={cy} stroke="#0284c7" strokeWidth={1.5} />
               <line x1={cx} y1={cy - 8} x2={cx} y2={cy + 8} stroke="#0284c7" strokeWidth={1.5} />
 
+              {/* Dividing arc between outer and inner degree scales */}
+              {showDualScale && (
+                <path
+                  d={`M ${cx - (radius - 23)} ${cy} A ${radius - 23} ${radius - 23} 0 0 1 ${cx + (radius - 23)} ${cy}`}
+                  fill="none"
+                  stroke="#7dd3fc"
+                  strokeWidth={1}
+                  strokeDasharray="2,2"
+                />
+              )}
+
               {/* Degree Ticks and Numbers */}
               {ticks.map((deg) => {
                 const rad = (deg * Math.PI) / 180;
                 const isMajor = deg % 30 === 0;
+                const isTextShown = deg % 10 === 0;
                 const tickLen = isMajor ? 12 : 7;
 
                 const xOuter = cx + radius * Math.cos(rad);
@@ -115,16 +129,28 @@ export const ProtractorVisualizer: React.FC<ProtractorVisualizerProps> = ({
                 const xInner = cx + (radius - tickLen) * Math.cos(rad);
                 const yInner = cy - (radius - tickLen) * Math.sin(rad);
 
-                const xText = cx + (radius - 22) * Math.cos(rad);
-                const yText = cy - (radius - 22) * Math.sin(rad) + 4;
+                // Outer scale (0 on left, 180 on right)
+                const xTextOuter = cx + (radius - 15) * Math.cos(rad);
+                const yTextOuter = cy - (radius - 15) * Math.sin(rad) + 3.5;
+
+                // Inner scale (180 on left, 0 on right)
+                const xTextInner = cx + (radius - 31) * Math.cos(rad);
+                const yTextInner = cy - (radius - 31) * Math.sin(rad) + 3.5;
 
                 return (
                   <g key={deg}>
                     <line x1={xOuter} y1={yOuter} x2={xInner} y2={yInner} stroke="#0369a1" strokeWidth={isMajor ? 1.5 : 1} />
-                    {isMajor && (
-                      <text x={xText} y={yText} textAnchor="middle" fontSize={9} fontWeight="bold" fill="#0c4a6e">
-                        {toPersianDigits(deg)}
-                      </text>
+                    {isTextShown && (
+                      <>
+                        <text x={xTextOuter} y={yTextOuter} textAnchor="middle" fontSize={7.5} fontWeight="bold" fill="#0c4a6e">
+                          {toPersianDigits(deg)}
+                        </text>
+                        {showDualScale && (
+                          <text x={xTextInner} y={yTextInner} textAnchor="middle" fontSize={7} fontWeight="bold" fill="#0284c7">
+                            {toPersianDigits(180 - deg)}
+                          </text>
+                        )}
+                      </>
                     )}
                   </g>
                 );

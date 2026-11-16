@@ -461,7 +461,15 @@ export function generateExpandedFormItem(index: number = 0): DiagnosticItemData 
     difficulty: 0.4,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: null,
+    visual_template: {
+      type: "PlaceValueTable",
+      props: {
+        number: num,
+        tiers: ["thousands", "ones"],
+        showLabels: true,
+        label: "جدول ارزش مکانی عدد مورد نظر:",
+      },
+    },
     distractors,
   };
 }

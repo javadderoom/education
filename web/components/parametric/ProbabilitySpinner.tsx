@@ -32,6 +32,11 @@ export const ProbabilitySpinner: React.FC<ProbabilitySpinnerProps> = ({
 
   // Build sector SVG path descriptors
   let currentCumulativeAngle = 0;
+  const isLightColor = (hex: string) => {
+    const c = hex.toLowerCase();
+    return c === "#ffffff" || c.startsWith("#f") || c.startsWith("#e") || c.startsWith("#d");
+  };
+
   const renderedSectors = sectors.map((sec, idx) => {
     const sweepAngle = sec.fraction * 360;
     const startAngle = currentCumulativeAngle - 90;
@@ -57,7 +62,8 @@ export const ProbabilitySpinner: React.FC<ProbabilitySpinnerProps> = ({
     return {
       d,
       color: sec.color,
-      label: sec.label,
+      textColor: isLightColor(sec.color) ? "#0f172a" : "#ffffff",
+      label: sec.fraction >= 0.06 ? sec.label : "",
       labelX,
       labelY,
       idx,
@@ -83,17 +89,19 @@ export const ProbabilitySpinner: React.FC<ProbabilitySpinnerProps> = ({
           {renderedSectors.map((s) => (
             <g key={s.idx}>
               <path d={s.d} fill={s.color} stroke="#ffffff" strokeWidth={2} />
-              <text
-                x={s.labelX}
-                y={s.labelY}
-                textAnchor="middle"
-                fontSize={11}
-                fontWeight="900"
-                fill="#ffffff"
-                className="drop-shadow-sm pointer-events-none"
-              >
-                {s.label}
-              </text>
+              {s.label && (
+                <text
+                  x={s.labelX}
+                  y={s.labelY}
+                  textAnchor="middle"
+                  fontSize={11}
+                  fontWeight="900"
+                  fill={s.textColor}
+                  className="drop-shadow-sm pointer-events-none"
+                >
+                  {s.label}
+                </text>
+              )}
             </g>
           ))}
 

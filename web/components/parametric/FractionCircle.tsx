@@ -10,6 +10,7 @@ export interface FractionCircleProps {
   colorTheme?: "indigo" | "emerald" | "amber" | "rose";
   label?: string;
   showFractionBadge?: boolean;
+  showSliceLabels?: boolean;
 }
 
 export const FractionCircle: React.FC<FractionCircleProps> = ({
@@ -19,6 +20,7 @@ export const FractionCircle: React.FC<FractionCircleProps> = ({
   colorTheme = "indigo",
   label,
   showFractionBadge = true,
+  showSliceLabels = true,
 }) => {
   const radius = 45;
   const size = 110;
@@ -101,7 +103,9 @@ export const FractionCircle: React.FC<FractionCircleProps> = ({
                   strokeWidth={2}
                 />
               </svg>
-              <span className="text-[11px] font-bold text-slate-500 mt-1">واحد کامل</span>
+              {showSliceLabels && (
+                <span className="text-[11px] font-bold text-slate-500 mt-1">واحد کامل</span>
+              )}
             </div>
           ))}
 
@@ -116,9 +120,11 @@ export const FractionCircle: React.FC<FractionCircleProps> = ({
                 {/* Center Hub */}
                 <circle cx={center} cy={center} r={3} fill="#475569" />
               </svg>
-              <span className="text-[11px] font-bold text-slate-500 mt-1">
-                {toPersianDigits(shadedSlices)} از {toPersianDigits(totalSlices)}
-              </span>
+              {showSliceLabels && (
+                <span className="text-[11px] font-bold text-slate-500 mt-1">
+                  {toPersianDigits(shadedSlices)} از {toPersianDigits(totalSlices)}
+                </span>
+              )}
             </div>
           )}
         </div>

@@ -111,7 +111,18 @@
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "FractionCircle",
+        "props": {
+          "totalSlices": 5,
+          "shadedSlices": 2,
+          "wholeUnits": 3,
+          "colorTheme": "indigo",
+          "showFractionBadge": false,
+          "showSliceLabels": false,
+          "label": "شکل رو‌به‌رو با ۳ واحد کامل و ۲ قسمت از ۵ قسمت:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C05-001-A",
@@ -154,7 +165,18 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "FractionCircle",
+        "props": {
+          "totalSlices": 3,
+          "shadedSlices": 2,
+          "wholeUnits": 4,
+          "colorTheme": "emerald",
+          "showFractionBadge": false,
+          "showSliceLabels": false,
+          "label": "نمایش تصویری کسر بزرگتر از واحد ۱۴/۳:"
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C05-002-A",
@@ -197,7 +219,17 @@
       "difficulty": 0.4,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": null,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 7,
+          "coloredCount": 7,
+          "color": "indigo",
+          "hideBadge": true
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C05-003-A",
@@ -240,7 +272,17 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": null,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 60,
+          "coloredCount": 60,
+          "color": "sky",
+          "hideBadge": true
+        }
+      },
       "distractors": [
         {
           "id": "DIS-G4C05-004-A",

@@ -462,4 +462,128 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     const expectedTick1Cx = 40 + (1 * (460 - 80)) / 6;
     expect(Math.abs(updatedCx - expectedTick1Cx)).toBeLessThan(1);
   });
+
+  it("verifies ProtractorVisualizer renders dual scale and angle rays accurately", () => {
+    const { container, getByText } = render(
+      <ProtractorVisualizer
+        angleDegree={50}
+        showProtractor={true}
+        startRayAngle={0}
+        showClassification={false}
+        showDegreeLabel={false}
+        showDualScale={true}
+        vertexLabel="ب"
+        label="نقاله و زاویه اندازه گرفته شده:"
+      />
+    );
+
+    expect(getByText("نقاله و زاویه اندازه گرفته شده:")).toBeDefined();
+    expect(getByText("راس (ب)")).toBeDefined();
+    // In dual scale, both 50 and 130 are rendered on the protractor face
+    const svgTexts = Array.from(container.querySelectorAll("text")).map((t) => t.textContent);
+    expect(svgTexts.some((t) => t?.includes("۵۰") || t?.includes("50"))).toBe(true);
+    expect(svgTexts.some((t) => t?.includes("۱۳۰") || t?.includes("130"))).toBe(true);
+  });
+
+  it("verifies ClockVisualizer renders digital time and elapsed arc for time interval questions", () => {
+    const { getByText, getAllByText } = render(
+      <ClockVisualizer
+        hours={10}
+        minutes={45}
+        elapsedMinutes={40}
+        showDigital={true}
+        label="ساعت شروع زنگ ورزش (۱۰:۴۵) با چرخش ۴۰ دقیقه‌ای:"
+      />
+    );
+
+    expect(getByText("ساعت شروع زنگ ورزش (۱۰:۴۵) با چرخش ۴۰ دقیقه‌ای:")).toBeDefined();
+    expect(getAllByText(/۱۰:۴۵/).length).toBeGreaterThanOrEqual(1);
+    expect(getByText(/زمان سپری‌شده: ۴۰ دقیقه/)).toBeDefined();
+  });
+
+  it("verifies FractionCircle renders whole units and partial fractional slices", () => {
+    const { container, getByText, queryByText } = render(
+      <FractionCircle
+        totalSlices={5}
+        shadedSlices={2}
+        wholeUnits={3}
+        colorTheme="indigo"
+        showFractionBadge={false}
+        showSliceLabels={false}
+        label="شکل رو‌به‌رو با ۳ واحد کامل و ۲ قسمت از ۵ قسمت:"
+      />
+    );
+
+    expect(getByText("شکل رو‌به‌رو با ۳ واحد کامل و ۲ قسمت از ۵ قسمت:")).toBeDefined();
+    // 3 whole circles + 1 partial circle = 4 svg elements
+    const svgs = container.querySelectorAll("svg");
+    expect(svgs.length).toBe(4);
+    // Since showSliceLabels is false, "۲ از ۵" shouldn't spoil the question
+    expect(queryByText("۲ از ۵")).toBeNull();
+  });
+
+  it("verifies BrokenLineGraph renders coordinate points and polyline for continuous data", () => {
+    const { container, getByText, getAllByText } = render(
+      <BrokenLineGraph
+        xLabels={["۳", "۶", "۹", "۱۲", "۱۵", "۱۸", "۲۱", "۲۴"]}
+        yValues={[38, 38.5, 39, 38.8, 38.2, 37.8, 37.2, 37]}
+        yMin={36}
+        yMax={40}
+        yStep={1}
+        xTitle="ساعت سنجش"
+        yTitle="دمای بدن (درجه سانتی‌گراد)"
+        label="نمودار خط شکسته تغییرات دمای بدن:"
+      />
+    );
+
+    expect(getByText("نمودار خط شکسته تغییرات دمای بدن:")).toBeDefined();
+    expect(getByText(/ساعت سنجش/)).toBeDefined();
+    expect(getAllByText(/دمای بدن/).length).toBeGreaterThanOrEqual(1);
+    const polyline = container.querySelector("polyline");
+    expect(polyline).toBeDefined();
+    expect(polyline?.getAttribute("points")).toBeTruthy();
+  });
+
+  it("verifies ProbabilitySpinner renders proportional sectors and legend", () => {
+    const { container, getByText } = render(
+      <ProbabilitySpinner
+        sectors={[
+          { color: "#10b981", fraction: 0.5, label: "سبز" },
+          { color: "#f59e0b", fraction: 0.25, label: "زرد" },
+          { color: "#f97316", fraction: 0.25, label: "نارنجی" },
+        ]}
+        pointerAngle={45}
+        showLegend={true}
+        label="نمودار دایره‌ای بخش‌های رنگی:"
+      />
+    );
+
+    expect(getByText("نمودار دایره‌ای بخش‌های رنگی:")).toBeDefined();
+    expect(getByText(/سبز:/)).toBeDefined();
+    expect(getByText(/زرد:/)).toBeDefined();
+    expect(getByText(/نارنجی:/)).toBeDefined();
+    // Needle line
+    const needleLine = container.querySelector("line");
+    expect(needleLine).toBeDefined();
+  });
+
+  it("confirms canonical items in Chapters 1, 2, 4, 5, and 7 now have connected visual templates", () => {
+    const ch4 = getCanonicalCartridge("grade4_math_ch4.json");
+    const ch5 = getCanonicalCartridge("grade4_math_ch5.json");
+    const ch7 = getCanonicalCartridge("grade4_math_ch7.json");
+
+    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-001")?.visual_template?.type).toBe("ProtractorVisualizer");
+    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-002")?.visual_template?.type).toBe("ProtractorVisualizer");
+    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-003")?.visual_template?.type).toBe("ClockVisualizer");
+    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-004")?.visual_template?.type).toBe("AreaGrid");
+
+    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-001")?.visual_template?.type).toBe("FractionCircle");
+    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-002")?.visual_template?.type).toBe("FractionCircle");
+    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-003")?.visual_template?.type).toBe("AreaGrid");
+    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-004")?.visual_template?.type).toBe("AreaGrid");
+
+    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-003")?.visual_template?.type).toBe("BrokenLineGraph");
+    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-004")?.visual_template?.type).toBe("ProbabilitySpinner");
+    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-005")?.visual_template?.type).toBe("ProbabilitySpinner");
+  });
 });
