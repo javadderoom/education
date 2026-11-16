@@ -29,6 +29,7 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
   const [isSpeechOpen, setIsSpeechOpen] = useState<boolean>(false);
   const [activeSpeech, setActiveSpeech] = useState<string>(speechText || "");
   const [internalMood, setInternalMood] = useState<CompanionMood>(mood);
+  const [dragTilt, setDragTilt] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const dragStartRef = useRef<{ x: number; y: number; startY: number }>({ x: 0, y: 0, startY: 0 });
   const hasMovedRef = useRef<boolean>(false);
@@ -117,6 +118,9 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
 
     if (Math.hypot(deltaX, deltaY) > 8) {
       hasMovedRef.current = true;
+      const tiltY = Math.max(-22, Math.min(22, deltaX * 0.35));
+      const tiltX = Math.max(-14, Math.min(14, -deltaY * 0.25));
+      setDragTilt({ x: tiltX, y: tiltY });
     }
 
     if (typeof window !== "undefined") {
@@ -140,6 +144,7 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
     }
 
     setIsDragging(false);
+    setDragTilt({ x: 0, y: 0 });
 
     // Magnetic edge snapping based on release horizontal coordinate
     if (typeof window !== "undefined") {
@@ -296,7 +301,14 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               </div>
             </div>
           ) : (
-            <div className="relative flex flex-col items-center">
+            <div
+              className="relative flex flex-col items-center transition-transform duration-150 ease-out"
+              style={{
+                transform: isDragging
+                  ? `perspective(700px) rotateY(${dragTilt.y}deg) rotateX(${dragTilt.x}deg) scale(1.06)`
+                  : undefined,
+              }}
+            >
               {/* Main Dana Companion Robot (Prominent 80px Mobile / 104px Desktop Size) */}
               <div className="block sm:hidden">
                 <RobotCompanion

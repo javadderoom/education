@@ -1235,18 +1235,18 @@
     "semantic_hash": ""
   },
   "web/components/companion/RobotCompanion.tsx": {
-    "mtime": 1794849054.2845304,
-    "ast_hash": "a2ed0207100f14482ec04197f65c6815",
+    "mtime": 1794851262.4357998,
+    "ast_hash": "41cf450cfa5c7b508580b69f4910d599",
     "semantic_hash": ""
   },
   "web/__tests__/floating-companion.test.tsx": {
-    "mtime": 1794850157.2589445,
+    "mtime": 1794850633.9440315,
     "ast_hash": "b9e44c9e4215bdf2887f77b1fc7565fe",
     "semantic_hash": ""
   },
   "web/components/companion/FloatingCompanion.tsx": {
-    "mtime": 1794850342.6585271,
-    "ast_hash": "af16202f440934050741b74a1b0a3931",
+    "mtime": 1794851438.338186,
+    "ast_hash": "2277ec8aa103b30f1a9ac8246a08a859",
     "semantic_hash": ""
   }
 }
