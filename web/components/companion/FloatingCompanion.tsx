@@ -78,10 +78,10 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
     };
   }, [questionId, mood, autoOpenSpeech]);
 
-  // Set initial comfortable mobile/desktop position on mount
+  // Set initial comfortable mobile/desktop position on mount (anchored in bottom thumb zone)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const initialY = Math.min(window.innerHeight - 200, Math.max(120, window.innerHeight * 0.45));
+      const initialY = Math.max(160, window.innerHeight - 210);
       setPositionY(initialY);
     }
   }, []);
@@ -192,7 +192,9 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
         {/* Animated Speech Bubble Popup */}
         {isSpeechOpen && !isPeeking && activeSpeech && (
           <div
-            className={`absolute bottom-full mb-3 w-[250px] sm:w-[280px] max-w-[calc(100vw-36px)] bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-200 dark:border-indigo-900/60 rounded-3xl p-3 shadow-xl text-slate-800 dark:text-slate-100 font-bold text-xs leading-relaxed z-[70] ${
+            className={`absolute ${
+              positionY < 180 ? "top-full mt-3" : "bottom-full mb-3"
+            } w-[250px] sm:w-[280px] max-w-[calc(100vw-36px)] bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-200 dark:border-indigo-900/60 rounded-3xl p-3 shadow-xl text-slate-800 dark:text-slate-100 font-bold text-xs leading-relaxed z-[70] ${
               dockSide === "left" ? "left-0" : "right-0"
             }`}
             style={{
@@ -214,9 +216,13 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               </button>
             </div>
 
-            {/* Bubble Anchor Pointer Tip pointing down to Dana */}
+            {/* Bubble Anchor Pointer Tip pointing towards Dana */}
             <div
-              className={`absolute -bottom-1.5 w-3 h-3 bg-white dark:bg-slate-800 border-r-2 border-b-2 border-indigo-200 dark:border-indigo-900/60 rotate-45 ${
+              className={`absolute ${
+                positionY < 180
+                  ? "-top-1.5 border-l-2 border-t-2"
+                  : "-bottom-1.5 border-r-2 border-b-2"
+              } w-3 h-3 bg-white dark:bg-slate-800 border-indigo-200 dark:border-indigo-900/60 rotate-45 ${
                 dockSide === "left" ? "left-8" : "right-8"
               }`}
             />
@@ -225,6 +231,14 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
 
         {/* Draggable Dana Avatar Container or Docked Edge Tab */}
         <div
+          onClick={
+            isPeeking
+              ? () => {
+                  setIsPeeking(false);
+                  setIsSpeechOpen(true);
+                }
+              : undefined
+          }
           onPointerDown={isPeeking ? undefined : handlePointerDown}
           onPointerMove={isPeeking ? undefined : handlePointerMove}
           onPointerUp={isPeeking ? undefined : handlePointerUp}
@@ -239,59 +253,47 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               : `همیار دانا در حالت ${internalMood} - قابل جابه‌جایی و لمس`
           }
         >
-          {/* Peeking Docked Edge Tab (Clear, Unmistakable & Sleek) */}
+          {/* Peeking Docked Edge Tab (Ultra-Slim 22px Handle, Unmistakable Dana Robot Identity) */}
           {isPeeking ? (
             <div
-              onClick={() => {
-                setIsPeeking(false);
-                setIsSpeechOpen(true);
-              }}
-              className={`flex items-center gap-2 py-1.5 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-2 border-indigo-300 dark:border-indigo-600 shadow-xl cursor-pointer hover:bg-indigo-50/90 dark:hover:bg-slate-700/90 active:scale-95 transition-all group ${
+              className={`flex flex-col items-center justify-center py-2.5 w-[22px] sm:w-[26px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-2 border-indigo-300 dark:border-indigo-500 shadow-lg cursor-pointer hover:w-[28px] active:scale-95 transition-all group select-none ${
                 dockSide === "left"
-                  ? "rounded-r-2xl border-l-0 pl-1.5 pr-3.5"
-                  : "rounded-l-2xl border-r-0 pr-1.5 pl-3.5"
+                  ? "rounded-r-2xl border-l-0 pl-0.5 pr-1"
+                  : "rounded-l-2xl border-r-0 pr-0.5 pl-1"
               }`}
-              title="بازگشت دانا (هم‌شاگردی کاوشگر)"
+              title="دانا - همیار یادگیری (برای بازگشت لمس کنید)"
             >
-              {dockSide === "left" ? (
-                <>
-                  {/* Dana Mini Avatar */}
-                  <div className="w-10 h-11 shrink-0 relative flex items-center justify-center">
-                    <RobotCompanion
-                      mood={internalMood}
-                      size="xs"
-                      showSpeechBubble={false}
-                      interactiveHop={false}
-                      className="pointer-events-none filter drop-shadow-xs"
-                    />
-                  </div>
+              {/* Dana Glowing Antenna Tip */}
+              <div className="relative mb-1">
+                <div
+                  className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-200"
+                  style={{
+                    animation: "antennaPulse 2s ease-in-out infinite",
+                    boxShadow: "0 0 8px rgba(251, 191, 36, 0.8)",
+                  }}
+                />
+              </div>
 
-                  {/* Clear Label & Direction Indicator */}
-                  <div className="flex items-center gap-1 text-indigo-700 dark:text-indigo-300 font-black text-xs">
-                    <span>دانا</span>
-                    <ChevronRight className="w-4 h-4 text-indigo-500 group-hover:translate-x-0.5 transition-transform animate-pulse" />
-                  </div>
-                </>
-              ) : (
-                <>
-                  {/* Direction Indicator & Clear Label */}
-                  <div className="flex items-center gap-1 text-indigo-700 dark:text-indigo-300 font-black text-xs">
-                    <ChevronLeft className="w-4 h-4 text-indigo-500 group-hover:-translate-x-0.5 transition-transform animate-pulse" />
-                    <span>دانا</span>
-                  </div>
+              {/* Dana Cute Peeking Cyber Visor with Blinking Eye */}
+              <div className="w-3.5 h-6 bg-slate-950 rounded-full border border-indigo-400/60 flex flex-col items-center justify-center relative overflow-hidden my-0.5 shadow-2xs">
+                {/* Glowing Eye */}
+                <div
+                  className="w-2 h-2 rounded-full bg-sky-400"
+                  style={{
+                    animation: "danaEyeBlink 3.6s ease-in-out infinite",
+                    boxShadow: "0 0 6px rgba(56, 189, 248, 0.9)",
+                  }}
+                />
+              </div>
 
-                  {/* Dana Mini Avatar */}
-                  <div className="w-10 h-11 shrink-0 relative flex items-center justify-center">
-                    <RobotCompanion
-                      mood={internalMood}
-                      size="xs"
-                      showSpeechBubble={false}
-                      interactiveHop={false}
-                      className="pointer-events-none filter drop-shadow-xs"
-                    />
-                  </div>
-                </>
-              )}
+              {/* Directional Chevron indicating expandable direction */}
+              <div className="mt-1 text-indigo-600 dark:text-indigo-400">
+                {dockSide === "left" ? (
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform animate-pulse" />
+                ) : (
+                  <ChevronLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform animate-pulse" />
+                )}
+              </div>
             </div>
           ) : (
             <div className="relative flex flex-col items-center">
@@ -316,11 +318,11 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
               </div>
 
               {/* Mini Quick-Action Button below Dana to Dock */}
-              <div className="mt-1 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <div className="mt-1 flex items-center justify-center">
                 <button
                   type="button"
                   onClick={handleTogglePeeking}
-                  className="px-2.5 py-1 rounded-full bg-white/95 dark:bg-slate-800/95 border border-indigo-200 dark:border-indigo-800 text-[11px] font-bold text-indigo-700 dark:text-indigo-300 shadow-xs hover:bg-indigo-50 dark:hover:bg-slate-700 flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                  className="px-2.5 py-0.5 rounded-full bg-white/95 dark:bg-slate-800/95 border border-indigo-200 dark:border-indigo-800 text-[10px] sm:text-[11px] font-bold text-indigo-700 dark:text-indigo-300 shadow-xs hover:bg-indigo-50 dark:hover:bg-slate-700 flex items-center gap-1 cursor-pointer transition-all active:scale-95"
                   title="پنهان کردن دانا در کنار صفحه"
                 >
                   {dockSide === "left" ? (
@@ -349,6 +351,36 @@ export const FloatingCompanion: React.FC<FloatingCompanionProps> = ({
           )}
         </div>
       </div>
+
+      <style>{`
+        @keyframes antennaPulse {
+          0%, 100% { transform: scale(1); opacity: 0.9; }
+          50% { transform: scale(1.18); opacity: 1; }
+        }
+
+        @keyframes danaEyeBlink {
+          0%, 86%, 100% { transform: scaleY(1); }
+          90% { transform: scaleY(0.08); }
+          94% { transform: scaleY(1); }
+          96% { transform: scaleY(0.08); }
+          98% { transform: scaleY(1); }
+        }
+
+        @keyframes speechBubbleBounce {
+          0% {
+            opacity: 0;
+            transform: scale(0.65) translateY(12px);
+          }
+          65% {
+            opacity: 1;
+            transform: scale(1.04) translateY(-3px);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };

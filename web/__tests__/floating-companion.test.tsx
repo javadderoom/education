@@ -44,7 +44,7 @@ describe("FloatingCompanion Component (Smart Roaming Pedagogical Companion)", ()
     });
   });
 
-  it("toggles peeking mode when toggle button is clicked", () => {
+  it("toggles peeking mode when toggle button is clicked and expands back on tap", () => {
     render(<FloatingCompanion mood="idle" />);
 
     const peekBtn = screen.getByText("کنار بایست");
@@ -53,6 +53,11 @@ describe("FloatingCompanion Component (Smart Roaming Pedagogical Companion)", ()
 
     const peekingElement = screen.getByLabelText(/همیار دانا در حال سرک کشیدن/);
     expect(peekingElement).toBeDefined();
+
+    // Tapping the peeking tab restores full companion view
+    fireEvent.click(peekingElement);
+    const restoredCompanion = screen.getByLabelText(/همیار دانا در حالت/);
+    expect(restoredCompanion).toBeDefined();
   });
 
   it("triggers onCompanionClick when companion is tapped", () => {
