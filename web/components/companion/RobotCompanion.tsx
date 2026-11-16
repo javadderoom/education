@@ -82,13 +82,18 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
   rotationY,
 }) => {
   const [isHopping, setIsHopping] = useState(false);
+  const hopTimerRef = React.useRef<NodeJS.Timeout | null>(null);
   const currentSpeech = speechText || DEFAULT_SPEECH[mood];
   const sizeCfg = SIZE_CONFIGS[size];
 
   const handleClick = (e: React.MouseEvent) => {
     if (interactiveHop) {
+      if (hopTimerRef.current) clearTimeout(hopTimerRef.current);
       setIsHopping(true);
-      setTimeout(() => setIsHopping(false), 850);
+      // Full 1.4s duration to complete the natural celebration hop cycle
+      hopTimerRef.current = setTimeout(() => {
+        setIsHopping(false);
+      }, 1400);
     }
     if (onClick) {
       onClick();
@@ -170,13 +175,10 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
         </div>
       )}
 
-      {/* 3D Perspective Stage Container */}
+      {/* Robot Mascot Stage Container */}
       <div
         className={`${sizeCfg.container} relative flex items-center justify-center select-none`}
-        style={{
-          zIndex: zIndex + 5,
-          perspective: "800px",
-        }}
+        style={{ zIndex: zIndex + 5 }}
       >
         {/* Celebratory Particle Fireworks & Confetti Burst */}
         {(mood === "celebrating" || isHopping) && (
@@ -208,407 +210,279 @@ export const RobotCompanion: React.FC<RobotCompanionProps> = ({
           </div>
         )}
 
-        {/* 3D Rotating & Leaping Body */}
+        {/* Animated Robot Avatar Body (Squash & Stretch Victory Jump) */}
         <div
-          className="w-full h-full relative"
+          className="w-full h-full relative flex items-center justify-center"
           style={{
-            transformStyle: "preserve-3d",
-            transform: rotationY !== undefined ? `rotateY(${rotationY}deg)` : undefined,
             animation:
-              rotationY !== undefined
-                ? undefined
-                : mood === "celebrating"
-                ? "danaCelebration3D 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite"
+              mood === "celebrating"
+                ? "danaCelebrationDance 2.4s cubic-bezier(0.34, 1.25, 0.64, 1) infinite"
                 : isHopping
-                ? "danaSpinHop3D 0.85s cubic-bezier(0.34, 1.56, 0.64, 1)"
+                ? "danaJoyHop 1.4s cubic-bezier(0.34, 1.25, 0.64, 1)"
                 : "danaFloat 3.8s ease-in-out infinite",
           }}
         >
-          {/* FRONT FACE (Visor, Eyes, Smiling Face, Arms, Core) */}
-          <div
-            className="absolute inset-0 w-full h-full flex items-center justify-center"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              transform: "rotateY(0deg) translateZ(6px)",
-            }}
+          <svg
+            viewBox="0 0 200 230"
+            className={`${sizeCfg.svg} overflow-visible`}
           >
-            <svg
-              viewBox="0 0 200 230"
-              className={`${sizeCfg.svg} overflow-visible`}
-            >
-              <defs>
-                <linearGradient id="danaBody" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="60%" stopColor="#f1f5f9" />
-                  <stop offset="100%" stopColor="#cbd5e1" />
-                </linearGradient>
+            <defs>
+              <linearGradient id="danaBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="60%" stopColor="#f1f5f9" />
+                <stop offset="100%" stopColor="#cbd5e1" />
+              </linearGradient>
 
-                <linearGradient id="danaVisor" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#0f172a" />
-                  <stop offset="100%" stopColor="#1e1b4b" />
-                </linearGradient>
+              <linearGradient id="danaVisor" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#0f172a" />
+                <stop offset="100%" stopColor="#1e1b4b" />
+              </linearGradient>
 
-                <linearGradient id="danaAccent" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#6366f1" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
+              <linearGradient id="danaAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#6366f1" />
+                <stop offset="100%" stopColor="#3b82f6" />
+              </linearGradient>
 
-                <linearGradient id="danaGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#fef08a" />
-                  <stop offset="100%" stopColor="#f59e0b" />
-                </linearGradient>
+              <linearGradient id="danaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#fef08a" />
+                <stop offset="100%" stopColor="#f59e0b" />
+              </linearGradient>
 
-                <filter id="danaGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="2.5" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
+              <filter id="danaGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-              {/* Shadow on Floor */}
-              <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
+            {/* Shadow on Floor */}
+            <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
 
-              {/* Antenna Assembly with Pulsing Glow Beacon */}
-              <g id="antenna">
-                <path d="M 100 52 Q 100 38 100 32" stroke="#94a3b8" strokeWidth="3.5" strokeLinecap="round" />
-                <circle
-                  cx="100"
-                  cy="30"
-                  r="8"
-                  fill={antennaColor}
-                  filter="url(#danaGlow)"
-                  className="transition-colors duration-300"
-                  style={{
-                    transformOrigin: "100px 30px",
-                    animation: "antennaPulse 2.4s ease-in-out infinite",
-                  }}
-                />
-                <circle cx="98" cy="28" r="2.5" fill="#ffffff" opacity="0.8" />
-              </g>
+            {/* Antenna Assembly with Pulsing Glow Beacon */}
+            <g id="antenna">
+              <path d="M 100 52 Q 100 38 100 32" stroke="#94a3b8" strokeWidth="3.5" strokeLinecap="round" />
+              <circle
+                cx="100"
+                cy="30"
+                r="8"
+                fill={antennaColor}
+                filter="url(#danaGlow)"
+                className="transition-colors duration-300"
+                style={{
+                  transformOrigin: "100px 30px",
+                  animation: "antennaPulse 2.4s ease-in-out infinite",
+                }}
+              />
+              <circle cx="98" cy="28" r="2.5" fill="#ffffff" opacity="0.8" />
+            </g>
 
-              {/* Head Chassis */}
-              <g id="head">
-                <rect
-                  x="50"
-                  y="46"
-                  width="100"
-                  height="82"
-                  rx="36"
-                  fill="url(#danaBody)"
-                  stroke="#94a3b8"
-                  strokeWidth="2.5"
-                />
-                {/* Top Gloss Highlight */}
-                <path d="M 68 50 Q 100 47 132 50" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" />
+            {/* Head Chassis */}
+            <g id="head">
+              <rect
+                x="50"
+                y="46"
+                width="100"
+                height="82"
+                rx="36"
+                fill="url(#danaBody)"
+                stroke="#94a3b8"
+                strokeWidth="2.5"
+              />
+              {/* Top Gloss Highlight */}
+              <path d="M 68 50 Q 100 47 132 50" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" />
 
-                {/* Cyber-Ear Pods */}
-                <rect x="42" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-                <circle cx="47" cy="79" r="2.5" fill={antennaColor} />
-                <rect x="148" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-                <circle cx="153" cy="79" r="2.5" fill={antennaColor} />
+              {/* Cyber-Ear Pods */}
+              <rect x="42" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
+              <circle cx="47" cy="79" r="2.5" fill={antennaColor} />
+              <rect x="148" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
+              <circle cx="153" cy="79" r="2.5" fill={antennaColor} />
 
-                {/* Dark Visor Screen */}
-                <rect x="58" y="58" width="84" height="58" rx="24" fill="url(#danaVisor)" stroke="#0f172a" strokeWidth="2" />
-                <path d="M 64 64 Q 100 60 136 68 Q 120 74 64 72 Z" fill="#ffffff" opacity="0.14" />
+              {/* Dark Visor Screen */}
+              <rect x="58" y="58" width="84" height="58" rx="24" fill="url(#danaVisor)" stroke="#0f172a" strokeWidth="2" />
+              <path d="M 64 64 Q 100 60 136 68 Q 120 74 64 72 Z" fill="#ffffff" opacity="0.14" />
 
-                {/* Eyes - Smiling laughing arcs during celebrating, blinking ellipses otherwise */}
-                {mood === "celebrating" ? (
-                  <g id="celebratingEyes" filter="url(#danaGlow)">
-                    <path
-                      d="M 74 88 Q 82 76 90 88"
-                      fill="none"
-                      stroke={eyeColor}
-                      strokeWidth="4.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M 110 88 Q 118 76 126 88"
-                      fill="none"
-                      stroke={eyeColor}
-                      strokeWidth="4.5"
-                      strokeLinecap="round"
-                    />
-                  </g>
-                ) : (
-                  <g
-                    id="eyes"
-                    filter="url(#danaGlow)"
-                    style={{
-                      transformOrigin: "100px 85px",
-                      animation: isEyeBlinking ? "danaEyeBlink 3.6s ease-in-out infinite" : undefined,
-                    }}
-                  >
-                    <ellipse cx="82" cy="85" rx={eyeRx} ry={eyeRy} fill={eyeColor} />
-                    <circle cx="80" cy="81" r="2.5" fill="#ffffff" />
-                    <ellipse cx="118" cy="85" rx={eyeRx} ry={eyeRy} fill={eyeColor} />
-                    <circle cx="116" cy="81" r="2.5" fill="#ffffff" />
-                  </g>
-                )}
-
-                {/* Rosy Cheeks */}
-                <circle cx="72" cy="95" r="4.5" fill="#ec4899" opacity="0.4" />
-                <circle cx="128" cy="95" r="4.5" fill="#ec4899" opacity="0.4" />
-
-                {/* Mouth */}
-                <path
-                  d={mouthPath}
-                  fill="none"
-                  stroke={mouthStroke}
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  className="transition-all duration-300"
-                />
-              </g>
-
-              {/* Torso */}
-              <g id="torso">
-                <path
-                  d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
-                  fill="url(#danaBody)"
-                  stroke="#94a3b8"
-                  strokeWidth="2.5"
-                />
-                {/* Chest Core Badge */}
-                <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
-                <g filter="url(#danaGlow)">
-                  <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
-                  <circle cx="100" cy="158" r="3" fill="#fbbf24" />
+              {/* Eyes - Smiling laughing arcs during celebrating or hopping, blinking ellipses otherwise */}
+              {mood === "celebrating" || isHopping ? (
+                <g id="celebratingEyes" filter="url(#danaGlow)">
+                  <path
+                    d="M 74 88 Q 82 76 90 88"
+                    fill="none"
+                    stroke={eyeColor}
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M 110 88 Q 118 76 126 88"
+                    fill="none"
+                    stroke={eyeColor}
+                    strokeWidth="4.5"
+                    strokeLinecap="round"
+                  />
                 </g>
-                {/* Student Scarf */}
-                <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
-              </g>
-
-              {/* Left Arm / Hand */}
-              <g id="leftArm">
-                <path
-                  d={leftArmPath}
-                  fill="none"
-                  stroke="url(#danaBody)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  className="transition-all duration-300"
-                />
-                <circle
-                  cx={leftHandCx}
-                  cy={leftHandCy}
-                  r="7"
-                  fill="#4f46e5"
-                  stroke="#312e81"
-                  strokeWidth="1.5"
-                  className="transition-all duration-300"
-                />
-              </g>
-
-              {/* Right Arm / Hand (holding pencil) */}
-              <g id="rightArm">
-                <path
-                  d={rightArmPath}
-                  fill="none"
-                  stroke="url(#danaBody)"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  className="transition-all duration-300"
-                />
-                <circle
-                  cx={rightHandCx}
-                  cy={rightHandCy}
-                  r="7"
-                  fill="#4f46e5"
-                  stroke="#312e81"
-                  strokeWidth="1.5"
-                  className="transition-all duration-300"
-                />
-                {/* Golden Pencil */}
-                <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
-                <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
-                <polygon points="144,180 146,180 145,182" fill="#0f172a" />
-              </g>
-            </svg>
-          </div>
-
-          {/* BACK FACE (Cyber School Backpack, Thrusters, Metallic Spine, Straps) */}
-          <div
-            className="absolute inset-0 w-full h-full flex items-center justify-center"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              transform: "rotateY(180deg) translateZ(6px)",
-            }}
-          >
-            <svg
-              viewBox="0 0 200 230"
-              className={`${sizeCfg.svg} overflow-visible`}
-            >
-              <defs>
-                <linearGradient id="danaBackpack" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#4f46e5" />
-                  <stop offset="100%" stopColor="#312e81" />
-                </linearGradient>
-              </defs>
-
-              {/* Shadow on Floor */}
-              <ellipse cx="100" cy="222" rx="42" ry="7" fill="#64748b" opacity="0.22" />
-
-              {/* Antenna Assembly from behind */}
-              <g id="antennaBack">
-                <path d="M 100 52 Q 100 38 100 32" stroke="#94a3b8" strokeWidth="3.5" strokeLinecap="round" />
-                <circle
-                  cx="100"
-                  cy="30"
-                  r="8"
-                  fill={antennaColor}
+              ) : (
+                <g
+                  id="eyes"
                   filter="url(#danaGlow)"
                   style={{
-                    transformOrigin: "100px 30px",
-                    animation: "antennaPulse 2.4s ease-in-out infinite",
+                    transformOrigin: "100px 85px",
+                    animation: isEyeBlinking ? "danaEyeBlink 3.6s ease-in-out infinite" : undefined,
                   }}
-                />
-                <circle cx="98" cy="28" r="2.5" fill="#ffffff" opacity="0.8" />
-              </g>
+                >
+                  <ellipse cx="82" cy="85" rx={eyeRx} ry={eyeRy} fill={eyeColor} />
+                  <circle cx="80" cy="81" r="2.5" fill="#ffffff" />
+                  <ellipse cx="118" cy="85" rx={eyeRx} ry={eyeRy} fill={eyeColor} />
+                  <circle cx="116" cy="81" r="2.5" fill="#ffffff" />
+                </g>
+              )}
 
-              {/* Head Chassis from behind */}
-              <g id="headBack">
-                <rect
-                  x="50"
-                  y="46"
-                  width="100"
-                  height="82"
-                  rx="36"
-                  fill="url(#danaBody)"
-                  stroke="#94a3b8"
-                  strokeWidth="2.5"
-                />
-                {/* Cyber headphone bands connecting around the back of the head */}
-                <path d="M 42 79 Q 100 88 158 79" fill="none" stroke="#4f46e5" strokeWidth="8" strokeLinecap="round" />
-                <path d="M 42 79 Q 100 88 158 79" fill="none" stroke="#38bdf8" strokeWidth="2" strokeLinecap="round" />
+              {/* Rosy Cheeks */}
+              <circle cx="72" cy="95" r="4.5" fill="#ec4899" opacity="0.4" />
+              <circle cx="128" cy="95" r="4.5" fill="#ec4899" opacity="0.4" />
 
-                {/* Cyber-Ear Pods */}
-                <rect x="42" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-                <rect x="148" y="66" width="10" height="26" rx="5" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-              </g>
+              {/* Mouth */}
+              <path
+                d={mouthPath}
+                fill="none"
+                stroke={mouthStroke}
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                className="transition-all duration-300"
+              />
+            </g>
 
-              {/* Torso Back Chassis */}
+            {/* Torso */}
+            <g id="torso">
               <path
                 d="M 72 130 C 66 142 66 178 72 192 C 78 198 122 198 128 192 C 134 178 134 142 128 130 Z"
                 fill="url(#danaBody)"
                 stroke="#94a3b8"
                 strokeWidth="2.5"
               />
-
-              {/* High-Tech School Backpack */}
-              <g id="schoolBackpack">
-                <rect
-                  x="56"
-                  y="118"
-                  width="88"
-                  height="72"
-                  rx="18"
-                  fill="url(#danaBackpack)"
-                  stroke="#312e81"
-                  strokeWidth="2.5"
-                />
-                {/* Top handle loop */}
-                <path d="M 88 118 Q 100 106 112 118" fill="none" stroke="#4f46e5" strokeWidth="4" strokeLinecap="round" />
-                {/* Yellow zipper accent */}
-                <path d="M 66 138 Q 100 144 134 138" fill="none" stroke="#fbbf24" strokeWidth="3" strokeLinecap="round" />
-
-                {/* Math Ruler peeking out */}
-                <rect
-                  x="122"
-                  y="96"
-                  width="11"
-                  height="40"
-                  rx="2"
-                  fill="#fbbf24"
-                  stroke="#d97706"
-                  strokeWidth="1.2"
-                  transform="rotate(16, 122, 96)"
-                />
-                <line x1="124" y1="102" x2="130" y2="102" stroke="#b45309" strokeWidth="1" transform="rotate(16, 122, 96)" />
-                <line x1="124" y1="108" x2="130" y2="108" stroke="#b45309" strokeWidth="1" transform="rotate(16, 122, 96)" />
-                <line x1="124" y1="114" x2="130" y2="114" stroke="#b45309" strokeWidth="1" transform="rotate(16, 122, 96)" />
-
-                {/* Cyber Battery / Indicator Gauge */}
-                <rect x="82" y="152" width="36" height="14" rx="4" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
-                <rect x="85" y="155" width="7" height="8" rx="1.5" fill="#10b981" />
-                <rect x="96" y="155" width="7" height="8" rx="1.5" fill="#10b981" />
-                <rect x="107" y="155" width="7" height="8" rx="1.5" fill="#10b981" />
+              {/* Chest Core Badge */}
+              <rect x="82" y="142" width="36" height="34" rx="10" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
+              <g filter="url(#danaGlow)">
+                <path d="M 100 148 L 100 168 M 90 158 L 110 158" stroke={antennaColor} strokeWidth="2.5" strokeLinecap="round" />
+                <circle cx="100" cy="158" r="3" fill="#fbbf24" />
               </g>
+              {/* Student Scarf */}
+              <path d="M 72 130 Q 100 142 128 130" fill="none" stroke="url(#danaAccent)" strokeWidth="6" strokeLinecap="round" />
+            </g>
 
-              {/* Dual Cyber Rocket Thruster Jet Flames */}
-              <g id="thrusters">
-                {/* Left Nozzle */}
-                <rect x="70" y="186" width="14" height="8" rx="2" fill="#334155" stroke="#1e293b" strokeWidth="1.5" />
-                <polygon points="71,194 83,194 77,212" fill="#38bdf8" opacity="0.85" filter="url(#danaGlow)" />
-                <polygon points="73,194 81,194 77,206" fill="#fef08a" opacity="0.9" />
+            {/* Left Arm / Hand */}
+            <g id="leftArm">
+              <path
+                d={leftArmPath}
+                fill="none"
+                stroke="url(#danaBody)"
+                strokeWidth="10"
+                strokeLinecap="round"
+                className="transition-all duration-300"
+              />
+              <circle
+                cx={leftHandCx}
+                cy={leftHandCy}
+                r="7"
+                fill="#4f46e5"
+                stroke="#312e81"
+                strokeWidth="1.5"
+                className="transition-all duration-300"
+              />
+            </g>
 
-                {/* Right Nozzle */}
-                <rect x="116" y="186" width="14" height="8" rx="2" fill="#334155" stroke="#1e293b" strokeWidth="1.5" />
-                <polygon points="117,194 129,194 123,212" fill="#38bdf8" opacity="0.85" filter="url(#danaGlow)" />
-                <polygon points="119,194 127,194 123,206" fill="#fef08a" opacity="0.9" />
-              </g>
-
-              {/* Arms seen from behind */}
-              <g id="armsBack">
-                <path d="M 68 142 Q 54 155 58 172" fill="none" stroke="url(#danaBody)" strokeWidth="10" strokeLinecap="round" />
-                <circle cx="58" cy="172" r="7" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-                <path d="M 132 142 Q 146 155 142 172" fill="none" stroke="url(#danaBody)" strokeWidth="10" strokeLinecap="round" />
-                <circle cx="142" cy="172" r="7" fill="#4f46e5" stroke="#312e81" strokeWidth="1.5" />
-              </g>
-            </svg>
-          </div>
+            {/* Right Arm / Hand (holding pencil) */}
+            <g id="rightArm">
+              <path
+                d={rightArmPath}
+                fill="none"
+                stroke="url(#danaBody)"
+                strokeWidth="10"
+                strokeLinecap="round"
+                className="transition-all duration-300"
+              />
+              <circle
+                cx={rightHandCx}
+                cy={rightHandCy}
+                r="7"
+                fill="#4f46e5"
+                stroke="#312e81"
+                strokeWidth="1.5"
+                className="transition-all duration-300"
+              />
+              {/* Golden Pencil */}
+              <polygon points="143,158 147,158 149,174 141,174" fill="url(#danaGold)" stroke="#b45309" strokeWidth="1" />
+              <polygon points="141,174 149,174 145,182" fill="#fed7aa" stroke="#b45309" strokeWidth="1" />
+              <polygon points="144,180 146,180 145,182" fill="#0f172a" />
+            </g>
+          </svg>
         </div>
       </div>
 
       <style>{`
         @keyframes danaFloat {
           0%, 100% {
-            transform: perspective(800px) translateY(0px) rotateY(0deg);
+            transform: translateY(0px) rotate(0deg);
           }
           25% {
-            transform: perspective(800px) translateY(-5px) rotateY(6deg);
+            transform: translateY(-5px) rotate(2deg);
           }
           50% {
-            transform: perspective(800px) translateY(-9px) rotateY(0deg);
+            transform: translateY(-9px) rotate(0deg);
           }
           75% {
-            transform: perspective(800px) translateY(-4px) rotateY(-6deg);
+            transform: translateY(-4px) rotate(-2deg);
           }
         }
 
-        @keyframes danaCelebration3D {
+        @keyframes danaCelebrationDance {
           0% {
-            transform: perspective(800px) rotateY(0deg) translateY(0px) scale(1);
+            transform: translateY(0px) scale(1, 1) rotate(0deg);
           }
-          25% {
-            transform: perspective(800px) rotateY(90deg) translateY(-18px) scale(1.08);
+          12% {
+            transform: translateY(4px) scale(1.12, 0.88) rotate(0deg);
           }
-          50% {
-            transform: perspective(800px) rotateY(180deg) translateY(-30px) scale(1.15);
+          28% {
+            transform: translateY(-28px) scale(0.92, 1.16) rotate(-4deg);
           }
-          75% {
-            transform: perspective(800px) rotateY(270deg) translateY(-18px) scale(1.08);
+          42% {
+            transform: translateY(-24px) scale(1.06, 1) rotate(6deg);
+          }
+          58% {
+            transform: translateY(-26px) scale(1.04, 1.02) rotate(-6deg);
+          }
+          74% {
+            transform: translateY(-12px) scale(0.96, 1.05) rotate(3deg);
+          }
+          88% {
+            transform: translateY(2px) scale(1.08, 0.92) rotate(0deg);
           }
           100% {
-            transform: perspective(800px) rotateY(360deg) translateY(0px) scale(1);
+            transform: translateY(0px) scale(1, 1) rotate(0deg);
           }
         }
 
-        @keyframes danaSpinHop3D {
+        @keyframes danaJoyHop {
           0% {
-            transform: perspective(800px) rotateY(0deg) translateY(0px) scale(1);
+            transform: translateY(0px) scale(1, 1);
           }
-          30% {
-            transform: perspective(800px) rotateY(120deg) translateY(-26px) scale(1.12);
+          14% {
+            transform: translateY(4px) scale(1.12, 0.88);
           }
-          65% {
-            transform: perspective(800px) rotateY(260deg) translateY(-12px) scale(1.06);
+          34% {
+            transform: translateY(-26px) scale(0.92, 1.16);
+          }
+          52% {
+            transform: translateY(-20px) scale(1.06, 1) rotate(5deg);
+          }
+          72% {
+            transform: translateY(-8px) scale(0.98, 1.02) rotate(-3deg);
+          }
+          88% {
+            transform: translateY(2px) scale(1.06, 0.94);
           }
           100% {
-            transform: perspective(800px) rotateY(360deg) translateY(0px) scale(1);
+            transform: translateY(0px) scale(1, 1);
           }
         }
 

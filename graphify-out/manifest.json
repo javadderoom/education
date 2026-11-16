@@ -1235,8 +1235,8 @@
     "semantic_hash": ""
   },
   "web/components/companion/RobotCompanion.tsx": {
-    "mtime": 1794851262.4357998,
-    "ast_hash": "41cf450cfa5c7b508580b69f4910d599",
+    "mtime": 1794852300.1065993,
+    "ast_hash": "dd85dcf85160132b2052b57a691b01f7",
     "semantic_hash": ""
   },
   "web/__tests__/floating-companion.test.tsx": {
@@ -1245,7 +1245,7 @@
     "semantic_hash": ""
   },
   "web/components/companion/FloatingCompanion.tsx": {
-    "mtime": 1794851438.338186,
+    "mtime": 1794851756.5343294,
     "ast_hash": "2277ec8aa103b30f1a9ac8246a08a859",
     "semantic_hash": ""
   }
