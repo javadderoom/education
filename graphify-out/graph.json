@@ -7670,7 +7670,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorevalue",
-      "community": 76,
+      "community": 15,
       "norm_label": "normalizeignorevalue()"
     },
     {
@@ -7680,7 +7680,7 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorerule",
-      "community": 76,
+      "community": 6,
       "norm_label": "normalizeignorerule()"
     },
     {
@@ -7800,7 +7800,7 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorevalueentries",
-      "community": 76,
+      "community": 15,
       "norm_label": "normalizeignorevalueentries()"
     },
     {
@@ -7950,7 +7950,7 @@
       "source_location": "L616",
       "_origin": "ast",
       "id": "scripts_hook_lib_filterfindings",
-      "community": 76,
+      "community": 15,
       "norm_label": "filterfindings()"
     },
     {
@@ -7960,7 +7960,7 @@
       "source_location": "L628",
       "_origin": "ast",
       "id": "scripts_hook_lib_isignoredfindingvalue",
-      "community": 76,
+      "community": 6,
       "norm_label": "isignoredfindingvalue()"
     },
     {
@@ -7980,7 +7980,7 @@
       "source_location": "L655",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractfindingignorevalue",
-      "community": 76,
+      "community": 6,
       "norm_label": "extractfindingignorevalue()"
     },
     {
@@ -7990,7 +7990,7 @@
       "source_location": "L669",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractfindingignorevalueraw",
-      "community": 76,
+      "community": 6,
       "norm_label": "extractfindingignorevalueraw()"
     },
     {
@@ -8000,7 +8000,7 @@
       "source_location": "L700",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractmotionignorevalue",
-      "community": 76,
+      "community": 6,
       "norm_label": "extractmotionignorevalue()"
     },
     {
@@ -8010,7 +8010,7 @@
       "source_location": "L718",
       "_origin": "ast",
       "id": "scripts_hook_lib_cleanignorevaluedisplay",
-      "community": 76,
+      "community": 6,
       "norm_label": "cleanignorevaluedisplay()"
     },
     {
@@ -8090,7 +8090,7 @@
       "source_location": "L875",
       "_origin": "ast",
       "id": "scripts_hook_lib_formatfindingline",
-      "community": 76,
+      "community": 6,
       "norm_label": "formatfindingline()"
     },
     {
@@ -8100,7 +8100,7 @@
       "source_location": "L889",
       "_origin": "ast",
       "id": "scripts_hook_lib_formatfindingignorecommand",
-      "community": 76,
+      "community": 6,
       "norm_label": "formatfindingignorecommand()"
     },
     {
@@ -8250,7 +8250,7 @@
       "source_location": "L1113",
       "_origin": "ast",
       "id": "scripts_hook_lib_haspathtraversal",
-      "community": 6,
+      "community": 39,
       "norm_label": "haspathtraversal()"
     },
     {
@@ -8260,7 +8260,7 @@
       "source_location": "L1117",
       "_origin": "ast",
       "id": "scripts_hook_lib_isinsideproject",
-      "community": 6,
+      "community": 39,
       "norm_label": "isinsideproject()"
     },
     {
@@ -8270,7 +8270,7 @@
       "source_location": "L1127",
       "_origin": "ast",
       "id": "scripts_hook_lib_parsestaticstyleimports",
-      "community": 6,
+      "community": 39,
       "norm_label": "parsestaticstyleimports()"
     },
     {
@@ -8280,7 +8280,7 @@
       "source_location": "L1142",
       "_origin": "ast",
       "id": "scripts_hook_lib_colocatedstylesheets",
-      "community": 6,
+      "community": 39,
       "norm_label": "colocatedstylesheets()"
     },
     {
@@ -8290,7 +8290,7 @@
       "source_location": "L1161",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizescantargets",
-      "community": 6,
+      "community": 39,
       "norm_label": "normalizescantargets()"
     },
     {
@@ -8300,7 +8300,7 @@
       "source_location": "L1185",
       "_origin": "ast",
       "id": "scripts_hook_lib_expandscantargets",
-      "community": 6,
+      "community": 39,
       "norm_label": "expandscantargets()"
     },
     {
@@ -20164,6 +20164,66 @@
       "norm_label": "root"
     },
     {
+      "label": "audit_all_chapters.py",
+      "file_type": "code",
+      "source_file": "scratch/audit_all_chapters.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_audit_all_chapters",
+      "community": 76,
+      "norm_label": "audit_all_chapters.py"
+    },
+    {
+      "label": "audit_parametric_generators.py",
+      "file_type": "code",
+      "source_file": "scratch/audit_parametric_generators.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_audit_parametric_generators",
+      "community": 164,
+      "norm_label": "audit_parametric_generators.py"
+    },
+    {
+      "label": "audit_visual_items.py",
+      "file_type": "code",
+      "source_file": "scratch/audit_visual_items.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_audit_visual_items",
+      "community": 168,
+      "norm_label": "audit_visual_items.py"
+    },
+    {
+      "label": "inspect_ch2.py",
+      "file_type": "code",
+      "source_file": "scratch/inspect_ch2.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_inspect_ch2",
+      "community": 169,
+      "norm_label": "inspect_ch2.py"
+    },
+    {
+      "label": "print_ch2_items.py",
+      "file_type": "code",
+      "source_file": "scratch/print_ch2_items.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_print_ch2_items",
+      "community": 170,
+      "norm_label": "print_ch2_items.py"
+    },
+    {
+      "label": "update_ch2.py",
+      "file_type": "code",
+      "source_file": "scratch/update_ch2.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_update_ch2",
+      "community": 171,
+      "norm_label": "update_ch2.py"
+    },
+    {
       "label": "agy-curriculum-pipeline.ts",
       "file_type": "code",
       "source_file": "scripts/agy-curriculum-pipeline.ts",
@@ -23447,7 +23507,7 @@
       "label": "generateEquivalentFractionItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1063",
+      "source_location": "L1065",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateequivalentfractionitem",
       "community": 97,
@@ -23457,7 +23517,7 @@
       "label": "generateFractionComparisonItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1125",
+      "source_location": "L1119",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatefractioncomparisonitem",
       "community": 97,
@@ -23467,7 +23527,7 @@
       "label": "generateFractionAdditionItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1185",
+      "source_location": "L1170",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatefractionadditionitem",
       "community": 97,
@@ -23477,7 +23537,7 @@
       "label": "generateFractionNumberLineItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1258",
+      "source_location": "L1234",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatefractionnumberlineitem",
       "community": 97,
@@ -23487,7 +23547,7 @@
       "label": "generateRatioConceptItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1320",
+      "source_location": "L1296",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratioconceptitem",
       "community": 97,
@@ -23497,7 +23557,7 @@
       "label": "generateRatioEquivalenceItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1375",
+      "source_location": "L1351",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratioequivalenceitem",
       "community": 97,
@@ -23507,7 +23567,7 @@
       "label": "generateProportionTableItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1434",
+      "source_location": "L1410",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateproportiontableitem",
       "community": 97,
@@ -23517,7 +23577,7 @@
       "label": "generateRatioSharingItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1498",
+      "source_location": "L1474",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateratiosharingitem",
       "community": 97,
@@ -23527,7 +23587,7 @@
       "label": "generatePercentageItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1565",
+      "source_location": "L1541",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatepercentageitem",
       "community": 97,
@@ -23537,7 +23597,7 @@
       "label": "generateAreaMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1629",
+      "source_location": "L1597",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateareamultiplicationitem",
       "community": 97,
@@ -23547,7 +23607,7 @@
       "label": "generateVerticalMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1694",
+      "source_location": "L1662",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateverticalmultiplicationitem",
       "community": 97,
@@ -23557,7 +23617,7 @@
       "label": "generateEstimationMultiplicationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1753",
+      "source_location": "L1721",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generateestimationmultiplicationitem",
       "community": 97,
@@ -23567,7 +23627,7 @@
       "label": "generateDivisionVerificationItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1811",
+      "source_location": "L1779",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatedivisionverificationitem",
       "community": 97,
@@ -23577,7 +23637,7 @@
       "label": "generateMultiDigitDivisionItem()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1867",
+      "source_location": "L1835",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatemultidigitdivisionitem",
       "community": 97,
@@ -23587,7 +23647,7 @@
       "label": "DYNAMIC_GENERATORS",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1925",
+      "source_location": "L1893",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_dynamic_generators",
       "community": 97,
@@ -23597,7 +23657,7 @@
       "label": "generateDynamicItemsForKCs()",
       "file_type": "code",
       "source_file": "web/lib/curriculum/parametric-engine.ts",
-      "source_location": "L1959",
+      "source_location": "L1927",
       "_origin": "ast",
       "id": "curriculum_parametric_engine_generatedynamicitemsforkcs",
       "community": 97,
@@ -107392,5 +107452,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9ef16e5b1ce5a23c91d3873b139004f3ad4e2e78"
+  "built_at_commit": "02650ff83593aca6182202202b5b5181e844a84a"
 }

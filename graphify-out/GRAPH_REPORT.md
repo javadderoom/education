@@ -1,16 +1,16 @@
 # Graph Report - education  (2026-11-16)
 
 ## Corpus Check
-- 243 files · ~364,083 words
+- 249 files · ~364,073 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3357 nodes · 6994 edges · 167 communities (159 shown, 8 thin omitted)
+- 3363 nodes · 6994 edges · 172 communities (164 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9ef16e5b`
+- Built from commit: `02650ff8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -91,7 +91,6 @@
 - [[_COMMUNITY_Community 73|Community 73]]
 - [[_COMMUNITY_Community 74|Community 74]]
 - [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
 - [[_COMMUNITY_Community 78|Community 78]]
 - [[_COMMUNITY_Community 79|Community 79]]
@@ -204,7 +203,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (167 total, 8 thin omitted)
+## Communities (172 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.03
@@ -232,7 +231,7 @@ Nodes (13): configureVoiceContext(), finishVoiceSession(), isEmbeddedPreviewBrow
 
 ### Community 6 - "Community 6"
 Cohesion: 0.07
-Nodes (49): ACK_EXTS, ALLOWED_EXTS, applyConfigSource(), applyDetectorConfigSource(), applyPatchText(), clampByte(), CO_SCAN_STYLE_NAMES, coLocatedStylesheets() (+41 more)
+Nodes (51): ACK_EXTS, ALLOWED_EXTS, applyConfigSource(), applyDetectorConfigSource(), applyPatchText(), clampByte(), cleanIgnoreValueDisplay(), CO_SCAN_STYLE_NAMES (+43 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.09
@@ -267,8 +266,8 @@ Cohesion: 0.08
 Nodes (35): addOpToManualApplyChunk(), APPLY_EVENT_HARD_TIMEOUT_MS, APPLY_EVENT_SOFT_DEADLINE_MS, buildManualApplyAgentAction(), clearManualApplyTransaction(), collectManualApplyFiles(), compactManualApplyBatch(), compactManualApplyCandidates() (+27 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.13
-Nodes (39): ACTIONS, addIgnoreFile(), addIgnoreRule(), addIgnoreValue(), DETECTOR_CONFIG_KEYS, detectorSection(), fileHasImpeccableHookMarker(), HOOK_MANIFEST_TARGETS (+31 more)
+Cohesion: 0.12
+Nodes (42): ACTIONS, addIgnoreFile(), addIgnoreRule(), addIgnoreValue(), DETECTOR_CONFIG_KEYS, detectorSection(), fileHasImpeccableHookMarker(), HOOK_MANIFEST_TARGETS (+34 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.05
@@ -359,8 +358,8 @@ Cohesion: 0.07
 Nodes (27): Accessibility Considerations, Anti-reflexes worth defending against, Assess Current Typography, Classic Typography Principles, Establish Hierarchy, Fix Readability, Fluid Type, Font Selection (+19 more)
 
 ### Community 39 - "Community 39"
-Cohesion: 0.14
-Nodes (22): cursorBlockMessage(), bumpEditCount(), clampGroupedToBudget(), clampToBudget(), dedupeAgainstCache(), depthIsSet(), directiveFooter(), ensureFile() (+14 more)
+Cohesion: 0.11
+Nodes (28): cursorBlockMessage(), bumpEditCount(), clampGroupedToBudget(), clampToBudget(), coLocatedStylesheets(), dedupeAgainstCache(), depthIsSet(), directiveFooter() (+20 more)
 
 ### Community 40 - "Community 40"
 Cohesion: 0.14
@@ -505,10 +504,6 @@ Nodes (35): buildSvelteComponentCssAuthoring(), shouldUseSvelteComponentInjectio
 ### Community 75 - "Community 75"
 Cohesion: 0.06
 Nodes (61): DiagnosticHeatmap(), PERSIAN_ARABIC_TO_ASCII, PERSIAN_DIGITS, renderPersianKaTeXHtml(), toAsciiDigits(), toPersianDigits(), AbacusColumn, AbacusVisualizer() (+53 more)
-
-### Community 76 - "Community 76"
-Cohesion: 0.27
-Nodes (11): cleanIgnoreValueDisplay(), extractFindingIgnoreValue(), extractFindingIgnoreValueRaw(), extractMotionIgnoreValue(), filterFindings(), formatFindingIgnoreCommand(), formatFindingLine(), isIgnoredFindingValue() (+3 more)
 
 ### Community 77 - "Community 77"
 Cohesion: 0.17
@@ -827,11 +822,11 @@ Nodes (4): postSerializedFindings(), renderBrowserFindings(), scanResultMeta(), 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `confirm()` connect `Community 26` to `Community 8`?**
-  _High betweenness centrality (0.128) - this node is a cross-community bridge._
+  _High betweenness centrality (0.126) - this node is a cross-community bridge._
 - **Why does `pickVariantContent()` connect `Community 110` to `Community 0`, `Community 3`, `Community 20`?**
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Why does `resolveInsertSessionAnchor()` connect `Community 20` to `Community 110`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **What connects `COMMON_DEV_PORTS`, `SCANNABLE_EXT`, `SOURCE_DIRS` to the rest of the system?**
   _917 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

@@ -1006,7 +1006,7 @@ export function generateFractionConceptItem(index: number = 0): DiagnosticItemDa
   const colored = randomInt(1, total - 1);
   const uncolored = total - colored;
 
-  const stem = `${name} یک نوار مستطیلی را به $${total}$ قسمت مساوی تقسیم کرده و $${colored}$ قسمت از آن را رنگ‌آمیزی نموده است. چه کسری از نوار رنگ شده است؟`;
+  const stem = "با توجه به نوار مستطیلی شکل زیر، چه کسری از کل نوار رنگ‌آمیزی شده است؟";
 
   const correctContent = `$\\frac{${colored}}{${total}}$`;
   const rawDistractors: RawDistractorChoice[] = [
@@ -1051,6 +1051,8 @@ export function generateFractionConceptItem(index: number = 0): DiagnosticItemDa
         totalSegments: total,
         initialColored: colored,
         interactive: false,
+        hideCounter: true,
+        showLabels: false,
       },
     },
     distractors,
@@ -1106,15 +1108,7 @@ export function generateEquivalentFractionItem(index: number = 0): DiagnosticIte
     difficulty: 0.45,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: {
-      type: "AreaGrid",
-      props: {
-        rows: den,
-        cols: multiplier,
-        initialColored: eqNum,
-        coloredCount: eqNum,
-      },
-    },
+    visual_template: null,
     distractors,
   };
 }
@@ -1165,16 +1159,7 @@ export function generateFractionComparisonItem(index: number = 0): DiagnosticIte
     difficulty: 0.5,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: {
-      type: "BalanceScale",
-      props: {
-        leftLabel: `1/${smallerDen}`,
-        leftValue: 1 / smallerDen,
-        rightLabel: `1/${largerDen}`,
-        rightValue: 1 / largerDen,
-        hideBadge: true,
-      },
-    },
+    visual_template: null,
     distractors,
   };
 }
@@ -1238,16 +1223,7 @@ export function generateFractionAdditionItem(index: number = 0): DiagnosticItemD
     difficulty: 0.45,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: {
-      type: "FractionStrip",
-      props: {
-        totalSegments: den,
-        initialColored: 0,
-        showSumMode: true,
-        operandA: a,
-        operandB: b,
-      },
-    },
+    visual_template: null,
     distractors,
   };
 }
@@ -1259,32 +1235,32 @@ export function generateFractionNumberLineItem(index: number = 0): DiagnosticIte
   const den = randomChoice([3, 4, 5, 6]);
   const num = randomInt(1, den - 1);
 
-  const stem = `اگر فاصله بین دو عدد ۰ و ۱ روی محور اعداد به $${den}$ قسمت مساوی تقسیم شده باشد، نقطه نمایش کسر $\\frac{${num}}{${den}}$ کجاست؟`;
+  const stem = `با توجه به محور اعداد زیر، نقطه‌ای که با علامت «؟» مشخص شده است چه کسری را نشان می‌دهد؟`;
 
   const rawDistractors: RawDistractorChoice[] = [
     {
-      content: `قسمت $${num}$ام بعد از نقطه ۰`,
+      content: `$\\frac{${num}}{${den}}$`,
       isCorrect: true,
       misconceptionId: null,
-      rationale: `پاسخ صحیح: هر فاصله $\\frac{1}{${toPersianDigits(den)}}$ است، پس ${toPersianDigits(num)} قسمت جلو می‌رویم.`,
+      rationale: `پاسخ صحیح: فاصله بین ۰ و ۱ به ${toPersianDigits(den)} قسمت مساوی تقسیم شده و نقطه روی خط ${toPersianDigits(num)}ام قرار دارد.`,
     },
     {
-      content: `قسمت $${num}$ام قبل از نقطه ۱`,
+      content: `$\\frac{${num}}{${den + 1}}$`,
+      isCorrect: false,
+      misconceptionId: "MIS-NUM-LINE-TICK-COUNT",
+      rationale: `شمارش خطوط تقسیم به جای فاصله‌ها (شمارش ${toPersianDigits(den + 1)} خط با احتساب صفر).`,
+    },
+    {
+      content: `$\\frac{${den - num}}{${den}}$`,
       isCorrect: false,
       misconceptionId: "MIS-NUM-LINE-REVERSE",
-      rationale: `شمارش معکوس از مبدا ۱ به جای شمارش رو به جلو از مبدا ۰.`,
+      rationale: `شمارش معکوس از عدد ۱ به سمت عقب به جای شروع از عدد ۰.`,
     },
     {
-      content: `وسط فاصله بین ۰ و ۱`,
+      content: `$\\frac{${den}}{${num}}$`,
       isCorrect: false,
-      misconceptionId: "MIS-HALF-BIAS",
-      rationale: `سوگیری به سمت نقطه نصف بدون توجه به مخرج کسر.`,
-    },
-    {
-      content: `روی خود عدد ۱`,
-      isCorrect: false,
-      misconceptionId: "MIS-UNIT-CONFUSION",
-      rationale: `اشتباه گرفتن کسر با واحد کامل.`,
+      misconceptionId: "MIS-INVERTED-FRACTION",
+      rationale: `معکوس نوشتن صورت و مخرج کسر.`,
     },
   ];
 
@@ -1606,15 +1582,7 @@ export function generatePercentageItem(index: number = 0): DiagnosticItemData {
     difficulty: 0.55,
     guess_param: 0.25,
     slip_param: 0.1,
-    visual_template: {
-      type: "AreaGrid",
-      props: {
-        rows: 10,
-        cols: 10,
-        initialColored: percent,
-        coloredCount: percent,
-      },
-    },
+    visual_template: null,
     distractors,
   };
 }

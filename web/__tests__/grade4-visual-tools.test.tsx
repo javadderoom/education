@@ -567,23 +567,68 @@ describe("Grade 4 Mathematics Visual Learning Tools & Manipulatives", () => {
     expect(needleLine).toBeDefined();
   });
 
-  it("confirms canonical items in Chapters 1, 2, 4, 5, and 7 now have connected visual templates", () => {
+  it("confirms canonical items in Chapters 1, 2, 4, and 5 have verified non-leaking visual templates", () => {
+    const ch1 = getCanonicalCartridge("grade4_math_ch1.json");
+    const ch2 = getCanonicalCartridge("grade4_math_ch2.json");
     const ch4 = getCanonicalCartridge("grade4_math_ch4.json");
     const ch5 = getCanonicalCartridge("grade4_math_ch5.json");
-    const ch7 = getCanonicalCartridge("grade4_math_ch7.json");
 
-    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-001")?.visual_template?.type).toBe("ProtractorVisualizer");
-    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-002")?.visual_template?.type).toBe("ProtractorVisualizer");
-    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-003")?.visual_template?.type).toBe("ClockVisualizer");
-    expect(ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-004")?.visual_template?.type).toBe("AreaGrid");
+    // Chapter 1 verified items
+    const ch1Item4 = ch1.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH01-004");
+    expect(ch1Item4?.visual_template?.type).toBe("PlaceValueTable");
 
-    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-001")?.visual_template?.type).toBe("FractionCircle");
-    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-002")?.visual_template?.type).toBe("FractionCircle");
-    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-003")?.visual_template?.type).toBe("AreaGrid");
-    expect(ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-004")?.visual_template?.type).toBe("AreaGrid");
+    const ch1Item6 = ch1.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH01-006");
+    expect(ch1Item6?.visual_template?.type).toBe("PlaceValueTable");
 
-    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-003")?.visual_template?.type).toBe("BrokenLineGraph");
-    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-004")?.visual_template?.type).toBe("ProbabilitySpinner");
-    expect(ch7.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH07-005")?.visual_template?.type).toBe("ProbabilitySpinner");
+    const ch1Item14 = ch1.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH01-014");
+    // Word problem numeral identification: visual_template null to prevent number leak
+    expect(ch1Item14?.visual_template).toBeNull();
+
+    // Chapter 2 verified items
+    // Arithmetic & spoiler items must have visual_template null
+    const ch2Item3 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-003");
+    expect(ch2Item3?.visual_template).toBeNull();
+
+    const ch2Item7 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-007");
+    expect(ch2Item7?.visual_template).toBeNull();
+
+    const ch2Item11 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-011");
+    expect(ch2Item11?.visual_template).toBeNull();
+
+    // Legitimate visual stimuli in Chapter 2
+    const ch2Item4 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-004");
+    expect(ch2Item4?.visual_template?.type).toBe("NumberLine");
+
+    const ch2Item6 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-006");
+    expect(ch2Item6?.visual_template?.type).toBe("FractionStrip");
+
+    const ch2Item15 = ch2.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH02-015");
+    expect(ch2Item15?.visual_template?.type).toBe("NumberLine");
+
+    // Chapter 4 verified items
+    const ch4Item1 = ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-001");
+    expect(ch4Item1?.visual_template?.type).toBe("ProtractorVisualizer");
+    expect(ch4Item1?.visual_template?.props?.showClassification).toBe(false);
+    expect(ch4Item1?.visual_template?.props?.showDegreeLabel).toBe(false);
+
+    const ch4Item2 = ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-002");
+    expect(ch4Item2?.visual_template?.type).toBe("ProtractorVisualizer");
+    expect(ch4Item2?.visual_template?.props?.showClassification).toBe(false);
+    expect(ch4Item2?.visual_template?.props?.showDegreeLabel).toBe(false);
+
+    const ch4Item3 = ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-003");
+    expect(ch4Item3?.visual_template?.type).toBe("ClockVisualizer");
+
+    const ch4Item4 = ch4.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH04-004");
+    expect(ch4Item4?.visual_template).toBeNull();
+
+    // Chapter 5 verified items
+    const ch5Item1 = ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-001");
+    expect(ch5Item1?.visual_template?.type).toBe("FractionCircle");
+    expect(ch5Item1?.visual_template?.props?.showFractionBadge).toBe(false);
+    expect(ch5Item1?.visual_template?.props?.showSliceLabels).toBe(false);
+
+    const ch5Item3 = ch5.diagnostic_items.find((i: any) => i.id === "ITEM-MATH4-CH05-003");
+    expect(ch5Item3?.visual_template?.type).toBe("AreaGrid");
   });
 });

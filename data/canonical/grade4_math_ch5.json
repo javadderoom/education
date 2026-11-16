@@ -165,18 +165,7 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": {
-        "type": "FractionCircle",
-        "props": {
-          "totalSlices": 3,
-          "shadedSlices": 2,
-          "wholeUnits": 4,
-          "colorTheme": "emerald",
-          "showFractionBadge": false,
-          "showSliceLabels": false,
-          "label": "نمایش تصویری کسر بزرگتر از واحد ۱۴/۳:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C05-002-A",
@@ -272,17 +261,7 @@
       "difficulty": 0.45,
       "guess_param": 0.25,
       "slip_param": 0.1,
-      "visual_template": {
-        "type": "AreaGrid",
-        "props": {
-          "rows": 10,
-          "cols": 10,
-          "initialColored": 60,
-          "coloredCount": 60,
-          "color": "sky",
-          "hideBadge": true
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C05-004-A",

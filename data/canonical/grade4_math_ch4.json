@@ -268,16 +268,7 @@
       "difficulty": 0.35,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": {
-        "type": "AreaGrid",
-        "props": {
-          "rows": 5,
-          "cols": 8,
-          "initialColored": 40,
-          "coloredCount": 40,
-          "hideBadge": true
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C04-004-A",

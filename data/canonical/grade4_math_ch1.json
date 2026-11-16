@@ -829,20 +829,7 @@
       "difficulty": 0.32,
       "guess_param": 0.25,
       "slip_param": 0.05,
-      "visual_template": {
-        "type": "PlaceValueBundles",
-        "props": {
-          "bundles": [
-            {
-              "count": 10,
-              "unitValue": 100000,
-              "unitLabel": "صدهزارتایی",
-              "theme": "purple"
-            }
-          ],
-          "label": "۱۰ بسته صدهزارتایی معادل یک میلیون:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-MATH4-C01-013-A",
@@ -886,14 +873,7 @@
       "difficulty": 0.42,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": {
-        "type": "AbacusVisualizer",
-        "props": {
-          "number": 35408009,
-          "showDigitBadges": true,
-          "label": "چرتکه نشان‌دهنده عدد مورد نظر:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-MATH4-C01-014-A",

@@ -45,7 +45,7 @@ export const VisualTemplateRenderer: React.FC<VisualTemplateRendererProps> = ({ 
     case "AreaGrid":
       return <AreaGrid {...p} hideBadge={p.hideBadge ?? true} />;
     case "BalanceScale":
-      return <BalanceScale {...p} />;
+      return <BalanceScale {...p} hideBadge={p.hideBadge ?? true} />;
     case "BucketSort":
       return <BucketSort {...p} />;
 

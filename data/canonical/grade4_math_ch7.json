@@ -196,37 +196,7 @@
       "difficulty": 0.3,
       "guess_param": 0.25,
       "slip_param": 0.05,
-      "visual_template": {
-        "type": "BrokenLineGraph",
-        "props": {
-          "xLabels": [
-            "۳",
-            "۶",
-            "۹",
-            "۱۲",
-            "۱۵",
-            "۱۸",
-            "۲۱",
-            "۲۴"
-          ],
-          "yValues": [
-            38,
-            38.5,
-            39,
-            38.8,
-            38.2,
-            37.8,
-            37.2,
-            37
-          ],
-          "yMin": 36,
-          "yMax": 40,
-          "yStep": 1,
-          "xTitle": "ساعت سنجش",
-          "yTitle": "دمای بدن (درجه سانتی‌گراد)",
-          "label": "نمودار خط شکسته تغییرات دمای بدن در طول شبانه‌روز:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C07-003-A",
@@ -269,31 +239,7 @@
       "difficulty": 0.3,
       "guess_param": 0.25,
       "slip_param": 0.06,
-      "visual_template": {
-        "type": "ProbabilitySpinner",
-        "props": {
-          "sectors": [
-            {
-              "color": "#10b981",
-              "fraction": 0.5,
-              "label": "سبز"
-            },
-            {
-              "color": "#f59e0b",
-              "fraction": 0.25,
-              "label": "زرد"
-            },
-            {
-              "color": "#f97316",
-              "fraction": 0.25,
-              "label": "نارنجی"
-            }
-          ],
-          "pointerAngle": 45,
-          "showLegend": true,
-          "label": "نمودار دایره‌ای تقسیم بخش‌های رنگی:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C07-004-A",
@@ -336,26 +282,7 @@
       "difficulty": 0.4,
       "guess_param": 0.25,
       "slip_param": 0.08,
-      "visual_template": {
-        "type": "ProbabilitySpinner",
-        "props": {
-          "sectors": [
-            {
-              "color": "#f1f5f9",
-              "fraction": 0.99,
-              "label": "مهره‌های سفید"
-            },
-            {
-              "color": "#0f172a",
-              "fraction": 0.01,
-              "label": "مهره سیاه"
-            }
-          ],
-          "pointerAngle": 135,
-          "showLegend": true,
-          "label": "گردونه احتمال بر مبنای ترکیب مهره‌های درون کیسه:"
-        }
-      },
+      "visual_template": null,
       "distractors": [
         {
           "id": "DIS-G4C07-005-A",

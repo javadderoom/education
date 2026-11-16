@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch2.json": {
-    "mtime": 1794828705.6019268,
-    "ast_hash": "97404fb67f4dd6fb41c33c032b63a4f0",
+    "mtime": 1794831922.3676705,
+    "ast_hash": "ff6c6a1fa003c8c2e30f0093cfd4a2a7",
     "semantic_hash": ""
   },
   "scripts/ingestion/gemini_authoring.py": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "web/lib/curriculum/parametric-engine.ts": {
-    "mtime": 1794828718.210004,
-    "ast_hash": "0a445b8c7fb8ad9886139d1c33c7db50",
+    "mtime": 1794832147.5111787,
+    "ast_hash": "54db1f4367388fbf541936231700ffec",
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
@@ -1115,18 +1115,18 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch1.json": {
-    "mtime": 1794828705.6019268,
-    "ast_hash": "0bee100739881a08e61e3dc4efe45145",
+    "mtime": 1794831907.4181747,
+    "ast_hash": "84294719481210124eeb619ea3073e81",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch4.json": {
-    "mtime": 1794828705.6019268,
-    "ast_hash": "bf76b8feae3cd19cb25109bb22514300",
+    "mtime": 1794831936.2860541,
+    "ast_hash": "01f2d0af2e7da63063834330b992fe60",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch5.json": {
-    "mtime": 1794828705.6019268,
-    "ast_hash": "61eb07390956d234fe36a104d0e92014",
+    "mtime": 1794829784.0150986,
+    "ast_hash": "6ed72ee19bf4a8199a303d4d33853d12",
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch6.json": {
@@ -1135,8 +1135,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade4_math_ch7.json": {
-    "mtime": 1794828705.6019268,
-    "ast_hash": "098bab7ce727d5ea9fc0f7dc471c7cc6",
+    "mtime": 1794829784.0150986,
+    "ast_hash": "3c6308dba72ea218aad0e411cced9cf8",
     "semantic_hash": ""
   },
   "scripts/validate-cartridges.ts": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "web/__tests__/grade4-visual-tools.test.tsx": {
-    "mtime": 1794828947.740876,
-    "ast_hash": "c543c216580dcfa2826c430295e36899",
+    "mtime": 1794832171.7490897,
+    "ast_hash": "b47405eea45b2af70fe0347d77028d91",
     "semantic_hash": ""
   },
   "web/components/parametric/AbacusVisualizer.tsx": {
@@ -1190,7 +1190,7 @@
     "semantic_hash": ""
   },
   "web/components/parametric/FractionCircle.tsx": {
-    "mtime": 1794828597.5141118,
+    "mtime": 1794829426.6844115,
     "ast_hash": "455469d30a0ffd51e80a30c868719084",
     "semantic_hash": ""
   },
@@ -1210,23 +1210,53 @@
     "semantic_hash": ""
   },
   "web/components/parametric/ProbabilitySpinner.tsx": {
-    "mtime": 1794828636.4966555,
+    "mtime": 1794829426.8264334,
     "ast_hash": "fc01a77e968c15f5ec51cbb480b6285d",
     "semantic_hash": ""
   },
   "web/components/parametric/ProtractorVisualizer.tsx": {
-    "mtime": 1794828859.5891726,
+    "mtime": 1794829426.896237,
     "ast_hash": "5e2316134908d255d27b1a7a3aed070a",
     "semantic_hash": ""
   },
   "web/components/parametric/VisualTemplateRegistry.tsx": {
-    "mtime": 1794762133.4758635,
-    "ast_hash": "a430599640b3565161682e06218b755d",
+    "mtime": 1794831759.769317,
+    "ast_hash": "e61d8eda0a4b8e7e60bd816ebb77fd54",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueBundles.tsx": {
     "mtime": 1794762107.900079,
     "ast_hash": "2b341108ce048d4fd321417eda1930c4",
+    "semantic_hash": ""
+  },
+  "scratch/audit_all_chapters.py": {
+    "mtime": 1794830197.9011042,
+    "ast_hash": "2e1953224b8721e338b39e35c865fdf4",
+    "semantic_hash": ""
+  },
+  "scratch/audit_parametric_generators.py": {
+    "mtime": 1794830208.4725485,
+    "ast_hash": "40c84b75b4afd86ad8cdb432329cec81",
+    "semantic_hash": ""
+  },
+  "scratch/audit_visual_items.py": {
+    "mtime": 1794830144.7777994,
+    "ast_hash": "bd54178d7c873796a8ea64cdde9494a8",
+    "semantic_hash": ""
+  },
+  "scratch/inspect_ch2.py": {
+    "mtime": 1794830180.1651902,
+    "ast_hash": "1a9cbff5a819bc6e5e9cbe3cd7f5c7e5",
+    "semantic_hash": ""
+  },
+  "scratch/print_ch2_items.py": {
+    "mtime": 1794831813.8230293,
+    "ast_hash": "2b2f482db61923ff2f515016cb7ad73b",
+    "semantic_hash": ""
+  },
+  "scratch/update_ch2.py": {
+    "mtime": 1794831916.7689836,
+    "ast_hash": "fe217f6e5efa15346910ac4609124d3e",
     "semantic_hash": ""
   }
 }
