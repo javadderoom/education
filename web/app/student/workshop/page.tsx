@@ -2,10 +2,16 @@
 
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Sparkles, Layers, Scale, Grid, RefreshCw } from "lucide-react";
+import { Sparkles, Layers, Scale, Grid, Box, RotateCw, Shapes, Circle, Clock } from "lucide-react";
 import { FractionStrip } from "@/components/parametric/FractionStrip";
 import { BalanceScale } from "@/components/parametric/BalanceScale";
 import { AreaGrid } from "@/components/parametric/AreaGrid";
+import { VolumePrismVisualizer } from "@/components/parametric/VolumePrismVisualizer";
+import { SymmetryPlayground } from "@/components/parametric/SymmetryPlayground";
+import { FractionAreaMultiplier } from "@/components/parametric/FractionAreaMultiplier";
+import { PolygonAreaDecomposer } from "@/components/parametric/PolygonAreaDecomposer";
+import { CircleMeasurementVisualizer } from "@/components/parametric/CircleMeasurementVisualizer";
+import { CompoundUnitCalculator } from "@/components/parametric/CompoundUnitCalculator";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
@@ -13,9 +19,10 @@ export default function WorkshopPage() {
   const searchParams = useSearchParams();
   const { selectedSubjectId } = useCurriculumStore();
   const subjectId = searchParams.get("subject") || selectedSubjectId || "SUBJ-MATH4-FRACTIONS";
-  const isGrade5 = subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5");
+  const isGrade5 = subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5") || subjectId.includes("MATH5");
 
-  const [activeTab, setActiveTab] = useState<"strip" | "scale" | "grid">(isGrade5 ? "scale" : "strip");
+  type TabType = "strip" | "scale" | "grid" | "volume" | "symmetry" | "fraction_mult" | "polygon_area" | "circle" | "compound_time";
+  const [activeTab, setActiveTab] = useState<TabType>(isGrade5 ? "volume" : "strip");
 
   // State for Fraction Strip workshop
   const [stripSegments, setStripSegments] = useState(6);
@@ -48,46 +55,132 @@ export default function WorkshopPage() {
         </p>
 
         {/* Tool Switcher Tabs */}
-        <div className="grid grid-cols-3 gap-2 mt-4 max-w-md mx-auto p-1 bg-slate-100 rounded-2xl">
-          <button
-            type="button"
-            onClick={() => setActiveTab("scale")}
-            className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              activeTab === "scale"
-                ? "bg-white text-indigo-700 shadow-xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Scale className="w-4 h-4" />
-            <span>{isGrade5 ? "ترازوی تناسب" : "ترازوی مقایسه"}</span>
-          </button>
+        {isGrade5 ? (
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mt-4 max-w-xl mx-auto p-1.5 bg-slate-100 rounded-2xl">
+            <button
+              type="button"
+              onClick={() => setActiveTab("volume")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "volume" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Box className="w-3.5 h-3.5 text-indigo-600" />
+              <span>حجم سه‌بعدی</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab("grid")}
-            className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              activeTab === "grid"
-                ? "bg-white text-indigo-700 shadow-xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Grid className="w-4 h-4" />
-            <span>{isGrade5 ? "شبکه درصد" : "شبکه مساحت"}</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("symmetry")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "symmetry" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <RotateCw className="w-3.5 h-3.5 text-indigo-600" />
+              <span>تقارن مرکزی و محوری</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => setActiveTab("strip")}
-            className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-              activeTab === "strip"
-                ? "bg-white text-indigo-700 shadow-xs"
-                : "text-slate-600 hover:text-slate-900"
-            }`}
-          >
-            <Layers className="w-4 h-4" />
-            <span>{isGrade5 ? "نوار نسبت‌ها" : "نوار کسرها"}</span>
-          </button>
-        </div>
+            <button
+              type="button"
+              onClick={() => setActiveTab("fraction_mult")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "fraction_mult" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Grid className="w-3.5 h-3.5 text-indigo-600" />
+              <span>مساحت ضرب کسر</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("polygon_area")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "polygon_area" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Shapes className="w-3.5 h-3.5 text-indigo-600" />
+              <span>لوزی و ذوزنقه</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("circle")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "circle" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Circle className="w-3.5 h-3.5 text-indigo-600" />
+              <span>دایره و عدد پی</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("scale")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "scale" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Scale className="w-3.5 h-3.5 text-indigo-600" />
+              <span>ترازوی تناسب</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("grid")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "grid" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Grid className="w-3.5 h-3.5 text-indigo-600" />
+              <span>شبکه درصد</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("compound_time")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "compound_time" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Clock className="w-3.5 h-3.5 text-indigo-600" />
+              <span>زمان‌های مرکب</span>
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-2 mt-4 max-w-md mx-auto p-1 bg-slate-100 rounded-2xl">
+            <button
+              type="button"
+              onClick={() => setActiveTab("scale")}
+              className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "scale" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Scale className="w-4 h-4" />
+              <span>ترازوی مقایسه</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("grid")}
+              className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "grid" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Grid className="w-4 h-4" />
+              <span>شبکه مساحت</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("strip")}
+              className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "strip" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>نوار کسرها</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Main Manipulative Visual Container */}
@@ -243,6 +336,43 @@ export default function WorkshopPage() {
                 className="w-full accent-indigo-600 cursor-pointer"
               />
             </div>
+          </div>
+        )}
+
+        {/* Grade 5 Advanced Manipulative Views */}
+        {activeTab === "volume" && (
+          <div className="py-2">
+            <VolumePrismVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "symmetry" && (
+          <div className="py-2">
+            <SymmetryPlayground interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "fraction_mult" && (
+          <div className="py-2">
+            <FractionAreaMultiplier interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "polygon_area" && (
+          <div className="py-2">
+            <PolygonAreaDecomposer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "circle" && (
+          <div className="py-2">
+            <CircleMeasurementVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "compound_time" && (
+          <div className="py-2">
+            <CompoundUnitCalculator interactive={true} />
           </div>
         )}
       </div>

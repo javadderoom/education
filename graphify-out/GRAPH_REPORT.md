@@ -1,16 +1,16 @@
 # Graph Report - education  (2026-11-18)
 
 ## Corpus Check
-- 249 files · ~378,035 words
+- 256 files · ~386,254 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3457 nodes · 7103 edges · 180 communities (171 shown, 9 thin omitted)
+- 3479 nodes · 7176 edges · 176 communities (167 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `98be373e`
+- Built from commit: `b17579f4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -166,21 +166,17 @@
 - [[_COMMUNITY_Community 153|Community 153]]
 - [[_COMMUNITY_Community 154|Community 154]]
 - [[_COMMUNITY_Community 155|Community 155]]
-- [[_COMMUNITY_Community 156|Community 156]]
 - [[_COMMUNITY_Community 157|Community 157]]
 - [[_COMMUNITY_Community 158|Community 158]]
 - [[_COMMUNITY_Community 159|Community 159]]
 - [[_COMMUNITY_Community 161|Community 161]]
-- [[_COMMUNITY_Community 162|Community 162]]
 - [[_COMMUNITY_Community 163|Community 163]]
-- [[_COMMUNITY_Community 164|Community 164]]
 - [[_COMMUNITY_Community 165|Community 165]]
 - [[_COMMUNITY_Community 166|Community 166]]
 - [[_COMMUNITY_Community 167|Community 167]]
 - [[_COMMUNITY_Community 168|Community 168]]
 - [[_COMMUNITY_Community 169|Community 169]]
 - [[_COMMUNITY_Community 170|Community 170]]
-- [[_COMMUNITY_Community 171|Community 171]]
 - [[_COMMUNITY_Community 172|Community 172]]
 - [[_COMMUNITY_Community 173|Community 173]]
 - [[_COMMUNITY_Community 174|Community 174]]
@@ -191,7 +187,7 @@
 - [[_COMMUNITY_Community 179|Community 179]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `toPersianDigits()` - 83 edges
+1. `toPersianDigits()` - 95 edges
 2. `_()` - 55 edges
 3. `runHook()` - 30 edges
 4. `collectBrowserFindings()` - 26 edges
@@ -217,43 +213,43 @@
 ## Import Cycles
 - None detected.
 
-## Communities (180 total, 9 thin omitted)
+## Communities (176 total, 9 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.03
-Nodes (95): applyGlobalBarLabelState(), applyPlaceholderSizingStyles(), averageRgb01(), buildAnnotationsForCapture(), buildInsertPlaceholderSnapshotFromDom(), buildPickedAnchorSnapshot(), buildPinElement(), buildSvelteExpressionTextMap() (+87 more)
+Nodes (89): acceptedDomAlreadyClean(), addManualContextText(), applyPlaceholderSizingStyles(), averageRgb01(), buildAnnotationsForCapture(), buildPinElement(), buildSvelteExpressionTextMap(), buildSveltePropValuesFromLiveElement() (+81 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.04
-Nodes (86): borderColorsFromStyle(), borderWidthsFromStyle(), checkBorders(), checkClippedOverflow(), checkCreamPalette(), checkElementBorders(), checkElementBordersDOM(), checkElementClippedOverflow() (+78 more)
+Cohesion: 0.05
+Nodes (94): borderColorsFromStyle(), borderWidthsFromStyle(), checkClippedOverflow(), checkColors(), checkCreamPalette(), checkElementAIPaletteDOM(), checkElementClippedOverflow(), checkElementClippedOverflowDOM() (+86 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
 Nodes (65): addBrowserFindings(), addVisualContrastFindings(), addVisualContrastResult(), analyzeVisualContrast(), analyzeVisualContrastCandidate(), blendRgba(), browserDesignSystemConfig(), browserFindingsFromMap() (+57 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.09
-Nodes (72): abortSvelteComponentInjection(), applySavedSessionMeta(), cancelEditing(), cancelEditingToPicking(), cancelInsertConfigure(), cleanup(), cleanupAcceptedSession(), clearAnnotations() (+64 more)
+Cohesion: 0.11
+Nodes (53): abortSvelteComponentInjection(), cancelEditing(), cancelEditingToPicking(), cancelInsertConfigure(), cleanup(), cleanupAcceptedSession(), clearAnnotations(), clearHandled() (+45 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
 Nodes (53): _(), ae(), be(), bt(), Ce(), Ct(), de(), dt() (+45 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.10
-Nodes (37): createBrowserDetector(), detectCli(), formatFindings(), formatFindingSummary(), handleStdin(), printUsage(), loadDesignSystemForCwd(), parseFrontmatter() (+29 more)
+Cohesion: 0.11
+Nodes (34): createBrowserDetector(), detectCli(), formatFindings(), formatFindingSummary(), handleStdin(), printUsage(), filterDetectionFindings(), shouldIgnoreDetectionFile() (+26 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.07
 Nodes (49): ACK_EXTS, ALLOWED_EXTS, applyConfigSource(), applyDetectorConfigSource(), applyPatchText(), clampByte(), CO_SCAN_STYLE_NAMES, coLocatedStylesheets() (+41 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.10
-Nodes (48): addColorObject(), addDesignColor(), addRoundedScale(), addRoundedToken(), addSidecarColors(), addSidecarRadii(), addTypographyFonts(), canonicalDesignFindingKey() (+40 more)
+Cohesion: 0.09
+Nodes (52): addColorObject(), addDesignColor(), addRoundedScale(), addRoundedToken(), addSidecarColors(), addSidecarRadii(), addTypographyFonts(), canonicalDesignFindingKey() (+44 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.10
-Nodes (36): detectUrl(), runVisualContrastFallback(), serializeDesignSystemForBrowser(), finding(), getAP(), extractFindingIds(), profileFindings(), profileFindingsAsync() (+28 more)
+Cohesion: 0.08
+Nodes (42): detectUrl(), runVisualContrastFallback(), serializeDesignSystemForBrowser(), finding(), getAP(), createDetectorProfile(), extractFindingIds(), profileFindings() (+34 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.11
@@ -261,7 +257,7 @@ Nodes (25): checkElementHeroEyebrow(), resolveVarRefs(), applyStaticDeclaration(
 
 ### Community 10 - "Community 10"
 Cohesion: 0.09
-Nodes (47): allEntryIds(), argVal(), buildRepairBatch(), candidatesForEntry(), changedFilesSinceSnapshot(), clearAppliedEntries(), collectApplyOwnedFiles(), commitManualEdits() (+39 more)
+Nodes (48): allEntryIds(), argVal(), buildRepairBatch(), candidatesForEntry(), changedFilesSinceSnapshot(), collectApplyOwnedFiles(), collectRollbackFiles(), commitManualEdits() (+40 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.10
@@ -288,44 +284,44 @@ Cohesion: 0.05
 Nodes (41): 1. Read the screenshot (if present), 2. Wrap the element, 3. Load the action's reference, 4. Plan three variants: identity first, then mode, then axes, 5. Apply the freeform prompt (if present), 6. Write all variants in a single edit, 7. Parameters (composition-sized, 0–4 per variant), 8. Signal done (+33 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.11
-Nodes (37): actionLabel(), applyConfigureBarChrome(), bindConfigureCountPillTooltip(), bindConfigureInlineControlHover(), buildConfigureActionControl(), buildConfigureCountControl(), buildConfigureRow(), buildConfigureSubmitButton() (+29 more)
+Cohesion: 0.09
+Nodes (43): actionLabel(), applyConfigureBarChrome(), bindConfigureCountPillTooltip(), bindConfigureInlineControlHover(), buildConfigureActionControl(), buildConfigureCountControl(), buildConfigureRow(), buildConfigureSubmitButton() (+35 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.09
 Nodes (36): applySvelteKitLiveAdapter(), buildSvelteLiveRootComponent(), defaultSvelteLayout(), detectSvelteKitProject(), ensureSvelteLiveRootComponent(), escapeRegExp(), fileIncludes(), findSvelteKitAppHtml() (+28 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.15
-Nodes (18): beginEditPin(), cancelEditingPin(), canCreateInsert(), clampPlaceholderSize(), finalizeEditingPin(), hideInsertCreateTooltip(), insertCreateDisabledReason(), insertCreateGateState() (+10 more)
+Cohesion: 0.16
+Nodes (17): applyPlaceholderDimensions(), beginEditPin(), cancelEditingPin(), clampPlaceholderSize(), finalizeEditingPin(), localCoords(), materializePlaceholderWidth(), onAnnotDown() (+9 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.08
-Nodes (23): FORBIDDEN_MANUAL_EDIT_TEXT_CHARS, INSERT_POSITIONS, isValidId(), isValidVariantId(), validateAnnotationFields(), validateEvent(), validateInsertGenerate(), validateManualEditEvent() (+15 more)
+Cohesion: 0.11
+Nodes (11): canCreateInsert(), clampPlaceholderSize(), computeInsertPosition(), groupSiblingRows(), hitSiblingInsertGap(), horizontalOverlap(), insertCreateDisabledReason(), insertLineCoords() (+3 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.10
-Nodes (42): appendCssToSvelteStyle(), appendSanitizedCssRule(), applyDeferredSvelteComponentAccepts(), bakeParamValuesInCss(), buildInsertVariantStub(), buildPropContract(), buildPropsScript(), buildVariantStub() (+34 more)
+Nodes (43): appendCssToSvelteStyle(), appendSanitizedCssRule(), applyDeferredSvelteComponentAccepts(), bakeParamValuesInCss(), buildInsertVariantStub(), buildPropContract(), buildPropsScript(), buildVariantStub() (+35 more)
 
 ### Community 22 - "Community 22"
-Cohesion: 0.19
-Nodes (23): isNeutralBorderColor(), checkColors(), checkElementAIPaletteDOM(), checkElementColors(), checkElementColorsDOM(), checkElementGlowDOM(), checkElementIconTile(), checkElementIconTileDOM() (+15 more)
+Cohesion: 0.10
+Nodes (39): applySavedSessionMeta(), buildInsertPlaceholderSnapshotFromDom(), buildPickedAnchorSnapshot(), captureAndEmit(), checkpointPayload(), clampVariantIndex(), ensureInsertPlaceholder(), enterRecoveryWaitingForAnchor() (+31 more)
 
 ### Community 23 - "Community 23"
 Cohesion: 0.12
 Nodes (35): allow(), bumpCursorDenial(), deny(), done(), escapeRegExp(), findingSignature(), firstMatch(), firstString() (+27 more)
 
 ### Community 24 - "Community 24"
-Cohesion: 0.08
-Nodes (38): attachSteerFocusDebug(), attachSteerFocusGuard(), barPaletteForTheme(), brandMarkSvg(), buildDesignHeader(), buildParamsPanel(), connectSSE(), cursorForInsertAxis() (+30 more)
+Cohesion: 0.09
+Nodes (35): attachSteerFocusDebug(), attachSteerFocusGuard(), barPaletteForTheme(), brandMarkSvg(), buildParamsPanel(), buildSteerProcessingDots(), connectSSE(), cursorForInsertAxis() (+27 more)
 
 ### Community 25 - "Community 25"
 Cohesion: 0.15
 Nodes (33): buildColor(), CANONICAL_SECTIONS, collectBullets(), collectColorValues(), collectParagraphs(), detectFormat(), extractColors(), extractComponents() (+25 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.13
-Nodes (33): confirm(), clearStoredManualApplyState(), copyToClipboard(), dismissToast(), fetchPendingCount(), handleManualEditActivity(), hidePendingApplyDock(), manualApplyLoadingText() (+25 more)
+Cohesion: 0.14
+Nodes (32): confirm(), clearStoredManualApplyState(), copyToClipboard(), dismissToast(), fetchPendingCount(), handleManualEditActivity(), hidePendingApplyDock(), manualApplyLoadingText() (+24 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.06
@@ -340,32 +336,32 @@ Cohesion: 0.06
 Nodes (31): Apply Clarity Principles, Assess Current Copy, Avoid Redundant Copy, Button & CTA Text, Confirmation Dialogs, Confirmation Dialogs: Use Sparingly, Consistency: The Terminology Problem, Don't Blame the User (+23 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.09
-Nodes (32): addManualContextText(), applyEditing(), buildLocatorForLeaf(), canRestoreManualEditElement(), collectManualContextPieces(), contextElementForManualEdit(), copyEditContainerContext(), copyEditLeafContext() (+24 more)
+Cohesion: 0.10
+Nodes (28): applyEditing(), buildLocatorForLeaf(), canRestoreManualEditElement(), copyEditContainerContext(), copyEditLeafContext(), directMixedTextRestoreNodes(), documentRefClassSuffix(), documentRefForElement() (+20 more)
 
 ### Community 32 - "Community 32"
-Cohesion: 0.10
-Nodes (28): buildCollapsible(), buildColorModels(), buildRadiiModels(), buildTypographyModels(), cssSafe(), escapeHtml(), fontStack(), groupByKind() (+20 more)
+Cohesion: 0.09
+Nodes (32): buildCollapsible(), buildColorModels(), buildDesignHeader(), buildRadiiModels(), buildTypographyModels(), cssSafe(), escapeHtml(), fetchDesignSystem() (+24 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.09
-Nodes (30): AdminStats, createClassroomAction(), deleteUserAction(), getAdminOverviewStats(), getAdminUsersList(), importCartridgePackageAction(), createCurriculumNodeAction(), CreateCurriculumNodeInput (+22 more)
+Nodes (37): AdminStats, createClassroomAction(), deleteUserAction(), getAdminOverviewStats(), getAdminUsersList(), importCartridgePackageAction(), getLearnersList(), AuthResponse (+29 more)
 
 ### Community 34 - "Community 34"
-Cohesion: 0.14
-Nodes (28): acceptCli(), argVal(), buildCarbonizeReplacement(), decodeHtmlAttr(), deindentContent(), detectCommentSyntax(), escapeRegExp(), expandReplaceRange() (+20 more)
+Cohesion: 0.13
+Nodes (30): acceptCli(), argVal(), buildCarbonizeReplacement(), decodeHtmlAttr(), deindentContent(), detectCommentSyntax(), escapeRegExp(), expandReplaceRange() (+22 more)
 
 ### Community 35 - "Community 35"
-Cohesion: 0.21
-Nodes (13): configureVoiceContext(), finishVoiceSession(), isEmbeddedPreviewBrowser(), releaseVoiceEngine(), startVoice(), steerSpeechRecognitionCtor(), steerVoiceContext(), steerVoiceErrorMessage() (+5 more)
+Cohesion: 0.25
+Nodes (12): FORBIDDEN_MANUAL_EDIT_TEXT_CHARS, INSERT_POSITIONS, isValidId(), isValidVariantId(), validateAnnotationFields(), validateEvent(), validateInsertGenerate(), validateManualEditEvent() (+4 more)
 
 ### Community 36 - "Community 36"
 Cohesion: 0.12
 Nodes (32): analyzeVisualContrast(), analyzeVisualContrastCandidate(), checkColors(), checkElementAIPaletteDOM(), checkElementColors(), checkElementColorsDOM(), checkElementGlow(), checkElementGlowDOM() (+24 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.12
-Nodes (33): activeElementDeep(), armPageChatForTyping(), clearSteerAwaitTimer(), collapsePageChat(), expandPageChat(), focusConfigureInput(), focusPageChatInput(), focusSteerChat() (+25 more)
+Cohesion: 0.08
+Nodes (48): activeElementDeep(), applyGlobalBarLabelState(), armPageChatForTyping(), clearSteerAwaitTimer(), collapsePageChat(), configureVoiceContext(), expandPageChat(), finishVoiceSession() (+40 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.07
@@ -377,14 +373,14 @@ Nodes (22): cursorBlockMessage(), bumpEditCount(), clampGroupedToBudget(), clamp
 
 ### Community 40 - "Community 40"
 Cohesion: 0.14
-Nodes (25): analyzeSourceHint(), buildCandidatesForOp(), buildContextHintsByRef(), buildManualEditEvidence(), collectSearchFiles(), countOps(), escapeRegExp(), findContextMatches() (+17 more)
+Nodes (24): analyzeSourceHint(), buildCandidatesForOp(), buildContextHintsByRef(), collectSearchFiles(), countOps(), escapeRegExp(), findContextMatches(), findLiteralMatches() (+16 more)
 
 ### Community 41 - "Community 41"
 Cohesion: 0.17
 Nodes (24): completionAckForAcceptResult(), completionTypeForAcceptResult(), augmentEventWithAcceptHandling(), buildAcceptScriptArgs(), buildPollReplyPayload(), EVENT_TYPES_NEEDING_AGENT_REPLY, fetchNextEvent(), fetchServerStatus() (+16 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.16
+Cohesion: 0.17
 Nodes (21): summarizeManualDiagnostics(), createManualEditRoutes(), sendJson(), summarizePendingManualEditBatch(), countByPage(), getBufferPath(), readBuffer(), readBufferInternal() (+13 more)
 
 ### Community 43 - "Community 43"
@@ -429,7 +425,7 @@ Nodes (19): Clean Up, Code Quality, Color & Contrast, Content & Copy, Design Sys
 
 ### Community 53 - "Community 53"
 Cohesion: 0.09
-Nodes (33): CurriculumFrameworkDTO, CurriculumNodeDTO, TierDefinition, metadata, vazirmatn, viewport, ExamTopicSelector(), ExamTopicSelectorProps (+25 more)
+Nodes (36): createCurriculumNodeAction(), CreateCurriculumNodeInput, CurriculumFrameworkDTO, CurriculumNodeDTO, deleteCurriculumNodeAction(), getCurriculumFrameworksAction(), getCurriculumTreeAction(), reorderCurriculumNodesAction() (+28 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.10
@@ -512,12 +508,12 @@ Cohesion: 0.31
 Nodes (11): getCritiqueDir(), kebab(), listSnapshotsForSlug(), main(), nowFilenameStamp(), parseFrontmatter(), readLatestSnapshot(), readTrend() (+3 more)
 
 ### Community 74 - "Community 74"
-Cohesion: 0.13
-Nodes (36): buildSvelteComponentCssAuthoring(), scaffoldSvelteComponentInsertSession(), shouldUseSvelteComponentInjection(), argVal(), buildInsertWrapperLines(), computeInsertLine(), INSERT_POSITIONS, insertCli() (+28 more)
+Cohesion: 0.12
+Nodes (39): hasGeneratedHeader(), HEADER_MARKERS, isGeneratedFile(), isGitIgnored(), buildSvelteComponentCssAuthoring(), shouldUseSvelteComponentInjection(), argVal(), buildInsertWrapperLines() (+31 more)
 
 ### Community 75 - "Community 75"
-Cohesion: 0.06
-Nodes (61): DiagnosticHeatmap(), PERSIAN_ARABIC_TO_ASCII, PERSIAN_DIGITS, renderPersianKaTeXHtml(), toAsciiDigits(), toPersianDigits(), AbacusColumn, AbacusVisualizer() (+53 more)
+Cohesion: 0.05
+Nodes (69): PERSIAN_ARABIC_TO_ASCII, PERSIAN_DIGITS, toPersianDigits(), AbacusColumn, AbacusVisualizer(), AbacusVisualizerProps, AreaGrid(), AreaGridProps (+61 more)
 
 ### Community 76 - "Community 76"
 Cohesion: 0.26
@@ -720,8 +716,8 @@ Cohesion: 0.40
 Nodes (5): Interruptibility advantage, Spring Animations, Spring-based mouse interactions, Spring configuration, When to use springs
 
 ### Community 126 - "Community 126"
-Cohesion: 0.11
-Nodes (27): applyOriginalAttrsToSvelteAnchor(), applyPlaceholderDimensions(), applySvelteComponentVariantStyle(), buildPlaceholderResizeHandles(), commitAcceptedSvelteComponentToDom(), cursorForPlaceholderEdge(), elementMatchesOriginalMarkup(), ensureInsertPlaceholder() (+19 more)
+Cohesion: 0.18
+Nodes (18): applyOriginalAttrsToSvelteAnchor(), applySvelteComponentVariantStyle(), commitAcceptedSvelteComponentToDom(), elementMatchesOriginalMarkup(), extractSvelteComponentStyle(), findLiveElementForOriginalMarkup(), findLiveElementFromAnchorSnapshot(), getMountedSvelteComponentAnchor() (+10 more)
 
 ### Community 127 - "Community 127"
 Cohesion: 0.40
@@ -772,28 +768,28 @@ Cohesion: 0.50
 Nodes (3): candidates, detectorPath, __dirname
 
 ### Community 139 - "Community 139"
-Cohesion: 0.13
-Nodes (14): LandingPage(), metadata, AssessmentCarousel(), AssessmentsHub(), HubHero(), HubHeroProps, HubNavTabs(), HubNavTabsProps (+6 more)
+Cohesion: 0.07
+Nodes (34): LandingPage(), metadata, AssessmentCarousel(), DistractorItem, StudentAssessmentView(), StudentAssessmentViewProps, ExamTopicSelector(), ExamTopicSelectorProps (+26 more)
 
 ### Community 140 - "Community 140"
 Cohesion: 0.29
 Nodes (7): checkLayout(), checkPageLayout(), isCardLike(), isCardLikeDOM(), isCardLikeFromProps(), parseRadiusToPx(), resolveBorderRadiusPx()
 
 ### Community 141 - "Community 141"
-Cohesion: 0.10
-Nodes (25): ClassDiagnosticSummary, ClassStudentsMasteryMatrixResult, createOrSelectLearner(), getClassDiagnosticStats(), getClassStudentsMasteryMatrix(), getLearnersList(), KCDiagnosticStat, MisconceptionDiagnosticStat (+17 more)
+Cohesion: 0.12
+Nodes (23): ClassDiagnosticSummary, ClassStudentsMasteryMatrixResult, createOrSelectLearner(), getClassDiagnosticStats(), getClassStudentsMasteryMatrix(), KCDiagnosticStat, MisconceptionDiagnosticStat, StudentKCMasteryItem (+15 more)
 
 ### Community 149 - "Community 149"
 Cohesion: 0.38
 Nodes (3): CDPClient, runDeepAudit(), signToken()
 
 ### Community 150 - "Community 150"
-Cohesion: 0.11
-Nodes (26): getStudentMasteryStates(), saveAssessmentSession(), SessionSubmissionPayload, AdaptiveCandidateItem, AdaptiveSelectionState, calculateAdaptiveSessionLimit(), calculateMasteryUncertainty(), selectNextAdaptiveItem() (+18 more)
+Cohesion: 0.09
+Nodes (30): getStudentMasteryStates(), saveAssessmentSession(), SessionSubmissionPayload, AdaptiveCandidateItem, AdaptiveSelectionState, calculateAdaptiveSessionLimit(), calculateMasteryUncertainty(), selectNextAdaptiveItem() (+22 more)
 
 ### Community 152 - "Community 152"
-Cohesion: 0.52
-Nodes (5): getOfflineSessions(), OfflineSessionRecord, openOfflineDatabase(), saveOfflineSession(), syncOfflineSessionsToCloud()
+Cohesion: 0.25
+Nodes (8): checkRepeatedSectionKickers(), checkRepeatedSectionKickersDOM(), checkRepeatedSectionKickersFromDoc(), cleanInlineText(), collectRepeatedSectionKickerCandidates(), isRepeatedKickerCandidate(), isRepeatedKickerCardContext(), makeStaticStyle()
 
 ### Community 153 - "Community 153"
 Cohesion: 0.50
@@ -807,21 +803,9 @@ Nodes (9): buildMissingTargetDirective(), buildResolvedContextDirective(), build
 Cohesion: 0.38
 Nodes (3): CDPClient, run(), signToken()
 
-### Community 156 - "Community 156"
-Cohesion: 0.33
-Nodes (8): StudentKCMasteryItem, StudentMasteryMatrixRow, CurationStudioProps, DiagnosticHeatmapProps, KCMasteryStat, MisconceptionStat, TeacherClassHeatmap(), TeacherClassHeatmapProps
-
-### Community 162 - "Community 162"
-Cohesion: 0.38
-Nodes (6): hasGeneratedHeader(), HEADER_MARKERS, isGeneratedFile(), isGitIgnored(), collectRollbackFiles(), scanRollbackDir()
-
 ### Community 163 - "Community 163"
-Cohesion: 0.07
-Nodes (37): LearnerProfileSummary, AssessmentCarouselProps, DiagnosticItemData, DistractorItem, PERSIAN_OPTION_LABELS, PEN_COLORS, Point, ScratchpadOverlay() (+29 more)
-
-### Community 164 - "Community 164"
-Cohesion: 0.22
-Nodes (13): AuthResponse, getCurrentUserAction(), joinClassroomAction(), loginStaffAction(), loginStudentAction(), logoutAction(), registerStudentAction(), registerTeacherAction() (+5 more)
+Cohesion: 0.06
+Nodes (38): LearnerProfileSummary, AssessmentCarouselProps, PERSIAN_OPTION_LABELS, KCMasteryInfo, MasteryRadar(), MasteryRadarProps, PEN_COLORS, Point (+30 more)
 
 ### Community 165 - "Community 165"
 Cohesion: 0.47
@@ -847,17 +831,13 @@ Nodes (16): 🟢 سوال `ITEM-MATH4-CH02-001` — جمع و تفریق کسر�
 Cohesion: 0.12
 Nodes (16): 🟢 سوال `ITEM-MATH5-C03-01` — درک مفهوم نسبت به عنوان مقایسه دو کمیت و تفکیک آن از کسر ساده, 🟢 سوال `ITEM-MATH5-C03-02` — درک مفهوم نسبت به عنوان مقایسه دو کمیت و تفکیک آن از کسر ساده, 🔴 سوال `ITEM-MATH5-C03-03` — درک مفهوم نسبت به عنوان مقایسه دو کمیت و تفکیک آن از کسر ساده, 🟢 سوال `ITEM-MATH5-C03-04` — شناخت و تولید نسبت‌های مساوی و مفهوم تناسب, 🟢 سوال `ITEM-MATH5-C03-05` — شناخت و تولید نسبت‌های مساوی و مفهوم تناسب, 🔴 سوال `ITEM-MATH5-C03-06` — شناخت و تولید نسبت‌های مساوی و مفهوم تناسب, 🟢 سوال `ITEM-MATH5-C03-07` — جدول تناسب، ضریب تناسب و روش‌های حل (ضرب متقاطع), 🟢 سوال `ITEM-MATH5-C03-08` — جدول تناسب، ضریب تناسب و روش‌های حل (ضرب متقاطع) (+8 more)
 
-### Community 171 - "Community 171"
-Cohesion: 0.36
-Nodes (8): acceptedDomAlreadyClean(), ensureAcceptedDomClean(), findAcceptedRuntimeWrappers(), markSessionHandled(), maybeCompleteAcceptedSession(), reloadAfterMissingAcceptedDom(), restoreAcceptedDomFromSnapshot(), scheduleAcceptCleanup()
-
 ### Community 172 - "Community 172"
 Cohesion: 0.36
 Nodes (8): bindEditBadgeProxy(), editBadgeProxyTargets(), initEditBadgeHitProxies(), positionEditBadge(), setImportantStyle(), styleEditBadgeProxy(), syncEditBadgeHitProxies(), usesShadowChromeRoot()
 
 ### Community 173 - "Community 173"
 Cohesion: 0.33
-Nodes (5): اطلس جامع برنامه درسی، سوالات تشخیصی و ابزارهای دست‌ورزی تصویری, ۱. داشبورد وضعیت پوشش ابزارهای بصری به تفکیک درس‌ها, ۲. تفکیک کامل درس‌ها، سوالات تشخیصی و ابزارهای بصری, ۳. ماتریس کاتالوگ ۱۶ ابزار بصری پیاده‌سازی‌شده در پلتفرم, ۴. برنامه اقدام و نقشه راه رساندن پوشش به ۱۰۰٪
+Nodes (5): اطلس جامع برنامه درسی، سوالات تشخیصی و ابزارهای دست‌ورزی تصویری, ۱. داشبورد وضعیت پوشش ابزارهای بصری به تفکیک درس‌ها, ۲. تفکیک کامل درس‌ها، سوالات تشخیصی و ابزارهای بصری, ۳. ماتریس کاتالوگ ۲۲ ابزار بصری پیاده‌سازی‌شده در پلتفرم, ۴. برنامه اقدام و نقشه راه رساندن پوشش به ۱۰۰٪
 
 ### Community 174 - "Community 174"
 Cohesion: 0.33
@@ -880,7 +860,7 @@ Cohesion: 0.33
 Nodes (6): 🔴 سوال `ITEM-MATH4-CH07-001` — جمع‌آوری و سازماندهی داده‌ها با جدول داده و خط‌نشان, 🔴 سوال `ITEM-MATH4-CH07-002` — رسم، خواندن و تحلیل نمودار ستونی برای مقایسه داده‌ها, 🟢 سوال `ITEM-MATH4-CH07-003` — رسم و تفسیر نمودار خط شکسته برای بررسی تغییرات در طول زمان, 🟢 سوال `ITEM-MATH4-CH07-004` — درک و تحلیل نمودار دایره‌ای با رویکرد جزء به کل (کسری), 🟢 سوال `ITEM-MATH4-CH07-005` — ارزیابی احتمال وقوع پیشامدها و مفهوم شانس برابر, ۲. ریاضی پایه ۴ ابتدایی - فصل ۷: آمار و احتمال
 
 ## Knowledge Gaps
-- **993 isolated node(s):** `COMMON_DEV_PORTS`, `SCANNABLE_EXT`, `SOURCE_DIRS`, `PRODUCT_NAMES`, `DESIGN_NAMES` (+988 more)
+- **1002 isolated node(s):** `COMMON_DEV_PORTS`, `SCANNABLE_EXT`, `SOURCE_DIRS`, `PRODUCT_NAMES`, `DESIGN_NAMES` (+997 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -888,16 +868,16 @@ Nodes (6): 🔴 سوال `ITEM-MATH4-CH07-001` — جمع‌آوری و سازم
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `confirm()` connect `Community 26` to `Community 5`?**
-  _High betweenness centrality (0.121) - this node is a cross-community bridge._
-- **Why does `pickVariantContent()` connect `Community 110` to `Community 0`, `Community 3`, `Community 20`?**
+  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+- **Why does `pickVariantContent()` connect `Community 110` to `Community 0`, `Community 20`, `Community 22`?**
   _High betweenness centrality (0.081) - this node is a cross-community bridge._
 - **Why does `resolveInsertSessionAnchor()` connect `Community 20` to `Community 110`?**
   _High betweenness centrality (0.081) - this node is a cross-community bridge._
 - **What connects `COMMON_DEV_PORTS`, `SCANNABLE_EXT`, `SOURCE_DIRS` to the rest of the system?**
-  _997 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1006 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.028293545534924844 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.031613431613431615 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.04162410623084781 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04596219931271478 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.05672926447574335 - nodes in this community are weakly interconnected._

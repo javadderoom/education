@@ -810,8 +810,8 @@
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
-    "mtime": 1793725593.5905502,
-    "ast_hash": "317be76a285134aa9ff11668fcd6adbe",
+    "mtime": 1795018225.1688673,
+    "ast_hash": "98253715bb8b37f0643f05204536a6d1",
     "semantic_hash": ""
   },
   "web/components/navigation/BottomNav.tsx": {
@@ -1205,8 +1205,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueTable.tsx": {
-    "mtime": 1794761170.8727028,
-    "ast_hash": "92807b4171e80ad768ed005a1730884c",
+    "mtime": 1795017423.0841782,
+    "ast_hash": "e4cdeabc514ba459e3f6254c77f97f33",
     "semantic_hash": ""
   },
   "web/components/parametric/ProbabilitySpinner.tsx": {
@@ -1220,8 +1220,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/VisualTemplateRegistry.tsx": {
-    "mtime": 1794831759.769317,
-    "ast_hash": "e61d8eda0a4b8e7e60bd816ebb77fd54",
+    "mtime": 1795016909.8986254,
+    "ast_hash": "4e4a2ae4d91f9fca08b80f9a05062953",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueBundles.tsx": {
@@ -1255,8 +1255,43 @@
     "semantic_hash": ""
   },
   "docs/curriculum_items_tools_catalog.md": {
-    "mtime": 1795003196.9277318,
-    "ast_hash": "458e23cf9c4e720295655ccdbdb24a33",
+    "mtime": 1795019047.8515751,
+    "ast_hash": "9807b8766705aaf62b095554c183ed85",
+    "semantic_hash": ""
+  },
+  "web/__tests__/grade5-visual-tools.test.tsx": {
+    "mtime": 1795018554.1701136,
+    "ast_hash": "3a64de7849b8d7c1f0d60844daaf9536",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/CircleMeasurementVisualizer.tsx": {
+    "mtime": 1795016691.424399,
+    "ast_hash": "d9f057a51a01c949e61a859667a2609c",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/CompoundUnitCalculator.tsx": {
+    "mtime": 1795016737.769818,
+    "ast_hash": "0e8f630d0c20ba090f8c2144902fd7f5",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/FractionAreaMultiplier.tsx": {
+    "mtime": 1795016507.0952332,
+    "ast_hash": "d16f69b0657f653753b4e78d1aafe619",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/PolygonAreaDecomposer.tsx": {
+    "mtime": 1795016611.4087741,
+    "ast_hash": "eb44479999475e90ac59b1e770c96c88",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/SymmetryPlayground.tsx": {
+    "mtime": 1795016410.4368157,
+    "ast_hash": "62ef8db944738e5051b4d8e34a0b346c",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/VolumePrismVisualizer.tsx": {
+    "mtime": 1795016271.6062925,
+    "ast_hash": "c28d2f5db734760a276a5d8c5f222e95",
     "semantic_hash": ""
   }
 }

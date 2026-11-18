@@ -17,6 +17,12 @@ import { FractionCircle } from "./FractionCircle";
 import { ProbabilitySpinner } from "./ProbabilitySpinner";
 import { BrokenLineGraph } from "./BrokenLineGraph";
 import { PlaceValueBundles } from "./PlaceValueBundles";
+import { VolumePrismVisualizer } from "./VolumePrismVisualizer";
+import { SymmetryPlayground } from "./SymmetryPlayground";
+import { FractionAreaMultiplier } from "./FractionAreaMultiplier";
+import { PolygonAreaDecomposer } from "./PolygonAreaDecomposer";
+import { CircleMeasurementVisualizer } from "./CircleMeasurementVisualizer";
+import { CompoundUnitCalculator } from "./CompoundUnitCalculator";
 
 export interface VisualTemplateData {
   type: string;
@@ -72,6 +78,20 @@ export const VisualTemplateRenderer: React.FC<VisualTemplateRendererProps> = ({ 
       return <ProbabilitySpinner {...p} />;
     case "BrokenLineGraph":
       return <BrokenLineGraph {...p} />;
+
+    // Grade 5 Advanced Mathematical Manipulatives
+    case "VolumePrismVisualizer":
+      return <VolumePrismVisualizer {...p} />;
+    case "SymmetryPlayground":
+      return <SymmetryPlayground {...p} />;
+    case "FractionAreaMultiplier":
+      return <FractionAreaMultiplier {...p} />;
+    case "PolygonAreaDecomposer":
+      return <PolygonAreaDecomposer {...p} />;
+    case "CircleMeasurementVisualizer":
+      return <CircleMeasurementVisualizer {...p} />;
+    case "CompoundUnitCalculator":
+      return <CompoundUnitCalculator {...p} />;
 
     default:
       console.warn(`[VisualTemplateRenderer] Unknown visual template type: ${type}`);
