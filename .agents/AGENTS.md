@@ -43,3 +43,11 @@
 - **No Technical Jargon in User-Facing UI**: NEVER expose, mention, or display technical stack details, software names, libraries, internal engine acronyms, or model identifiers in the user interface (e.g. BKT, Next.js, React, Prisma, PostgreSQL, Vercel, Python, SymPy, Gemini, AI, LLM, KaTeX, open-source/FOSS, or internal database IDs like `ITEM-001`).
 - **Student- & Teacher-Centric Pedagogical Language**: All UI labels, badges, page titles, cards, tooltips, footers, and feedback messages must speak strictly in age-appropriate, encouraging, and pedagogically clear language (e.g., "میزان تسلط بر مفاهیم" instead of "ردیابی شناختی بیزی (BKT)", "ارزیابی هوشمند" instead of "موتور BKT فعال", etc.).
 
+## 11. Curriculum, Diagnostic Items & Visual Tools Synchronization (SSOT Rule)
+- **Single Source of Truth (`docs/curriculum_items_tools_catalog.md`)**: The document [`docs/curriculum_items_tools_catalog.md`](file:///g:/Code/education/docs/curriculum_items_tools_catalog.md) is the project's permanent, canonical Single Source of Truth (SSOT) and atlas for all curriculum mappings, chapters, knowledge components (KCs), diagnostic items, misconceptions, and visual manipulatives/templates across the application.
+- **Mandatory Bidirectional Synchronization**:
+  1. **Cartridge & Code Updates**: Whenever canonical cartridges (`data/canonical/*.json`), curriculum taxonomies (`web/lib/data/curriculum-taxonomy.ts`), visual components (`web/components/parametric/*`, `VisualTemplateRegistry.tsx`), or database seeds are created, updated, or refactored, `docs/curriculum_items_tools_catalog.md` MUST be updated in the same turn/commit to reflect the exact state, coverage counts, component props, and question mappings.
+  2. **Zero Disparity Permitted**: The status of lessons, question counts, active/proposed manipulatives, and pedagogical blueprints reported to the user or implemented in code must ALWAYS 100% match `docs/curriculum_items_tools_catalog.md`.
+  3. **New Feature & Item Planning**: Any new diagnostic item, educational tool, or curriculum expansion must first be cross-checked with and documented in `docs/curriculum_items_tools_catalog.md` before or during code implementation.
+
+

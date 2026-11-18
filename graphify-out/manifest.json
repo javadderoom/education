@@ -360,7 +360,7 @@
     "semantic_hash": ""
   },
   "web/components/assessment/AssessmentCarousel.tsx": {
-    "mtime": 1794860480.8402855,
+    "mtime": 1794862615.4358265,
     "ast_hash": "8c5c151ca70a60daf4c99473ff50dd8a",
     "semantic_hash": ""
   },
@@ -465,8 +465,8 @@
     "semantic_hash": ""
   },
   ".agents/AGENTS.md": {
-    "mtime": 1793420508.1162014,
-    "ast_hash": "81b87b2779b484a539917e0040f8458a",
+    "mtime": 1795003307.640564,
+    "ast_hash": "913cd73be1690172946617e3c7f96685",
     "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
@@ -1235,7 +1235,7 @@
     "semantic_hash": ""
   },
   "web/components/companion/RobotCompanion.tsx": {
-    "mtime": 1794860344.783927,
+    "mtime": 1794862615.6599572,
     "ast_hash": "407ee5d3b5c60e7c8ac8610f6fe97e9d",
     "semantic_hash": ""
   },
@@ -1245,8 +1245,18 @@
     "semantic_hash": ""
   },
   "web/components/companion/FloatingCompanion.tsx": {
-    "mtime": 1794859604.0431387,
+    "mtime": 1794862615.5848868,
     "ast_hash": "41a56b9c491015598c63eccabb480237",
+    "semantic_hash": ""
+  },
+  ".agents/rules/curriculum-tools-catalog.md": {
+    "mtime": 1795003452.4962828,
+    "ast_hash": "3f0d21e10e41244a83cad05eebed872d",
+    "semantic_hash": ""
+  },
+  "docs/curriculum_items_tools_catalog.md": {
+    "mtime": 1795003196.9277318,
+    "ast_hash": "458e23cf9c4e720295655ccdbdb24a33",
     "semantic_hash": ""
   }
 }
