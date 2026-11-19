@@ -1,0 +1,376 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH06",
+  "title": "ریاضی پایه ششم ابتدایی - فصل ششم: تناسب و درصد",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH06",
+    "name": "تناسب و درصد (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C06-01",
+      "title": "مفهوم تناسب مستقیم و حل مسائل چندمرحله‌ای تناسب",
+      "bloom_level": "apply",
+      "description": "تشکیل جدول تناسب و محاسبه مجهول با ضریب تناسب یا ضرب متقاطع.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C06-02",
+      "title": "کاربرد درصد در محاسبات مالی، تخفیف و قیمت پس از تخفیف",
+      "bloom_level": "apply",
+      "description": "محاسبه مقدار تخفیف و کسر آن از قیمت اولیه کالا.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C06-03",
+      "title": "محاسبات سود و زیان تجاری با استفاده از درصد",
+      "bloom_level": "apply",
+      "description": "محاسبه درصد سود نسبت به قیمت خرید و قیمت فروش.",
+      "prerequisites": [
+        "KC-MATH6-C06-02"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C06-04",
+      "title": "محاسبه مالیات بر ارزش افزوده و درصد افزایش قیمت",
+      "bloom_level": "apply",
+      "description": "محاسبه مالیات با جدول تناسب ۱۰۰ و افزودن به مبلغ پرداختی.",
+      "prerequisites": [
+        "KC-MATH6-C06-02"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C06-05",
+      "title": "حل مسائل ترکیبی درصد و نسبت‌های چندتایی پیشرفته",
+      "bloom_level": "analyze",
+      "description": "حل مسائل روزمره درصد و تسهیم مرکب.",
+      "prerequisites": [
+        "KC-MATH6-C06-01",
+        "KC-MATH6-C06-03"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH6-DISCOUNT-AS-PAYMENT",
+      "title": "اشتباه گرفتن مقدار تخفیف با مبلغ قابل پرداخت",
+      "description": "دانش‌آموز ۲۰٪ تخفیف را به عنوان قیمت نهایی پرداخت تلقی می‌کند نه ۸۰٪ باقیمانده.",
+      "counter_example_blueprint": {
+        "scenario": "کالای ۱۰۰ تومانی با ۲۰٪ تخفیف، ۲۰ تومان کم می‌شود و ۸۰ تومان پرداخت می‌گردد.",
+        "visual_counter_example": "AreaGrid"
+      }
+    },
+    {
+      "id": "MIS-G6-CH6-TAX-SUBTRACT",
+      "title": "کم کردن مالیات به جای اضافه کردن آن به قیمت کل",
+      "description": "دانش‌آموز مالیات را مانند تخفیف از قیمت کم می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "مالیات هزینه اضافی است و به قیمت اضافه می‌شود.",
+        "visual_counter_example": "BalanceScale"
+      }
+    },
+    {
+      "id": "MIS-G6-CH6-PROFIT-BASE",
+      "title": "محاسبه سود بر مبنای قیمت فروش به جای قیمت خرید اولیه",
+      "description": "دانش‌آموز درصد سود را نسبت به کل فروش حساب می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "سود نسبت به پولی که در ابتدا سرمایه‌گذاری شده سنجیده می‌شود.",
+        "visual_counter_example": "AreaGrid"
+      }
+    },
+    {
+      "id": "MIS-G6-CH6-PERCENT-ADD-DIRECT",
+      "title": "جمع زدن مستقیم دو درصد متوالی (مثلاً دو تخفیف ۱۰ درصدی برابر با ۲۰ درصد)",
+      "description": "دانش‌آموز دو تخفیف پیاپی را مستقیماً با هم جمع می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تخفیف دوم روی قیمت جدید اعمال می‌شود نه قیمت اولیه.",
+        "visual_counter_example": "AreaGrid"
+      }
+    },
+    {
+      "id": "MIS-G6-CH6-RATIO-ADD-CONFUSION",
+      "title": "افزودن مقدار ثابت به جای ضرب در مسائل نسبت",
+      "description": "دانش‌آموز تفکر جمعی را در نسبت‌ها به کار می‌برد.",
+      "counter_example_blueprint": {
+        "scenario": "نسبت ۲ به ۳ اگر اولی ۶ شود (×۳)، دومی ۹ می‌شود نه ۵ (+۳).",
+        "visual_counter_example": "BalanceScale"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C06-01",
+      "kc_id": "KC-MATH6-C06-01",
+      "stem": "اگر قیمت ۳ دفتر ۱۵,۰۰۰ تومان باشد، قیمت ۸ دفتر از همان نوع چند تومان است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": {
+          "leftItems": [
+            {
+              "label": "3",
+              "weight": 3
+            }
+          ],
+          "rightItems": [
+            {
+              "label": "15",
+              "weight": 15
+            }
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-01-A",
+          "label": "الف",
+          "content": "۴۰,۰۰۰ تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: قیمت هر دفتر ۱۵,۰۰۰ ÷ ۳ = ۵,۰۰۰ تومان؛ ۸ دفتر = ۸ × ۵,۰۰۰ = ۴۰,۰۰۰ تومان."
+        },
+        {
+          "id": "DIS-M6-06-01-B",
+          "label": "ب",
+          "content": "۲۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH6-RATIO-ADD-CONFUSION",
+          "rationale": "افزودن ۵ به ۱۵ به جای ضرب."
+        },
+        {
+          "id": "DIS-M6-06-01-C",
+          "label": "ج",
+          "content": "۱۲۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب ۱۵,۰۰۰ در ۸ بدون تقسیم بر ۳."
+        },
+        {
+          "id": "DIS-M6-06-01-D",
+          "label": "د",
+          "content": "۲۴,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محاسبه قیمت با ضریب نادرست."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C06-02",
+      "kc_id": "KC-MATH6-C06-02",
+      "stem": "کالایی به قیمت ۲۰۰,۰۰۰ تومان شامل **۳۰٪ تخفیف** شده است. خریدار برای خرید این کالا **چند تومان باید پرداخت کند**؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 70
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-02-A",
+          "label": "الف",
+          "content": "۱۴۰,۰۰۰ تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳۰٪ از ۲۰۰,۰۰۰ می‌شود ۶۰,۰۰۰ تومان تخفیف؛ پرداختی = ۲۰۰,۰۰۰ - ۶۰,۰۰۰ = ۱۴۰,۰۰۰ تومان."
+        },
+        {
+          "id": "DIS-M6-06-02-B",
+          "label": "ب",
+          "content": "۶۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH6-DISCOUNT-AS-PAYMENT",
+          "rationale": "مقدار تخفیف به جای مبلغ پرداختی پاسخ داده شده است."
+        },
+        {
+          "id": "DIS-M6-06-02-C",
+          "label": "ج",
+          "content": "۱۷۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کم کردن ۳۰ تومان مستقیم از ۲۰۰ هزار تومان."
+        },
+        {
+          "id": "DIS-M6-06-02-D",
+          "label": "د",
+          "content": "۲۶۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH6-TAX-SUBTRACT",
+          "rationale": "اضافه کردن تخفیف به قیمت."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C06-03",
+      "kc_id": "KC-MATH6-C06-03",
+      "stem": "فروشنده‌ای کالایی را به قیمت ۵۰,۰۰۰ تومان خریده و آن را با **۲۰٪ سود** می‌فروشد. **قیمت فروش کالا** چند تومان است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 20
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-03-A",
+          "label": "الف",
+          "content": "۶۰,۰۰۰ تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲۰٪ از ۵۰,۰۰۰ می‌شود ۱۰,۰۰۰ تومان سود؛ قیمت فروش = ۵۰,۰۰۰ + ۱۰,۰۰۰ = ۶۰,۰۰۰ تومان."
+        },
+        {
+          "id": "DIS-M6-06-03-B",
+          "label": "ب",
+          "content": "۱۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فقط مقدار سود به عنوان قیمت فروش گزارش شده است."
+        },
+        {
+          "id": "DIS-M6-06-03-C",
+          "label": "ج",
+          "content": "۴۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کم کردن سود مانند تخفیف."
+        },
+        {
+          "id": "DIS-M6-06-03-D",
+          "label": "د",
+          "content": "۷۰,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اضافه کردن ۲۰ هزار تومان مستقیم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C06-04",
+      "kc_id": "KC-MATH6-C06-04",
+      "stem": "قیمت یک فاکتور خرید ۱۰۰,۰۰۰ تومان است. اگر **۹٪ مالیات بر ارزش افزوده** به آن اضافه شود، مبلغ کل فاکتور چند تومان خواهد بود؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 9
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-04-A",
+          "label": "الف",
+          "content": "۱۰۹,۰۰۰ تومان",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۹٪ از ۱۰۰,۰۰۰ تومان برابر ۹,۰۰۰ تومان است؛ ۱۰۰,۰۰۰ + ۹,۰۰۰ = ۱۰۹,۰۰۰ تومان."
+        },
+        {
+          "id": "DIS-M6-06-04-B",
+          "label": "ب",
+          "content": "۹۱,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH6-TAX-SUBTRACT",
+          "rationale": "کم کردن مالیات به جای اضافه کردن."
+        },
+        {
+          "id": "DIS-M6-06-04-C",
+          "label": "ج",
+          "content": "۹,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فقط مبلغ مالیات گزارش شده است."
+        },
+        {
+          "id": "DIS-M6-06-04-D",
+          "label": "د",
+          "content": "۱۱۹,۰۰۰ تومان",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در محاسبه."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C06-05",
+      "kc_id": "KC-MATH6-C06-05",
+      "stem": "در یک کارگاه، نسبت کارگران زن به مرد ۳ به ۵ است. اگر تعداد کل کارگران ۴۰ نفر باشد، **تعداد کارگران زن** چند نفر است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "BalanceScale",
+        "props": {
+          "leftItems": [
+            {
+              "label": "3",
+              "weight": 3
+            }
+          ],
+          "rightItems": [
+            {
+              "label": "5",
+              "weight": 5
+            }
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-05-A",
+          "label": "الف",
+          "content": "۱۵ نفر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مجموع نسبت‌ها ۳ + ۵ = ۸؛ ضریب تناسب ۴۰ ÷ ۸ = ۵؛ تعداد زنان = ۳ × ۵ = ۱۵ نفر."
+        },
+        {
+          "id": "DIS-M6-06-05-B",
+          "label": "ب",
+          "content": "۲۵ نفر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تعداد مردان به جای زنان گزارش شده است."
+        },
+        {
+          "id": "DIS-M6-06-05-C",
+          "label": "ج",
+          "content": "۲۴ نفر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب ۴۰ در ۳/۵."
+        },
+        {
+          "id": "DIS-M6-06-05-D",
+          "label": "د",
+          "content": "۱۲ نفر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم بر ۱۰ به جای ۸."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH02",
+  "title": "ریاضی پایه ششم ابتدایی - فصل دوم: کسرها",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH02",
+    "name": "کسرها و محاسبات کسری (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C02-01",
+      "title": "جمع و تفریق کسرها و عددهای مخلوط با ساده‌سازی قبل و بعد",
+      "bloom_level": "apply",
+      "description": "تسلط بر محاسبات ترکیبی جمع و تفریق کسرها.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C02-02",
+      "title": "ضرب کسرها و ساده‌سازی صورت و مخرج قبل از ضرب",
+      "bloom_level": "apply",
+      "description": "ساده کردن عوامل مشترک در صورت و مخرج قبل از ضرب.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C02-03",
+      "title": "تقسیم کسر بر کسر با مدل پیمانه‌ای (چند بار جا می‌شود؟)",
+      "bloom_level": "understand",
+      "description": "درک دیداری تقسیم کسر بر کسر با قطعه‌بندی مساوی.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C02-04",
+      "title": "قاعده ضرب در معکوس در تقسیم کسرها و ارتباط آن با هم‌مخرج کردن",
+      "bloom_level": "apply",
+      "description": "تقسیم با ضرب مقسوم در معکوس مقسوم‌علیه.",
+      "prerequisites": [
+        "KC-MATH6-C02-03"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C02-05",
+      "title": "ترتیب و اولویت عملیات در عبارات مرکب کسری (پرانتز، ضرب، تقسیم، جمع، تفریق)",
+      "bloom_level": "analyze",
+      "description": "رعایت تقدم پرانتز و ضرب/تقسیم بر جمع/تفریق.",
+      "prerequisites": [
+        "KC-MATH6-C02-01",
+        "KC-MATH6-C02-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH2-DIV-NO-INVERT",
+      "title": "تقسیم مستقیم صورت بر صورت و مخرج بر مخرج بدون هم‌مخرج کردن",
+      "description": "دانش‌آموز ۳/۴ را بر ۱/۸ بدون معکوس تقسیم می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم کسرها با مدل پیمانه‌ای.",
+        "visual_counter_example": "FractionDivisionVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH2-OP-PRIORITY",
+      "title": "نادیده گرفتن اولویت ضرب بر جمع و تفریق در کسرها",
+      "description": "دانش‌آموز از چپ به راست عمل می‌کند و جمع را قبل از ضرب انجام می‌دهد.",
+      "counter_example_blueprint": {
+        "scenario": "محاسبه ۱/۲ + ۱/۲ × ۱/۳.",
+        "visual_counter_example": "FractionStrip"
+      }
+    },
+    {
+      "id": "MIS-G6-CH2-MIXED-MULT",
+      "title": "ضرب عدد مخلوط بدون تبدیل به کسر نامتعارف",
+      "description": "دانش‌آموز بخش‌های صحیح را جداگانه و کسرها را جداگانه ضرب می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "ضرب ۲ و ۱/۲ در ۲ و ۱/۲ برابر ۶ و ۱/۴ است نه ۴ و ۱/۴.",
+        "visual_counter_example": "FractionAreaMultiplier"
+      }
+    },
+    {
+      "id": "MIS-G6-CH2-INVERT-BOTH",
+      "title": "معکوس کردن هر دو کسر در تقسیم به جای فقط کسر دوم",
+      "description": "دانش‌آموز هم مقسوم و هم مقسوم‌علیه را معکوس می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم ۱/۲ بر ۱/۴.",
+        "visual_counter_example": "FractionDivisionVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH2-SIMPLIFY-ADD",
+      "title": "ساده کردن صورت یک کسر با مخرج کسر دیگر در جمع (به جای ضرب)",
+      "description": "دانش‌آموز قاعده ساده‌سازی متقاطع ضرب را در جمع کسرها اعمال می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "ساده کردن فقط در ضرب مجاز است.",
+        "visual_counter_example": "FractionStrip"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C02-01",
+      "kc_id": "KC-MATH6-C02-01",
+      "stem": "حاصل عبارت $۳\\frac{۱}{۲} - ۱\\frac{۲}{۳}$ کدام است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 6,
+          "initialColored": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-01-A",
+          "label": "الف",
+          "content": "$۱\\frac{۵}{۶}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳ و ۳/۶ منهای ۱ و ۴/۶ = ۲ و ۹/۶ منهای ۱ و ۴/۶ = ۱ و ۵/۶."
+        },
+        {
+          "id": "DIS-M6-02-01-B",
+          "label": "ب",
+          "content": "$۲\\frac{۱}{۶}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قرض نگرفتن واحد کامل از ۳."
+        },
+        {
+          "id": "DIS-M6-02-01-C",
+          "label": "ج",
+          "content": "$۱\\frac{۱}{۱}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تفریق نادرست صورت از صورت و مخرج از مخرج."
+        },
+        {
+          "id": "DIS-M6-02-01-D",
+          "label": "د",
+          "content": "$۲\\frac{۵}{۶}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کم نکردن ۱ واحد از بخش صحیح."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C02-02",
+      "kc_id": "KC-MATH6-C02-02",
+      "stem": "حاصل ضرب $\\frac{۹}{۱۶} \\times \\frac{۸}{۲۷}$ پس از ساده‌سازی کامل کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionAreaMultiplier",
+        "props": {
+          "initialNumA": 9,
+          "initialDenA": 16,
+          "initialNumB": 8,
+          "initialDenB": 27
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-02-A",
+          "label": "الف",
+          "content": "$\\frac{۱}{۶}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۹ با ۲۷ ساده شده (۱ و ۳) و ۸ با ۱۶ ساده شده (۱ و ۲)؛ حاصل (۱×۱)/(۲×۳) = ۱/۶."
+        },
+        {
+          "id": "DIS-M6-02-02-B",
+          "label": "ب",
+          "content": "$\\frac{۷۲}{۴۳۲}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کسر ضرب شده اما ساده نشده است."
+        },
+        {
+          "id": "DIS-M6-02-02-C",
+          "label": "ج",
+          "content": "$\\frac{۱}{۳}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در ساده کردن ۸ با ۱۶."
+        },
+        {
+          "id": "DIS-M6-02-02-D",
+          "label": "د",
+          "content": "$\\frac{۱}{۲}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در ساده کردن ۹ با ۲۷."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C02-03",
+      "kc_id": "KC-MATH6-C02-03",
+      "stem": "چه تعداد نوار $\\frac{۱}{۸}$ متری در نواری به طول $\\frac{۳}{۴}$ متر جا می‌شود؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionDivisionVisualizer",
+        "props": {
+          "initialPresetId": "p1"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-03-A",
+          "label": "الف",
+          "content": "۶ نوار",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳/۴ مساوی ۶/۸ است، پس دقیقاً ۶ تا نوار ۱/۸ جا می‌شود."
+        },
+        {
+          "id": "DIS-M6-02-03-B",
+          "label": "ب",
+          "content": "۳ نوار",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH2-DIV-NO-INVERT",
+          "rationale": "فقط صورت در نظر گرفته شده است."
+        },
+        {
+          "id": "DIS-M6-02-03-C",
+          "label": "ج",
+          "content": "۲۴ نوار",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب ۳ در ۸ بدون تقسیم بر ۴."
+        },
+        {
+          "id": "DIS-M6-02-03-D",
+          "label": "د",
+          "content": "۲ نوار",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم ۸ بر ۴ بدون توجه به صورت ۳."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C02-04",
+      "kc_id": "KC-MATH6-C02-04",
+      "stem": "حاصل تقسیم $\\frac{۵}{۶} \\div \\frac{۲}{۳}$ برابر با کدام گزینه است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionDivisionVisualizer",
+        "props": {
+          "initialPresetId": "p1"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-04-A",
+          "label": "الف",
+          "content": "$۱\\frac{۱}{۴}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: (۵/۶) × (۳/۲) = ۱۵/۱۲ = ۵/۴ = ۱ و ۱/۴."
+        },
+        {
+          "id": "DIS-M6-02-04-B",
+          "label": "ب",
+          "content": "$\\frac{۵}{۹}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH2-DIV-NO-INVERT",
+          "rationale": "ضرب دو کسر بدون معکوس کردن دوم (۵×۲ / ۶×۳ = ۱۰/۱۸ = ۵/۹)."
+        },
+        {
+          "id": "DIS-M6-02-04-C",
+          "label": "ج",
+          "content": "$\\frac{۴}{۵}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH2-INVERT-BOTH",
+          "rationale": "معکوس کردن هر دو کسر."
+        },
+        {
+          "id": "DIS-M6-02-04-D",
+          "label": "د",
+          "content": "$\\frac{۱۰}{۱۸}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH2-DIV-NO-INVERT",
+          "rationale": "ضرب مستقیم بدون معکوس."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C02-05",
+      "kc_id": "KC-MATH6-C02-05",
+      "stem": "حاصل عبارت $\\frac{۱}{۲} + \\frac{۱}{۲} \\times \\frac{۱}{۳}$ کدام است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 6,
+          "initialColored": 4
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-05-A",
+          "label": "الف",
+          "content": "$\\frac{۲}{۳}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: اول ضرب: (۱/۲)×(۱/۳) = ۱/۶. سپس جمع: ۱/۲ + ۱/۶ = ۳/۶ + ۱/۶ = ۴/۶ = ۲/۳."
+        },
+        {
+          "id": "DIS-M6-02-05-B",
+          "label": "ب",
+          "content": "$\\frac{۱}{۳}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH2-OP-PRIORITY",
+          "rationale": "جمع قبل از ضرب: ۱/۲ + ۱/۲ = ۱، سپس ۱ × ۱/۳ = ۱/۳."
+        },
+        {
+          "id": "DIS-M6-02-05-C",
+          "label": "ج",
+          "content": "$\\frac{۱}{۶}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فقط حاصل ضرب محاسبه شده است."
+        },
+        {
+          "id": "DIS-M6-02-05-D",
+          "label": "د",
+          "content": "$\\frac{۳}{۸}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع مستقیم صورت‌ها و مخرج‌ها."
+        }
+      ]
+    }
+  ]
+}

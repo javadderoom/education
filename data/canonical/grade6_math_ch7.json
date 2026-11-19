@@ -1,0 +1,356 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH07",
+  "title": "ریاضی پایه ششم ابتدایی - فصل هفتم: تقریب و آمار",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH07",
+    "name": "تقریب و آمار (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C07-01",
+      "title": "تقریب به روش قطع کردن (Truncation) با مرتبه‌های مختلف (کمتر از ۱۰، ۱۰۰، ۱۰۰۰)",
+      "bloom_level": "understand",
+      "description": "حذف ارقام کمتر از مرتبه تقریب و جایگزینی با صفر.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C07-02",
+      "title": "تقریب به روش گرد کردن (Rounding) و بررسی مرز رقم ۵",
+      "bloom_level": "apply",
+      "description": "بررسی رقم بعد از مرتبه تقریب؛ اگر ۵ یا بیشتر بود یک واحد اضافه می‌شود.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C07-03",
+      "title": "مقایسه روش قطع کردن و گرد کردن و محاسبه خطای تقریب",
+      "bloom_level": "analyze",
+      "description": "محاسبه اختلاف مقدار واقعی و مقدار تقریبی (خطای تقریب).",
+      "prerequisites": [
+        "KC-MATH6-C07-01",
+        "KC-MATH6-C07-02"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C07-04",
+      "title": "رسم و تحلیل نمودار دایره‌ای با محاسبه زاویه مرکزی هر بخش",
+      "bloom_level": "apply",
+      "description": "محاسبه زاویه مرکزی با فرمول: درصد × ۳.۶ درجه یا کسر × ۳۶۰ درجه.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C07-05",
+      "title": "حل مسائل ترکیبی تقریب در محاسبات روزمره و آمار",
+      "bloom_level": "analyze",
+      "description": "تخمین پاسخ قبل از محاسبه دقیق و تحلیل نتایج آماری.",
+      "prerequisites": [
+        "KC-MATH6-C07-03",
+        "KC-MATH6-C07-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH7-TRUNC-VS-ROUND",
+      "title": "اشتباه گرفتن روش قطع کردن با گرد کردن",
+      "description": "دانش‌آموز در روش قطع کردن به رقم بعدی نگاه می‌کند و در صورت ۵ بودن اضافه می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "در قطع کردن عدد ۲۷۸ به تقریب کمتر از ۱۰، پاسخ ۲۷۰ است نه ۲۸۰.",
+        "visual_counter_example": "ApproximationRuler"
+      }
+    },
+    {
+      "id": "MIS-G6-CH7-ROUND-DIGIT-ADD",
+      "title": "اضافه کردن به رقم نادرست در گرد کردن به بالا",
+      "description": "به جای رقم مرتبه تقریب، ۱ واحد به رقم بعدی یا رقم یکان اضافه می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "گرد کردن ۳۴۸ به تقریب کمتر از ۱۰۰ می‌شود ۳۰۰ نه ۳۵۰.",
+        "visual_counter_example": "ApproximationRuler"
+      }
+    },
+    {
+      "id": "MIS-G6-CH7-CIRCLE-ANGLE-360",
+      "title": "ضرب درصد در ۱۰۰ به جای ۳.۶ برای زاویه مرکزی نمودار دایره‌ای",
+      "description": "دانش‌آموز درصد را مستقیماً به عنوان درجه زاویه در نظر می‌گیرد (کل دایره ۳۶۰ درجه است نه ۱۰۰).",
+      "counter_example_blueprint": {
+        "scenario": "۲۵٪ مساحت دایره برابر با یک چهارم ۳۶۰ درجه = ۹۰ درجه است نه ۲۵ درجه.",
+        "visual_counter_example": "ProbabilitySpinner"
+      }
+    },
+    {
+      "id": "MIS-G6-CH7-APPROX-ERROR-SIGN",
+      "title": "منفی در نظر گرفتن خطای تقریب",
+      "description": "دانش‌آموز خطای تقریب را منفی گزارش می‌کند در حالی که خطا همیشه مقداری مثبت و تفاضل مطلق است.",
+      "counter_example_blueprint": {
+        "scenario": "خطای تقریب فاصله مقدار واقعی از تقریب است و همواره نامنفی است.",
+        "visual_counter_example": "ApproximationRuler"
+      }
+    },
+    {
+      "id": "MIS-G6-CH7-PRECISION-ORDER",
+      "title": "سردرگمی بین تقریب کمتر از ۱، کمتر از ۰.۱ و کمتر از ۱۰",
+      "description": "دانش‌آموز مرتبه تقریب یکان و دهم را جا به جا می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "تقریب کمتر از ۱۰ یعنی مرتبه دهگان حفظ شود.",
+        "visual_counter_example": "ApproximationRuler"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C07-01",
+      "kc_id": "KC-MATH6-C07-01",
+      "stem": "مقدار تقریبی عدد $۳,۴۷۸$ به روش **قطع کردن با تقریب کمتر از ۱۰۰** کدام است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ApproximationRuler",
+        "props": {
+          "initialNumber": 3478,
+          "initialPrecision": 100
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-01-A",
+          "label": "الف",
+          "content": "۳,۴۰۰",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در قطع کردن، تمام ارقام کمتر از صدگان (۷۸) صفر می‌شوند و پاسخ ۳,۴۰۰ است."
+        },
+        {
+          "id": "DIS-M6-07-01-B",
+          "label": "ب",
+          "content": "۳,۵۰۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-TRUNC-VS-ROUND",
+          "rationale": "روش گرد کردن اعمال شده است (چون ۷ >= ۵ است به ۴ اضافه شده)."
+        },
+        {
+          "id": "DIS-M6-07-01-C",
+          "label": "ج",
+          "content": "۳,۴۷۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-PRECISION-ORDER",
+          "rationale": "تقریب کمتر از ۱۰ به جای ۱۰۰ انجام شده است."
+        },
+        {
+          "id": "DIS-M6-07-01-D",
+          "label": "د",
+          "content": "۳,۰۰۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقریب کمتر از ۱۰۰۰ انجام شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C07-02",
+      "kc_id": "KC-MATH6-C07-02",
+      "stem": "مقدار تقریبی عدد $۲,۵۶۴$ به روش **گرد کردن با تقریب کمتر از ۱۰۰** کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ApproximationRuler",
+        "props": {
+          "initialNumber": 2564,
+          "initialPrecision": 100
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-02-A",
+          "label": "الف",
+          "content": "۲,۶۰۰",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: رقم بعد از صدگان ۶ است (>= ۵)، پس ۱ واحد به ۵ اضافه می‌شود و ارقام بعدی صفر می‌گردند: ۲,۶۰۰."
+        },
+        {
+          "id": "DIS-M6-07-02-B",
+          "label": "ب",
+          "content": "۲,۵۰۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-TRUNC-VS-ROUND",
+          "rationale": "روش قطع کردن به جای گرد کردن اعمال شده است."
+        },
+        {
+          "id": "DIS-M6-07-02-C",
+          "label": "ج",
+          "content": "۲,۵۶۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-PRECISION-ORDER",
+          "rationale": "تقریب کمتر از ۱۰ اعمال شده است."
+        },
+        {
+          "id": "DIS-M6-07-02-D",
+          "label": "د",
+          "content": "۳,۰۰۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقریب کمتر از ۱۰۰۰ انجام شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C07-03",
+      "kc_id": "KC-MATH6-C07-03",
+      "stem": "عدد $۴۲۷$ را یک بار با قطع کردن و یک بار با گرد کردن (با تقریب کمتر از ۱۰) تقریب می‌زنیم. **خطای تقریب در روش گرد کردن** چند واحد است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ApproximationRuler",
+        "props": {
+          "initialNumber": 427,
+          "initialPrecision": 10
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-03-A",
+          "label": "الف",
+          "content": "۳ واحد",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: گرد شده ۴۲۷ می‌شود ۴۳۰؛ خطای تقریب = ۴۳۰ - ۴۲۷ = ۳ واحد."
+        },
+        {
+          "id": "DIS-M6-07-03-B",
+          "label": "ب",
+          "content": "۷ واحد",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-TRUNC-VS-ROUND",
+          "rationale": "خطای روش قطع کردن (۴۲۷ - ۴۲۰ = ۷) گزارش شده است."
+        },
+        {
+          "id": "DIS-M6-07-03-C",
+          "label": "ج",
+          "content": "-۳ واحد",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-APPROX-ERROR-SIGN",
+          "rationale": "خطا همیشه مقداری نامنفی و تفاضل مطلق است."
+        },
+        {
+          "id": "DIS-M6-07-03-D",
+          "label": "د",
+          "content": "۱۰ واحد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مرتبه تقریب به جای خطا پاسخ داده شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C07-04",
+      "kc_id": "KC-MATH6-C07-04",
+      "stem": "در یک نظرسنجی، **۲۵٪ افراد** به گزینه اول رای داده‌اند. در نمودار دایره‌ای، زاویه مرکزی بخش مربوط به این گروه چند درجه است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ProbabilitySpinner",
+        "props": {
+          "segments": [
+            {
+              "label": "25%",
+              "color": "indigo"
+            }
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-04-A",
+          "label": "الف",
+          "content": "۹۰ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: کل دایره ۳۶۰ درجه است؛ ۲۵٪ از ۳۶۰ درجه = (۲۵ × ۳۶۰) ÷ ۱۰۰ = ۹۰ درجه (زاویه قائمه)."
+        },
+        {
+          "id": "DIS-M6-07-04-B",
+          "label": "ب",
+          "content": "۲۵ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-CIRCLE-ANGLE-360",
+          "rationale": "درصد مستقیماً به جای زاویه در نظر گرفته شده است."
+        },
+        {
+          "id": "DIS-M6-07-04-C",
+          "label": "ج",
+          "content": "۴۵ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نصف ۹۰ درجه."
+        },
+        {
+          "id": "DIS-M6-07-04-D",
+          "label": "د",
+          "content": "۱۸۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "زاویه نیم‌صفحه (۵۰٪)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C07-05",
+      "kc_id": "KC-MATH6-C07-05",
+      "stem": "کدام مقایسه درباره خطای تقریب روش‌های قطع کردن و گرد کردن همواره درست است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ApproximationRuler",
+        "props": {
+          "initialNumber": 276,
+          "initialPrecision": 10
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-05-A",
+          "label": "الف",
+          "content": "خطای گرد کردن همواره کوچکتر یا مساوی خطای قطع کردن است",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: چون گرد کردن نزدیک‌ترین عدد مضرب مرتبه را انتخاب می‌کند، خطای آن حداکثر نصف مرتبه است."
+        },
+        {
+          "id": "DIS-M6-07-05-B",
+          "label": "ب",
+          "content": "خطای قطع کردن همیشه کمتر است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قطع کردن در ارقام ۵ تا ۹ خطای بیشتری دارد."
+        },
+        {
+          "id": "DIS-M6-07-05-C",
+          "label": "ج",
+          "content": "خطای هر دو روش همواره مساوی است",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH7-TRUNC-VS-ROUND",
+          "rationale": "فقط زمانی که رقم بعدی صفر باشد برابرند."
+        },
+        {
+          "id": "DIS-M6-07-05-D",
+          "label": "د",
+          "content": "خطای تقریب به اندازه خود عدد است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا حداکثر به اندازه مرتبه تقریب است."
+        }
+      ]
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import { IntegerNumberLine } from "../components/parametric/IntegerNumberLine";
 import { AngleRelationshipVisualizer } from "../components/parametric/AngleRelationshipVisualizer";
 import { FractionDivisionVisualizer } from "../components/parametric/FractionDivisionVisualizer";
 import { CylinderVolumeVisualizer } from "../components/parametric/CylinderVolumeVisualizer";
+import { ApproximationRuler } from "../components/parametric/ApproximationRuler";
 import { VisualTemplateRenderer } from "../components/parametric/VisualTemplateRegistry";
 
 describe("Grade 6 Spatial, Algebraic & Diagnostic Manipulatives Suite", () => {
@@ -256,6 +257,55 @@ describe("Grade 6 Spatial, Algebraic & Diagnostic Manipulatives Suite", () => {
         />
       );
       expect(screen.getByRole("img", { name: /نمایش تصویری استوانه/ })).toBeDefined();
+    });
+
+    it("dispatches ApproximationRuler correctly", () => {
+      render(
+        <VisualTemplateRenderer
+          template={{
+            type: "ApproximationRuler",
+            props: { initialNumber: 468, initialPrecision: 10 },
+          }}
+        />
+      );
+      expect(screen.getByRole("img", { name: /خط‌کش تقریب/ })).toBeDefined();
+    });
+  });
+
+  describe("ApproximationRuler (Truncation vs Rounding & Error Calculation)", () => {
+    it("renders approximation ruler with truncation, rounding and comparison indicators", () => {
+      render(<ApproximationRuler initialNumber={468} initialPrecision={10} />);
+
+      expect(screen.getByRole("img", { name: /خط‌کش تقریب/ })).toBeDefined();
+      expect(screen.getByText("روش قطع کردن (حذف ارقام)")).toBeDefined();
+      expect(screen.getByText("روش گرد کردن (نزدیک‌ترین)")).toBeDefined();
+      expect(screen.getAllByText(/خطای تقریب:/).length).toBeGreaterThan(0);
+    });
+
+    it("allows switching approximation precision level between 10, 100, and 1000", () => {
+      render(<ApproximationRuler initialNumber={468} initialPrecision={10} />);
+
+      const p100Btn = screen.getByText("کمتر از ۱۰۰");
+      fireEvent.click(p100Btn);
+
+      expect(p100Btn.className).toContain("bg-white text-indigo-700");
+
+      const p1000Btn = screen.getByText("کمتر از ۱۰۰۰");
+      fireEvent.click(p1000Btn);
+
+      expect(p1000Btn.className).toContain("bg-white text-indigo-700");
+    });
+
+    it("calculates truncation and rounding results accurately for edge values", () => {
+      render(<ApproximationRuler initialNumber={468} initialPrecision={10} />);
+
+      // For 468 with precision 10:
+      // Truncation: 460 (Persian: ۴۶۰, error: ۸ واحد)
+      // Rounding: 470 (Persian: ۴۷۰, error: ۲ واحد)
+      expect(screen.getAllByText("۴۶۰").length).toBeGreaterThan(0);
+      expect(screen.getAllByText("۴۷۰").length).toBeGreaterThan(0);
+      expect(screen.getByText(/خطای تقریب: ۸ واحد/)).toBeDefined();
+      expect(screen.getByText(/خطای تقریب: ۲ واحد/)).toBeDefined();
     });
   });
 });

@@ -1,0 +1,349 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH05",
+  "title": "ریاضی پایه ششم ابتدایی - فصل پنجم: اندازه‌گیری",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH05",
+    "name": "اندازه‌گیری و استوانه (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C05-01",
+      "title": "واحدهای اندازه‌گیری سطح، هکتار و تبدیل آن به مترمربع",
+      "bloom_level": "understand",
+      "description": "درک اینکه ۱ هکتار = ۱۰,۰۰۰ مترمربع (مربع ۱۰۰×۱۰۰ متر).",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C05-02",
+      "title": "زاویه‌های متقابل به رأس و ویژگی برابری زاویه‌های روبه‌رو",
+      "bloom_level": "apply",
+      "description": "تشخیص برابری زاویه‌های متقابل به رأس در تقاطع دو خط مستقیم.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C05-03",
+      "title": "زاویه‌های متمم (مجموع ۹۰ درجه) و زاویه‌های مکمل (مجموع ۱۸۰ درجه)",
+      "bloom_level": "apply",
+      "description": "یافتن زاویه مجهول در زاویه‌های متمم و مکمل.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C05-04",
+      "title": "محاسبه حجم استوانه: مساحت قاعده دایره‌ای × ارتفاع",
+      "bloom_level": "apply",
+      "description": "فرمول حجم استوانه V = π × r² × h.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C05-05",
+      "title": "مساحت جانبی و مساحت کل استوانه در نمای گسترده",
+      "bloom_level": "analyze",
+      "description": "مساحت جانبی = محیط قاعده × ارتفاع = 2πrh و مساحت کل.",
+      "prerequisites": [
+        "KC-MATH6-C05-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH5-HECTARE-CONVERT",
+      "title": "اشتباه در ضریب تبدیل هکتار به مترمربع (۱۰۰۰ به جای ۱۰۰۰۰)",
+      "description": "دانش‌آموز هر هکتار را ۱۰۰۰ مترمربع فرض می‌کند به جای ۱۰,۰۰۰.",
+      "counter_example_blueprint": {
+        "scenario": "هکتار مساحت یک مربع به ضلع ۱۰۰ متر است: ۱۰۰ × ۱۰۰ = ۱۰,۰۰۰ مترمربع.",
+        "visual_counter_example": "AreaGrid"
+      }
+    },
+    {
+      "id": "MIS-G6-CH5-SUPP-COMP-CONFUSION",
+      "title": "اشتباه گرفتن زاویه متمم با مکمل",
+      "description": "دانش‌آموز مجموع زاویه‌های متمم را ۱۸۰ یا مکمل را ۹۰ درجه در نظر می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "متمم یعنی کامل‌کننده تا ۹۰ درجه قائمه، مکمل یعنی کامل‌کننده تا ۱۸۰ درجه نیم‌صفحه.",
+        "visual_counter_example": "AngleRelationshipVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH5-CYLINDER-BASE-CIRCUM",
+      "title": "استفاده از محیط قاعده به جای مساحت قاعده در محاسبه حجم استوانه",
+      "description": "دانش‌آموز حجم را ۲πrh محاسبه می‌کند به جای πr²h.",
+      "counter_example_blueprint": {
+        "scenario": "حجم حاصل‌ضرب مساحت کف در ارتفاع است، نه محیط دور کف.",
+        "visual_counter_example": "CylinderVolumeVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH5-CYLINDER-NET-RECT",
+      "title": "ندانستن طول مستطیل سطح جانبی در گسترده استوانه",
+      "description": "دانش‌آموز طول مستطیل گسترده را شعاع یا قطر فرض می‌کند به جای محیط دایره ۲πr.",
+      "counter_example_blueprint": {
+        "scenario": "باز کردن دور قوطی استوانه‌ای روی کاغذ.",
+        "visual_counter_example": "CylinderVolumeVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH5-VERTICAL-ANGLES-SUM",
+      "title": "جمع زدن زاویه‌های متقابل به رأس با ۱۸۰ به جای برابری مستقیم",
+      "description": "دانش‌آموز زاویه‌های روبه‌رو را مکمل هم فرض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "زاویه‌های متقابل به رأس روبه‌روی هم قرار دارند و مساویند.",
+        "visual_counter_example": "AngleRelationshipVisualizer"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C05-01",
+      "kc_id": "KC-MATH6-C05-01",
+      "stem": "زمین کشاورزی مستطیل‌شکلی به ابعاد ۲۰۰ متر در ۳۰۰ متر، مساحتی معادل **چند هکتار** دارد؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 60
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-01-A",
+          "label": "الف",
+          "content": "۶ هکتار",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲۰۰ × ۳۰۰ = ۶۰,۰۰۰ مترمربع؛ ۶۰,۰۰۰ ÷ ۱۰,۰۰۰ = ۶ هکتار."
+        },
+        {
+          "id": "DIS-M6-05-01-B",
+          "label": "ب",
+          "content": "۶۰ هکتار",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-HECTARE-CONVERT",
+          "rationale": "تقسیم بر ۱۰۰۰ به جای ۱۰,۰۰۰."
+        },
+        {
+          "id": "DIS-M6-05-01-C",
+          "label": "ج",
+          "content": "۰.۶ هکتار",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم بر ۱۰۰,۰۰۰."
+        },
+        {
+          "id": "DIS-M6-05-01-D",
+          "label": "د",
+          "content": "۶۰۰ هکتار",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-HECTARE-CONVERT",
+          "rationale": "تقسیم بر ۱۰۰."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C05-02",
+      "kc_id": "KC-MATH6-C05-02",
+      "stem": "دو خط راست یکدیگر را قطع کرده‌اند. اگر یکی از زاویه‌ها ۵۰ درجه باشد، **زاویه روبه‌روی آن (متقابل به رأس)** چند درجه است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AngleRelationshipVisualizer",
+        "props": {
+          "initialMode": "vertical",
+          "initialAngle": 50
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-02-A",
+          "label": "الف",
+          "content": "۵۰ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: زاویه‌های متقابل به رأس همواره با هم برابرند."
+        },
+        {
+          "id": "DIS-M6-05-02-B",
+          "label": "ب",
+          "content": "۱۳۰ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-VERTICAL-ANGLES-SUM",
+          "rationale": "زاویه مجاور (مکمل) به جای زاویه روبه‌رو گزارش شده است."
+        },
+        {
+          "id": "DIS-M6-05-02-C",
+          "label": "ج",
+          "content": "۴۰ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-SUPP-COMP-CONFUSION",
+          "rationale": "محاسبه متمم."
+        },
+        {
+          "id": "DIS-M6-05-02-D",
+          "label": "د",
+          "content": "۱۰۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دو برابر کردن زاویه."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C05-03",
+      "kc_id": "KC-MATH6-C05-03",
+      "stem": "متمم یک زاویه ۶۵ درجه، چند درجه است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AngleRelationshipVisualizer",
+        "props": {
+          "initialMode": "complementary",
+          "initialAngle": 65
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-03-A",
+          "label": "الف",
+          "content": "۲۵ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مجموع زوایای متمم ۹۰ است؛ ۹۰ - ۶۵ = ۲۵ درجه."
+        },
+        {
+          "id": "DIS-M6-05-03-B",
+          "label": "ب",
+          "content": "۱۱۵ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-SUPP-COMP-CONFUSION",
+          "rationale": "زاویه مکمل (۱۸۰ - ۶۵) محاسبه شده است."
+        },
+        {
+          "id": "DIS-M6-05-03-C",
+          "label": "ج",
+          "content": "۳۵ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای تفریق."
+        },
+        {
+          "id": "DIS-M6-05-03-D",
+          "label": "د",
+          "content": "۶۵ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "برابر فرض کردن."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C05-04",
+      "kc_id": "KC-MATH6-C05-04",
+      "stem": "یک استوانه به **شعاع قاعده ۳ سانتی‌متر** و **ارتفاع ۱۰ سانتی‌متر** است. **حجم این استوانه** با فرض $\\pi \\approx ۳.۱۴$ چند سانتی‌متر مکعب است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CylinderVolumeVisualizer",
+        "props": {
+          "initialRadius": 3,
+          "initialHeight": 10
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-04-A",
+          "label": "الف",
+          "content": "۲۸۲.۶ سانتی‌متر مکعب",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳ × ۳ × ۳.۱۴ = ۲۸.۲۶؛ ۲۸.۲۶ × ۱۰ = ۲۸۲.۶ سانتی‌متر مکعب."
+        },
+        {
+          "id": "DIS-M6-05-04-B",
+          "label": "ب",
+          "content": "۱۸۸.۴ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-CYLINDER-BASE-CIRCUM",
+          "rationale": "محیط قاعده در ارتفاع ضرب شده (۲ × ۳ × ۳.۱۴ × ۱۰ = ۱۸۸.۴)."
+        },
+        {
+          "id": "DIS-M6-05-04-C",
+          "label": "ج",
+          "content": "۹۴.۲ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۳ × ۳.۱۴ × ۱۰ بدون توان ۲ شعاع."
+        },
+        {
+          "id": "DIS-M6-05-04-D",
+          "label": "د",
+          "content": "۲۸.۲۶ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فقط مساحت قاعده بدون ضرب در ارتفاع."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C05-05",
+      "kc_id": "KC-MATH6-C05-05",
+      "stem": "وقتی سطح جانبی یک استوانه را باز (گسترده) می‌کنیم، یک شکل هندسی ساخته می‌شود که طول آن برابر با کدام گزینه است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CylinderVolumeVisualizer",
+        "props": {
+          "initialRadius": 3,
+          "initialHeight": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-05-A",
+          "label": "الف",
+          "content": "یک مستطیل که طول آن برابر محیط قاعده دایره است",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: سطح جانبی استوانه مستطیلی به عرض h و طول مساوی با محیط دایره ۲πr است."
+        },
+        {
+          "id": "DIS-M6-05-05-B",
+          "label": "ب",
+          "content": "یک مستطیل که طول آن برابر قطر دایره است",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH5-CYLINDER-NET-RECT",
+          "rationale": "طول مستطیل محیط دایره است نه فقط قطر آن."
+        },
+        {
+          "id": "DIS-M6-05-05-C",
+          "label": "ج",
+          "content": "یک مربع به ضلع مساوی شعاع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ابعاد استوانه ربطی به مربع شعاع ندارد."
+        },
+        {
+          "id": "DIS-M6-05-05-D",
+          "label": "د",
+          "content": "یک دایره بزرگتر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "سطح جانبی تخت‌شده مستطیل است نه دایره."
+        }
+      ]
+    }
+  ]
+}

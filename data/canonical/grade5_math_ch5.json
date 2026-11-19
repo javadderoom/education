@@ -1,0 +1,363 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH05",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل پنجم: عددهای اعشاری",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH05",
+    "name": "عددهای اعشاری (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C05-01",
+      "title": "مفهوم اعشار، مرتبه‌های دهم، صدم و هزارم در جدول ارزش مکانی",
+      "bloom_level": "understand",
+      "description": "نمایش و خواندن اعداد اعشاری تا مرتبه هزارم.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C05-02",
+      "title": "تبدیل کسر با مخرج ۱۰، ۱۰۰ و ۱۰۰۰ به عدد اعشاری و برعکس",
+      "bloom_level": "apply",
+      "description": "تبدیل کسرهای اعشاری و درک نقش ممیز.",
+      "prerequisites": [
+        "KC-MATH5-C05-01"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C05-03",
+      "title": "مقایسه و ترتیب عددهای اعشاری با هم‌مرتبه کردن ارقام",
+      "bloom_level": "analyze",
+      "description": "مقایسه ارقام از چپ به راست و افزودن صفرهای بی‌اثر سمت راست اعشار.",
+      "prerequisites": [
+        "KC-MATH5-C05-01"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C05-04",
+      "title": "جمع و تفریق عددهای اعشاری با تراز کردن خط ممیز",
+      "bloom_level": "apply",
+      "description": "قرار دادن ممیز زیر ممیز و اجرای محاسبات ستونی.",
+      "prerequisites": [
+        "KC-MATH5-C05-03"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C05-05",
+      "title": "ضرب عددهای اعشاری و محاسبه تعداد ارقام اعشار حاصل‌ضرب",
+      "bloom_level": "apply",
+      "description": "ضرب بدون ممیز و قرار دادن ممیز به اندازه مجموع ارقام اعشاری.",
+      "prerequisites": [
+        "KC-MATH5-C05-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH5-DEC-COMPARE-LENGTH",
+      "title": "پنداشت بزرگی عدد اعشاری به دلیل تعداد ارقام بیشتر",
+      "description": "دانش‌آموز تصور می‌کند ۰.۱۲۵ از ۰.۴ بزرگتر است چون سه رقم دارد.",
+      "counter_example_blueprint": {
+        "scenario": "مقایسه ۰.۴۰ و ۰.۱۲۵ در جدول ارزش مکانی.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G5-CH5-DEC-ALIGN-RIGHT",
+      "title": "تراز کردن راست‌چین به جای تراز کردن ممیز در جمع و تفریق",
+      "description": "دانش‌آموز ۲.۵ و ۱.۳۵ را از سمت راست تراز می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "جمع ستونی ۲.۵ و ۱.۳۵ با تراز ممیزها.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G5-CH5-MULT-DEC-PLACES",
+      "title": "شمارش نادرست ارقام اعشاری حاصل‌ضرب",
+      "description": "دانش‌آموز ارقام اعشار هر دو عامل را جمع نمی‌زند و فقط اعشار یک عامل را می‌گذارد.",
+      "counter_example_blueprint": {
+        "scenario": "ضرب ۰.۲ در ۰.۳ برابر ۰.۰۶ است نه ۰.۶.",
+        "visual_counter_example": "FractionAreaMultiplier"
+      }
+    },
+    {
+      "id": "MIS-G5-CH5-ZERO-RIGHT",
+      "title": "تصور تغییر ارزش با اضافه کردن صفر در انتهای بخش اعشاری",
+      "description": "دانش‌آموز تصور می‌کند ۰.۵ با ۰.۵۰ برابر نیست.",
+      "counter_example_blueprint": {
+        "scenario": "نمایش ۵ دهم و ۵۰ صدم روی شبکه ۱۰۰ تایی.",
+        "visual_counter_example": "AreaGrid"
+      }
+    },
+    {
+      "id": "MIS-G5-CH5-SUB-EMPTY-SLOT",
+      "title": "تفریق نکردن از صفر در مرتبه‌های خالی اعشاری",
+      "description": "در ۵ - ۲.۳۴، ارقام ۳ و ۴ را مستقیماً پایین می‌آورد.",
+      "counter_example_blueprint": {
+        "scenario": "نوشتن ۵ به صورت ۵.۰۰ قبل از تفریق.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C05-01",
+      "kc_id": "KC-MATH5-C05-01",
+      "stem": "کسر $\\frac{۳۵}{۱۰۰۰}$ به صورت عدد اعشاری کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 0.035,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-01-A",
+          "label": "الف",
+          "content": "۰.۰۳۵",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مخرج ۱۰۰۰ یعنی ۳ رقم اعشار، پس ۰.۰۳۵."
+        },
+        {
+          "id": "DIS-M5-05-01-B",
+          "label": "ب",
+          "content": "۰.۳۵",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-ZERO-RIGHT",
+          "rationale": "۰.۳۵ برابر ۳۵ صدم است."
+        },
+        {
+          "id": "DIS-M5-05-01-C",
+          "label": "ج",
+          "content": "۰.۳۵۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۰.۳۵۰ برابر ۳۵ صدم است."
+        },
+        {
+          "id": "DIS-M5-05-01-D",
+          "label": "د",
+          "content": "۳.۵",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ممیز بعد از ۳ گذاشته شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C05-02",
+      "kc_id": "KC-MATH5-C05-02",
+      "stem": "کدام مقایسه بین اعداد اعشاری زیر درست است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 0.4,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-02-A",
+          "label": "الف",
+          "content": "$۰.۴ > ۰.۳۷۵$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۴ دهم از ۳ دهم بزرگتر است."
+        },
+        {
+          "id": "DIS-M5-05-02-B",
+          "label": "ب",
+          "content": "$۰.۳۷۵ > ۰.۴$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-DEC-COMPARE-LENGTH",
+          "rationale": "پنداشت اینکه تعداد ارقام بیشتر نشان‌دهنده عدد بزرگتر است."
+        },
+        {
+          "id": "DIS-M5-05-02-C",
+          "label": "ج",
+          "content": "$۰.۰۸ > ۰.۲$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-DEC-COMPARE-LENGTH",
+          "rationale": "۸ صدم از ۲ دهم کوچکتر است."
+        },
+        {
+          "id": "DIS-M5-05-02-D",
+          "label": "د",
+          "content": "$۱.۲ < ۱.۰۹$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۲ دهم از ۰ دهم بزرگتر است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C05-03",
+      "kc_id": "KC-MATH5-C05-03",
+      "stem": "حاصل جمع $۳.۶ + ۲.۴۵$ کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 6.05,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-03-A",
+          "label": "الف",
+          "content": "۶.۰۵",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳.۶۰ + ۲.۴۵ = ۶.۰۵."
+        },
+        {
+          "id": "DIS-M5-05-03-B",
+          "label": "ب",
+          "content": "۲.۸۱",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-DEC-ALIGN-RIGHT",
+          "rationale": "تراز راست‌چین اشتباه."
+        },
+        {
+          "id": "DIS-M5-05-03-C",
+          "label": "ج",
+          "content": "۵.۱۱",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در انتقال."
+        },
+        {
+          "id": "DIS-M5-05-03-D",
+          "label": "د",
+          "content": "۶.۵",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "حذف رقم صدم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C05-04",
+      "kc_id": "KC-MATH5-C05-04",
+      "stem": "حاصل تفریق $۵ - ۲.۳۴$ کدام است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 2.66,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-04-A",
+          "label": "الف",
+          "content": "۲.۶۶",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۵.۰۰ - ۲.۳۴ = ۲.۶۶."
+        },
+        {
+          "id": "DIS-M5-05-04-B",
+          "label": "ب",
+          "content": "۳.۳۴",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-SUB-EMPTY-SLOT",
+          "rationale": "ارقام ۳۴ بدون تفریق از صفر پایین آورده شده‌اند."
+        },
+        {
+          "id": "DIS-M5-05-04-C",
+          "label": "ج",
+          "content": "۳.۶۶",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "قرض نگرفتن از ۵."
+        },
+        {
+          "id": "DIS-M5-05-04-D",
+          "label": "د",
+          "content": "۲.۷۶",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در تفریق."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C05-05",
+      "kc_id": "KC-MATH5-C05-05",
+      "stem": "حاصل ضرب $۰.۴ \\times ۰.۰۳$ کدام است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "AreaGrid",
+        "props": {
+          "rows": 10,
+          "cols": 10,
+          "initialColored": 12
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-05-05-A",
+          "label": "الف",
+          "content": "۰.۰۱۲",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳ رقم اعشار، پس ۰.۰۱۲."
+        },
+        {
+          "id": "DIS-M5-05-05-B",
+          "label": "ب",
+          "content": "۰.۱۲",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-MULT-DEC-PLACES",
+          "rationale": "فقط ۲ رقم اعشار لحاظ شده است."
+        },
+        {
+          "id": "DIS-M5-05-05-C",
+          "label": "ج",
+          "content": "۱.۲",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH5-MULT-DEC-PLACES",
+          "rationale": "فقط ۱ رقم اعشار لحاظ شده است."
+        },
+        {
+          "id": "DIS-M5-05-05-D",
+          "label": "د",
+          "content": "۰.۰۰۱۲",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "چهار رقم اعشار اشتباه."
+        }
+      ]
+    }
+  ]
+}

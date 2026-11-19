@@ -1,0 +1,355 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH01",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل اول: عددنویسی و الگوها",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH01",
+    "name": "عددنویسی و الگوها (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C01-01",
+      "title": "یادآوری عددنویسی، جدول ارزش مکانی تا طبقه میلیارد و خواندن و نوشتن اعداد بزرگ",
+      "bloom_level": "understand",
+      "description": "درک طبقات یکی‌ها، هزارها، میلیون‌ها و میلیاردها و تفکیک دسته‌های سه‌تایی.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C01-02",
+      "title": "الگوهای عددی و هندسی و رابطه ریاضی بین شماره شکل و تعداد",
+      "bloom_level": "apply",
+      "description": "کشف رابطه حسابی و ضربی در الگوها و بیان فرمولی تعداد با شماره شکل.",
+      "prerequisites": [
+        "KC-MATH5-C01-01"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C01-03",
+      "title": "مفهوم عددهای مرکب و تبدیل واحدهای زمان (ساعت، دقیقه، ثانیه)",
+      "bloom_level": "understand",
+      "description": "درک مبنای ۶۰ در محاسبات زمانی و تفکیک آن از مبنای ده‌دهی.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C01-04",
+      "title": "جمع عددهای مرکب زمانی با انتقال و تبدیل بسته‌های ۶۰تایی",
+      "bloom_level": "apply",
+      "description": "جمع ستونی ثانیه‌ها و دقیقه‌ها و انتقال هر ۶۰ ثانیه به ۱ دقیقه.",
+      "prerequisites": [
+        "KC-MATH5-C01-03"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C01-05",
+      "title": "تفریق عددهای مرکب زمانی با قرض گرفتن ۶۰تایی",
+      "bloom_level": "apply",
+      "description": "تفریق زمان‌ها و تبدیل ۱ ساعت به ۶۰ دقیقه در صورت ناکافی بودن مقدار.",
+      "prerequisites": [
+        "KC-MATH5-C01-03"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH1-BILLION-ZEROS",
+      "title": "حذف یا نادیده گرفتن صفرهای میانی در عددنویسی تا میلیارد",
+      "description": "دانش‌آموز مرتبه‌های خالی طبقه میلیون یا هزار را در عددنویسی جا می‌اندازد.",
+      "counter_example_blueprint": {
+        "scenario": "عدد دو میلیارد و پنج هزار را بدون صفرهای طبقه میلیون بنویسید.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G5-CH1-PATTERN-DIFF",
+      "title": "پنداشت اختلاف ثابت به جای رابطه متناظر شماره شکل",
+      "description": "دانش‌آموز فقط به اختلاف دو شکل متوالی توجه می‌کند و نمی‌تواند شکل صدم را بدون رسم شکل‌های میانی بیابد.",
+      "counter_example_blueprint": {
+        "scenario": "پیدا کردن تعداد در شکل پنجاهم الگو.",
+        "visual_counter_example": "MatchstickPattern"
+      }
+    },
+    {
+      "id": "MIS-G5-CH1-TIME-BASE10",
+      "title": "قرض گرفتن ۱۰تایی به جای ۶۰تایی در تفریق زمان‌های مرکب",
+      "description": "دانش‌آموز در تفریق زمان‌ها، به جای قرض گرفتن ۶۰ دقیقه از ساعت، ۱۰ دقیقه قرض می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "محاسبه اختلاف ۲ ساعت و ۱۰ دقیقه با ۱ ساعت و ۵۰ دقیقه.",
+        "visual_counter_example": "CompoundUnitCalculator"
+      }
+    },
+    {
+      "id": "MIS-G5-CH1-TIME-OVERFLOW",
+      "title": "عدم تبدیل ثانیه‌ها و دقیقه‌های بیشتر از ۶۰ به واحد بزرگتر",
+      "description": "دانش‌آموز حاصل جمع ۷۵ ثانیه را به صورت ۱ دقیقه و ۱۵ ثانیه ساده نمی‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "جمع ۴۵ ثانیه و ۳۰ ثانیه.",
+        "visual_counter_example": "CompoundUnitCalculator"
+      }
+    },
+    {
+      "id": "MIS-G5-CH1-PLACE-VAL-SHIFT",
+      "title": "جابه‌جایی طبقه میلیون و میلیارد در جدول ارزش مکانی",
+      "description": "دانش‌آموز جایگاه طبقه میلیارد را با میلیون جابه‌جا می‌نویسد.",
+      "counter_example_blueprint": {
+        "scenario": "بررسی ارزش مکانی رقم ۴ در عدد ۴,۰۰۰,۰۰۰,۰۰۰.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C01-01",
+      "kc_id": "KC-MATH5-C01-01",
+      "stem": "عدد «پنج میلیارد و هفتاد میلیون و چهارصد» به رقم کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 5070000400,
+          "tiers": [
+            "billions",
+            "millions",
+            "thousands",
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-01-A",
+          "label": "الف",
+          "content": "۵,۰۷۰,۰۰۰,۴۰۰",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۵ در میلیارد، ۰۷۰ در میلیون، ۰۰۰ در هزار و ۴۰۰ در یکی‌ها."
+        },
+        {
+          "id": "DIS-M5-01-01-B",
+          "label": "ب",
+          "content": "۵,۷۰۰,۰۰۰,۴۰۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-BILLION-ZEROS",
+          "rationale": "هفتاد میلیون با هفتصد میلیون اشتباه شده است."
+        },
+        {
+          "id": "DIS-M5-01-01-C",
+          "label": "ج",
+          "content": "۵,۰۷۰,۴۰۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-PLACE-VAL-SHIFT",
+          "rationale": "طبقه هزارها حذف شده است."
+        },
+        {
+          "id": "DIS-M5-01-01-D",
+          "label": "د",
+          "content": "۵۰,۰۷۰,۰۰۰,۴۰۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "پنج میلیارد در دهگان میلیارد نوشته شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C01-02",
+      "kc_id": "KC-MATH5-C01-02",
+      "stem": "در الگوی ۳، ۷، ۱۱، ۱۵، ... تعداد چوب‌کبریت‌ها در **شکل بیستم** چند تاست؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "MatchstickPattern",
+        "props": {
+          "stepCount": 4
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-02-A",
+          "label": "الف",
+          "content": "۷۹",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: (۲۰ × ۴) - ۱ = ۷۹."
+        },
+        {
+          "id": "DIS-M5-01-02-B",
+          "label": "ب",
+          "content": "۸۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-PATTERN-DIFF",
+          "rationale": "فقط ضرب در ۴ انجام شده است."
+        },
+        {
+          "id": "DIS-M5-01-02-C",
+          "label": "ج",
+          "content": "۸۳",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "اضافه کردن ۳ به جای کم کردن ۱."
+        },
+        {
+          "id": "DIS-M5-01-02-D",
+          "label": "د",
+          "content": "۲۳",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-PATTERN-DIFF",
+          "rationale": "جمع ۲۰ با ۳."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C01-03",
+      "kc_id": "KC-MATH5-C01-03",
+      "stem": "مدت زمان ۱۸۵ دقیقه برابر با کدام گزینه است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CompoundUnitCalculator",
+        "props": {
+          "initialH": 3,
+          "initialM": 5,
+          "initialS": 0
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-03-A",
+          "label": "الف",
+          "content": "۳ ساعت و ۵ دقیقه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۸۵ تقسیم بر ۶۰ می‌شود ۳ با باقیمانده ۵ دقیقه."
+        },
+        {
+          "id": "DIS-M5-01-03-B",
+          "label": "ب",
+          "content": "۱ ساعت و ۸۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-OVERFLOW",
+          "rationale": "بسته‌های ۶۰تایی دقیقه تبدیل نشده‌اند."
+        },
+        {
+          "id": "DIS-M5-01-03-C",
+          "label": "ج",
+          "content": "۲ ساعت و ۶۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-OVERFLOW",
+          "rationale": "۶۵ دقیقه هنوز بیش از ۶۰ است."
+        },
+        {
+          "id": "DIS-M5-01-03-D",
+          "label": "د",
+          "content": "۳ ساعت و ۲۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-BASE10",
+          "rationale": "محاسبه با مبنای ۱۰۰."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C01-04",
+      "kc_id": "KC-MATH5-C01-04",
+      "stem": "حاصل جمع دو زمان «۲ ساعت و ۴۵ دقیقه» و «۱ ساعت و ۳۵ دقیقه» کدام است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CompoundUnitCalculator",
+        "props": {
+          "mode": "addition"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-04-A",
+          "label": "الف",
+          "content": "۴ ساعت و ۲۰ دقیقه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۸۰ دقیقه می‌شود ۱ ساعت و ۲۰ دقیقه، جمعاً ۴ ساعت و ۲۰ دقیقه."
+        },
+        {
+          "id": "DIS-M5-01-04-B",
+          "label": "ب",
+          "content": "۳ ساعت و ۸۰ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-OVERFLOW",
+          "rationale": "۸۰ دقیقه تبدیل نشده است."
+        },
+        {
+          "id": "DIS-M5-01-04-C",
+          "label": "ج",
+          "content": "۴ ساعت و ۸۰ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-BASE10",
+          "rationale": "تبدیل اشتباه مبنا."
+        },
+        {
+          "id": "DIS-M5-01-04-D",
+          "label": "د",
+          "content": "۳ ساعت و ۲۰ دقیقه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۱ ساعت حاصله افزوده نشده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C01-05",
+      "kc_id": "KC-MATH5-C01-05",
+      "stem": "حاصل تفریق «۳ ساعت و ۱۵ دقیقه» منهای «۱ ساعت و ۴۰ دقیقه» کدام است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CompoundUnitCalculator",
+        "props": {
+          "mode": "subtraction"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-01-05-A",
+          "label": "الف",
+          "content": "۱ ساعت و ۳۵ دقیقه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: از ۳ ساعت ۶۰ دقیقه قرض می‌گیریم که با ۱۵ می‌شود ۷۵ دقیقه؛ ۷۵ - ۴۰ = ۳۵ دقیقه و ۲ - ۱ = ۱ ساعت."
+        },
+        {
+          "id": "DIS-M5-01-05-B",
+          "label": "ب",
+          "content": "۱ ساعت و ۲۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-BASE10",
+          "rationale": "قرض گرفتن ۱۰تایی به جای ۶۰تایی."
+        },
+        {
+          "id": "DIS-M5-01-05-C",
+          "label": "ج",
+          "content": "۲ ساعت و ۲۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ساعت اولیه کم نشده است."
+        },
+        {
+          "id": "DIS-M5-01-05-D",
+          "label": "د",
+          "content": "۱ ساعت و ۷۵ دقیقه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH1-TIME-OVERFLOW",
+          "rationale": "تفریق ۴۰ دقیقه اعمال نشده است."
+        }
+      ]
+    }
+  ]
+}

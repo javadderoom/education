@@ -261,6 +261,23 @@ async function main() {
     },
   });
 
+  const class6 = await prisma.classroom.upsert({
+    where: { id: "CLASS-GRADE6-A" },
+    update: {
+      name: "کلاس ششم الف",
+      gradeLevel: 6,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+    create: {
+      id: "CLASS-GRADE6-A",
+      name: "کلاس ششم الف",
+      gradeLevel: 6,
+      schoolName: "دبستان هوشمند شهید بهشتی",
+      teacherId: teacher.id,
+    },
+  });
+
   // Seed Demo Students
   console.log("Seeding Demo Students...");
   await prisma.learner.upsert({
@@ -335,6 +352,44 @@ async function main() {
       gradeLevel: 5,
       role: "student",
       classroomId: class5.id,
+      pinCode: "1234",
+    },
+  });
+
+  await prisma.learner.upsert({
+    where: { username: "student_grade6_demo" },
+    update: {
+      displayName: "امیرعلی کاظمی",
+      gradeLevel: 6,
+      role: "student",
+      classroomId: class6.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_grade6_demo",
+      displayName: "امیرعلی کاظمی",
+      gradeLevel: 6,
+      role: "student",
+      classroomId: class6.id,
+      pinCode: "1234",
+    },
+  });
+
+  await prisma.learner.upsert({
+    where: { username: "student_fatemeh_grade6" },
+    update: {
+      displayName: "فاطمه حسینی",
+      gradeLevel: 6,
+      role: "student",
+      classroomId: class6.id,
+      pinCode: "1234",
+    },
+    create: {
+      username: "student_fatemeh_grade6",
+      displayName: "فاطمه حسینی",
+      gradeLevel: 6,
+      role: "student",
+      classroomId: class6.id,
       pinCode: "1234",
     },
   });

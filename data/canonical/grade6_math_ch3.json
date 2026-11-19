@@ -1,0 +1,362 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH03",
+  "title": "ریاضی پایه ششم ابتدایی - فصل سوم: اعداد اعشاری",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH03",
+    "name": "اعداد اعشاری و تقسیم اعشار (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C03-01",
+      "title": "یادآوری و ضرب اعداد اعشاری و ضرب سریع در توان‌های ۱۰",
+      "bloom_level": "understand",
+      "description": "حرکت ممیز به سمت راست در ضرب در ۱۰، ۱۰۰ و ۱۰۰۰.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C03-02",
+      "title": "تقسیم عدد اعشاری بر عدد طبیعی تا چند رقم اعشار در خارج‌قسمت",
+      "bloom_level": "apply",
+      "description": "پایین آوردن ممیز در هنگام رسیدن به ممیز مقسوم در تقسیم.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C03-03",
+      "title": "تقسیم عدد اعشاری بر عدد اعشاری با حذف ممیز مقسوم‌علیه (ضرب در ۱۰، ۱۰۰ یا ۱۰۰۰)",
+      "bloom_level": "apply",
+      "description": "صحیح کردن مقسوم‌علیه و ضرب همزمان مقسوم در همان توان ۱۰.",
+      "prerequisites": [
+        "KC-MATH6-C03-02"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C03-04",
+      "title": "ارتباط تقسیم باقیمانده جدید و باقیمانده واقعی در تقسیم‌های اعشاری",
+      "bloom_level": "analyze",
+      "description": "تقسیم باقیمانده بر توان ۱۰ برای بازگرداندن باقیمانده واقعی.",
+      "prerequisites": [
+        "KC-MATH6-C03-03"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C03-05",
+      "title": "نمایش اعداد اعشاری روی محور و تقریب اعشاری",
+      "bloom_level": "apply",
+      "description": "یافتن جایگاه اعشار با تقسیم فاصله واحدها به ۱۰ یا ۱۰۰ قسمت.",
+      "prerequisites": [
+        "KC-MATH6-C03-01"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH3-DIV-NO-SHIFT-DIVIDEND",
+      "title": "جابجا کردن ممیز مقسوم‌علیه بدون جابجایی ممیز مقسوم",
+      "description": "دانش‌آموز ممیز مقسوم‌علیه را حذف می‌کند اما مقسوم را در همان توان ۱۰ ضرب نمی‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم ۴.۸ بر ۱.۲ با ضرب هر دو در ۱۰ می‌شود ۴۸ بر ۱۲ = ۴.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G6-CH3-REMAINDER-SCALE",
+      "title": "عدم تبدیل باقیمانده نهایی به باقیمانده واقعی",
+      "description": "در تقسیم ضرب‌شده در ۱۰۰، باقیمانده را ۱۰۰ برابر ارزش واقعی آن در نظر می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "اگر مقسوم در ۱۰ ضرب شده باشد، باقیمانده باید بر ۱۰ تقسیم شود.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G6-CH3-DEC-DIV-BY-ZERO",
+      "title": "اشتباه در جابجایی ممیز در ضرب و تقسیم بر توان‌های ۱۰",
+      "description": "در ضرب ممیز را به چپ و در تقسیم به راست می‌برد.",
+      "counter_example_blueprint": {
+        "scenario": "۲.۵ × ۱۰ = ۲۵ (بزرگتر می‌شود، ممیز به راست).",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G6-CH3-FORGET-DIV-DEC-POINT",
+      "title": "فراموش کردن گذاشتن ممیز در خارج‌قسمت هنگام عبور از ممیز مقسوم",
+      "description": "دانش‌آموز ممیز را در خارج‌قسمت قرار نمی‌دهد و حاصل را یک عدد صحیح بزرگ به دست می‌آورد.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم ۱۲.۴ بر ۲ مساوی ۶.۲ است نه ۶۲.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G6-CH3-DIV-SMALL-BY-BIG",
+      "title": "تصور اینکه همیشه عدد بزرگتر باید بر عدد کوچکتر تقسیم شود",
+      "description": "در تقسیم ۰.۴ بر ۲، جای مقسوم و مقسوم‌علیه را عوض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "۰.۴ تقسیم بر ۲ می‌شود ۰.۲.",
+        "visual_counter_example": "AreaGrid"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C03-01",
+      "kc_id": "KC-MATH6-C03-01",
+      "stem": "حاصل ضرب $۰.۰۴۵ \\times ۱۰۰$ کدام است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 4.5,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-01-A",
+          "label": "الف",
+          "content": "۴.۵",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در ضرب در ۱۰۰، ممیز ۲ رقم به سمت راست می‌رود، پس ۴.۵."
+        },
+        {
+          "id": "DIS-M6-03-01-B",
+          "label": "ب",
+          "content": "۰.۴۵",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-DEC-DIV-BY-ZERO",
+          "rationale": "فقط ۱ رقم به راست حرکت داده شده است."
+        },
+        {
+          "id": "DIS-M6-03-01-C",
+          "label": "ج",
+          "content": "۴۵",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۳ رقم به راست رفته است."
+        },
+        {
+          "id": "DIS-M6-03-01-D",
+          "label": "د",
+          "content": "۰.۰۰۰۴۵",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-DEC-DIV-BY-ZERO",
+          "rationale": "ممیز به سمت چپ رفته است (تقسیم به جای ضرب)."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C03-02",
+      "kc_id": "KC-MATH6-C03-02",
+      "stem": "حاصل تقسیم $۱۵.۶ \\div ۳$ کدام است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 5.2,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-02-A",
+          "label": "الف",
+          "content": "۵.۲",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۵ بر ۳ می‌شود ۵، ممیز گذاشته می‌شود و ۶ بر ۳ می‌شود ۲؛ حاصل ۵.۲."
+        },
+        {
+          "id": "DIS-M6-03-02-B",
+          "label": "ب",
+          "content": "۵۲",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-FORGET-DIV-DEC-POINT",
+          "rationale": "ممیز در خارج‌قسمت فراموش شده است."
+        },
+        {
+          "id": "DIS-M6-03-02-C",
+          "label": "ج",
+          "content": "۰.۵۲",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "یک رقم اعشار اضافه گذاشته شده است."
+        },
+        {
+          "id": "DIS-M6-03-02-D",
+          "label": "د",
+          "content": "۵.۰۲",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "صفر بیهوده میانی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C03-03",
+      "kc_id": "KC-MATH6-C03-03",
+      "stem": "برای انجام تقسیم $۴.۸ \\div ۰.۴$، هر دو عدد را در چه عددی ضرب می‌کنیم و حاصل کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 12,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-03-A",
+          "label": "الف",
+          "content": "ضرب در ۱۰ و حاصل برابر ۱۲ است",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مقسوم‌علیه ۱ رقم اعشار دارد، هر دو در ۱۰ ضرب می‌شوند: ۴۸ ÷ ۴ = ۱۲."
+        },
+        {
+          "id": "DIS-M6-03-03-B",
+          "label": "ب",
+          "content": "ضرب در ۱۰ و حاصل برابر ۱.۲ است",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-DIV-NO-SHIFT-DIVIDEND",
+          "rationale": "ممیز مقسوم ضرب نشده است (۴.۸ ÷ ۴ = ۱.۲)."
+        },
+        {
+          "id": "DIS-M6-03-03-C",
+          "label": "ج",
+          "content": "ضرب در ۱۰۰ و حاصل برابر ۱۲۰ است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب در ۱۰۰ غیرضروری است و حاصل تغییر نمی‌کند."
+        },
+        {
+          "id": "DIS-M6-03-03-D",
+          "label": "د",
+          "content": "حاصل برابر ۰.۱۲ است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطای ممیز."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C03-04",
+      "kc_id": "KC-MATH6-C03-04",
+      "stem": "در تقسیم $۷.۳ \\div ۰.۴$، هر دو عدد را در ۱۰ ضرب کرده و تقسیم ۷۳ بر ۴ را انجام می‌دهیم. خارج‌قسمت ۱۸ و باقیمانده ۱ می‌شود. **باقیمانده واقعی** کدام است؟",
+      "difficulty": 0.55,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 0.1,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-04-A",
+          "label": "الف",
+          "content": "۰.۱",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: چون مقسوم در ۱۰ ضرب شده بود، باقیمانده جدید (۱) باید بر ۱۰ تقسیم شود تا باقیمانده واقعی (۰.۱) به دست آید."
+        },
+        {
+          "id": "DIS-M6-03-04-B",
+          "label": "ب",
+          "content": "۱",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-REMAINDER-SCALE",
+          "rationale": "دانش‌آموز باقیمانده جدید را با باقیمانده واقعی اشتباه گرفته است."
+        },
+        {
+          "id": "DIS-M6-03-04-C",
+          "label": "ج",
+          "content": "۰.۰۱",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم بر ۱۰۰ به جای ۱۰."
+        },
+        {
+          "id": "DIS-M6-03-04-D",
+          "label": "د",
+          "content": "۱۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ضرب در ۱۰ به جای تقسیم."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C03-05",
+      "kc_id": "KC-MATH6-C03-05",
+      "stem": "حاصل تقسیم $۰.۷۲ \\div ۰.۰۸$ کدام است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 9,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-05-A",
+          "label": "الف",
+          "content": "۹",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: هر دو در ۱۰۰ ضرب می‌شوند: ۷۲ ÷ ۸ = ۹."
+        },
+        {
+          "id": "DIS-M6-03-05-B",
+          "label": "ب",
+          "content": "۰.۹",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH3-DIV-NO-SHIFT-DIVIDEND",
+          "rationale": "ضرب مقسوم در ۱۰ به جای ۱۰۰."
+        },
+        {
+          "id": "DIS-M6-03-05-C",
+          "label": "ج",
+          "content": "۹۰",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "یک صفر اضافی در ضرب مقسوم."
+        },
+        {
+          "id": "DIS-M6-03-05-D",
+          "label": "د",
+          "content": "۰.۰۹",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "حذف نشدن ممیز."
+        }
+      ]
+    }
+  ]
+}

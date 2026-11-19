@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Sparkles, Layers, Scale, Grid, Box, RotateCw, Shapes, Circle, Clock, ArrowLeftRight, Compass, Divide, Cylinder } from "lucide-react";
+import { Sparkles, Layers, Scale, Grid, Box, RotateCw, Shapes, Circle, Clock, ArrowLeftRight, Compass, Divide, Cylinder, Scissors } from "lucide-react";
 import { FractionStrip } from "@/components/parametric/FractionStrip";
 import { BalanceScale } from "@/components/parametric/BalanceScale";
 import { AreaGrid } from "@/components/parametric/AreaGrid";
@@ -17,6 +17,7 @@ import { IntegerNumberLine } from "@/components/parametric/IntegerNumberLine";
 import { AngleRelationshipVisualizer } from "@/components/parametric/AngleRelationshipVisualizer";
 import { FractionDivisionVisualizer } from "@/components/parametric/FractionDivisionVisualizer";
 import { CylinderVolumeVisualizer } from "@/components/parametric/CylinderVolumeVisualizer";
+import { ApproximationRuler } from "@/components/parametric/ApproximationRuler";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
@@ -41,7 +42,8 @@ export default function WorkshopPage() {
     | "integer_line"
     | "angle_relations"
     | "fraction_div"
-    | "cylinder";
+    | "cylinder"
+    | "approx_ruler";
 
   const [activeTab, setActiveTab] = useState<TabType>(
     isGrade6 ? "coordinate_grid" : isGrade5 ? "volume" : "strip"
@@ -143,6 +145,17 @@ export default function WorkshopPage() {
             >
               <Cylinder className="w-3.5 h-3.5 text-indigo-600" />
               <span>استوانه و گسترده</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("approx_ruler")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "approx_ruler" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Scissors className="w-3.5 h-3.5 text-indigo-600" />
+              <span>تقریب و گرد کردن</span>
             </button>
           </div>
         ) : isGrade5 ? (
@@ -494,6 +507,12 @@ export default function WorkshopPage() {
         {activeTab === "cylinder" && (
           <div className="py-2">
             <CylinderVolumeVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "approx_ruler" && (
+          <div className="py-2">
+            <ApproximationRuler interactive={true} />
           </div>
         )}
       </div>

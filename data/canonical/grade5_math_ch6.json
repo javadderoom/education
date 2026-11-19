@@ -1,0 +1,352 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH06",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل ششم: اندازه‌گیری",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH06",
+    "name": "اندازه‌گیری (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C06-01",
+      "title": "محاسبه مساحت لوزی با قطرهای آن: (قطر بزرگ × قطر کوچک) تقسیم بر ۲",
+      "bloom_level": "apply",
+      "description": "درک فرمول مساحت لوزی و اثبات هندسی با مستطیل احاطه‌کننده.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C06-02",
+      "title": "محاسبه مساحت ذوزنقه: (مجموع دو قاعده × ارتفاع) تقسیم بر ۲",
+      "bloom_level": "apply",
+      "description": "تبدیل دو ذوزنقه مساوی به یک متوازی‌الاضلاع.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C06-03",
+      "title": "محیط و مساحت دایره با عدد پی (۳.۱۴)",
+      "bloom_level": "apply",
+      "description": "محیط = قطر × ۳.۱۴ و مساحت = شعاع × شعاع × ۳.۱۴.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C06-04",
+      "title": "مفهوم حجم و شمارش مکعب‌های واحد ۱ سانتی‌متری در مکعب‌مستطیل",
+      "bloom_level": "understand",
+      "description": "درک حجم به عنوان طول × عرض × ارتفاع با مکعب‌های ۱ سانتی‌متر مکعب.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C06-05",
+      "title": "واحدهای گنجایش (لیتر و سی‌سی) و تبدیل آن به سانتی‌متر مکعب",
+      "bloom_level": "apply",
+      "description": "درک اینکه ۱ لیتر = ۱۰۰۰ سانتی‌متر مکعب = ۱۰۰۰ سی‌سی.",
+      "prerequisites": [
+        "KC-MATH5-C06-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH6-FORGET-DIV2",
+      "title": "فراموش کردن تقسیم بر ۲ در مساحت لوزی و ذوزنقه",
+      "description": "دانش‌آموز قطرها را ضرب می‌کند اما تقسیم بر ۲ را جا می‌اندازد.",
+      "counter_example_blueprint": {
+        "scenario": "لوزی نیمی از مستطیل احاطه‌کننده است.",
+        "visual_counter_example": "PolygonAreaDecomposer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH6-RADIUS-DIAMETER",
+      "title": "اشتباه گرفتن شعاع با قطر در مساحت و محیط دایره",
+      "description": "دانش‌آموز به جای شعاع در فرمول مساحت، قطر را قرار می‌دهد.",
+      "counter_example_blueprint": {
+        "scenario": "محاسبه مساحت دایره به قطر ۶.",
+        "visual_counter_example": "CircleMeasurementVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH6-LITER-CONVERT",
+      "title": "اشتباه در ضریب تبدیل لیتر به سانتی‌متر مکعب (۱۰۰ به جای ۱۰۰۰)",
+      "description": "دانش‌آموز ضریب تبدیل را ۱۰۰ فرض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "مکعب ۱۰×۱۰×۱۰ سانتی‌متر دارای حجم ۱۰۰۰ سانتی‌متر مکعب است که دقیقاً ۱ لیتر است.",
+        "visual_counter_example": "VolumePrismVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH6-TRAPEZOID-BASES",
+      "title": "ضرب کردن دو قاعده ذوزنقه در هم به جای جمع آنها",
+      "description": "در فرمول مساحت ذوزنقه، به جای جمع دو قاعده، آنها را ضرب می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "اثبات با چسباندن دو ذوزنقه مساوی برای ساخت متوازی‌الاضلاع.",
+        "visual_counter_example": "PolygonAreaDecomposer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH6-VOLUME-SURFACE",
+      "title": "اشتباه گرفتن حجم (مکعب‌ها) با مساحت کل وجه‌ها",
+      "description": "دانش‌آموز مساحت وجه‌ها را با گنجایش داخلی اشتباه می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "شمارش لایه‌ای مکعب‌های ۱ سانتی‌متری.",
+        "visual_counter_example": "VolumePrismVisualizer"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C06-01",
+      "kc_id": "KC-MATH5-C06-01",
+      "stem": "قطرهای یک لوزی ۸ سانتی‌متر و ۶ سانتی‌متر هستند. **مساحت لوزی** چند سانتی‌متر مربع است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PolygonAreaDecomposer",
+        "props": {
+          "initialShapeType": "rhombus",
+          "diag1": 8,
+          "diag2": 6
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-06-01-A",
+          "label": "الف",
+          "content": "۲۴ سانتی‌متر مربع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: (۸ × ۶) ÷ ۲ = ۲۴ سانتی‌متر مربع."
+        },
+        {
+          "id": "DIS-M5-06-01-B",
+          "label": "ب",
+          "content": "۴۸ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-FORGET-DIV2",
+          "rationale": "تقسیم بر ۲ فراموش شده است."
+        },
+        {
+          "id": "DIS-M5-06-01-C",
+          "label": "ج",
+          "content": "۱۴ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع قطرها به جای مساحت."
+        },
+        {
+          "id": "DIS-M5-06-01-D",
+          "label": "د",
+          "content": "۲۸ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محیط تقریبی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C06-02",
+      "kc_id": "KC-MATH5-C06-02",
+      "stem": "یک ذوزنقه دارای قاعده‌های ۶ و ۱۰ سانتی‌متر و ارتفاع ۵ سانتی‌متر است. **مساحت آن** چند سانتی‌متر مربع است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PolygonAreaDecomposer",
+        "props": {
+          "initialShapeType": "trapezoid",
+          "baseA": 6,
+          "baseB": 10,
+          "height": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-06-02-A",
+          "label": "الف",
+          "content": "۴۰ سانتی‌متر مربع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ((۶ + ۱۰) × ۵) ÷ ۲ = ۴۰."
+        },
+        {
+          "id": "DIS-M5-06-02-B",
+          "label": "ب",
+          "content": "۸۰ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-FORGET-DIV2",
+          "rationale": "تقسیم بر ۲ اعمال نشده است."
+        },
+        {
+          "id": "DIS-M5-06-02-C",
+          "label": "ج",
+          "content": "۱۵۰ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-TRAPEZOID-BASES",
+          "rationale": "ضرب دو قاعده در هم."
+        },
+        {
+          "id": "DIS-M5-06-02-D",
+          "label": "د",
+          "content": "۲۱ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع ساده ابعاد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C06-03",
+      "kc_id": "KC-MATH5-C06-03",
+      "stem": "دایره‌ای به **شعاع ۵ سانتی‌متر** داریم. **مساحت این دایره** با فرض $\\pi \\approx ۳.۱۴$ چند سانتی‌متر مربع است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "CircleMeasurementVisualizer",
+        "props": {
+          "radius": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-06-03-A",
+          "label": "الف",
+          "content": "۷۸.۵ سانتی‌متر مربع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۵ × ۵ × ۳.۱۴ = ۷۸.۵."
+        },
+        {
+          "id": "DIS-M5-06-03-B",
+          "label": "ب",
+          "content": "۳۱.۴ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-RADIUS-DIAMETER",
+          "rationale": "محیط دایره محاسبه شده است."
+        },
+        {
+          "id": "DIS-M5-06-03-C",
+          "label": "ج",
+          "content": "۳۱۴ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-RADIUS-DIAMETER",
+          "rationale": "قرار دادن قطر ۱۰ در فرمول."
+        },
+        {
+          "id": "DIS-M5-06-03-D",
+          "label": "د",
+          "content": "۱۵.۷ سانتی‌متر مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "۵ × ۳.۱۴ بدون ضرب در شعاع."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C06-04",
+      "kc_id": "KC-MATH5-C06-04",
+      "stem": "یک جعبه به طول ۵، عرض ۴ و ارتفاع ۳ سانتی‌متر است. **حجم این جعبه** چند سانتی‌متر مکعب است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "VolumePrismVisualizer",
+        "props": {
+          "initialLength": 5,
+          "initialWidth": 4,
+          "initialHeight": 3
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-06-04-A",
+          "label": "الف",
+          "content": "۶۰ سانتی‌متر مکعب",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۵ × ۴ × ۳ = ۶۰ سانتی‌متر مکعب."
+        },
+        {
+          "id": "DIS-M5-06-04-B",
+          "label": "ب",
+          "content": "۹۴ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-VOLUME-SURFACE",
+          "rationale": "محاسبه مساحت کل به جای حجم."
+        },
+        {
+          "id": "DIS-M5-06-04-C",
+          "label": "ج",
+          "content": "۱۲ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع اضلاع."
+        },
+        {
+          "id": "DIS-M5-06-04-D",
+          "label": "د",
+          "content": "۳۰ سانتی‌متر مکعب",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نصف کردن حجم اشتباهی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C06-05",
+      "kc_id": "KC-MATH5-C06-05",
+      "stem": "یک مخزن مکعب‌مستطیل به ابعاد ۲۰، ۱۰ و ۱۵ سانتی‌متر گنجایش **چند لیتر آب** را دارد؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "VolumePrismVisualizer",
+        "props": {
+          "initialLength": 4,
+          "initialWidth": 3,
+          "initialHeight": 2
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-06-05-A",
+          "label": "الف",
+          "content": "۳ لیتر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۳۰۰۰ سانتی‌متر مکعب برابر ۳ لیتر است."
+        },
+        {
+          "id": "DIS-M5-06-05-B",
+          "label": "ب",
+          "content": "۳۰ لیتر",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-LITER-CONVERT",
+          "rationale": "تقسیم بر ۱۰۰ به جای ۱۰۰۰."
+        },
+        {
+          "id": "DIS-M5-06-05-C",
+          "label": "ج",
+          "content": "۳۰۰۰ لیتر",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH6-LITER-CONVERT",
+          "rationale": "عدم تبدیل واحد."
+        },
+        {
+          "id": "DIS-M5-06-05-D",
+          "label": "د",
+          "content": "۰.۳ لیتر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم بر ۱۰۰۰۰."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH04",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل چهارم: تقارن و چندضلعی‌ها",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH04",
+    "name": "تقارن و چندضلعی‌ها (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C04-01",
+      "title": "تقارن محوری، خطوط تقارن چندضلعی‌ها و رسم قرینه آینه‌ای",
+      "bloom_level": "understand",
+      "description": "تشخیص تعداد خطوط تقارن در چندضلعی‌های منتظم و غیرمنتظم.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C04-02",
+      "title": "مفهوم مرکز تقارن و دوران ۱۸۰ درجه شکل‌های هندسی",
+      "bloom_level": "understand",
+      "description": "تشخیص مرکز تقارن در متوازی‌الاضلاع، مستطیل، لوزی و دایره.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C04-03",
+      "title": "زاویه، نیمساز و ترسیم نیمساز با نقاله و پرگار",
+      "bloom_level": "apply",
+      "description": "تقسیم زاویه به دو قسمت مساوی با نیمساز.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C04-04",
+      "title": "مجموع زاویه‌های داخلی مثلث (۱۸۰ درجه) و محاسبه زاویه مجهول",
+      "bloom_level": "apply",
+      "description": "محاسبه زاویه سوم در انواع مثلث.",
+      "prerequisites": [
+        "KC-MATH5-C04-03"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C04-05",
+      "title": "مجموع زاویه‌های داخلی چهارضلعی‌ها (۳۶۰ درجه) و چندضلعی‌ها",
+      "bloom_level": "analyze",
+      "description": "تقسیم چهارضلعی به دو مثلث و اثبات مجموع ۳۶۰ درجه.",
+      "prerequisites": [
+        "KC-MATH5-C04-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH4-PARALLEL-AXIS",
+      "title": "پنداشت خط تقارن برای متوازی‌الاضلاع",
+      "description": "دانش‌آموز قطر متوازی‌الاضلاع را خط تقارن فرض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تا کردن متوازی‌الاضلاع از روی قطر.",
+        "visual_counter_example": "SymmetryPlayground"
+      }
+    },
+    {
+      "id": "MIS-G5-CH4-TRIANGLE-SUM",
+      "title": "اشتباه در مجموع زاویه‌های مثلث (فرض مقادیری غیر از ۱۸۰ درجه)",
+      "description": "دانش‌آموز مجموع زاویه‌های مثلث بزرگ را بیشتر از مثلث کوچک می‌داند.",
+      "counter_example_blueprint": {
+        "scenario": "مقایسه مجموع زوایای یک مثلث کوچک و یک مثلث بسیار بزرگ.",
+        "visual_counter_example": "ProtractorVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH4-BISECTOR-SIDE",
+      "title": "اشتباه گرفتن نیمساز زاویه با میانه یا عمودمنصف ضلع",
+      "description": "دانش‌آموز تصور می‌کند نیمساز زاویه لزوماً ضلع روبه‌رو را نصف می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "رسم نیمساز در مثلث مختلف‌الاضلاع.",
+        "visual_counter_example": "ProtractorVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH4-QUAD-SUM",
+      "title": "اشتباه در مجموع زوایای چهارضلعی (۱۸۰ به جای ۳۶۰ درجه)",
+      "description": "دانش‌آموز مجموع زوایای چهارضلعی را همان ۱۸۰ درجه مثلث فرض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "چهار زاویه ۹۰ درجه در مستطیل مجموعاً ۳۶۰ درجه هستند.",
+        "visual_counter_example": "ProtractorVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G5-CH4-CENTRAL-ROT",
+      "title": "سردرگمی بین دوران ۹۰ درجه و ۱۸۰ درجه در تقارن مرکزی",
+      "description": "دانش‌آموز چرخش ۹۰ درجه را برای تقارن مرکزی در نظر می‌گیرد.",
+      "counter_example_blueprint": {
+        "scenario": "دوران ۱۸۰ درجه متوازی‌الاضلاع حول نقطه برخورد قطرها.",
+        "visual_counter_example": "SymmetryPlayground"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C04-01",
+      "kc_id": "KC-MATH5-C04-01",
+      "stem": "کدام شکل هندسی دقیقاً **۲ خط تقارن** دارد؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": {
+          "initialMode": "axial",
+          "initialShape": "rectangle"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-01-A",
+          "label": "الف",
+          "content": "مستطیل (غیر مربع)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مستطیل دو خط تقارن عمودمنصف اضلاع دارد."
+        },
+        {
+          "id": "DIS-M5-04-01-B",
+          "label": "ب",
+          "content": "مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مربع ۴ خط تقارن دارد."
+        },
+        {
+          "id": "DIS-M5-04-01-C",
+          "label": "ج",
+          "content": "متوازی‌الاضلاع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-PARALLEL-AXIS",
+          "rationale": "متوازی‌الاضلاع خط تقارن ندارد."
+        },
+        {
+          "id": "DIS-M5-04-01-D",
+          "label": "د",
+          "content": "مثلث متساوی‌الاضلاع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مثلث متساوی‌الاضلاع ۳ خط تقارن دارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C04-02",
+      "kc_id": "KC-MATH5-C04-02",
+      "stem": "کدام‌یک از شکل‌های زیر **مرکز تقارن** دارد؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": {
+          "initialMode": "central",
+          "initialShape": "parallelogram"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-02-A",
+          "label": "الف",
+          "content": "متوازی‌الاضلاع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: با چرخش ۱۸۰ درجه حول مرکز تقاطع قطرها منطبق می‌شود."
+        },
+        {
+          "id": "DIS-M5-04-02-B",
+          "label": "ب",
+          "content": "مثلث متساوی‌الاضلاع",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-CENTRAL-ROT",
+          "rationale": "مثلث با ۱۸۰ درجه وارونه می‌شود."
+        },
+        {
+          "id": "DIS-M5-04-02-C",
+          "label": "ج",
+          "content": "ذوزنقه متساوی‌الساقین",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "ذوزنقه مرکز تقارن ندارد."
+        },
+        {
+          "id": "DIS-M5-04-02-D",
+          "label": "د",
+          "content": "پنج‌ضلعی منتظم",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تعداد اضلاع فرد است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C04-03",
+      "kc_id": "KC-MATH5-C04-03",
+      "stem": "نیمساز یک زاویه ۷۰ درجه، آن را به دو زاویه چند درجه تقسیم می‌کند؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ProtractorVisualizer",
+        "props": {
+          "angle": 70
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-03-A",
+          "label": "الف",
+          "content": "۳۵ درجه و ۳۵ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۷۰ ÷ ۲ = ۳۵."
+        },
+        {
+          "id": "DIS-M5-04-03-B",
+          "label": "ب",
+          "content": "۴۰ درجه و ۳۰ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-BISECTOR-SIDE",
+          "rationale": "نیمساز دقیقاً مساوی نصف می‌کند."
+        },
+        {
+          "id": "DIS-M5-04-03-C",
+          "label": "ج",
+          "content": "۱۴۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دو برابر کردن زاویه."
+        },
+        {
+          "id": "DIS-M5-04-03-D",
+          "label": "د",
+          "content": "۲۰ درجه و ۵۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم نامساوی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C04-04",
+      "kc_id": "KC-MATH5-C04-04",
+      "stem": "در یک مثلث، دو زاویه برابر با ۴۰ درجه و ۶۵ درجه هستند. اندازه **زاویه سوم** چند درجه است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ProtractorVisualizer",
+        "props": {
+          "angle": 75
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-04-A",
+          "label": "الف",
+          "content": "۷۵ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۸۰ - ۱۰۵ = ۷۵ درجه."
+        },
+        {
+          "id": "DIS-M5-04-04-B",
+          "label": "ب",
+          "content": "۸۵ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-TRIANGLE-SUM",
+          "rationale": "خطای محاسباتی."
+        },
+        {
+          "id": "DIS-M5-04-04-C",
+          "label": "ج",
+          "content": "۱۰۵ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مجموع دو زاویه به جای زاویه سوم."
+        },
+        {
+          "id": "DIS-M5-04-04-D",
+          "label": "د",
+          "content": "۲۵۵ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-QUAD-SUM",
+          "rationale": "تفریق از ۳۶۰."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C04-05",
+      "kc_id": "KC-MATH5-C04-05",
+      "stem": "مجموع زاویه‌های داخلی هر چهارضلعی همواره برابر با چند درجه است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": {
+          "initialShape": "parallelogram"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-04-05-A",
+          "label": "الف",
+          "content": "۳۶۰ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲ × ۱۸۰ = ۳۶۰ درجه."
+        },
+        {
+          "id": "DIS-M5-04-05-B",
+          "label": "ب",
+          "content": "۱۸۰ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH4-QUAD-SUM",
+          "rationale": "اشتباه با مجموع زاویه مثلث."
+        },
+        {
+          "id": "DIS-M5-04-05-C",
+          "label": "ج",
+          "content": "۵۴۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مجموع زوایای پنج‌ضلعی."
+        },
+        {
+          "id": "DIS-M5-04-05-D",
+          "label": "د",
+          "content": "۲۷۰ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مجموع ۳ زاویه قائمه."
+        }
+      ]
+    }
+  ]
+}

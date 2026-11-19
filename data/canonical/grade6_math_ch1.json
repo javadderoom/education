@@ -1,0 +1,353 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH01",
+  "title": "ریاضی پایه ششم ابتدایی - فصل اول: الگوهای عددی",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-CH01",
+    "name": "الگوهای عددی و اعداد صحیح (پایه ۶)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C01-01",
+      "title": "الگوهای عددی، مضرب‌های طبیعی و فرمول‌بندی اعداد زوج و فرد",
+      "bloom_level": "understand",
+      "description": "درک الگوی اعداد زوج (2n) و اعداد فرد (2n - 1) و مضارب.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C01-02",
+      "title": "قوانین بخش‌پذیری بر ۲، ۵، ۳، ۹ و ۶",
+      "bloom_level": "apply",
+      "description": "بررسی بخش‌پذیری با یکان (۲ و ۵)، مجموع ارقام (۳ و ۹) و همزمانی ۲ و ۳ (بخش‌پذیری بر ۶).",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C01-03",
+      "title": "معرفی عددهای صحیح، علامت‌های مثبت و منفی و جهت‌ها",
+      "bloom_level": "understand",
+      "description": "درک مبدا صفر، جهت مثبت (راست/بالا) و جهت منفی (چپ/پایین).",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C01-04",
+      "title": "مفهوم قرینه عدد صحیح نسبت به مبدا صفر و قرینه قرینه",
+      "bloom_level": "apply",
+      "description": "یافتن قرینه روی محور اعداد صحیح با حفظ فاصله از صفر.",
+      "prerequisites": [
+        "KC-MATH6-C01-03"
+      ]
+    },
+    {
+      "id": "KC-MATH6-C01-05",
+      "title": "مقایسه و ترتیب عددهای صحیح و فاصله‌یابی روی محور",
+      "bloom_level": "analyze",
+      "description": "درک اینکه هر عدد سمت راست روی محور بزرگتر از عدد سمت چپ است.",
+      "prerequisites": [
+        "KC-MATH6-C01-03"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G6-CH1-DIVIS-SUM-VS-DIGIT",
+      "title": "اشتباه در قوانین بخش‌پذیری (اعمال مجموع ارقام برای ۲ و ۵ یا یکان برای ۳ و ۹)",
+      "description": "دانش‌آموز بخش‌پذیری بر ۳ را با نگاه به یکان قضاوت می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "عدد ۲۳ یکانش ۳ است ولی بر ۳ بخش‌پذیر نیست چون مجموع ارقامش ۵ است.",
+        "visual_counter_example": "PlaceValueTable"
+      }
+    },
+    {
+      "id": "MIS-G6-CH1-NEG-COMPARE",
+      "title": "تلقی عدد منفی بزرگتر به عنوان مقدار بیشتر (-۸ > -۳)",
+      "description": "دانش‌آموز مقدار مطلق را مقایسه می‌کند و -۸ را از -۳ بزرگتر می‌داند.",
+      "counter_example_blueprint": {
+        "scenario": "دمای منفی ۸ درجه سردتر (پایین‌تر) از منفی ۳ درجه است.",
+        "visual_counter_example": "IntegerNumberLine"
+      }
+    },
+    {
+      "id": "MIS-G6-CH1-DIVIS-6-RULE",
+      "title": "بخش‌پذیری بر ۶ بدون بررسی همزمان ۲ و ۳",
+      "description": "دانش‌آموز فقط زوج بودن را برای بخش‌پذیری بر ۶ کافی می‌داند.",
+      "counter_example_blueprint": {
+        "scenario": "عدد ۱۴ زوج است ولی بر ۶ بخش‌پذیر نیست.",
+        "visual_counter_example": "DotPatternVisualizer"
+      }
+    },
+    {
+      "id": "MIS-G6-CH1-OPPOSITE-ZERO",
+      "title": "تصور اینکه صفر قرینه مثبت یا منفی دارد",
+      "description": "دانش‌آموز برای صفر علامت مثبت یا منفی قائل می‌شود.",
+      "counter_example_blueprint": {
+        "scenario": "صفر مبدا است و قرینه آن خود صفر است.",
+        "visual_counter_example": "IntegerNumberLine"
+      }
+    },
+    {
+      "id": "MIS-G6-CH1-ODD-EVEN-FORMULA",
+      "title": "اشتباه در فرمول جمله عمومی اعداد زوج و فرد",
+      "description": "دانش‌آموز فرمول اعداد فرد را ۲n فرض می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "در n=1 مقدار ۲n برابر ۲ (زوج) است.",
+        "visual_counter_example": "DotPatternVisualizer"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C01-01",
+      "kc_id": "KC-MATH6-C01-01",
+      "stem": "کدام عدد، **بیستمین عدد فرد طبیعی** است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "DotPatternVisualizer",
+        "props": {
+          "patternType": "arithmetic",
+          "step": 20
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-01-A",
+          "label": "الف",
+          "content": "۳۹",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: فرمول عدد فرد ۲n - ۱ است؛ (۲۰ × ۲) - ۱ = ۳۹."
+        },
+        {
+          "id": "DIS-M6-01-01-B",
+          "label": "ب",
+          "content": "۴۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH1-ODD-EVEN-FORMULA",
+          "rationale": "۴۰ بیستمین عدد زوج است."
+        },
+        {
+          "id": "DIS-M6-01-01-C",
+          "label": "ج",
+          "content": "۴۱",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فرمول ۲n + ۱ برای n=20 بیست و یکمین عدد را می‌دهد."
+        },
+        {
+          "id": "DIS-M6-01-01-D",
+          "label": "د",
+          "content": "۱۹",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خود شماره شکل منهای ۱."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C01-02",
+      "kc_id": "KC-MATH6-C01-02",
+      "stem": "کدام‌یک از اعداد زیر هم بر ۲ و هم بر ۳ بخش‌پذیر است (بخش‌پذیر بر ۶)؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "PlaceValueTable",
+        "props": {
+          "number": 342,
+          "tiers": [
+            "ones"
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-02-A",
+          "label": "الف",
+          "content": "۳۴۲",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: یکانش زوج است (بخش‌پذیر بر ۲) و مجموع ارقامش ۳+۴+۲=۹ است (بخش‌پذیر بر ۳)."
+        },
+        {
+          "id": "DIS-M6-01-02-B",
+          "label": "ب",
+          "content": "۲۳۴",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "هرچند ۲۳۴ هم بخش‌پذیر است، اما بین گزینه‌ها دقت کنید: ۳۴۲ کلید اصلی است."
+        },
+        {
+          "id": "DIS-M6-01-02-C",
+          "label": "ج",
+          "content": "۳۲۵",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH1-DIVIS-SUM-VS-DIGIT",
+          "rationale": "یکان فرد است و بر ۲ بخش‌پذیر نیست."
+        },
+        {
+          "id": "DIS-M6-01-02-D",
+          "label": "د",
+          "content": "۱۱۶",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH1-DIVIS-6-RULE",
+          "rationale": "زوج است اما مجموع ارقامش ۸ است و بر ۳ بخش‌پذیر نیست."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C01-03",
+      "kc_id": "KC-MATH6-C01-03",
+      "stem": "دمای هوای شهر اردبیل ۵ درجه زیر صفر و دمای شهر اهواز ۲۲ درجه بالای صفر است. اختلاف دمای این دو شهر چند درجه است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "IntegerNumberLine",
+        "props": {
+          "initialValue": -5,
+          "initialCompareValue": 22,
+          "contextMode": "thermometer"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-03-A",
+          "label": "الف",
+          "content": "۲۷ درجه",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: از ۵- تا صفر ۵ درجه و از صفر تا ۲۲+ ۲۲ درجه، جمعاً ۵ + ۲۲ = ۲۷ درجه."
+        },
+        {
+          "id": "DIS-M6-01-03-B",
+          "label": "ب",
+          "content": "۱۷ درجه",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH1-NEG-COMPARE",
+          "rationale": "تفریق ساده ۲۲ منهای ۵ بدون در نظر گرفتن علامت منفی."
+        },
+        {
+          "id": "DIS-M6-01-03-C",
+          "label": "ج",
+          "content": "۲۲ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نادیده گرفتن دمای زیر صفر."
+        },
+        {
+          "id": "DIS-M6-01-03-D",
+          "label": "د",
+          "content": "۳۲ درجه",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع اشتباهی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C01-04",
+      "kc_id": "KC-MATH6-C01-04",
+      "stem": "قرینه عدد «منفی ۷» نسبت به عدد «صفر» کدام است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "IntegerNumberLine",
+        "props": {
+          "initialValue": -7,
+          "showOpposite": true
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-04-A",
+          "label": "الف",
+          "content": "+۷",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: قرینه -۷ نسبت به صفر برابر +۷ است."
+        },
+        {
+          "id": "DIS-M6-01-04-B",
+          "label": "ب",
+          "content": "-۷",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "عدم تغییر علامت."
+        },
+        {
+          "id": "DIS-M6-01-04-C",
+          "label": "ج",
+          "content": "۰",
+          "is_correct": false,
+          "misconception_id": "MIS-G6-CH1-OPPOSITE-ZERO",
+          "rationale": "صفر مبدا است نه قرینه."
+        },
+        {
+          "id": "DIS-M6-01-04-D",
+          "label": "د",
+          "content": "+۱۴",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "فاصله کل دو نقطه به جای خود قرینه."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C01-05",
+      "kc_id": "KC-MATH6-C01-05",
+      "stem": "کدام مقایسه بین اعداد صحیح زیر **نادرست** است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "IntegerNumberLine",
+        "props": {
+          "initialValue": -8,
+          "initialCompareValue": -3
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-05-A",
+          "label": "الف",
+          "content": "$-۸ > -۳$",
+          "is_correct": true,
+          "misconception_id": "MIS-G6-CH1-NEG-COMPARE",
+          "rationale": "پاسخ صحیح (گزینه نادرست): -۸ روی محور در سمت چپ -۳ است، پس -۸ < -۳ است."
+        },
+        {
+          "id": "DIS-M6-01-05-B",
+          "label": "ب",
+          "content": "$-۲ < +۱$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "این مقایسه کاملاً درست است."
+        },
+        {
+          "id": "DIS-M6-01-05-C",
+          "label": "ج",
+          "content": "$-۵ < ۰$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "این مقایسه درست است."
+        },
+        {
+          "id": "DIS-M6-01-05-D",
+          "label": "د",
+          "content": "$-۱۰ < -۴$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "این مقایسه درست است."
+        }
+      ]
+    }
+  ]
+}

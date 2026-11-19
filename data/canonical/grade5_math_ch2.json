@@ -1,0 +1,355 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH02",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل دوم: کسر",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH02",
+    "name": "کسر (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C02-01",
+      "title": "مفهوم کسر بزرگ‌تر از واحد و تبدیل آن به عدد مخلوط",
+      "bloom_level": "understand",
+      "description": "تبدیل کسر نامتعارف به عدد مخلوط با تقسیم صورت بر مخرج.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C02-02",
+      "title": "جمع و تفریق عددهای مخلوط با هم‌مخرج کردن",
+      "bloom_level": "apply",
+      "description": "جمع و تفریق بخش صحیح و کسری با مخرج مشترک.",
+      "prerequisites": [
+        "KC-MATH5-C02-01"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C02-03",
+      "title": "ضرب کسرها و مدل مساحتی دوطرفه ضرب کسر در کسر",
+      "bloom_level": "apply",
+      "description": "ضرب صورت در صورت و مخرج در مخرج و نمایش هندسی مساحت مستطیل.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C02-04",
+      "title": "تقسیم کسر بر عدد طبیعی و تقسیم عدد بر کسر",
+      "bloom_level": "apply",
+      "description": "مدل‌سازی تقسیم کسرها و تبدیل به ضرب در معکوس.",
+      "prerequisites": [
+        "KC-MATH5-C02-03"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C02-05",
+      "title": "محاسبات ترکیبی و حل مسائل کسر و عدد مخلوط",
+      "bloom_level": "analyze",
+      "description": "حل مسائل روزمره کسری با اولویت عملیات و ساده‌سازی.",
+      "prerequisites": [
+        "KC-MATH5-C02-02",
+        "KC-MATH5-C02-03"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH2-ADD-DENOM",
+      "title": "جمع مخرج‌ها در جمع کسرها",
+      "description": "دانش‌آموز مخرج‌ها را با هم جمع می‌کند به جای پیدا کردن مخرج مشترک.",
+      "counter_example_blueprint": {
+        "scenario": "جمع ۱/۲ و ۱/۲ برابر ۱ واحد است، نه ۲/۴.",
+        "visual_counter_example": "FractionStrip"
+      }
+    },
+    {
+      "id": "MIS-G5-CH2-MULT-CROSS",
+      "title": "ضرب متقاطع به جای ضرب صورت در صورت و مخرج در مخرج",
+      "description": "دانش‌آموز در ضرب کسرها به اشتباه طرفین-وسطین می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "محاسبه مساحت مستطیلی با ابعاد ۲/۳ و ۳/۴.",
+        "visual_counter_example": "FractionAreaMultiplier"
+      }
+    },
+    {
+      "id": "MIS-G5-CH2-DIV-INVERT-FIRST",
+      "title": "معکوس کردن کسر اول به جای کسر دوم در تقسیم",
+      "description": "دانش‌آموز به اشتباه مقسوم را معکوس می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تقسیم ۱/۲ بر ۴.",
+        "visual_counter_example": "FractionStrip"
+      }
+    },
+    {
+      "id": "MIS-G5-CH2-MIXED-CONVERT",
+      "title": "اشتباه در تبدیل عدد مخلوط به کسر",
+      "description": "دانش‌آموز فقط عدد صحیح را در مخرج ضرب کرده و صورت را جمع نمی‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تبدیل ۲ و ۱/۳ به کسر.",
+        "visual_counter_example": "FractionStrip"
+      }
+    },
+    {
+      "id": "MIS-G5-CH2-SUB-BORROW",
+      "title": "قرض نگرفتن صحیح واحد کامل در تفریق عددهای مخلوط",
+      "description": "در تفریق ۳ و ۱/۵ منهای ۱ و ۴/۵، واحد کامل را به ۵/۵ تبدیل نمی‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تفریق کسر بزرگتر از کسر کوچکتر در عدد مخلوط.",
+        "visual_counter_example": "FractionStrip"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C02-01",
+      "kc_id": "KC-MATH5-C02-01",
+      "stem": "کسر $\\frac{۱۷}{۵}$ برابر با کدام عدد مخلوط است؟",
+      "difficulty": 0.3,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 5,
+          "initialColored": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-01-A",
+          "label": "الف",
+          "content": "$۳\\frac{۲}{۵}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۷ تقسیم بر ۵ می‌شود ۳ با باقیمانده ۲."
+        },
+        {
+          "id": "DIS-M5-02-01-B",
+          "label": "ب",
+          "content": "$۲\\frac{۷}{۵}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-MIXED-CONVERT",
+          "rationale": "بخش کسری بزرگتر از واحد است."
+        },
+        {
+          "id": "DIS-M5-02-01-C",
+          "label": "ج",
+          "content": "$۳\\frac{۱}{۵}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "باقیمانده ۲ است نه ۱."
+        },
+        {
+          "id": "DIS-M5-02-01-D",
+          "label": "د",
+          "content": "$۵\\frac{۲}{۳}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جای مقسوم‌علیه و خارج‌قسمت عوض شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C02-02",
+      "kc_id": "KC-MATH5-C02-02",
+      "stem": "حاصل جمع $۲\\frac{۱}{۳} + ۱\\frac{۱}{۴}$ کدام است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 12,
+          "initialColored": 7
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-02-A",
+          "label": "الف",
+          "content": "$۳\\frac{۷}{۱۲}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲ + ۱ = ۳ و مخرج مشترک ۱۲ است (۴/۱۲ + ۳/۱۲ = ۷/۱۲)."
+        },
+        {
+          "id": "DIS-M5-02-02-B",
+          "label": "ب",
+          "content": "$۳\\frac{۲}{۷}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-ADD-DENOM",
+          "rationale": "جمع مستقیم مخرج‌ها."
+        },
+        {
+          "id": "DIS-M5-02-02-C",
+          "label": "ج",
+          "content": "$۳\\frac{۱}{۱۲}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "صورت‌ها جمع نشده‌اند."
+        },
+        {
+          "id": "DIS-M5-02-02-D",
+          "label": "د",
+          "content": "$۴\\frac{۱}{۱۲}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "واحد اشتباهی اضافه شده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C02-03",
+      "kc_id": "KC-MATH5-C02-03",
+      "stem": "حاصل ضرب $\\frac{۳}{۴} \\times \\frac{۲}{۵}$ پس از ساده کردن کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionAreaMultiplier",
+        "props": {
+          "initialNumA": 3,
+          "initialDenA": 4,
+          "initialNumB": 2,
+          "initialDenB": 5
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-03-A",
+          "label": "الف",
+          "content": "$\\frac{۳}{۱۰}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۶/۲۰ ساده شده به ۳/۱۰."
+        },
+        {
+          "id": "DIS-M5-02-03-B",
+          "label": "ب",
+          "content": "$\\frac{۶}{۲۰}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کسر ساده نشده است."
+        },
+        {
+          "id": "DIS-M5-02-03-C",
+          "label": "ج",
+          "content": "$\\frac{۱۵}{۸}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-MULT-CROSS",
+          "rationale": "ضرب متقاطع اشتباه."
+        },
+        {
+          "id": "DIS-M5-02-03-D",
+          "label": "د",
+          "content": "$\\frac{۵}{۹}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-ADD-DENOM",
+          "rationale": "جمع صورت با صورت و مخرج با مخرج."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C02-04",
+      "kc_id": "KC-MATH5-C02-04",
+      "stem": "یک طناب به طول $\\frac{۴}{۵}$ متر را به ۲ قطعه مساوی تقسیم می‌کنیم. طول هر قطعه چند متر است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 5,
+          "initialColored": 4
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-04-A",
+          "label": "الف",
+          "content": "$\\frac{۲}{۵}$ متر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: (۴/۵) × (۱/۲) = ۲/۵ متر."
+        },
+        {
+          "id": "DIS-M5-02-04-B",
+          "label": "ب",
+          "content": "$\\frac{۸}{۵}$ متر",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-DIV-INVERT-FIRST",
+          "rationale": "ضرب در ۲ به جای تقسیم بر ۲."
+        },
+        {
+          "id": "DIS-M5-02-04-C",
+          "label": "ج",
+          "content": "$\\frac{۴}{۱۰}$ متر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کسر ساده نشده است."
+        },
+        {
+          "id": "DIS-M5-02-04-D",
+          "label": "د",
+          "content": "$\\frac{۲}{۱۰}$ متر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم همزمان صورت و مخرج بر ۲."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C02-05",
+      "kc_id": "KC-MATH5-C02-05",
+      "stem": "حاصل تفریق $۳\\frac{۱}{۴} - ۱\\frac{۳}{۴}$ کدام است؟",
+      "difficulty": 0.5,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "FractionStrip",
+        "props": {
+          "totalSegments": 4,
+          "initialColored": 2
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-02-05-A",
+          "label": "الف",
+          "content": "$۱\\frac{۱}{۲}$",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۲ و ۵/۴ منهای ۱ و ۳/۴ می‌شود ۱ و ۲/۴ که برابر ۱ و ۱/۲ است."
+        },
+        {
+          "id": "DIS-M5-02-05-B",
+          "label": "ب",
+          "content": "$۲\\frac{۲}{۴}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-SUB-BORROW",
+          "rationale": "قرض گرفتن بدون کم کردن از بخش صحیح."
+        },
+        {
+          "id": "DIS-M5-02-05-C",
+          "label": "ج",
+          "content": "$۱\\frac{۲}{۴}$",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "کسر به ۱/۲ ساده نشده است."
+        },
+        {
+          "id": "DIS-M5-02-05-D",
+          "label": "د",
+          "content": "$۲\\frac{۱}{۴}$",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH2-SUB-BORROW",
+          "rationale": "تفاضل معکوس صورت‌ها."
+        }
+      ]
+    }
+  ]
+}

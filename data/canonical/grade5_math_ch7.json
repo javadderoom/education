@@ -1,0 +1,371 @@
+{
+  "cartridge_id": "CART-IR-MATH5-CH07",
+  "title": "ریاضی پایه پنجم ابتدایی - فصل هفتم: آمار و احتمال",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی پنجم",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH5-CH07",
+    "name": "آمار و احتمال (پایه ۵)",
+    "grade_level": 5
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH5-C07-01",
+      "title": "جمع‌آوری داده‌ها، رسم و تفسیر نمودار خط شکسته",
+      "bloom_level": "understand",
+      "description": "تحلیل روند تغییرات دما یا داده‌ها در طول زمان با نمودار خط شکسته.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C07-02",
+      "title": "مفهوم میانگین (معدل) و محاسبه آن: مجموع داده‌ها تقسیم بر تعداد",
+      "bloom_level": "apply",
+      "description": "یافتن عدد تعادل یا میانگین مجموعه‌ای از نمرات یا اعداد.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C07-03",
+      "title": "محاسبه مجموع داده‌ها با داشتن میانگین و تعداد داده‌ها",
+      "bloom_level": "apply",
+      "description": "رابطه معکوس میانگین: مجموع = میانگین × تعداد.",
+      "prerequisites": [
+        "KC-MATH5-C07-02"
+      ]
+    },
+    {
+      "id": "KC-MATH5-C07-04",
+      "title": "مفهوم احتمال ریاضی، شانس برابر، حتمی، غیرممکن و ممکن",
+      "bloom_level": "understand",
+      "description": "بیان احتمال با کسر و مقایسه شانس پیشامدها.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH5-C07-05",
+      "title": "تحلیل شانس در چرخنده‌ها و کیسه‌های مهره‌های رنگی",
+      "bloom_level": "analyze",
+      "description": "محاسبه کسر احتمال بر اساس مساحت قطاع‌های رنگی چرخنده یا تعداد مهره‌ها.",
+      "prerequisites": [
+        "KC-MATH5-C07-04"
+      ]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-G5-CH7-MEAN-DIVISOR",
+      "title": "تقسیم بر عدد نادرست در محاسبه میانگین",
+      "description": "دانش‌آموز به جای تقسیم بر تعداد کل داده‌ها، بر مقداری دلخواه تقسیم می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "میانگین نمرات ۱۶، ۱۸ و ۲۰ برابر ۱۸ است (۵۴ ÷ ۳).",
+        "visual_counter_example": "BrokenLineGraph"
+      }
+    },
+    {
+      "id": "MIS-G5-CH7-PROB-OUTCOME-EQUITY",
+      "title": "تصور شانس برابر برای پیشامدهایی با اندازه یا تعداد نابرابر",
+      "description": "دانش‌آموز فکر می‌کند در چرخنده‌ای با ۳/۴ قرمز و ۱/۴ آبی، شانس آمدن رنگ‌ها مساوی است.",
+      "counter_example_blueprint": {
+        "scenario": "چرخش چرخنده با قطاع‌های نامساوی.",
+        "visual_counter_example": "ProbabilitySpinner"
+      }
+    },
+    {
+      "id": "MIS-G5-CH7-LINE-GRAPH-DISCRETE",
+      "title": "استفاده از نمودار خط شکسته برای داده‌های گسسته",
+      "description": "دانش‌آموز داده‌های کیفی مانند رنگ را با خط شکسته وصل می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "تفاوت کاربرد نمودار ستونی با خط شکسته.",
+        "visual_counter_example": "BrokenLineGraph"
+      }
+    },
+    {
+      "id": "MIS-G5-CH7-PROB-FRACTION-DENOM",
+      "title": "قرار دادن تعداد نامطلوب در مخرج کسر احتمال به جای کل حالات",
+      "description": "اگر ۳ مهره قرمز و ۵ آبی باشد، احتمال قرمز را ۳/۵ می‌نویسد به جای ۳/۸.",
+      "counter_example_blueprint": {
+        "scenario": "احتمال مهره قرمز برابر تعداد قرمز به کل مهره‌هاست.",
+        "visual_counter_example": "ProbabilitySpinner"
+      }
+    },
+    {
+      "id": "MIS-G5-CH7-MEAN-OUTLIER",
+      "title": "نادیده گرفتن صفرها در شمارش تعداد داده‌ها هنگام محاسبه میانگین",
+      "description": "اگر نمرات ۲۰، ۱۰ و ۰ باشد، مجموع را بر ۲ تقسیم می‌کند نه بر ۳.",
+      "counter_example_blueprint": {
+        "scenario": "نمره صفر هم یک نمره است و تعداد را ۳ تا می‌کند.",
+        "visual_counter_example": "BrokenLineGraph"
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH5-C07-01",
+      "kc_id": "KC-MATH5-C07-01",
+      "stem": "برای نمایش تغییرات دمای هوای یک شهر در طول ۲۴ ساعت، کدام نمودار مناسب‌تر است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "BrokenLineGraph",
+        "props": {
+          "title": "تغییرات دمای شبانه‌روز"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-01-A",
+          "label": "الف",
+          "content": "نمودار خط شکسته",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: بهترین ابزار برای روند پیوسته زمانی."
+        },
+        {
+          "id": "DIS-M5-07-01-B",
+          "label": "ب",
+          "content": "نمودار تصویری",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-LINE-GRAPH-DISCRETE",
+          "rationale": "نمودار تصویری تغییرات پیوسته را نشان نمی‌دهد."
+        },
+        {
+          "id": "DIS-M5-07-01-C",
+          "label": "ج",
+          "content": "جدول داده‌ها بدون نمودار",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دید بصری مقایسه‌ای ایجاد نمی‌کند."
+        },
+        {
+          "id": "DIS-M5-07-01-D",
+          "label": "د",
+          "content": "چرخنده احتمال",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "چرخنده برای احتمال است نه تغییرات زمانی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C07-02",
+      "kc_id": "KC-MATH5-C07-02",
+      "stem": "میانگین نمرات چهار آزمون یک دانش‌آموز که نمرات او ۱۶، ۱۷، ۱۵ و ۲۰ است، کدام است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "BrokenLineGraph",
+        "props": {
+          "title": "نمرات آزمون‌ها"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-02-A",
+          "label": "الف",
+          "content": "۱۷",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۶۸ ÷ ۴ = ۱۷."
+        },
+        {
+          "id": "DIS-M5-07-02-B",
+          "label": "ب",
+          "content": "۱۶",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در جمع یا تقسیم."
+        },
+        {
+          "id": "DIS-M5-07-02-C",
+          "label": "ج",
+          "content": "۲۲.۶",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-MEAN-DIVISOR",
+          "rationale": "تقسیم بر ۳ به جای ۴ آزمون."
+        },
+        {
+          "id": "DIS-M5-07-02-D",
+          "label": "د",
+          "content": "۱۸",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "حدس تخمینی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C07-03",
+      "kc_id": "KC-MATH5-C07-03",
+      "stem": "میانگین قد ۵ بازیکن بسکتبال ۱۹۰ سانتی‌متر است. **مجموع قد** آنها چند سانتی‌متر است؟",
+      "difficulty": 0.4,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "BrokenLineGraph",
+        "props": {
+          "title": "قد بازیکنان"
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-03-A",
+          "label": "الف",
+          "content": "۹۵۰ سانتی‌متر",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: ۱۹۰ × ۵ = ۹۵۰ سانتی‌متر."
+        },
+        {
+          "id": "DIS-M5-07-03-B",
+          "label": "ب",
+          "content": "۳۸ سانتی‌متر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "تقسیم بر ۵ به جای ضرب."
+        },
+        {
+          "id": "DIS-M5-07-03-C",
+          "label": "ج",
+          "content": "۸۵۰ سانتی‌متر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "خطا در ضرب."
+        },
+        {
+          "id": "DIS-M5-07-03-D",
+          "label": "د",
+          "content": "۱۹۵ سانتی‌متر",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "جمع ۱۹۰ با ۵."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C07-04",
+      "kc_id": "KC-MATH5-C07-04",
+      "stem": "احتمال آمدن عدد ۷ در پرتاب یک تاس معمولی ۶ وجهی چگونه است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ProbabilitySpinner",
+        "props": {
+          "segments": [
+            {
+              "label": "1",
+              "color": "blue"
+            },
+            {
+              "label": "2",
+              "color": "red"
+            }
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-04-A",
+          "label": "الف",
+          "content": "غیرممکن (احتمال صفر)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: وجوه تاس از ۱ تا ۶ هستند و عدد ۷ وجود ندارد."
+        },
+        {
+          "id": "DIS-M5-07-04-B",
+          "label": "ب",
+          "content": "حتمی",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "پیشامد حتمی نیست."
+        },
+        {
+          "id": "DIS-M5-07-04-C",
+          "label": "ج",
+          "content": "شانس برابر با بقیه اعداد",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-PROB-OUTCOME-EQUITY",
+          "rationale": "عدد ۷ روی تاس وجود ندارد."
+        },
+        {
+          "id": "DIS-M5-07-04-D",
+          "label": "د",
+          "content": "۱ از ۶",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-PROB-OUTCOME-EQUITY",
+          "rationale": "احتمال ۱/۶ برای اعداد ۱ تا ۶ است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH5-C07-05",
+      "kc_id": "KC-MATH5-C07-05",
+      "stem": "یک چرخنده به ۴ قسمت مساوی تقسیم شده است: ۳ قسمت آبی و ۱ قسمت قرمز. عقربه را می‌چرخانیم؛ کدام جمله درست است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.2,
+      "slip_param": 0.1,
+      "visual_template": {
+        "type": "ProbabilitySpinner",
+        "props": {
+          "segments": [
+            {
+              "label": "آبی",
+              "color": "#3b82f6"
+            },
+            {
+              "label": "آبی",
+              "color": "#3b82f6"
+            },
+            {
+              "label": "آبی",
+              "color": "#3b82f6"
+            },
+            {
+              "label": "قرمز",
+              "color": "#ef4444"
+            }
+          ]
+        }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M5-07-05-A",
+          "label": "الف",
+          "content": "احتمال ایستادن روی آبی بیشتر از قرمز است (۳ از ۴)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: مساحت آبی ۳ برابر قرمز است."
+        },
+        {
+          "id": "DIS-M5-07-05-B",
+          "label": "ب",
+          "content": "شانس آمدن هر دو رنگ مساوی است",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-PROB-OUTCOME-EQUITY",
+          "rationale": "تعداد قسمت‌های دو رنگ مساوی نیست."
+        },
+        {
+          "id": "DIS-M5-07-05-C",
+          "label": "ج",
+          "content": "حتماً روی رنگ آبی می‌ایستد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "رنگ قرمز هم شانس ۱/۴ دارد."
+        },
+        {
+          "id": "DIS-M5-07-05-D",
+          "label": "د",
+          "content": "احتمال آبی ۳ از ۱ است",
+          "is_correct": false,
+          "misconception_id": "MIS-G5-CH7-PROB-FRACTION-DENOM",
+          "rationale": "مخرج باید کل حالات (۴) باشد."
+        }
+      ]
+    }
+  ]
+}

@@ -28,6 +28,7 @@ import { IntegerNumberLine } from "./IntegerNumberLine";
 import { AngleRelationshipVisualizer } from "./AngleRelationshipVisualizer";
 import { FractionDivisionVisualizer } from "./FractionDivisionVisualizer";
 import { CylinderVolumeVisualizer } from "./CylinderVolumeVisualizer";
+import { ApproximationRuler } from "./ApproximationRuler";
 
 export interface VisualTemplateData {
   type: string;
@@ -109,6 +110,8 @@ export const VisualTemplateRenderer: React.FC<VisualTemplateRendererProps> = ({ 
       return <FractionDivisionVisualizer {...p} />;
     case "CylinderVolumeVisualizer":
       return <CylinderVolumeVisualizer {...p} />;
+    case "ApproximationRuler":
+      return <ApproximationRuler {...p} />;
 
     default:
       console.warn(`[VisualTemplateRenderer] Unknown visual template type: ${type}`);
