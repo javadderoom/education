@@ -390,8 +390,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/NumberLine.tsx": {
-    "mtime": 1794772699.9072537,
-    "ast_hash": "2fce163f411e4ce03050de74544e42db",
+    "mtime": 1795099526.1124752,
+    "ast_hash": "b192dfc379d6da61aa73fcca83a6b707",
     "semantic_hash": ""
   },
   "web/components/remediation/RemediationModal.tsx": {
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "data/canonical/grade5_math_ch3.json": {
-    "mtime": 1794752798.6563146,
-    "ast_hash": "1eff78d8562dbde580f88cb9ba94d436",
+    "mtime": 1795099610.095172,
+    "ast_hash": "f6c98652863b1e83b3f309787cd22b51",
     "semantic_hash": ""
   },
   "web/__tests__/pipeline-grade5.test.ts": {
@@ -1255,8 +1255,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum_items_tools_catalog.md": {
-    "mtime": 1795019047.8515751,
-    "ast_hash": "9807b8766705aaf62b095554c183ed85",
+    "mtime": 1795099702.8793228,
+    "ast_hash": "f9be9312ff7066f198cada0bd7036ef8",
     "semantic_hash": ""
   },
   "web/__tests__/grade5-visual-tools.test.tsx": {

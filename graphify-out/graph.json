@@ -1980,7 +1980,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "detector_design_system_resolvedesignsidecarpath",
-      "community": 5,
+      "community": 7,
       "norm_label": "resolvedesignsidecarpath()"
     },
     {
@@ -1990,7 +1990,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "detector_design_system_parsefrontmatter",
-      "community": 5,
+      "community": 7,
       "norm_label": "parsefrontmatter()"
     },
     {
@@ -2050,7 +2050,7 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "detector_design_system_safereadjson",
-      "community": 5,
+      "community": 7,
       "norm_label": "safereadjson()"
     },
     {
@@ -2230,7 +2230,7 @@
       "source_location": "L358",
       "_origin": "ast",
       "id": "detector_design_system_loaddesignsystemforcwd",
-      "community": 5,
+      "community": 7,
       "norm_label": "loaddesignsystemforcwd()"
     },
     {
@@ -4340,7 +4340,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "regex_detect_text_isneutralbordercolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralbordercolor()"
     },
     {
@@ -4370,7 +4370,7 @@
       "source_location": "L346",
       "_origin": "ast",
       "id": "regex_detect_text_extractstyleblocks",
-      "community": 8,
+      "community": 5,
       "norm_label": "extractstyleblocks()"
     },
     {
@@ -4390,7 +4390,7 @@
       "source_location": "L366",
       "_origin": "ast",
       "id": "regex_detect_text_extractcssinjs",
-      "community": 8,
+      "community": 5,
       "norm_label": "extractcssinjs()"
     },
     {
@@ -4430,7 +4430,7 @@
       "source_location": "L462",
       "_origin": "ast",
       "id": "regex_detect_text_detecttext",
-      "community": 8,
+      "community": 5,
       "norm_label": "detecttext()"
     },
     {
@@ -4930,7 +4930,7 @@
       "source_location": "L841",
       "_origin": "ast",
       "id": "static_html_css_cascade_staticdocument_getstyle",
-      "community": 1,
+      "community": 162,
       "norm_label": ".getstyle()"
     },
     {
@@ -4940,7 +4940,7 @@
       "source_location": "L846",
       "_origin": "ast",
       "id": "static_html_css_cascade_makestaticstyle",
-      "community": 1,
+      "community": 162,
       "norm_label": "makestaticstyle()"
     },
     {
@@ -5220,7 +5220,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "profile_profiler_createdetectorprofile",
-      "community": 5,
+      "community": 8,
       "norm_label": "createdetectorprofile()"
     },
     {
@@ -5300,7 +5300,7 @@
       "source_location": "L104",
       "_origin": "ast",
       "id": "profile_profiler_summarizedetectorprofile",
-      "community": 5,
+      "community": 8,
       "norm_label": "summarizedetectorprofile()"
     },
     {
@@ -5400,7 +5400,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "rules_checks_checkborders",
-      "community": 1,
+      "community": 8,
       "norm_label": "checkborders()"
     },
     {
@@ -5410,7 +5410,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "rules_checks_isemojionlytext",
-      "community": 152,
+      "community": 1,
       "norm_label": "isemojionlytext()"
     },
     {
@@ -5420,7 +5420,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "rules_checks_checkcolors",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkcolors()"
     },
     {
@@ -5450,7 +5450,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "rules_checks_checkicontile",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkicontile()"
     },
     {
@@ -5500,7 +5500,7 @@
       "source_location": "L356",
       "_origin": "ast",
       "id": "rules_checks_checkrepeatedsectionkickers",
-      "community": 1,
+      "community": 162,
       "norm_label": "checkrepeatedsectionkickers()"
     },
     {
@@ -5530,7 +5530,7 @@
       "source_location": "L410",
       "_origin": "ast",
       "id": "rules_checks_checkglow",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkglow()"
     },
     {
@@ -5550,7 +5550,7 @@
       "source_location": "L616",
       "_origin": "ast",
       "id": "rules_checks_readownbackgroundcolor",
-      "community": 152,
+      "community": 1,
       "norm_label": "readownbackgroundcolor()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L637",
       "_origin": "ast",
       "id": "rules_checks_resolvebackground",
-      "community": 152,
+      "community": 1,
       "norm_label": "resolvebackground()"
     },
     {
@@ -5570,7 +5570,7 @@
       "source_location": "L699",
       "_origin": "ast",
       "id": "rules_checks_resolvegradientstops",
-      "community": 152,
+      "community": 1,
       "norm_label": "resolvegradientstops()"
     },
     {
@@ -5600,7 +5600,7 @@
       "source_location": "L755",
       "_origin": "ast",
       "id": "rules_checks_checkelementbordersdom",
-      "community": 1,
+      "community": 8,
       "norm_label": "checkelementbordersdom()"
     },
     {
@@ -5610,7 +5610,7 @@
       "source_location": "L770",
       "_origin": "ast",
       "id": "rules_checks_checkelementcolorsdom",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementcolorsdom()"
     },
     {
@@ -5620,7 +5620,7 @@
       "source_location": "L797",
       "_origin": "ast",
       "id": "rules_checks_checkelementicontiledom",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementicontiledom()"
     },
     {
@@ -5690,7 +5690,7 @@
       "source_location": "L998",
       "_origin": "ast",
       "id": "rules_checks_parsecolorresolved",
-      "community": 152,
+      "community": 1,
       "norm_label": "parsecolorresolved()"
     },
     {
@@ -5720,7 +5720,7 @@
       "source_location": "L1032",
       "_origin": "ast",
       "id": "rules_checks_cleaninlinetext",
-      "community": 1,
+      "community": 162,
       "norm_label": "cleaninlinetext()"
     },
     {
@@ -5730,7 +5730,7 @@
       "source_location": "L1041",
       "_origin": "ast",
       "id": "rules_checks_isrepeatedkickercardcontext",
-      "community": 1,
+      "community": 162,
       "norm_label": "isrepeatedkickercardcontext()"
     },
     {
@@ -5740,7 +5740,7 @@
       "source_location": "L1046",
       "_origin": "ast",
       "id": "rules_checks_isrepeatedkickercandidate",
-      "community": 1,
+      "community": 162,
       "norm_label": "isrepeatedkickercandidate()"
     },
     {
@@ -5750,7 +5750,7 @@
       "source_location": "L1075",
       "_origin": "ast",
       "id": "rules_checks_collectrepeatedsectionkickercandidates",
-      "community": 1,
+      "community": 162,
       "norm_label": "collectrepeatedsectionkickercandidates()"
     },
     {
@@ -5760,7 +5760,7 @@
       "source_location": "L1113",
       "_origin": "ast",
       "id": "rules_checks_checkrepeatedsectionkickersdom",
-      "community": 1,
+      "community": 162,
       "norm_label": "checkrepeatedsectionkickersdom()"
     },
     {
@@ -5780,7 +5780,7 @@
       "source_location": "L1135",
       "_origin": "ast",
       "id": "rules_checks_checkelementglowdom",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementglowdom()"
     },
     {
@@ -5790,7 +5790,7 @@
       "source_location": "L1164",
       "_origin": "ast",
       "id": "rules_checks_checkelementaipalettedom",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementaipalettedom()"
     },
     {
@@ -5920,7 +5920,7 @@
       "source_location": "L1678",
       "_origin": "ast",
       "id": "rules_checks_checkpagequalityfromdoc",
-      "community": 1,
+      "community": 8,
       "norm_label": "checkpagequalityfromdoc()"
     },
     {
@@ -5930,7 +5930,7 @@
       "source_location": "L1699",
       "_origin": "ast",
       "id": "rules_checks_checkpagequalitydom",
-      "community": 1,
+      "community": 8,
       "norm_label": "checkpagequalitydom()"
     },
     {
@@ -5950,7 +5950,7 @@
       "source_location": "L1718",
       "_origin": "ast",
       "id": "rules_checks_checkelementborders",
-      "community": 1,
+      "community": 8,
       "norm_label": "checkelementborders()"
     },
     {
@@ -5960,7 +5960,7 @@
       "source_location": "L1748",
       "_origin": "ast",
       "id": "rules_checks_checkelementcolors",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementcolors()"
     },
     {
@@ -5970,7 +5970,7 @@
       "source_location": "L1802",
       "_origin": "ast",
       "id": "rules_checks_checkelementicontile",
-      "community": 152,
+      "community": 1,
       "norm_label": "checkelementicontile()"
     },
     {
@@ -6000,7 +6000,7 @@
       "source_location": "L1881",
       "_origin": "ast",
       "id": "rules_checks_checkrepeatedsectionkickersfromdoc",
-      "community": 1,
+      "community": 162,
       "norm_label": "checkrepeatedsectionkickersfromdoc()"
     },
     {
@@ -6020,7 +6020,7 @@
       "source_location": "L1900",
       "_origin": "ast",
       "id": "rules_checks_checkelementglow",
-      "community": 152,
+      "community": 8,
       "norm_label": "checkelementglow()"
     },
     {
@@ -6440,7 +6440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "shared_color",
-      "community": 152,
+      "community": 1,
       "norm_label": "color.mjs"
     },
     {
@@ -6450,7 +6450,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "shared_color_isneutralcolor",
-      "community": 1,
+      "community": 8,
       "norm_label": "isneutralcolor()"
     },
     {
@@ -6460,7 +6460,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "shared_color_parsergb",
-      "community": 152,
+      "community": 1,
       "norm_label": "parsergb()"
     },
     {
@@ -6470,7 +6470,7 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "shared_color_relativeluminance",
-      "community": 152,
+      "community": 1,
       "norm_label": "relativeluminance()"
     },
     {
@@ -6480,7 +6480,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "shared_color_contrastratio",
-      "community": 152,
+      "community": 1,
       "norm_label": "contrastratio()"
     },
     {
@@ -6490,7 +6490,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "shared_color_parsegradientcolors",
-      "community": 152,
+      "community": 1,
       "norm_label": "parsegradientcolors()"
     },
     {
@@ -6500,7 +6500,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "shared_color_haschroma",
-      "community": 152,
+      "community": 1,
       "norm_label": "haschroma()"
     },
     {
@@ -6510,7 +6510,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "shared_color_gethue",
-      "community": 152,
+      "community": 1,
       "norm_label": "gethue()"
     },
     {
@@ -6520,7 +6520,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "shared_color_colortohex",
-      "community": 152,
+      "community": 1,
       "norm_label": "colortohex()"
     },
     {
@@ -7670,7 +7670,7 @@
       "source_location": "L221",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorevalue",
-      "community": 168,
+      "community": 15,
       "norm_label": "normalizeignorevalue()"
     },
     {
@@ -7680,7 +7680,7 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorerule",
-      "community": 168,
+      "community": 6,
       "norm_label": "normalizeignorerule()"
     },
     {
@@ -7800,7 +7800,7 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizeignorevalueentries",
-      "community": 168,
+      "community": 15,
       "norm_label": "normalizeignorevalueentries()"
     },
     {
@@ -7950,7 +7950,7 @@
       "source_location": "L616",
       "_origin": "ast",
       "id": "scripts_hook_lib_filterfindings",
-      "community": 168,
+      "community": 15,
       "norm_label": "filterfindings()"
     },
     {
@@ -7960,7 +7960,7 @@
       "source_location": "L628",
       "_origin": "ast",
       "id": "scripts_hook_lib_isignoredfindingvalue",
-      "community": 168,
+      "community": 6,
       "norm_label": "isignoredfindingvalue()"
     },
     {
@@ -7980,7 +7980,7 @@
       "source_location": "L655",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractfindingignorevalue",
-      "community": 168,
+      "community": 6,
       "norm_label": "extractfindingignorevalue()"
     },
     {
@@ -7990,7 +7990,7 @@
       "source_location": "L669",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractfindingignorevalueraw",
-      "community": 168,
+      "community": 6,
       "norm_label": "extractfindingignorevalueraw()"
     },
     {
@@ -8000,7 +8000,7 @@
       "source_location": "L700",
       "_origin": "ast",
       "id": "scripts_hook_lib_extractmotionignorevalue",
-      "community": 168,
+      "community": 6,
       "norm_label": "extractmotionignorevalue()"
     },
     {
@@ -8010,7 +8010,7 @@
       "source_location": "L718",
       "_origin": "ast",
       "id": "scripts_hook_lib_cleanignorevaluedisplay",
-      "community": 168,
+      "community": 6,
       "norm_label": "cleanignorevaluedisplay()"
     },
     {
@@ -8090,7 +8090,7 @@
       "source_location": "L875",
       "_origin": "ast",
       "id": "scripts_hook_lib_formatfindingline",
-      "community": 168,
+      "community": 6,
       "norm_label": "formatfindingline()"
     },
     {
@@ -8100,7 +8100,7 @@
       "source_location": "L889",
       "_origin": "ast",
       "id": "scripts_hook_lib_formatfindingignorecommand",
-      "community": 168,
+      "community": 6,
       "norm_label": "formatfindingignorecommand()"
     },
     {
@@ -8250,7 +8250,7 @@
       "source_location": "L1113",
       "_origin": "ast",
       "id": "scripts_hook_lib_haspathtraversal",
-      "community": 6,
+      "community": 39,
       "norm_label": "haspathtraversal()"
     },
     {
@@ -8260,7 +8260,7 @@
       "source_location": "L1117",
       "_origin": "ast",
       "id": "scripts_hook_lib_isinsideproject",
-      "community": 6,
+      "community": 39,
       "norm_label": "isinsideproject()"
     },
     {
@@ -8270,7 +8270,7 @@
       "source_location": "L1127",
       "_origin": "ast",
       "id": "scripts_hook_lib_parsestaticstyleimports",
-      "community": 6,
+      "community": 39,
       "norm_label": "parsestaticstyleimports()"
     },
     {
@@ -8280,7 +8280,7 @@
       "source_location": "L1142",
       "_origin": "ast",
       "id": "scripts_hook_lib_colocatedstylesheets",
-      "community": 6,
+      "community": 39,
       "norm_label": "colocatedstylesheets()"
     },
     {
@@ -8290,7 +8290,7 @@
       "source_location": "L1161",
       "_origin": "ast",
       "id": "scripts_hook_lib_normalizescantargets",
-      "community": 6,
+      "community": 39,
       "norm_label": "normalizescantargets()"
     },
     {
@@ -8300,7 +8300,7 @@
       "source_location": "L1185",
       "_origin": "ast",
       "id": "scripts_hook_lib_expandscantargets",
-      "community": 6,
+      "community": 39,
       "norm_label": "expandscantargets()"
     },
     {
@@ -9990,7 +9990,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "scripts_live_browser_writescrolly",
-      "community": 3,
+      "community": 22,
       "norm_label": "writescrolly()"
     },
     {
@@ -10000,7 +10000,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "scripts_live_browser_readscrolly",
-      "community": 0,
+      "community": 22,
       "norm_label": "readscrolly()"
     },
     {
@@ -10110,7 +10110,7 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "scripts_live_browser_positionannotoverlay",
-      "community": 19,
+      "community": 3,
       "norm_label": "positionannotoverlay()"
     },
     {
@@ -10170,7 +10170,7 @@
       "source_location": "L657",
       "_origin": "ast",
       "id": "scripts_live_browser_pointstopath",
-      "community": 19,
+      "community": 0,
       "norm_label": "pointstopath()"
     },
     {
@@ -10200,7 +10200,7 @@
       "source_location": "L717",
       "_origin": "ast",
       "id": "scripts_live_browser_buildpinelement",
-      "community": 19,
+      "community": 0,
       "norm_label": "buildpinelement()"
     },
     {
@@ -10250,7 +10250,7 @@
       "source_location": "L828",
       "_origin": "ast",
       "id": "scripts_live_browser_buildannotationsforcapture",
-      "community": 19,
+      "community": 0,
       "norm_label": "buildannotationsforcapture()"
     },
     {
@@ -10290,7 +10290,7 @@
       "source_location": "L943",
       "_origin": "ast",
       "id": "scripts_live_browser_contextelementformanualedit",
-      "community": 31,
+      "community": 0,
       "norm_label": "contextelementformanualedit()"
     },
     {
@@ -10300,7 +10300,7 @@
       "source_location": "L967",
       "_origin": "ast",
       "id": "scripts_live_browser_isusefulmanualeditcontext",
-      "community": 31,
+      "community": 0,
       "norm_label": "isusefulmanualeditcontext()"
     },
     {
@@ -10310,7 +10310,7 @@
       "source_location": "L973",
       "_origin": "ast",
       "id": "scripts_live_browser_collectmanualcontextpieces",
-      "community": 31,
+      "community": 0,
       "norm_label": "collectmanualcontextpieces()"
     },
     {
@@ -10320,7 +10320,7 @@
       "source_location": "L992",
       "_origin": "ast",
       "id": "scripts_live_browser_addmanualcontexttext",
-      "community": 31,
+      "community": 0,
       "norm_label": "addmanualcontexttext()"
     },
     {
@@ -10360,7 +10360,7 @@
       "source_location": "L1046",
       "_origin": "ast",
       "id": "scripts_live_browser_positionbar",
-      "community": 3,
+      "community": 22,
       "norm_label": "positionbar()"
     },
     {
@@ -10370,7 +10370,7 @@
       "source_location": "L1091",
       "_origin": "ast",
       "id": "scripts_live_browser_showbar",
-      "community": 3,
+      "community": 22,
       "norm_label": "showbar()"
     },
     {
@@ -10840,7 +10840,7 @@
       "source_location": "L1829",
       "_origin": "ast",
       "id": "scripts_live_browser_cursorforplaceholderedge",
-      "community": 19,
+      "community": 17,
       "norm_label": "cursorforplaceholderedge()"
     },
     {
@@ -10920,7 +10920,7 @@
       "source_location": "L1971",
       "_origin": "ast",
       "id": "scripts_live_browser_resolvebaranchor",
-      "community": 0,
+      "community": 110,
       "norm_label": "resolvebaranchor()"
     },
     {
@@ -10950,7 +10950,7 @@
       "source_location": "L2015",
       "_origin": "ast",
       "id": "scripts_live_browser_buildinsertplaceholdersnapshotfromdom",
-      "community": 0,
+      "community": 22,
       "norm_label": "buildinsertplaceholdersnapshotfromdom()"
     },
     {
@@ -10960,7 +10960,7 @@
       "source_location": "L2029",
       "_origin": "ast",
       "id": "scripts_live_browser_findinsertanchorindom",
-      "community": 0,
+      "community": 22,
       "norm_label": "findinsertanchorindom()"
     },
     {
@@ -10970,7 +10970,7 @@
       "source_location": "L2046",
       "_origin": "ast",
       "id": "scripts_live_browser_isinsertgeneratingsession",
-      "community": 0,
+      "community": 22,
       "norm_label": "isinsertgeneratingsession()"
     },
     {
@@ -10980,7 +10980,7 @@
       "source_location": "L2053",
       "_origin": "ast",
       "id": "scripts_live_browser_ensureinsertplaceholder",
-      "community": 0,
+      "community": 22,
       "norm_label": "ensureinsertplaceholder()"
     },
     {
@@ -11000,7 +11000,7 @@
       "source_location": "L2093",
       "_origin": "ast",
       "id": "scripts_live_browser_showorupdatecyclingbar",
-      "community": 3,
+      "community": 22,
       "norm_label": "showorupdatecyclingbar()"
     },
     {
@@ -11010,7 +11010,7 @@
       "source_location": "L2098",
       "_origin": "ast",
       "id": "scripts_live_browser_buildplaceholderresizehandles",
-      "community": 19,
+      "community": 17,
       "norm_label": "buildplaceholderresizehandles()"
     },
     {
@@ -11020,7 +11020,7 @@
       "source_location": "L2128",
       "_origin": "ast",
       "id": "scripts_live_browser_syncplaceholderresizehandles",
-      "community": 19,
+      "community": 3,
       "norm_label": "syncplaceholderresizehandles()"
     },
     {
@@ -11070,7 +11070,7 @@
       "source_location": "L2212",
       "_origin": "ast",
       "id": "scripts_live_browser_ensureinsertcreatetooltip",
-      "community": 17,
+      "community": 0,
       "norm_label": "ensureinsertcreatetooltip()"
     },
     {
@@ -11080,7 +11080,7 @@
       "source_location": "L2236",
       "_origin": "ast",
       "id": "scripts_live_browser_showinsertcreatetooltip",
-      "community": 17,
+      "community": 0,
       "norm_label": "showinsertcreatetooltip()"
     },
     {
@@ -11290,7 +11290,7 @@
       "source_location": "L2989",
       "_origin": "ast",
       "id": "scripts_live_browser_getmountedsveltecomponentanchor",
-      "community": 0,
+      "community": 110,
       "norm_label": "getmountedsveltecomponentanchor()"
     },
     {
@@ -11300,7 +11300,7 @@
       "source_location": "L2995",
       "_origin": "ast",
       "id": "scripts_live_browser_resolvesveltecomponentanchor",
-      "community": 0,
+      "community": 110,
       "norm_label": "resolvesveltecomponentanchor()"
     },
     {
@@ -11310,7 +11310,7 @@
       "source_location": "L3001",
       "_origin": "ast",
       "id": "scripts_live_browser_getvisiblevariantel",
-      "community": 0,
+      "community": 110,
       "norm_label": "getvisiblevariantel()"
     },
     {
@@ -11800,7 +11800,7 @@
       "source_location": "L3832",
       "_origin": "ast",
       "id": "scripts_live_browser_refreshlivecontrolsformanualapply",
-      "community": 26,
+      "community": 3,
       "norm_label": "refreshlivecontrolsformanualapply()"
     },
     {
@@ -12270,7 +12270,7 @@
       "source_location": "L4779",
       "_origin": "ast",
       "id": "scripts_live_browser_setvariantshown",
-      "community": 0,
+      "community": 110,
       "norm_label": "setvariantshown()"
     },
     {
@@ -12280,7 +12280,7 @@
       "source_location": "L4790",
       "_origin": "ast",
       "id": "scripts_live_browser_schedulecyclingbarsync",
-      "community": 0,
+      "community": 110,
       "norm_label": "schedulecyclingbarsync()"
     },
     {
@@ -12290,7 +12290,7 @@
       "source_location": "L4801",
       "_origin": "ast",
       "id": "scripts_live_browser_synccyclingcontrols",
-      "community": 0,
+      "community": 110,
       "norm_label": "synccyclingcontrols()"
     },
     {
@@ -12300,7 +12300,7 @@
       "source_location": "L4814",
       "_origin": "ast",
       "id": "scripts_live_browser_showvariantindom",
-      "community": 0,
+      "community": 110,
       "norm_label": "showvariantindom()"
     },
     {
@@ -12310,7 +12310,7 @@
       "source_location": "L4838",
       "_origin": "ast",
       "id": "scripts_live_browser_issveltecomponentmanifestpath",
-      "community": 3,
+      "community": 22,
       "norm_label": "issveltecomponentmanifestpath()"
     },
     {
@@ -12320,7 +12320,7 @@
       "source_location": "L4842",
       "_origin": "ast",
       "id": "scripts_live_browser_parseoriginalmarkupelement",
-      "community": 0,
+      "community": 152,
       "norm_label": "parseoriginalmarkupelement()"
     },
     {
@@ -12330,7 +12330,7 @@
       "source_location": "L4848",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizeelementclassname",
-      "community": 0,
+      "community": 152,
       "norm_label": "normalizeelementclassname()"
     },
     {
@@ -12340,7 +12340,7 @@
       "source_location": "L4860",
       "_origin": "ast",
       "id": "scripts_live_browser_buildpickedanchorsnapshot",
-      "community": 0,
+      "community": 22,
       "norm_label": "buildpickedanchorsnapshot()"
     },
     {
@@ -12350,7 +12350,7 @@
       "source_location": "L4870",
       "_origin": "ast",
       "id": "scripts_live_browser_isusableinjectionanchor",
-      "community": 0,
+      "community": 152,
       "norm_label": "isusableinjectionanchor()"
     },
     {
@@ -12360,7 +12360,7 @@
       "source_location": "L4878",
       "_origin": "ast",
       "id": "scripts_live_browser_elementmatchesoriginalmarkup",
-      "community": 0,
+      "community": 152,
       "norm_label": "elementmatchesoriginalmarkup()"
     },
     {
@@ -12370,7 +12370,7 @@
       "source_location": "L4899",
       "_origin": "ast",
       "id": "scripts_live_browser_findliveelementfromanchorsnapshot",
-      "community": 0,
+      "community": 152,
       "norm_label": "findliveelementfromanchorsnapshot()"
     },
     {
@@ -12380,7 +12380,7 @@
       "source_location": "L4922",
       "_origin": "ast",
       "id": "scripts_live_browser_findliveelementfororiginalmarkup",
-      "community": 0,
+      "community": 152,
       "norm_label": "findliveelementfororiginalmarkup()"
     },
     {
@@ -12390,7 +12390,7 @@
       "source_location": "L4962",
       "_origin": "ast",
       "id": "scripts_live_browser_resolveliveinjectionanchor",
-      "community": 0,
+      "community": 152,
       "norm_label": "resolveliveinjectionanchor()"
     },
     {
@@ -12400,7 +12400,7 @@
       "source_location": "L4986",
       "_origin": "ast",
       "id": "scripts_live_browser_issvelteinsertmanifest",
-      "community": 0,
+      "community": 110,
       "norm_label": "issvelteinsertmanifest()"
     },
     {
@@ -12410,7 +12410,7 @@
       "source_location": "L4990",
       "_origin": "ast",
       "id": "scripts_live_browser_findliveelementforsveltemanifest",
-      "community": 0,
+      "community": 22,
       "norm_label": "findliveelementforsveltemanifest()"
     },
     {
@@ -12420,7 +12420,7 @@
       "source_location": "L4998",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforvariantanchorandretry",
-      "community": 3,
+      "community": 22,
       "norm_label": "waitforvariantanchorandretry()"
     },
     {
@@ -12430,7 +12430,7 @@
       "source_location": "L5022",
       "_origin": "ast",
       "id": "scripts_live_browser_enterrecoverywaitingforanchor",
-      "community": 3,
+      "community": 22,
       "norm_label": "enterrecoverywaitingforanchor()"
     },
     {
@@ -12440,7 +12440,7 @@
       "source_location": "L5036",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsvelteruntime",
-      "community": 0,
+      "community": 110,
       "norm_label": "loadsvelteruntime()"
     },
     {
@@ -12450,7 +12450,7 @@
       "source_location": "L5049",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentparams",
-      "community": 0,
+      "community": 22,
       "norm_label": "loadsveltecomponentparams()"
     },
     {
@@ -12460,7 +12460,7 @@
       "source_location": "L5069",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsveltecomponentvariantsource",
-      "community": 0,
+      "community": 110,
       "norm_label": "loadsveltecomponentvariantsource()"
     },
     {
@@ -12470,7 +12470,7 @@
       "source_location": "L5083",
       "_origin": "ast",
       "id": "scripts_live_browser_extractsveltecomponentstyle",
-      "community": 0,
+      "community": 110,
       "norm_label": "extractsveltecomponentstyle()"
     },
     {
@@ -12480,7 +12480,7 @@
       "source_location": "L5088",
       "_origin": "ast",
       "id": "scripts_live_browser_applysveltecomponentvariantstyle",
-      "community": 0,
+      "community": 110,
       "norm_label": "applysveltecomponentvariantstyle()"
     },
     {
@@ -12490,7 +12490,7 @@
       "source_location": "L5105",
       "_origin": "ast",
       "id": "scripts_live_browser_removesveltecomponentvariantstyle",
-      "community": 0,
+      "community": 110,
       "norm_label": "removesveltecomponentvariantstyle()"
     },
     {
@@ -12570,7 +12570,7 @@
       "source_location": "L5220",
       "_origin": "ast",
       "id": "scripts_live_browser_buildsveltepropvaluesfromliveelement",
-      "community": 0,
+      "community": 152,
       "norm_label": "buildsveltepropvaluesfromliveelement()"
     },
     {
@@ -12580,7 +12580,7 @@
       "source_location": "L5234",
       "_origin": "ast",
       "id": "scripts_live_browser_mountsveltecomponentvariant",
-      "community": 0,
+      "community": 110,
       "norm_label": "mountsveltecomponentvariant()"
     },
     {
@@ -12600,7 +12600,7 @@
       "source_location": "L5303",
       "_origin": "ast",
       "id": "scripts_live_browser_applyoriginalattrstosvelteanchor",
-      "community": 0,
+      "community": 110,
       "norm_label": "applyoriginalattrstosvelteanchor()"
     },
     {
@@ -12610,7 +12610,7 @@
       "source_location": "L5318",
       "_origin": "ast",
       "id": "scripts_live_browser_commitacceptedsveltecomponenttodom",
-      "community": 0,
+      "community": 110,
       "norm_label": "commitacceptedsveltecomponenttodom()"
     },
     {
@@ -12620,7 +12620,7 @@
       "source_location": "L5338",
       "_origin": "ast",
       "id": "scripts_live_browser_injectsveltecomponentsfrommanifest",
-      "community": 3,
+      "community": 22,
       "norm_label": "injectsveltecomponentsfrommanifest()"
     },
     {
@@ -12630,7 +12630,7 @@
       "source_location": "L5459",
       "_origin": "ast",
       "id": "scripts_live_browser_waitforsveltecomponenttargetandretry",
-      "community": 0,
+      "community": 22,
       "norm_label": "waitforsveltecomponenttargetandretry()"
     },
     {
@@ -12650,7 +12650,7 @@
       "source_location": "L5513",
       "_origin": "ast",
       "id": "scripts_live_browser_injectvariantsfromsource",
-      "community": 3,
+      "community": 22,
       "norm_label": "injectvariantsfromsource()"
     },
     {
@@ -12690,7 +12690,7 @@
       "source_location": "L5646",
       "_origin": "ast",
       "id": "scripts_live_browser_buildsvelteexpressiontextmap",
-      "community": 0,
+      "community": 152,
       "norm_label": "buildsvelteexpressiontextmap()"
     },
     {
@@ -12700,7 +12700,7 @@
       "source_location": "L5689",
       "_origin": "ast",
       "id": "scripts_live_browser_expressiontextmatcher",
-      "community": 0,
+      "community": 152,
       "norm_label": "expressiontextmatcher()"
     },
     {
@@ -12710,7 +12710,7 @@
       "source_location": "L5703",
       "_origin": "ast",
       "id": "scripts_live_browser_collecttextnodes",
-      "community": 0,
+      "community": 152,
       "norm_label": "collecttextnodes()"
     },
     {
@@ -12720,7 +12720,7 @@
       "source_location": "L5715",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizepreviewtext",
-      "community": 0,
+      "community": 152,
       "norm_label": "normalizepreviewtext()"
     },
     {
@@ -12730,7 +12730,7 @@
       "source_location": "L5719",
       "_origin": "ast",
       "id": "scripts_live_browser_escaperegexp",
-      "community": 0,
+      "community": 152,
       "norm_label": "escaperegexp()"
     },
     {
@@ -12760,7 +12760,7 @@
       "source_location": "L5762",
       "_origin": "ast",
       "id": "scripts_live_browser_updateselectedelement",
-      "community": 0,
+      "community": 110,
       "norm_label": "updateselectedelement()"
     },
     {
@@ -12780,7 +12780,7 @@
       "source_location": "L5796",
       "_origin": "ast",
       "id": "scripts_live_browser_pickvariantcontent",
-      "community": 0,
+      "community": 110,
       "norm_label": "pickvariantcontent()"
     },
     {
@@ -12790,7 +12790,7 @@
       "source_location": "L5811",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolllock",
-      "community": 3,
+      "community": 22,
       "norm_label": "startscrolllock()"
     },
     {
@@ -12810,7 +12810,7 @@
       "source_location": "L5929",
       "_origin": "ast",
       "id": "scripts_live_browser_startvariantobserver",
-      "community": 3,
+      "community": 22,
       "norm_label": "startvariantobserver()"
     },
     {
@@ -12820,7 +12820,7 @@
       "source_location": "L6034",
       "_origin": "ast",
       "id": "scripts_live_browser_startscrolltracking",
-      "community": 3,
+      "community": 22,
       "norm_label": "startscrolltracking()"
     },
     {
@@ -12870,7 +12870,7 @@
       "source_location": "L6245",
       "_origin": "ast",
       "id": "scripts_live_browser_checkpointpayload",
-      "community": 0,
+      "community": 22,
       "norm_label": "checkpointpayload()"
     },
     {
@@ -12880,7 +12880,7 @@
       "source_location": "L6264",
       "_origin": "ast",
       "id": "scripts_live_browser_sendcheckpoint",
-      "community": 0,
+      "community": 22,
       "norm_label": "sendcheckpoint()"
     },
     {
@@ -12900,7 +12900,7 @@
       "source_location": "L6283",
       "_origin": "ast",
       "id": "scripts_live_browser_queuecheckpoint",
-      "community": 3,
+      "community": 22,
       "norm_label": "queuecheckpoint()"
     },
     {
@@ -12950,7 +12950,7 @@
       "source_location": "L6482",
       "_origin": "ast",
       "id": "scripts_live_browser_shouldpassthroughelementnav",
-      "community": 0,
+      "community": 3,
       "norm_label": "shouldpassthroughelementnav()"
     },
     {
@@ -12970,7 +12970,7 @@
       "source_location": "L6610",
       "_origin": "ast",
       "id": "scripts_live_browser_handlego",
-      "community": 3,
+      "community": 22,
       "norm_label": "handlego()"
     },
     {
@@ -12990,7 +12990,7 @@
       "source_location": "L6686",
       "_origin": "ast",
       "id": "scripts_live_browser_handleinsertcreate",
-      "community": 3,
+      "community": 22,
       "norm_label": "handleinsertcreate()"
     },
     {
@@ -13000,7 +13000,7 @@
       "source_location": "L6748",
       "_origin": "ast",
       "id": "scripts_live_browser_loadmodernscreenshot",
-      "community": 22,
+      "community": 0,
       "norm_label": "loadmodernscreenshot()"
     },
     {
@@ -13020,7 +13020,7 @@
       "source_location": "L6783",
       "_origin": "ast",
       "id": "scripts_live_browser_inlinefonturls",
-      "community": 22,
+      "community": 0,
       "norm_label": "inlinefonturls()"
     },
     {
@@ -13030,7 +13030,7 @@
       "source_location": "L6806",
       "_origin": "ast",
       "id": "scripts_live_browser_collectfontcsstext",
-      "community": 22,
+      "community": 0,
       "norm_label": "collectfontcsstext()"
     },
     {
@@ -13040,7 +13040,7 @@
       "source_location": "L6834",
       "_origin": "ast",
       "id": "scripts_live_browser_istransparentcolor",
-      "community": 22,
+      "community": 0,
       "norm_label": "istransparentcolor()"
     },
     {
@@ -13050,7 +13050,7 @@
       "source_location": "L6850",
       "_origin": "ast",
       "id": "scripts_live_browser_resolvecanvasbackground",
-      "community": 22,
+      "community": 0,
       "norm_label": "resolvecanvasbackground()"
     },
     {
@@ -13060,7 +13060,7 @@
       "source_location": "L6871",
       "_origin": "ast",
       "id": "scripts_live_browser_capturechromenodes",
-      "community": 22,
+      "community": 0,
       "norm_label": "capturechromenodes()"
     },
     {
@@ -13070,7 +13070,7 @@
       "source_location": "L6895",
       "_origin": "ast",
       "id": "scripts_live_browser_hidecapturechromeforshaderproxy",
-      "community": 22,
+      "community": 0,
       "norm_label": "hidecapturechromeforshaderproxy()"
     },
     {
@@ -13080,7 +13080,7 @@
       "source_location": "L6914",
       "_origin": "ast",
       "id": "scripts_live_browser_shoulduseancestorcropshaderproxy",
-      "community": 22,
+      "community": 0,
       "norm_label": "shoulduseancestorcropshaderproxy()"
     },
     {
@@ -13090,7 +13090,7 @@
       "source_location": "L6924",
       "_origin": "ast",
       "id": "scripts_live_browser_paintsshaderproxysurface",
-      "community": 22,
+      "community": 0,
       "norm_label": "paintsshaderproxysurface()"
     },
     {
@@ -13100,7 +13100,7 @@
       "source_location": "L6931",
       "_origin": "ast",
       "id": "scripts_live_browser_findshaderproxycaptureroot",
-      "community": 22,
+      "community": 0,
       "norm_label": "findshaderproxycaptureroot()"
     },
     {
@@ -13110,7 +13110,7 @@
       "source_location": "L6954",
       "_origin": "ast",
       "id": "scripts_live_browser_captureelementfromrenderedancestor",
-      "community": 22,
+      "community": 0,
       "norm_label": "captureelementfromrenderedancestor()"
     },
     {
@@ -13120,7 +13120,7 @@
       "source_location": "L6978",
       "_origin": "ast",
       "id": "scripts_live_browser_captureelementtoblob",
-      "community": 22,
+      "community": 0,
       "norm_label": "captureelementtoblob()"
     },
     {
@@ -13140,7 +13140,7 @@
       "source_location": "L7182",
       "_origin": "ast",
       "id": "scripts_live_browser_csscolortorgb01",
-      "community": 22,
+      "community": 0,
       "norm_label": "csscolortorgb01()"
     },
     {
@@ -13150,7 +13150,7 @@
       "source_location": "L7196",
       "_origin": "ast",
       "id": "scripts_live_browser_resolvepaperrgb",
-      "community": 22,
+      "community": 0,
       "norm_label": "resolvepaperrgb()"
     },
     {
@@ -13160,7 +13160,7 @@
       "source_location": "L7213",
       "_origin": "ast",
       "id": "scripts_live_browser_paintsbackdrop",
-      "community": 22,
+      "community": 0,
       "norm_label": "paintsbackdrop()"
     },
     {
@@ -13170,7 +13170,7 @@
       "source_location": "L7228",
       "_origin": "ast",
       "id": "scripts_live_browser_findbackdropancestor",
-      "community": 22,
+      "community": 0,
       "norm_label": "findbackdropancestor()"
     },
     {
@@ -13180,7 +13180,7 @@
       "source_location": "L7239",
       "_origin": "ast",
       "id": "scripts_live_browser_averagergb01",
-      "community": 22,
+      "community": 0,
       "norm_label": "averagergb01()"
     },
     {
@@ -13190,7 +13190,7 @@
       "source_location": "L7250",
       "_origin": "ast",
       "id": "scripts_live_browser_dominantrgb01",
-      "community": 22,
+      "community": 0,
       "norm_label": "dominantrgb01()"
     },
     {
@@ -13200,7 +13200,7 @@
       "source_location": "L7276",
       "_origin": "ast",
       "id": "scripts_live_browser_samplesurroundingrgb",
-      "community": 22,
+      "community": 0,
       "norm_label": "samplesurroundingrgb()"
     },
     {
@@ -13210,7 +13210,7 @@
       "source_location": "L7294",
       "_origin": "ast",
       "id": "scripts_live_browser_compileshader",
-      "community": 22,
+      "community": 0,
       "norm_label": "compileshader()"
     },
     {
@@ -13220,7 +13220,7 @@
       "source_location": "L7306",
       "_origin": "ast",
       "id": "scripts_live_browser_positionshaderoverlay",
-      "community": 0,
+      "community": 110,
       "norm_label": "positionshaderoverlay()"
     },
     {
@@ -13230,7 +13230,7 @@
       "source_location": "L7317",
       "_origin": "ast",
       "id": "scripts_live_browser_hideshaderoverlay",
-      "community": 3,
+      "community": 22,
       "norm_label": "hideshaderoverlay()"
     },
     {
@@ -13240,7 +13240,7 @@
       "source_location": "L7327",
       "_origin": "ast",
       "id": "scripts_live_browser_showshaderbitmapfallback",
-      "community": 22,
+      "community": 0,
       "norm_label": "showshaderbitmapfallback()"
     },
     {
@@ -13250,7 +13250,7 @@
       "source_location": "L7346",
       "_origin": "ast",
       "id": "scripts_live_browser_showshaderoverlay",
-      "community": 22,
+      "community": 0,
       "norm_label": "showshaderoverlay()"
     },
     {
@@ -13390,7 +13390,7 @@
       "source_location": "L7688",
       "_origin": "ast",
       "id": "scripts_live_browser_normalizesessionpath",
-      "community": 3,
+      "community": 22,
       "norm_label": "normalizesessionpath()"
     },
     {
@@ -13410,7 +13410,7 @@
       "source_location": "L7702",
       "_origin": "ast",
       "id": "scripts_live_browser_remembersessionfilemeta",
-      "community": 3,
+      "community": 22,
       "norm_label": "remembersessionfilemeta()"
     },
     {
@@ -13420,7 +13420,7 @@
       "source_location": "L7720",
       "_origin": "ast",
       "id": "scripts_live_browser_applysavedsessionmeta",
-      "community": 3,
+      "community": 22,
       "norm_label": "applysavedsessionmeta()"
     },
     {
@@ -13460,7 +13460,7 @@
       "source_location": "L7751",
       "_origin": "ast",
       "id": "scripts_live_browser_findactivesessionsummary",
-      "community": 0,
+      "community": 22,
       "norm_label": "findactivesessionsummary()"
     },
     {
@@ -13470,7 +13470,7 @@
       "source_location": "L7760",
       "_origin": "ast",
       "id": "scripts_live_browser_clampvariantindex",
-      "community": 0,
+      "community": 22,
       "norm_label": "clampvariantindex()"
     },
     {
@@ -13480,7 +13480,7 @@
       "source_location": "L7768",
       "_origin": "ast",
       "id": "scripts_live_browser_restoresessionwithoutwrapper",
-      "community": 3,
+      "community": 22,
       "norm_label": "restoresessionwithoutwrapper()"
     },
     {
@@ -13490,7 +13490,7 @@
       "source_location": "L7813",
       "_origin": "ast",
       "id": "scripts_live_browser_restorefromactivesessions",
-      "community": 3,
+      "community": 22,
       "norm_label": "restorefromactivesessions()"
     },
     {
@@ -13500,7 +13500,7 @@
       "source_location": "L7820",
       "_origin": "ast",
       "id": "scripts_live_browser_savesession",
-      "community": 3,
+      "community": 22,
       "norm_label": "savesession()"
     },
     {
@@ -13510,7 +13510,7 @@
       "source_location": "L7842",
       "_origin": "ast",
       "id": "scripts_live_browser_loadsession",
-      "community": 3,
+      "community": 22,
       "norm_label": "loadsession()"
     },
     {
@@ -13540,7 +13540,7 @@
       "source_location": "L7858",
       "_origin": "ast",
       "id": "scripts_live_browser_issessionhandled",
-      "community": 3,
+      "community": 22,
       "norm_label": "issessionhandled()"
     },
     {
@@ -13590,7 +13590,7 @@
       "source_location": "L7964",
       "_origin": "ast",
       "id": "scripts_live_browser_resumesession",
-      "community": 3,
+      "community": 22,
       "norm_label": "resumesession()"
     },
     {
@@ -13630,7 +13630,7 @@
       "source_location": "L8155",
       "_origin": "ast",
       "id": "scripts_live_browser_savepickpref",
-      "community": 0,
+      "community": 3,
       "norm_label": "savepickpref()"
     },
     {
@@ -13790,7 +13790,7 @@
       "source_location": "L8391",
       "_origin": "ast",
       "id": "scripts_live_browser_pagehashosttextselection",
-      "community": 0,
+      "community": 3,
       "norm_label": "pagehashosttextselection()"
     },
     {
@@ -13810,7 +13810,7 @@
       "source_location": "L8408",
       "_origin": "ast",
       "id": "scripts_live_browser_clearsteerfocusrecovertimer",
-      "community": 162,
+      "community": 0,
       "norm_label": "clearsteerfocusrecovertimer()"
     },
     {
@@ -13820,7 +13820,7 @@
       "source_location": "L8415",
       "_origin": "ast",
       "id": "scripts_live_browser_schedulesteerfocusrecover",
-      "community": 162,
+      "community": 0,
       "norm_label": "schedulesteerfocusrecover()"
     },
     {
@@ -13860,7 +13860,7 @@
       "source_location": "L8490",
       "_origin": "ast",
       "id": "scripts_live_browser_steerfocusdebugenabled",
-      "community": 37,
+      "community": 24,
       "norm_label": "steerfocusdebugenabled()"
     },
     {
@@ -13880,7 +13880,7 @@
       "source_location": "L8507",
       "_origin": "ast",
       "id": "scripts_live_browser_attachsteerfocusdebug",
-      "community": 37,
+      "community": 24,
       "norm_label": "attachsteerfocusdebug()"
     },
     {
@@ -14020,7 +14020,7 @@
       "source_location": "L8778",
       "_origin": "ast",
       "id": "scripts_live_browser_steerspeechrecognitionctor",
-      "community": 162,
+      "community": 0,
       "norm_label": "steerspeechrecognitionctor()"
     },
     {
@@ -14030,7 +14030,7 @@
       "source_location": "L8782",
       "_origin": "ast",
       "id": "scripts_live_browser_isembeddedpreviewbrowser",
-      "community": 162,
+      "community": 0,
       "norm_label": "isembeddedpreviewbrowser()"
     },
     {
@@ -14040,7 +14040,7 @@
       "source_location": "L8791",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoiceunavailablemessage",
-      "community": 162,
+      "community": 0,
       "norm_label": "steervoiceunavailablemessage()"
     },
     {
@@ -14050,7 +14050,7 @@
       "source_location": "L8795",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoiceerrormessage",
-      "community": 162,
+      "community": 0,
       "norm_label": "steervoiceerrormessage()"
     },
     {
@@ -14060,7 +14060,7 @@
       "source_location": "L8817",
       "_origin": "ast",
       "id": "scripts_live_browser_syncvoiceui",
-      "community": 162,
+      "community": 0,
       "norm_label": "syncvoiceui()"
     },
     {
@@ -14070,7 +14070,7 @@
       "source_location": "L8842",
       "_origin": "ast",
       "id": "scripts_live_browser_releasevoiceengine",
-      "community": 162,
+      "community": 0,
       "norm_label": "releasevoiceengine()"
     },
     {
@@ -14080,7 +14080,7 @@
       "source_location": "L8857",
       "_origin": "ast",
       "id": "scripts_live_browser_stopvoice",
-      "community": 162,
+      "community": 0,
       "norm_label": "stopvoice()"
     },
     {
@@ -14090,7 +14090,7 @@
       "source_location": "L8864",
       "_origin": "ast",
       "id": "scripts_live_browser_finishvoicesession",
-      "community": 162,
+      "community": 0,
       "norm_label": "finishvoicesession()"
     },
     {
@@ -14100,7 +14100,7 @@
       "source_location": "L8878",
       "_origin": "ast",
       "id": "scripts_live_browser_startvoice",
-      "community": 162,
+      "community": 0,
       "norm_label": "startvoice()"
     },
     {
@@ -14110,7 +14110,7 @@
       "source_location": "L8952",
       "_origin": "ast",
       "id": "scripts_live_browser_steervoicecontext",
-      "community": 162,
+      "community": 0,
       "norm_label": "steervoicecontext()"
     },
     {
@@ -14120,7 +14120,7 @@
       "source_location": "L8963",
       "_origin": "ast",
       "id": "scripts_live_browser_configurevoicecontext",
-      "community": 162,
+      "community": 0,
       "norm_label": "configurevoicecontext()"
     },
     {
@@ -14130,7 +14130,7 @@
       "source_location": "L8975",
       "_origin": "ast",
       "id": "scripts_live_browser_togglesteervoice",
-      "community": 162,
+      "community": 0,
       "norm_label": "togglesteervoice()"
     },
     {
@@ -14140,7 +14140,7 @@
       "source_location": "L8984",
       "_origin": "ast",
       "id": "scripts_live_browser_toggleconfigurevoice",
-      "community": 162,
+      "community": 0,
       "norm_label": "toggleconfigurevoice()"
     },
     {
@@ -14240,7 +14240,7 @@
       "source_location": "L9296",
       "_origin": "ast",
       "id": "scripts_live_browser_hideagentpolltooltip",
-      "community": 162,
+      "community": 0,
       "norm_label": "hideagentpolltooltip()"
     },
     {
@@ -14250,7 +14250,7 @@
       "source_location": "L9302",
       "_origin": "ast",
       "id": "scripts_live_browser_stopagentstatuspoll",
-      "community": 162,
+      "community": 0,
       "norm_label": "stopagentstatuspoll()"
     },
     {
@@ -14260,7 +14260,7 @@
       "source_location": "L9309",
       "_origin": "ast",
       "id": "scripts_live_browser_fetchagentpollingstatus",
-      "community": 162,
+      "community": 0,
       "norm_label": "fetchagentpollingstatus()"
     },
     {
@@ -14270,7 +14270,7 @@
       "source_location": "L9318",
       "_origin": "ast",
       "id": "scripts_live_browser_startagentstatuspoll",
-      "community": 162,
+      "community": 0,
       "norm_label": "startagentstatuspoll()"
     },
     {
@@ -14360,7 +14360,7 @@
       "source_location": "L9930",
       "_origin": "ast",
       "id": "scripts_live_browser_teardown",
-      "community": 162,
+      "community": 0,
       "norm_label": "teardown()"
     },
     {
@@ -22877,7 +22877,7 @@
       "label": "NumberLine()",
       "file_type": "code",
       "source_file": "web/components/parametric/NumberLine.tsx",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "parametric_numberline_numberline",
       "community": 156,
@@ -34634,20 +34634,20 @@
       "norm_label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `item-math5-c03-04` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628"
     },
     {
-      "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-05` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628",
+      "label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-05` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
       "source_location": "L644",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_05_\u0634\u0646\u0627\u062e\u062a_\u0648_\u062a\u0648\u0644\u06cc\u062f_\u0646\u0633\u0628\u062a_\u0647\u0627\u06cc_\u0645\u0633\u0627\u0648\u06cc_\u0648_\u0645\u0641\u0647\u0648\u0645_\u062a\u0646\u0627\u0633\u0628",
       "community": 170,
-      "norm_label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `item-math5-c03-05` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628"
+      "norm_label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `item-math5-c03-05` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628"
     },
     {
       "label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-06` \u2014 \u0634\u0646\u0627\u062e\u062a \u0648 \u062a\u0648\u0644\u06cc\u062f \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0645\u0633\u0627\u0648\u06cc \u0648 \u0645\u0641\u0647\u0648\u0645 \u062a\u0646\u0627\u0633\u0628",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L654",
+      "source_location": "L651",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_06_\u0634\u0646\u0627\u062e\u062a_\u0648_\u062a\u0648\u0644\u06cc\u062f_\u0646\u0633\u0628\u062a_\u0647\u0627\u06cc_\u0645\u0633\u0627\u0648\u06cc_\u0648_\u0645\u0641\u0647\u0648\u0645_\u062a\u0646\u0627\u0633\u0628",
       "community": 170,
@@ -34657,7 +34657,7 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-07` \u2014 \u062c\u062f\u0648\u0644 \u062a\u0646\u0627\u0633\u0628\u060c \u0636\u0631\u06cc\u0628 \u062a\u0646\u0627\u0633\u0628 \u0648 \u0631\u0648\u0634\u200c\u0647\u0627\u06cc \u062d\u0644 (\u0636\u0631\u0628 \u0645\u062a\u0642\u0627\u0637\u0639)",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L663",
+      "source_location": "L660",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_07_\u062c\u062f\u0648\u0644_\u062a\u0646\u0627\u0633\u0628_\u0636\u0631\u06cc\u0628_\u062a\u0646\u0627\u0633\u0628_\u0648_\u0631\u0648\u0634_\u0647\u0627\u06cc_\u062d\u0644_\u0636\u0631\u0628_\u0645\u062a\u0642\u0627\u0637\u0639",
       "community": 170,
@@ -34667,7 +34667,7 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-08` \u2014 \u062c\u062f\u0648\u0644 \u062a\u0646\u0627\u0633\u0628\u060c \u0636\u0631\u06cc\u0628 \u062a\u0646\u0627\u0633\u0628 \u0648 \u0631\u0648\u0634\u200c\u0647\u0627\u06cc \u062d\u0644 (\u0636\u0631\u0628 \u0645\u062a\u0642\u0627\u0637\u0639)",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L673",
+      "source_location": "L670",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_08_\u062c\u062f\u0648\u0644_\u062a\u0646\u0627\u0633\u0628_\u0636\u0631\u06cc\u0628_\u062a\u0646\u0627\u0633\u0628_\u0648_\u0631\u0648\u0634_\u0647\u0627\u06cc_\u062d\u0644_\u0636\u0631\u0628_\u0645\u062a\u0642\u0627\u0637\u0639",
       "community": 170,
@@ -34677,7 +34677,7 @@
       "label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-09` \u2014 \u062c\u062f\u0648\u0644 \u062a\u0646\u0627\u0633\u0628\u060c \u0636\u0631\u06cc\u0628 \u062a\u0646\u0627\u0633\u0628 \u0648 \u0631\u0648\u0634\u200c\u0647\u0627\u06cc \u062d\u0644 (\u0636\u0631\u0628 \u0645\u062a\u0642\u0627\u0637\u0639)",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L683",
+      "source_location": "L680",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_09_\u062c\u062f\u0648\u0644_\u062a\u0646\u0627\u0633\u0628_\u0636\u0631\u06cc\u0628_\u062a\u0646\u0627\u0633\u0628_\u0648_\u0631\u0648\u0634_\u0647\u0627\u06cc_\u062d\u0644_\u0636\u0631\u0628_\u0645\u062a\u0642\u0627\u0637\u0639",
       "community": 170,
@@ -34687,27 +34687,27 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-10` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L692",
+      "source_location": "L689",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_10_\u0646\u0633\u0628\u062a_\u0647\u0627\u06cc_\u0686\u0646\u062f\u062a\u0627\u06cc\u06cc_\u0648_\u062d\u0644_\u0645\u0633\u0627\u06cc\u0644_\u062a\u0633\u0647\u06cc\u0645_\u0628\u0647_\u0646\u0633\u0628\u062a",
       "community": 170,
       "norm_label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `item-math5-c03-10` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a"
     },
     {
-      "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-11` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a",
+      "label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-11` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L702",
+      "source_location": "L699",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_11_\u0646\u0633\u0628\u062a_\u0647\u0627\u06cc_\u0686\u0646\u062f\u062a\u0627\u06cc\u06cc_\u0648_\u062d\u0644_\u0645\u0633\u0627\u06cc\u0644_\u062a\u0633\u0647\u06cc\u0645_\u0628\u0647_\u0646\u0633\u0628\u062a",
       "community": 170,
-      "norm_label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `item-math5-c03-11` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a"
+      "norm_label": "\ud83d\udd34 \u0633\u0648\u0627\u0644 `item-math5-c03-11` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a"
     },
     {
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-12` \u2014 \u0646\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0686\u0646\u062f\u062a\u0627\u06cc\u06cc \u0648 \u062d\u0644 \u0645\u0633\u0627\u06cc\u0644 \u062a\u0633\u0647\u06cc\u0645 \u0628\u0647 \u0646\u0633\u0628\u062a",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L712",
+      "source_location": "L706",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_12_\u0646\u0633\u0628\u062a_\u0647\u0627\u06cc_\u0686\u0646\u062f\u062a\u0627\u06cc\u06cc_\u0648_\u062d\u0644_\u0645\u0633\u0627\u06cc\u0644_\u062a\u0633\u0647\u06cc\u0645_\u0628\u0647_\u0646\u0633\u0628\u062a",
       "community": 170,
@@ -34717,7 +34717,7 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-13` \u2014 \u0645\u0641\u0647\u0648\u0645 \u062f\u0631\u0635\u062f \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0646\u0633\u0628\u062a \u0628\u0627 \u0645\u062e\u0631\u062c \u06f1\u06f0\u06f0 \u0648 \u062a\u0628\u062f\u06cc\u0644 \u06a9\u0633\u0631 \u0628\u0647 \u062f\u0631\u0635\u062f",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L722",
+      "source_location": "L716",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_13_\u0645\u0641\u0647\u0648\u0645_\u062f\u0631\u0635\u062f_\u0628\u0647_\u0639\u0646\u0648\u0627\u0646_\u0646\u0633\u0628\u062a_\u0628\u0627_\u0645\u062e\u0631\u062c_\u06f1\u06f0\u06f0_\u0648_\u062a\u0628\u062f\u06cc\u0644_\u06a9\u0633\u0631_\u0628\u0647_\u062f\u0631\u0635\u062f",
       "community": 170,
@@ -34727,7 +34727,7 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-14` \u2014 \u0645\u0641\u0647\u0648\u0645 \u062f\u0631\u0635\u062f \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0646\u0633\u0628\u062a \u0628\u0627 \u0645\u062e\u0631\u062c \u06f1\u06f0\u06f0 \u0648 \u062a\u0628\u062f\u06cc\u0644 \u06a9\u0633\u0631 \u0628\u0647 \u062f\u0631\u0635\u062f",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L732",
+      "source_location": "L726",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_14_\u0645\u0641\u0647\u0648\u0645_\u062f\u0631\u0635\u062f_\u0628\u0647_\u0639\u0646\u0648\u0627\u0646_\u0646\u0633\u0628\u062a_\u0628\u0627_\u0645\u062e\u0631\u062c_\u06f1\u06f0\u06f0_\u0648_\u062a\u0628\u062f\u06cc\u0644_\u06a9\u0633\u0631_\u0628\u0647_\u062f\u0631\u0635\u062f",
       "community": 170,
@@ -34737,7 +34737,7 @@
       "label": "\ud83d\udfe2 \u0633\u0648\u0627\u0644 `ITEM-MATH5-C03-15` \u2014 \u0645\u0641\u0647\u0648\u0645 \u062f\u0631\u0635\u062f \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0646\u0633\u0628\u062a \u0628\u0627 \u0645\u062e\u0631\u062c \u06f1\u06f0\u06f0 \u0648 \u062a\u0628\u062f\u06cc\u0644 \u06a9\u0633\u0631 \u0628\u0647 \u062f\u0631\u0635\u062f",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L742",
+      "source_location": "L736",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u0633\u0648\u0627\u0644_item_math5_c03_15_\u0645\u0641\u0647\u0648\u0645_\u062f\u0631\u0635\u062f_\u0628\u0647_\u0639\u0646\u0648\u0627\u0646_\u0646\u0633\u0628\u062a_\u0628\u0627_\u0645\u062e\u0631\u062c_\u06f1\u06f0\u06f0_\u0648_\u062a\u0628\u062f\u06cc\u0644_\u06a9\u0633\u0631_\u0628\u0647_\u062f\u0631\u0635\u062f",
       "community": 170,
@@ -34747,7 +34747,7 @@
       "label": "\u06f3. \u0645\u0627\u062a\u0631\u06cc\u0633 \u06a9\u0627\u062a\u0627\u0644\u0648\u06af \u06f2\u06f2 \u0627\u0628\u0632\u0627\u0631 \u0628\u0635\u0631\u06cc \u067e\u06cc\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc\u200c\u0634\u062f\u0647 \u062f\u0631 \u067e\u0644\u062a\u0641\u0631\u0645",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L752",
+      "source_location": "L746",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u06f3_\u0645\u0627\u062a\u0631\u06cc\u0633_\u06a9\u0627\u062a\u0627\u0644\u0648\u06af_\u06f2\u06f2_\u0627\u0628\u0632\u0627\u0631_\u0628\u0635\u0631\u06cc_\u067e\u06cc\u0627\u062f\u0647_\u0633\u0627\u0632\u06cc_\u0634\u062f\u0647_\u062f\u0631_\u067e\u0644\u062a\u0641\u0631\u0645",
       "community": 173,
@@ -34757,7 +34757,7 @@
       "label": "\u06f4. \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0642\u062f\u0627\u0645 \u0648 \u0646\u0642\u0634\u0647 \u0631\u0627\u0647 \u0631\u0633\u0627\u0646\u062f\u0646 \u067e\u0648\u0634\u0634 \u0628\u0647 \u06f1\u06f0\u06f0\u066a",
       "file_type": "document",
       "source_file": "docs/curriculum_items_tools_catalog.md",
-      "source_location": "L779",
+      "source_location": "L773",
       "_origin": "ast",
       "id": "docs_curriculum_items_tools_catalog_\u06f4_\u0628\u0631\u0646\u0627\u0645\u0647_\u0627\u0642\u062f\u0627\u0645_\u0648_\u0646\u0642\u0634\u0647_\u0631\u0627\u0647_\u0631\u0633\u0627\u0646\u062f\u0646_\u067e\u0648\u0634\u0634_\u0628\u0647_\u06f1\u06f0\u06f0",
       "community": 173,
@@ -89093,9 +89093,9 @@
       "source_file": "web/__tests__/grade5-visual-tools.test.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_grade5_visual_tools_test",
-      "target": "remediation_remediationpathway",
-      "confidence_score": 1.0
+      "target": "remediation_remediationpathway"
     },
     {
       "relation": "imports",
@@ -89104,9 +89104,9 @@
       "source_file": "web/__tests__/grade5-visual-tools.test.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_grade5_visual_tools_test",
-      "target": "remediation_remediationpathway_remediationpathway",
-      "confidence_score": 1.0
+      "target": "remediation_remediationpathway_remediationpathway"
     },
     {
       "relation": "imports_from",
@@ -95905,9 +95905,9 @@
       "source_file": "web/components/remediation/RemediationPathway.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "remediation_remediationpathway",
-      "target": "parametric_areagrid",
-      "confidence_score": 1.0
+      "target": "parametric_areagrid"
     },
     {
       "relation": "calls",
@@ -95938,9 +95938,9 @@
       "source_file": "web/components/remediation/RemediationPathway.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "remediation_remediationpathway",
-      "target": "parametric_areagrid_areagrid",
-      "confidence_score": 1.0
+      "target": "parametric_areagrid_areagrid"
     },
     {
       "relation": "imports_from",
@@ -96012,9 +96012,9 @@
       "source_file": "web/components/remediation/RemediationPathway.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "remediation_remediationpathway",
-      "target": "parametric_balancescale",
-      "confidence_score": 1.0
+      "target": "parametric_balancescale"
     },
     {
       "relation": "calls",
@@ -96056,9 +96056,9 @@
       "source_file": "web/components/remediation/RemediationPathway.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "remediation_remediationpathway",
-      "target": "parametric_balancescale_balancescale",
-      "confidence_score": 1.0
+      "target": "parametric_balancescale_balancescale"
     },
     {
       "relation": "imports_from",
@@ -110571,5 +110571,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "734eb3afd2541f0aab27dd566bf4b54282a8e4d9"
+  "built_at_commit": "56e217d5aea15e822133283a841483fd09082d58"
 }

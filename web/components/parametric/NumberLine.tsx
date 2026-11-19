@@ -7,7 +7,9 @@ export interface NumberLineProps {
   min?: number;
   max?: number;
   partitions?: number;
-  targetPoint?: number; // e.g. 0.5 for 2/4
+  divisions?: number; // alias for partitions
+  unitLength?: number;
+  targetPoint?: number; // e.g. 0.5 for 2/4 or integer index
   targetFraction?: number; // alias for targetPoint
   targetLabel?: string;
   hideFractions?: boolean;
@@ -17,8 +19,10 @@ export interface NumberLineProps {
 
 export const NumberLine: React.FC<NumberLineProps> = ({
   min = 0,
-  max = 1,
-  partitions = 4,
+  max,
+  partitions,
+  divisions,
+  unitLength,
   targetPoint,
   targetFraction,
   targetLabel,
@@ -26,18 +30,21 @@ export const NumberLine: React.FC<NumberLineProps> = ({
   interactive = false,
   onPositionSelect,
 }) => {
-  const effectiveTarget = targetPoint ?? targetFraction ?? 0.5;
+  const effectivePartitions = Math.max(1, partitions ?? divisions ?? 4);
+
+  const getEffectiveTarget = () => {
+    const raw = targetPoint ?? targetFraction;
+    if (raw === undefined) return 0.5;
+    return raw <= 1 ? raw : Math.min(1, raw / effectivePartitions);
+  };
 
   const [selectedTick, setSelectedTick] = useState<number | null>(
-    effectiveTarget !== undefined ? Math.round(effectiveTarget * partitions) : null
+    Math.round(getEffectiveTarget() * effectivePartitions)
   );
 
   React.useEffect(() => {
-    const effective = targetPoint ?? targetFraction;
-    if (effective !== undefined) {
-      setSelectedTick(Math.round(effective * partitions));
-    }
-  }, [targetPoint, targetFraction, partitions]);
+    setSelectedTick(Math.round(getEffectiveTarget() * effectivePartitions));
+  }, [targetPoint, targetFraction, partitions, divisions]);
 
   const paddingX = 40;
   const lineY = 60;
@@ -47,8 +54,8 @@ export const NumberLine: React.FC<NumberLineProps> = ({
   const handleTickClick = (stepIndex: number) => {
     if (!interactive) return;
     setSelectedTick(stepIndex);
-    const value = stepIndex / partitions;
-    onPositionSelect?.(`${stepIndex}/${partitions}`, value);
+    const value = stepIndex / effectivePartitions;
+    onPositionSelect?.(`${stepIndex}/${effectivePartitions}`, value);
   };
 
   return (
@@ -77,11 +84,22 @@ export const NumberLine: React.FC<NumberLineProps> = ({
           />
 
           {/* Partition Ticks */}
-          {Array.from({ length: partitions + 1 }).map((_, i) => {
-            const x = paddingX + (i * usableWidth) / partitions;
-            const isEndpoint = i === 0 || i === partitions;
+          {Array.from({ length: effectivePartitions + 1 }).map((_, i) => {
+            const x = paddingX + (i * usableWidth) / effectivePartitions;
+            const isEndpoint = i === 0 || i === effectivePartitions;
             const tickHeight = isEndpoint ? 24 : 14;
             const isSelected = selectedTick === i;
+
+            let tickText = "";
+            if (unitLength !== undefined) {
+              tickText = toPersianDigits(i * unitLength);
+            } else if (isEndpoint) {
+              tickText = i === 0 ? toPersianDigits(0) : toPersianDigits(max ?? 1);
+            } else if (hideFractions) {
+              tickText = isSelected ? "؟" : "";
+            } else {
+              tickText = `${toPersianDigits(i)}/${toPersianDigits(effectivePartitions)}`;
+            }
 
             return (
               <g
@@ -118,15 +136,7 @@ export const NumberLine: React.FC<NumberLineProps> = ({
                   fill={isSelected ? "#4f46e5" : isEndpoint ? "#0f172a" : "#64748b"}
                   style={{ direction: "ltr" }}
                 >
-                  {isEndpoint
-                    ? i === 0
-                      ? toPersianDigits(0)
-                      : toPersianDigits(1)
-                    : hideFractions
-                    ? isSelected
-                      ? "؟"
-                      : ""
-                    : `${toPersianDigits(i)}/${toPersianDigits(partitions)}`}
+                  {tickText}
                 </text>
 
                 {/* Target highlight dot */}

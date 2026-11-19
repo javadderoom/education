@@ -285,10 +285,6 @@
       "difficulty": 0.45,
       "guess_param": 0.20,
       "slip_param": 0.10,
-      "visual_template": {
-        "type": "BucketSort",
-        "props": { "totalItems": 4, "categories": ["متناسب", "غیر متناسب"] }
-      },
       "distractors": [
         {
           "id": "DIS-M5-05-A",
@@ -555,10 +551,6 @@
       "difficulty": 0.60,
       "guess_param": 0.20,
       "slip_param": 0.10,
-      "visual_template": {
-        "type": "BucketSort",
-        "props": { "totalItems": 3, "categories": ["کوچکترین", "بزرگترین"] }
-      },
       "distractors": [
         {
           "id": "DIS-M5-11-A",
@@ -694,8 +686,8 @@
       "guess_param": 0.20,
       "slip_param": 0.10,
       "visual_template": {
-        "type": "BalanceScale",
-        "props": { "leftValue": 20, "rightValue": 80, "leftLabel": "۲۰٪ تخفیف", "rightLabel": "؟٪ پرداختی" }
+        "type": "AreaGrid",
+        "props": { "rows": 10, "cols": 10, "initialColored": 20, "color": "amber" }
       },
       "distractors": [
         {
