@@ -23,6 +23,11 @@ import { FractionAreaMultiplier } from "./FractionAreaMultiplier";
 import { PolygonAreaDecomposer } from "./PolygonAreaDecomposer";
 import { CircleMeasurementVisualizer } from "./CircleMeasurementVisualizer";
 import { CompoundUnitCalculator } from "./CompoundUnitCalculator";
+import { CoordinateGridVisualizer } from "./CoordinateGridVisualizer";
+import { IntegerNumberLine } from "./IntegerNumberLine";
+import { AngleRelationshipVisualizer } from "./AngleRelationshipVisualizer";
+import { FractionDivisionVisualizer } from "./FractionDivisionVisualizer";
+import { CylinderVolumeVisualizer } from "./CylinderVolumeVisualizer";
 
 export interface VisualTemplateData {
   type: string;
@@ -92,6 +97,18 @@ export const VisualTemplateRenderer: React.FC<VisualTemplateRendererProps> = ({ 
       return <CircleMeasurementVisualizer {...p} />;
     case "CompoundUnitCalculator":
       return <CompoundUnitCalculator {...p} />;
+
+    // Grade 6 Rigorous Spatial & Diagnostic Manipulatives
+    case "CoordinateGridVisualizer":
+      return <CoordinateGridVisualizer {...p} />;
+    case "IntegerNumberLine":
+      return <IntegerNumberLine {...p} />;
+    case "AngleRelationshipVisualizer":
+      return <AngleRelationshipVisualizer {...p} />;
+    case "FractionDivisionVisualizer":
+      return <FractionDivisionVisualizer {...p} />;
+    case "CylinderVolumeVisualizer":
+      return <CylinderVolumeVisualizer {...p} />;
 
     default:
       console.warn(`[VisualTemplateRenderer] Unknown visual template type: ${type}`);

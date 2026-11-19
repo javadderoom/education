@@ -820,6 +820,116 @@ export const CANONICAL_TAXONOMIES: Record<string, SubjectTaxonomy> = {
       },
     ],
   },
+  "SUBJ-MATH6-COORD": {
+    id: "SUBJ-MATH6-COORD",
+    gradeLevel: 6,
+    title: "ریاضی ششم ابتدایی",
+    chapterTitle: "فصل چهارم: تقارن و مختصات",
+    description: "مرکز تقارن، دوران ۱۸۰ درجه، تقارن محوری، دستگاه مختصات دو بعدی و قرینه شکل‌ها",
+    themeColor: "indigo",
+    cartridgeFile: "grade6_math_ch4.json",
+    chapters: [
+      {
+        id: "CH-MATH6-04",
+        chapterNumber: 4,
+        title: "فصل چهارم: تقارن و مختصات",
+        categories: [
+          {
+            id: "CAT-G6-CH4-CENTRAL",
+            title: "بخش ۱: مرکز تقارن و دوران",
+            subtitle: "چرخش ۱۸۰ درجه حول نقطه و مقایسه با خط تقارن",
+            description: "تشخیص مرکز تقارن در متوازی‌الاضلاع، مستطیل، دایره و حروف الفبا",
+            topicIds: ["KC-MATH6-C04-01"],
+          },
+          {
+            id: "CAT-G6-CH4-AXIAL",
+            title: "بخش ۲: تقارن محوری",
+            subtitle: "تصویر آینه‌ای نسبت به خطوط تقارن و حفظ اندازه پاره‌خط‌ها",
+            description: "رعایت فاصله عمودی یکسان از خط تقارن و رسم قرینه شکل‌ها",
+            topicIds: ["KC-MATH6-C04-02"],
+          },
+          {
+            id: "CAT-G6-CH4-COORD-INTRO",
+            title: "بخش ۳: دستگاه مختصات دو بعدی",
+            subtitle: "محور افقی (طول x)، محور عمودی (عرض y) و مبدا مختصات",
+            description: "خواندن و نوشتن مختصات نقاط به صورت [طول, عرض] و گام‌شماری از مبدا [۰, ۰]",
+            topicIds: ["KC-MATH6-C04-03"],
+          },
+          {
+            id: "CAT-G6-CH4-SHAPES",
+            title: "بخش ۴: رسم شکل‌ها در صفحه مختصات",
+            subtitle: "یافتن رأس‌های مجهول، محاسبه طول اضلاع و مساحت شکل‌ها",
+            description: "رسم مثلث و مستطیل و محاسبه فاصله نقاط با طول یا عرض مشترک",
+            topicIds: ["KC-MATH6-C04-04"],
+          },
+          {
+            id: "CAT-G6-CH4-TRANSFORM",
+            title: "بخش ۵: انتقال و تقارن در دستگاه مختصات",
+            subtitle: "انتقال برداری به چپ/راست/بالا/پایین و قرینه نسبت به محورها و مبدا",
+            description: "درک تغییرات طول و عرض در انتقال و قرینه‌یابی نقاط نسبت به محورها",
+            topicIds: ["KC-MATH6-C04-05"],
+          },
+        ],
+      },
+    ],
+    topics: [
+      {
+        id: "KC-MATH6-C04-01",
+        title: "مرکز تقارن و دوران ۱۸۰ درجه شکل‌های هندسی",
+        shortTitle: "مرکز تقارن و دوران",
+        description: "تشخیص مرکز تقارن، دوران ۱۸۰ درجه حول نقطه ثابت، و تشخیص شکل‌های دارای مرکز تقارن",
+        bloomLevel: "understand",
+        pedagogicalLevel: "درک هندسی و تجسم فضایی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G6-CH4-CENTRAL",
+      },
+      {
+        id: "KC-MATH6-C04-02",
+        title: "تقارن محوری و تصویر آینه‌ای نسبت به خطوط تقارن",
+        shortTitle: "تقارن محوری",
+        description: "یافتن قرینه نقطه‌ها و شکل‌ها نسبت به خطوط تقارن افقی، عمودی و مورب با حفظ فاصله",
+        bloomLevel: "understand",
+        pedagogicalLevel: "درک مفهومی و بازتاب",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G6-CH4-AXIAL",
+      },
+      {
+        id: "KC-MATH6-C04-03",
+        title: "معرفی دستگاه مختصات دو بعدی و نمایش نقطه با طول و عرض",
+        shortTitle: "دستگاه مختصات دو بعدی",
+        description: "شناخت محور افقی (طول)، محور عمودی (عرض)، مبدا مختصات [۰, ۰] و ثبت مختصات",
+        bloomLevel: "apply",
+        pedagogicalLevel: "محاسباتی و کاربردی",
+        itemCount: 3,
+        estimatedMinutes: 4,
+        categoryId: "CAT-G6-CH4-COORD-INTRO",
+      },
+      {
+        id: "KC-MATH6-C04-04",
+        title: "رسم شکل‌های هندسی در صفحه مختصات و تعیین مختصات رأس‌ها",
+        shortTitle: "شکل‌های هندسی در مختصات",
+        description: "اتصال نقاط در صفحه مختصات برای تشکیل چندضلعی‌ها و تعیین مختصات رأس مجهول",
+        bloomLevel: "apply",
+        pedagogicalLevel: "کاربردی و تحلیلی",
+        itemCount: 3,
+        estimatedMinutes: 5,
+        categoryId: "CAT-G6-CH4-SHAPES",
+      },
+      {
+        id: "KC-MATH6-C04-05",
+        title: "انتقال و قرینه‌یابی شکل‌ها در دستگاه مختصات",
+        shortTitle: "انتقال و تقارن در مختصات",
+        description: "انتقال شکل با افزودن یا کاستن از طول و عرض، و قرینه نقطه‌ها نسبت به محورها",
+        bloomLevel: "analyze",
+        pedagogicalLevel: "تحلیلی و تفسیری",
+        itemCount: 3,
+        estimatedMinutes: 5,
+        categoryId: "CAT-G6-CH4-TRANSFORM",
+      },
+    ],
+  },
 };
 
 /**
@@ -853,6 +963,9 @@ export function getSubjectTaxonomy(subjectId: string): SubjectTaxonomy {
   }
   if (s.includes("MATH5") || s.includes("RATIO") || s.includes("PERCENT") || s.includes("GRADE5") || s === "5") {
     return CANONICAL_TAXONOMIES["SUBJ-MATH5-RATIO"];
+  }
+  if (s.includes("MATH6") || s.includes("COORD") || s.includes("GRADE6") || s === "6") {
+    return CANONICAL_TAXONOMIES["SUBJ-MATH6-COORD"];
   }
   return CANONICAL_TAXONOMIES["SUBJ-MATH4-FRACTIONS"];
 }

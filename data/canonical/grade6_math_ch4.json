@@ -1,0 +1,791 @@
+{
+  "cartridge_id": "CART-IR-MATH6-CH04",
+  "title": "ریاضی پایه ششم ابتدایی - فصل چهارم: تقارن و مختصات",
+  "curriculum_source": "پایگاه کتاب‌های درسی ایران (chap.sch.ir) - راهنمای تدریس ریاضی ششم کد ۶۰.۲",
+  "domain": {
+    "id": "DOM-K12-MATH",
+    "name": "ریاضیات دوره دوم ابتدایی",
+    "category": "k12"
+  },
+  "subject": {
+    "id": "SUBJ-MATH6-COORD",
+    "name": "تقارن و مختصات (پایه ششم)",
+    "grade_level": 6
+  },
+  "knowledge_components": [
+    {
+      "id": "KC-MATH6-C04-01",
+      "title": "مرکز تقارن و دوران ۱۸۰ درجه شکل‌های هندسی",
+      "bloom_level": "understand",
+      "description": "تشخیص مرکز تقارن، دوران ۱۸۰ درجه حول نقطه ثابت، و تشخیص شکل‌های دارای مرکز تقارن (مانند متوازی‌الاضلاع، مستطیل، دایره) در برابر شکل‌های فاقد آن.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C04-02",
+      "title": "تقارن محوری و تصویر آینه‌ای نسبت به خطوط تقارن",
+      "bloom_level": "understand",
+      "description": "یافتن قرینه نقطه‌ها و شکل‌ها نسبت به خطوط تقارن افقی، عمودی و مورب با حفظ فاصله عمودی از خط تقارن.",
+      "prerequisites": []
+    },
+    {
+      "id": "KC-MATH6-C04-03",
+      "title": "معرفی دستگاه مختصات دو بعدی و نمایش نقطه با طول و عرض",
+      "bloom_level": "apply",
+      "description": "شناخت محور افقی (طول x)، محور عمودی (عرض y)، مبدا مختصات [0,0] و خواندن و مشخص کردن مختصات نقاط به صورت [طول, عرض].",
+      "prerequisites": ["KC-MATH6-C04-01"]
+    },
+    {
+      "id": "KC-MATH6-C04-04",
+      "title": "رسم شکل‌های هندسی در صفحه مختصات و تعیین مختصات رأس‌ها",
+      "bloom_level": "apply",
+      "description": "اتصال نقاط در صفحه مختصات برای تشکیل چندضلعی‌ها، محاسبه طول اضلاع موازی محورها، و تعیین مختصات رأس مجهول.",
+      "prerequisites": ["KC-MATH6-C04-03"]
+    },
+    {
+      "id": "KC-MATH6-C04-05",
+      "title": "انتقال و قرینه‌یابی شکل‌ها در دستگاه مختصات",
+      "bloom_level": "analyze",
+      "description": "انتقال شکل با افزودن یا کاستن از طول و عرض، و قرینه نقطه‌ها نسبت به محور طول‌ها (عرض قرینه می‌شود) و محور عرض‌ها (طول قرینه می‌شود).",
+      "prerequisites": ["KC-MATH6-C04-03", "KC-MATH6-C04-02"]
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "MIS-COORD-ORDER-CONFUSION",
+      "title": "جابه‌جایی محور طول (X) با محور عرض (Y)",
+      "description": "دانش‌آموز هنگام خواندن یا مشخص کردن نقطه [x, y]، جای طول و عرض را معکوس می‌کند (مثلاً برای نقطه [4, 2] دو واحد به راست و چهار واحد به بالا می‌رود).",
+      "counter_example_blueprint": {
+        "scenario": "نقطه [۴, ۲] را روی صفحه شطرنجی مشخص کنید: ۴ قدم افقی روی محور طول و ۲ قدم عمودی روی محور عرض. آیا با نقطه [۲, ۴] در یک جا قرار می‌گیرد؟",
+        "visual_counter_example": "CoordinateGridVisualizer showing [4, 2] vs [2, 4] with projection lines."
+      }
+    },
+    {
+      "id": "MIS-CENTRAL-ROTATION-AXIAL",
+      "title": "اشتباه گرفتن تقارن مرکزی (دوران ۱۸۰ درجه) با تقارن محوری (تا کردن)",
+      "description": "دانش‌آموز تصور می‌کند هر شکلی که خط تقارن دارد لزوماً مرکز تقارن هم دارد، یا متوازی‌الاضلاع را دارای خط تقارن می‌پندارد.",
+      "counter_example_blueprint": {
+        "scenario": "یک متوازی‌الاضلاع را ۱۸۰ درجه دور نقطه‌ی برخورد قطرها بچرخانید؛ شکل کاملاً روی خودش منطبق می‌شود. اما اگر از روی قطرها تا کنیم منطبق نمی‌شود.",
+        "visual_counter_example": "SymmetryPlayground showing central 180° rotation vs axial fold of a parallelogram."
+      }
+    },
+    {
+      "id": "MIS-COORD-ORIGIN-OFFSET",
+      "title": "شمارش خطوط یا خانه‌ها به جای شمارش فواصل از مبدا صفر",
+      "description": "دانش‌آموز مبدا مختصات را از ۱ شروع می‌کند یا به جای مختصات رأس‌ها، شماره خطوط شبکه را با ۱ واحد خطا ثبت می‌کند.",
+      "counter_example_blueprint": {
+        "scenario": "مبدا مختصات نقطه صفر است [۰, ۰]. برای رسیدن به نقطه [۳, ۰] باید ۳ گام از صفر به راست برویم، نه اینکه از خط اول شروع به شمارش کنیم.",
+        "visual_counter_example": "CoordinateGridVisualizer with highlighted origin at [0, 0]."
+      }
+    },
+    {
+      "id": "MIS-SYMMETRY-AXIS-DISTANCE",
+      "title": "عدم رعایت فاصله عمودی یکسان از خط تقارن در قرینه‌یابی",
+      "description": "دانش‌آموز نقطه قرینه را در جهت افقی یا مایل جابه‌جا می‌کند بدون اینکه فاصله نقطه تا خط تقارن در دو طرف خط برابر باشد.",
+      "counter_example_blueprint": {
+        "scenario": "اگر نقطه‌ای به فاصله ۳ خانه از خط عمودی قرار داشته باشد، تصویر آن در آینه دقیقاً باید ۳ خانه در سمت دیگر خط و در همان ارتفاع باشد.",
+        "visual_counter_example": "CoordinateGridVisualizer showing equal perpendicular distances to the reflection axis."
+      }
+    },
+    {
+      "id": "MIS-COORD-TRANSFORMATION-DIRECTION",
+      "title": "اعمال اشتباه جهت انتقال بر مختصات (جمع به جای تفریق در حرکت به چپ یا پایین)",
+      "description": "هنگام انتقال شکل به سمت چپ یا پایین، به جای کم کردن از طول یا عرض، آن را اضافه می‌کند یا برعکس.",
+      "counter_example_blueprint": {
+        "scenario": "اگر نقطه‌ای با طول ۵ را ۳ واحد به چپ انتقال دهیم، طول جدید ۵ - ۳ = ۲ می‌شود، نه ۵ + ۳ = ۸.",
+        "visual_counter_example": "CoordinateGridVisualizer showing leftward movement as subtraction."
+      }
+    }
+  ],
+  "diagnostic_items": [
+    {
+      "id": "ITEM-MATH6-C04-01",
+      "kc_id": "KC-MATH6-C04-01",
+      "stem": "کدام‌یک از شکل‌های هندسی زیر دارای **مرکز تقارن** است، اما **هیچ خط تقارنی ندارد**؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": { "initialMode": "central", "initialShape": "parallelogram" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-01-A",
+          "label": "الف",
+          "content": "متوازی‌الاضلاع (غیر لوزی و غیر مستطیل)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: متوازی‌الاضلاع با دوران ۱۸۰ درجه حول نقطه تقاطع قطرها روی خود منطبق می‌شود، بنابراین مرکز تقارن دارد اما هیچ خط تقارنی ندارد."
+        },
+        {
+          "id": "DIS-M6-01-B",
+          "label": "ب",
+          "content": "مثلث متساوی‌الاضلاع",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "مثلث متساوی‌الاضلاع ۳ خط تقارن دارد اما مرکز تقارن ندارد زیرا با دوران ۱۸۰ درجه روی خود منطبق نمی‌شود."
+        },
+        {
+          "id": "DIS-M6-01-C",
+          "label": "ج",
+          "content": "مستطیل",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مستطیل مرکز تقارن دارد، اما ۲ خط تقارن نیز دارد؛ صورت سوال شکلی بدون خط تقارن خواسته است."
+        },
+        {
+          "id": "DIS-M6-01-D",
+          "label": "د",
+          "content": "ذوزنقه متساوی‌الساقین",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "ذوزنقه متساوی‌الساقین ۱ خط تقارن دارد ولی مرکز تقارن ندارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-02",
+      "kc_id": "KC-MATH6-C04-01",
+      "stem": "اگر یک شکل هندسی حول نقطه $O$ به اندازه $۱۸۰^\\circ$ دوران داده شود و دقیقاً روی خودش منطبق گردد، نقطه $O$ چه نام دارد؟",
+      "difficulty": 0.30,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": { "initialMode": "central" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-02-A",
+          "label": "الف",
+          "content": "مرکز تقارن",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: نقطه‌ای که شکل با چرخش نیم‌دور (۱۸۰ درجه) حول آن روی خودش منطبق شود، مرکز تقارن شکل نامیده می‌شود."
+        },
+        {
+          "id": "DIS-M6-02-B",
+          "label": "ب",
+          "content": "خط تقارن",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "خط تقارن یک پاره‌خط یا خط مستقیم برای تا کردن است، در حالی که دوران ۱۸۰ درجه حول یک نقطه انجام می‌شود."
+        },
+        {
+          "id": "DIS-M6-02-C",
+          "label": "ج",
+          "content": "مبدا مختصات",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "مبدا مختصات نقطه [۰, ۰] در دستگاه است و لزوماً مرکز تقارن هر شکلی نیست."
+        },
+        {
+          "id": "DIS-M6-02-D",
+          "label": "د",
+          "content": "محور بازتاب",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "محور بازتاب مربوط به تقارن محوری و آینه‌ای است، نه تقارن دورانی نقطه‌ای."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-03",
+      "kc_id": "KC-MATH6-C04-01",
+      "stem": "در کدام‌یک از حروف انگلیسی زیر، **مرکز تقارن** وجود دارد اما خط تقارن وجود ندارد؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": { "initialMode": "central" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-03-A",
+          "label": "الف",
+          "content": "حرف N",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: حرف N با چرخش ۱۸۰ درجه حول مرکز خود به همان صورت خوانده می‌شود، اما هیچ خط تقارنی برای تا کردن ندارد."
+        },
+        {
+          "id": "DIS-M6-03-B",
+          "label": "ب",
+          "content": "حرف A",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "حرف A یک خط تقارن عمودی دارد اما مرکز تقارن ندارد؛ با دوران ۱۸۰ درجه وارونه می‌شود (∀)."
+        },
+        {
+          "id": "DIS-M6-03-C",
+          "label": "ج",
+          "content": "حرف H",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "حرف H مرکز تقارن دارد، اما ۲ خط تقارن هم دارد؛ سوال شکلی فاقد خط تقارن را خواسته است."
+        },
+        {
+          "id": "DIS-M6-03-D",
+          "label": "د",
+          "content": "حرف M",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "حرف M خط تقارن عمودی دارد ولی با دوران ۱۸۰ درجه تبدیل به W می‌شود و مرکز تقارن ندارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-04",
+      "kc_id": "KC-MATH6-C04-02",
+      "stem": "نقطه $A$ به فاصله ۴ خانه در سمت چپ خط تقارن عمودی قرار دارد. قرینه این نقطه نسبت به خط تقارن در کجا قرار می‌گیرد؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "quadrantMode": "quadrant1", "showProjections": true }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-04-A",
+          "label": "الف",
+          "content": "به فاصله ۴ خانه در سمت راست خط تقارن و در همان ارتفاع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در تقارن محوری، فاصله نقطه از خط تقارن با فاصله تصویر آن در طرف دیگر خط برابر است و پاره‌خط رابط بر خط تقارن عمود است."
+        },
+        {
+          "id": "DIS-M6-04-B",
+          "label": "ب",
+          "content": "به فاصله ۲ خانه در سمت راست خط تقارن",
+          "is_correct": false,
+          "misconception_id": "MIS-SYMMETRY-AXIS-DISTANCE",
+          "rationale": "فاصله نقطه تا خط تقارن نصف نمی‌شود؛ فاصله باید دقیقاً برابر با ۴ خانه حفظ شود."
+        },
+        {
+          "id": "DIS-M6-04-C",
+          "label": "ج",
+          "content": "به فاصله ۴ خانه در سمت چپ خط تقارن ولی ۴ خانه بالاتر",
+          "is_correct": false,
+          "misconception_id": "MIS-SYMMETRY-AXIS-DISTANCE",
+          "rationale": "قرینه نسبت به خط عمودی باید در سمت دیگر خط (راست) قرار گیرد نه در همان سمت چپ."
+        },
+        {
+          "id": "DIS-M6-04-D",
+          "label": "د",
+          "content": "به فاصله ۸ خانه در سمت راست خط تقارن",
+          "is_correct": false,
+          "misconception_id": "MIS-SYMMETRY-AXIS-DISTANCE",
+          "rationale": "دانش‌آموز فاصله دو نقطه از یکدیگر (۸ خانه) را با فاصله نقطه تا خط تقارن اشتباه گرفته است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-05",
+      "kc_id": "KC-MATH6-C04-02",
+      "stem": "یک دایره چند خط تقارن و چند مرکز تقارن دارد؟",
+      "difficulty": 0.30,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "SymmetryPlayground",
+        "props": { "initialMode": "central" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-05-A",
+          "label": "الف",
+          "content": "بی‌شمار خط تقارن و ۱ مرکز تقارن (مرکز دایره)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: هر خطی که از مرکز دایره بگذرد (قطرها) خط تقارن دایره است (بی‌شمار خط) و مرکز دایره تنها مرکز تقارن آن است."
+        },
+        {
+          "id": "DIS-M6-05-B",
+          "label": "ب",
+          "content": "۴ خط تقارن و ۱ مرکز تقارن",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "محدود کردن خطوط تقارن دایره به ۴ قطر افقی، عمودی و مورب ناشی از مشاهده محدود است، در حالی که بی‌شمار قطر وجود دارد."
+        },
+        {
+          "id": "DIS-M6-05-C",
+          "label": "ج",
+          "content": "بی‌شمار خط تقارن و بی‌شمار مرکز تقارن",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "دایره تنها یک نقطه مرکز دارد و نقاط دیگر مرکز دوران ۱۸۰ درجه نیستند."
+        },
+        {
+          "id": "DIS-M6-05-D",
+          "label": "د",
+          "content": "۱ خط تقارن و ۱ مرکز تقارن",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دایره به دلیل انحنای یکنواخت نسبت به بی‌شمار قطر تقارن دارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-06",
+      "kc_id": "KC-MATH6-C04-02",
+      "stem": "قرینه پاره‌خط افقی $AB$ به طول ۵ سانتی‌متر نسبت به یک خط راست، چه ویژگی‌ای دارد؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "quadrantMode": "quadrant1" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-06-A",
+          "label": "الف",
+          "content": "پاره‌خطی به طول دقیقاً ۵ سانتی‌متر است",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: تقارن محوری طول پاره‌خط‌ها، اندازه‌ی زاویه‌ها و مساحت شکل را حفظ می‌کند."
+        },
+        {
+          "id": "DIS-M6-06-B",
+          "label": "ب",
+          "content": "پاره‌خطی به طول ۱۰ سانتی‌متر است",
+          "is_correct": false,
+          "misconception_id": "MIS-SYMMETRY-AXIS-DISTANCE",
+          "rationale": "قرینه‌سازی طول شکل را دو برابر نمی‌کند؛ اندازه شکل تغییرناپذیر باقی می‌ماند."
+        },
+        {
+          "id": "DIS-M6-06-C",
+          "label": "ج",
+          "content": "پاره‌خطی به طول ۲.۵ سانتی‌متر است",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "طول شکل در تصویر آینه‌ای نصف نمی‌شود."
+        },
+        {
+          "id": "DIS-M6-06-D",
+          "label": "د",
+          "content": "طول آن بستگی به فاصله از خط تقارن دارد",
+          "is_correct": false,
+          "misconception_id": "MIS-SYMMETRY-AXIS-DISTANCE",
+          "rationale": "فاصله از خط تقارن فقط موقعیت پاره‌خط را تعیین می‌کند و تاثیری در طول خود پاره‌خط ندارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-07",
+      "kc_id": "KC-MATH6-C04-03",
+      "stem": "در دستگاه مختصات، برای نمایش نقطه $[۴, ۳]$ چه مراحلی را باید از مبدا مختصات طی کنیم؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialPoints": [{ "id": "P", "label": "نقطه", "x": 4, "y": 3 }], "showProjections": true }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-07-A",
+          "label": "الف",
+          "content": "۴ واحد به سمت راست روی محور طول (افقی) و سپس ۳ واحد به سمت بالا روی محور عرض (عمودی)",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در نمایش مختصات [طول, عرض]، عدد اول همیشه طول (افقی) و عدد دوم عرض (عمودی) است."
+        },
+        {
+          "id": "DIS-M6-07-B",
+          "label": "ب",
+          "content": "۳ واحد به سمت راست روی محور طول و سپس ۴ واحد به سمت بالا روی محور عرض",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز جای طول و عرض را اشتباه گرفته و نقطه [۳, ۴] را نمایش داده است."
+        },
+        {
+          "id": "DIS-M6-07-C",
+          "label": "ج",
+          "content": "۴ واحد به سمت بالا و ۳ واحد به سمت راست",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "طول روی محور افقی است نه عمودی."
+        },
+        {
+          "id": "DIS-M6-07-D",
+          "label": "د",
+          "content": "از خانه ۱ شروع کرده و ۳ واحد به راست و ۴ واحد به بالا می‌رویم",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "شمارش گام‌ها باید از مبدا صفر [۰, ۰] آغاز شود، نه از خط یا خانه ۱."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-08",
+      "kc_id": "KC-MATH6-C04-03",
+      "stem": "مختصات نقطه‌ای که دقیقاً روی **محور عمودی (عرض‌ها)** و در ارتفاع ۵ قرار دارد، کدام است؟",
+      "difficulty": 0.40,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialPoints": [{ "id": "YPoint", "label": "نقطه", "x": 0, "y": 5 }], "showProjections": true }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-08-A",
+          "label": "الف",
+          "content": "[۰, ۵]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: تمام نقاط واقع روی محور عرض‌ها دارای طول برابر با صفر هستند، پس مختصات [۰, ۵] است."
+        },
+        {
+          "id": "DIS-M6-08-B",
+          "label": "ب",
+          "content": "[۵, ۰]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "نقطه [۵, ۰] روی محور افقی (طول‌ها) قرار دارد نه روی محور عرض‌ها."
+        },
+        {
+          "id": "DIS-M6-08-C",
+          "label": "ج",
+          "content": "[۵, ۵]",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نقطه [۵, ۵] در صفحه باز قرار دارد نه روی محورهای مختصات."
+        },
+        {
+          "id": "DIS-M6-08-D",
+          "label": "د",
+          "content": "[۱, ۵]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "طول نقاط روی محور عرض‌ها صفر است نه یک."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-09",
+      "kc_id": "KC-MATH6-C04-03",
+      "stem": "اگر مختصات مبدا دستگاه مختصات را بنویسیم، کدام گزینه درست است؟",
+      "difficulty": 0.25,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "quadrantMode": "quadrant1" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-09-A",
+          "label": "الف",
+          "content": "[۰, ۰]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: محل برخورد محور افقی و عمودی، مبدا مختصات نامیده می‌شود و طول و عرض آن هر دو صفر است."
+        },
+        {
+          "id": "DIS-M6-09-B",
+          "label": "ب",
+          "content": "[۱, ۱]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "دانش‌آموز به دلیل شروع شماره‌گذاری از ۱ در برخی خط‌کش‌ها، مبدا را [۱, ۱] فرض کرده است."
+        },
+        {
+          "id": "DIS-M6-09-C",
+          "label": "ج",
+          "content": "[۰, ۱]",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نقطه [۰, ۱] یک واحد بالاتر از مبدا قرار دارد."
+        },
+        {
+          "id": "DIS-M6-09-D",
+          "label": "د",
+          "content": "[۱, ۰]",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "نقطه [۱, ۰] یک واحد به سمت راست مبدا قرار دارد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-10",
+      "kc_id": "KC-MATH6-C04-04",
+      "stem": "سه رأس یک مستطیل در نقاط $A=[۲, ۱]$، $B=[۷, ۱]$ و $C=[۷, ۵]$ قرار دارند. مختصات **رأس چهارم** ($D$) کدام است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialShape": [[2, 1], [7, 1], [7, 5], [2, 5]] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-10-A",
+          "label": "الف",
+          "content": "[۲, ۵]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: رأس چهارم مستطیل باید هم‌طول با نقطه A (طول ۲) و هم‌عرض با نقطه C (عرض ۵) باشد تا اضلاع موازی و عمود بر هم بمانند."
+        },
+        {
+          "id": "DIS-M6-10-B",
+          "label": "ب",
+          "content": "[۵, ۲]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز جای طول و عرض رأس چهارم را معکوس کرده است."
+        },
+        {
+          "id": "DIS-M6-10-C",
+          "label": "ج",
+          "content": "[۱, ۵]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "طول نقطه A برابر ۲ است و ضلع قائم باید روی خط طول ۲ قرار گیرد، نه ۱."
+        },
+        {
+          "id": "DIS-M6-10-D",
+          "label": "د",
+          "content": "[۲, ۷]",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "عرض نقطه C برابر ۵ است، بنابراین عرض رأس چهارم نیز باید ۵ باشد."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-11",
+      "kc_id": "KC-MATH6-C04-04",
+      "stem": "پاره‌خطی دو نقطه $M=[۲, ۳]$ و $N=[۸, ۳]$ را به هم وصل کرده است. **طول این پاره‌خط** چند واحد است؟",
+      "difficulty": 0.35,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialPoints": [{ "id": "M", "label": "M", "x": 2, "y": 3 }, { "id": "N", "label": "N", "x": 8, "y": 3 }] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-11-A",
+          "label": "الف",
+          "content": "۶ واحد",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: چون عرض دو نقطه یکسان است (پاره‌خط افقی است)، طول پاره‌خط برابر است با تفاضل طول‌ها: ۸ - ۲ = ۶ واحد."
+        },
+        {
+          "id": "DIS-M6-11-B",
+          "label": "ب",
+          "content": "۸ واحد",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "دانش‌آموز مختصات نقطه دوم (۸) را به عنوان طول پاره‌خط در نظر گرفته و نقطه شروع (۲) را نادیده گرفته است."
+        },
+        {
+          "id": "DIS-M6-11-C",
+          "label": "ج",
+          "content": "۱۰ واحد",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دانش‌آموز به اشتباه طول دو نقطه را با هم جمع کرده است (۸ + ۲ = ۱۰)."
+        },
+        {
+          "id": "DIS-M6-11-D",
+          "label": "د",
+          "content": "۳ واحد",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز عرض مشترک (۳) را به عنوان طول پاره‌خط گزارش کرده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-12",
+      "kc_id": "KC-MATH6-C04-04",
+      "stem": "یک مثلث قائم‌الزاویه دارای رأس‌های $[۱, ۲]$، $[۵, ۲]$ و $[۱, ۶]$ است. **مساحت** این مثلث چند واحد مربع است؟",
+      "difficulty": 0.50,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialShape": [[1, 2], [5, 2], [1, 6]] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-12-A",
+          "label": "الف",
+          "content": "۸ واحد مربع",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: طول قاعده برابر ۵ - ۱ = ۴ واحد و طول ارتفاع برابر ۶ - ۲ = ۴ واحد است. مساحت مثلث = (۴ × ۴) ÷ ۲ = ۸ واحد مربع."
+        },
+        {
+          "id": "DIS-M6-12-B",
+          "label": "ب",
+          "content": "۱۶ واحد مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دانش‌آموز قاعده را در ارتفاع ضرب کرده (۴ × ۴ = ۱۶) اما تقسیم بر ۲ فرمول مساحت مثلث را فراموش کرده است."
+        },
+        {
+          "id": "DIS-M6-12-C",
+          "label": "ج",
+          "content": "۱۰ واحد مربع",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORIGIN-OFFSET",
+          "rationale": "دانش‌آموز قاعده را ۵ و ارتفاع را ۶ فرض کرده و مساحت را (۵ × ۶) ÷ ۳ یا تفاضل خطوط محاسبه کرده است."
+        },
+        {
+          "id": "DIS-M6-12-D",
+          "label": "د",
+          "content": "۴ واحد مربع",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دانش‌آموز فقط طول یکی از اضلاع زاویه قائمه را به جای مساحت پاسخ داده است."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-13",
+      "kc_id": "KC-MATH6-C04-05",
+      "stem": "اگر نقطه $A=[۴, ۳]$ را **۲ واحد به سمت چپ** و **۳ واحد به سمت بالا** انتقال دهیم، مختصات نقطه جدید کدام است؟",
+      "difficulty": 0.45,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "initialPoints": [{ "id": "A1", "label": "اولیه", "x": 4, "y": 3 }, { "id": "A2", "label": "جدید", "x": 2, "y": 6 }] }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-13-A",
+          "label": "الف",
+          "content": "[۲, ۶]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: حرکت به چپ یعنی کاهش طول (۴ - ۲ = ۲) و حرکت به بالا یعنی افزایش عرض (۳ + ۳ = ۶)، پس مختصات [۲, ۶] است."
+        },
+        {
+          "id": "DIS-M6-13-B",
+          "label": "ب",
+          "content": "[۶, ۶]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-TRANSFORMATION-DIRECTION",
+          "rationale": "دانش‌آموز در حرکت به چپ به جای کم کردن از طول، ۲ واحد به آن افزوده است (۴ + ۲ = ۶)."
+        },
+        {
+          "id": "DIS-M6-13-C",
+          "label": "ج",
+          "content": "[۲, ۰]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-TRANSFORMATION-DIRECTION",
+          "rationale": "دانش‌آموز در حرکت به بالا به جای اضافه کردن به عرض، ۳ واحد از آن کم کرده است (۳ - ۳ = ۰)."
+        },
+        {
+          "id": "DIS-M6-13-D",
+          "label": "د",
+          "content": "[۶, ۰]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-TRANSFORMATION-DIRECTION",
+          "rationale": "هر دو جهت انتقال معکوس اعمال شده‌اند."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-14",
+      "kc_id": "KC-MATH6-C04-05",
+      "stem": "در دستگاه مختصات با چهار ناحیه، قرینه نقطه $[۳, ۴]$ نسبت به **محور طول‌ها (محور افقی)** کدام نقطه است؟",
+      "difficulty": 0.55,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "quadrantMode": "all4", "symmetryType": "x_axis" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-14-A",
+          "label": "الف",
+          "content": "[۳, ۴-]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در تقارن نسبت به محور طول‌ها، طول نقطه تغییر نمی‌کند (۳) اما عرض نقطه قرینه می‌شود (۴ به ۴- تبدیل می‌شود)."
+        },
+        {
+          "id": "DIS-M6-14-B",
+          "label": "ب",
+          "content": "[۳-, ۴]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز قرینه نسبت به محور عرض‌ها را به جای محور طول‌ها به دست آورده است."
+        },
+        {
+          "id": "DIS-M6-14-C",
+          "label": "ج",
+          "content": "[۳-, ۴-]",
+          "is_correct": false,
+          "misconception_id": "MIS-CENTRAL-ROTATION-AXIAL",
+          "rationale": "نقطه [۳-, ۴-] قرینه نسبت به مبدا مختصات است نه نسبت به محور طول‌ها."
+        },
+        {
+          "id": "DIS-M6-14-D",
+          "label": "د",
+          "content": "[۴, ۳]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز جای طول و عرض را معکوس کرده بدون اعمال علامت منفی."
+        }
+      ]
+    },
+    {
+      "id": "ITEM-MATH6-C04-15",
+      "kc_id": "KC-MATH6-C04-05",
+      "stem": "قرینه نقطه $[۵, ۲-]$ نسبت به **مبدا مختصات [۰, ۰]** کدام نقطه خواهد بود؟",
+      "difficulty": 0.60,
+      "guess_param": 0.20,
+      "slip_param": 0.10,
+      "visual_template": {
+        "type": "CoordinateGridVisualizer",
+        "props": { "quadrantMode": "all4", "symmetryType": "origin" }
+      },
+      "distractors": [
+        {
+          "id": "DIS-M6-15-A",
+          "label": "الف",
+          "content": "[۵-, ۲+]",
+          "is_correct": true,
+          "misconception_id": null,
+          "rationale": "پاسخ صحیح: در تقارن نسبت به مبدا مختصات، هم طول و هم عرض قرینه می‌شوند، بنابراین ۵ به ۵- و ۲- به ۲+ تبدیل می‌شود."
+        },
+        {
+          "id": "DIS-M6-15-B",
+          "label": "ب",
+          "content": "[۵-, ۲-]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز فقط طول را قرینه کرده و عرض را بدون تغییر باقی گذاشته است."
+        },
+        {
+          "id": "DIS-M6-15-C",
+          "label": "ج",
+          "content": "[۵, ۲+]",
+          "is_correct": false,
+          "misconception_id": null,
+          "rationale": "دانش‌آموز فقط عرض را قرینه کرده و طول را بدون تغییر باقی گذاشته است."
+        },
+        {
+          "id": "DIS-M6-15-D",
+          "label": "د",
+          "content": "[۲-, ۵]",
+          "is_correct": false,
+          "misconception_id": "MIS-COORD-ORDER-CONFUSION",
+          "rationale": "دانش‌آموز جای طول و عرض را عوض کرده است."
+        }
+      ]
+    }
+  ]
+}

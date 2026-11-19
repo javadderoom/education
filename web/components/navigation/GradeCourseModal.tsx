@@ -16,7 +16,8 @@ import {
   School,
   Building2,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Grid
 } from "lucide-react";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
 import { 
@@ -168,6 +169,7 @@ export const GradeCourseModal: React.FC = () => {
 
   const getChapterIcon = (subjectId: string, grade: number) => {
     if (subjectId.includes("CH03") || subjectId.includes("MULT")) return Calculator;
+    if (subjectId.includes("COORD") || grade === 6) return Grid;
     if (grade === 5) return Scale;
     return SplitSquareVertical;
   };

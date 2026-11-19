@@ -810,8 +810,8 @@
     "semantic_hash": ""
   },
   "web/app/student/workshop/page.tsx": {
-    "mtime": 1795093301.029188,
-    "ast_hash": "ccaf6b3af3c965261bcdeb1c72c0d692",
+    "mtime": 1795100812.3870857,
+    "ast_hash": "25d9873812f4494b44986be19303d0e7",
     "semantic_hash": ""
   },
   "web/components/navigation/BottomNav.tsx": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "web/lib/data/curriculum-taxonomy.ts": {
-    "mtime": 1794751349.0957804,
-    "ast_hash": "adbec4d51f1115513e7e83d6fba4d7e7",
+    "mtime": 1795100728.3617117,
+    "ast_hash": "f9d6d9c21dcb644bb9f98098e0258ade",
     "semantic_hash": ""
   },
   "web/proxy.ts": {
@@ -1020,8 +1020,8 @@
     "semantic_hash": ""
   },
   "web/components/navigation/GradeCourseModal.tsx": {
-    "mtime": 1793724189.9452014,
-    "ast_hash": "1396225376da5fa05b1c0d190ff225e9",
+    "mtime": 1795100881.7153673,
+    "ast_hash": "4a6bd9aa3b31e7b38392ffb1760412c1",
     "semantic_hash": ""
   },
   "web/lib/store/curriculum-store.tsx": {
@@ -1220,8 +1220,8 @@
     "semantic_hash": ""
   },
   "web/components/parametric/VisualTemplateRegistry.tsx": {
-    "mtime": 1795016909.8986254,
-    "ast_hash": "4e4a2ae4d91f9fca08b80f9a05062953",
+    "mtime": 1795100586.6578412,
+    "ast_hash": "a340c8636a31286f31c562123486924c",
     "semantic_hash": ""
   },
   "web/components/parametric/PlaceValueBundles.tsx": {
@@ -1255,8 +1255,8 @@
     "semantic_hash": ""
   },
   "docs/curriculum_items_tools_catalog.md": {
-    "mtime": 1795099702.8793228,
-    "ast_hash": "f9be9312ff7066f198cada0bd7036ef8",
+    "mtime": 1795101209.8722606,
+    "ast_hash": "811de3abbf2faad04e174721ac49eb7c",
     "semantic_hash": ""
   },
   "web/__tests__/grade5-visual-tools.test.tsx": {
@@ -1292,6 +1292,46 @@
   "web/components/parametric/VolumePrismVisualizer.tsx": {
     "mtime": 1795016271.6062925,
     "ast_hash": "c28d2f5db734760a276a5d8c5f222e95",
+    "semantic_hash": ""
+  },
+  "data/canonical/grade6_math_ch4.json": {
+    "mtime": 1795100683.5094097,
+    "ast_hash": "fb4efdcca5bd4cebac6e0feac7f1226b",
+    "semantic_hash": ""
+  },
+  "web/__tests__/grade6-visual-tools.test.tsx": {
+    "mtime": 1795101046.4126978,
+    "ast_hash": "e11556878a635392a87b401e091f3d85",
+    "semantic_hash": ""
+  },
+  "web/__tests__/pipeline-grade6.test.ts": {
+    "mtime": 1795100929.37703,
+    "ast_hash": "513065327b1ad4e059472374715fe884",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/AngleRelationshipVisualizer.tsx": {
+    "mtime": 1795100490.7323236,
+    "ast_hash": "4a1c7b3609b7d6dc1b948b893f72bcdd",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/CoordinateGridVisualizer.tsx": {
+    "mtime": 1795100416.8479085,
+    "ast_hash": "00409a3bfc6ebc3b95c3a93e3f35bfd1",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/CylinderVolumeVisualizer.tsx": {
+    "mtime": 1795100569.564569,
+    "ast_hash": "b4cb6764274980ea7b3fe38b73a99333",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/FractionDivisionVisualizer.tsx": {
+    "mtime": 1795100528.785398,
+    "ast_hash": "df9630c6d8160e29cd878142f80dddb2",
+    "semantic_hash": ""
+  },
+  "web/components/parametric/IntegerNumberLine.tsx": {
+    "mtime": 1795100453.3285139,
+    "ast_hash": "e9b7ead41570b4bd7d25f670bb22f59a",
     "semantic_hash": ""
   }
 }

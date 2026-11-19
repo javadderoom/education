@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Sparkles, Layers, Scale, Grid, Box, RotateCw, Shapes, Circle, Clock } from "lucide-react";
+import { Sparkles, Layers, Scale, Grid, Box, RotateCw, Shapes, Circle, Clock, ArrowLeftRight, Compass, Divide, Cylinder } from "lucide-react";
 import { FractionStrip } from "@/components/parametric/FractionStrip";
 import { BalanceScale } from "@/components/parametric/BalanceScale";
 import { AreaGrid } from "@/components/parametric/AreaGrid";
@@ -12,6 +12,11 @@ import { FractionAreaMultiplier } from "@/components/parametric/FractionAreaMult
 import { PolygonAreaDecomposer } from "@/components/parametric/PolygonAreaDecomposer";
 import { CircleMeasurementVisualizer } from "@/components/parametric/CircleMeasurementVisualizer";
 import { CompoundUnitCalculator } from "@/components/parametric/CompoundUnitCalculator";
+import { CoordinateGridVisualizer } from "@/components/parametric/CoordinateGridVisualizer";
+import { IntegerNumberLine } from "@/components/parametric/IntegerNumberLine";
+import { AngleRelationshipVisualizer } from "@/components/parametric/AngleRelationshipVisualizer";
+import { FractionDivisionVisualizer } from "@/components/parametric/FractionDivisionVisualizer";
+import { CylinderVolumeVisualizer } from "@/components/parametric/CylinderVolumeVisualizer";
 import { toPersianDigits } from "@/lib/math/persian-digits";
 import { useCurriculumStore } from "@/lib/store/curriculum-store";
 
@@ -19,10 +24,28 @@ export default function WorkshopPage() {
   const searchParams = useSearchParams();
   const { selectedSubjectId } = useCurriculumStore();
   const subjectId = searchParams.get("subject") || selectedSubjectId || "SUBJ-MATH4-FRACTIONS";
-  const isGrade5 = subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5") || subjectId.includes("MATH5");
+  const isGrade6 = subjectId === "SUBJ-MATH6-COORD" || subjectId.includes("6") || subjectId.includes("MATH6");
+  const isGrade5 = !isGrade6 && (subjectId === "SUBJ-MATH5-RATIO" || subjectId.includes("5") || subjectId.includes("MATH5"));
 
-  type TabType = "strip" | "scale" | "grid" | "volume" | "symmetry" | "fraction_mult" | "polygon_area" | "circle" | "compound_time";
-  const [activeTab, setActiveTab] = useState<TabType>(isGrade5 ? "volume" : "strip");
+  type TabType =
+    | "strip"
+    | "scale"
+    | "grid"
+    | "volume"
+    | "symmetry"
+    | "fraction_mult"
+    | "polygon_area"
+    | "circle"
+    | "compound_time"
+    | "coordinate_grid"
+    | "integer_line"
+    | "angle_relations"
+    | "fraction_div"
+    | "cylinder";
+
+  const [activeTab, setActiveTab] = useState<TabType>(
+    isGrade6 ? "coordinate_grid" : isGrade5 ? "volume" : "strip"
+  );
 
   // State for Fraction Strip workshop
   const [stripSegments, setStripSegments] = useState(6);
@@ -42,20 +65,87 @@ export default function WorkshopPage() {
         <div className="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full mb-2">
           <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
           <span>
-            {isGrade5 ? "آزمایشگاه و کارگاه دست‌ورزی نسبت، تناسب و درصد" : "آزمایشگاه و کارگاه دست‌ورزی کسرها"}
+            {isGrade6
+              ? "آزمایشگاه و کارگاه دست‌ورزی مختصات، تقارن و مفاهیم ریاضی ششم"
+              : isGrade5
+              ? "آزمایشگاه و کارگاه دست‌ورزی نسبت، تناسب و درصد"
+              : "آزمایشگاه و کارگاه دست‌ورزی کسرها"}
           </span>
         </div>
         <h1 className="text-lg sm:text-xl font-black text-slate-900 mb-1">
-          {isGrade5 ? "با دست‌ورزی، نسبت‌ها و درصد را لمس کنید" : "با دست‌ورزی کسرها را لمس و کشف کنید"}
+          {isGrade6
+            ? "با دست‌ورزی، مختصات، اعداد صحیح و حجم را کشف کنید"
+            : isGrade5
+            ? "با دست‌ورزی، نسبت‌ها و درصد را لمس کنید"
+            : "با دست‌ورزی کسرها را لمس و کشف کنید"}
         </h1>
         <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-          {isGrade5
+          {isGrade6
+            ? "نقطه روی صفحه مختصات جابجا کنید، اعداد منفی را بسنجید، زاویه‌های متقابل به رأس را مقایسه کنید یا استوانه را باز کنید."
+            : isGrade5
             ? "با ترازوی تعادل، تساوی نسبت‌ها و تناسب را بسنجید یا در شبکه ۱۰۰ تایی مفهوم درصد را مشاهده کنید."
             : "ابزار مورد نظر خود را انتخاب کرده و با تغییر قطعات، اندازه و روابط کسرها را به صورت دیداری تجربه کنید."}
         </p>
 
         {/* Tool Switcher Tabs */}
-        {isGrade5 ? (
+        {isGrade6 ? (
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mt-4 max-w-xl mx-auto p-1.5 bg-slate-100 rounded-2xl">
+            <button
+              type="button"
+              onClick={() => setActiveTab("coordinate_grid")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "coordinate_grid" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Grid className="w-3.5 h-3.5 text-indigo-600" />
+              <span>دستگاه مختصات</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("integer_line")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "integer_line" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <ArrowLeftRight className="w-3.5 h-3.5 text-indigo-600" />
+              <span>اعداد صحیح و منفی</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("angle_relations")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "angle_relations" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5 text-indigo-600" />
+              <span>زاویه‌ها و متمم/مکمل</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("fraction_div")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "fraction_div" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Divide className="w-3.5 h-3.5 text-indigo-600" />
+              <span>تقسیم کسرها</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("cylinder")}
+              className={`min-h-[40px] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeTab === "cylinder" ? "bg-white text-indigo-700 shadow-xs" : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <Cylinder className="w-3.5 h-3.5 text-indigo-600" />
+              <span>استوانه و گسترده</span>
+            </button>
+          </div>
+        ) : isGrade5 ? (
           <div className="flex flex-wrap items-center justify-center gap-1.5 mt-4 max-w-xl mx-auto p-1.5 bg-slate-100 rounded-2xl">
             <button
               type="button"
@@ -373,6 +463,37 @@ export default function WorkshopPage() {
         {activeTab === "compound_time" && (
           <div className="py-2">
             <CompoundUnitCalculator interactive={true} />
+          </div>
+        )}
+
+        {/* Grade 6 Advanced Manipulative Views */}
+        {activeTab === "coordinate_grid" && (
+          <div className="py-2">
+            <CoordinateGridVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "integer_line" && (
+          <div className="py-2">
+            <IntegerNumberLine interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "angle_relations" && (
+          <div className="py-2">
+            <AngleRelationshipVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "fraction_div" && (
+          <div className="py-2">
+            <FractionDivisionVisualizer interactive={true} />
+          </div>
+        )}
+
+        {activeTab === "cylinder" && (
+          <div className="py-2">
+            <CylinderVolumeVisualizer interactive={true} />
           </div>
         )}
       </div>
