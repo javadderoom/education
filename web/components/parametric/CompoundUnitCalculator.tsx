@@ -42,6 +42,10 @@ export const CompoundUnitCalculator: React.FC<CompoundUnitProps> = ({
   const totalSeconds1 = h1 * 3600 + m1 * 60 + s1;
   const totalSeconds2 = h2 * 3600 + m2 * 60 + s2;
 
+  const rawSumH = h1 + h2;
+  const rawSumM = m1 + m2;
+  const rawSumS = s1 + s2;
+
   let resTotalSec = op === "add" ? totalSeconds1 + totalSeconds2 : Math.max(0, totalSeconds1 - totalSeconds2);
   const resH = Math.floor(resTotalSec / 3600);
   resTotalSec %= 3600;
@@ -213,6 +217,18 @@ export const CompoundUnitCalculator: React.FC<CompoundUnitProps> = ({
               </span>
               <span className="bg-emerald-50 rounded-lg py-1 border border-emerald-200">
                 {toPersianDigits(resS)}
+              </span>
+            </>
+          ) : step === 2 && op === "add" ? (
+            <>
+              <span className="bg-amber-50 text-amber-800 rounded-lg py-1 border border-amber-200" title="مجموع ستون ساعت">
+                {toPersianDigits(rawSumH)}
+              </span>
+              <span className="bg-amber-50 text-amber-800 rounded-lg py-1 border border-amber-200" title="مجموع ستون دقیقه">
+                {toPersianDigits(rawSumM)}
+              </span>
+              <span className="bg-amber-50 text-amber-800 rounded-lg py-1 border border-amber-200" title="مجموع ستون ثانیه">
+                {toPersianDigits(rawSumS)}
               </span>
             </>
           ) : (

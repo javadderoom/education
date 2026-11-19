@@ -29,8 +29,8 @@ export default function WorkshopPage() {
   const [stripColored, setStripColored] = useState(2);
 
   // State for Balance Scale workshop
-  const [scaleLeft, setScaleLeft] = useState<{ label: string; value: number }>({ label: isGrade5 ? "2:3" : "1/2", value: isGrade5 ? 6 : 0.5 });
-  const [scaleRight, setScaleRight] = useState<{ label: string; value: number }>({ label: isGrade5 ? "4:6" : "1/4", value: isGrade5 ? 6 : 0.25 });
+  const [scaleLeft, setScaleLeft] = useState<{ label: string; value: number }>({ label: isGrade5 ? "2:3" : "1/2", value: isGrade5 ? 2 / 3 : 0.5 });
+  const [scaleRight, setScaleRight] = useState<{ label: string; value: number }>({ label: isGrade5 ? "4:6" : "1/4", value: isGrade5 ? 4 / 6 : 0.25 });
 
   // State for Area Grid workshop
   const [gridColored, setGridColored] = useState(isGrade5 ? 35 : 3);
@@ -264,14 +264,14 @@ export default function WorkshopPage() {
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setScaleLeft({ label: isGrade5 ? "2:3" : "1/2", value: isGrade5 ? 6 : 0.5 })}
+                    onClick={() => setScaleLeft({ label: isGrade5 ? "2:3" : "1/2", value: isGrade5 ? 2 / 3 : 0.5 })}
                     className="p-1.5 bg-white border border-slate-200 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     {isGrade5 ? "۲ به ۳" : "۱/۲"}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setScaleLeft({ label: isGrade5 ? "4:6" : "3/4", value: isGrade5 ? 12 : 0.75 })}
+                    onClick={() => setScaleLeft({ label: isGrade5 ? "4:6" : "3/4", value: isGrade5 ? 4 / 6 : 0.75 })}
                     className="p-1.5 bg-white border border-slate-200 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     {isGrade5 ? "۴ به ۶" : "۳/۴"}
@@ -284,14 +284,14 @@ export default function WorkshopPage() {
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setScaleRight({ label: isGrade5 ? "4:6" : "2/4", value: isGrade5 ? 6 : 0.5 })}
+                    onClick={() => setScaleRight({ label: isGrade5 ? "4:6" : "2/4", value: isGrade5 ? 4 / 6 : 0.5 })}
                     className="p-1.5 bg-white border border-slate-200 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     {isGrade5 ? "۴ به ۶" : "۲/۴"}
                   </button>
                   <button
                     type="button"
-                    onClick={() => setScaleRight({ label: isGrade5 ? "5:7" : "1/4", value: isGrade5 ? 8 : 0.25 })}
+                    onClick={() => setScaleRight({ label: isGrade5 ? "5:7" : "1/4", value: isGrade5 ? 5 / 7 : 0.25 })}
                     className="p-1.5 bg-white border border-slate-200 rounded-xl text-xs font-bold cursor-pointer"
                   >
                     {isGrade5 ? "۵ به ۷" : "۱/۴"}

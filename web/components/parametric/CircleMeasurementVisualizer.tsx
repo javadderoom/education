@@ -150,7 +150,7 @@ export const CircleMeasurementVisualizer: React.FC<CircleMeasurementProps> = ({
               </g>
             ) : (
               /* Interleaved rectangular arrangement of 16 sectors */
-              <g transform="translate(45, 70)">
+              <g transform="translate(75, 60)">
                 {/* 8 top pointing wedges and 8 bottom pointing wedges */}
                 {Array.from({ length: numSlices }).map((_, i) => {
                   const isTop = i % 2 === 0;
@@ -179,9 +179,9 @@ export const CircleMeasurementVisualizer: React.FC<CircleMeasurementProps> = ({
                   قاعده مستطیل = نصف محیط دایره (π × r = {toPersianDigits(+(pi * radius).toFixed(2))})
                 </text>
 
-                <line x1="-15" y1="0" x2="-15" y2={radius * 20} stroke="#4338ca" strokeWidth="2" />
-                <text x="-25" y={radius * 10 + 4} textAnchor="end" fill="#4338ca" fontSize="11" fontWeight="bold">
-                  عرض = شعاع r ({toPersianDigits(radius)})
+                <line x1="-10" y1="0" x2="-10" y2={radius * 20} stroke="#4338ca" strokeWidth="2" />
+                <text x="-16" y={radius * 10 + 4} textAnchor="end" fill="#4338ca" fontSize="10" fontWeight="bold">
+                  عرض = r ({toPersianDigits(radius)})
                 </text>
               </g>
             )}

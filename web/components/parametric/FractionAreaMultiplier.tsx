@@ -25,10 +25,15 @@ export const FractionAreaMultiplier: React.FC<FractionAreaMultiplierProps> = ({
   className = "",
   label = "مدل مساحت مستطیلی ضرب کسرها و اعشار",
 }) => {
-  const [numA, setNumA] = useState<number>(Math.max(1, Math.min(initialNumA, initialDenA)));
-  const [denA, setDenA] = useState<number>(Math.max(2, Math.min(6, initialDenA)));
-  const [numB, setNumB] = useState<number>(Math.max(1, Math.min(initialNumB, initialDenB)));
-  const [denB, setDenB] = useState<number>(Math.max(2, Math.min(6, initialDenB)));
+  const validDenA = Math.max(2, Math.min(6, initialDenA));
+  const validNumA = Math.max(1, Math.min(initialNumA, validDenA));
+  const validDenB = Math.max(2, Math.min(6, initialDenB));
+  const validNumB = Math.max(1, Math.min(initialNumB, validDenB));
+
+  const [numA, setNumA] = useState<number>(validNumA);
+  const [denA, setDenA] = useState<number>(validDenA);
+  const [numB, setNumB] = useState<number>(validNumB);
+  const [denB, setDenB] = useState<number>(validDenB);
   const [activeLayer, setActiveLayer] = useState<"all" | "vertical" | "horizontal">("all");
 
   const totalCells = denA * denB;

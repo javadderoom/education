@@ -10,6 +10,7 @@ import { CircleMeasurementVisualizer } from "../components/parametric/CircleMeas
 import { CompoundUnitCalculator } from "../components/parametric/CompoundUnitCalculator";
 import { PlaceValueTable } from "../components/parametric/PlaceValueTable";
 import { VisualTemplateRenderer } from "../components/parametric/VisualTemplateRegistry";
+import { RemediationPathway } from "../components/remediation/RemediationPathway";
 
 describe("Grade 5 Advanced Parametric Manipulatives Suite", () => {
   describe("VolumePrismVisualizer (3D Isometric Unit Cubes & Volume)", () => {
@@ -154,11 +155,25 @@ describe("Grade 5 Advanced Parametric Manipulatives Suite", () => {
       expect(screen.getByText(/۶۰ واحد \(نه ۱۰ واحد!\) به ستون فعلی اضافه می‌شود/)).toBeDefined();
     });
 
-    it("switches to addition mode", () => {
-      render(<CompoundUnitCalculator />);
-      const addBtn = screen.getByText("جمع زمان");
-      fireEvent.click(addBtn);
+    it("switches to addition mode and displays column sums in step 2", () => {
+      render(
+        <CompoundUnitCalculator
+          initialOp="add"
+          initialH1={2}
+          initialM1={45}
+          initialS1={50}
+          initialH2={1}
+          initialM2={20}
+          initialS2={15}
+        />
+      );
       expect(screen.getByText("+")).toBeDefined();
+
+      const step2Btn = screen.getByText("۲. جمع مستقیم");
+      fireEvent.click(step2Btn);
+      // Raw sums: 2+1=3h, 45+20=65m, 50+15=65s
+      expect(screen.getByTitle("مجموع ستون دقیقه")).toBeDefined();
+      expect(screen.getByTitle("مجموع ستون ثانیه")).toBeDefined();
     });
   });
 
@@ -255,6 +270,36 @@ describe("Grade 5 Advanced Parametric Manipulatives Suite", () => {
         />
       );
       expect(screen.getByText("قاعده طلایی عددهای مرکب:")).toBeDefined();
+    });
+  });
+
+  describe("RemediationPathway Adaptive Grade 5 Mini-Workshops", () => {
+    it("renders Ratio Balance Scale challenge for Grade 5 ratio KC", () => {
+      render(
+        <RemediationPathway
+          kcId="KC-MATH5-C03-01"
+          kcTitle="درک مفهوم نسبت و تناسب"
+          onComplete={() => {}}
+          onBack={() => {}}
+        />
+      );
+
+      expect(screen.getByText("چالش تناسب: متعادل کردن ترازوی نسبت‌ها")).toBeDefined();
+      expect(screen.getByText("۴ به ۶")).toBeDefined();
+    });
+
+    it("renders 100-cell Area Grid challenge for Grade 5 percentage KC", () => {
+      render(
+        <RemediationPathway
+          kcId="KC-MATH5-C03-05"
+          kcTitle="درصد، سود و تخفیف"
+          onComplete={() => {}}
+          onBack={() => {}}
+        />
+      );
+
+      expect(screen.getByText("چالش درصد: نمایش ۳۵٪ در شبکه ۱۰۰ تایی")).toBeDefined();
+      expect(screen.getByText("درصد انتخابی شما:")).toBeDefined();
     });
   });
 });

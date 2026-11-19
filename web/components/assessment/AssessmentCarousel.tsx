@@ -549,6 +549,7 @@ export const AssessmentCarousel: React.FC<AssessmentCarouselProps> = ({
   if (activeWorkshopKC) {
     return (
       <RemediationPathway
+        kcId={activeWorkshopKC.id}
         kcTitle={activeWorkshopKC.title}
         onComplete={() => handleCompleteWorkshop(activeWorkshopKC.id)}
         onBack={() => setActiveWorkshopKC(null)}

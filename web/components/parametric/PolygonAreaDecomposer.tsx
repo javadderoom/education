@@ -145,7 +145,7 @@ export const PolygonAreaDecomposer: React.FC<PolygonAreaDecomposerProps> = ({
             {step >= 2 && (
               <g
                 id="trapDuplicate"
-                transform={step === 3 ? "translate(240, 250) rotate(180)" : "translate(150, 0)"}
+                transform={step === 3 ? "rotate(180, 176, 125)" : "translate(150, 0)"}
                 className="transition-transform duration-500 ease-out"
               >
                 <polygon
@@ -162,11 +162,11 @@ export const PolygonAreaDecomposer: React.FC<PolygonAreaDecomposerProps> = ({
             {/* Step 3 Parallelogram Outline & Explanation */}
             {step === 3 && (
               <g id="assembledParallelogram">
-                <text x="190" y="30" textAnchor="middle" fill="#047857" fontSize="12" fontWeight="black">
+                <text x="176" y="30" textAnchor="middle" fill="#047857" fontSize="12" fontWeight="black">
                   متوازی‌الاضلاع کامل با قاعده کل ({toPersianDigits(baseA + baseB)})
                 </text>
-                <line x1="50" y1="195" x2="330" y2="195" stroke="#047857" strokeWidth="1.5" />
-                <text x="190" y="212" textAnchor="middle" fill="#047857" fontSize="11" fontWeight="bold">
+                <line x1="50" y1="195" x2="274" y2="195" stroke="#047857" strokeWidth="1.5" />
+                <text x="162" y="212" textAnchor="middle" fill="#047857" fontSize="11" fontWeight="bold">
                   قاعده جدید = قاعده بزرگ + قاعده کوچک ({toPersianDigits(baseB)} + {toPersianDigits(baseA)} = {toPersianDigits(baseA + baseB)})
                 </text>
               </g>
@@ -213,6 +213,12 @@ export const PolygonAreaDecomposer: React.FC<PolygonAreaDecomposerProps> = ({
             <text x="200" y="145" fill="#047857" fontSize="10" fontWeight="bold">
               قطر کوچک ({toPersianDigits(diag2)})
             </text>
+
+            {step === 3 && (
+              <text x="190" y="195" textAnchor="middle" fill="#047857" fontSize="11" fontWeight="bold">
+                مساحت لوزی دقیقاً نصف مساحت مستطیل محیطی است (تقسیم بر ۲)
+              </text>
+            )}
           </svg>
         )}
       </div>
